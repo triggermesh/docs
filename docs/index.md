@@ -4,3 +4,4 @@
 ## Commands
 
 * `tm deploy ...` - Create a knative service.
+* `tm get ...` - Get resources
