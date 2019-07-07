@@ -1,6 +1,8 @@
 site_name: TriggerMesh
+repo_url: https://github.com/triggermesh/docs
 nav:
     - Home: index.md
     - Guides: gettingstarted.md
+    - Client: tm.md
     - About: about.md
 theme: readthedocs
