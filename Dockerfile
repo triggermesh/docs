@@ -1,4 +1,4 @@
 FROM nginx
 
-ADD /workspace/site /usr/share/nginx/html/
+ADD site/ /usr/share/nginx/html/
 
