@@ -1,0 +1,6 @@
+site_name: TriggerMesh
+nav:
+    - Home: index.md
+    - Guides: gettingstarted.md
+    - About: about.md
+theme: readthedocs
