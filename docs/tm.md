@@ -48,25 +48,14 @@ tm deploy service bar \
 ```
 
 Moreover, for more complex deployments, tm CLI supports function definition parsing from [YAML](https://github.com/tzununbekov/serverless/blob/master/serverless.yaml) file and ability to combine multiple functions, runtimes and repositories
+
 ```
 tm deploy -f https://github.com/tzununbekov/serverless
 ```
 
-### Running Tests Locally
-
-To run tests you first have to set namespace you have access to with the following command:
-```
-export NAMESPACE=yourNamespace
-```
-Run unit-tests with following command from project root directory: 
-```
-make test
-```
-
-
 ## AWS Lambda
 
-With triggermesh CLI you can easily deploy AWS Lambda functions on Kuberentes:
+With the triggermesh CLI you can easily deploy AWS Lambda functions on Kuberentes:
 
 Prepare local source for Golang function
 
