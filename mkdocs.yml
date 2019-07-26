@@ -5,6 +5,7 @@ nav:
     - Guides:
       - 'Getting Started': guides/gettingstarted.md
       - 'CD': guides/cd.md
+      - 'Actions': guides/actions.md
       - 'Secrets': guides/secrets.md
     - Client: 
       - 'Installation': 'tm/install.md'
