@@ -16,15 +16,13 @@ You are ready to use the TriggerMesh console shown just below.
 
 If you want to use our command line client keep reading...
 
-## Download and configure the client
+## For CLI lovers
 
-3. Download the `tm` client from the GitHub [release page](https://github.com/triggermesh/tm/releases)
+If you would prefer to use a CLI, we have prepared `tm` for you.
 
-4. Once logged in on the Cloud console, download your TriggerMesh configuration file by clicking on the _download_ button in the upper right corner (depicted by a cloud with an arrow inside of it)
+`tm` is a generic Knative client with some added features to deploy functions from source. You can download `tm` by following our [instructions](https://docs.triggermesh.io/tm/install)
 
-5. Save the file as `$HOME/.tm/config.json` and you are ready to use the `tm` CLI
-
-## Get going
+For examnple you will be able to bypass the console and do something like this:
 
 ```
 tm deploy service hello --from-image=gcr.io/cloudrun/hello

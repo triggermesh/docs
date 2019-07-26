@@ -4,11 +4,14 @@ nav:
     - Home: index.md
     - Guides:
       - 'Getting Started': guides/gettingstarted.md
+      - 'CD': guides/cd.md
       - 'Secrets': guides/secrets.md
     - Client: 
       - 'Installation': 'tm/install.md'
       - 'Configuration': 'tm/configuration.md'
       - 'Usage': 'tm/usage.md'
+      - 'Registry': 'tm/registry.md'
+      - 'Serverless Manifest': 'tm/serverless.md'
     - Cloud: https://cloud.triggermesh.io
     - About: about.md
 theme:
