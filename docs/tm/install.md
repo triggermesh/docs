@@ -17,7 +17,7 @@ Head to the GitHub [release page](https://github.com/triggermesh/tm/releases) an
 On OSX use the TriggerMesh tap
 
 ```
-brew install triggermesh/tap
+brew tap triggermesh/tap
 brew install triggermesh
 which tm
 ```
