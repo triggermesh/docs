@@ -4,11 +4,16 @@ To get you up and running quickly we are going to run a sample Hello service.
 
 ## Starting a service via the console
 
-Upon successfull login you will be presented with the following view:
+
+Click on the _Create Service_ button in the middle row located on the home page of the console.
 
 ![triggermesh console](../images/tmconsole.png)
 
-Click on the _Create Service_ button. You will be presented with three choices. Let's select the _From Image_ option for now.
+Click on _Create Service_ and select _from image_
+
+![tm service dash](../images/tmCreateService.PNG)
+
+
 
 We are going to do two things:
 
