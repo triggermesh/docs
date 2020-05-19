@@ -1,6 +1,6 @@
-# Event Bridge Example
+# EveryBridge Example
 
-The Event Bridge makes it easy to create links between event sources and
+The EveryBridge makes it easy to create links between event sources and
 targets.  This example will utilize a cron job sending a message during a set
 interval to publish a message to an AWS lambda function designed solely to
 print the contents of a message.
