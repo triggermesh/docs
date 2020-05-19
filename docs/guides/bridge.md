@@ -1,46 +1,47 @@
 # EveryBridge Example
 
-The EveryBridge makes it easy to create links between event sources and
-targets.  This example will utilize a cron job sending a message during a set
-interval to publish a message to an AWS lambda function designed solely to
-print the contents of a message.
+The [EveryBridge](https://cloud.triggermesh.io/bridges) makes it easy to create links between event sources and
+targets.
 
-![](../images/addsecretview.png)
+Each _bridge_ in the TM console consists of the following `flow`:
 
-The flow for all requirements is:
+  1. An event _*[source](https://knative.dev/docs/eventing/sources/)*_
+  2. A _*[broker](https://knative.dev/docs/eventing/broker-trigger/)*_ to act as an intermediary
+  3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ to listen to events from the broker
+  4. A _*target*_ to receive the event. <!-- This will be linked to the Targets docs upon completion -->
 
-  1. An event source
-  1. A broker to act as an intermediary
-  1. A trigger to listen to events from the broker
-  1. A target to receive the events
 
-When you log in and see the dashboard, there will be the option to create a new
-bridge.  When the button is pressed, there are several options:
 
-  1. Create a new bridge
-  1. My first bridge example
-  1. Github Display bridge
+## Creating a new Bridge
 
-Click on `Create a new bridge`.
+For this example a small service called `Event Display` is used as the `target`. `Event Display` prints all the messages it receives into a log.
 
-From there, a graphical  of what has been implemented will be displayed.
+* From the _Bridges_ view. Select `Create New`
+
+![](../images/tmBridges.png)
+
+
+* Select `Create a new Bridge`.
+
+
+![](../images/tmCreateBridge.png)
+
+* Select `Sources`
+  
 ![](../images/bridgeinitial.png)
 
-Click on the Sources area. There will be a menu that pops out on the right side
-with a list of sources to add.  For this example, click on `CronJob`. Next, there
-will be a prompt called `PingSource Form`.
+* Select `CronJob` from the popup menu.
 
 ![](../images/sources.png)
 
-Give the Cron name a name such as TestCron, and lets go with a Cron Schedule of
-every minute (or */1 * * * *).  Lastly, lets keep Cron data set at `{"foo": "bar"}`.
+* Give it a name such as TestCron, a Cron Schedule of every minute (or */1 * * * *), and keep Cron data set at `{"foo": "bar"}`.
 
-The target will need to be setup.  Once the target is in place, then the glue of
-the trigger can be made.  Click inside the trigger area, and a menu on the left
-will come up prompting for the type of service.
+![](../images/tmPingSource.png)
 
-Click on `Service`, and click on `Create New`.  Then click on Image Catalog, and
-select `Event display`. lastly click save.  That will complete the flow from
+
+* Now the glue of the trigger can be made. Click inside the trigger area, and a menu on the left will come up prompting for the type of service.
+
+  That will complete the flow from
 source to trigger.  Click on `SUBMIT BRIDGE` to create the bridge.
 
 To verify the functionality of the bridge, go to the `Services` menu from functions.

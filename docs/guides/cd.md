@@ -32,7 +32,7 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 
 ## Viewing The Deployment
 
-###### After every sucessful registration of a new repository a _Task_ will be created for it.
+***After every sucessful registration of a new repository a _Task_ will be created for it.***
 
 * Navigate to the _Tasks_ view in the **Actions** section and click on the _Task_ name.
 
