@@ -1,16 +1,18 @@
-# EveryBridge Example
+# EveryBridge
 
-The [EveryBridge](https://cloud.triggermesh.io/bridges) makes it easy to create links between event sources and
-targets.
+The [EveryBridge](https://triggermesh.com/cloud_native_integration_platform/everybridge/) service makes it easy to create links between event sources and targets.
 
-Each _bridge_ in the TM console consists of the following `flow`:
-
-  1. An event _*[source](https://knative.dev/docs/eventing/sources/)*_
-  2. A _*[broker](https://knative.dev/docs/eventing/broker-trigger/)*_ to act as an intermediary
-  3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ to listen to events from the broker
-  4. A _*target*_ to receive the event. <!-- This will be linked to the Targets docs upon completion -->
+![](../images/tmeverybridge.png)
 
 
+Each _bridge_ created within the TM console operates via the following `flow`:
+
+  1. An event _*[source](https://knative.dev/docs/eventing/sources/)*_ **_retrieves_** data.
+  2. A _*[broker](https://knative.dev/docs/eventing/broker-trigger/)*_ to act as an **_event bucket_**
+  3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ that **_subscribes_** our target to recieve events from the broker.
+  4. A _*target*_ that **_receives_** events. <!-- This will be linked to the Targets docs upon completion -->
+
+![](../images/tmBridgeFlow.png)
 
 ## Creating a new Bridge
 
@@ -34,12 +36,14 @@ For this example a small service called `Event Display` is used as the `target`.
 
 ![](../images/sources.png)
 
-* Give it a name such as TestCron, a Cron Schedule of every minute (or */1 * * * *), and keep Cron data set at `{"foo": "bar"}`.
+* Give it a name such as "TestCron", a Cron Schedule of every minute (or */1 * * * *), and keep the `Cron data` set at `{"foo": "bar"}`.
 
 ![](../images/tmPingSource.png)
 
 
 * Now the glue of the trigger can be made. Click inside the trigger area, and a menu on the left will come up prompting for the type of service.
+
+<!-- This section is pending updates from a current issue and is unfinished -->
 
   That will complete the flow from
 source to trigger.  Click on `SUBMIT BRIDGE` to create the bridge.
