@@ -1,12 +1,13 @@
 # Secrets
 
-If you need to use sensitive data to run your services or connect to public Cloud services, you can store that information as `Secrets`.
+The TriggerMesh console provides a central location to view and store sensitive information called `Secrets.` The secrets created here can then be used by any service deployed via the Triggermesh platform.
 
-The TriggerMesh console provides a `Secrets` view which lists all the secrets that are available. These secrets can then be used in the service or source manifests created via the console or via the client.
+In the top right, after selecting the `Secrets` section from the sidebar, you will se a button labled `+ ADD SECRET.` Selecting the button here will give you a choice to create various secrets (e.g AWS, GitHub, GitLab, GCP)
 
-The snapshot below shows this Secret view. In the top right you will see an icon to create new secret. Clicking on that button will give you a choice to create various secrets (e.g AWS, GitHub, GitLab, GCP)
 
 ![](../images/addsecretview.png)
+
+
 
 ## Generic Secrets
 
@@ -22,7 +23,7 @@ You should create a AWS IAM user and generate a dedicated set of API credentials
 
 ![](../images/awssecret.png)
 
-The secret name is pre-configured to be `awscreds` and the keys are `aws_access_key_id` and `aws_secrets_access_key`. These are greyed out in the wizard and cannot be changed.
+The secret name is pre-configured to be `awscreds` and the keys are `aws_access_key_id` and `aws_secrets_access_key`. These are greyed out in the wizard as they cannot be changed.
 
 ## Using a Secret in a Service definition
 
@@ -40,9 +41,9 @@ When you deploy a new event source, that source may need a secret to access an e
 
 ## Accessing your Secrets with `kubectl`
 
-These secrets are stored as Kubernetes secrets and protected via RBAC rules.
+These secrets are stored as Kubernetes [secrets](https://kubernetes.io/docs/concepts/configuration/secret/) and protected via RBAC rules.
 
-You can delete your secrets and view them using `kubectl` and the configuration downloaded for using `tm`.
+You can interact with your secrets using [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and the configuration downloaded for using [`tm`](https://github.com/triggermesh/tm/blob/master/README.md).
 
 ```
 kubectl --kubeconfig=config.json -n <your_login_username> get secrets
