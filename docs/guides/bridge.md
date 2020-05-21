@@ -1,22 +1,24 @@
 # EveryBridge
 
-The [EveryBridge](https://triggermesh.com/cloud_native_integration_platform/everybridge/) service makes it easy to create links between event sources and targets.
+The [EveryBridge](https://triggermesh.com/cloud_native_integration_platform/everybridge/) service makes it easy to create links between event _Sources_ and _Targets_. 
+
+<!-- I would like to see 'Sources' and 'Targets' hyperlinked to their respective documentation -->
 
 ![](../images/tmeverybridge.png)
 
 
 Each _bridge_ created within the TM console operates via the following `flow`:
 
-  1. An event _*[source](https://knative.dev/docs/eventing/sources/)*_ **_retrieves_** data.
-  2. A _*[broker](https://knative.dev/docs/eventing/broker-trigger/)*_ to act as an **_event bucket_**
-  3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ that **_subscribes_** our target to recieve events from the broker.
-  4. A _*target*_ that **_receives_** events. <!-- This will be linked to the Targets docs upon completion -->
+  1. An event _*[source](https://knative.dev/docs/eventing/sources/)*_ **_retrieves_** data. <!-- Should link to OUR source docs upon their completion -->
+  2. A _*[broker](https://knative.dev/docs/eventing/broker-trigger/)*_ to act as an **_event bucket_** 
+  3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ that **_subscribes_** the Target to recieve events from the broker. 
+  4. A _*target*_ that **_receives_** events. <!-- Should be linked to the Targets docs upon completion -->
 
 ![](../images/tmBridgeFlow.png)
 
 ## Creating a new Bridge
 
-For this example a small service called `Event Display` is used as the `target`. `Event Display` prints all the messages it receives into a log.
+For this example a small service called [Event Display](https://github.com/knative/eventing-contrib/tree/master/cmd/event_display) is used as the `Target`. `Event Display` prints all the messages it receives into a log.
 
 * From the _Bridges_ view. Select `Create New`
 
@@ -40,23 +42,40 @@ For this example a small service called `Event Display` is used as the `target`.
 
 ![](../images/tmPingSource.png)
 
+ Before configuring a _Bridge_, normally, a _Target_ would be created or pre-existing, because this example asumes a fresh TM console, There are no services currently deployed so a detour to the `Target` section is required. 
+ * Select `Service` here.
+ 
+![](../images/tmAddTargets.png)
 
-* Now the glue of the trigger can be made. Click inside the trigger area, and a menu on the left will come up prompting for the type of service.
+* Select `Create New` from the `Existing Service` dropdown. 
 
-<!-- This section is pending updates from a current issue and is unfinished -->
+![](../images/tmCreateServiceFromTarget.png)
 
-  That will complete the flow from
-source to trigger.  Click on `SUBMIT BRIDGE` to create the bridge.
+* Select `Image Catalog`, then `Event display`, and finally `SAVE`
 
-To verify the functionality of the bridge, go to the `Services` menu from functions.
-The `event display` service that was created with the bridge will be shown. When
+
+![](../images/tmEventDisplayTarget.png)
+
+
+This will complete the flow from _Source_ to _Trigger_ automatically for us by creating an `auto-trigger`. 
+
+* We can finish now by selecting `SUBMIT BRIDGE` from the top right corner.
+
+![](../images/tmSubmitBridge.png)
+
+
+* To verify the functionality of the bridge, navigate to the [Servcies](https://cloud.triggermesh.io/services) section.
+
+![](../images/tmServicesViewBridges.png)
+
+
+
+* The `event display` service that was created with the bridge will be shown. When
 that is clicked, there will be a page showing the details of the service.
 
 ![](../images/service-info.png)
 
-When the `PODS` link is clicked, the a list of pods associated with the service
-will be shown.  There is only one, but on the far right side of the list is a
-chevron icon under the logs.  When that is clicked, then the log from the event
+* When the `PODS` link is selected, the a list of associated pods will be shown.  There is only one, but on the far right side of the list is a chevron icon under the logs.  When that is clicked, then the log from the event
 will be displayed.
 
 ![](../images/event-display.png)
