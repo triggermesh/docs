@@ -12,7 +12,7 @@ Each _bridge_ created within the TM console operates via the following `flow`:
   1. An event _*[source](https://knative.dev/docs/eventing/sources/)*_ **_retrieves_** data. <!-- Should link to OUR source docs upon their completion -->
   2. A _*[broker](https://knative.dev/docs/eventing/broker-trigger/)*_ to act as an **_event bucket_** 
   3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ that **_subscribes_** the Target to recieve events from the broker. 
-  4. A _*target*_ that **_receives_** events. <!-- Should be linked to the Targets docs upon completion -->
+  4. A _*target*_ that **_receives_** events. <!-- Should be linked to the ../targets/index.md  upon completion -->
 
 ![](../images/tmBridgeFlow.png)
 
