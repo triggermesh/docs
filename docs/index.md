@@ -4,9 +4,7 @@ Couple steps are needed before you get productive
 
 ## Sign-up
 
-1. Sign up for the Early Access Program [here](https://triggermesh.com/serverless_eap/).
-
-2. Go to [https://cloud.triggermesh.io](https://cloud.triggermesh.io), click on the log-in button at the top right of the page and choose your favorite identity provider.
+Go to [https://cloud.triggermesh.io](https://cloud.triggermesh.io), click on the log-in button at the top right of the page, choose your favorite identity provider or create an email and password as credentials.
 
 ![login page](./images/tmlogin.png)
 
