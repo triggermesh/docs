@@ -2,13 +2,18 @@
 
 Couple steps are needed before you get productive
 
-If you are already logged in check out our guides:
+If you are already logged in, check out our guides:
 
 * [Getting Started](./guides/gettingstarted/). Create a Hello World service.
 * [Bridges](./guides/bridge/). Understanding and creating Bridges.
 * [Secrets](./guides/secrets/). Create and use secrets to store API keys.
 
-If you need to sign-up for the section below.
+Sources and Targets are documented at:
+
+* [Sources](./sources/)
+* [Targets](./targets/)
+
+If you need to sign-up, check the section below.
 
 ## Sign-up
 

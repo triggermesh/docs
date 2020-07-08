@@ -15,6 +15,20 @@ nav:
       - 'Usage': 'tm/usage.md'
       - 'Registry': 'tm/registry.md'
       - 'Serverless Manifest': 'tm/serverless.md'
+    - Sources:
+      - 'Azure Activity Logs': sources/azureactivitylogs.md
+      - 'AWS CodeCommit': sources/awscodecommit.md
+      - 'AWS SQS': sources/awssqs.md
+      - 'AWS Kinesis': sources/awskinesis.md
+      - 'AWS SNS': sources/awssns.md
+      - 'AWS DynamoDB': sources/awsdynamodb.md
+    - Targets:
+      - 'EventBridge': targets/awseventbridge.md
+      - 'Twilio': targets/twilio.md
+      - 'ElasticSearch': targets/elasticsearch.md
+      - 'Confluent': targets/confluent.md
+      - 'Tekton': targets/tekton.md
+      - 'AWS Lambda': targets/aws.md
     - Cloud: https://cloud.triggermesh.io
     - About: about.md
 theme:
