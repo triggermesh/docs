@@ -1,6 +1,6 @@
 # Event sources
 
-The following is a list of Triggermesh event Sources some available as open source projects some available as hosted solutions on our Cloud.
+The following is a list of Triggermesh event Sources, some available as open source projects, some available as hosted solutions on our Cloud.
 
 ## Current TriggerMesh Sources
 
