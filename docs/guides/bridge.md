@@ -1,6 +1,6 @@
 # EveryBridge
 
-The [EveryBridge](https://triggermesh.com/cloud_native_integration_platform/everybridge/) service makes it easy to create links between event _Sources_ and _Targets_. 
+The [EveryBridge](https://triggermesh.com/cloud_native_integration_platform/everybridge/) service makes it easy to create links between event _Sources_ and _Targets_.
 
 <!-- I would like to see 'Sources' and 'Targets' hyperlinked to their respective documentation -->
 
@@ -10,8 +10,8 @@ The [EveryBridge](https://triggermesh.com/cloud_native_integration_platform/ever
 Each _bridge_ created within the TM console operates via the following `flow`:
 
   1. An event _*[source](https://knative.dev/docs/eventing/sources/)*_ **_retrieves_** data. <!-- Should link to OUR source docs upon their completion -->
-  2. A _*[broker](https://knative.dev/docs/eventing/broker-trigger/)*_ to act as an **_event bucket_** 
-  3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ that **_subscribes_** the Target to recieve events from the broker. 
+  2. A _*[broker](https://knative.dev/docs/eventing/broker-trigger/)*_ to act as an **_event bucket_**
+  3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ that **_subscribes_** the Target to recieve events from the broker.
   4. A _*target*_ that **_receives_** events. <!-- Should be linked to the ../targets/index.md  upon completion -->
 
 ![](../images/tmBridgeFlow.png)
@@ -31,7 +31,7 @@ For this example a small service called [Event Display](https://github.com/knati
 ![](../images/tmCreateBridge.png)
 
 * Select `Sources`
-  
+
 ![](../images/bridgeinitial.png)
 
 * Select `CronJob` from the popup menu.
@@ -42,12 +42,12 @@ For this example a small service called [Event Display](https://github.com/knati
 
 ![](../images/tmPingSource.png)
 
- Before configuring a _Bridge_, normally, a _Target_ would be created or pre-existing, because this example asumes a fresh TM console, There are no services currently deployed so a detour to the `Target` section is required. 
+ Before configuring a _Bridge_, normally, a _Target_ would be created or pre-existing, because this example asumes a fresh TM console, There are no services currently deployed so a detour to the `Target` section is required.
  * Select `Service` here.
- 
+
 ![](../images/tmAddTargets.png)
 
-* Select `Create New` from the `Existing Service` dropdown. 
+* Select `Create New` from the `Existing Service` dropdown.
 
 ![](../images/tmCreateServiceFromTarget.png)
 
@@ -57,7 +57,7 @@ For this example a small service called [Event Display](https://github.com/knati
 ![](../images/tmEventDisplayTarget.png)
 
 
-This will complete the flow from _Source_ to _Trigger_ automatically for us by creating an `auto-trigger`. 
+This will complete the flow from _Source_ to _Trigger_ automatically for us by creating an `auto-trigger`.
 
 * We can finish now by selecting `SUBMIT BRIDGE` from the top right corner.
 
@@ -79,3 +79,7 @@ that is clicked, there will be a page showing the details of the service.
 will be displayed.
 
 ![](../images/event-display.png)
+
+## Highlighted Bridges
+
+* [Slack to Confluent](./bridges/slack-to-confluent.md): learn how to subscribe to events at Slack and get them delivered to a Confluent Kafka cluster.
