@@ -125,7 +125,7 @@ In the Source creation form, give a name to the event source and add the followi
   selected when the list of categories is left empty.
 * [Event Hub name][eventhubs-create]: _(optional)_ Name of an Event Hub to send data to. When the Event Hub name is
   set, an Event Hub with the given name MUST already exist within the namespace. When it is not set, Azure creates an
-  Event Hub with the name `insights-activity-logs`.
+  Event Hub with the name `insights-activity-logs` upon reception of the first log entry.
 * [Tenant ID, Client ID, Client secret][sp-create]: Service Principal authentication credentials, as described in the
   previous sections.
 
