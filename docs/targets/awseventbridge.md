@@ -23,7 +23,7 @@ components to the Bridge, then submit it.
 
 A ready status on the main _Bridges_ page indicates that the TriggerMesh partner event source was successfully created.
 
-![Bridge status](../images/awseventbridge-target/create-bridge-4.png)
+![Bridge status](../images/bridge-status-green.png)
 
 Although this event source can immediately start receiving events, those events **can only be consumed after associating
 the TriggerMesh partner event source with a corresponding [partner event bus][event-bus]**.

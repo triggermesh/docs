@@ -139,7 +139,7 @@ components to the Bridge, then submit it.
 A ready status on the main _Bridges_ page indicates that the [Diagnostic Settings][diag-settings] were successfully
 created and that the event source is ready to route events from Event Hubs.
 
-![Bridge status](../images/awseventbridge-target/create-bridge-4.png)
+![Bridge status](../images/bridge-status-green.png)
 
 After creating a Bridge with the Azure Activity Logs event source, navigate back to the Event Hubs screen in the Azure
 Portal. You should see a message count above 0 within the namespace, providing that activity logs are being generated

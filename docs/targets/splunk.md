@@ -50,7 +50,7 @@ components to the Bridge, then submit it.
 
 A ready status on the main _Bridges_ page indicates that the Splunk target is ready to accept events.
 
-![Bridge status](../images/awseventbridge-target/create-bridge-4.png)
+![Bridge status](../images/bridge-status-green.png)
 
 New events should now be visible in the _Search & Reporting_ app inside Splunk.
 
