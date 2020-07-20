@@ -1,119 +1,125 @@
-# AWS CodeCommit event source for Knative Eventing
+# Event source for AWS CodeCommit
 
-This event source consumes messages from a AWS CodeCommit repository and sends them as CloudEvents to an arbitrary event
-sink.
-
-## Contents
-
-- [AWS CodeCommit event source for Knative Eventing](#aws-codecommit-event-source-for-knative-eventing)
-  - [Contents](#contents)
-  - [Prerequisites](#prerequisites)
-  - [Deployment to Kubernetes](#deployment-to-kubernetes)
-    - [As a AWSCodeCommitSource object](#as-a-awscodecommitsource-object)
-    - [As a ContainerSource object](#as-a-containersource-object)
-    - [As a Deployment object bound by a SinkBinding](#as-a-deployment-object-bound-by-a-sinkbinding)
-  - [Running locally](#running-locally)
-    - [In the shell](#in-the-shell)
-    - [In a Docker container](#in-a-docker-container)
+This event source captures notifications from an [AWS CodeCommit repository][cc-docs] whenever a specific action, such
+as a new commit or the creation of a pull request, happens in this repository.
 
 ## Prerequisites
 
-* Register an AWS account
-* Create an [Access Key][doc-accesskey] in your AWS IAM dashboard.
-* Create a [CodeCommit repository][doc-codecommit].
+### CodeCommit repository and branch
 
-## Deployment to Kubernetes
+If you don't already have an AWS CodeCommit repository, create one by following the instructions at [Create an AWS
+CodeCommit repository][cc-create]. The repository should contain at least one [branch][cc-branches]. To create one,
+follow the instructions at [Create a branch in AWS CodeCommit][cc-branch-create].
 
-The _AWS CodeCommit event source_ can be deployed to Kubernetes in different manners:
+![CodeCommit repository](../images/awscodecommit-source/repo-1.png)
 
-* As an `AWSCodeCommitSource` object, to a cluster where the TriggerMesh _AWS Sources Controller_ is running.
-* As a Knative `ContainerSource`, to any cluster running Knative Eventing.
+### Amazon Resource Name (ARN)
 
-> :information_source: The sample manifests below reference AWS credentials (Access Key) from a Kubernetes Secret object
-> called `awscreds`. This Secret can be generated with the following command:
->
-> ```console
-> $ kubectl -n <my_namespace> create secret generic awscreds \
->   --from-literal=aws_access_key_id=<my_key_id> \
->   --from-literal=aws_secret_access_key=<my_secret_key>
-> ```
->
-> Alternatively, credentials can be used as literal strings instead of references to Kubernetes Secrets by replacing
-> `valueFrom` attributes with `value` inside API objects' manifests.
+A fully qualified ARN is required to uniquely identify the AWS CodeCommit repository.
 
-### As a AWSCodeCommitSource object
-
-Copy the sample manifest from `config/samples/awscodecommitsource.yaml` and replace the pre-filled `spec` attributes
-with the values corresponding to your _AWS CodeCommit_ repository. Then, create that `AWSCodeCommitSource` object in
-your Kubernetes cluster:
+The easiest way to obtain the ARN of a CodeCommit repository is by using the [AWS CLI][aws-cli]. The following command
+retrieves the information of a repository called `triggermeshtest` in the `us-west-2` region:
 
 ```console
-$ kubectl -n <my_namespace> create -f my-awscodecommitsource.yaml
+$ aws codecommit get-repository --repository-name triggermeshtest --region us-west-2
+{
+    "repositoryMetadata": {
+        "accountId": "123456789012",
+        "repositoryId": "510acd3d-b96d-473c-bbe4-a8c6799d02a9",
+        "repositoryName": "triggermeshtest",
+        "defaultBranch": "main",
+        "lastModifiedDate": "2020-07-20T20:54:27.806000+02:00",
+        "creationDate": "2020-07-20T20:49:12.324000+02:00",
+        "cloneUrlHttp": "https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/triggermeshtest",
+        "cloneUrlSsh": "ssh://git-codecommit.eu-central-1.amazonaws.com/v1/repos/triggermeshtest",
+        "Arn": "arn:aws:codecommit:eu-central-1:123456789012:triggermeshtest"
+    }
+}
 ```
 
-### As a ContainerSource object
+If you don't have the AWS CLI installed on your workstation, you can use the template below to compose a fully
+qualified ARN of a CodeCommit repository.
 
-Copy the sample manifest from `config/samples/awscodecommit-containersource.yaml` and replace the pre-filled environment
-variables under `env` with the values corresponding to your _AWS CodeCommit_ repository. Then, create that
-`ContainerSource` object in your Kubernetes cluster:
-
-```console
-$ kubectl -n <my_namespace> create -f my-awscodecommit-containersource.yaml
+```
+arn:aws:codecommit:{awsRegion}:{awsAccountId}:{repositoryName}
 ```
 
-### As a Deployment object bound by a SinkBinding
+### API credentials
 
-Copy the sample manifest from `config/samples/awscodecommit-sinkbinding.yaml` and replace the pre-filled environment
-variables under `env` with the values corresponding to your _AWS CodeCommit_ repository. Then, create the
-`Deployment` and `SinkBinding` objects in your Kubernetes cluster:
+The TriggerMesh AWS CodeCommit event source authenticates calls to the AWS CodeCommit API using an [Access
+Key][accesskey]. The page at this link contains instructions to create an access key when signed either as the root user
+or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance
+of the event source.
 
-```console
-$ kubectl -n <my_namespace> create -f my-awscodecommit-sinkbinding.yaml
+It is considered a [good practice][iam-bestpractices] to create dedicated users with restricted privileges in order to
+programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
+[IAM Policies][iam-policies] to it.
+
+As an example, the following policy contains only the permissions required by the TriggerMesh AWS CodeCommit event
+source to operate:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "codecommit:GetBranch",
+                "codecommit:GetCommit",
+                "codecommit:ListPullRequests",
+                "codecommit:GetPullRequest"
+            ],
+            "Resource": "arn:aws:codecommit:*:*:*"
+        }
+    ]
+}
 ```
 
-## Running locally
+![Creating an IAM user](../images/awscodecommit-source/iam-user-1.png)
 
-Running the event source on your local machine can be convenient for development purposes.
+## Deploying an instance of the Source
 
-### In the shell
+Open the Bridge creation screen and add a source of type `AWS CodeCommit`.
 
-Ensure the following environment variables are exported to your current shell's environment:
+![Adding an AWS CodeCommit source](../images/awscodecommit-source/create-bridge-1.png)
 
-```sh
-export ARN=<arn_of_my_codecommit_repo>
-export BRANCH=<my_git_branch>
-export EVENT_TYPES=push,pull_request
-export AWS_ACCESS_KEY_ID=<my_key_id>
-export AWS_SECRET_ACCESS_KEY=<my_secret_key>
-export NAME=my-awscodecommitsource
-export NAMESPACE=default
-export K_LOGGING_CONFIG=''
-export K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awscodecommitsource", "configMap":{}}'
-```
+In the Source creation form, give a name to the event source and add the following information:
 
-Then, run the event source with:
+* [**AWS ARN**][arn]: ARN of the CodeCommit repository, as described in the previous sections.
+* [**Branch name**][cc-branches]: Name of the Git branch the source should be watching for commits.
+* **Event types**: List of event types the event source should subscribe to.
+* [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
+  Access Key to communicate with the AWS CodeCommit API, as described in the previous sections.
 
-```console
-$ go run ./cmd/awscodecommitsource
-```
+![AWS CodeCommit source form](../images/awscodecommit-source/create-bridge-2.png)
 
-### In a Docker container
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
+components to the Bridge, then submit it.
 
-Using one of TriggerMesh's release images:
+![Bridge overview](../images/awscodecommit-source/create-bridge-3.png)
 
-```console
-$ docker run --rm \
-  -e ARN=<arn_of_my_codecommit_repo> \
-  -e BRANCH=<my_git_branch> \
-  -e EVENT_TYPES=push,pull_request \
-  -e AWS_ACCESS_KEY_ID=<my_key_id> \
-  -e AWS_SECRET_ACCESS_KEY=<my_secret_key> \
-  -e NAME=my-awscodecommitsource \
-  -e NAMESPACE=default \
-  -e K_LOGGING_CONFIG='' \
-  -e K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awscodecommitsource", "configMap":{}}' \
-  gcr.io/triggermesh/awscodecommitsource:latest
-```
+A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the AWS
+CodeCommit repository.
 
-[doc-accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
-[doc-codecommit]: https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-create-repository.html
+![Bridge status](../images/bridge-status-green.png)
+
+## Event types
+
+The AWS CodeCommit event source emits events of the following types:
+
+* `com.amazon.codecommit.push`
+* `com.amazon.codecommit.pull_request`
+
+[arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscodecommit.html#awscodecommit-resources-for-iam-policies
+[accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
+[aws-cli]: https://aws.amazon.com/cli/
+[iam-bestpractices]: https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html#iam-user-access-keys
+[iam-policies]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+
+[cc-docs]: https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html
+[cc-create]: https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-create-repository.html
+[cc-branches]: https://docs.aws.amazon.com/codecommit/latest/userguide/branches.html
+[cc-branch-create]: https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-create-branch.html
+
+[tm-secret]: ../guides/secrets.md

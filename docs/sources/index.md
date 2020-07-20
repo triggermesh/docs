@@ -5,6 +5,7 @@ The following is a list of Triggermesh event Sources, some available as open sou
 ## Current TriggerMesh Sources
 
 * [Azure Activity Logs](./azureactivitylogs.md): Consume Activity Logs from a given Azure Subscription.
+* [AWS CodeCommit](./awscodecommit.md): Capture notifications from an AWS CodeCommit repository.
 
 <!---
 * [Azure Storage](./azurestorage.md):
