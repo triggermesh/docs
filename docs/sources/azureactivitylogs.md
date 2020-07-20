@@ -147,6 +147,12 @@ within the Azure Subscription.
 
 ![Event Hub messages](../images/azureactivitylogs-source/eventhub-1.png)
 
+## Event types
+
+The Azure Activity Logs event source emits events of the following type:
+
+* `com.microsoft.azure.monitor.activity-log`
+
 [activity-logs]: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-log
 [diag-settings]: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings
 

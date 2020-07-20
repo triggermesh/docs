@@ -59,6 +59,10 @@ New events should now be visible in the _Search & Reporting_ app inside Splunk.
 
 For more information about using Splunk, please refer to the [Splunk documentation][docs].
 
+## Event types
+
+The Splunk event target can consume events of any type.
+
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
 

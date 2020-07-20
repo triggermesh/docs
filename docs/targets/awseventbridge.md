@@ -52,6 +52,10 @@ Your can now start creating rules that trigger on certain events in the AWS Even
 
 For more information about using AWS EventBridge, please refer to the [EventBridge user guide][userguide].
 
+## Event types
+
+The AWS EventBridge event target can consume events of any type.
+
 [intro]: https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html
 [userguide]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html
 [event-bus]: https://docs.aws.amazon.com/eventbridge/latest/userguide/create-event-bus.html
