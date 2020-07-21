@@ -15,10 +15,8 @@ nav:
       - 'Usage': 'tm/usage.md'
       - 'Registry': 'tm/registry.md'
       - 'Serverless Manifest': 'tm/serverless.md'
-    - Sources:
-      - 'Azure Activity Logs': sources/azureactivitylogs.md
-    - Targets:
-      - 'EventBridge': targets/awseventbridge.md
+    - Sources: sources/index.md
+    - Targets: targets/index.md
     - Cloud: https://cloud.triggermesh.io
     - About: about.md
 theme:
