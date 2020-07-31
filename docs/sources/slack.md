@@ -1,93 +1,118 @@
-# Slack Source for Knative
+# Event source for Slack
 
-Slack Source enables integration between slack messages read by a bot users and Knative Eventing.
+This event source uses the [Slack Events API][slack-events-api] through a [bot user][slack-bot-user] to ingest events into Triggermesh.
 
-## Contents
-- [Slack Source for Knative](#slack-source-for-knative)
-  - [Contents](#contents)
-  - [Deployment](#deployment)
-    - [Deploy Knative Slack Source](#deploy-knative-slack-source)
-    - [Create a Slack Bot User](#create-a-slack-bot-user)
-    - [Creating an Slack Source instance](#creating-an-slack-source-instance)
-  - [Events](#events)
-  - [Support](#support)
+## Prerequisites
 
-## Deployment
+A Slack user that can manage application is required to configure the source.
 
-### Deploy Knative Slack Source
+## Create the Slack source integration
 
-You can build your own images from source configuring [ko](https://github.com/google/ko) and executing with the config folder:
+Deploy the Slack source in 3 steps:
 
-```sh
-ko apply -f ./config/
-```
+1. Deploy the Slack source, retieve exposed endpoint at Triggermesh.
+2. Configure Slack App to send events to the Slack Source endpoint.
+3. (optional) Modify the Slack Source to add Signing Secret and AppID from the configured App.
 
-### Create a Slack Bot User
+### Deploy Slack source
 
-1. Customize Slack adding a new **clasic** bot at https://api.slack.com/apps?new_classic_app=1
+Create an instance of the Slack Source at Triggermesh as aprt of a Bride.
 
-    ![New classic app wizzard](./docs/images/01.add-classic-bot.png)
+- `name` is an internal identifier inside the bridge.
+- `broker` where messages should be sent to.
 
-2. From Basic Information section, display Add features and functionality and select bots, then click on `Add Legacy Bot User`
+Save the source, fill the rest of the bridge and press `Submit Bridge`. The Slack source creates a service, navigate to Functions/Services and copy the URL for the exposed service.
 
-    ![Legacy bot user](./docs/images/02.add-legacy-bot-user.png)
+### Configure Slack Events API App
 
-3. Select `Install App` section and click on `Install App to Workspace`
+1. Create a new [Slack App][slack-app]
 
-    ![Install to workspace](./docs/images/03.install-workspace.png)
+![Slack app](../images/slack-source/01createslackapp.png)
 
-4. Copy the bot user OAuth token
+2. From Basic Information, Features and functionality, select `Event Subscriptions`
 
-    ![Retrieve token](./docs/images/04.retrieve-oauth-token.png)
+  ![Features and functionality](../images/slack-source/02featuresandfunctionality.png)
 
-### Creating an Slack Source instance
+3. Slide the `Enable Events` selector to `on` and write the Slack source exposed URL at the `Request URL` box. A request with a verification challenge will be sent and when the Slack source adapter answer it will be validated and a green check will be shown.
 
-An instance of the Slack Source is created by creating a manifest at your cluster where it is informed of:
+  ![Request URL verified](../images/slack-source/03requestverify.png)
 
-- The namespace where the instance of the source adapter will run.
-- The kubernetes secret and key that host the bot token copied when configuring the Slack bot.
-- An optional threadiness parameter in case we need more than one thread for sink dispatching.
-- The sink addressable where events will be sent.
+4. At the `Subscribe to bot events` section select the bot events that will be sent on behalf of this integration and then press `Save Changes` at the bottom of the page.. Refer to Slack documentation on which ones to use, as a hint the we think these 3 could be useful for different scenarios:
 
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: SlackSource
-metadata:
-  name: triggermesh-knbot
-  namespace: knative-samples
-spec:
-  slackToken:
-    secretKeyRef:
-      name: slack
-      key: token
-  threadiness: 1
-  sink:
-    ref:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: event-display
-```
+   - `app_mention` will send an event when the App is mentioned.
+   - `message.im` will send an event when sending a direct message to the App.
+   - `message.channels` an event will be sent for each message at a channel where the App is invited.
 
-You can find a full configuration example at the `sample` folder, replacing the secret's token with your own will make the Slack source ready.
+  ![Subscribe](../images/slack-source/04subscribe.png)
+
+5. At `Install App` section click on `Install App to Workspace`
+
+  ![Install to workspace](../images/slack-source/05install.png)
+
+6. (Optional)Return to the application's `Basic Information` and take note of `App ID` and `Signing Secret`
+
+    ![Retrieve info](../images/slack-source/06appinfo.png)
+
+You will now have a working integration. Any Slack action that matches the configured event subscription will be sent to the Slack Source and from there to the sink.
+
+### Secure the Slack source (optional)
+
+Create a new secret at Triggermesh and add a key named `signingSecret` containing the value retrieved at the previous step.
+
+  ![Signing secret](../images/slack-source/07createsecret.png)
+
+Go back to the bridge and edit the source:
+
+- `Signing secret` set to the created secret.
+- `appID` is also optional and will filter for the App ID in case the endpoint is used for multiple integrations.
 
 ## Events
 
-The Slack Source creates a cloud event for each message written at a channel where the bot is added and also to direct messages to the bot.
+The Slack source creates a cloud event for each Slack event sent on behalf of the integration. Slack events are wrapped in a structure that is used for CloudEvents categorization, while the [wrapped event][wrapped-event] is sent as the payload.
 
-- type: `com.slack/message`
-- source: `com.slack.<WORKSPACE>`
-- subject: `<CHANNEL-WHERE-THE-MESSAGE-WAS-HEARD>`
-- data: JSON structure that contains:
+Cloud Event header example:
+
+| CloudEvent  | Description   | Example             |
+|---          |---            |---                  |
+| type        | fixed value   | `com.slack.events`  |
+| source      | Team ID (Slack workspace)   | `TA1J7JEBS`   |
+| subject     | Event type   | `message`                    |
+| time     | Event wrapper time   | `2020-06-21T09:44:35Z`  |
+| id     | Event wrapper ID   | `Ev01656P5WP3`  |
+
+Cloud Event data example:
 
 ```json
-   {
-     "user_id": "<USER-WRITING-THE-MESSAGE>",
-     "text": "<MESSAGE-CONTENTS>"
-   }
+{
+  "blocks": [
+    {
+      "block_id": "ws9ME",
+      "elements": [
+        {
+          "elements": [
+            {
+              "text": "waving hello ",
+              "type": "text"
+            },
+            {
+              "type": "user",
+              "user_id": "U015NKH6R6G"
+            }
+          ],
+          "type": "rich_text_section"
+        }
+      ],
+      "type": "rich_text"
+    }
+  ],
+  "channel": "C01112A09FT",
+  "channel_type": "channel",
+  "client_msg_id": "9fc2ed3e-c823-4dcf-be6b-4d788ab0beea",
+  "event_ts": "1592732675.009400",
+  "team": "TA1J7JEBS",
+  "text": "waving hello \u003c@U015NKH6R6G\u003e",
+  "ts": "1592732675.009400",
+  "type": "message",
+  "user": "UT8LFLXR8"
+}
 ```
-
-## Support
-
-This is heavily **Work In Progress** We would love your feedback on this
-Operator so don't hesitate to let us know what is wrong and how we could improve
-it, just file an [issue](https://github.com/triggermesh/knative-sources/issues/new)
