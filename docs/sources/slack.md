@@ -4,7 +4,7 @@ This event source uses the [Slack Events API][slack-events-api] through a [bot u
 
 ## Prerequisites
 
-A Slack user that can manage application is required to configure the source.
+A Slack user that can manage applications is required to configure the source.
 
 ## Create the Slack source integration
 
@@ -16,12 +16,12 @@ Deploy the Slack source in 3 steps:
 
 ### Deploy Slack source
 
-Create an instance of the Slack Source at Triggermesh as aprt of a Bride.
+Create an instance of the Slack Source at Triggermesh as part of a Bride.
 
 - `name` is an internal identifier inside the bridge.
 - `broker` where messages should be sent to.
 
-Save the source, fill the rest of the bridge and press `Submit Bridge`. The Slack source creates a service, navigate to Functions/Services and copy the URL for the exposed service.
+Save the source, fill the rest of the bridge fileds and press `Submit Bridge`. The Slack source creates a service, navigate to Functions/Services and copy the URL for the exposed service.
 
 ### Configure Slack Events API App
 
@@ -64,7 +64,7 @@ Create a new secret at Triggermesh and add a key named `signingSecret` containin
 Go back to the bridge and edit the source:
 
 - `Signing secret` set to the created secret.
-- `appID` is also optional and will filter for the App ID in case the endpoint is used for multiple integrations.
+- `App ID` is also optional and will filter for the App ID in case the endpoint is used for multiple integrations.
 
 ## Events
 
