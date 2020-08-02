@@ -25,7 +25,7 @@ Credentials for Elasticsearch  which could be in the form:
 - User and password to the Elasticsearch cluster.
 - An APIKey instead of User and password.
 
-Additionaly when using a self signed you will need to either inform the `CACertificate` or set the `SkipVerify`.
+Additionaly when using a self signed certificate you will need to either inform the `CACertificate` or set the `SkipVerify` field.
 
 ### Deploy Elasticsearch target
 
