@@ -116,3 +116,7 @@ Cloud Event data example:
   "user": "UT8LFLXR8"
 }
 ```
+
+[slack-events-api]: https://api.slack.com/events-api
+[slack-bot-user]: https://api.slack.com/bot-users
+[wrapped-event]: https://api.slack.com/types/event
