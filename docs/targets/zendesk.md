@@ -29,7 +29,7 @@ components to the Bridge, then submit it.
 A ready status on the main _Bridges_ page indicates that the Zendesk event target was
 successfully created and is ready to forward events into Zendesk.
 
-<!-- ![Bridge status](../images/bridge-status-green.png) -->
+![Bridge status](../images/bridge-status-green.png)
 
 ## Event types
 
