@@ -10,21 +10,21 @@ A Zendesk API key is required to utilize this target. The steps to obtain a key 
 
 Open the Bridge creation screen and add a target of type `Zendesk`.
 
-<!-- ![Adding a Zendesk target](../images/zendesk-target/create-bridge-1.png) -->
+![Adding a Zendesk target](../images/zendesk-target/create-bridge-1.png)
 
 In the Target creation form, give a name to the event Target and add the following information:
 
 * **Email**: Email address associated with the Zendesk account.
 * [**Subdomain**][zd-subdom]: Name of the Zendesk subdomain, without the `zendesk.com` domain or `https://` scheme.
 * [**Token**][zd-token]: Reference to a [TriggerMesh secret][tm-secret] containing an API token to communicate with the Zendesk API, as described in the previous section.
-* **Subject**: An optional default subject assignemnt for new tickets
+* **Subject**: An optional default subject assignment for new tickets
 
-<!-- ![Zendesk target form](../images/zendesk-target/create-bridge-2.png) -->
+![Zendesk target form](../images/zendesk-target/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-<!-- ![Bridge overview](../images/zendesk-target/create-bridge-3.png) -->
+![Bridge overview](../images/zendesk-target/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the Zendesk event target was
 successfully created and is ready to forward events into Zendesk.
