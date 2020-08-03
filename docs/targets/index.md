@@ -5,4 +5,5 @@ The following is a list of Triggermesh event Destinations known as Targets. Some
 ## Current TriggerMesh Targets 
 
 * [AWS EventBridge](./awseventbridge.md): Forward arbitrary events to AWS EventBridge.
-* [Splunk](./splunk.md): Forward arbitrary events to Splunk.
+* [Oracle](./oracle.md): Forward events to the Oracle Cloud.
+* [Splunk](./splunk.md): Forward arbitrary events to Splunk
