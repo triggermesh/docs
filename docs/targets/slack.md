@@ -1,50 +1,58 @@
-# Event target for Slack
+# Event Target for Slack
 
 This event target receives [CloudEvents][ce] over HTTP and sends them to Slack using the  [Slack Web API][slack-web-api].
 
 ## Prerequisites
 
-A Slack user that can manage applications is required to configure the target.
+A Slack target requires a pre-existing `Slack App` before deployment.
 
-## Create the Slack target integration
-
-Create the Slack target integration in 2 steps:
-
-1. Configure the Slack App Bot.
-2. Create the Slack Target.
-
-### Configure the Slack App
+First time users can configure a new `App` by following these steps before deploying the target:
 
 1. Create a new [Slack App][slack-apps]
 2. From Basic Information, Features and functionality, select the `Permissions` pane.
 3. At Bot Token scopes add `chat:write`.
 4. From `Install App` menu follow steps to deploy to your workspace.
-6. Copy the Bot OAuth Access token, it should begin with `xoxb-...`
+5. Copy the Bot OAuth Access token, it should begin with `xoxb-...`
 
-### Create the Slack Target
+## Deploying an instance of the Target
 
-At Triggermesh add a new secret and add a key named `token` that contains the OAuth Access token.
+Open the Bridge creation screen and add a target of type `Slack`.
 
-Then create a bridge that includes a Slack target
+![Adding a Slack target](../images/slack-target/create-bridge-1.png)
 
-- `name` is an internal identifier inside the bridge
-- `Slack token` is the secret that contains the `token` key
+In the Target creation form, give a name to the event Target and add the following information:
 
-## Events
+* **Slack token**: Reference to a [TriggerMesh secret][tm-secret] containing a token for authenticating requests
 
-CloudEvents consumed by this target must be of one of these types:
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
+components to the Bridge, then submit it.
 
-- `com.slack.webapi.chat.postMessage`
-- `com.slack.webapi.chat.scheduleMessage`
-- `com.slack.webapi.chat.update`
+A ready status on the main _Bridges_ page indicates that the $TARGET target is ready to accept events.
 
-Data for each of them must be a JSON message as expected by the Slack API:
+![Bridge status](../images/bridge-status-green.png)
 
-- [chat.postMessage][chat.postMessage]
-- [chat.scheduleMessage][chat.scheduleMessage]
-- [chat.update][chat.update]
+For more information about using the Slack API, please refer to the [Slack documentation][docs].
 
-### Example
+## Event types
+
+The Slack event target can consume events of type:
+
+* `com.slack.webapi.chat.postMessage`
+* `com.slack.webapi.chat.scheduleMessage`
+* `com.slack.webapi.chat.update`
+  
+Data must be sent in a JSON format as expected by the [Slack API][docs]:
+
+* [chat.postMessage][chat.postMessage]
+* [chat.scheduleMessage][chat.scheduleMessage]
+* [chat.update][chat.update]
+
+[ce]: https://cloudevents.io/
+[ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
+
+[docs]: https://api.slack.com/#read_the_docs
+
+## Example
 
 Post message:
 
