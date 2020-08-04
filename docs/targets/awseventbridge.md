@@ -1,7 +1,9 @@
-# Event target for AWS EventBridge
+# Event Target for AWS EventBridge
 
 This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to a [AWS EventBridge partner event
 bus][intro] in a [JSON format][ce-jsonformat].
+
+## Prerequisites
 
 ## Deploying an instance of the Target
 
