@@ -1,9 +1,9 @@
-# Event target for Splunk
+# Event Target for Splunk
 
 This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to a [Splunk HTTP Event Collector][hec]
 in a [JSON format][ce-jsonformat].
 
-## Prerequisite: HTTP Event Collector input
+## Prerequisites
 
 In order to be able to use the TriggerMesh event target for Splunk, and administrator must:
 
@@ -23,8 +23,7 @@ default HEC token (`splunk_hec_token`) is also suitable for use with the Trigger
 
 ![](../images/splunk-target/hec-3.png)
 
-This procedure is described in more details in the Splunk documentation: [Set up and use HTTP Event Collector in Splunk
-Web ][hec].
+This procedure is described in more details in the Splunk documentation: [Set up and use HTTP Event Collector in Splunk Web][hec].
 
 ## Deploying an instance of the Target
 
@@ -34,13 +33,11 @@ Open the Bridge creation screen and add a target of type `Splunk`.
 
 In the Target creation form, give a name to the event Target and add the following information:
 
-* **HEC Endpoint**: URL of the HTTP Event Collector (HEC). This URL varies depending on the type of Splunk installation
-  (Enterprise, self-service Cloud, managed Cloud). Only the scheme, hostname, and port (optionally) are evaluated, the
-  URL path is trimmed if present.
+* **HEC Endpoint**: URL of the HTTP Event Collector ([HEC][hec]). This URL varies depending on the type of Splunk installation (Enterprise, self-service Cloud, managed Cloud). Only the scheme, hostname, and port (optionally) are evaluated, the URL path is trimmed if present.
 * **HEC Token**: Reference to a [TriggerMesh secret][tm-secret] containing a token for authenticating requests against
-  the HEC, as described in the previous section.
-* [**Index**][index]: Name of the index to send events to. When undefined, events are sent to the default index defined
-  in the HEC token's configuration.
+  the [HEC][hec], as described in the previous section.
+* [Index][index]: Name of the index to send events to. When undefined, events are sent to the default index defined
+  in the [HEC][hec] token's configuration.
 
 ![Splunk target form](../images/splunk-target/create-bridge-2.png)
 
@@ -70,3 +67,4 @@ The Splunk event target can consume events of any type.
 [hec]: https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector
 [index]: https://docs.splunk.com/Documentation/Splunk/latest/Indexer/Aboutindexesandindexers
 [docs]: https://docs.splunk.com/
+[tm-secret]:https://docs.triggermesh.io/guides/secrets/
