@@ -1,114 +1,55 @@
 # AWS Target for Knative Eventing
 
-This event target allows for invoking several types of AWS services.  Currently,
-this target supports:
-  * Lambdas
-  * SNS
-  * SQS
-  * Kinesis
+This event target receives [CloudEvents][ce] over HTTP, and can send to a
+defined AWS service.  Currently, this target supports:
+
+  - Lambdas
+  - SNS
+  - SQS
+  - Kinesis
 
 ## Prerequisites
 
-Utilizing any of the AWS services requires that they already exist, and the AWS
-credentials in use will have access to invoke the underlying services.
-
-## Controller Deployment
-
-### Kubernetes Manifests
-
-// TODO use our images
-
-### From Code
-
-You can use the [ko](https://github.com/google/ko) tool to compile and deploy from source.
-
-```console
-ko create -f ./config
-```
-
-## Adding the AWS Secrets
-
-A set of AWS API keys will need to be created and added to the same namespace
-hosting the target, and would resemble:
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: aws
-type: Opaque
-stringData:
-  AWS_ACCESS_KEY_ID: <REPLACE ME WITH A REAL KEY>
-  AWS_SECRET_ACCESS_KEY: <REPLACE ME WITH A REAL SECRET>
-```
+Utilizing any of the AWS services requires that the targeted services already 
+exist, and the AWS API credentials in use will have access to invoke the
+underlying services.
 
 ## Creating an AWS Service Target
 
-Once the AWS Target Controller has been deployed, a target for Lambdas, SNS, and
- SQS can be created by defining an AwsTarget object:
+At Triggermesh, create a new aws secret based on the API credentials from the 
+prerequisites.
 
+A sample target would resemble the following:
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
 kind: AWSTarget
 metadata:
-  name: triggermesh-aws-lambda
+  name: <UNIQUE TARGET NAME>
 spec:
-  lambda:
-    arn: arn:aws:lambda:us-west-2:043455440429:function:snslistener
+  <AWS SERVICE>:
+    arn: <SERVICE ARN>
+    partition: <KINESIS PARTITION>
   awsApiKey:
     secretKeyRef:
       name: aws
-      key: AWS_ACCESS_KEY_ID
+      key: aws_access_key_id
   awsApiSecret:
     secretKeyRef:
       name: aws
-      key: AWS_SECRET_ACCESS_KEY
+      key: aws_secret_access_key
 ```
 
-The sub spec can be one of: lambda, sns, sqs, or kenisis.  Note that the Kinesis target will be a little different:
-```yaml
-apiVersion: targets.triggermesh.io/v1alpha1
-kind: AWSTarget
-metadata:
-  name: triggermesh-aws-kinesis
-spec:
-  kinesis:
-    arn: arn:aws:kinesis:us-west-2:043455440429:stream/cabtest
-    partition: "test"
-  awsApiKey:
-    secretKeyRef:
-      name: aws
-      key: AWS_ACCESS_KEY_ID
-  awsApiSecret:
-    secretKeyRef:
-      name: aws
-      key: AWS_SECRET_ACCESS_KEY
-```
+When used in the Bridge, ensure that the Generic Target is used, and when copying the sample target yaml from above, replace `<AWS SERVICE>` with:
 
-_NOTE: The `AWS_ACCESS_KEY` and `AWS_SECRET_ACCESS_KEY` secrets must be installed
-and accessible to the target service_.
+  - lambda
+  - sns
+  - sqs
+  - kinesis
 
-## AWS Target as an Event Sink
+In addition, the `partition` line is required and the `<KINESIS PARTITION>` entry
+will need to be updated with the Kinesis partition name.  Otherwise, it can be removed.
 
-Lastly, a triggering mechanism needs to be added to listen for a Knative
-event.
-
-```yaml
-apiVersion: eventing.knative.dev/v1beta1
-kind: Trigger
-metadata:
-  name: aws-sample-lambda-trigger
-spec:
-  broker: default
-  subscriber:
-    ref:
-      apiVersion: targets.triggermesh.io/v1alpha1
-      kind: AWSTarget
-      name: triggermesh-aws-lambda
-
-```
-
-For additional samples, take a look at the [samples](samples/) path.
+Lastly, update `<UNIQUE TARGET NAME>` to reflect a name for the target that will be referenced by the bridge trigger.
 
 ## Triggering an AWS Service via the Target
 
@@ -126,3 +67,8 @@ curl -v http://triggermesh-aws-lambda.default.svc.cluster.local \
  -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
  -d '{"greeting":"Hi from TriggerMesh"}'
 ```
+
+*NOTE*: The body of the event is freeform and meant to be interpreted by the
+target service.
+
+[ce]: https://cloudevents.io
