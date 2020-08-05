@@ -1,114 +1,53 @@
-# Twilio event target for Knative Eventing
+# Event Target for Twilio
 
-This event target integrates with Twilio, using received Cloud Event messages to create SMS messages.
-
-## Contents
-
-- [Twilio event target for Knative Eventing](#twilio-event-target-for-knative-eventing)
-  - [Contents](#contents)
-  - [Prerequisites](#prerequisites)
-  - [Controller Deployment](#controller-deployment)
-    - [Kubernetes manifests](#kubernetes-manifests)
-    - [From code](#from-code)
-  - [Creating a Twilio Target](#creating-a-twilio-target)
-    - [Status](#status)
-    - [Twilio Target as an event Sink](#twilio-target-as-an-event-sink)
-    - [Sending SMS to a Twilio Target](#sending-sms-to-a-twilio-target)
+This event target receives [CloudEvents][ce] and utilizes [Twilio](https://www.twilio.com/) to enable the creation and delivery of SMS messages via event-data and event-occurrence, respectively.
 
 ## Prerequisites
 
-A Twilio account is required to run this target:
+1. [Twilio][try] account with access to the [Account SID & Auth Token][sid]
+1. [Phone Number][pn]
 
-* Register a Twilio account
-* Purchase a phone number with
-* Retrieve from Twilio Dashbard Account SID
-* Retrieve from Twilio Dashbard Auth Token
+## Deploying an instance of the Target
 
-## Controller Deployment
+Open the Bridge creation screen and add a target of type `Twilio`.
 
-### Kubernetes manifests
+![Adding a Twilio target](../images/twilio-target/create-bridge-1.png)
 
-// TODO use our images
+In the Target creation form, give a name to the event Target and add the following information:
 
-### From code
 
-You can use the [ko](https://github.com/google/ko) tool to compile and deploy from source.
+* **Phone From**: Defines a Default sending phone. This is not mandatory; however, it is usually configured to the [phone number][pn] purchased at Twilio.
+* **Phone To**: wont be usually informed unless you want all messages to address the same phone number by default.
+* **SID Secret**: Reference to a [TriggerMesh secret][tm-secret] containing a SID token for authenticating requests
+* **Token Secret**: Reference to a [TriggerMesh secret][tm-secret] containing an API token for authenticating requests
 
-```console
-ko create -f ./config
-```
 
-## Creating a Twilio Target
-
-Once the Twilio Target Controller has been deployed along all other needed assets are present we can create integrations by adding TwilioTargets objects.
-
-```yaml
-apiVersion: targets.triggermesh.io/v1alpha1
-kind: TwilioTarget
-metadata:
-  name: <TARGET-NAME>
-spec:
-  defaultPhoneFrom: "<PHONE-FROM>"
-  defaultPhoneTo: "<PHONE-TO>"
-  sid:
-    secretKeyRef:
-      name: "<YOUR-SID-SECRET>"
-      key: "<YOUR-SID-SECRET-KEY>"
-  token:
-    secretKeyRef:
-      name: "<YOUR-TOKEN-SECRET>"
-      key: "<YOUR-TOKEN-SECRET-KEY>"
-```
-
-Although `defaultPhoneFrom` is not mandatory you will usually configure it matching the phone number you have purchased at Twilio.
-
-On the other hand `defaultPhoneTo` wont be usually informed unless you want all messages to address the same phone number by default.
-
-Both configurations can be overrided at every Cloud Event message received at the Target.
+Both **Phone From** and **Phone To** configurations can be overrided by any [CloudEvent][ce] message received at the Target.
 
 Refer to [Twilio docs for number formating](https://www.twilio.com/docs/lookup/tutorials/validation-and-formatting?code-sample=code-lookup-with-international-formatted-number).
 
-### Status
+![Adding a Twilio target](../images/twilio-target/create-bridge-2.png)
 
-TwilioTarget requires two Secrets to be provided for SID and Token, once they are present it will create a Knative Service. Controller logs and events can provide detailed information about the process. A Status summary is added to the TwilioTarget object informing of the all conditions that the target needs.
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
+components to the Bridge, then submit it.
 
-When ready the `status.address.url` will point to the internal point where Cloud Events should be sent.
+A ready status on the main _Bridges_ page indicates that the Twilio target is ready to accept events.
 
-### Twilio Target as an event Sink
+![Bridge status](../images/bridge-status-green.png)
 
-Twilio Target is addressable, which means you can use it as a Sink for Knative components.
+## Event types
 
-```yaml
-apiVersion: eventing.knative.dev/v1beta1
-kind: Trigger
-metadata:
-  name: <TRIGGER-NAME>
-spec:
-  broker: <BROKER-NAME>
-  filter:
-    attributes:
-      type: <MESSAGE-TYPES-TWILIO-FORMATTED>
-  subscriber:
-    ref:
-      apiVersion: targets.triggermesh.io/v1alpha1
-      kind: TwilioTarget
-      name: <TARGET-NAME>
-```
+The Twilio event Target can consume events of any type; however, it expects a [JSON][[ce-jsonformat]] payload at the [CloudEvent][ce] that includes:
 
-### Sending SMS to a Twilio Target
+* **message**: Text to be sent in the body of the SMS message.
+* **media_urls**: An array of URL's pointing to JPG, GIF or PNG resources.
+* **from**: Defines the phone number sourcing the communication. Optional if provided by the Twilio Target spec.
+* **to**: Defines the phone number of the destination. Optional if provided in the Twilio Target spec.
 
-Twilio Target expect a JSON payload at the CloudEvent that includes:
-
-* `message`: text to be sent.
-* `media_urls`: array of URLs pointing to JPG, GIF or PNG resources.
-* `from`: phone sourcing the communication. Optional if provided by the TWilioTarget.
-* `to`: phone destination. Optional if provided by the TwilioTarget.
-
-You can use `curl` from a container in the cluster pointing to the TwilioTarget exposed URL:
+## Example
 
 ```console
-curl -v http://twiliotarget-int1-8dc3abc7d44bdd0130bd0a311bea272f.knative-samples.svc.cluster.local
- \
+curl -v http://twiliotarget.cluster.local \
  -X POST \
  -H "Content-Type: application/json" \
  -H "Ce-Specversion: 1.0" \
@@ -117,3 +56,11 @@ curl -v http://twiliotarget-int1-8dc3abc7d44bdd0130bd0a311bea272f.knative-sample
  -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
  -d '{"message":"Hello from Triggermesh using Twilio!","to": "+1111111111"}'
 ```
+
+[ce]: https://cloudevents.io/
+[ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
+[tm-secret]:https://docs.triggermesh.io/guides/secrets/
+
+[sid]:https://www.comm100.com/livechat/knowledgebase/where-do-i-find-the-twilio-account-sid-auth-token-and-phone-number-sid.html#:~:text=Log%20into%20your%20Twilio%20Account,also%20find%20the%20Auth%20Token.
+[try]:https://www.twilio.com/try-twilio
+[pn]:https://www.twilio.com/docs/phone-numbers
