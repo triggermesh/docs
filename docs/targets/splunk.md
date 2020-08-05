@@ -5,7 +5,7 @@ in a [JSON format][ce-jsonformat].
 
 ## Prerequisites
 
-In order to be able to use the TriggerMesh event target for Splunk, and administrator must:
+In order to use the TriggerMesh event target for Splunk, an administrator must:
 
 1. Enable the [HTTP Event Collector][hec] data input in the Splunk installation.
 1. Create a token for receiving data over HTTP.
