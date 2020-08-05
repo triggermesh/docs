@@ -6,4 +6,4 @@ The following is a list of Triggermesh event Destinations known as Targets. Some
 
 * [AWS EventBridge](./awseventbridge.md): Forward arbitrary events to AWS EventBridge.
 * [Splunk](./splunk.md): Forward arbitrary events to Splunk.
-* [Zendesk](./zendesk.md): Forward arbitrary events to Zendesk
+* [Zendesk](./zendesk.md): Forward events to Zendesk
