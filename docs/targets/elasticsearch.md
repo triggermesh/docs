@@ -1,61 +1,47 @@
-# Event target for Elasticsearch
+# Event Target for Elasticsearch
 
-This event target receives [CloudEvents][ce] over HTTP and index their payload intoElasticsearch.
+This event target receives [CloudEvents][ce] over HTTP and index their payload into [Elasticsearch][es]
 
 ## Prerequisites
 
-A Elasticsearch cluster and a set of credentials for indexing documents.
+If there is not a pre-existing Elasticsearch cluster avalible, one can get started quickly by using:
 
-You can get started by using:
+* [Elastic Cloud on Kubernetes][eck]
+* [Elascic Cloud][elasticcloud]
 
-- [Elastic Cloud on Kubernetes][eck]
-- [Elascic Cloud][elasticcloud]
+In order to use the TriggerMesh event target for Elasticsearch, an administrator must first retrieve the proper credentials for Elasticsearch  which could be in two possible forms:
 
-## Create the Elasticsearch target integration
-
-Create the Elasticsearch target integration in 2 steps:
-
-1. Retrieve credentials for Elasticsearch.
-2. Create the Elasticsearch target.
-
-### Elasticsearch credentials
-
-Credentials for Elasticsearch  which could be in the form:
-
-- User and password to the Elasticsearch cluster.
-- An APIKey instead of User and password.
+* User and password to the Elasticsearch cluster.
+* An APIKey instead of User and password.
 
 Additionaly when using a self signed certificate you will need to either inform the `CACertificate` or set the `SkipVerify` field.
 
-### Deploy Elasticsearch target
+## Deploying an instance of the Target
 
-At Triggermesh add a new secret depending on the credentials set:
+Open the Bridge creation screen and add a target of type `Elastic`.
 
-- For username and password create a secret that contain a `password` key.
-- For API key create a secret that contain a `key` key.
+![Adding a Elasticsearch target](../images/elastic-target/create-bridge-1.png)
 
-Then create a bridge that includes a Elasticsearch target:
+In the Target creation form, give a name to the event Target and add the following information:
 
-- `Name` is an internal identifier inside the bridge.
-- `Index` is the Elasticsearch index where documents will be indexed.
-- `Addresses` server address list.
-- `Skip verify` for skipping server certificate verification.
-- `CA certificate` is the Base64 encoding of the CA certificate for the server.
+* **Username** Uername for connecting.
+* **Index** : Elasticsearch index where documents will be indexed.
+* **Skip verify** : Allows skipping the server certificate verification.
+* **Secrete** : Reference to a [TriggerMesh secret][tm-secret] containing a CA certificate for authenticating requests
+* **Addresses** : Server address list.
 
-Credential fields can be provided either through username and password, or API key:
+![Elastic target form](../images/elastic-target/create-bridge-2.png)
 
-- `Username` is the username for connecting.
-- `Password` secret with `password` key.
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
+components to the Bridge, then submit it.
 
+A ready status on the main _Bridges_ page indicates that the $TARGET target is ready to accept events.
 
-- `APÎ Key` secret with `key`.
-
+![Bridge status](../images/bridge-status-green.png)
 
 ## Events
 
-Elasticsearch Target will forward any JSON payload at the CloudEvent to be indexed. There is no requirement nor filters on the cloud events fields, the only requirement is that the payload data is a valid JSON.
-
-It would be desirable that the JSON conforms to the index mapping at elasticsearch.
+The Elasticsearch event target can consume events of any type.
 
 ### Example
 
@@ -73,3 +59,4 @@ curl -v http://elasticsearchtarget \
 [ce]: https://cloudevents.io
 [eck]: https://github.com/elastic/cloud-on-k8s
 [elasticcloud]: https://www.elastic.co/cloud/
+[es]:https://www.elastic.co/elasticsearch/
