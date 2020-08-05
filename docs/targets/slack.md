@@ -1,6 +1,6 @@
 # Event Target for Slack
 
-This event target receives [CloudEvents][ce] over HTTP and sends them to Slack using the  [Slack Web API][slack-web-api].
+This event target receives [CloudEvents][ce] over HTTP and sends them to [Slack](https://slack.com/) using the  [Slack Web API][slack-web-api].
 
 ## Prerequisites
 
@@ -22,12 +22,14 @@ Open the Bridge creation screen and add a target of type `Slack`.
 
 In the Target creation form, give a name to the event Target and add the following information:
 
-* **Slack token**: Reference to a [TriggerMesh secret][tm-secret] containing a token for authenticating requests
+* [Slack token][token]: Reference to a [TriggerMesh secret][tm-secret] containing a token for authenticating requests
+
+![Adding a Slack target](../images/slack-target/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-A ready status on the main _Bridges_ page indicates that the $TARGET target is ready to accept events.
+A ready status on the main _Bridges_ page indicates that the Slack target is ready to accept events.
 
 ![Bridge status](../images/bridge-status-green.png)
 
@@ -83,7 +85,9 @@ curl -v http://slack-target:8080 \
 [ce]: https://cloudevents.io/
 [slack-web-api]: https://api.slack.com/web
 [slack-apps]: https://api.slack.com/apps
+[tm-secret]:https://docs.triggermesh.io/guides/secrets/
 
 [chat.postMessage]: https://api.slack.com/methods/chat.postMessage
 [chat.scheduleMessage]: https://api.slack.com/methods/chat.scheduleMessage
 [chat.update]:  https://api.slack.com/methods/chat.update
+[token]: https://slack.com/help/articles/215770388-Create-and-regenerate-API-tokens
