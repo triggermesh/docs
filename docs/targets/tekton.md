@@ -1,73 +1,47 @@
-# Tekton Pipeline Event Target for Knative Eventing
+# Event Target for Tekton
 
-This event target integrates with Tekton pipelines using received Cloud Event
-messages to trigger a pipeline run or a task run.
+This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to a Tekton
+in a [JSON format][ce-jsonformat].
+<!-- 
+This event target receives [CloudEvents][ce] and utilizes [Twilio](https://www.twilio.com/) to enable the creation and delivery of SMS messages via event-data and event-occurrence, respectively. -->
 
 ## Prerequisites
 
-Tekton Pipelines must be installed on the same cluster as the Tekton Pipeline
-event target.  For instructions on how to install Tekton, please see their
-[installation guide](https://tekton.dev/docs/getting-started/).
+1. [Pipelines][pipe] must be installed on the same cluster as the Tekton Pipeline event target.  For instructions on how to install Tekton, please see their [installation guide](https://tekton.dev/docs/getting-started/).
 
-In addition, the event target assumes the target pipelines and tasks
-exist in the cluster.
+1. The event target assumes the target [pipelines][pipe] and tasks exist in the cluster.
 
-## Controller Deployment
+## Deploying an instance of the Target
 
-### Kubernetes Manifests
+Open the Bridge creation screen and add a target of type `Tekton`.
 
-// TODO use our images
+<!-- ![Adding a Tekton target](../images/tekton-target/create-bridge-1.png) -->
 
-### From Code
+In the Target creation form, give a name to the event Target and give the target a name.
 
-You can use the [ko](https://github.com/google/ko) tool to compile and deploy from source.
+<!-- ![Tekton target form](../images/tekton-target/create-bridge-2.png) -->
 
-```console
-ko create -f ./config
-```
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
+components to the Bridge, then submit it.
 
-## Creating a Tekton Pipeline Target
+A ready status on the main _Bridges_ page indicates that the Tekton target is ready to accept events.
 
-Once the Tekton Pipeline Target Controller has been deployed along with the
-defined Tekton objects, then the target can be created by defining the TektonTarget object:
+![Bridge status](../images/bridge-status-green.png)
 
-```yaml
-apiVersion: targets.triggermesh.io/v1alpha1
-kind: TektonTarget
-metadata:
-  name: <TARGET-NAME>
-```
+For more information about using Tekton, please refer to the [Tekton documentation][docs].
 
-## Tekton Target as an Event Sink
+## Event types
 
-Tekton Target is addressable and can be used as an event sink for other
-Knative components.
+The Tekton event target can consume events of any type; however, the JSON message format must contain at least:
 
-```yaml
-apiVersion: eventing.knative.dev/v1beta1
-kind: Trigger
-metadata:
-  name: <TRIGGER-NAME>
-spec:
-  broker: <BROKER-NAME>
-  filter:
-    attributes:
-      type:  <MESSAGE-TYPES-TEKTON-FORMATTED>
-  subscriber:
-    ref:
-      apiVersion: targets.triggermesh.io/v1alpha1
-      kind: TektonTarget
-      name: <TARGET-NAME>
-```
+* **Buildtype**: Can be one of task or pipeline
+* **Name**: The name of the pipeline or task object being invoked
+* **Params**: JSON object of key/value pairs that the Tekton CRD is expecting (optional)
 
-## Triggering a Tekton Pipeline Run via the Target
-
-The Tekton Pipeline Target can be triggered as a normal web service using a
-tool such as `curl` within the cluster.  A sample message would resemble the
-following:
+### Example
 
 ```console
-curl -v http://tektontarget-helloworld5d0adf0209a48c23fa958aa1b8ecf0b.default.svc.cluster.local \
+curl -v http://tektontarget.svc.cluster.local \
  -X POST \
  -H "Content-Type: application/json" \
  -H "Ce-Specversion: 1.0" \
@@ -77,9 +51,12 @@ curl -v http://tektontarget-helloworld5d0adf0209a48c23fa958aa1b8ecf0b.default.sv
  -d '{"buildtype": "task","name": "tekton-test","params":{"greeting":"Hi from TriggerMesh"}}'
 ```
 
-## Tekton Pipeline Target Message Format
 
-The Tekton Pipeline Target message format must contain at least:
-  - buildtype (can be one of task or pipeline)
-  - name (this is the name of the pipeline or task object being invoked)
-  - params (optional JSON object of key/value pairs that the Tekton CRD is expecting)
+[ce]: https://cloudevents.io/
+[ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
+[tm-secret]:https://docs.triggermesh.io/guides/secrets/
+
+[docs]: https://github.com/tektoncd/pipeline#-tekton-pipelines
+
+[pipe]:https://www.openshift.com/learn/topics/pipelines
+
