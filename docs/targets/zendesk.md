@@ -1,68 +1,69 @@
-# Event target for Zendesk
+# Event Target for Zendesk
 
-This event target recieves [CloudEvents][ce] and interfaces with Zendesk by either creating a new Ticket or placing a new Tag on a Ticket depending on the CloudEvent type.
+This event Target recieves [CloudEvents][ce] and interfaces with Zendesk by either creating a ticket or assigning a [tag][zd-tag] on a pre-existing ticket depending on the CloudEvent type.
 
-## Prerequisite: API token
+## Prerequisites
 
-A Zendesk API key is required to utilize this target. The steps to obtain a key are outlined in the [Zendesk API Docs](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-)
+A Zendesk API token is required to utilize this Target. The steps to obtain a token are outlined in the [Zendesk API Docs](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-)
 
-## Deploying an instance of the Target
+## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a target of type `Zendesk`.
+Open the Bridge creation screen and add a Target of type `Zendesk`.
 
-![Adding a Zendesk target](../images/zendesk-target/create-bridge-1.png)
+![Adding a Zendesk Target](../images/zendesk-target/create-bridge-1.png)
 
-In the Target creation form, give a name to the event Target and add the following information:
+In the Target creation form, provide a name to the event Target, and add the following information:
 
-* **Email**: Email address associated with the Zendesk account.
-* [**Subdomain**][zd-subdom]: Name of the Zendesk subdomain, without the `zendesk.com` domain or `https://` scheme.
-* [**Token**][zd-token]: Reference to a [TriggerMesh secret][tm-secret] containing an API token to communicate with the Zendesk API, as described in the previous section.
-* **Subject**: An optional default subject assignment for new tickets
+* **Default Ticket Subject**: An optional ticket subject fallback if one is not provided in an incoming event
+* **Zendesk Subdomain**: Name of the Zendesk [Subdomain][zd-subdom], without the `zendesk.com` domain or `https://` scheme.
+* **Zendesk Email**: Email address associated with the Zendesk account.
+* **Zendesk API Token**: Reference to a [TriggerMesh secret][tm-secret] containing a [token][zd-token] to communicate with the Zendesk API, as described in the previous section.
+* **Subject**: An optional default ticket subject assignment
 
-![Zendesk target form](../images/zendesk-target/create-bridge-2.png)
+![Zendesk Target form](../images/zendesk-target/create-bridge-2.png)
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
+After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
 ![Bridge overview](../images/zendesk-target/create-bridge-3.png)
 
-A ready status on the main _Bridges_ page indicates that the Zendesk event target was
-successfully created and is ready to forward events into Zendesk.
+After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with a Zendesk event Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
-## Event types
+For more information about using Zendesk, please refer to the [Zendesk documentation][docs].
 
-A Zendesk Target will ONLY accept [CloudEvents][ce] with a "Type" of either `com.zendesk.ticket.create` OR `com.zendesk.tag.create`
+## Event Types
 
-* Event's of type `com.zendesk.ticket.create` Expect both a `subject` and `body` to be preset.
-  - **Example of type : `com.zendesk.ticket.create`**
-    ```sh
-    curl -v https://zendesktarget-triggermesh-zendesk.jnlasersolutions.dev.munu.io  \
-    -H "Content-Type: application/json" \
-    -H "Ce-Specversion: 1.0" \
-    -H "Ce-Type: com.zendesk.ticket.create" \
-    -H "Ce-Source: some.origin/intance" \
-    -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
-    -d '{"subject": "Hello", "body" : "World"}'
-    ```
+A Zendesk event Target accepts the following [CloudEvent][ce] types:
 
-* Event's of type `com.zendesk.tag.create` Expect both a `id` and `tag` to be preset.
-  - **Example of type : `com.zendesk.tag.create`**
-    ```sh
-    curl -v https://zendesktarget-triggermesh-zendesk.jnlasersolutions.dev.munu.io  \
-    -H "Content-Type: application/json" \
-    -H "Ce-Specversion: 1.0" \
-    -H "Ce-Type: com.zendesk.tag.create" \
-    -H "Ce-Source: some.origin/intance" \
-    -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
-    -d '{"id":81 , "tag":"triggermesh"}'
-    ```
+### com.zendesk.ticket.create
+
+Events of this type intened to create a new Zendesk ticket.
+
+This type expects a [JSON][ce-jsonformat] payload with the following properties:
+| Name  |  Type |  Comment |
+|---|---|---|
+| **subject**| string  |  The value of the subject field for this ticket |
+|  **body** |  string | The value of the body field for this ticket  |
+
+### com.zendesk.tag.create
+
+Events of this type intened to assign a [tag][zd-tag] to a pre-existing Zendesk ticket.
+
+This type expects a [JSON][ce-jsonformat] payload with the following properties:
+| Name  |  Type |  Comment |
+|---|---|---|
+| **id** | int64 | The value of the id field for the ticket to be updated |
+| **tag** | string | The value of the tag to assign to this ticket |
 
 [ce]: https://cloudevents.io/
+[ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
+[tm-secret]:https://docs.triggermesh.io/guides/secrets/
+
+[docs]: https://developer.zendesk.com/rest_api
+
 [zd-token]: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
-[zd-target]: https://support.zendesk.com/hc/en-us/articles/203662136-Notifying-external-targets
+[zd-Target]: https://support.zendesk.com/hc/en-us/articles/203662136-Notifying-external-targets
 [zd-trigger]: https://support.zendesk.com/hc/en-us/articles/203662226-Triggers-resources
 [zd-subdom]: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
-
-[tm-secret]: ../guides/secrets.md
+[zd-tag]:https://support.zendesk.com/hc/en-us/articles/203662096-About-tags
