@@ -1,107 +1,62 @@
-This document currently outlines the steps taken to test the Confluent Target.
-I have been building the adapter with the following command from the root directory of the project
+# Event Target for Confluent
 
-docker build -t tmjeff/cntrl -f confluent/cmd/adapter/Dockerfile .
-docker push 
-The '100-secret.yaml' file will need to be updated with a confluent cloud username, password, and bootstrap server. There are other parameters you may pass here but for a default configuration this should suffice.
+This event Target receives [CloudEvents][ce] and utilizes [Confluent][cc] to enable message delivery to a defined [Kafka Topic][topic] via event-driven data.
 
-a look at the envAccessor gives us a peek at the options and defaults
+## Prerequisites
 
-type envAccessor struct {
- libadapter.EnvConfig
- BootstrapServers      string `envconfig:"BOOTSTRAP_SERVERS" required:"true"`
- BrokerVersionFallback string `envconfig:"BROKER_VERSION_FALLBACK" required:"false"` // deaults to 0.10.0.0
- APIVersionFallbackMs  string `envconfig:"API_VERSION_FALLBACK_MS" required:"false"` // defaults to 0
- SASLMechanisms        string `envconfig:"SASL_MECHANISMS" required:"false"`         //defaults to PLAIN
- SecurityProtocol      string `envconfig:"SECURITY_PROTOCOL" required:"false"`       // defaults to SASL_SSL
- SASLUsername          string `envconfig:"SASL_USERNAME" required:"true"`
- SASLPassword          string `envconfig:"SASL_PASSWORD" required:"true"`
- Topic                 string `envconfig:"TOPIC" required:"false"` //defaults to tmkafka
-}
-The "Topic" has three options for assignment.
-It can be assigned as an Env. variable
-Passed in with the CloudEvent with a Key value of "topic"
-It can be left completely unasigned and It will be defaulted to "tmkafka".
-After updating your '100-secret.yaml' file
+In order to be able to use the TriggerMesh event Target for Confluent, A Confluent API key is required to utilize this target. For more information on how to obtain one, see the [Confluent Docs][docs]
 
-ko apply -f config/
+## Deploying an Instance of the Target
 
-ko apply -f samples/
-I used Kinesis to test my target. A curl request should do fine but If you choose to use Kinesis. You will need to create a Kinesis stream and enter your AWS cred. info along with the Region and Stream name into a yaml file similar to the one included at the bottom of this document
-Clone and move into the aws event-sources project
-ko apply -f config/
-Create a .yaml file like the one below and after updating with your information apply it to the namespace.
-kubectl --namespace triggermesh-knative-samples apply -f theFileYouJustMade.yaml
-Post something to kinesis!
-Sample SinkBinding for the AWS Kinesis event source.
-apiVersion: sources.knative.dev/v1alpha2
-kind: SinkBinding
-metadata:
-  name: &srcname awskinesis-source
-spec:
-  subject:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: *srcname
+Open the Bridge creation screen and add a Target of type `Confluent`.
 
-  sink:
-    ref:
-      apiVersion: targets.triggermesh.io/v1alpha1
-      kind: ConfluentTarget
-      name: triggermesh-confluent
+![Adding a Confluent Target](../images/confluent-target/create-bridge-1.png)
+Once the Confluent Target Controller has been deployed, create an integration by adding a ConfluentTarget like the following:
 
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: &srcname awskinesis-source
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: *srcname
+In the Target creation form, give a name to the event Target and add the following information:
 
-  template:
-    metadata:
-      labels:
-        app: *srcname
+* **Bootstrap Servers**: Define the Kakfa [bootstrap server(s)][qs]
+* **Topic**: Define the [Kafka Topic][topic] to publish messages under
+* **Username**: Requires a valid [SASL Username][sasl]
+* **Password**: Reference to a [TriggerMesh secret][tm-secret] containing a [Sasl Password][sasl] for authenticating requests
 
-    spec:
-      containers:
-      - name: source
-        image: gcr.io/knativetstenv/awskinesissource-99a4dcc6f886115bdb41983887e528b9:latest
+![Confluent Target form](../images/confluent-target/create-bridge-2.png)
 
-        env:
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
+components to the Bridge, then submit it.
 
-        # Kinesis stream
-        - name: STREAM
-          value: eventingtst  <-- This will need to be updated.
+A ready status on the main _Bridges_ page indicates that the Confluent Target is ready to accept events.
 
-        - name: AWS_REGION
-          value: us-east-2
+![Bridge status](../images/bridge-status-green.png)
 
-        # AWS credentials
-        - name: AWS_ACCESS_KEY_ID
-          value: A... <-- This will need to be updated
-        - name: AWS_SECRET_ACCESS_KEY
-          value: ULw... <-- This will need to be updated
+For more information about using Confluent, please refer to the [Confluent documentation][docs].
 
-        # Knative system variables
-        - name: NAME
-          value: *srcname
-        - name: NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        - name: K_LOGGING_CONFIG
-          value: |
-            {
-              "level": "info"
-            }
-        - name: K_METRICS_CONFIG
-          value: |
-            {
-              "domain": "triggermesh.io/sources",
-              "component": "awskinesissource",
-              "configMap": {}
-            }
+## Event types
+
+A Confluent Target can consume [CloudEvent's][ce] of any type.
+
+### Example
+
+By default, the entire cloud event will be posted upder the pre-defined `Topic`; however, if the [JSON][ce-jsonformat] payload of the recieved [CloudEvent][ce] includes a `message` parameter, only the string found `message` will be posted in a message body.
+
+```console
+curl -v http://confluent-target.cluster.local \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "Ce-Specversion: 1.0" \
+ -H "Ce-Type: some.message.type" \
+ -H "Ce-Source: some.origin/intance" \
+ -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+ -d '{"message":"Hello from Triggermesh using Confluent!"}'
+```
+
+[ce]: https://cloudevents.io/
+[ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
+[tm-secret]:https://docs.triggermesh.io/guides/secrets/
+
+[docs]: https://docs.confluent.io/current/cloud/index.html
+
+[cc]:https://www.confluent.io/
+[topic]:https://docs.confluent.io/current/kafka/introduction.html#topics-and-logs
+[qs]:https://docs.confluent.io/current/quickstart/cloud-quickstart/index.html#cloud-quickstart
+[sasl]:https://docs.confluent.io/3.0.0/kafka/sasl.html
