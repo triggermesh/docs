@@ -46,6 +46,37 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | **subject**| string  |  The value of the subject field for this ticket |
 |  **body** |  string | The value of the body field for this ticket  |
 
+An example response from the Zendesk Target after consuming an event of this type:
+
+```json
+{
+ "id":165,
+ "url":"https://triggermesh.zendesk.com/api/v2/tickets/165.json",
+ "subject":"Hello",
+ "raw_subject":"Hello",
+ "description":"World",
+ "status":"open",
+ "requester_id":412584624334,
+ "submitter_id":412584624334,
+ "assignee_id":412584624334,
+ "group_id":360010761434,
+ "due_at":"0001-01-01T00:00:00Z",
+ "via":
+   {
+     "channel":"api",
+     "source":{"from":{},"to":{},"rel":""}},
+     "satisfaction_rating":{"id":0,"score":"","comment":""},
+     "brand_id":360004879834,
+     "allow_attachments":true,
+     "is_public":true,
+     "created_at":"2020-08-05T20:00:11Z",
+     "updated_at":"2020-08-05T20:00:11Z",
+     "collaborators":{},
+     "comment":{"created_at":"0001-01-01T00:00:00Z"
+   }
+}
+```
+
 ### com.zendesk.tag.create
 
 Events of this type intened to assign a [tag][zd-tag] to a pre-existing Zendesk ticket.
