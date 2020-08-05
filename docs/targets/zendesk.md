@@ -1,6 +1,6 @@
 # Event Target for Zendesk
 
-This event Target recieves [CloudEvents][ce] and interfaces with Zendesk by either creating a ticket or assigning a [tag][zd-tag] on a pre-existing ticket depending on the CloudEvent type.
+This event Target interfaces with [Zendesk][docs] to perform actions upon reception of certain [CloudEvents][ce].
 
 ## Prerequisites
 
@@ -14,11 +14,10 @@ Open the Bridge creation screen and add a Target of type `Zendesk`.
 
 In the Target creation form, provide a name to the event Target, and add the following information:
 
-* **Default Ticket Subject**: An optional ticket subject fallback if one is not provided in an incoming event
+* **Default Ticket Subject**: An optional ticket subject fallback if one is not provided in an incoming event.
 * **Zendesk Subdomain**: Name of the Zendesk [Subdomain][zd-subdom], without the `zendesk.com` domain or `https://` scheme.
 * **Zendesk Email**: Email address associated with the Zendesk account.
 * **Zendesk API Token**: Reference to a [TriggerMesh secret][tm-secret] containing a [token][zd-token] to communicate with the Zendesk API, as described in the previous section.
-* **Subject**: An optional default ticket subject assignment
 
 ![Zendesk Target form](../images/zendesk-target/create-bridge-2.png)
 
@@ -38,7 +37,7 @@ A Zendesk event Target accepts the following [CloudEvent][ce] types:
 
 ### com.zendesk.ticket.create
 
-Events of this type intened to create a new Zendesk ticket.
+Events of this type intend to create a new Zendesk ticket.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | Name  |  Type |  Comment |
@@ -79,7 +78,7 @@ An example response from the Zendesk Target after consuming an event of this typ
 
 ### com.zendesk.tag.create
 
-Events of this type intened to assign a [tag][zd-tag] to a pre-existing Zendesk ticket.
+Events of this type intend to assign a [tag][zd-tag] to a pre-existing Zendesk ticket.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | Name  |  Type |  Comment |
@@ -94,7 +93,5 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 [docs]: https://developer.zendesk.com/rest_api
 
 [zd-token]: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
-[zd-Target]: https://support.zendesk.com/hc/en-us/articles/203662136-Notifying-external-targets
-[zd-trigger]: https://support.zendesk.com/hc/en-us/articles/203662226-Triggers-resources
 [zd-subdom]: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
 [zd-tag]:https://support.zendesk.com/hc/en-us/articles/203662096-About-tags
