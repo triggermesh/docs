@@ -2,12 +2,14 @@
 
 This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to a $TARGET
 in a [JSON format][ce-jsonformat].
+<!-- 
+This event target receives [CloudEvents][ce] and utilizes [Twilio](https://www.twilio.com/) to enable the creation and delivery of SMS messages via event-data and event-occurrence, respectively. -->
 
 ## Prerequisites
 
-In order to be able to use the TriggerMesh event target for $TARGET, 
+In order to be able to use the TriggerMesh event target for $TARGET,
 
-## Deploying an instance of the Target
+## Deploying an Instance of the Target
 
 Open the Bridge creation screen and add a target of type `$TARGET`.
 
@@ -18,6 +20,8 @@ In the Target creation form, give a name to the event Target and add the followi
 * [**<>**][<>]: ...
 * [**<>**][<>]: ..
 * [**<>**][<>]: Reference to a [TriggerMesh secret][tm-secret] containing a token for authenticating requests
+
+![$TARGET target form](../images/$TARGET-target/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
