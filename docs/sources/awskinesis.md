@@ -1,114 +1,114 @@
-# AWS Kinesis event source for Knative Eventing
+# Event source for AWS Kinesis
 
-This event source consumes messages from a AWS Kinesis stream and sends them as CloudEvents to an arbitrary event sink.
-
-## Contents
-
-- [AWS Kinesis event source for Knative Eventing](#aws-kinesis-event-source-for-knative-eventing)
-  - [Contents](#contents)
-  - [Prerequisites](#prerequisites)
-  - [Deployment to Kubernetes](#deployment-to-kubernetes)
-    - [As a AWSKinesisSource object](#as-a-awskinesissource-object)
-    - [As a ContainerSource object](#as-a-containersource-object)
-    - [As a Deployment object bound by a SinkBinding](#as-a-deployment-object-bound-by-a-sinkbinding)
-  - [Running locally](#running-locally)
-    - [In the shell](#in-the-shell)
-    - [In a Docker container](#in-a-docker-container)
+This event source acts as a consumer of an [AWS Kinesis Data Stream][kinesis-docs] and forwards all messages it reads
+after wrapping them in a [CloudEvent][ce] envelope.
 
 ## Prerequisites
 
-* Register an AWS account
-* Create an [Access Key][doc-accesskey] in your AWS IAM dashboard.
-* Create a [Kinesis stream][doc-kinesis].
+### Kinesis Data Stream
 
-## Deployment to Kubernetes
+If you don't already have an AWS Kinesis Data Stream, create one by following the instructions at [Creating and Updating
+Data Streams][kinesis-stream-create].
 
-The _AWS Kinesis event source_ can be deployed to Kubernetes in different manners:
+### Amazon Resource Name (ARN)
 
-* As an `AWSKinesisSource` object, to a cluster where the TriggerMesh _AWS Sources Controller_ is running.
-* As a Knative `ContainerSource`, to any cluster running Knative Eventing.
+A fully qualified ARN is required to uniquely identify the AWS Kinesis Stream.
 
-> :information_source: The sample manifests below reference AWS credentials (Access Key) from a Kubernetes Secret object
-> called `awscreds`. This Secret can be generated with the following command:
->
-> ```console
-> $ kubectl -n <my_namespace> create secret generic awscreds \
->   --from-literal=aws_access_key_id=<my_key_id> \
->   --from-literal=aws_secret_access_key=<my_secret_key>
-> ```
->
-> Alternatively, credentials can be used as literal strings instead of references to Kubernetes Secrets by replacing
-> `valueFrom` attributes with `value` inside API objects' manifests.
+This ARN can be obtained directly from the overview page of the Kinesis Stream. It typically has the following format:
 
-### As a AWSKinesisSource object
+```
+arn:aws:kinesis:{awsRegion}:{awsAccountId}:stream/{steamName}
+```
 
-Copy the sample manifest from `config/samples/awskinesissource.yaml` and replace the pre-filled `spec` attributes with
-the values corresponding to your _AWS Kinesis_ stream. Then, create that `AWSKinesisSource` object in your Kubernetes
-cluster:
+![Kinesis Data Stream](../images/awskinesis-source/stream-1.png)
+
+Alternatively, one can obtain the ARN of a Kinesis Stream by using the [AWS CLI][aws-cli]. The following command
+retrieves the information of a stream called `triggermeshtest` in the `us-west-2` region:
 
 ```console
-$ kubectl -n <my_namespace> create -f my-awskinesissource.yaml
+$ aws kinesis describe-stream --stream-name triggermeshtest --region us-west-2
+{
+    "StreamDescription": {
+        "StreamARN": "arn:aws:kinesis:us-west-2:123456789012:stream/triggermeshtest",
+        "StreamName": "triggermeshtest",
+        "StreamStatus": "ACTIVE",
+        (...)
+    }
+}
 ```
 
-### As a ContainerSource object
+### API credentials
 
-Copy the sample manifest from `config/samples/awskinesis-containersource.yaml` and replace the pre-filled environment
-variables under `env` with the values corresponding to your _AWS Kinesis_ stream. Then, create that `ContainerSource`
-object in your Kubernetes cluster:
+The TriggerMesh AWS Kinesis event source authenticates calls to the AWS Kinesis API using an [Access Key][accesskey].
+The page at this link contains instructions to create an access key when signed either as the root user or as an IAM
+user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance of the event
+source.
 
-```console
-$ kubectl -n <my_namespace> create -f my-awskinesis-containersource.yaml
+It is considered a [good practice][iam-bestpractices] to create dedicated users with restricted privileges in order to
+programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
+[IAM Policies][iam-policies] to it.
+
+As an example, the following policy contains only the permissions required by the TriggerMesh AWS Kinesis event source
+to operate:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kinesis:DescribeStream",
+                "kinesis:GetShardIterator",
+                "kinesis:GetRecords"
+            ],
+            "Resource": "arn:aws:kinesis:*:*:*"
+        }
+    ]
+}
 ```
 
-### As a Deployment object bound by a SinkBinding
+![Creating an IAM user](../images/awskinesis-source/iam-user-1.png)
 
-Copy the sample manifest from `config/samples/awskinesis-sinkbinding.yaml` and replace the pre-filled environment
-variables under `env` with the values corresponding to your _AWS Kinesis_ stream. Then, create the `Deployment` and
-`SinkBinding` objects in your Kubernetes cluster:
+## Deploying an instance of the Source
 
-```console
-$ kubectl -n <my_namespace> create -f my-awskinesis-sinkbinding.yaml
-```
+Open the Bridge creation screen and add a source of type `AWS Kinesis`.
 
-## Running locally
+![Adding an AWS Kinesis source](../images/awskinesis-source/create-bridge-1.png)
 
-Running the event source on your local machine can be convenient for development purposes.
+In the Source creation form, give a name to the event source and add the following information:
 
-### In the shell
+* [**AWS ARN**][arn]: ARN of the Kinesis Data Stream, as described in the previous sections.
+* [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
+  Access Key to communicate with the AWS Kinesis API, as described in the previous sections.
 
-Ensure the following environment variables are exported to your current shell's environment:
+![AWS Kinesis source form](../images/awskinesis-source/create-bridge-2.png)
 
-```sh
-export ARN=<arn_of_my_kinesis_stream>
-export AWS_ACCESS_KEY_ID=<my_key_id>
-export AWS_SECRET_ACCESS_KEY=<my_secret_key>
-export NAME=my-awskinesissource
-export NAMESPACE=default
-export K_LOGGING_CONFIG=''
-export K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awskinesissource", "configMap":{}}'
-```
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
+components to the Bridge, then submit it.
 
-Then, run the event source with:
+![Bridge overview](../images/awskinesis-source/create-bridge-3.png)
 
-```console
-$ go run ./cmd/awskinesissource
-```
+A ready status on the main _Bridges_ page indicates that the event source is ready to forward messages from the AWS
+Kinesis Data Stream.
 
-### In a Docker container
+![Bridge status](../images/bridge-status-green.png)
 
-Using one of TriggerMesh's release images:
+## Event types
 
-```console
-$ docker run --rm \
-  -e ARN=<arn_of_my_kinesis_stream> \
-  -e AWS_ACCESS_KEY_ID=<my_key_id> \
-  -e AWS_SECRET_ACCESS_KEY=<my_secret_key> \
-  -e NAME=my-awskinesissource \
-  -e NAMESPACE=default \
-  -e K_LOGGING_CONFIG='' \
-  -e K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awskinesissource", "configMap":{}}' \
-  gcr.io/triggermesh/awskinesissource:latest
-```
+The AWS Kinesis event source emits events of the following types:
 
-[doc-accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
-[doc-kinesis]: https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html
+* `com.amazon.kinesis.stream_record`
+
+[arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonkinesis.html#amazonkinesis-resources-for-iam-policies
+[accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
+[aws-cli]: https://aws.amazon.com/cli/
+[iam-bestpractices]: https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html#iam-user-access-keys
+[iam-policies]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+
+[kinesis-docs]: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+[kinesis-stream-create]: https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html
+
+[tm-secret]: ../guides/secrets.md
+
+[ce]: https://cloudevents.io/

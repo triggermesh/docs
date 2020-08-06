@@ -1,116 +1,123 @@
-# AWS DynamoDB event source for Knative Eventing
+# Event source for AWS DynamoDB
 
-This event source consumes messages from a AWS DynamoDB stream and sends them as CloudEvents to an arbitrary event sink.
-
-## Contents
-
-- [AWS DynamoDB event source for Knative Eventing](#aws-dynamodb-event-source-for-knative-eventing)
-  - [Contents](#contents)
-  - [Prerequisites](#prerequisites)
-  - [Deployment to Kubernetes](#deployment-to-kubernetes)
-    - [As a AWSDynamoDBSource object](#as-a-awsdynamodbsource-object)
-    - [As a ContainerSource object](#as-a-containersource-object)
-    - [As a Deployment object bound by a SinkBinding](#as-a-deployment-object-bound-by-a-sinkbinding)
-  - [Running locally](#running-locally)
-    - [In the shell](#in-the-shell)
-    - [In a Docker container](#in-a-docker-container)
+This event source captures changes to items stored in an [AWS DynamoDB Table][ddb-docs] by reading the time-ordered
+sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].
 
 ## Prerequisites
 
-* Register an AWS account
-* Create an [Access Key][doc-accesskey] in your AWS IAM dashboard.
-* Create a [DynamoDB table][doc-dynamodb-table].
-* Enable a [DynamoDB stream][doc-dynamodb-stream].
+### DynamoDB Table and Stream
 
-## Deployment to Kubernetes
+If you don't already have an AWS DynamoDB Table, create one by following the instructions at [Getting Started with
+DynamoDB][ddb-gettingstarted]. In order for change notifications to be consumed by the TriggerMesh AWS DynamoDB event
+source, it is mandatory to enable a [Stream][ddb-streams] on the DynamoDB Table. To do so, follow the instructions at
+[Enabling a Stream][ddb-stream-enable]. You are free to select the _View type_ that is the most suitable for your own
+usage of the event source.
 
-The _AWS DynamoDB event source_ can be deployed to Kubernetes in different manners:
+![DynamoDB Table](../images/awsdynamodb-source/table-1.png)
 
-* As an `AWSDynamoDBSource` object, to a cluster where the TriggerMesh _AWS Sources Controller_ is running.
-* As a Knative `ContainerSource`, to any cluster running Knative Eventing.
+### Amazon Resource Name (ARN)
 
-> :information_source: The sample manifests below reference AWS credentials (Access Key) from a Kubernetes Secret object
-> called `awscreds`. This Secret can be generated with the following command:
->
-> ```console
-> $ kubectl -n <my_namespace> create secret generic awscreds \
->   --from-literal=aws_access_key_id=<my_key_id> \
->   --from-literal=aws_secret_access_key=<my_secret_key>
-> ```
->
-> Alternatively, credentials can be used as literal strings instead of references to Kubernetes Secrets by replacing
-> `valueFrom` attributes with `value` inside API objects' manifests.
+A fully qualified ARN is required to uniquely identify the AWS DynamoDB Table.
 
-### As a AWSDynamoDBSource object
+This ARN can be obtained directly from the _Overview_ tab after clicking the DynamoDB Table name in the list of existing
+tables. It typically has the following format:
 
-Copy the sample manifest from `config/samples/awsdynamodbsource.yaml` and replace the pre-filled `spec` attributes with
-the values corresponding to your _AWS DynamoDB_ table. Then, create that `AWSDynamoDBSource` object in your Kubernetes
-cluster:
+```
+arn:aws:dynamodb:{awsRegion}:{awsAccountId}:table/{tableName}
+```
+
+![DynamoDB Table ARN](../images/awsdynamodb-source/table-2.png)
+
+Alternatively, one can obtain the ARN of a DynamoDB Table by using the [AWS CLI][aws-cli]. The following command
+retrieves the information of a table called `triggermeshtest` in the `us-west-2` region:
 
 ```console
-$ kubectl -n <my_namespace> create -f my-awsdynamodbsource.yaml
+$ aws dynamodb describe-table --table-name triggermeshtest --region us-west-2
+{
+    "Table": {
+        "TableName": "triggermeshtest",
+        "TableStatus": "ACTIVE",
+        "TableArn": "arn:aws:dynamodb:us-west-2:123456789012:table/triggermeshtest",
+        (...)
+    }
+}
 ```
 
-### As a ContainerSource object
+### API credentials
 
-Copy the sample manifest from `config/samples/awsdynamodb-containersource.yaml` and replace the pre-filled environment
-variables under `env` with the values corresponding to your _AWS DynamoDB_ table. Then, create that `ContainerSource`
-object in your Kubernetes cluster:
+The TriggerMesh AWS DynamoDB event source authenticates calls to the AWS DynamoDB API using an [Access Key][accesskey].
+The page at this link contains instructions to create an access key when signed either as the root user or as an IAM
+user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance of the event
+source.
 
-```console
-$ kubectl -n <my_namespace> create -f my-awsdynamodb-containersource.yaml
+It is considered a [good practice][iam-bestpractices] to create dedicated users with restricted privileges in order to
+programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
+[IAM Policies][iam-policies] to it.
+
+As an example, the following policy contains only the permissions required by the TriggerMesh AWS DynamoDB event
+source to operate:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:ListStreams",
+                "dynamodb:DescribeStream",
+                "dynamodb:GetShardIterator",
+                "dynamodb:GetRecords"
+            ],
+            "Resource": "arn:aws:dynamodb:*:*:*"
+        }
+    ]
+}
 ```
 
-### As a Deployment object bound by a SinkBinding
+![Creating an IAM user](../images/awsdynamodb-source/iam-user-1.png)
 
-Copy the sample manifest from `config/samples/awsdynamodb-sinkbinding.yaml` and replace the pre-filled environment
-variables under `env` with the values corresponding to your _AWS DynamoDB_ table. Then, create the `Deployment` and
-`SinkBinding` objects in your Kubernetes cluster:
+## Deploying an instance of the Source
 
-```console
-$ kubectl -n <my_namespace> create -f my-awsdynamodb-sinkbinding.yaml
-```
+Open the Bridge creation screen and add a source of type `AWS DynamoDB`.
 
-## Running locally
+![Adding an AWS DynamoDB source](../images/awsdynamodb-source/create-bridge-1.png)
 
-Running the event source on your local machine can be convenient for development purposes.
+In the Source creation form, give a name to the event source and add the following information:
 
-### In the shell
+* [**AWS ARN**][arn]: ARN of the DynamoDB Table, as described in the previous sections.
+* [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
+  Access Key to communicate with the AWS DynamoDB API, as described in the previous sections.
 
-Ensure the following environment variables are exported to your current shell's environment:
+![AWS DynamoDB source form](../images/awsdynamodb-source/create-bridge-2.png)
 
-```sh
-export ARN=<arn_of_my_dynamodb_table>
-export AWS_ACCESS_KEY_ID=<my_key_id>
-export AWS_SECRET_ACCESS_KEY=<my_secret_key>
-export NAME=my-awsdynamodbsource
-export NAMESPACE=default
-export K_LOGGING_CONFIG=''
-export K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awsdynamodbsource", "configMap":{}}'
-```
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
+components to the Bridge, then submit it.
 
-Then, run the event source with:
+![Bridge overview](../images/awsdynamodb-source/create-bridge-3.png)
 
-```console
-$ go run ./cmd/awsdynamodbsource
-```
+A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the AWS
+DynamoDB Stream.
 
-### In a Docker container
+![Bridge status](../images/bridge-status-green.png)
 
-Using one of TriggerMesh's release images:
+## Event types
 
-```console
-$ docker run --rm \
-  -e ARN=<arn_of_my_dynamodb_table> \
-  -e AWS_ACCESS_KEY_ID=<my_key_id> \
-  -e AWS_SECRET_ACCESS_KEY=<my_secret_key> \
-  -e NAME=my-awsdynamodbsource \
-  -e NAMESPACE=default \
-  -e K_LOGGING_CONFIG='' \
-  -e K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awsdynamodbsource", "configMap":{}}' \
-  gcr.io/triggermesh/awsdynamodbsource:latest
-```
+The AWS DynamoDB event source emits events of the following types:
 
-[doc-accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
-[doc-dynamodb-table]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html
-[doc-dynamodb-stream]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html#Streams.Enabling
+* `com.amazon.dynamodb.insert`
+* `com.amazon.dynamodb.modify`
+* `com.amazon.dynamodb.remove`
+
+[arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazondynamodb.html#amazondynamodb-resources-for-iam-policies
+[accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
+[aws-cli]: https://aws.amazon.com/cli/
+[iam-bestpractices]: https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html#iam-user-access-keys
+[iam-policies]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+
+[ddb-docs]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html
+[ddb-streams]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html
+[ddb-gettingstarted]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html
+[ddb-stream-enable]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html#Streams.Enabling
+
+[tm-secret]: ../guides/secrets.md
