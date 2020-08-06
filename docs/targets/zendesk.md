@@ -1,6 +1,6 @@
 # Event Target for Zendesk
 
-This event Target interfaces with [Zendesk][docs] to perform actions upon reception of certain [CloudEvents][ce].
+This event target receives [CloudEvents][ce] and uses the Zendesk API to either create a new ticket or tag an existing one.
 
 ## Prerequisites
 
