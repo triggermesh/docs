@@ -51,8 +51,8 @@ If the **Message** key value is omitted within an event, the body of the email w
 
 The Target uses the `Event Source` to assign the `subject` of new emails in the following format:
 
-```go
-"Notification from " + string(event.Source()) + " Knative Event"
+```
+"Notification from " + <Event Source> + " Knative Event"
 ```
 
 The entire cloud event is passed into the email `body` by default.
