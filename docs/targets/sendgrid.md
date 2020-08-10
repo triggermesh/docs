@@ -44,7 +44,7 @@ This Target accepts a [JSON][ce-jsonformat] payload with the following propertie
 | **ToEmail** | string | Recipient's email | false |
 | **Message** | string | Contents of the message body | false |
 
-If the **Message** key value is omited within an event, the body of the email will contain the entire cloud event
+If the **Message** key value is omitted within an event, the body of the email will contain the entire CloudEvent.
 
 [sgSU]:https://signup.sendgrid.com/
 [sg]:https://sendgrid.com/
