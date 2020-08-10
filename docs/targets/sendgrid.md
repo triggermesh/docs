@@ -23,7 +23,7 @@ In the Target creation form, provide a name for the event Target, and add the fo
 
 ![SendgridTarget form](../images/sendgrid-target/create-bridge-2.png)
 
-After selecting the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
+After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
 After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with a SendGrid event Target was successfully created.
 
