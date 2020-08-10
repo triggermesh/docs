@@ -11,5 +11,4 @@ The following is a list of Triggermesh event Destinations known as Targets. Some
 * [Splunk](./splunk.md): Forward arbitrary events to Splunk.
 * [Sendgrid](./sendgrid.md): Forward events to Sendgrid.
 * [Slack](./slack.md): Forward events to Slack as messages to deliver immediately, scheduled, or as an update to a pre-existing message.
-* [Splunk](./splunk.md): Forward arbitrary events to Splunk
 * [Zendesk](./zendesk.md): Perform actions in Zendesk upon reception of certain events.
