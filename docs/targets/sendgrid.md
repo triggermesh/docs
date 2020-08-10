@@ -15,16 +15,15 @@ Open the Bridge creation screen and add a target of type `SendGrid`.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **Default sender name**: Define a default 'name' to be assigned in the `From:` section of the email to be created if the received event does not already contain that information.
-* **Default sender email**: Define a default 'email address' to be assigned in the `From:` section of the email to be created, if the received event does not already contain that information.
-* **Default recipient name**: Define a default 'name' to be assigned in the `To:` section of the email to be created, if the received event does not already contain that information.
-* **Default recipient email**: Define a default 'email address' to be assigned in the `To:` section of the email to be created, if the received event does not already contain that information.
-
+* **Default sender name**: Define a default 'name' to be assigned in the `From:` section of the email to be created, if the received event does not contain a **FromName** property.
+* **Default sender email**: Define a default email address to be assigned in the `From:` section of the email to be created, if the received event does not contain a **FromEmail** property.
+* **Default recipient name**: Define a default name to be assigned in the `To:` section of the email to be created, if the received event does not contain a **FromEmail** property.
+* **Default recipient email**: Define a default 'email address' to be assigned in the `To:` section of the email to be created, if the received event does not contain a **ToEmail** property.
 * **API Secret**: Reference to a [TriggerMesh secret][tm-secret] containing an [API token][api] for authenticating requests
 
 ![SendgridTarget form](../images/sendgrid-target/create-bridge-2.png)
 
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
+After selecting the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
 After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with a SendGrid event Target was successfully created.
 
@@ -32,9 +31,12 @@ After submitting the bridge, and allowing some configuration time, a green check
 
 For more information about using SendGrid, please refer to the [SendGrid documentation][docs].
 
-### Example
+### Event Type
 
-The SendGrid event Target accepts a [JSON][ce-jsonformat] payload with the following (optional) properties:
+The SendGrid event target can consume events of any type[^s]
+
+The SendGrid event Target accepts a [JSON][ce-jsonformat] payload with the following properties that will overwrite their respective `spec` parameters.[^s]
+
 | Name  |  Type |  Comment | Required
 |---|---|---|---|
 | **FromName** | string | Sender's name |false |
@@ -45,6 +47,18 @@ The SendGrid event Target accepts a [JSON][ce-jsonformat] payload with the follo
 
 If the **Message** key value is omitted within an event, the body of the email will contain the entire CloudEvent.
 
+### Example
+
+The Target uses the `Event Source` to assign the `subject` of new emails in the following format:
+
+```go
+"Notification from " + string(event.Source()) + " Knative Event"
+```
+
+The entire cloud event is passed into the email `body` by default.
+
+When a **Message** property is present in the payload, its associated value is used to propagate the `body` of the email.
+
 [sgSU]:https://signup.sendgrid.com/
 [sg]:https://sendgrid.com/
 [api]:https://sendgrid.com/docs/ui/account-and-settings/api-keys/
@@ -53,3 +67,5 @@ If the **Message** key value is omitted within an event, the body of the email w
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
 [tm-secret]:https://docs.triggermesh.io/guides/secrets/
 [docs]: https://sendgrid.com/docs/
+
+[^s]: *Note*: If there is not a default value specified at the spec for all of the available fields, an event *MUST* contain all of the following, save **Message**, or the Target **will** **fail**
