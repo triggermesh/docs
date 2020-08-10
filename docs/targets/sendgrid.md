@@ -38,11 +38,11 @@ The SendGrid event Target can consume events of any type.
 This Target accepts a [JSON][ce-jsonformat] payload with the following properties:
 | Name  |  Type |  Comment | Required
 |---|---|---|---|
-| **FromName**| string  |Sender's name. |false |
-| **FromEmail**| string  |Sender's email. | false |
-|  **ToEmail** |  string |Recipient's email.| false |
-|  **ToName** |  string |Recipient's name.| false |
-|**Message**|string| Contents of the message body |false |
+| **FromName** | string | Sender's name |false |
+| **FromEmail** | string | Sender's email | false |
+| **ToName** | string | Recipient's name | false |
+| **ToEmail** | string | Recipient's email | false |
+| **Message** | string | Contents of the message body | false |
 
 If the **Message** key value is omited within an event, the body of the email will contain the entire cloud event
 
