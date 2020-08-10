@@ -34,9 +34,7 @@ For more information about using SendGrid, please refer to the [SendGrid documen
 
 ### Example
 
-The SendGrid event Target can consume events of any type.
-
-This Target accepts a [JSON][ce-jsonformat] payload with the following (optional) properties:
+The SendGrid event Target accepts a [JSON][ce-jsonformat] payload with the following (optional) properties:
 | Name  |  Type |  Comment | Required
 |---|---|---|---|
 | **FromName** | string | Sender's name |false |
