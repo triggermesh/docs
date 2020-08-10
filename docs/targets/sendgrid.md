@@ -15,10 +15,11 @@ Open the Bridge creation screen and add a target of type `SendGrid`.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **Default sender name**: Assign a default sender name. (optional)
-* **Default sender email**: Assign a default sender email. (optional)
-* **Default recipient name**:  Assign a default recipient's  name. (optional)
-* **Default recipient email**: Assign a default recipient's email. (optional)
+* **Default sender name**: Define a default 'name' to be assigned in the `From:` section of the email to be created if the received event does not already contain that information.
+* **Default sender email**: Define a default 'email address' to be assigned in the `From:` section of the email to be created, if the received event does not already contain that information.
+* **Default recipient name**: Define a default 'name' to be assigned in the `To:` section of the email to be created, if the received event does not already contain that information.
+* **Default recipient email**: Define a default 'email address' to be assigned in the `To:` section of the email to be created, if the received event does not already contain that information.
+
 * **API Secret**: Reference to a [TriggerMesh secret][tm-secret] containing an [API token][api] for authenticating requests
 
 ![SendgridTarget form](../images/sendgrid-target/create-bridge-2.png)
@@ -35,7 +36,7 @@ For more information about using SendGrid, please refer to the [SendGrid documen
 
 The SendGrid event Target can consume events of any type.
 
-This Target accepts a [JSON][ce-jsonformat] payload with the following properties:
+This Target accepts a [JSON][ce-jsonformat] payload with the following (optional) properties:
 | Name  |  Type |  Comment | Required
 |---|---|---|---|
 | **FromName** | string | Sender's name |false |
