@@ -4,7 +4,12 @@ The following is a list of Triggermesh event Destinations known as Targets. Some
 
 ## Current TriggerMesh Targets
 
+* [AWS](./aws.md): Forward events to AWS services such as Lambda, SNS, SQS, and Kinesis.
 * [AWS EventBridge](./awseventbridge.md): Forward arbitrary events to AWS EventBridge.
+* [Elasticsearch](./elasticsearch.md): Send events to Elasticsarch to be indexed.
 * [Oracle](./oracle.md): Forward events to the Oracle Cloud.
 * [Splunk](./splunk.md): Forward arbitrary events to Splunk.
 * [Sendgrid](./sendgrid.md): Forward events to Sendgrid.
+* [Slack](./slack.md): Forward events to Slack as messages to deliver immediately, scheduled, or as an update to a pre-existing message.
+* [Splunk](./splunk.md): Forward arbitrary events to Splunk
+* [Zendesk](./zendesk.md): Perform actions in Zendesk upon reception of certain events.
