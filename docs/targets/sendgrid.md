@@ -21,7 +21,7 @@ In the Target creation form, provide a name for the event Target, and add the fo
 * **Default recipient email**: Assign a default recipient's email. (optional)
 * **API Secret**: Reference to a [TriggerMesh secret][tm-secret] containing an [API token][api] for authenticating requests
 
-![Sendgridtarget form](../images/sendgrid-target/create-bridge-2.png)
+![SendgridTarget form](../images/sendgrid-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
