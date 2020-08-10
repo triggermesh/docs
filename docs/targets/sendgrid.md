@@ -1,39 +1,39 @@
-# Event Target for Sendgrid
+# Event Target for SendGrid
 
-This event target receives [CloudEvents][ce] and utilizes [Sendgrid][sg] to enable the creation and delivery of Email messages via event-data and event-occurrence, respectively.
+This event target receives [CloudEvents][ce] and utilizes [SendGrid][sg] to enable the creation and delivery of Email messages via event-data and event-occurrence, respectively.
 
 ## Prerequisites
 
-* Register a [Sendgrid account][sgSU]
-* Retrieve a [Sendgrid API token][api]
+* Register a [SendGrid account][sgSU]
+* Retrieve a [SendGrid API token][api]
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a target of type `Sendgrid`.
+Open the Bridge creation screen and add a target of type `SendGrid`.
 
-![Adding a Sendgrid target](../images/sendgrid-target/create-bridge-1.png)
+![Adding a SendGrid target](../images/sendgrid-target/create-bridge-1.png)
 
-In the Target creation form, give a name to the event Target and add the following information:
+In the Target creation form, provide a name for the event Target, and add the following information:
 
 * **Default sender name**: Assign a default sender name. (optional)
 * **Default sender email**: Assign a default sender email. (optional)
 * **Default recipient name**:  Assign a default recipient's  name. (optional)
 * **Default recipient email**: Assign a default recipient's email. (optional)
-* **API Secret**: Reference to a [TriggerMesh secret][tm-secret] containing a [API token][api] for authenticating requests
+* **API Secret**: Reference to a [TriggerMesh secret][tm-secret] containing an [API token][api] for authenticating requests
 
 ![Sendgridtarget form](../images/sendgrid-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with an Elasticsearch event Target was successfully created.
+After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with a Sendgrid event Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
-For more information about using Sendgrid, please refer to the [Sendgrid documentation][docs].
+For more information about using SendGrid, please refer to the [SendGrid documentation][docs].
 
 ### Example
 
-The Sendgrid event Target can consume events of any type.
+The SendGrid event Target can consume events of any type.
 
 This Target accepts a [JSON][ce-jsonformat] payload with the following properties:
 | Name  |  Type |  Comment | Required
