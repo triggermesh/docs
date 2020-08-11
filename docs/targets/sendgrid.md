@@ -33,9 +33,11 @@ For more information about using SendGrid, please refer to the [SendGrid documen
 
 ### Event Type
 
-The SendGrid event target can consume events of any type[^s]
+The SendGrid event target can consume events of any type. 
 
-The SendGrid event Target accepts a [JSON][ce-jsonformat] payload with the following properties that will overwrite their respective `spec` parameters.[^s]
+The SendGrid event Target accepts a [JSON][ce-jsonformat] payload with the following properties that will overwrite their respective `spec` parameters.
+
+If there is not a default value specified at the spec for all of the available fields, an event *MUST* contain all of the following, save **Message**, or the Target **will** **fail**
 
 | Name  |  Type |  Comment | Required
 |---|---|---|---|
@@ -67,5 +69,3 @@ When a **Message** property is present in the payload, its associated value is u
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
 [tm-secret]:https://docs.triggermesh.io/guides/secrets/
 [docs]: https://sendgrid.com/docs/
-
-[^s]: *Note*: If there is not a default value specified at the spec for all of the available fields, an event *MUST* contain all of the following, save **Message**, or the Target **will** **fail**
