@@ -21,6 +21,8 @@ In the Target creation form, provide a name for the event Target, and add the fo
 * **Default recipient email**: Define a default 'email address' to be assigned in the `To:` section of the email to be created, if the received event does not contain a **ToEmail** property.
 * **API Secret**: Reference to a [TriggerMesh secret][tm-secret] containing an [API token][api] for authenticating requests
 
+**Note:** If there is not a default value specified for all of the optional fields, event recieved by that deployment *MUST* contain all of the information noted in the [Event Types](#event-types), save **Message**, or the Target **will** **fail**
+
 ![SendgridTarget form](../images/sendgrid-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
@@ -33,11 +35,9 @@ For more information about using SendGrid, please refer to the [SendGrid documen
 
 ### Event Types
 
-The SendGrid event target can consume events of any type. 
+The SendGrid event target can consume events of any type.
 
 The SendGrid event Target accepts a [JSON][ce-jsonformat] payload with the following properties that will overwrite their respective `spec` parameters.
-
-If there is not a default value specified at the spec for all of the available fields, an event *MUST* contain all of the following, save **Message**, or the Target **will** **fail**
 
 | Name  |  Type |  Comment | Required
 |---|---|---|---|
@@ -46,7 +46,6 @@ If there is not a default value specified at the spec for all of the available f
 | **ToName** | string | Recipient's name | false |
 | **ToEmail** | string | Recipient's email | false |
 | **Message** | string | Contents of the message body | false |
-
 
 ### Example
 
