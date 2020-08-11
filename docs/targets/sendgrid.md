@@ -47,7 +47,6 @@ If there is not a default value specified at the spec for all of the available f
 | **ToEmail** | string | Recipient's email | false |
 | **Message** | string | Contents of the message body | false |
 
-If the **Message** key value is omitted within an event, the body of the email will contain the entire CloudEvent.
 
 ### Example
 
