@@ -31,7 +31,7 @@ After submitting the bridge, and allowing some configuration time, a green check
 
 For more information about using SendGrid, please refer to the [SendGrid documentation][docs].
 
-### Event Type
+### Event Types
 
 The SendGrid event target can consume events of any type. 
 
