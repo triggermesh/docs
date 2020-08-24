@@ -2,14 +2,14 @@
 
 
 
-The Triggermesh console provides an interface called [Repositories.](https://cloud.triggermesh.io/function-triggers) Here the user is able to select a codebase, from a linked repository provider, to be continuously deployed. This codebase **must** contain a deployment manifest[^1] . 
+The Triggermesh console provides an interface called [Repositories.](https://cloud.triggermesh.io/function-triggers) Here the user is able to select a codebase, from a linked repository provider, to be continuously deployed. This codebase **must** contain a deployment manifest[^1] .
 
 
 ## Register the repository
 
-###### The following example uses this [sample repository.](https://github.com/sebgoa/tmserverless) To follow along begin by forking the example to your repository provider. 
+###### The following example uses this [sample repository.](https://github.com/sebgoa/tmserverless) To follow along begin by forking the example to your repository provider.
 
-1. Select the _Repositories_ section from the Navigation menu and then _CREATE NEW_ 
+1. Select the _Repositories_ section from the Navigation menu and then _CREATE NEW_
 
 ![](../images/tmRepoView.png)
 
@@ -22,7 +22,7 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 
 ![](../images/repowiz2.png)
 
-4. Here you can specify the location of the `serverless.yaml` manifest as well as select specific _Branch_ and _Tag_ name's from the repository. 
+4. Here you can specify the location of the `serverless.yaml` manifest as well as select specific _Branch_ and _Tag_ name's from the repository.
 
 ![](../images/repowiz3.png)
 
@@ -32,7 +32,7 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 
 ## Viewing The Deployment
 
-***After every sucessful registration of a new repository a _Task_ will be created for it.***
+***After every successful registration of a new repository a _Task_ will be created for it.***
 
 * Navigate to the _Tasks_ view in the **Actions** section and click on the _Task_ name.
 
@@ -61,4 +61,4 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 ![](../images/serviceview.png)
 
 
-[^1]: A sample manifest can be found here -> https://github.com/sebgoa/transform/blob/master/serverless.yaml
+[^1]: A sample manifest can be found here -> [https://github.com/sebgoa/transform/blob/master/serverless.yaml](https://github.com/sebgoa/transform/blob/master/serverless.yaml)
