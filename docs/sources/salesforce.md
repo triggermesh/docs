@@ -9,8 +9,8 @@ after wrapping them in a [CloudEvent][ce] envelope.
 
 Salesforce source uses [OAuth JWT credentials][salesforce-oauth-jwt] for service authentication.
 
-1. First you will need to generate a X509 certificate for signing and verifying requests.
-We will be using `openssl` but any other certificate generation tool should work.
+1. First, you will need to generate an X509 certificate for signing and verifying requests.
+We will be using `OpenSSL` but any other certificate generation tool should work.
 
 ```sh
 openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key -out tm-sf.crt
@@ -19,7 +19,7 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
 2. At Salesforce site select `Setup > Apps > App Manager`, click on `New Connected App`.
 
     - Fill in mandatory fields, then click `Enable OAuth Settings`.
-    - Callback URL is mandatory but can be filled with any HTTPS data.
+    - A callback URL is mandatory but can be filled with any HTTPS data.
     - Enable `Use digital signatures` and upload the public cert (`tm-sf.crt` in the example above).
     - Add Scopes for `api` and `refresh_token, offline_access`.
     - Save.
@@ -49,9 +49,9 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
 Refer to [Salesforce stream API][salesforce-stream-api-docs] on how to create stream channels:
 
    - Change Data Capture events: `/data/ChangeEvents`
-   - PushTopics for streams based on single entity SOQL querys: `/topic/TicketsSold`
+   - PushTopics for streams based on single entity SOQL queries: `/topic/TicketsSold`
    - Standard Platform Events for Salesforce event monitoring: `/event/LoginEventStream`
-   - Custom Platform Events for your SOQL plaform events: `/event/MyCustom__e`
+   - Custom Platform Events for your SOQL platform events: `/event/MyCustom__e`
 
 Each Streaming event type has a distinct [set of features][salesroce-event-features]
 
@@ -79,8 +79,7 @@ In the Source creation form, give a name to the event source and add the followi
 
 ![Salesforce source form](../images/salesforce-source/salesforce-source-form.png)
 
-After clicking the `Save` at the source you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
+After clicking `Save` at the source, you will be taken back to the Bridge editor. Proceed to add the remaining components to the Bridge, then submit it.
 
 Wait a few seconds for all components to become ready, the green `Status` indicator for the bridge indicates that the event source is ready to forward messages from the Salesforce event Stream.
 
