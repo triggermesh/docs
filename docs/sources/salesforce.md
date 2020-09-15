@@ -48,10 +48,10 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
 
 Refer to [Salesforce stream API][salesforce-stream-api-docs] on how to create stream channels:
 
-   - Change Data Capture events: `/data/ChangeEvents`
-   - PushTopics for streams based on single entity SOQL queries: `/topic/TicketsSold`
-   - Standard Platform Events for Salesforce event monitoring: `/event/LoginEventStream`
-   - Custom Platform Events for your SOQL platform events: `/event/MyCustom__e`
+- Change Data Capture events: `/data/ChangeEvents`
+- PushTopics for streams based on single entity SOQL queries: `/topic/TicketsSold`
+- Standard Platform Events for Salesforce event monitoring: `/event/LoginEventStream`
+- Custom Platform Events for your SOQL platform events: `/event/MyCustom__e`
 
 Each Streaming event type has a distinct [set of features][salesroce-event-features]
 
@@ -71,11 +71,11 @@ Open the Bridge creation screen and add a source of type `Salesforce`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* **Broker** to send the events to.
-* **Client ID** as retrieved from Salesforce Connected App.
-* **Server** for authentication at Salesforce.
-* **User** for the Salesforce account.
-* **Channel** as configured at the Salesforce stream.
+- **Broker** to send the events to.
+- **Client ID** as retrieved from Salesforce Connected App.
+- **Server** for authentication at Salesforce.
+- **User** for the Salesforce account.
+- **Channel** as configured at the Salesforce stream.
 
 ![Salesforce source form](../images/salesforce-source/salesforce-source-form.png)
 
@@ -89,11 +89,7 @@ Wait a few seconds for all components to become ready, the green `Status` indica
 
 The Salesforce event source emits events of the following types:
 
-* `com.salesforce.stream.message`
-
-
-
-
+- `com.salesforce.stream.message`
 
 [salesforce-stream-api-docs]: https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/
 [salesforce-oauth-jwt]: https://help.salesforce.com/articleView?id=remoteaccess_oauth_jwt_flow.htm
@@ -101,5 +97,3 @@ The Salesforce event source emits events of the following types:
 [ce]: https://cloudevents.io/
 
 [tm-secret]: ../guides/secrets.md
-
-
