@@ -6,7 +6,7 @@ TriggerMesh Actions are based on [Tekton Pipeline](https://github.com/tektoncd/p
 
   You can express a _Task_ in a manifest. For example, the following manifest represents a Task that will echo _Hello World_:
 
-```
+```yaml
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
@@ -19,7 +19,7 @@ spec:
         - echo
       args:
         - "hello world"
-``` 
+```
 
 The TM console provides an easy to use YAML window for deploying Tasks from the browser. This is accessed by selecting _Tasks_ from the Navigation menu.
 
@@ -29,8 +29,8 @@ The TM console provides an easy to use YAML window for deploying Tasks from the 
   Click on the _Create Task_ button and select _from YAML_, to create a new task.
 
  ![](../images/tmDashCreateTask.png)
-  
-  
+
+
 You will be presented with the following view in which you can paste your Task manifest.
 
 ![](../images/tmTaskYaml.png)

@@ -2,12 +2,9 @@
 
 The TriggerMesh console provides a central location to view and store sensitive information called `Secrets.` The secrets created here can then be used by any service deployed via the Triggermesh platform.
 
-In the top right, after selecting the `Secrets` section from the sidebar, you will se a button labled `+ ADD SECRET.` Selecting the button here will give you a choice to create various secrets (e.g AWS, GitHub, GitLab, GCP)
-
+In the top right, after selecting the `Secrets` section from the sidebar, you will see a button labeled `+ ADD SECRET.` Selecting the button here will give you a choice to create various secrets (e.g AWS, GitHub, GitLab, GCP)
 
 ![](../images/addsecretview.png)
-
-
 
 ## Generic Secrets
 
@@ -15,7 +12,7 @@ If you need a generic secret you can also create it. The wizard will walk you th
 
 ![](../images/genericsecret.png)
 
-## AWS API keys 
+## AWS API keys
 
 All the AWS event sources need access to some AWS API credentials to be able to establish a secure connection.
 

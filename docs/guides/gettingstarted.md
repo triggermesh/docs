@@ -38,8 +38,8 @@ If you know the Knative API already you can choose to paste the Service YAML man
 
 For example, given this manifest:
 
-```
-apiVersion: serving.knative.dev/v1alpha1
+```yaml
+apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
     name: hello
