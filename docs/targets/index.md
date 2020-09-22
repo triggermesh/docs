@@ -11,5 +11,6 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 * [Twilio](./twilio.md): Send an SMS via Twilio in response to events.
 * [Slack](./slack.md): Forward events to Slack as messages to deliver immediately, scheduled, or as an update to a pre-existing message.
 * [Splunk](./splunk.md): Forward arbitrary events to Splunk.
+* [SendGrid](./sendgrid.md): Forward arbitrary events to SendGrid.
 * [Zendesk](./zendesk.md): Perform actions in Zendesk upon reception of certain events.
 * [Elasticsearch](./elasticsearch.md): Forward events to Elasticsearch.
