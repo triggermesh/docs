@@ -9,7 +9,7 @@ nav:
       - 'Actions': guides/actions.md
       - 'Bridge': guides/bridge.md
       - 'Secrets': guides/secrets.md
-    - Client: 
+    - Client:
       - 'Installation': 'tm/install.md'
       - 'Configuration': 'tm/configuration.md'
       - 'Usage': 'tm/usage.md'
@@ -17,7 +17,11 @@ nav:
       - 'Serverless Manifest': 'tm/serverless.md'
     - Sources: sources/index.md
     - Targets: targets/index.md
+    - API: apis/index.md
     - Cloud: https://cloud.triggermesh.io
     - About: about.md
 theme:
   name: mkdocs
+
+markdown_extensions:
+  - attr_list
