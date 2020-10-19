@@ -13,6 +13,10 @@ Sources and Targets are documented at:
 * [Sources](./sources/)
 * [Targets](./targets/)
 
+Kubernetes style APIs can be found at:
+
+* [APIs](./apis/)
+
 If you need to sign-up, check the section below.
 
 ## Sign-up
