@@ -1,4 +1,11 @@
+FROM python:3 AS builder
+
+RUN pip install mkdocs
+
+COPY . /docs
+
+RUN mkdocs build --clean --config-file /docs/mkdocs.yml
+
 FROM nginx
 
-ADD site/ /usr/share/nginx/html/
-
+COPY --from=builder /docs/site/ /usr/share/nginx/html/
