@@ -1,6 +1,28 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/www:$REVISION_ID', '-t', 'gcr.io/$PROJECT_ID/www:latest', '.']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/www:$REVISION_ID']
-images: ['gcr.io/$PROJECT_ID/www']
+
+- name: gcr.io/kaniko-project/executor:latest
+  args:
+  - --dockerfile=Dockerfile
+  - --destination=gcr.io/$PROJECT_ID/docs:${COMMIT_SHA}
+  - --destination=gcr.io/$PROJECT_ID/docs:${_KANIKO_IMAGE_TAG}
+  - --cache-repo=gcr.io/$PROJECT_ID/docs/cache
+  - --cache=${_KANIKO_USE_BUILD_CACHE}
+  - --no-push=${_KANIKO_NO_PUSH}
+  - --snapshotMode=redo
+  - --use-new-run
+  - ${_KANIKO_EXTRA_ARGS}
+  waitFor: ['-']
+
+timeout: 120s
+
+substitutions:
+  _KANIKO_IMAGE_TAG: latest
+  _KANIKO_NO_PUSH: 'false'
+  _KANIKO_USE_BUILD_CACHE: 'true'
+  _KANIKO_EXTRA_ARGS:
+
+options:
+  substitution_option: ALLOW_LOOSE
+
+tags:
+  - docs
