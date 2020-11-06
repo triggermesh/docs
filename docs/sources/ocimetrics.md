@@ -1,4 +1,4 @@
-# Oracle Cloud Infrastructure Metrics (OCIMetrics) source for knative eventing
+# Event Source for Oracle Cloud Infrastructure Metrics (OCIMetrics)
 
 This event source collects metrics data from the [Oracle Cloud](https://cloud.oracle.com).
 
@@ -9,7 +9,7 @@ Oracle Cloud Infrastructure (OCI) compartment is required.  In addition, the
 account must have the account API secret added.
 
 For additional information on how to create an API key and associate it with
-your Oracle Cloud user, go to: https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm#Required_Keys_and_OCID
+your Oracle Cloud user, go to [Oracle's Developer Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm#Required_Keys_and_OCID)
 
 ### Adding the Oracle Cloud Secret
 
@@ -18,14 +18,8 @@ Three pieces of information are required for the Oracle Cloud:
 1. API Private Key passphrase to decrypt the key
 1. API Key's fingerprint to identify which key to use on the Oracle Cloud end
 
-From the Navigation Menu, click `Secrets`, then click the `ADD SECRET` button on
-the upper right corner. A list of secrets will be presented on the right side.
-Click the `Oracle` menu item.  Add the private key ensuring the `-----BEGIN RSA PRIVATE KEY-----`
-and `-----END RSA PRIVATE KEY-----` are included.  Finally, click the `SAVE` button.
-
-![Adding an Oracle Cloud API Secret](../images/ocimetrics-source/oracle-add-secret.png)
-
-The secret can now be used for both the OCIMetrics Source and Oracle Targets.
+Consult the [Secrets](../guides/secrets.md) guide for more information about
+how to add an oracle specific secret.
 
 ## Deploying an instance of the Source
 
