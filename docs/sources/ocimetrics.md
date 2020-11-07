@@ -19,11 +19,12 @@ Three pieces of information are required for the Oracle Cloud:
 1. API Key's fingerprint to identify which key to use on the Oracle Cloud end
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add an oracle specific secret.
+how to add an Oracle Cloud specific secret.
 
 ## Deploying an instance of the Source
 
 ### Creating the Source
+
 Open the Bridge creation screen and add a source of type `OCIMetrics`.
 
 ![Adding an OCI Metric](../images/ocimetrics-source/create-bridge-1.png)
