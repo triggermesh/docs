@@ -81,6 +81,7 @@ An example response from the Zendesk Target after consuming an event of this typ
 Events of this type intend to assign a [tag][zd-tag] to a pre-existing Zendesk ticket.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
+
 | Name  |  Type |  Comment |
 |---|---|---|
 | **id** | int64 | The value of the id field for the ticket to be updated |
