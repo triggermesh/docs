@@ -1,113 +1,93 @@
-# AWS SQS event source for Knative Eventing
+# Event source for AWS SQS
 
-This event source consumes messages from a AWS SQS queue and sends them as CloudEvents to an arbitrary event sink.
-
-## Contents
-
-- [AWS SQS event source for Knative Eventing](#aws-sqs-event-source-for-knative-eventing)
-  - [Contents](#contents)
-  - [Prerequisites](#prerequisites)
-  - [Deployment to Kubernetes](#deployment-to-kubernetes)
-    - [As a AWSSQSSource object](#as-a-awssqssource-object)
-    - [As a ContainerSource object](#as-a-containersource-object)
-    - [As a Deployment object bound by a SinkBinding](#as-a-deployment-object-bound-by-a-sinkbinding)
-  - [Running locally](#running-locally)
-    - [In the shell](#in-the-shell)
-    - [In a Docker container](#in-a-docker-container)
+The event source captures messages sent to a [AWS SQS queue](sqs-docs) and sends them as CloudEvents to an event sink.
 
 ## Prerequisites
 
-* Register an AWS account
-* Create an [Access Key][doc-accesskey] in your AWS IAM dashboard.
-* Create a [SQS queue][doc-sqs].
+### SQS queue
 
-## Deployment to Kubernetes
+If you don't already have an AWS SQS queue, create one by following the instructions in the [Getting started with Amazon SQS][sqs-getting-started] guide.
 
-The _AWS SQS event source_ can be deployed to Kubernetes in different manners:
+### Amazon Resource Name (ARN)
 
-* As an `AWSSQSSource` object, to a cluster where the TriggerMesh _AWS Sources Controller_ is running.
-* As a Knative `ContainerSource`, to any cluster running Knative Eventing.
+A fully qualified ARN is required to uniquely identify the AWS SQS queue.
 
-> :information_source: The sample manifests below reference AWS credentials (Access Key) from a Kubernetes Secret object
-> called `awscreds`. This Secret can be generated with the following command:
->
-> ```console
-> $ kubectl -n <my_namespace> create secret generic awscreds \
->   --from-literal=aws_access_key_id=<my_key_id> \
->   --from-literal=aws_secret_access_key=<my_secret_key>
-> ```
->
-> Alternatively, credentials can be used as literal strings instead of references to Kubernetes Secrets by replacing
-> `valueFrom` attributes with `value` inside API objects' manifests.
+![SQS queue](../images/awssqs-source/sqs-queue.png)
 
-### As a AWSSQSSource object
+As shown in the above screenshot, you can obtain the ARN of a SQS queue from the AWS console. It typically has the following format:
 
-Copy the sample manifest from `config/samples/awssqssource.yaml` and replace the pre-filled `spec` attributes with the
-values corresponding to your _AWS SQS_ queue. Then, create that `AWSSQSSource` object in your Kubernetes cluster:
+```
+arn:aws:sqs:{awsRegion}:{awsAccountId}:{queueName}
+```
+
+Alternatively you can also use the [AWS CLI][aws-cli]. The following command retrieves the ARN of a SQS queue named `MyQueue` in the `us-west-2` region.
 
 ```console
-$ kubectl -n <my_namespace> create -f my-awssqssource.yaml
+$ aws --region us-west-2 sqs get-queue-attributes --queue-url $(aws --region us-west-2 sqs list-queues --queue-name MyQueue | jq -r .QueueUrls[0]) --attribute-names QueueArn
+{
+    "Attributes": {
+        "QueueArn": "arn:aws:sqs:us-west-2:123456789012:MyQueue"
+    }
+}
 ```
 
-### As a ContainerSource object
+### API credentials
 
-Copy the sample manifest from `config/samples/awssqs-containersource.yaml` and replace the pre-filled environment
-variables under `env` with the values corresponding to your _AWS SQS_ queue. Then, create that `ContainerSource` object
-in your Kubernetes cluster:
+The TriggerMesh AWS SQS event source authenticates calls to the AWS SQS API using an [Access Key][accesskey]. The page at this link contains instructions to create an access key when signed either as the root user or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance of the event source.
 
-```console
-$ kubectl -n <my_namespace> create -f my-awssqs-containersource.yaml
+It is considered a [good practice][iam-bestpractices] to create dedicated users with restricted privileges in order to programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching [IAM Policies][iam-policies] to it.
+
+As an example, the following policy contains the permissions required by the TriggerMesh AWS SQS event source to read and delete messages from any queue linked to the AWS account:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AWSSQSSourceReceiveAdapter",
+            "Effect": "Allow",
+            "Action": [
+                "sqs:GetQueueUrl",
+                "sqs:ReceiveMessage",
+                "sqs:DeleteMessage",
+                "sqs:DeleteMessageBatch"
+            ],
+            "Resource": [
+                "arn:aws:sqs:*:*:*"
+            ]
+        }
+    ]
+}
 ```
 
-### As a Deployment object bound by a SinkBinding
+![Creating an IAM user](../images/awssqs-source/sqs-user-policy.png)
 
-Copy the sample manifest from `config/samples/awssqs-sinkbinding.yaml` and replace the pre-filled environment variables
-under `env` with the values corresponding to your _AWS SQS_ queue. Then, create the `Deployment` and `SinkBinding`
-objects in your Kubernetes cluster:
+## Deploying an instance of the Source
 
-```console
-$ kubectl -n <my_namespace> create -f my-awssqs-sinkbinding.yaml
-```
+Open the Bridge creation screen and add a source of type `AWS SQS`.
 
-## Running locally
+![Adding an AWS SQS source](../images/awssqs-source/bridge-form-sqs-source.png)
 
-Running the event source on your local machine can be convenient for development purposes.
+In the Source creation form, give a name to the event source and add the following information:
 
-### In the shell
+* [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret Access Key to communicate with the AWS SQS API, as described in the previous sections.
+* [**AWS ARN**][arn]: ARN of the SQS queue, as described in the previous sections.
 
-Ensure the following environment variables are exported to your current shell's environment:
+![AWS SQS source form](../images/awssqs-source/bridge-form-sqs-source-form.png)
 
-```sh
-export ARN=<arn_of_my_sqs_queue>
-export AWS_ACCESS_KEY_ID=<my_key_id>
-export AWS_SECRET_ACCESS_KEY=<my_secret_key>
-export NAME=my-awssqssource
-export NAMESPACE=default
-export K_LOGGING_CONFIG=''
-export K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awssqssource", "configMap":{}}'
-```
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining components to the Bridge, then submit it.
 
-Then, run the event source with:
+![Bridge overview](../images/awssqs-source/bridge-form-target.png)
 
-```console
-$ go run ./cmd/awssqssource
-```
+A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the AWS SQS queue.
 
-### In a Docker container
+![Bridge status](../images/awssqs-source/bridge-deployed.png)
 
-Using one of TriggerMesh's release images:
-
-```console
-$ docker run --rm \
-  -e ARN=<arn_of_my_sqs_queue> \
-  -e AWS_ACCESS_KEY_ID=<my_key_id> \
-  -e AWS_SECRET_ACCESS_KEY=<my_secret_key> \
-  -e NAME=my-awssqssource \
-  -e NAMESPACE=default \
-  -e K_LOGGING_CONFIG='' \
-  -e K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awssqssource", "configMap":{}}' \
-  gcr.io/triggermesh/awssqssource:latest
-```
-
-[doc-accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
-[doc-sqs]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-create-queue.html
+[doc-sqs]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
+[sqs-getting-started]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.html
+[aws-cli]: https://aws.amazon.com/cli/
+[accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
+[iam-bestpractices]: https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html#iam-user-access-keys
+[iam-policies]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+[arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html
+[tm-secret]: ../guides/secrets.md
