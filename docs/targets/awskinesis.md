@@ -45,7 +45,7 @@ For more information about using AWS Kinesis, please refer to the [AWS documenta
 ## Event Types
 
 The AWS Kinesis Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the nature flexible nature of Kinesis.
+the implementer given the flexible nature of Kinesis.
 
 However, the response [CloudEvent][ce] would have the following payload:
 

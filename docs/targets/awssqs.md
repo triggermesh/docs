@@ -1,7 +1,6 @@
 # Event Target for AWS SQS
 
-This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS
-Simple Queue Service (SQS).
+This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS SQS endpoint.
 
 ## Prerequisites
 
@@ -42,7 +41,7 @@ For more information about using AWS Simple Queue Service, please refer to the [
 ## Event Types
 
 The AWS SQS Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the nature flexible nature of AWS SQS.
+the implementer given the flexible nature of AWS SQS.
 
 However, the response [CloudEvent][ce] would have the following payload:
 

@@ -1,7 +1,6 @@
 # Event Target for AWS SNS
 
-This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS
-Simple Notification Service (SNS).
+This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS SNS endpoint.
 
 ## Prerequisites
 
@@ -42,7 +41,7 @@ For more information about using AWS Simple Notification Service, please refer t
 ## Event Types
 
 The AWS SNS Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the nature flexible nature of AWS SNS.
+the implementer given the flexible nature of AWS SNS.
 
 However, the response [CloudEvent][ce] would have the following payload:
 

@@ -42,7 +42,7 @@ For more information about using AWS Lambdas, please refer to the [AWS documenta
 ## Event Types
 
 The AWS Lambda Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the nature flexible nature of AWS Lambdas.
+the implementer given the flexible nature of AWS Lambdas.
 
 However, the response [CloudEvent][ce] would have the following payload:
 
