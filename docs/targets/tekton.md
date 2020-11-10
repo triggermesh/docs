@@ -1,85 +1,75 @@
-# Tekton Pipeline Event Target for Knative Eventing
+# Event Target for Tekton Pipeline
 
-This event target integrates with Tekton pipelines using received Cloud Event
-messages to trigger a pipeline run or a task run.
+This event target receives a [CloudEvents][ce] over HTTP and will use it to
+create a [Tekton][tekton] TaskRun or PipelineRun object.
 
 ## Prerequisites
 
-Tekton Pipelines must be installed on the same cluster as the Tekton Pipeline
-event target.  For instructions on how to install Tekton, please see their
-[installation guide](https://tekton.dev/docs/getting-started/).
+A Tekton Task must exist prior to creating the Target.
 
-In addition, the event target assumes the target pipelines and tasks
-exist in the cluster.
+## Creating a Tekton Task
 
-## Controller Deployment
+From TriggerMesh, open the tasks action, and click the button to Create Task. A
+menu will drop down providing the option to create the task `from YAML` or `with wizard`.
+Select `with wizard`.
 
-### Kubernetes Manifests
+![Creating a new Task](../images/tekton-target/tekton-task-1.png)
 
-// TODO use our images
+Give the task a name that will be referenced later on by the Target, and click
+the chevron to expose the task details. Provide a name for `Step 1`, specify 
+the build image to use as well as the command and arguments to run.  Click
+`ADD MORE` if more steps will be required.  When finished, click `CREATE`.
 
-### From Code
+![Populating task steps](../images/tekton-target/tekton-task-2.png)
 
-You can use the [ko](https://github.com/google/ko) tool to compile and deploy from source.
+The task should appear in the tasks list page.  Now to create the Target.
 
-```console
-ko create -f ./config
-```
+![Task lists](../images/tekton-target/tekton-task-3.png)
 
-## Creating a Tekton Pipeline Target
+Refer to the [Tekton][tekton] documentation for more information about how to create
+tasks and pipelines.
 
-Once the Tekton Pipeline Target Controller has been deployed along with the
-defined Tekton objects, then the target can be created by defining the TektonTarget object:
 
-```yaml
-apiVersion: targets.triggermesh.io/v1alpha1
-kind: TektonTarget
-metadata:
-  name: <TARGET-NAME>
-```
+## Creating a Tekton Target
 
-## Tekton Target as an Event Sink
+From TriggerMesh, open the Bridge creation screen and add a Target of type `Tekton`.
 
-Tekton Target is addressable and can be used as an event sink for other
-Knative components.
+![Adding a Tekton Target](../images/tekton-target/bridge-create-1.png)
 
-```yaml
-apiVersion: eventing.knative.dev/v1beta1
-kind: Trigger
-metadata:
-  name: <TRIGGER-NAME>
-spec:
-  broker: <BROKER-NAME>
-  filter:
-    attributes:
-      type:  <MESSAGE-TYPES-TEKTON-FORMATTED>
-  subscriber:
-    ref:
-      apiVersion: targets.triggermesh.io/v1alpha1
-      kind: TektonTarget
-      name: <TARGET-NAME>
-```
+In the Target creation form, provide a name for the event Target, and click `Save`.
 
-## Triggering a Tekton Pipeline Run via the Target
+![Tekton Target form](../images/tekton-target/bridge-create-2.png)
 
-The Tekton Pipeline Target can be triggered as a normal web service using a
-tool such as `curl` within the cluster.  A sample message would resemble the
-following:
+After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-```console
-curl -v http://tektontarget-helloworld5d0adf0209a48c23fa958aa1b8ecf0b.default.svc.cluster.local \
- -X POST \
- -H "Content-Type: application/json" \
- -H "Ce-Specversion: 1.0" \
- -H "Ce-Type: dev.knative.source.tekton" \
- -H "Ce-Source: awesome/instance" \
- -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
- -d '{"buildtype": "task","name": "tekton-test","params":{"greeting":"Hi from TriggerMesh"}}'
-```
+![Bridge overview](../images/tekton-target/bridge-create-3.png)
 
-## Tekton Pipeline Target Message Format
+After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with the Tekton Target was successfully created.
 
-The Tekton Pipeline Target message format must contain at least:
-  - buildtype (can be one of task or pipeline)
-  - name (this is the name of the pipeline or task object being invoked)
-  - params (optional JSON object of key/value pairs that the Tekton CRD is expecting)
+![Bridge status](../images/bridge-status-green.png)
+
+## Events
+
+### io.triggermesh.targets.tekton
+
+Events of this type intend to create a new Tekton `PipelineRun` or `TaskRun` object.
+
+This type expects a [JSON][ce-jsonformat] payload with the following properties:
+
+| Name  |  Type |  Comment |
+|---|---|---|
+| **buildType**| string  |  The run object type consisting of `task` or `pipeline` |
+|  **name** |  string | The Tekton Task or Pipeline object to invoke  |
+| **params**| map[string]string | Dictionary mapping of parameters to pass to the Tekton Task or Pipeline|
+
+No response events are created with this Target type.
+
+---
+**NOTE:**
+TaskRun and PipelineRun objects nor their associated pods are deleted after execution.
+It is up to the user to perform the clean-up.
+
+---
+
+[ce]: https://cloudevents.io/
+[tekton]: https://tekton.dev/
