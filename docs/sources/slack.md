@@ -16,7 +16,7 @@ Deploy the Slack source in 3 steps:
 
 ### Deploy Slack source
 
-Create an instance of the Slack Source at Triggermesh as part of a Bride.
+Create an instance of the Slack Source at Triggermesh as part of a Bridge.
 
 - `name` is an internal identifier inside the bridge.
 - `broker` where messages should be sent to.
