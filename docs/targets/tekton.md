@@ -1,7 +1,7 @@
-# Tekton Pipeline Event Target for Knative Eventing
+# Event Target for Tekton Pipeline
 
-This event target receives [CloudEvents][ce] over HTTP and sends them to [Tekton][tekton]
-to invoke a Tekton build task.
+This event target receives a [CloudEvents][ce] over HTTP and will use it to
+create a [Tekton][tekton] TaskRun or PipelineRun object.
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ No response events are created with this Target type.
 ---
 **NOTE:**
 TaskRun and PipelineRun objects nor their associated pods are deleted after execution.
-It is up to the user do perform the clean-up.
+It is up to the user to perform the clean-up.
 
 ---
 
