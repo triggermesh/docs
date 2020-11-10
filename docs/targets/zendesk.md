@@ -40,6 +40,7 @@ A Zendesk event Target accepts the following [CloudEvent][ce] types:
 Events of this type intend to create a new Zendesk ticket.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
+
 | Name  |  Type |  Comment |
 |---|---|---|
 | **subject**| string  |  The value of the subject field for this ticket |
