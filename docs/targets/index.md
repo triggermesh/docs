@@ -10,6 +10,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
     * [AWS SQS](./awssqs.md): Forward event payload to AWS Simple Queueing Service (SQS).
     * [AWS Kinesis](./awskinesis.md): Forward event payload to AWS Kinesis.
     * [AWS EventBridge](./awseventbridge.md): Forward arbitrary events to AWS EventBridge.
+* [Datadog](./datadog.md): Forward event payload to Datadog.
 * [Elasticsearch](./elasticsearch.md): Send events to Elasticsarch to be indexed.
 * [Hasura](./hasura.md): Send GraphQL queries to Hasura.
 * [Oracle](./oracle.md): Forward events to the Oracle Cloud.
@@ -22,7 +23,6 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 <!--
   Target docs to add/update
 confluent -- fix
-datadog
 googlesheets -- fix
 tekton -- fix
 
