@@ -1,6 +1,6 @@
 # Event target for Google Sheets
 
-This event target receives [CloudEvents][ce] over HTTP and sends them to GoogleSheets.
+This event target receives [CloudEvents][ce] over HTTP and appends the event payload to a GoogleSheets sheet.
 
 ## Prerequisites
 
