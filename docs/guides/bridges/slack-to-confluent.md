@@ -11,9 +11,9 @@ You will need:
 
 - [Slack to Confluent Bridge](#slack-to-confluent-bridge)
   - [Contents](#contents)
-  - [Create Confluent user](#create-confluent-user)
+  - [Create Confluent User](#create-confluent-user)
   - [Create The Slack to Confluent Bridge](#create-the-slack-to-confluent-bridge)
-  - [Retrieve Slack Source exposed URL](#retrieve-slack-source-exposed-url)
+  - [Retrieve Slack Source Exposed URL](#retrieve-slack-source-exposed-url)
   - [Subscribe to Slack Events](#subscribe-to-slack-events)
   - [Testing the Integration](#testing-the-integration)
 

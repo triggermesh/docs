@@ -2,7 +2,7 @@
 
 Docker images are used to run functions code in Knative services. This means that image registry is important part of service deployment scheme. Depending on type of service, Knative controller may either only pull or also push service image from and to registry. Triggermesh CLI provides simple configuration interface to setup registry address and user access credentials.
 
-### Service from Pre-Build Image
+### Service from Pre-Built Image
 
 Most simple type of service deployment uses service based on pre-built Docker image available in **public** registry. This kind of service doesn't require any additional configuration and may be started with following command:
 
