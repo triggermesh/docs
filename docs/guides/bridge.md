@@ -36,9 +36,9 @@ For this example a small service called [Event Display](https://github.com/knati
 
 * Select `CronJob` from the popup menu.
 
-![](../images/sources.png)
+![](../images/sourcescron.png)
 
-* Give it a name such as "TestCron", a Cron Schedule of every minute (or */1 * * * *), and keep the `Cron data` set at `{"foo": "bar"}`.
+* Give it a name such as "test-cron", a Cron Schedule of every minute (or */1 * * * *), and keep the `Cron data` set at `{"foo": "bar"}`.
 
 ![](../images/tmPingSource.png)
 
@@ -75,10 +75,13 @@ that is clicked, there will be a page showing the details of the service.
 
 ![](../images/service-info.png)
 
-* When the `PODS` link is selected, the a list of associated pods will be shown.  There is only one, but on the far right side of the list is a chevron icon under the logs.  When that is clicked, then the log from the event
-will be displayed.
+* When the `PODS` link is selected, the a list of associated pods will be shown. There is only one, but if you click the button that says "Logs" on the far right side of the list, then the log for that event will be displayed. 
 
 ![](../images/event-display.png)
+
+* We now can see the log for that event. 
+
+![](../images/log-display.png)
 
 ## Highlighted Bridges
 

@@ -15,7 +15,7 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 
 2. Select a source control provider. Upon submission of this form you will be asked to authenticate with the chosen provider.
 
-![](../images/reopwiz1.png)
+![](../images/repowiz1.png)
 
 
 3. Select the  [sample repository](https://github.com/sebgoa/tmserverless) from the drop down list.
@@ -26,7 +26,7 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 
 ![](../images/repowiz3.png)
 
-5. Once registration is complete the _Repositories_ view will contain your function project. You can disable the registration at any time by selecting the project and clicking on the _Trash Can_ icon located next to _REFRESH_
+5. Once registration is complete the _Repositories_ view will contain your function project. You can disable the registration at any time by clicking on the _Trash Can_ icon located on the right hand side of the item you would like to disable. 
 
 ![](../images/repowiz4.png)
 

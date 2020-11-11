@@ -37,7 +37,7 @@ You will be presented with the following view in which you can paste your Task m
 
 ### Execute a Task
 
-Clicking on the greeen _RUN_ button will launch the execution of the Task
+Clicking on the green _RUN_ button will launch the execution of the Task
 
 ![](../images/taskexec.png)
 
