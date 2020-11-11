@@ -1,107 +1,61 @@
-This document currently outlines the steps taken to test the Confluent Target.
-I have been building the adapter with the following command from the root directory of the project
 
-docker build -t tmjeff/cntrl -f confluent/cmd/adapter/Dockerfile .
-docker push 
-The '100-secret.yaml' file will need to be updated with a confluent cloud username, password, and bootstrap server. There are other parameters you may pass here but for a default configuration this should suffice.
+# Event Target for Confluent
 
-a look at the envAccessor gives us a peek at the options and defaults
+This event target receives [CloudEvents][ce] and forwards the event to a Confluent Kafka cluster.
 
-type envAccessor struct {
- libadapter.EnvConfig
- BootstrapServers      string `envconfig:"BOOTSTRAP_SERVERS" required:"true"`
- BrokerVersionFallback string `envconfig:"BROKER_VERSION_FALLBACK" required:"false"` // deaults to 0.10.0.0
- APIVersionFallbackMs  string `envconfig:"API_VERSION_FALLBACK_MS" required:"false"` // defaults to 0
- SASLMechanisms        string `envconfig:"SASL_MECHANISMS" required:"false"`         //defaults to PLAIN
- SecurityProtocol      string `envconfig:"SECURITY_PROTOCOL" required:"false"`       // defaults to SASL_SSL
- SASLUsername          string `envconfig:"SASL_USERNAME" required:"true"`
- SASLPassword          string `envconfig:"SASL_PASSWORD" required:"true"`
- Topic                 string `envconfig:"TOPIC" required:"false"` //defaults to tmkafka
-}
-The "Topic" has three options for assignment.
-It can be assigned as an Env. variable
-Passed in with the CloudEvent with a Key value of "topic"
-It can be left completely unasigned and It will be defaulted to "tmkafka".
-After updating your '100-secret.yaml' file
+## Prerequisites
 
-ko apply -f config/
+1. Access to a Kafka cluster with appropriate configuration details.
 
-ko apply -f samples/
-I used Kinesis to test my target. A curl request should do fine but If you choose to use Kinesis. You will need to create a Kinesis stream and enter your AWS cred. info along with the Region and Stream name into a yaml file similar to the one included at the bottom of this document
-Clone and move into the aws event-sources project
-ko apply -f config/
-Create a .yaml file like the one below and after updating with your information apply it to the namespace.
-kubectl --namespace triggermesh-knative-samples apply -f theFileYouJustMade.yaml
-Post something to kinesis!
-Sample SinkBinding for the AWS Kinesis event source.
-apiVersion: sources.knative.dev/v1alpha2
-kind: SinkBinding
-metadata:
-  name: &srcname awskinesis-source
-spec:
-  subject:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: *srcname
-
-  sink:
-    ref:
-      apiVersion: targets.triggermesh.io/v1alpha1
-      kind: ConfluentTarget
-      name: triggermesh-confluent
+If a password is required, then consult the [Secrets](../guides/secrets.md) guide
+for additional information about how to add the password as a secret.
 
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: &srcname awskinesis-source
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: *srcname
 
-  template:
-    metadata:
-      labels:
-        app: *srcname
+**NOTE**: Depending on the cluster and user permissions, the Kafka topic must
+exist prior to setting up the target. Otherwise, the target will attempt to create
+the topic which will require setting the `Topic replication` and `Topic partition`.
 
-    spec:
-      containers:
-      - name: source
-        image: gcr.io/knativetstenv/awskinesissource-99a4dcc6f886115bdb41983887e528b9:latest
+---
 
-        env:
+## Deploying an Instance of the Target
 
-        # Kinesis stream
-        - name: STREAM
-          value: eventingtst  <-- This will need to be updated.
+Open the Bridge creation screen and add a Target of type `Confluent`.
 
-        - name: AWS_REGION
-          value: us-east-2
+![Adding a Confluent Target](../images/confluent-target/create-bridge-1.png)
 
-        # AWS credentials
-        - name: AWS_ACCESS_KEY_ID
-          value: A... <-- This will need to be updated
-        - name: AWS_SECRET_ACCESS_KEY
-          value: ULw... <-- This will need to be updated
+In the Target creation form, provide a name to the event Target, and add the following information:
 
-        # Knative system variables
-        - name: NAME
-          value: *srcname
-        - name: NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        - name: K_LOGGING_CONFIG
-          value: |
-            {
-              "level": "info"
-            }
-        - name: K_METRICS_CONFIG
-          value: |
-            {
-              "domain": "triggermesh.io/sources",
-              "component": "awskinesissource",
-              "configMap": {}
-            }
+* **Password Secret**: Reference to a [TriggerMesh secret][tm-secret] containing the password associated with the user accessing the Kafka cluster as described in the Prerequisites.
+* **Bootstrap Servers**: Confluent bootstrap servers to connect to. Use `ADD MORE` button to add additional bootstrap servers if needed.
+* **Topic**: Confluent topic to publish events to.
+* **Topic replication**: Number of copies of the topic that should exist in the cluster.
+* **Topic partitions**: Number of partitions for the topic to allow for concurrency.
+* **SASL Mechanism**: Denote how to authenticate against Kafka. Can be one of: `PLAIN` or `GSSAPI`.
+* **Security Protocol**: Denote whether to encrypt the password using SSL/TLS.
+* **Username**: The username to connect to the Kafka cluster as. This field must have a value even if the cluster allows unauthenticated access.
+
+![Confluent Target form](../images/confluent-target/create-bridge-2.png)
+
+After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
+
+![Bridge overview](../images/confluent-target/create-bridge-3.png)
+
+After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with a Confluent event Target was successfully created.
+
+![Bridge status](../images/bridge-status-green.png)
+
+For more information about how to configure Confluent see the [Confluent documentation][docs].
+
+## Event Types
+
+The Confluent Target leaves the [CloudEvent][ce] type definition to the discretion of
+the implementer. In addition, no events are produced as a response.
+
+If the `Discard CloudEvent context attributes` is disabled, then the full
+CloudEvent will be sent to Confluent. Otherwise, just the event payload will be sent.
+
+[ce]: https://cloudevents.io/
+[ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
+[tm-secret]:https://docs.triggermesh.io/guides/secrets/
+[docs]: https://docs.confluent.io/current/index.html
