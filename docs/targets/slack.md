@@ -1,4 +1,4 @@
-# Event target for Slack
+# Event Target for Slack
 
 This event target receives [CloudEvents][ce] over HTTP and sends them to Slack using the  [Slack Web API][slack-web-api].
 
@@ -6,7 +6,7 @@ This event target receives [CloudEvents][ce] over HTTP and sends them to Slack u
 
 A Slack user that can manage applications is required to configure the target.
 
-## Create the Slack target integration
+## Create the Slack Target Integration
 
 Create the Slack target integration in 2 steps:
 

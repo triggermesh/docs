@@ -21,7 +21,7 @@ Three pieces of information are required for the Oracle Cloud:
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add an Oracle Cloud specific secret.
 
-## Deploying an instance of the Source
+## Deploying an Instance of the Source
 
 ### Creating the Source
 
@@ -51,7 +51,7 @@ Continue to add the targets, and then submit the bridge.
 
 ![Bridge overview](../images/ocimetrics-source/create-bridge-3.png)
 
-## Event types
+## Event Types
 
 The CloudEvent type is:
 

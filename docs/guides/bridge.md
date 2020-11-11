@@ -16,7 +16,7 @@ Each _bridge_ created within the TM console operates via the following `flow`:
 
 ![](../images/tmBridgeFlow.png)
 
-## Creating a new Bridge
+## Creating a New Bridge
 
 For this example a small service called [Event Display](https://github.com/knative/eventing-contrib/tree/master/cmd/event_display) is used as the `Target`. `Event Display` prints all the messages it receives into a log.
 

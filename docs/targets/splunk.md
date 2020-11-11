@@ -1,9 +1,9 @@
-# Event target for Splunk
+# Event Target for Splunk
 
 This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to a [Splunk HTTP Event Collector][hec]
 in a [JSON format][ce-jsonformat].
 
-## Prerequisite: HTTP Event Collector input
+## Prerequisite: HTTP Event Collector Input
 
 In order to be able to use the TriggerMesh event target for Splunk, and administrator must:
 
@@ -26,7 +26,7 @@ default HEC token (`splunk_hec_token`) is also suitable for use with the Trigger
 This procedure is described in more details in the Splunk documentation: [Set up and use HTTP Event Collector in Splunk
 Web ][hec].
 
-## Deploying an instance of the Target
+## Deploying an Instance of the Target
 
 Open the Bridge creation screen and add a target of type `Splunk`.
 
@@ -60,7 +60,7 @@ New events should now be visible in the _Search & Reporting_ app inside Splunk.
 
 For more information about using Splunk, please refer to the [Splunk documentation][docs].
 
-## Event types
+## Event Types
 
 The Splunk event target can consume events of any type.
 

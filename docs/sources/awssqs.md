@@ -1,10 +1,10 @@
-# Event source for AWS SQS
+# Event Source for AWS SQS
 
 The event source captures messages sent to a [AWS SQS queue](sqs-docs) and sends them as CloudEvents to an event sink.
 
 ## Prerequisites
 
-### SQS queue
+### SQS Queue
 
 If you don't already have an AWS SQS queue, create one by following the instructions in the [Getting started with Amazon SQS][sqs-getting-started] guide.
 
@@ -31,7 +31,7 @@ $ aws --region us-west-2 sqs get-queue-attributes --queue-url $(aws --region us-
 }
 ```
 
-### API credentials
+### API Credentials
 
 The TriggerMesh AWS SQS event source authenticates calls to the AWS SQS API using an [Access Key][accesskey]. The page at this link contains instructions to create an access key when signed either as the root user or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance of the event source.
 
@@ -62,7 +62,7 @@ As an example, the following policy contains the permissions required by the Tri
 
 ![Creating an IAM user](../images/awssqs-source/sqs-user-policy.png)
 
-## Deploying an instance of the Source
+## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `AWS SQS`.
 

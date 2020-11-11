@@ -17,7 +17,7 @@ You will need:
   - [Subscribe to Slack Events](#subscribe-to-slack-events)
   - [Testing the Integration](#testing-the-integration)
 
-## Create Confluent user
+## Create Confluent User
 
 - Create a user for the integration that can produce messages to a topic. Potentially that user could also create the topic if it doesn't exists.
 - We will require for this example Bridge a target component configured with this data:
@@ -33,7 +33,7 @@ From that list above `password` is a sensible field which we require to be inser
 
 ![Secret creation](../../images/slack-confluent-bridge/secret-creation.png)
 
-## Create The Slack to Confluent Bridge
+## Create the Slack to Confluent Bridge
 
 We can proceed to create the Bridge now. Slack Event API needs the URL to send data to, that means we need to provide the URL first, then head to Slack Admin site to configure the bot that will serve for this integration.
 
@@ -55,7 +55,7 @@ Now click on the `Target` block at the bottom of the page, a list of targets to 
 
 Press `Submit Bridge` and you are done with Triggermesh configuration.
 
-## Retrieve Slack Source exposed URL
+## Retrieve Slack Source Exposed URL
 
 The Slack Source component creates an external URL that should be used as the `Request URL` callback when configuring the Slack Bot App. In order to obtain it, open the `Services` area at Triggermesh and look for a service by the name of the Slack Source you just created. Then copy the exposing URL.
 

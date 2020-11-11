@@ -1,9 +1,9 @@
-# Event target for AWS EventBridge
+# Event Target for AWS EventBridge
 
 This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to a [AWS EventBridge partner event
 bus][intro] in a [JSON format][ce-jsonformat].
 
-## Deploying an instance of the Target
+## Deploying an Instance of the Target
 
 Open the Bridge creation screen and add a target of type `AWS EventBridge`.
 
@@ -52,7 +52,7 @@ Your can now start creating rules that trigger on certain events in the AWS Even
 
 For more information about using AWS EventBridge, please refer to the [EventBridge user guide][userguide].
 
-## Event types
+## Event Types
 
 The AWS EventBridge event target can consume events of any type.
 

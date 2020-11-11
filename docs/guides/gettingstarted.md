@@ -2,7 +2,7 @@
 
 To get you up and running quickly we are going to run a sample Hello service.
 
-## Starting a service via the console
+## Starting a Service via the Console
 
 
 Click on the _Create Service_ button on the bottom on the home page of the console.
@@ -32,7 +32,7 @@ Clicking on it will get you to the Hello web application shown below:
 
 Congratulations you will have started your first service, if you do not use it, it will automatically scale to zero and wake up when you need to.
 
-## Creating a service with its manifest
+## Creating a Service with its Manifest
 
 If you know the Knative API already you can choose to paste the Service YAML manifest in the wizard directly.
 

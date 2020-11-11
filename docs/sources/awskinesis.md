@@ -1,4 +1,4 @@
-# Event source for AWS Kinesis
+# Event Source for AWS Kinesis
 
 This event source acts as a consumer of an [AWS Kinesis Data Stream][kinesis-docs] and forwards all messages it reads
 after wrapping them in a [CloudEvent][ce] envelope.
@@ -37,7 +37,7 @@ $ aws kinesis describe-stream --stream-name triggermeshtest --region us-west-2
 }
 ```
 
-### API credentials
+### API Credentials
 
 The TriggerMesh AWS Kinesis event source authenticates calls to the AWS Kinesis API using an [Access Key][accesskey].
 The page at this link contains instructions to create an access key when signed either as the root user or as an IAM
@@ -70,7 +70,7 @@ to operate:
 
 ![Creating an IAM user](../images/awskinesis-source/iam-user-1.png)
 
-## Deploying an instance of the Source
+## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `AWS Kinesis`.
 
@@ -94,7 +94,7 @@ Kinesis Data Stream.
 
 ![Bridge status](../images/bridge-status-green.png)
 
-## Event types
+## Event Types
 
 The AWS Kinesis event source emits events of the following types:
 

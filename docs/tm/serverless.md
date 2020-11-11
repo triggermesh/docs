@@ -1,4 +1,4 @@
-## Generate the scaffolding
+## Generate the Scaffolding
 
 To ease user on-boarding `tm` has a currently experimental feature to generate a scaffolfing. To generate the scaffolding for a simple Python function do:
 
@@ -15,7 +15,7 @@ python
 └── serverless.yaml
 ```
 
-## Deploy the function
+## Deploy the Function
 
 To deploy the function you use a single command:
 
@@ -41,7 +41,7 @@ $ curl http://demo-service-python-function-sebgoa.k.triggermesh.io
 {"message": "Hello, the current time is 07:51:46.853233"}
 ```
 
-## How does this work
+## How Does This Work
 
 While this seems straightforward there is a bit of magic being the scene. That's because the Python function being deployed does not have any invoker, it needs to be wrapped into a function runtime.
 
@@ -71,7 +71,7 @@ In this runtime you will see a `Task` object that comes from the [Tekton project
 
 Check the [runtime URL](https://raw.githubusercontent.com/triggermesh/runtime-build-tasks/master/aws-lambda/python37-runtime.yaml) to see how Tekton comes into play.
 
-## Tear everything down
+## Tear Everything Down
 
 Deleting everything is straightforward:
 

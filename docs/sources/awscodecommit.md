@@ -1,11 +1,11 @@
-# Event source for AWS CodeCommit
+# Event Source for AWS CodeCommit
 
 This event source captures notifications from an [AWS CodeCommit repository][cc-docs] whenever a specific action, such
 as a new commit or the creation of a pull request, happens in this repository.
 
 ## Prerequisites
 
-### CodeCommit repository and branch
+### CodeCommit Repository and Branch
 
 If you don't already have an AWS CodeCommit repository, create one by following the instructions at [Create an AWS
 CodeCommit repository][cc-create]. The repository should contain at least one [branch][cc-branches]. To create one,
@@ -44,7 +44,7 @@ qualified ARN of a CodeCommit repository.
 arn:aws:codecommit:{awsRegion}:{awsAccountId}:{repositoryName}
 ```
 
-### API credentials
+### API Credentials
 
 The TriggerMesh AWS CodeCommit event source authenticates calls to the AWS CodeCommit API using an [Access
 Key][accesskey]. The page at this link contains instructions to create an access key when signed either as the root user
@@ -78,7 +78,7 @@ source to operate:
 
 ![Creating an IAM user](../images/awscodecommit-source/iam-user-1.png)
 
-## Deploying an instance of the Source
+## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `AWS CodeCommit`.
 
@@ -104,7 +104,7 @@ CodeCommit repository.
 
 ![Bridge status](../images/bridge-status-green.png)
 
-## Event types
+## Event Types
 
 The AWS CodeCommit event source emits events of the following types:
 
