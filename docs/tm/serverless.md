@@ -1,6 +1,6 @@
 ## Generate the Scaffolding
 
-To ease user on-boarding `tm` has a currently experimental feature to generate a scaffolfing. To generate the scaffolding for a simple Python function do:
+To ease user on-boarding `tm` has a currently experimental feature to generate a scaffolding. To generate the scaffolding for a simple Python function do:
 
 ```
 tm generate python

@@ -33,7 +33,7 @@ sudo docker create \
 
 4. Consume messages from a queue
 - run  `go run main.go -url tcp://127.0.0.1:1883 --user admin --password admin --topic [name of your topic]`
-- Put messages to a queue as in step 3 in separate terminal. View recieved messages. 
+- Put messages to a queue as in step 3 in separate terminal. View received messages. 
 - If no go environment installed, use instructions from `local Docker build` below
 
 For more information about Solace and documentation, visit Solace [website](https://solace.com/) and [documentation](https://docs.solace.com/) sections

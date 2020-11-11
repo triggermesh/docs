@@ -65,7 +65,6 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | **sheet_name_prefix** | string | The prefix to be used for creating new sheets |
 | **message** | string | A string to append to the sheet row |
 
-
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
 [tm-secret]:https://docs.triggermesh.io/guides/secrets/

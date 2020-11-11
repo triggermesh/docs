@@ -45,7 +45,7 @@ Once executed, the _TaskRun_ view will show a green TaskRun object as below:
 
 ![](../images/taskrunshow.png)
 
-Clicking on the object name will lead you to the _Task Run Details_ here we can view our YAML as well as the Logs. Navigate to the logs to find the a magnificient `hello world`:
+Clicking on the object name will lead you to the _Task Run Details_ here we can view our YAML as well as the Logs. Navigate to the logs to find the a magnificent `hello world`:
 
 ![](../images/taskrunlogs.png)
 

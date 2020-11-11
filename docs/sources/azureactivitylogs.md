@@ -55,7 +55,7 @@ The corresponding role JSON is given as a reference which you can replicate to c
 }
 ```
 
-After the Service Principal is created and assigned suitable roles, take note of the following three informations:
+After the Service Principal is created and assigned suitable roles, take note of the following information:
 
 * **Tenant ID** and **Client ID** (see _Get values for signing in_)
 * **Client secret** (see _Certificates and secrets > Create a new application secret_)

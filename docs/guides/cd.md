@@ -2,7 +2,7 @@
 
 
 
-The Triggermesh console provides an interface called [Repositories.](https://cloud.triggermesh.io/function-triggers) Here the user is able to select a codebase, from a linked repository provider, to be continuously deployed. This codebase **must** contain a deployment manifest[^1] .
+The TriggerMesh console provides an interface called [Repositories.](https://cloud.triggermesh.io/function-triggers) Here the user is able to select a codebase, from a linked repository provider, to be continuously deployed. This codebase **must** contain a deployment manifest[^1] .
 
 
 ## Register the Repository
@@ -56,7 +56,7 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 
 ## Service Creation
 
-* On successfull execution of the _Task_ the service will be available and you will be able to see and use the function by navigating to the [_Services_](https://cloud.triggermesh.io/services) tab.
+* On successful execution of the _Task_ the service will be available and you will be able to see and use the function by navigating to the [_Services_](https://cloud.triggermesh.io/services) tab.
 
 ![](../images/serviceview.png)
 

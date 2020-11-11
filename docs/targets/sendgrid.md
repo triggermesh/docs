@@ -24,11 +24,11 @@ In the Target creation form, provide a name for the event Target, and add the fo
 
 **Note:** If there is not a default value specified for all of the optional fields, the event received by that deployment *MUST* contain all of the information noted in the [Event Types](#event-types), save **Message**, or the Target **will** **fail**
 
-![SendgridTarget form](../images/sendgrid-target/create-bridge-2.png)
+![SendGridTarget form](../images/sendgrid-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-After submitting the bridge, and allowing some configuration time, a green checkmark on the main _Bridges_ page indicates that the bridge with a SendGrid event Target was successfully created.
+After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with a SendGrid event Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
@@ -55,7 +55,7 @@ When a **Message** property is **not** present, the entire cloud event is passed
 
 ### Example
 
-An example email sent from the Sendgrid Target with the **Message** parameter omitted will look as follows:
+An example email sent from the SendGrid Target with the **Message** parameter omitted will look as follows:
 
 ```email
 from: richard <richard@triggermesh.com>

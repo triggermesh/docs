@@ -1768,7 +1768,7 @@ OracleTargetStatus
 <h3 id="targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget
 </h3>
 <p>
-<p>SendGridTarget is the Schema for an Sendgrid Target.</p>
+<p>SendGridTarget is the Schema for an SendGrid Target.</p>
 </p>
 <table>
 <thead>
