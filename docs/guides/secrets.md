@@ -2,26 +2,24 @@
 
 The TriggerMesh console provides a central location to view and store sensitive information called `Secrets.` The secrets created here can then be used by any service deployed via the Triggermesh platform.
 
-In the top right, after selecting the `Secrets` section from the sidebar, you will see a button labeled `+ ADD SECRET.` Selecting the button here will give you a choice to create various secrets (e.g AWS, GitHub, GitLab, GCP)
+From the _Secrets_ view. Select `Create New`. Selecting the button here will give you a choice to create various secrets (e.g AWS, GitHub, GitLab, GCP)
 
-![](../images/addsecretview.png)
+![](../images/addSecretView.png)
 
-## Generic Secrets
-
-If you need a generic secret you can also create it. The wizard will walk you through adding as many keys and values as you need.
-
-![](../images/genericsecret.png)
 
 ## AWS API keys
 
 All the AWS event sources need access to some AWS API credentials to be able to establish a secure connection.
 
-You should create a AWS IAM user and generate a dedicated set of API credentials with only the proper permissions. Once you do so, you can create a secret with the AWS specific wizard shown below:
+You should create a AWS IAM user and generate a dedicated set of API credentials with only the proper permissions. Once you are ready to create your secret, click on `AWS`. 
 
-![](../images/awssecret.png)
+![](../images/aws-secret.png)
 
-The secret name is pre-configured to be `awscreds` and the keys are `aws_access_key_id` and `aws_secrets_access_key`. These are greyed out in the wizard as they cannot be changed.
+Once you do so, you can create a secret with the AWS specific wizard shown below:
 
+![](../images/awsSecretWizard.png)
+
+The secret name is pre-configured to be `aws`, but you can edit this name when you are creating a new secret. The keys are `aws_access_key_id` and `aws_secrets_access_key`.
 ## Using a Secret in a Service definition
 
 If your service needs access to a secret, you can load it in a service definition through the Service creation wizard.
