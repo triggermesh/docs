@@ -6,6 +6,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 
 * AWS
     * [AWS Lambda](./awslambda.md): Forward event payload to AWS Lambda.
+    * [AWS S3](./awss3.md): Forward event payload to AWS S3 bucket.
     * [AWS SNS](./awssns.md): Forward event payload to AWS Simple Notification Service (SNS).
     * [AWS SQS](./awssqs.md): Forward event payload to AWS Simple Queueing Service (SQS).
     * [AWS Kinesis](./awskinesis.md): Forward event payload to AWS Kinesis.
