@@ -28,7 +28,7 @@ ${NOTABLE_CHANGES}
 
 ## Installation
 
-Download Triggermesh Docs ${RELEASE}
+Download TriggerMesh Docs ${RELEASE}
 
 - [container](https://gcr.io/triggermesh/docs:${RELEASE})
 

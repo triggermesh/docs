@@ -31,8 +31,8 @@ sudo docker create \
 - run  `go run main.go` to put a message to a queue
 
 4. Consume messages from a queue
-- From project root run `go run main.go` with all env vars set. It has default values othervise
-- Put messages to a queue as in step 3 in separate terminal. View recieved messages. 
+- From project root run `go run main.go` with all env vars set. It has default values otherwise
+- Put messages to a queue as in step 3 in separate terminal. View received messages. 
 - If no go environment installed, use instructions from `local Docker build` below
 
 For more information about Solace and documentation, visit Solace [website](https://solace.com/) and [documentation](https://docs.solace.com/) sections

@@ -48,7 +48,7 @@ Now click on the `Target` block at the bottom of the page, a list of targets to 
 - Name of component at the bridge (your choice).
 - Bootstrap servers for your Confluent instance, at least one entry.
 - A topic to write to. If it doesn't exists the target will create it.
-- Username for the integraion.
+- Username for the integration.
 - The secret containing the password created at a previous step.
 
 ![Confluent target](../../images/slack-confluent-bridge/confluent-target.png)

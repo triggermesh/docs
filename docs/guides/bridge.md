@@ -11,7 +11,7 @@ Each _bridge_ created within the TM console operates via the following `flow`:
 
   1. An event _*[source](https://knative.dev/docs/eventing/sources/)*_ **_retrieves_** data. <!-- Should link to OUR source docs upon their completion -->
   2. A _*[broker](https://knative.dev/docs/eventing/broker-trigger/)*_ to act as an **_event bucket_**
-  3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ that **_subscribes_** the Target to recieve events from the broker.
+  3. A _*[trigger](https://knative.dev/docs/eventing/broker-trigger/)*_ that **_subscribes_** the Target to receive events from the broker.
   4. A _*target*_ that **_receives_** events. <!-- Should be linked to the ../targets/index.md  upon completion -->
 
 ![](../images/tmBridgeFlow.png)
@@ -42,7 +42,7 @@ For this example a small service called [Event Display](https://github.com/knati
 
 ![](../images/tmPingSource.png)
 
- Before configuring a _Bridge_, normally, a _Target_ would be created or pre-existing, because this example asumes a fresh TM console, There are no services currently deployed so a detour to the `Target` section is required.
+ Before configuring a _Bridge_, normally, a _Target_ would be created or pre-existing, because this example assumes a fresh TM console, There are no services currently deployed so a detour to the `Target` section is required.
  * Select `Service` here.
 
 ![](../images/tmAddTargets.png)
@@ -64,7 +64,7 @@ This will complete the flow from _Source_ to _Trigger_ automatically for us by c
 ![](../images/tmSubmitBridge.png)
 
 
-* To verify the functionality of the bridge, navigate to the [Servcies](https://cloud.triggermesh.io/services) section.
+* To verify the functionality of the bridge, navigate to the [Services](https://cloud.triggermesh.io/services) section.
 
 ![](../images/tmServicesViewBridges.png)
 

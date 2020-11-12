@@ -10,7 +10,7 @@ A Slack user that can manage applications is required to configure the source.
 
 Deploy the Slack source in 3 steps:
 
-1. Deploy the Slack source, retieve exposed endpoint at Triggermesh.
+1. Deploy the Slack source, retrieve exposed endpoint at Triggermesh.
 2. Configure Slack App to send events to the Slack Source endpoint.
 3. (optional) Modify the Slack Source to add Signing Secret and AppID from the configured App.
 
@@ -21,7 +21,7 @@ Create an instance of the Slack Source at Triggermesh as part of a Bridge.
 - `name` is an internal identifier inside the bridge.
 - `broker` where messages should be sent to.
 
-Save the source, fill the rest of the bridge fileds and press `Submit Bridge`. The Slack source creates a service, navigate to Functions/Services and copy the URL for the exposed service.
+Save the source, fill the rest of the bridge fields and press `Submit Bridge`. The Slack source creates a service, navigate to Functions/Services and copy the URL for the exposed service.
 
 ### Configure Slack Events API App
 
