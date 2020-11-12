@@ -72,5 +72,5 @@ Validation: valid Context Attributes, specversion: 1.0 type: dev.knative.samples
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]:https://docs.triggermesh.io/guides/secrets/
+[tm-secret]: ../guides/secrets/
 [docs]: https://sendgrid.com/docs/

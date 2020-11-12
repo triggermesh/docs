@@ -88,6 +88,7 @@ curl -v http://slack-target:8080 \
 [ce]: https://cloudevents.io/
 [slack-web-api]: https://api.slack.com/web
 [slack-apps]: https://api.slack.com/apps
+[tm-secret]: ../guides/secrets/
 
 [chat.postMessage]: https://api.slack.com/methods/chat.postMessage
 [chat.scheduleMessage]: https://api.slack.com/methods/chat.scheduleMessage

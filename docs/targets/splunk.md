@@ -70,3 +70,4 @@ The Splunk event target can consume events of any type.
 [hec]: https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector
 [index]: https://docs.splunk.com/Documentation/Splunk/latest/Indexer/Aboutindexesandindexers
 [docs]: https://docs.splunk.com/
+[tm-secret]: ../guides/secrets/

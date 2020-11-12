@@ -72,7 +72,7 @@ The response event will have the `ce-type` attribute set to `org.graphql.query.r
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]:https://docs.triggermesh.io/guides/secrets/
+[tm-secret]: ../guides/secrets/
 
 [graphql]: https://graphql.org/
 [hasura]: https://hasura.io

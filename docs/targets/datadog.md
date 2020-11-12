@@ -84,6 +84,5 @@ This event type does not return an event.
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]:https://docs.triggermesh.io/guides/secrets/
-
+[tm-secret]: ../guides/secrets/
 [datadog]: https://docs.datadoghq.com

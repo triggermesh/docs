@@ -90,7 +90,7 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]:https://docs.triggermesh.io/guides/secrets/
+[tm-secret]: ../guides/secrets/
 
 [docs]: https://developer.zendesk.com/rest_api
 

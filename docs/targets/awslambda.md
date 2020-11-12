@@ -57,3 +57,4 @@ However, the response [CloudEvent][ce] would have the following payload:
 [ce]: https://cloudevents.io/
 [docs]: https://docs.aws.amazon.com/lambda/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
+[tm-secret]: ../guides/secrets/

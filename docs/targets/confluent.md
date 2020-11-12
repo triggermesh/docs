@@ -57,5 +57,5 @@ CloudEvent will be sent to Confluent. Otherwise, just the event payload will be 
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]:https://docs.triggermesh.io/guides/secrets/
+[tm-secret]: ../guides/secrets/
 [docs]: https://docs.confluent.io/current/index.html

@@ -68,6 +68,5 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]:https://docs.triggermesh.io/guides/secrets/
-
+[tm-secret]: ../guides/secrets/
 [google-dashboard]: https://console.developers.google.com/apis/dashboard
