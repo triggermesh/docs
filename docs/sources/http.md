@@ -1,15 +1,15 @@
-# Event source for HTTP
+# Event Source for HTTP
 
-This event source exposes a generic HTTP endpoint that turns user requests into [CloudEvents][ce] to be consumed by other Triggermesh components. This source can fit integration scenarios where a webhook that might receive events from an external service is required.
+This event source exposes a generic HTTP endpoint that turns user requests into [CloudEvents][ce] to be consumed by other TriggerMesh components. This source can fit integration scenarios where a webhook that might receive events from an external service is required.
 
 ## Prerequisites
 
 An external client that executes HTTP requests.
 When using basic auth, a secret containing the password is required.
 
-## Create the HTTP source integration
+## Create the HTTP Source Integration
 
-Create an instance of the HTTP Source at Triggermesh as part of a Bridge.
+Create an instance of the HTTP Source at TriggerMesh as part of a Bridge.
 
 - `Name` is an internal identifier inside the bridge.
 - `Broker` where request converted into [CloudEvents][ce] messages will be sent to.
