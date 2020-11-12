@@ -1,11 +1,11 @@
-# Event source for Salesforce
+# Event Source for Salesforce
 
 This event source acts as a consumer of the [Salesforce stream API][salesforce-stream-api-docs] and forwards all messages it receives
 after wrapping them in a [CloudEvent][ce] envelope.
 
 ## Prerequisites
 
-### Salesforce account
+### Salesforce Account
 
 Salesforce source uses [OAuth JWT credentials][salesforce-oauth-jwt] for service authentication.
 
@@ -44,7 +44,7 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
    - Copy `Consumer Key`
    - Reveal and copy `Consumer Secret`
 
-### Salesforce stream channel
+### Salesforce Stream Channel
 
 Refer to [Salesforce stream API][salesforce-stream-api-docs] on how to create stream channels:
 
@@ -63,7 +63,7 @@ The file name containing the key will need to be renamed to `certKey`, then sele
 
 ![Upload secret](../images/salesforce-source/file-upload-secret.png)
 
-## Deploying an instance of the Source
+## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Salesforce`.
 
@@ -85,7 +85,7 @@ Wait a few seconds for all components to become ready, the green `Status` indica
 
 ![Bridge status](../images/salesforce-source/salesforce-bridge-ready.png)
 
-## Event types
+## Event Types
 
 The Salesforce event source emits events of the following types:
 

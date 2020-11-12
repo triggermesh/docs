@@ -1,4 +1,4 @@
-# Event target for Google Sheets
+# Event Target for Google Sheets
 
 This event target receives [CloudEvents][ce] over HTTP and appends the event payload to a GoogleSheets sheet.
 
@@ -16,7 +16,7 @@ This event target receives [CloudEvents][ce] over HTTP and appends the event pay
  users access is required, you can skip optional fields)
 4. On the last step of service account creation download the JSON key.
 
-Use the `client_email` field within the credentials JSON file you downloaded to share the 
+Use the `client_email` field within the credentials JSON file you downloaded to share the
 Google Spreadsheets you want the Target to have access to. (when sharing Notifications mark should be disabled)
 
 Create a new Google Sheet and share it with the 'client_email' address found in the JSON key. (when sharing the "Send Notifications" mark should be disabled)
@@ -26,7 +26,6 @@ Create a new Google Sheet and share it with the 'client_email' address found in 
 Navigate to the sheet that is to be used or was just created:
 - from path: `https://docs.google.com/spreadsheets/d/<SHEET_ID>/edit`
 - from query string: `https://docs.google.com/spreadsheet/ccc?key=<SHEET_ID>`
-
 
 ## Deploying an Instance of the Target
 

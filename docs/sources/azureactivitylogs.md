@@ -1,4 +1,4 @@
-# Event source for Azure Activity Logs
+# Event Source for Azure Activity Logs
 
 This event source forwards [Activity Logs][activity-logs] from a given Azure Subscription by routing them over [Azure
 Event Hubs][eventhubs]. It does so by registering [Diagnostic Settings][diag-settings] that automatically send a
@@ -6,7 +6,7 @@ selected set of log categories to a dedicated Event Hub, then subscribing to the
 
 ## Prerequisites
 
-### Service principal
+### Service Principal
 
 A [Service Principal][sp] is required in order to authenticate the event source against the Azure tenant that has
 authority over the Azure Subscription to monitor. You can create a Service Principal by following the instructions at
@@ -60,7 +60,7 @@ After the Service Principal is created and assigned suitable roles, take note of
 * **Tenant ID** and **Client ID** (see _Get values for signing in_)
 * **Client secret** (see _Certificates and secrets > Create a new application secret_)
 
-### Event Hubs namespace
+### Event Hubs Namespace
 
 Follow the instructions at [Quickstart: Create an event hub using Azure portal][eventhubs-create] and create a new Event
 Hubs Namespace that will be used to send the Subscription's Activity Logs. Only the namespace needs to be created, the
@@ -68,7 +68,7 @@ event source creates Diagnostic Settings which in turn create their own Event Hu
 
 ![Event Hubs namespaces](../images/azureactivitylogs-source/eventhubs-ns.png)
 
-### Shared access policy / shared access signature (SAS)
+### Shared Access Policy / Shared Access Signature (SAS)
 
 The TriggerMesh Activity Logs event source requires a reference to a Shared Access Policy (also called [Shared Access
 Signatures][sas]) in the form of a resource ID. This policy contains a token that can be used to delegate permissions
@@ -110,7 +110,7 @@ as shown in the Azure Portal.
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/authorizationRules/{authorizationRuleName}
 ```
 
-## Deploying an instance of the Source
+## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Azure Activity Logs`.
 
@@ -147,7 +147,7 @@ within the Azure Subscription.
 
 ![Event Hub messages](../images/azureactivitylogs-source/eventhub-1.png)
 
-## Event types
+## Event Types
 
 The Azure Activity Logs event source emits events of the following type:
 

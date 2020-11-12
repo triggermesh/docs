@@ -1,4 +1,4 @@
-# Event source for AWS DynamoDB
+# Event Source for AWS DynamoDB
 
 This event source captures changes to items stored in an [AWS DynamoDB Table][ddb-docs] by reading the time-ordered
 sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].
@@ -43,7 +43,7 @@ $ aws dynamodb describe-table --table-name triggermeshtest --region us-west-2
 }
 ```
 
-### API credentials
+### API Credentials
 
 The TriggerMesh AWS DynamoDB event source authenticates calls to the AWS DynamoDB API using an [Access Key][accesskey].
 The page at this link contains instructions to create an access key when signed either as the root user or as an IAM
@@ -77,7 +77,7 @@ source to operate:
 
 ![Creating an IAM user](../images/awsdynamodb-source/iam-user-1.png)
 
-## Deploying an instance of the Source
+## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `AWS DynamoDB`.
 
@@ -101,7 +101,7 @@ DynamoDB Stream.
 
 ![Bridge status](../images/bridge-status-green.png)
 
-## Event types
+## Event Types
 
 The AWS DynamoDB event source emits events of the following types:
 
