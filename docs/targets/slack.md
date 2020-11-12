@@ -29,7 +29,7 @@ From TriggerMesh, open the Bridge creation screen and add a Target of type `Slac
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **Slack Secret**: Reference a [TriggerMesh secret][tm-secret] containing a Slack API token
+* **Slack Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing a Slack API token
 
 ![Slack Target form](../images/slack-target/bridge-create-2.png)
 
@@ -88,7 +88,6 @@ curl -v http://slack-target:8080 \
 [ce]: https://cloudevents.io/
 [slack-web-api]: https://api.slack.com/web
 [slack-apps]: https://api.slack.com/apps
-[tm-secret]: ../guides/secrets/
 
 [chat.postMessage]: https://api.slack.com/methods/chat.postMessage
 [chat.scheduleMessage]: https://api.slack.com/methods/chat.scheduleMessage

@@ -17,7 +17,7 @@ Open the Bridge creation screen and add a Target of type `Datadog`.
 
 In the Target creation form, provide a name to the event Target, and add the following information:
 
-* **API Key**: Reference to a [TriggerMesh secret][tm-secret] containing the Datadog API key from above
+* **API Key**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Datadog API key from above
 * **Metric Name Prefix**: _Optional_ prefix to prepend to the metrics being sent
 
 ![Datadog Target form](../images/datadog-target/create-bridge-2.png)
@@ -84,5 +84,4 @@ This event type does not return an event.
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]: ../guides/secrets/
 [datadog]: https://docs.datadoghq.com

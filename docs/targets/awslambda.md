@@ -20,7 +20,7 @@ Open the Bridge creation screen and add a Target of type `AWS Lambda`.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **AWS Secret**: Reference a [TriggerMesh secret][tm-secret] containing an AWS API key and Secret as discussed in the prerequisites
+* **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites
 * **AWS ARN**: The ARN that points to the AWS Lambda function to invoke
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
@@ -57,4 +57,3 @@ However, the response [CloudEvent][ce] would have the following payload:
 [ce]: https://cloudevents.io/
 [docs]: https://docs.aws.amazon.com/lambda/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]: ../guides/secrets/

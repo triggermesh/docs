@@ -37,7 +37,7 @@ In the Target creation form, give a name to the event Target and add the followi
 * **HEC Endpoint**: URL of the HTTP Event Collector (HEC). This URL varies depending on the type of Splunk installation
   (Enterprise, self-service Cloud, managed Cloud). Only the scheme, hostname, and port (optionally) are evaluated, the
   URL path is trimmed if present.
-* **HEC Token**: Reference to a [TriggerMesh secret][tm-secret] containing a token for authenticating requests against
+* **HEC Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a token for authenticating requests against
   the HEC, as described in the previous section.
 * [**Index**][index]: Name of the index to send events to. When undefined, events are sent to the default index defined
   in the HEC token's configuration.
@@ -70,4 +70,3 @@ The Splunk event target can consume events of any type.
 [hec]: https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector
 [index]: https://docs.splunk.com/Documentation/Splunk/latest/Indexer/Aboutindexesandindexers
 [docs]: https://docs.splunk.com/
-[tm-secret]: ../guides/secrets/

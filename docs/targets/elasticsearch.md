@@ -25,8 +25,8 @@ In the Target creation form, give a name to the event Target and add the followi
 * **Skip verify** : Allow skipping the server certificate verification.
 * **CA certificate** : CA certificate to be used by the event target's client, in PEM format.
 * **Username**: Elasticsearch username.
-* **Password**:  Reference a [TriggerMesh secret][tm-secret] containing a password to communicate with the Elasticsearch API, as described in the previous section.
-* **API key**: Reference a [TriggerMesh secret][tm-secret] containing an API token to communicate with the Elasticsearch API, as described in the previous section.
+* **Password**:  Reference a [TriggerMesh secret](../guides/secrets.md) containing a password to communicate with the Elasticsearch API, as described in the previous section.
+* **API key**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an API token to communicate with the Elasticsearch API, as described in the previous section.
 
 When using a self-signed certificate you will need to either inform the **CA certificate** or set the **Skip verify** field.
 
@@ -48,7 +48,4 @@ The Elasticsearch event target can consume events of any type.
 [elasticcloud]: https://www.elastic.co/cloud/
 [es]:https://www.elastic.co/elasticsearch/
 [docs]:https://www.elastic.co/guide/index.html
-
 [ce]: https://cloudevents.io
-
-[tm-secret]: ../guides/secrets.md

@@ -26,7 +26,7 @@ Open the Bridge creation screen and add a Target of type `Confluent`.
 
 In the Target creation form, provide a name to the event Target, and add the following information:
 
-* **Password Secret**: Reference to a [TriggerMesh secret][tm-secret] containing the password associated with the user accessing the Kafka cluster as described in the Prerequisites.
+* **Password Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the password associated with the user accessing the Kafka cluster as described in the Prerequisites.
 * **Bootstrap Servers**: Confluent bootstrap servers to connect to. Use `ADD MORE` button to add additional bootstrap servers if needed.
 * **Topic**: Confluent topic to publish events to.
 * **Topic replication**: Number of copies of the topic that should exist in the cluster.
@@ -57,5 +57,4 @@ CloudEvent will be sent to Confluent. Otherwise, just the event payload will be 
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]: ../guides/secrets/
 [docs]: https://docs.confluent.io/current/index.html

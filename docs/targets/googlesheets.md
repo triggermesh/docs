@@ -35,7 +35,7 @@ Open the Bridge creation screen and add a Target of type `GoogleSheets`.
 
 In the Target creation form, provide a name to the event Target, and add the following information:
 
-* **Google Service Account Secret**: Reference to a [TriggerMesh secret][tm-secret] containing a Google API key as described in the previous section.
+* **Google Service Account Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a Google API key as described in the previous section.
 * **ID**: The GoogleSheets Sheet ID to send the event payload.
 * **Default Prefix**: A string used during new sheet creation when the event does not provide one.
 
@@ -68,5 +68,4 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]: ../guides/secrets/
 [google-dashboard]: https://console.developers.google.com/apis/dashboard

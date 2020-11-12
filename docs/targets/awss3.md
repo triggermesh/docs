@@ -19,7 +19,7 @@ Open the Bridge creation screen and add a Target of type `AWS S3`.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **AWS Secret**: Reference a [TriggerMesh secret][tm-secret] containing an AWS API key and Secret as discussed in the prerequisites
+* **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites
 * **AWS ARN**: The ARN that points to the AWS S3 topic
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
@@ -65,4 +65,3 @@ The response [CloudEvent][ce] would have the following payload:
 [ce]: https://cloudevents.io/
 [docs]: https://docs.aws.amazon.com/s3/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]: ../guides/secrets/
