@@ -1,11 +1,11 @@
-# Continuous Deployment of your Functions
+# Continuous Deployment of Your Functions
 
 
 
 The Triggermesh console provides an interface called [Repositories.](https://cloud.triggermesh.io/function-triggers) Here the user is able to select a codebase, from a linked repository provider, to be continuously deployed. This codebase **must** contain a deployment manifest[^1] .
 
 
-## Register the repository
+## Register the Repository
 
 ###### The following example uses this [sample repository.](https://github.com/sebgoa/tmserverless) To follow along begin by forking the example to your repository provider.
 
@@ -15,7 +15,7 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 
 2. Select a source control provider. Upon submission of this form you will be asked to authenticate with the chosen provider.
 
-![](../images/reopwiz1.png)
+![](../images/repowiz1.png)
 
 
 3. Select the  [sample repository](https://github.com/sebgoa/tmserverless) from the drop down list.
@@ -26,11 +26,11 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 
 ![](../images/repowiz3.png)
 
-5. Once registration is complete the _Repositories_ view will contain your function project. You can disable the registration at any time by selecting the project and clicking on the _Trash Can_ icon located next to _REFRESH_
+5. Once registration is complete the _Repositories_ view will contain your function project. You can disable the registration at any time by clicking on the _Trash Can_ icon located on the right hand side of the item you would like to disable. 
 
 ![](../images/repowiz4.png)
 
-## Viewing The Deployment
+## Viewing the Deployment
 
 ***After every successful registration of a new repository a _Task_ will be created for it.***
 
@@ -43,7 +43,7 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 ![](../images/tmTaskYamlView.png)
 
 
-## Deploying on Push events
+## Deploying on Push Events
 
 * A _Task_ will execute on each push event to its respective repository. You can view the details of the _Task_ in the [_Task Runs_](https://cloud.triggermesh.io/taskruns) section
 
@@ -54,7 +54,7 @@ The Triggermesh console provides an interface called [Repositories.](https://clo
 
 ![](../images/repotaskrun.png)
 
-## Service creation
+## Service Creation
 
 * On successfull execution of the _Task_ the service will be available and you will be able to see and use the function by navigating to the [_Services_](https://cloud.triggermesh.io/services) tab.
 

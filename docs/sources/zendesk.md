@@ -1,15 +1,15 @@
-# Event source for Zendesk
+# Event Source for Zendesk
 
 This event source registers itself as a notification receiver in Zendesk in order to capture events such as ticket
 creations.
 
-## Prerequisite: API token
+## Prerequisite: API Token
 
 An API token is required in order to let the TriggerMesh Zendesk event source create a corresponding [Target][zd-target]
 and [Trigger][zd-trigger] in your Zendesk account. To create a new API token from the Zendesk Admin interface, follow
 the instructions at [Generating a new API token ][zd-token].
 
-## Deploying an instance of the Source
+## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Zendesk`.
 
@@ -35,7 +35,7 @@ successfully created and that the event source is ready to forward events from Z
 
 ![Bridge status](../images/bridge-status-green.png)
 
-## Verification of external resources
+## Verification of External Resources
 
 To verify the successful deployment of the Zendesk event source, navigate to the [Targets][zd-target] tab of the
 _Extensions_ screen in the Zendesk Admin interface, below the _Settings_ section. The event source instance should have
@@ -60,7 +60,7 @@ condition is the creation of a new ticket.
 If the Trigger is marked as `active`, it will be sending notifications to the HTTP(S) endpoint exposed by the instance
 of the TriggerMesh Zendesk event source as soon as a corresponding action happens in Zendesk.
 
-## Event types
+## Event Types
 
 The Zendesk event source emits events of the following type:
 
