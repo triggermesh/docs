@@ -11,6 +11,9 @@ This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS S3 end
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the AWS API specific secrets.
 
+The ARN for the S3 bucket must include the account number and region of a
+pre-defined [access point][aws-s3-ap]
+
 ## Deploying an Instance of the Target
 
 Open the Bridge creation screen and add a Target of type `AWS S3`.
@@ -64,4 +67,5 @@ The response [CloudEvent][ce] would have the following payload:
 
 [ce]: https://cloudevents.io/
 [docs]: https://docs.aws.amazon.com/s3/
+[aws-s3-ap]: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
