@@ -31,7 +31,7 @@ Save the target, fill the rest of the bridge components and press `Submit Bridge
 
 ## Trigger Configuration
 
-Responses from the remote endpoint will generate new [CloudEvents][ce] that will be returned to TriggerMesh. Most probably those response events should not be re-processed by the HTTP Target.
+Responses from the remote endpoint will generate new [CloudEvents][ce] that will be returned to TriggerMesh. Those response events should not be re-processed by the HTTP Target.
 
 It is important that the Trigger that subscribes the HTTP Target to the Broker configure the appropriate filters to avoid these loops.
 
