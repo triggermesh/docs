@@ -33,7 +33,7 @@ Save the target, fill the rest of the bridge components and press `Submit Bridge
 
 Responses from the remote endpoint will generate new [CloudEvents][ce] that will be returned to TriggerMesh. Most probably those response events should not be re-processed by the HTTP Target.
 
-It is important that the Trigger that subscribes the HTTP Target to the Broker configure the appropiate filters to avoid these loops.
+It is important that the Trigger that subscribes the HTTP Target to the Broker configure the appropriate filters to avoid these loops.
 
 As an example:
 
@@ -52,7 +52,7 @@ There is no requirement regarding the type header value, any cloud event contain
 
 | Field  | Description   | Example             |
 |---          |---            |---                  |
-| query_string | Key/value pairs formated as query string   | `name=jane&lastname=doe`  |
+| query_string | Key/value pairs formatted as query string   | `name=jane&lastname=doe`  |
 | path_suffix      | Will be appended to the target's path   | `apparel/tshirts`   |
 | body     | String to be set as the request body   | `{\"size\":\"L\",\"color\":\"beige\"}`  |
 
