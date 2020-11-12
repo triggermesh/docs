@@ -22,7 +22,7 @@ Open the Bridge creation screen and add a Target of type `Hasura`.
 
 In the Target creation form, provide a name to the event Target, and add the following information:
 
-* **Admin token for Hasura**: Reference to a [TriggerMesh secret][tm-secret] containing an [admin secret][hasura-admin] or user [JWT token][hasural-jwt] to communicate with Haura as described in the prerequisites.
+* **Admin token for Hasura**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing an [admin secret][hasura-admin] or user [JWT token][hasural-jwt] to communicate with Haura as described in the prerequisites.
 * **Hasura Server URL**: URL endpoint to communicate with Hasura
 * **Default Role**: Specify the Hasura user role to use when querying Hasura
 * **Pre-canned queries**: A key/value pair of predefined queries available for [CloudEvents][ce] to specify.
@@ -72,7 +72,6 @@ The response event will have the `ce-type` attribute set to `org.graphql.query.r
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]:https://docs.triggermesh.io/guides/secrets/
 
 [graphql]: https://graphql.org/
 [hasura]: https://hasura.io

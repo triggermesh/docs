@@ -17,7 +17,7 @@ In the Target creation form, provide a name to the event Target, and add the fol
 * **Default Ticket Subject**: An optional ticket subject fallback if one is not provided in an incoming event.
 * **Zendesk Subdomain**: Name of the Zendesk [Subdomain][zd-subdom], without the `zendesk.com` domain or `https://` scheme.
 * **Zendesk Email**: Email address associated with the Zendesk account.
-* **Zendesk API Token**: Reference to a [TriggerMesh secret][tm-secret] containing a [token][zd-token] to communicate with the Zendesk API, as described in the previous section.
+* **Zendesk API Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a [token][zd-token] to communicate with the Zendesk API, as described in the previous section.
 
 ![Zendesk Target form](../images/zendesk-target/create-bridge-2.png)
 
@@ -90,7 +90,6 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]:https://docs.triggermesh.io/guides/secrets/
 
 [docs]: https://developer.zendesk.com/rest_api
 

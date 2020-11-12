@@ -20,7 +20,7 @@ In the Target creation form, provide a name for the event Target, and add the fo
 * **Default recipient name**: Define a default name to be assigned in the `To:` section of the email to be created, if the received event does not contain a **FromEmail** property.
 * **Default recipient email**: Define a default 'email address' to be assigned in the `To:` section of the email to be created, if the received event does not contain a **ToEmail** property.
 * **Default subject**: Define a default subject to be assigned to the outgoing email to be created, if the received event does not contain a **subject** property.
-* **API Secret**: Reference to a [TriggerMesh secret][tm-secret] containing an [API token][api] for authenticating requests
+* **API Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing an [API token][api] for authenticating requests
 
 **Note:** If there is not a default value specified for all of the optional fields, the event received by that deployment *MUST* contain all of the information noted in the [Event Types](#event-types), save **Message**, or the Target **will** **fail**
 
@@ -72,5 +72,4 @@ Validation: valid Context Attributes, specversion: 1.0 type: dev.knative.samples
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]:https://docs.triggermesh.io/guides/secrets/
 [docs]: https://sendgrid.com/docs/

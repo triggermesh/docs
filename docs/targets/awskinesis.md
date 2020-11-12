@@ -22,7 +22,7 @@ Open the Bridge creation screen and add a Target of type `AWS Kinesis`.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **AWS Secret**: Reference a [TriggerMesh secret][tm-secret] containing an AWS API key and Secret as discussed in the prerequisites
+* **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites
 * **AWS ARN**: The ARN that points to the AWS Kinesis stream
 * **Partition**: The Kinesis partition to publish the events to
 

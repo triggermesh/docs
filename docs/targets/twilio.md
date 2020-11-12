@@ -19,8 +19,8 @@ In the Target creation form, give a name to the event Target and add the followi
 * **Default source phone number**: Sending phone number, usually configured to the [phone number][pn] purchased at
   Twilio. (Optional)
 * **Default destination**: Phone number to send messages to by default. (Optional)
-* **SID Secret**: Reference to a [TriggerMesh secret][tm-secret] containing the [SID of the Twilio account][sid].
-* **Token Secret**: Reference to a [TriggerMesh secret][tm-secret] containing an [API Access token][token] for
+* **SID Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the [SID of the Twilio account][sid].
+* **Token Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing an [API Access token][token] for
   authenticating requests against the Twilio API.
 
 Both the **Default source phone number** and **Default destination** configurations may be overridden by any
@@ -56,4 +56,3 @@ the [CloudEvent][ce] with the following properties:
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
-[tm-secret]: https://docs.triggermesh.io/guides/secrets/
