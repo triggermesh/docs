@@ -24,7 +24,7 @@ Create an instance of the HTTP Target at TriggerMesh as part of a Bridge.
 - `CA Certificate`  CA certificate configured for TLS connection.
 - `Skip Verify` skips remote server TLS certificate verification.
 - `Username` when using basic authentication.
-- `Password` when using basic authentication.
+- `Password` when using basic authentication needs to reference the aforementioned password secret.
 - `Headers` is a set of key/value pairs that will be set withing the HTTP request.
 
 Save the target, fill the rest of the bridge components and press `Submit Bridge`.
