@@ -10,7 +10,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
     * [AWS SQS](./awssqs.md): Forward event payload to AWS Simple Queueing Service (SQS).
     * [AWS Kinesis](./awskinesis.md): Forward event payload to AWS Kinesis.
     * [AWS EventBridge](./awseventbridge.md): Forward arbitrary events to AWS EventBridge.
-<!-- * [Confluent](./confluent.md): Forward events to Confluent Kafka. -->
+* [Confluent](./confluent.md): Forward events to Confluent Kafka.
 * [Datadog](./datadog.md): Forward event payload to Datadog.
 * [Elasticsearch](./elasticsearch.md): Send events to Elasticsarch to be indexed.
 * [Google Sheets](./googlesheets.md): Appends events to a Google Sheet row.
