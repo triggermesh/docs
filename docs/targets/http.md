@@ -27,7 +27,7 @@ Create an instance of the HTTP Target at TriggerMesh as part of a Bridge.
 - `Password` when using basic authentication needs to reference the aforementioned password secret.
 - `Headers` is a set of key/value pairs that will be set withing the HTTP request.
 
-Save the target, fill the rest of the bridge components and press `Submit Bridge`.
+Save the target, fill the rest of the bridge components, and press `Submit Bridge`.
 
 ## Trigger Configuration
 
@@ -41,20 +41,20 @@ As an example:
 - HTTP Target is interested in events whose type is `calendar.pto.request`.
 - The response from workday will generate a CloudEvent type `workday.pto.response` and source `workday.instance1`
 
-Trigger should be configured to avoid feeding these responses into the HTTP Target, a filter key `type` and value `calendar.pto.request` would provide such protection
+Trigger should be configured to avoid feeding these responses into the HTTP Target. A filter key `type` and value `calendar.pto.request` would provide such protection.
 
 ## Events Types
 
 The HTTP Target expects a cloud event request that complements the Target configured values.
 
-There is no requirement regarding the type header value, any cloud event containing the expected data is valid to process. Data needs to be a JSON structure that might contain these optional fields:
+There is no requirement regarding the type header value. Any cloud event containing the expected data is valid to process. Data needs to be a JSON structure that might contain these optional fields:
 
 
-| Field  | Description   | Example             |
-|---          |---            |---                  |
-| query_string | Key/value pairs formatted as query string   | `name=jane&lastname=doe`  |
-| path_suffix      | Will be appended to the target's path   | `apparel/tshirts`   |
-| body     | String to be set as the request body   | `{\"size\":\"L\",\"color\":\"beige\"}`  |
+| Field | Description | Example |
+|--- |--- |--- |
+| query_string | Key/value pairs formatted as query string | `name=jane&lastname=doe` |
+| path_suffix      | Will be appended to the target's path | `apparel/tshirts` |
+| body     | String to be set as the request body | `{\"size\":\"L\",\"color\":\"beige\"}` |
 
 Cloud Event data examples:
 
