@@ -23,7 +23,7 @@ Open the Bridge creation screen and add a Target of type `AWS S3`.
 In the Target creation form, provide a name for the event Target, and add the following information:
 
 * **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites
-* **AWS ARN**: The ARN that points to the AWS S3 topic
+* **AWS ARN**: The ARN that points to the AWS S3 bucket
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
 to S3 bucket. By default, this is disabled which means the event payload
