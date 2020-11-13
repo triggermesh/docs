@@ -4,7 +4,7 @@ This event target does programatic transformations on received [CloudEvents][ce]
 
 ## Prerequisites
 
-Basic knoledge of Javascript ES5 is required. Please note there are limitations to the interpreter:
+Basic knowledge of JavaScript ES5 is required. Please note there are limitations to the interpreter:
 
 - ES6 is not supported.
 - Regular expressions are not fully compatible with ES5 specification.
