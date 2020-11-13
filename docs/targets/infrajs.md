@@ -173,3 +173,6 @@ function handle(input) {
 
 [http]: ./http.md
 [ce]: https://cloudevents.io
+[ce-json]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
+[ce-context-attributes]: https://github.com/cloudevents/spec/blob/v1.0/spec.md#context-attributes
+[ce-data]: https://github.com/cloudevents/spec/blob/v1.0/spec.md#event-data
