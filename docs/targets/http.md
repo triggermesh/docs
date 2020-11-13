@@ -6,7 +6,7 @@ This event target receives [CloudEvents][ce] and turns them into HTTP requests t
 
 The HTTP event target sends requests to arbitrary URLs and wraps responses in CloudEvents back to the caller. HTTP endpoints that are unauthenticated, use basic authentication or use custom header values for authentication, can be integrated using this target.
 
-Responses from external HTTP endpoints are converted into [CloudEvents][ce] and sent as a reply to the TriggerMesh Broker/Channel. It is important that the HTTP target filters received events and cares about response event type and event source to avoid loops where those responses might end up being processed by the HTTP Target.
+Responses from external HTTP endpoints are converted into CloudEvents and sent as a reply to the TriggerMesh Broker/Channel. It is important that the HTTP target filters received events and cares about response event type and event source to avoid loops where those responses might end up being processed by the HTTP Target.
 
 Requests from this HTTP target will verify TLS certificates from the remote server if present. If the CA certificate at the server is self-signed, the public certificate needs to be added to the configuration, or alternatively mark the `Skip Verify` option.
 
@@ -31,7 +31,7 @@ Save the target, fill the rest of the bridge components, and press `Submit Bridg
 
 ## Trigger Configuration
 
-Responses from the remote endpoint will generate new [CloudEvents][ce] that will be returned to TriggerMesh. Those response events should not be re-processed by the HTTP Target.
+Responses from the remote endpoint will generate new CloudEvents that will be returned to TriggerMesh. Those response events should not be re-processed by the HTTP Target.
 
 It is important that the Trigger that subscribes the HTTP Target to the Broker configure the appropriate filters to avoid these loops.
 
@@ -45,9 +45,9 @@ Trigger should be configured to avoid feeding these responses into the HTTP Targ
 
 ## Events Types
 
-The HTTP Target expects a cloud event request that complements the Target configured values.
+The HTTP Target expects a CloudEvent request that complements the Target configured values.
 
-There is no requirement regarding the type header value. Any cloud event containing the expected data is valid to process. Data needs to be a JSON structure that might contain these optional fields:
+There is no requirement regarding the type header value. Any CloudEvent containing the expected data is valid to process. Data needs to be a JSON structure that might contain these optional fields:
 
 
 | Field | Description | Example |
@@ -56,7 +56,7 @@ There is no requirement regarding the type header value. Any cloud event contain
 | path_suffix      | Will be appended to the target's path | `apparel/tshirts` |
 | body     | String to be set as the request body | `{\"size\":\"L\",\"color\":\"beige\"}` |
 
-Cloud Event data examples:
+CloudEvent data examples:
 
 ```json
 {"path_suffix":"world/italy/cities", "query_string":"top=10&format=csv"}
@@ -67,6 +67,5 @@ If body is a JSON structure, it will need to be _stringified_
 ```json
 {"body": "{\"records\":[{\"value\":{\"this\":{\"is\": \"sparta\"}}}]}"}
 ```
-
 
 [ce]: https://cloudevents.io
