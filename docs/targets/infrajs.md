@@ -153,4 +153,23 @@ function handle(input) {
 }
 ```
 
+### Using built-in functions
+
+Javascript core functions (ES5) can be used.
+In this example we are preparing a JSON payload to be sent to the [HTTP Target][http], which requires a stringified `body` element.
+
+```js
+function handle(input) {
+  body = {"search": [{"key": input.data.key1}]}
+
+  event = {
+    type: "searchservice.request",
+    "data": {"body": JSON.stringify(body)}
+  }
+
+  return event
+}
+```
+
+[http]: ./http.md
 [ce]: https://cloudevents.io
