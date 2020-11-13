@@ -1,6 +1,6 @@
 # Event Target for HTTP
 
-This event target receives [CloudEvents][ce] and turns them into HTTP request that consume external services.
+This event target receives [CloudEvents][ce] and turns them into HTTP requests that consume external services.
 
 ## Prerequisites
 
