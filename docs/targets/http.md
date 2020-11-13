@@ -8,7 +8,7 @@ The HTTP event target sends requests to arbitrary URLs and wraps responses in Cl
 
 Responses from external HTTP endpoints are converted into [CloudEvents][ce] and sent as a reply to the TriggerMesh Broker/Channel. It is important that the HTTP target filters received events and cares about response event type and event source to avoid loops where those responses might end up being processed by the HTTP Target.
 
-Requests from this HTTP target will verify TLS certificates from the remote server if present. If the CA certificate at the server is self-signed, the public certificate needs to be added to the configuration, or alternatively mark the skip verify option.
+Requests from this HTTP target will verify TLS certificates from the remote server if present. If the CA certificate at the server is self-signed, the public certificate needs to be added to the configuration, or alternatively mark the `Skip Verify` option.
 
 If the remote endpoint requires basic authentication, the password needs to be created as a secret.
 
