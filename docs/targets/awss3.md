@@ -48,7 +48,7 @@ For more information about using AWS S3, please refer to the [AWS documentation]
 Events of this type will store the event payload into an s3 bucket.
 
 The S3 bucket key used to store the event is defined by the `ce-subject` attribute.
-However, if `ce-subject` is not set, the default key will be `**ce-type**/**ce-source**/**ce-time**`.
+However, if `ce-subject` is not set, the default key will be: **ce-type**/**ce-source**/**ce-time**.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
@@ -74,7 +74,7 @@ an exception for the `io.triggermesh.awss3.object.put`, documented above, where
 it will store the payload body regardless of the `Discard CloudEvent context attributes` setting.
 
 The S3 bucket key used to store the event is defined by the `ce-subject` attribute.
-However, if `ce-subject` is not set, the default key will be `**ce-type**/**ce-source**/**ce-time**`.
+However, if `ce-subject` is not set, the default key will be: **ce-type**/**ce-source**/**ce-time**.
 
 The response [CloudEvent][ce] would have the following payload:
 
