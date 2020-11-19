@@ -77,6 +77,12 @@ A ready status on the main _Bridges_ page indicates that the event source is rea
 
 ![Bridge status](../images/awscognitouserpool-source/bridge-status.png)
 
+## Event Types
+
+The AWS Cognito UserPool event source emits events of the following type:
+
+* `com.amazon.cognito-idp.sync_trigger`
+
 [cup-docs]: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html
 [cup-getting-started]: https://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-with-cognito-user-pools.html
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
