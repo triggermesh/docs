@@ -43,26 +43,32 @@ For more information about using AWS S3, please refer to the [AWS documentation]
 
 ## Event Types
 
-### io.triggermesh.awss3.object.put
-
 Events of this type will store the event payload into an s3 bucket.
+
+The AWS S3 Target leaves the [CloudEvent][ce] type definition to the discretion of
+the implementer given the flexible nature of what can be stored in S3.  There is
+an exception if the `io.triggermesh.awss3.object.put` type is used where the target
+will store the payload body regardless of the `Discard CloudEvent context attributes` setting.
+
+The S3 bucket key used to store the event is defined by the `ce-subject` attribute.
+If `ce-subject` is not set, the default key will be: **ce-type**/**ce-source**/**ce-time**.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 | Name | Value | Description |
 |---|---|---|
-|**ce-type**|io.triggermesh.awss3.object.put|Event type denoting the s3 put request|
+|**ce-type**|io.triggermesh.awss3.object.put or user defined|Event type denoting the s3 put request|
 |**ce-subject**|string|The key to use with the assigned bucket for the Target|
 |**body**|[JSON][ce-jsonformat]|The data payload to store|
+
 
 The response [CloudEvent][ce] would have the following payload:
 
 | Name | Value | Description |
 |---|---|---|
-|**ce-type**|io.triggermesh.targets.aws.s3.result|Denotes a response payload from S3|
-|**ce-source**|`arn:aws:s3:...`|The S3 ARN value as configured by the target|
-|**body**|[JSON][ce-jsonformat]|A JSON response from the Target invocation|
-
+|**ce-type**|io.triggermesh.targets.aws.s3.result|Denotes a response payload from the S3 put request|
+|**ce-source**|`arn:aws:s3:...`|The S3's bucket ARN value as configured by the target|
+|**body**|[JSON][ce-jsonformat]|A JSON response from the Target invocation with the Etag associated with the request|
 
 
 [ce]: https://cloudevents.io/
