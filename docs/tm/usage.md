@@ -5,11 +5,11 @@ Deploy service from Docker image
 tm deploy service foo -f gcr.io/google-samples/hello-app:1.0 --wait
 ```
 
-If you have Dockerfile for your service, you can use Kaniko buildtemplate to deploy it
+If you have Dockerfile for your service, you can use Kaniko runtime to deploy it
 ```
 tm deploy service foobar \
     -f https://github.com/knative/docs \
-    --build-template https://raw.githubusercontent.com/triggermesh/build-templates/master/kaniko/kaniko.yaml \
+    --runtime https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/kaniko/runtime.yaml \
     --build-argument DIRECTORY=docs/serving/samples/hello-world/helloworld-go \
     --wait
 ```
@@ -18,7 +18,7 @@ or deploy service straight from Go source using OpenFaaS runtime
 ```
 tm deploy service bar \
     -f https://github.com/golang/example \
-    --build-template https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/go/openfaas-go-runtime.yaml \
+    --runtime https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/go/openfaas-go-runtime.yaml \
     --build-argument DIRECTORY=hello \
     --wait
 ```
@@ -61,10 +61,10 @@ func main() {
 EOF
 ```
 
-Deploy function using Knative lambda buildtemplate with Go runtime
+Deploy function using Knative Lambda Go runtime
 
 ```
-tm deploy service go-lambda -f . --build-template https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/go-1.x/buildtemplate.yaml --wait
+tm deploy service go-lambda -f . --runtime https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/go/runtime.yaml --wait
 ```
 
 Lambda function available via http events
