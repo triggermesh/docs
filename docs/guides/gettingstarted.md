@@ -11,7 +11,7 @@ Click on the _Create Service_ button on the bottom on the home page of the conso
 
 Click on _Create Service_ and select _from image_
 
-![tm service dash](../images/tmCreateService.png)
+![tm service dash](../images/tmCreateServiceDropdown.png)
 
 
 
