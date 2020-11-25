@@ -2,6 +2,9 @@ site_name: TriggerMesh
 repo_url: https://github.com/triggermesh/docs
 google_analytics: ['UA-127409524-1', 'docs.triggermesh.io']
 extra_css: [extra.css]
+extra_javascript: [extra.js]
+plugins:
+  - search
 nav:
     - Home: index.md
     - Guides:
@@ -22,7 +25,7 @@ nav:
     - Cloud: https://cloud.triggermesh.io
     - About: about.md
 theme:
-  name: mkdocs
+  name: "mkdocs"
   custom_dir: "custom_theme/"
 
 markdown_extensions:
