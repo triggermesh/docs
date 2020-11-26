@@ -18,7 +18,7 @@ On OSX use the TriggerMesh tap
 
 ```
 brew tap triggermesh/tap
-brew install triggermesh
+brew install tm
 which tm
 ```
 
