@@ -4,7 +4,7 @@ The TriggerMesh console provides a central location to view and store sensitive 
 
 From the _Secrets_ view. Select `Create New`. Selecting the button here will give you a choice to create various secrets (e.g AWS, GitHub, GitLab, GCP)
 
-![](../images/addSecretView.png)
+![](../images/addNewSecretView.png)
 
 
 ## AWS API Keys
