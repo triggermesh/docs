@@ -1,6 +1,6 @@
 # Event Source for AWS SQS
 
-The event source captures messages sent to a [AWS SQS queue](sqs-docs) and sends them as CloudEvents to an event sink.
+The event source captures messages sent to a [AWS SQS queue][sqs-docs] and sends them as CloudEvents to an event sink.
 
 ## Prerequisites
 
@@ -82,6 +82,12 @@ After clicking the `Save` button, you will be taken back to the Bridge editor. P
 A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the AWS SQS queue.
 
 ![Bridge status](../images/awssqs-source/bridge-deployed.png)
+
+## Event Types
+
+The AWS SQS event source emits events of the following type:
+
+* `com.amazon.sqs.message`
 
 [doc-sqs]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
 [sqs-getting-started]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.html

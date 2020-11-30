@@ -11,6 +11,7 @@ The following is a list of Triggermesh event Sources, some available as open sou
 	* [AWS Cognito User Pool](./awscognitouserpool.md): Capture notifications from an AWS Cognito User Pool.
 	* [AWS DynamoDB](./awsdynamodb.md): Capture activity from an AWS DynamoDB table.
 	* [AWS Kinesis](./awskinesis.md): Forward messages from an AWS Kinesis Data Stream.
+	* [AWS SNS](./awssns.md): Subscribe to messages from a AWS SNS topic.
 	* [AWS SQS](./awssqs.md): Capture messages from an AWS SQS queue.
 * [HTTP](./http.md): Generic HTTP integration.
 * [OCIMetrics](./ocimetrics.md): Oracle Cloud Infrastructure Metrics

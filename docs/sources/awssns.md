@@ -1,126 +1,102 @@
-# AWS SNS event source for Knative Eventing
+# Event Source for AWS SNS
 
-This event source subscribes to messages from a AWS SNS topic and sends them as CloudEvents to an arbitrary event sink.
-
-<!--
-This source expects external-dns of some flavor (https://github.com/kubernetes-sigs/external-dns) to be installed in the
-k8s cluster. If you look at the deployment.yaml file, you'll see that a service is created that has a hostname
-annotation. This hostname must be of the form `sns.$TOPIC_NAME.$CHANNEL_NAME.$NAMESPACE.$DOMAIN`. Domain can be anything
-you like. I used a subdomain in my personal env `sources.rsmitty.cloud`. These same vars are passed into the SNS
-deployment as env variables.
-
-Upon starting, a background task is launched before running the webserver. This background task attempts to subscribe to
-the SNS topic mentioned. It will wait until the hostname above resolves in DNS before attempting to do so. Once
-subscription has occurred, events are pushed like other sources.
--->
-
-## Contents
-
-- [AWS SNS event source for Knative Eventing](#aws-sns-event-source-for-knative-eventing)
-  - [Contents](#contents)
-  - [Prerequisites](#prerequisites)
-  - [Deployment to Kubernetes](#deployment-to-kubernetes)
-    - [As a AWSSNSSource object](#as-a-awssnssource-object)
-    - [As a ContainerSource object](#as-a-containersource-object)
-    - [As a Deployment object bound by a SinkBinding](#as-a-deployment-object-bound-by-a-sinkbinding)
-  - [Running locally](#running-locally)
-    - [In the shell](#in-the-shell)
-    - [In a Docker container](#in-a-docker-container)
+This event source subscribes to messages from a [AWS SNS topic][sns-docs] and sends them as CloudEvents to an event sink.
 
 ## Prerequisites
 
-* Register an AWS account
-* Create an [Access Key][doc-accesskey] in your AWS IAM dashboard.
-* Create a [SNS topic][doc-sns].
-* Create a [SNS subscription][doc-sns].
+### SNS Topic (standard)
 
-## Deployment to Kubernetes
+If you don't already have an AWS SNS standard topic, create one by following the instructions in the [Getting started with Amazon SNS][sns-getting-started] guide.
 
-The _AWS SNS event source_ can be deployed to Kubernetes in different manners:
+### Amazon Resource Name (ARN)
 
-* As an `AWSSNSSource` object, to a cluster where the TriggerMesh _AWS Sources Controller_ is running.
-* As a Knative `ContainerSource`, to any cluster running Knative Eventing.
+A fully qualified ARN is required to uniquely identify the AWS SNS topic.
 
-> :information_source: The sample manifests below reference AWS credentials (Access Key) from a Kubernetes Secret object
-> called `awscreds`. This Secret can be generated with the following command:
->
-> ```console
-> $ kubectl -n <my_namespace> create secret generic awscreds \
->   --from-literal=aws_access_key_id=<my_key_id> \
->   --from-literal=aws_secret_access_key=<my_secret_key>
-> ```
->
-> Alternatively, credentials can be used as literal strings instead of references to Kubernetes Secrets by replacing
-> `valueFrom` attributes with `value` inside API objects' manifests.
+![SNS topic](../images/awssns-source/sns-topic.png)
 
-### As a AWSSNSSource object
+As shown in the above screenshot, you can obtain the ARN of a SNS topic from the AWS console. It typically has the following format:
 
-Copy the sample manifest from `config/samples/awssnssource.yaml` and replace the pre-filled `spec` attributes with the
-values corresponding to your _AWS SNS_ topic. Then, create that `AWSSNSSource` object in your Kubernetes cluster:
+```
+arn:aws:sns:{awsRegion}:{awsAccountId}:{topicName}
+```
+
+Alternatively you can also use the [AWS CLI][aws-cli]. The following command retrieves the ARN of a SNS topic named `MyQueue` in the `us-west-2` region.
 
 ```console
-$ kubectl -n <my_namespace> create -f my-awssnssource.yaml
+$ aws --region us-west-2 sns list-topics
+{
+    "Topics": [
+        ...
+        {
+            "TopicArn": "arn:aws:sns:us-west-2:123456789012:MyTopic"
+        },
+        ...
+    ]
+}
 ```
 
-### As a ContainerSource object
+### API Credentials
 
-Copy the sample manifest from `config/samples/awssns-containersource.yaml` and replace the pre-filled environment
-variables under `env` with the values corresponding to your _AWS SNS_ topic. Then, create that `ContainerSource` object
-in your Kubernetes cluster:
+The TriggerMesh AWS SNS event source authenticates calls to the AWS SNS API using an [Access Key][accesskey]. The page at this link contains instructions to create an access key when signed either as the root user or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance of the event source.
 
-```console
-$ kubectl -n <my_namespace> create -f my-awssns-containersource.yaml
+It is considered a [good practice][iam-bestpractices] to create dedicated users with restricted privileges in order to programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching [IAM Policies][iam-policies] to it.
+
+As an example, the following policy contains the permissions required by the TriggerMesh AWS SNS event source to read and delete messages from any topic linked to the AWS account:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AWSSNSSourceReceiveAdapter",
+            "Effect": "Allow",
+            "Action": [
+                "sns:Subscribe",
+                "sns:ConfirmSubscription"
+                "sns:Unsubscribe",
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
-### As a Deployment object bound by a SinkBinding
+![Creating an IAM user](../images/awssns-source/sns-user-policy.png)
 
-Copy the sample manifest from `config/samples/awssns-sinkbinding.yaml` and replace the pre-filled environment variables
-under `env` with the values corresponding to your _AWS SNS_ topic. Then, create the `Deployment` and `SinkBinding`
-objects in your Kubernetes cluster:
+## Deploying an Instance of the Source
 
-```console
-$ kubectl -n <my_namespace> create -f my-awssns-sinkbinding.yaml
-```
+Open the Bridge creation screen and add a source of type `AWS SNS`.
 
-## Running locally
+![Adding an AWS SNS source](../images/awssns-source/bridge-form-sns-source.png)
 
-Running the event source on your local machine can be convenient for development purposes.
+In the Source creation form, give a name to the event source and add the following information:
 
-### In the shell
+* [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret Access Key to communicate with the AWS SNS API, as described in the previous sections.
+* [**AWS ARN**][arn]: ARN of the SNS topic, as described in the previous sections.
+* [**DeliveryPolicy**][sns-delivery-policy]: Delivery policy to define how Amazon SNS retries the delivery of messages to HTTP/S endpoints.
 
-Ensure the following environment variables are exported to your current shell's environment:
+![AWS SNS source form](../images/awssns-source/bridge-form-sns-source-form.png)
 
-```sh
-export ARN=<arn_of_my_sns_topic>
-export AWS_ACCESS_KEY_ID=<my_key_id>
-export AWS_SECRET_ACCESS_KEY=<my_secret_key>
-export NAME=my-awssnssource
-export NAMESPACE=default
-export K_LOGGING_CONFIG=''
-export K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awssnssource", "configMap":{}}'
-```
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining components to the Bridge, then submit it.
 
-Then, run the event source with:
+![Bridge overview](../images/awssns-source/bridge-form-target.png)
 
-```console
-$ go run ./cmd/awssnssource
-```
+A ready status on the main _Bridges_ page indicates that the event source is ready to receive messages from the AWS SNS topic.
 
-### In a Docker container
+![Bridge status](../images/awssns-source/bridge-deployed.png)
 
-Using one of TriggerMesh's release images:
+## Event Types
 
-```console
-$ docker run --rm \
-  -e ARN=<arn_of_my_sns_topic> \
-  -e AWS_ACCESS_KEY_ID=<my_key_id> \
-  -e AWS_SECRET_ACCESS_KEY=<my_secret_key> \
-  -e NAME=my-awssnssource \
-  -e NAMESPACE=default \
-  -e K_LOGGING_CONFIG='' \
-  -e K_METRICS_CONFIG='{"domain":"triggermesh.io/sources", "component":"awssnssource", "configMap":{}}' \
-  gcr.io/triggermesh/awssnssource:latest
-```
+The AWS SNS event source emits events of the following type:
 
-[doc-accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
-[doc-sns-topic]: https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html
+* `com.amazon.sns.notification`
+
+[sns-docs]: https://docs.aws.amazon.com/sns/latest/dg/welcome.html
+[sns-getting-started]: https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html
+[aws-cli]: https://aws.amazon.com/cli/
+[accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
+[iam-bestpractices]: https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html#iam-user-access-keys
+[iam-policies]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+[arn]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsns.html#amazonsns-resources-for-iam-policies
+[tm-secret]: ../guides/secrets.md
+[sns-delivery-policy]: https://docs.aws.amazon.com/sns/latest/dg/sns-message-delivery-retries.html#creating-delivery-policy
