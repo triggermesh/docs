@@ -2,6 +2,7 @@ site_name: TriggerMesh
 repo_url: https://github.com/triggermesh/docs
 google_analytics: ['UA-127409524-1', 'docs.triggermesh.io']
 extra_css: [extra.css]
+extra_javascript: [extra.js]
 nav:
     - Home: index.md
     - Guides:
