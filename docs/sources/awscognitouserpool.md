@@ -23,7 +23,7 @@ arn:aws:cognito-idp:{awsRegion}:{awsAccountId}:userpool/{poolId}
 Alternatively you can also use the [AWS CLI][aws-cli]. The following command retrieves the ARN of a User Pool in the `us-west-2` region which has the pool id `us-west-2_fak3p001B`.
 
 ```console
-$ aws --region us-west-2 cognito-idp  describe-user-pool --user-pool-id us-west-2_fak3p001B
+$ aws --region us-west-2 cognito-idp describe-user-pool --user-pool-id us-west-2_fak3p001B
 {
     "UserPool": {
         "Id": "us-west-2_fak3p001B",
@@ -49,7 +49,10 @@ As an example, the following policy contains the permissions required by the Tri
         {
             "Sid": "AWSCognitoUserPoolSourceReceiveAdapter",
             "Effect": "Allow",
-            "Action": "cognito-idp:ListUsers",
+            "Action": [
+                "cognito-idp:DescribeUserPool",
+                "cognito-idp:ListUsers"
+            ],
             "Resource": "arn:aws:cognito-idp:*:*:userpool/*"
         }
     ]
