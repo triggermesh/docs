@@ -50,10 +50,16 @@ As an example, the following policy contains the permissions required by the Tri
         {
             "Sid": "AWSSNSSourceReceiveAdapter",
             "Effect": "Allow",
+            "Action": "sns:ConfirmSubscription",
+            "Resource": "*"
+        },
+        {
+            "Sid": "AWSSNSSourceReconciler",
+            "Effect": "Allow",
             "Action": [
+                "sns:ListSubscriptionsByTopic",
                 "sns:Subscribe",
-                "sns:ConfirmSubscription"
-                "sns:Unsubscribe",
+                "sns:Unsubscribe"
             ],
             "Resource": "*"
         }
