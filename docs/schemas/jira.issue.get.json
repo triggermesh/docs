@@ -1,0 +1,55 @@
+{
+ "$schema": "http://json-schema.org/draft-04/schema#",
+ "$ref": "#/definitions/IssueGetRequest",
+ "definitions": {
+  "GetQueryOptions": {
+   "required": [
+    "Fields",
+    "Expand",
+    "Properties",
+    "FieldsByKeys",
+    "UpdateHistory",
+    "ProjectKeys"
+   ],
+   "properties": {
+    "Fields": {
+     "type": "string"
+    },
+    "Expand": {
+     "type": "string"
+    },
+    "Properties": {
+     "type": "string"
+    },
+    "FieldsByKeys": {
+     "type": "boolean"
+    },
+    "UpdateHistory": {
+     "type": "boolean"
+    },
+    "ProjectKeys": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "IssueGetRequest": {
+   "required": [
+    "id",
+    "options"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "options": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/GetQueryOptions"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  }
+ }
+}
