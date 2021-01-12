@@ -5,13 +5,13 @@ This event Target receives [CloudEvents][ce] and invokes a Jira endpoint.
 ## Prerequisites
 
 1. Jira instance or Atlassian cloud tenant.
-1. User API token
+1. User API token.
 
 To create the user API token at Jira:
 
 - Open the Account settings > Security > [Create and manage API Tokens][api-tokens]
 - Press `Create API token` and fill the token name.
-- Copy the API token and create a Jira token at Triggermesh.
+- Copy the API token and create a secret for the Jira token at Triggermesh.
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about how to add the secrets.
 
@@ -36,13 +36,13 @@ After submitting the bridge, and allowing some configuration time, a green check
 
 The Jira target accepts these event types:
 
-- `com.jira.issue/create`
+- `com.jira.issue.create`
 
 The Jira target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formated as defined at [this schema](../schemas/jira.issue.json)
 
 Reply contains a a partially filled Jira issue with updated data.
 
-- `com.jira.issue/get`
+- `com.jira.issue.get`
 
 The Jira target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira Issue get request  JSON formated as defined at [this schema](../schemas/jira.issue.get.json)
 
@@ -81,7 +81,7 @@ List assignable users to a project `PR1`
 
 Create an issue
 
-* event type: `com.jira.issue/create`
+* event type: `com.jira.issue.create`
 * data:
 ```json
 {
@@ -105,7 +105,7 @@ Create an issue
 
 Retrieve an issue:
 
-* event type: `com.jira.issue/get`
+* event type: `com.jira.issue.get`
 * data:
 ```json
 {"id":"IP-9"}
