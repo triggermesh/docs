@@ -36,19 +36,19 @@ After submitting the bridge, and allowing some configuration time, a green check
 
 The Jira target accepts these event types:
 
-- `com.jira.issue.create`
+- `io.triggermesh.jira.issue.create`
 
 The Jira target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formated as defined at [this schema](../schemas/jira.issue.json)
 
 Reply contains a a partially filled Jira issue with updated data.
 
-- `com.jira.issue.get`
+- `io.triggermesh.jira.issue.get`
 
 The Jira target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira Issue get request  JSON formated as defined at [this schema](../schemas/jira.issue.get.json)
 
 Reply data contains a Jira issue.
 
-- `com.jira.custom`
+- `io.triggermesh.jira.custom`
 
 The Jira target will request the Jira API when this event type is received. The CloudEvent data expects a generic API request definition as defined at [this schema](../schemas/jira.custom.json).
 
@@ -58,7 +58,7 @@ Please, refer to the [Jira API][jira-api] on how to fill in values for these req
 
 Do a custom request to retrieve Jira projects:
 
-* event type: `com.jira.custom`
+* event type: `io.triggermesh.jira.custom`
 * data:
 ```json
 {
@@ -69,7 +69,7 @@ Do a custom request to retrieve Jira projects:
 
 List assignable users to a project `PR1`
 
-* event type: `com.jira.custom`
+* event type: `io.triggermesh.jira.custom`
 * data:
 ```json
 {
@@ -81,7 +81,7 @@ List assignable users to a project `PR1`
 
 Create an issue
 
-* event type: `com.jira.issue.create`
+* event type: `io.triggermesh.jira.issue.create`
 * data:
 ```json
 {
@@ -105,7 +105,7 @@ Create an issue
 
 Retrieve an issue:
 
-* event type: `com.jira.issue.get`
+* event type: `io.triggermesh.jira.issue.get`
 * data:
 ```json
 {"id":"IP-9"}
