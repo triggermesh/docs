@@ -18,6 +18,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 * [Hasura](./hasura.md): Send GraphQL queries to Hasura.
 * [HTTP](./http.md): Send HTTP queries to external services.
 * [InfraJS](./infrajs.md): Advanced manipulation of CloudEvents.
+* [Jira](./jira.md): Send requests to Jira API.
 * [Oracle](./oracle.md): Forward events to the Oracle Cloud.
 * [Slack](./slack.md): Forward events to Slack as messages to deliver immediately, scheduled, or as an update to a pre-existing message.
 * [Splunk](./splunk.md): Forward arbitrary events to Splunk.
