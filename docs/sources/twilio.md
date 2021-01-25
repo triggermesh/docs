@@ -3,39 +3,74 @@ This event source is to be deployed and then registered as a webhook via Twilio 
 ## Prerequisites
 * A Twilio account (trial or paid)
 ## Deploying an Instance of the Source
+
 Open the Bridge creation screen and add a source of type `Twilio`.
-![Adding a Twilio source](../images/twilio-source/create-bridge-1.png)
+
+![Adding a Twilio source](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/create-bridge-1.PNG)
+
 In the Source creation form, give a name to the event source and add assign it to a Broker
-![Twilio source form](../images/twilio-source/create-bridge-2.png)
+
+![Twilio source form](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/create-bridge-2.PNG)
+
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to add the remaining
+
 components to the Bridge, then submit it.
-![Bridge overview](../images/twilio-source/create-bridge-3.png)
+
+![Bridge overview](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/create-bridge-3.PNG)
+
 A ready status on the main _Bridges_ page indicates that the Twilio Source was successfully created and is ready to forward events from Twilio.
+
 ![Bridge status](../images/bridge-status-green.png)
+
 ## Integrate with Twilio
+
 Retrieve the public URL of the deployed Twilio source by selecting it from within the `Services` section within Triggermesh.
-![Tm Services](../images/twilio-source/integrate-4.png)
- Copy down the `Domain` for later steps.
-![Tm Services](../images/twilio-source/integrate-5.png)
+
+![Tm Services](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-4.PNG)
+
+Copy down the `Domain` for later steps.
+
+![Tm Services](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-5.PNG)
+
 Navigate to your Twilio dashboard and search for `proxy`
-![Twilio Proxy Search](../images/twilio-source/integrate-1.png)
+
+![Twilio Proxy Search](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-1.PNG)
+
 From the Twilio Proxy dashboard select `Create new Service` and, in the following pop-up box, assign it a name.
-![Twilio Proxy Dash](../images/twilio-source/integrate-2.png)
+
+![Twilio Proxy Dash](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-2.PNG)
+
 You should now be on a similar page to this:
-![Twilio Proxy new Service](../images/twilio-source/integrate-3.png)
-Enter the `Domain` that was retrieved earlier into the  "CALLBACK URL", "INTERCEPT CALLBACK URL", and "OUT OF SESSION CALLBACK URL" fields. Then select `Save`
-![Twilio Proxy Service](../images/twilio-source/integrate-6.png)
+
+![Twilio Proxy new Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-3.PNG)
+
+Enter the `Domain` that was retrieved earlier into the  "CALLBACK URL", "INTERCEPT CALLBACK URL", and "OUT OF SESSION CALLBACK URL" fields. Then 
+select `Save`
+
+![Twilio Proxy Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-6.PNG)
+
 Select `Proxy Numbers`
-![Twilio Proxy Register](../images/twilio-source/integrate-7.png)
+
+![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-7.PNG)
+
 Select `Add Numbers`
-![Twilio Proxy Register](../images/twilio-source/integrate-8.png)
+
+![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-8.PNG)
+
 Assing an available number
-![Twilio Proxy Register](../images/twilio-source/integrate-9.png)
+
+![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-9.PNG)
+
 All done!
+
 ## Event Type
+
 The Twilio event source emits events of the following type:
+
 * `com.triggermesh.twilio.sms`
+
 ### Example event emited from this source: 
+
 ```
 ☁️  cloudevents.Event
 Validation: valid
