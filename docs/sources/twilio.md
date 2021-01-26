@@ -30,36 +30,36 @@ Retrieve the public URL of the deployed Twilio source by selecting it from withi
 
 Copy down the `Domain` for later steps.
 
-![Tm Services](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-5.PNG)
+![Tm Services](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-5.png)
 
 Navigate to your Twilio dashboard and search for `proxy`
 
-![Twilio Proxy Search](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-1.PNG)
+![Twilio Proxy Search](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-1.png)
 
 From the Twilio Proxy dashboard select `Create new Service` and, in the following pop-up box, assign it a name.
 
-![Twilio Proxy Dash](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-2.PNG)
+![Twilio Proxy Dash](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-2.png)
 
 You should now be on a similar page to this:
 
-![Twilio Proxy new Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-3.PNG)
+![Twilio Proxy new Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-3.png)
 
 Enter the `Domain` that was retrieved earlier into the  "CALLBACK URL", "INTERCEPT CALLBACK URL", and "OUT OF SESSION CALLBACK URL" fields. Then 
 select `Save`
 
-![Twilio Proxy Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-6.PNG)
+![Twilio Proxy Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-6.png)
 
 Select `Proxy Numbers`
 
-![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-7.PNG)
+![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-7.png)
 
 Select `Add Numbers`
 
-![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-8.PNG)
+![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-8.png)
 
 Assing an available number
 
-![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-9.PNG)
+![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-9.png)
 
 All done!
 
