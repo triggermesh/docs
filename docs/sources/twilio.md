@@ -6,17 +6,17 @@ This event source is to be deployed and then registered as a webhook via Twilio 
 
 Open the Bridge creation screen and add a source of type `Twilio`.
 
-![Adding a Twilio source](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/create-bridge-1.PNG)
+![Adding a Twilio source](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add assign it to a Broker
 
-![Twilio source form](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/create-bridge-2.PNG)
+![Twilio source form](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to add the remaining
 
 components to the Bridge, then submit it.
 
-![Bridge overview](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/create-bridge-3.PNG)
+![Bridge overview](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the Twilio Source was successfully created and is ready to forward events from Twilio.
 
@@ -26,7 +26,7 @@ A ready status on the main _Bridges_ page indicates that the Twilio Source was s
 
 Retrieve the public URL of the deployed Twilio source by selecting it from within the `Services` section within Triggermesh.
 
-![Tm Services](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-4.PNG)
+![Tm Services](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-4.png)
 
 Copy down the `Domain` for later steps.
 
