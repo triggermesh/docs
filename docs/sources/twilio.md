@@ -106,8 +106,7 @@ Data,
     "to_state": "WA"
   }
 ```
-## More
-A video outlining this process can be viewed here -> https://youtu.be/TRi5pPCYhdc
+
 
 [tm-secret]: ../guides/secrets.md
 
