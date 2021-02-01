@@ -77,7 +77,7 @@ An example response from the Zendesk Target after consuming an event of this typ
 }
 ```
 
-### com.zendesk.tag.create
+### com.zendesk.tag.add
 
 Events of this type intend to assign a [tag][zd-tag] to a pre-existing Zendesk ticket.
 
