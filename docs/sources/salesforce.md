@@ -24,14 +24,14 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
     - Add Scopes for `api` and `refresh_token, offline_access`.
     - Save.
 
-    ![Salesforce connected app](../images/salesforce-source/salesforce-connected-app.png)
+    ![Salesforce connected app](../images/salesforce/salesforce-connected-app.png)
 
     - Select the Connected App from the list and at the click on `Manage`.
     - Click `Edit policies`.
     - Set Permitted users to `Admin approved users are pre-authorized`.
     - Save.
 
-    ![Connected app policies](../images/salesforce-source/connected-app-policies.png)
+    ![Connected app policies](../images/salesforce/connected-app-policies.png)
 
     - Select the Connected App from the list and at the click on `Manage`.
     - Click `Manage Profiles`.
