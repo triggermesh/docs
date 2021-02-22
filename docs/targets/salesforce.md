@@ -8,14 +8,13 @@ This event Target receives [CloudEvents][ce] and invokes a Salesforce endpoint.
 
 Salesforce target uses [OAuth JWT credentials][salesforce-oauth-jwt] for service authentication.
 
-1. First, you will need to generate an X509 certificate for signing and verifying requests.
-We will be using `OpenSSL` but any other certificate generation tool should work.
+* First, you will need to generate an X509 certificate for signing and verifying requests. We will be using `OpenSSL` but any other certificate generation tool should work.
 
 ```sh
 openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key -out tm-sf.crt
 ```
 
-2. At Salesforce site select `Setup > Apps > App Manager`, click on `New Connected App`.
+* At Salesforce site select `Setup > Apps > App Manager`, click on `New Connected App`.
 
     - Fill in mandatory fields, then click `Enable OAuth Settings`.
     - A callback URL is mandatory but can be filled with any HTTPS data.
@@ -37,11 +36,11 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
     - Add permissions on the data this user will have access to.
     - Save.
 
-3. Retrieve OAuth data to configure Triggermesh Target.
+* Retrieve OAuth data to configure Triggermesh Target.
 
-   - Select the Connected App from the list and at the click on `View`.
-   - Copy `Consumer Key`
-   - Reveal and copy `Consumer Secret`
+    - Select the Connected App from the list and at the click on `View`.
+    - Copy `Consumer Key`.
+    - Reveal and copy `Consumer Secret`.
 
 ### Certificate Key Secret
 
