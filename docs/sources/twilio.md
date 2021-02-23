@@ -44,7 +44,7 @@ You should now be on a similar page to this:
 
 ![Twilio Proxy new Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-3.png)
 
-Enter the `Domain` that was retrieved earlier into the  "CALLBACK URL", "INTERCEPT CALLBACK URL", and "OUT OF SESSION CALLBACK URL" fields. Then 
+Enter the `Domain` that was retrieved earlier into the  "CALLBACK URL", "INTERCEPT CALLBACK URL", and "OUT OF SESSION CALLBACK URL" fields. Then
 select `Save`
 
 ![Twilio Proxy Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/images/twilio-source/integrate-6.png)
@@ -69,7 +69,7 @@ The Twilio event source emits events of the following type:
 
 * `com.triggermesh.twilio.sms`
 
-### Example event emited from this source: 
+### Example event emited from this source:
 
 ```
 ☁️  cloudevents.Event
@@ -100,9 +100,9 @@ Data,
     "sms_sid": "ASDFc2663bbefcASa",
     "from_state": "NC",
     "body": "hello world",
-    "from": "+19196878202",
+    "from": "<redacted>",
     "from_city": "DURHAM",
-    "to": "+12098301745",
+    "to": "<redacted>",
     "to_state": "WA"
   }
 ```
