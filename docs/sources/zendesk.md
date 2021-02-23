@@ -62,9 +62,89 @@ of the TriggerMesh Zendesk event source as soon as a corresponding action happen
 
 ## Event Types
 
-The Zendesk event source emits events of the following type:
+### `com.zendesk.ticket.created`
+When a new ticket is created in Zendesk a registred source will emit an event of type `com.zendesk.ticket.created`. An example event of this type can be found below.
 
-* `com.zendesk.ticket.created`
+```
+☁️  cloudevents.Event
+Validation: valid
+Context Attributes,
+  specversion: 1.0
+  type: com.zendesk.ticket.created
+  source: triggermesh.zendesk.com/zdevntsrc
+  id: aeb9d9c9-89a9-468f-b157-015160c03454
+  time: 2021-01-29T15:10:08.500296727Z
+  datacontenttype: application/json
+Extensions,
+  knativearrivaltime: 2021-01-29T15:10:08.522619069Z
+Data,
+  {
+    "current_user": {
+      "details": "",
+      "email": "demo@triggermesh.com",
+      "external_id": "",
+      "first_name": "Demo",
+      "language": "English",
+      "name": "Demo",
+      "notes": "",
+      "organization": {
+        "details": "",
+        "name": "",
+        "notes": ""
+      },
+      "phone": ""
+    },
+    "satisfaction": {
+      "current_comment": "",
+      "current_rating": ""
+    },
+    "ticket": {
+      "account": "TriggerMesh",
+      "assignee": {
+        "email": "support@triggermesh.com",
+        "first_name": "Triggermesh",
+        "last_name": "Developer",
+        "name": "Triggermesh Developer"
+      },
+      "brand_name": "TriggerMesh",
+      "cc_names": "",
+      "ccs": "[]",
+      "current_holiday_name": "Liquid error: internal",
+      "description": "----------------------------------------------\n\nDemo, Jan 29, 2021, 11:10\n\nhello world",
+      "due_date": "",
+      "external_id": "",
+      "group_name": "Support",
+      "id": 343,
+      "organization": {
+        "details": "",
+        "external_id": "",
+        "name": "",
+        "notes": ""
+      },
+      "priority": "",
+      "requester": {
+        "details": "",
+        "email": "demo@triggermesh.com",
+        "external_id": "",
+        "field": "",
+        "first_name": "Demo",
+        "language": "English",
+        "last_name": "Demo",
+        "name": "Demo",
+        "phone": ""
+      },
+      "status": "Open",
+      "tags": "oracle",
+      "ticket_field_id": "",
+      "ticket_field_option_title_id": "",
+      "ticket_type": "Ticket",
+      "title": "hello world",
+      "url": "triggermesh.zendesk.com/agent/tickets/343",
+      "via": "Web Form"
+    }
+  }
+```
+
 
 [zd-token]: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
 [zd-target]: https://support.zendesk.com/hc/en-us/articles/203662136-Notifying-external-targets
@@ -72,3 +152,5 @@ The Zendesk event source emits events of the following type:
 [zd-subdom]: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
 
 [tm-secret]: ../guides/secrets.md
+
+
