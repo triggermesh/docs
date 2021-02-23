@@ -20,9 +20,10 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 * [InfraJS](./infrajs.md): Advanced manipulation of CloudEvents.
 * [Jira](./jira.md): Send requests to Jira API.
 * [Oracle](./oracle.md): Forward events to the Oracle Cloud.
+* [Salesforce](./salesforce.md): Forward arbitrary events to Salesforce.
+* [SendGrid](./sendgrid.md): Forward arbitrary events to SendGrid.
 * [Slack](./slack.md): Forward events to Slack as messages to deliver immediately, scheduled, or as an update to a pre-existing message.
 * [Splunk](./splunk.md): Forward arbitrary events to Splunk.
-* [SendGrid](./sendgrid.md): Forward arbitrary events to SendGrid.
 * [Tekton](./tekton.md): Use event to submit a Tekton build.
 * [Twilio](./twilio.md): Send an SMS via Twilio in response to events.
 * [Zendesk](./zendesk.md): Perform actions in Zendesk upon reception of certain events.
