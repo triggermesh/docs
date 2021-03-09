@@ -8,11 +8,11 @@ This event source captures messages from an [AWS Cognito User Pool ][cup-docs] w
 - Amazon Resource Name (ARN)
 - API Credentials
 
-##### AWS Cognito User Pool
+### AWS Cognito User Pool
 
 If you don't already have an AWS Cognito User Pool, create one by following the instructions in the [Getting started with User Pools][cup-getting-started] guide.
 
-##### Amazon Resource Name (ARN)
+### Amazon Resource Name (ARN)
 
 A fully qualified ARN is required to uniquely identify the AWS Cognito User Pool.
 
@@ -38,7 +38,7 @@ $ aws --region us-west-2 cognito-idp describe-user-pool --user-pool-id us-west-2
 }
 ```
 
-##### API credentials
+### API credentials
 
 The TriggerMesh AWS Cognito UserPool event source authenticates calls to the AWS Cognito API using an [Access Key][accesskey]. The page at this link contains instructions to create an access key when signed either as the root user or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance of the event source.
 
