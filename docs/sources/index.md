@@ -14,6 +14,7 @@ The following is a list of Triggermesh event Sources, some available as open sou
 	* [AWS SNS](./awssns.md): Subscribe to messages from a AWS SNS topic.
 	* [AWS SQS](./awssqs.md): Capture messages from an AWS SQS queue.
 * [Webhook](./webhook.md): Generic Webhook integration.
+* [HTTP Poller](./httppoller.md): Generic HTTP Poller.
 * [OCIMetrics](./ocimetrics.md): Oracle Cloud Infrastructure Metrics
 * [Salesforce](./salesforce.md): Consume messages from Salesforce Streaming API.
 * [Slack](./slack.md): Consume messages from Slack API.
