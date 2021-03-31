@@ -9,7 +9,7 @@ This event source launches periodic HTTP requests against an external system end
 
 ## Deploying an Instance of the HTTP Poller Source
 
-Open the Bridge creation screen and add a source of type `HTTP Source`.
+Open the Bridge creation screen and add a source of type `HTTP Poller`.
 
 In the Source creation form add the following information:
 
@@ -34,7 +34,7 @@ After clicking the `Save` button, you will be taken back to the Bridge editor. P
 
 ## Events Types
 
-The HTTP source creates a CloudEvent for each request received. CloudEvents header values are filled according to these rules:
+The HTTP Poller Source creates a CloudEvent for each request received. CloudEvents header values are filled according to these rules:
 
 - `event-type` is set to the source's provided value.
 - `event-source` is set to the source's provided value.
