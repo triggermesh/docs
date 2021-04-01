@@ -19,14 +19,14 @@ In the Source creation form add the following information:
 - **EventSource**: (optional) string that identifies the origin for all CloudEvent messages produced from this source.
 - **Enpoint**: URL location for the remote service to be polled.
 - **Method**: HTTP method.
-- **Frequency**: periodicity for requests formatted as [Go duration][go-duration].
+- **Interval**: interval between requests formatted as [Go duration][go-duration].
 - **CA Certificate**: (optional) CA certificate configured for TLS connection as plain text.
 - **Skip Verify**: (optional) when set to true skips remote server TLS certificate verification.
 - **Basic Auth Username**: (optional) HTTP basic authentication username.
 - **Basic Auth Password** (optional) points to a secret that contains the HTTP basic authentication password.
 - **Headers** (optional) is a set of key/value pairs that will be set within the HTTP request.
 
-`Frequency` is formatted after [Go's duration parsing][go-duration]. Most typically this value will contain a number followed by one of "ns", "us" or "µs", "ms", "s", "m", "h". Valid examples are `15000ms` or `15s` for 15 seconds, `60m` or `1h` for one hour.
+`Interval` is formatted after [Go's duration parsing][go-duration]. Most typically this value will contain a number followed by one of "ns", "us" or "µs", "ms", "s", "m", "h". Valid examples are `15000ms` or `15s` for 15 seconds, `60m` or `1h` for one hour.
 
 When using `CA Certificate` it should be copied into the text area in plain text.
 
