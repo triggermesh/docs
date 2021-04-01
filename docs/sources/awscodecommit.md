@@ -46,10 +46,10 @@ arn:aws:codecommit:{awsRegion}:{awsAccountId}:{repositoryName}
 
 ### API Credentials
 
-The TriggerMesh AWS CodeCommit event source authenticates calls to the AWS CodeCommit API using an [Access
-Key][accesskey]. The page at this link contains instructions to create an access key when signed either as the root user
-or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance
-of the event source.
+The TriggerMesh event source for Amazon CodeCommit authenticates calls to the AWS API using AWS Access Keys. The page
+[Understanding and getting your AWS credentials][accesskey] contains instructions to create access keys when signed-in
+either as the root user or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be
+used to create an instance of the event source.
 
 It is considered a [good practice][iam-bestpractices] to create dedicated users with restricted privileges in order to
 programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
