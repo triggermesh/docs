@@ -26,7 +26,7 @@ The exposed URL can be retrieved by navigating to `Services` and clicking on the
 
 ## Events Types
 
-The HTTP source creates a cloud event for each request received. CloudEvents header event type and event source are set to the configured values. Event data is set to the received body at the request.
+The Webhook source creates a cloud event for each request received. CloudEvents header event type and event source are set to the configured values. Event data is set to the received body at the request.
 
 Cloud Event header example:
 
