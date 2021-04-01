@@ -13,7 +13,7 @@ Open the Bridge creation screen and add a source of type `HTTP Poller`.
 
 In the Source creation form add the following information:
 
-- **Name**: all Triggermesh components need a unique name per namespace.
+- **Name**: all TriggerMesh components need a unique name per namespace.
 - **Broker**: request converted into [CloudEvents][ce] will be sent to this location.
 - **EventType**: string that identifies the purpose for all CloudEvent messages produced from this source.
 - **EventSource**: (optional) string that identifies the origin for all CloudEvent messages produced from this source.
