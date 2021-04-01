@@ -1,9 +1,9 @@
 # Event Target for Logz.io 
-This event target integrates with Logz.io by using received CloudEvent's to ship messages to Logz.io
+This event target integrates with Logz.io by using received CloudEvent's to ship messages to [Logz.io](https://logz.io/)
 
 ## Prerequisites
 * Logz.io account.
-* Logz.io Shipping token.
+* A Logz.io Shipping [token](https://docs.logz.io/user-guide/tokens/)
 
 
 ## Deploying an Instance of the Target
@@ -29,6 +29,3 @@ The payload contains a JSON structure with elements to execute the API request:
 
 - `message`: The message to log within Logz.io
 
-
-
-[ce]: https://cloudevents.io/
