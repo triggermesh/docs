@@ -26,7 +26,7 @@ In the Source creation form add the following information:
 - **Basic Auth Password** (optional) points to a secret that contains the HTTP basic authentication password.
 - **Headers** (optional) is a set of key/value pairs that will be set within the HTTP request.
 
-`Frequency` is formated after [Go's duration parsing][go-duration]. Most tipically this value will contain a number followed by one of "ns", "us" or "µs", "ms", "s", "m", "h". Valid examples are `15000ms` or `15s` for 15 seconds, `60m` or `1h` for one hour.
+`Frequency` is formatted after [Go's duration parsing][go-duration]. Most typically this value will contain a number followed by one of "ns", "us" or "µs", "ms", "s", "m", "h". Valid examples are `15000ms` or `15s` for 15 seconds, `60m` or `1h` for one hour.
 
 When using `CA Certificate` it should be copied into the text area in plain text.
 
