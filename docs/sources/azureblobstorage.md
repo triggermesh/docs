@@ -171,10 +171,19 @@ components to the Bridge, then submit it.
 
 ![Bridge overview](../images/azureblobstorage-source/create-bridge-3.png)
 
-A ready status on the main _Bridges_ page indicates that the [Diagnostic Settings][diag-settings] were successfully
-created and that the event source is ready to route events from Event Hubs.
+A ready status on the main _Bridges_ page indicates that the event subscription was successfully created in the
+configured Storage Account, and that the event source is ready to consume events from Event Hubs.
 
 ![Bridge status](../images/azureblobstorage-source/create-bridge-4.png)
+
+This can be confirmed by navigating back to the Azure Portal and ensuring that:
+
+* The Storage Account contains a new Event Subscription targeting Event Hubs.
+* The Resource Group contains an Event Grid System Topic with an Event Subscription matching the one from the Storage
+  Account.
+
+![Event Subscription](../images/azureblobstorage-source/after-creation-1.png)
+![Event Grid system topic](../images/azureblobstorage-source/after-creation-2.png)
 
 ## Event Types
 
