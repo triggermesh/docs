@@ -57,13 +57,13 @@ The corresponding role JSON is given as a reference which you can replicate to c
 
 After the Service Principal is created and assigned suitable roles, take note of the following information:
 
-* **Tenant ID** and **Client ID** (see _Get values for signing in_)
-* **Client secret** (see _Certificates and secrets > Create a new application secret_)
+* **Tenant ID** and **Client ID** (see _Get tenant and app ID values for signing in_)
+* **Client secret** (see _Create a new application secret_)
 
 ### Event Hubs Namespace
 
 Follow the instructions at [Quickstart: Create an event hub using Azure portal][eventhubs-create] and create a new Event
-Hubs Namespace that will be used to send the Subscription's Activity Logs. Only the namespace needs to be created, the
+Hubs namespace that will be used to send the Subscription's Activity Logs. Only the namespace needs to be created, the
 event source creates Diagnostic Settings which in turn create their own Event Hub for sending Activity Logs.
 
 ![Event Hubs namespaces](../images/azureactivitylogs-source/eventhubs-ns.png)
