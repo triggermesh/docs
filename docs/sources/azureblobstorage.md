@@ -125,8 +125,9 @@ A resource ID for an Event Hub has the following format:
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventHubs/{eventHubName}
 ```
 
-> **Note**: You obtain the resource ID of the corresponding Event Hubs namespace by simply omitting the
-> `/eventHubs/{eventHubName}` part of the Event Hub's resource ID.
+!!! note
+    The resource ID of the corresponding Event Hubs namespace is obtained by simply omitting the
+    `/eventHubs/{eventHubName}` part of the Event Hub's resource ID.
 
 ![Event Hub overview](../images/azureblobstorage-source/eventhub-1.png)
 ![Event Hub resource ID](../images/azureblobstorage-source/eventhub-2.png)
@@ -155,14 +156,13 @@ Open the Bridge creation screen and add a source of type `Azure Blob Storage`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
+* [Secret][sp-create]: Service Principal authentication credentials, as described in the previous sections.
 * [Storage Account ID][storage-acc]: Resource ID of the Storage Account.
-* [Event Hub ID][eventhubs-create]: _(optional)_ Resource ID of either
-  * an Event Hubs _namespace_ (Event Hub managed by the event source)
-  * an Event Hubs _instance_ (Event Hub managed by the user)
+* [Event Hub ID][eventhubs-create]: Resource ID of either
+    * an Event Hubs _namespace_ (Event Hub managed by the event source)
+    * an Event Hubs _instance_ (Event Hub managed by the user)
 * [Event types][event-types]: _(optional)_ List of event types to subscribe to. `BlobCreated` and `BlobDeleted` are
   enabled by default when no item is set.
-* [Tenant ID, Client ID, Client secret][sp-create]: Service Principal authentication credentials, as described in the
-  previous sections.
 
 ![Azure Blob Storage source form](../images/azureblobstorage-source/create-bridge-2.png)
 
