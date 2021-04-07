@@ -17,6 +17,7 @@ solutions on our Cloud.
     * [AWS SNS](./awssns.md): Subscribe to messages from a AWS SNS topic.
     * [AWS SQS](./awssqs.md): Capture messages from an AWS SQS queue.
 * [Webhook](./webhook.md): Generic Webhook integration.
+* [Google Cloud Storage](./googlecloudstorage.md): Capture change notifications from a Google Cloud Storage bucket.
 * [HTTP Poller](./httppoller.md): Generic HTTP Poller.
 * [OCIMetrics](./ocimetrics.md): Oracle Cloud Infrastructure Metrics
 * [Salesforce](./salesforce.md): Consume messages from Salesforce Streaming API.
