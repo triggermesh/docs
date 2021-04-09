@@ -14,13 +14,17 @@ bucket][s3-create].
 
 A fully qualified ARN is required to uniquely identify the Amazon S3 bucket.
 
-The ARN displayed in the AWS Console has the format `arn:aws:s3:::{bucketName}`. This ARN unfortunately lacks two
-essential informations: the [AWS region][aws-region] and the [account ID][aws-acc-id], which must both be included into
-the ARN by using the more complete format below:
+!!! warning
+    The ARN displayed in the AWS Console, which has the format `arn:aws:s3:::{bucket_name}`, lacks some essential
+    information: the [AWS region][aws-region] and the [account ID][aws-acc-id]. Both must be included in the ARN by
+    using the more complete format below:
 
-```
-arn:aws:s3:{awsRegion}:{awsAccountId}:{bucketName}
-```
+    ```
+    arn:aws:s3:{aws_region}:{aws_account_id}:{bucket_name}
+    ```
+
+    Without the region and account ID, this event source would be unable to set an accurate identity-based access policy
+    on the SQS queue described in the [SQS Queue](#sqs-queue-optional) section of this document.
 
 ![S3 Bucket ARN](../images/awss3-source/arn-region-1.png)
 
@@ -97,8 +101,8 @@ for you (see next section for more information):
 The TriggerMesh event source for Amazon S3 configures the S3 bucket to send [event notifications][s3-dest] to an [Amazon
 SQS queue][sqs-docs].
 
-By default, the source creates and manages a SQS queue for that purpose on behalf of the user. A policy is set on that
-SQS queue to only accept messages originating from the configured S3 bucket.
+By default, the source creates and manages a SQS queue for that purpose on behalf of the user. An identity-based policy
+is set on that SQS queue to only accept messages originating from the configured S3 bucket.
 
 Alternatively, in case you prefer not to delegate this responsibility to the event source, it is possible to provide
 your own SQS queue as an event destination. In this scenario, it is your own responsibility to configure the queue
