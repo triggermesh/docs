@@ -27,9 +27,21 @@ After submitting the bridge, and allowing some configuration time, a green check
 
 ### Event Type io.triggermesh.logz.ship
 
-The Logz Target can also consume event's of type `io.triggermesh.logz.shipinsert`, and will produced responses typed `io.triggermesh.logz.ship.response`. 
+The Logz Target can also consume event's of type `io.triggermesh.logz.ship`, and will produced responses typed `io.triggermesh.logz.ship.response`. 
 
 The payload contains a JSON structure with elements to execute the API request:
 
 - `message`: The message to log within Logz.io
 
+
+## Examples
+
+Create a Logz message:
+
+* event type: `io.triggermesh.logz.ship`
+* data:
+```json
+{
+  "message": "hello world"
+}
+```
