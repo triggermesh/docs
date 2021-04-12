@@ -16,8 +16,10 @@ solutions on our Cloud.
     * [AWS S3](./awss3.md): Subscribe to event notifications from an Amazon S3 bucket.
     * [AWS SNS](./awssns.md): Subscribe to messages from a AWS SNS topic.
     * [AWS SQS](./awssqs.md): Capture messages from an AWS SQS queue.
+* Google Cloud
+    * [Google Cloud Pub/Sub](./googlecloudpubsub.md): Receive messages from a Google Cloud Pub/Sub topic.
+    * [Google Cloud Storage](./googlecloudstorage.md): Capture change notifications from a Google Cloud Storage bucket.
 * [Webhook](./webhook.md): Generic Webhook integration.
-* [Google Cloud Storage](./googlecloudstorage.md): Capture change notifications from a Google Cloud Storage bucket.
 * [HTTP Poller](./httppoller.md): Generic HTTP Poller.
 * [OCIMetrics](./ocimetrics.md): Oracle Cloud Infrastructure Metrics
 * [Salesforce](./salesforce.md): Consume messages from Salesforce Streaming API.
@@ -39,7 +41,6 @@ azureeventhub
 azurestoragequeue
 
 googlefirestore
-googlepubsub
 
 mq
 
