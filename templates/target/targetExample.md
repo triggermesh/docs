@@ -3,7 +3,7 @@
 This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to a [Splunk HTTP Event Collector][hec]
 in a [JSON format][ce-jsonformat].
 
-## Prerequisites
+## Prerequisite(s)
 
 - HTTP Event Collector Input
 

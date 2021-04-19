@@ -2,7 +2,7 @@
 
 This event target sends and receives .......
 
-## Prerequisites
+## Prerequisite(s)
 
 - unordered list of prerequisites
 - unordered list of prerequisites
