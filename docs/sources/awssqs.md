@@ -4,6 +4,10 @@ The event source captures messages sent to a [AWS SQS queue][sqs-docs] and sends
 
 ## Prerequisites
 
+* SQS Queue
+* Amazon Resource Name (ARN)
+* API Credentials
+
 ### SQS Queue
 
 If you don't already have an AWS SQS queue, create one by following the instructions in the [Getting started with Amazon

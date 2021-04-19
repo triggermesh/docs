@@ -5,6 +5,10 @@ sink.
 
 ## Prerequisites
 
+* SNS Topic (standard)
+* Amazon Resource Name (ARN)
+* API Credentials
+
 ### SNS Topic (standard)
 
 If you don't already have an AWS SNS standard topic, create one by following the instructions in the [Getting started

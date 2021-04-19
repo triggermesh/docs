@@ -5,6 +5,10 @@ as a new commit or the creation of a pull request, happens in this repository.
 
 ## Prerequisites
 
+* CodeCommit Repository and Branch
+* Amazon Resource Name (ARN)
+* API Credentials
+
 ### CodeCommit Repository and Branch
 
 If you don't already have an AWS CodeCommit repository, create one by following the instructions at [Create an AWS

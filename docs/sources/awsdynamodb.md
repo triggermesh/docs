@@ -5,6 +5,10 @@ sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].
 
 ## Prerequisites
 
+* DynamoDB Table and Stream
+* Amazon Resource Name (ARN)
+* API Credentials
+
 ### DynamoDB Table and Stream
 
 If you don't already have an AWS DynamoDB Table, create one by following the instructions at [Getting Started with

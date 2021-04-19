@@ -5,6 +5,11 @@ to a [Google Cloud Pub/Sub][gc-storage-events] topic.
 
 ## Prerequisites
 
+* Storage Bucket
+* Pub/Sub Topic and Subscription
+* Notification Configuration
+* Service Account
+
 ### Storage Bucket
 
 The storage bucket is expected to exist prior to running this event source. If you haven't already done so, create a

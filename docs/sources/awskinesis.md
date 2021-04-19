@@ -5,6 +5,10 @@ after wrapping them in a [CloudEvent][ce] envelope.
 
 ## Prerequisites
 
+* Kinesis Data Stream
+* Amazon Resource Name (ARN)
+* API Credentials
+
 ### Kinesis Data Stream
 
 If you don't already have an AWS Kinesis Data Stream, create one by following the instructions at [Creating and Updating

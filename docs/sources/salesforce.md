@@ -5,6 +5,10 @@ after wrapping them in a [CloudEvent][ce] envelope.
 
 ## Prerequisites
 
+* Salesforce Account
+* Salesforce Stream Channel
+* Certificate Key Secret
+
 ### Salesforce Account
 
 Salesforce source uses [OAuth JWT credentials][salesforce-oauth-jwt] for service authentication.
@@ -12,11 +16,11 @@ Salesforce source uses [OAuth JWT credentials][salesforce-oauth-jwt] for service
 1. First, you will need to generate an X509 certificate for signing and verifying requests.
 We will be using `OpenSSL` but any other certificate generation tool should work.
 
-```sh
-openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key -out tm-sf.crt
-```
+    ```sh
+    openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key -out tm-sf.crt
+    ```
 
-2. At Salesforce site select `Setup > Apps > App Manager`, click on `New Connected App`.
+1. At Salesforce site select `Setup > Apps > App Manager`, click on `New Connected App`.
 
     - Fill in mandatory fields, then click `Enable OAuth Settings`.
     - A callback URL is mandatory but can be filled with any HTTPS data.
@@ -38,7 +42,7 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
     - Add permissions on the data this user will have access to.
     - Save.
 
-3. Retrieve OAuth data to configure Triggermesh Source.
+1. Retrieve OAuth data to configure Triggermesh Source.
 
    - Select the Connected App from the list and at the click on `View`.
    - Copy `Consumer Key`

@@ -4,6 +4,10 @@ This event source subscribes to messages sent to a [Google Cloud Pub/Sub][gc-pub
 
 ## Prerequisites
 
+* Service Account
+* Pub/Sub Topic
+* Pub/Sub Subscription _(optional)_
+
 ### Service Account
 
 A [Service Account][gc-pubsub-svcacc] is required to authenticate the event source and allow it to interact with Google

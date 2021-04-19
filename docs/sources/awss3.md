@@ -5,6 +5,11 @@ an [Amazon SQS queue][sqs-docs] in order to be consumable by the event source.
 
 ## Prerequisites
 
+* S3 Bucket
+* Amazon Resource Name (ARN)
+* API Credentials
+* SQS Queue _(optional)_
+
 ### S3 Bucket
 
 If you didn't already do so, create a S3 bucket by following the instructions at [Create your first S3

@@ -6,6 +6,11 @@ selected set of log categories to a dedicated Event Hub, then subscribing to the
 
 ## Prerequisites
 
+* Service Principal
+* Event Hubs Namespace
+* Event Hubs Instance _(optional)_
+* Shared Access Policy / Shared Access Signature (SAS)
+
 ### Service Principal
 
 A [Service Principal][sp] is required in order to authenticate the event source against the Azure tenant that has

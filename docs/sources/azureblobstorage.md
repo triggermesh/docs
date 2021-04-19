@@ -6,6 +6,11 @@ in this setup.
 
 ## Prerequisites
 
+* Storage Account
+* Service Principal
+* Event Hubs Namespace
+* Event Hubs Instance _(optional)_
+
 ### Storage Account
 
 If you didn't already do so, create a [Storage Account][storage-acc] of one of the following supported types:
