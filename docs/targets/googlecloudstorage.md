@@ -1,5 +1,5 @@
 # Event Target for GoogleCloudStorage 
-This event target integrates with GoogleCloudStorage, using received Cloud Event messages to create Blob items.
+This event target integrates with [Google Cloud Storage](https://www.google.com/search?q=google+cloud+storage&oq=google+cloud+storage&aqs=chrome..69i57j0i433l2j69i61l3j69i65l2.1878j1j7&sourceid=chrome&ie=UTF-8), using received Cloud Event messages to create Blob items.
 
 ## Prerequisites
 
