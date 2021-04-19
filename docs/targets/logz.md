@@ -2,8 +2,8 @@
 This event target integrates with Logz.io, using received CloudEvent's to ship messages to [Logz.io](https://logz.io/)
 
 ## Prerequisites
-* Logz.io account.
-* A Logz.io Shipping [token](https://docs.logz.io/user-guide/tokens/)
+* Logz.io account
+* Logz.io shipping [token](https://docs.logz.io/user-guide/tokens/)
 
 
 ## Deploying an Instance of the Target
@@ -13,7 +13,7 @@ Open the Bridge creation screen and add a Target of type `Logz`.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **Shipping Token** The API Shipping Token. 
+* **[Shipping Token](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/)** 
 * **Logs Listener URL** The API endpoint. (Can be found above your Shipping token in the Logz.io dashboard)
 
 ![Adding a Target](../images/logz-target/create-bridge-2.png)
