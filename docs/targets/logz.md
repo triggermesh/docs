@@ -13,17 +13,18 @@ Open the Bridge creation screen and add a Target of type `Logz`.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **[Shipping Token](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/)** 
-* **Logs Listener URL** The API endpoint. (Can be found above your Shipping token in the Logz.io dashboard)
+* **[Shipping Token](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/)** An API token used for authentication. 
+* **Logs Listener URL** An API endpoint that can be found above your shipping token in the Logz.io dashboard.
 
 ![Adding a Target](../images/logz-target/create-bridge-2.png)
 
 
-Click the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
+After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
 After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with was successfully created.
 
 ## Event Types
+A Logz event Target accepts the following CloudEvent types:
 
 ### Event Type io.triggermesh.logz.ship
 
