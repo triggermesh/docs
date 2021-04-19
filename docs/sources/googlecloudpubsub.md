@@ -28,8 +28,8 @@ source for Google Cloud Pub/Sub.
 <!-- NOTE(antoineco): image from googlecloudstorage source purposely reused for simplicity -->
 ![Service account](../images/googlecloudstorage-source/iam-1.png)
 
-Create a [key in JSON format][gc-iam-key] for this service account and save it. This key is required to be able to run
-an instance of the Google Cloud Pub/Sub event source.
+Create a [key][gc-iam-key] for this service account and save it. This key must be in JSON format. It is required to be
+able to run an instance of the Google Cloud Pub/Sub event source.
 
 ### Pub/Sub Topic
 

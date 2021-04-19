@@ -72,8 +72,8 @@ source for Google Cloud Storage.
 
 ![Service account](../images/googlecloudstorage-source/iam-1.png)
 
-Create a [key in JSON format][gc-iam-key] for this service account and save it. It is required to be able to run an
-instance of the Google Cloud Storage event source.
+Create a [key][gc-iam-key] for this service account and save it. This key must be in JSON format. It is required to be
+able to run an instance of the Google Cloud Storage event source.
 
 ## Deploying an Instance of the Source
 
