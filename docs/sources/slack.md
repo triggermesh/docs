@@ -4,7 +4,7 @@ This event source uses the [Slack Events API][slack-events-api] through a [bot u
 
 ## Prerequisite(s)
 
-* A Slack user that can manage applications is required to configure the source.
+- A Slack user that can manage applications is required to configure the source.
 
 ## Create the Slack Source Integration
 

@@ -6,10 +6,10 @@ selected set of log categories to a dedicated Event Hub, then subscribing to the
 
 ## Prerequisite(s)
 
-* Service Principal
-* Event Hubs Namespace
-* Event Hubs Instance _(optional)_
-* Shared Access Policy / Shared Access Signature (SAS)
+- Service Principal
+- Event Hubs Namespace
+- Event Hubs Instance _(optional)_
+- Shared Access Policy / Shared Access Signature (SAS)
 
 ### Service Principal
 

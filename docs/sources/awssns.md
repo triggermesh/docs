@@ -5,9 +5,9 @@ sink.
 
 ## Prerequisite(s)
 
-* SNS Topic (standard)
-* Amazon Resource Name (ARN)
-* API Credentials
+- SNS Topic (standard)
+- Amazon Resource Name (ARN)
+- API Credentials
 
 ### SNS Topic (standard)
 

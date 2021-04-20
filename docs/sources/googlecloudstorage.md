@@ -5,10 +5,10 @@ to a [Google Cloud Pub/Sub][gc-storage-events] topic.
 
 ## Prerequisite(s)
 
-* Storage Bucket
-* Pub/Sub Topic and Subscription
-* Notification Configuration
-* Service Account
+- Storage Bucket
+- Pub/Sub Topic and Subscription
+- Notification Configuration
+- Service Account
 
 ### Storage Bucket
 
