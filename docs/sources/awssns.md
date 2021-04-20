@@ -3,7 +3,7 @@
 This event source subscribes to messages from a [AWS SNS topic][sns-docs] and sends them as CloudEvents to an event
 sink.
 
-## Prerequisites
+## Prerequisite(s)
 
 * SNS Topic (standard)
 * Amazon Resource Name (ARN)

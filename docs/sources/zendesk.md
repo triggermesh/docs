@@ -3,7 +3,11 @@
 This event source registers itself as a notification receiver in Zendesk in order to capture events such as ticket
 creations.
 
-## Prerequisite: API Token
+## Prerequisite(s)
+
+* API Token
+
+### API Token
 
 An API token is required in order to let the TriggerMesh Zendesk event source create a corresponding [Target][zd-target]
 and [Trigger][zd-trigger] in your Zendesk account. To create a new API token from the Zendesk Admin interface, follow

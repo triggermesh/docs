@@ -2,7 +2,7 @@
 
 This event source subscribes to messages sent to a [Google Cloud Pub/Sub][gc-pubsub] topic.
 
-## Prerequisites
+## Prerequisite(s)
 
 * Service Account
 * Pub/Sub Topic
@@ -16,15 +16,15 @@ accounts][gc-iam-svcacc].
 
 The service account must be granted an [IAM Role][gc-iam-roles] with at least the following permissions:
 
-- `pubsub.subscriptions.consume`
-- `pubsub.subscriptions.get`
+* `pubsub.subscriptions.consume`
+* `pubsub.subscriptions.get`
 
 The following set of permissions is also required if you delegate the management of the Pub/Sub subscription to the
 event source. In case you prefer to manage the subscription yourself, these can be safely be omitted. More details on
 that topic are provided in the [Pub/Sub Subscription](#pubsub-subscription-optional) section below.
 
-- `pubsub.subscriptions.create`
-- `pubsub.subscriptions.delete`
+* `pubsub.subscriptions.create`
+* `pubsub.subscriptions.delete`
 
 The predefined `roles/pubsub.editor` role is one example of role that is suitable for use with the TriggerMesh event
 source for Google Cloud Pub/Sub.

@@ -2,9 +2,9 @@
 
 This event source uses the [Slack Events API][slack-events-api] through a [bot user][slack-bot-user] to ingest events into Triggermesh.
 
-## Prerequisites
+## Prerequisite(s)
 
-A Slack user that can manage applications is required to configure the source.
+* A Slack user that can manage applications is required to configure the source.
 
 ## Create the Slack Source Integration
 
@@ -18,8 +18,8 @@ Deploy the Slack source in 3 steps:
 
 Create an instance of the Slack Source at Triggermesh as part of a Bridge.
 
-- `name` is an internal identifier inside the bridge.
-- `broker` where messages should be sent to.
+* `name` is an internal identifier inside the bridge.
+* `broker` where messages should be sent to.
 
 Save the source, fill the rest of the bridge fields and press `Submit Bridge`. The Slack source creates a service, navigate to Functions/Services and copy the URL for the exposed service.
 
@@ -39,9 +39,9 @@ Save the source, fill the rest of the bridge fields and press `Submit Bridge`. T
 
 4. At the `Subscribe to bot events` section select the bot events that will be sent on behalf of this integration and then press `Save Changes` at the bottom of the page.. Refer to Slack documentation on which ones to use, as a hint the we think these 3 could be useful for different scenarios:
 
-   - `app_mention` will send an event when the App is mentioned.
-   - `message.im` will send an event when sending a direct message to the App.
-   - `message.channels` an event will be sent for each message at a channel where the App is invited.
+   * `app_mention` will send an event when the App is mentioned.
+   * `message.im` will send an event when sending a direct message to the App.
+   * `message.channels` an event will be sent for each message at a channel where the App is invited.
 
   ![Subscribe](../images/slack-source/04subscribe.png)
 
@@ -63,8 +63,8 @@ Create a new secret at Triggermesh and add a key named `signingSecret` containin
 
 Go back to the bridge and edit the source:
 
-- `Signing secret` set to the created secret.
-- `App ID` is also optional and will filter for the App ID in case the endpoint is used for multiple integrations.
+* `Signing secret` set to the created secret.
+* `App ID` is also optional and will filter for the App ID in case the endpoint is used for multiple integrations.
 
 ## Events
 

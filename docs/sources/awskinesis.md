@@ -3,7 +3,7 @@
 This event source acts as a consumer of an [AWS Kinesis Data Stream][kinesis-docs] and forwards all messages it reads
 after wrapping them in a [CloudEvent][ce] envelope.
 
-## Prerequisites
+## Prerequisite(s)
 
 * Kinesis Data Stream
 * Amazon Resource Name (ARN)

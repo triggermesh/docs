@@ -3,7 +3,7 @@
 This event source captures changes to items stored in an [AWS DynamoDB Table][ddb-docs] by reading the time-ordered
 sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].
 
-## Prerequisites
+## Prerequisite(s)
 
 * DynamoDB Table and Stream
 * Amazon Resource Name (ARN)

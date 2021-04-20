@@ -3,7 +3,7 @@
 This event source subscribes to event notifications from an [Amazon S3 bucket][s3-docs]. Events are published by S3 to
 an [Amazon SQS queue][sqs-docs] in order to be consumable by the event source.
 
-## Prerequisites
+## Prerequisite(s)
 
 * S3 Bucket
 * Amazon Resource Name (ARN)

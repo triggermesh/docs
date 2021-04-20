@@ -3,7 +3,7 @@
 This event source receives change notifications emerging from a [Google Cloud Storage][gc-storage] bucket by subscribing
 to a [Google Cloud Pub/Sub][gc-storage-events] topic.
 
-## Prerequisites
+## Prerequisite(s)
 
 * Storage Bucket
 * Pub/Sub Topic and Subscription
@@ -70,7 +70,7 @@ accounts][gc-iam-svcacc].
 
 The service account must be granted an [IAM Role][gc-iam-roles] with at least the following permission:
 
-- `pubsub.subscriptions.consume`
+* `pubsub.subscriptions.consume`
 
 The predefined `roles/pubsub.subscriber` role is one example of role that is suitable for use with the TriggerMesh event
 source for Google Cloud Storage.

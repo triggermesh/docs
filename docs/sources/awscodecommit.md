@@ -3,7 +3,7 @@
 This event source captures notifications from an [AWS CodeCommit repository][cc-docs] whenever a specific action, such
 as a new commit or the creation of a pull request, happens in this repository.
 
-## Prerequisites
+## Prerequisite(s)
 
 * CodeCommit Repository and Branch
 * Amazon Resource Name (ARN)

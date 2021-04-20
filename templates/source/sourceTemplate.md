@@ -2,25 +2,25 @@
 
 This event source receives .......
 
-## Prerequisites
+## Prerequisite(s)
 
-- unordered list of prerequisites
-- unordered list of prerequisites
-- unordered list of prerequisites
+* unordered list of prerequisites
+* unordered list of prerequisites
+* unordered list of prerequisites
 
 ## This should be about a prerequisites
 
 1. number list of each step for the prerequisite
-2. number list of each step for the prerequisite
-3. number list of each step for the prerequisite
+1. number list of each step for the prerequisite
+1. number list of each step for the prerequisite
 
 Or if there are no steps, you can add details about each one.
 
 ## This should be about a prerequisites
 
 1. number list of each step for the prerequisite
-2. number list of each step for the prerequisite
-3. number list of each step for the prerequisite
+1. number list of each step for the prerequisite
+1. number list of each step for the prerequisite
 
 Or if there are no steps, you can add details about each one.
 

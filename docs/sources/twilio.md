@@ -1,7 +1,14 @@
 # Event Source for Twilio
 This event source is to be deployed and then registered as a webhook via Twilio [Proxy][proxy]
-## Prerequisites
-* A Twilio account (trial or paid)
+
+## Prerequisite(s)
+
+* Twilio Account
+
+### Twilio Acoount
+
+A Twilio account (trial or paid) is required.
+
 ## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Twilio`.

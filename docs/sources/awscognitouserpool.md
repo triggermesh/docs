@@ -3,7 +3,7 @@
 This event source captures messages from an [AWS Cognito User Pool][cup-docs] whenever a specific action, such as the
 creation of a new user, happens in the user identity pool.
 
-## Prerequisites
+## Prerequisite(s)
 
 * AWS Cognito User Pool
 * Amazon Resource Name (ARN)

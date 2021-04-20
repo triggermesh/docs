@@ -2,7 +2,7 @@
 
 The event source captures messages sent to a [AWS SQS queue][sqs-docs] and sends them as CloudEvents to an event sink.
 
-## Prerequisites
+## Prerequisite(s)
 
 * SQS Queue
 * Amazon Resource Name (ARN)
