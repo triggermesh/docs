@@ -6,10 +6,10 @@ in this setup.
 
 ## Prerequisite(s)
 
-- Storage Account
-- Service Principal
-- Event Hubs Namespace
-- Event Hubs Instance _(optional)_
+* Storage Account
+* Service Principal
+* Event Hubs Namespace
+* Event Hubs Instance _(optional)_
 
 ### Storage Account
 
@@ -52,17 +52,17 @@ authority over the Azure Subscription to monitor. You can create a Service Princ
 The section called _Assign a role to the application_ describes how to assign permissions to the Service Principal. Make
 sure you select a role which has at least the following permissions:
 
-- `Microsoft.EventGrid/eventSubscriptions/read`
-- `Microsoft.EventGrid/eventSubscriptions/write`
-- `Microsoft.EventGrid/eventSubscriptions/delete`
-- `Microsoft.EventHub/namespaces/eventhubs/write`
+* `Microsoft.EventGrid/eventSubscriptions/read`
+* `Microsoft.EventGrid/eventSubscriptions/write`
+* `Microsoft.EventGrid/eventSubscriptions/delete`
+* `Microsoft.EventHub/namespaces/eventhubs/write`
 
 The following set of permissions is also required if you decide to delegate the management of the Event Hub to the event
 source. In case you prefer to use your own Event Hub, these can be safely be omitted. More details on that topic are
 provided in the [Event Hubs Instance](#event-hubs-instance-optional) section below.
 
-- `Microsoft.EventHub/namespaces/eventhubs/read` _(optional)_
-- `Microsoft.EventHub/namespaces/eventhubs/delete` _(optional)_
+* `Microsoft.EventHub/namespaces/eventhubs/read` _(optional)_
+* `Microsoft.EventHub/namespaces/eventhubs/delete` _(optional)_
 
 Additionally, assign the [built-in role][builtin-roles] `Azure Event Hubs Data Receiver` to the Service Principal to
 allow it to receive events from an Event Hubs instance.

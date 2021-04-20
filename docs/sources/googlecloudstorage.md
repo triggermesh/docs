@@ -5,10 +5,10 @@ to a [Google Cloud Pub/Sub][gc-storage-events] topic.
 
 ## Prerequisite(s)
 
-- Storage Bucket
-- Pub/Sub Topic and Subscription
-- Notification Configuration
-- Service Account
+* Storage Bucket
+* Pub/Sub Topic and Subscription
+* Notification Configuration
+* Service Account
 
 ### Storage Bucket
 
@@ -70,7 +70,7 @@ accounts][gc-iam-svcacc].
 
 The service account must be granted an [IAM Role][gc-iam-roles] with at least the following permission:
 
-- `pubsub.subscriptions.consume`
+* `pubsub.subscriptions.consume`
 
 The predefined `roles/pubsub.subscriber` role is one example of role that is suitable for use with the TriggerMesh event
 source for Google Cloud Storage.

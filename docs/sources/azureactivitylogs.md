@@ -6,10 +6,10 @@ selected set of log categories to a dedicated Event Hub, then subscribing to the
 
 ## Prerequisite(s)
 
-- Service Principal
-- Event Hubs Namespace
-- Event Hubs Instance _(optional)_
-- Shared Access Policy / Shared Access Signature (SAS)
+* Service Principal
+* Event Hubs Namespace
+* Event Hubs Instance _(optional)_
+* Shared Access Policy / Shared Access Signature (SAS)
 
 ### Service Principal
 
@@ -20,10 +20,10 @@ authority over the Azure Subscription to monitor. You can create a Service Princ
 The section called _Assign a role to the application_ describes how to assign permissions to the Service Principal. Make
 sure you select a role which has at least the following permissions:
 
-- `Microsoft.Insights/DiagnosticSettings/Read`
-- `Microsoft.Insights/DiagnosticSettings/Delete`
-- `Microsoft.Insights/DiagnosticSettings/Write`
-- `Microsoft.EventHub/namespaces/authorizationRules/listkeys/action`
+* `Microsoft.Insights/DiagnosticSettings/Read`
+* `Microsoft.Insights/DiagnosticSettings/Delete`
+* `Microsoft.Insights/DiagnosticSettings/Write`
+* `Microsoft.EventHub/namespaces/authorizationRules/listkeys/action`
 
 Additionally, assign the role `Azure Event Hubs Data Receiver` to the Service Principal to allow it to receive events
 from Event Hubs.

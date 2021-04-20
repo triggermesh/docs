@@ -5,9 +5,9 @@ as a new commit or the creation of a pull request, happens in this repository.
 
 ## Prerequisite(s)
 
-- CodeCommit Repository and Branch
-- Amazon Resource Name (ARN)
-- API Credentials
+* CodeCommit Repository and Branch
+* Amazon Resource Name (ARN)
+* API Credentials
 
 ### CodeCommit Repository and Branch
 

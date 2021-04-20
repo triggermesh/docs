@@ -5,9 +5,9 @@ sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].
 
 ## Prerequisite(s)
 
-- DynamoDB Table and Stream
-- Amazon Resource Name (ARN)
-- API Credentials
+* DynamoDB Table and Stream
+* Amazon Resource Name (ARN)
+* API Credentials
 
 ### DynamoDB Table and Stream
 

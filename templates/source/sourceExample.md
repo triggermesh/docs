@@ -4,9 +4,9 @@ This event source captures messages from an [AWS Cognito User Pool ][cup-docs] w
 
 ## Prerequisite(s)
 
-- AWS Cognito User Pool
-- Amazon Resource Name (ARN)
-- API Credentials
+* AWS Cognito User Pool
+* Amazon Resource Name (ARN)
+* API Credentials
 
 ### AWS Cognito User Pool
 
@@ -68,8 +68,8 @@ Open the Bridge creation screen and add a source of type `AWS Cognito User Pool`
 
 In the Source creation form, give a name to the event source and add the following information:
 
-- [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret Access Key to communicate with the AWS SQS API, as described in the previous sections.
-- [**AWS ARN**][arn]: ARN of the User Pool, as described in the previous sections.
+* [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret Access Key to communicate with the AWS SQS API, as described in the previous sections.
+* [**AWS ARN**][arn]: ARN of the User Pool, as described in the previous sections.
 
 ![Source form](../images/awscognitouserpool-source/source-cognito-userpool-form.png)
 
@@ -85,7 +85,7 @@ A ready status on the main _Bridges_ page indicates that the event source is rea
 
 The AWS Cognito UserPool event source emits events of the following type:
 
-- `com.amazon.cognito-idp.sync_trigger`
+* `com.amazon.cognito-idp.sync_trigger`
 
 [cup-docs]: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html
 [cup-getting-started]: https://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-with-cognito-user-pools.html
