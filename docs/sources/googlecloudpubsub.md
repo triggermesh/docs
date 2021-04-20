@@ -2,11 +2,11 @@
 
 This event source subscribes to messages sent to a [Google Cloud Pub/Sub][gc-pubsub] topic.
 
-## Prerequisites
+## Prerequisite(s)
 
-* Service Account
-* Pub/Sub Topic
-* Pub/Sub Subscription _(optional)_
+- Service Account
+- Pub/Sub Topic
+- Pub/Sub Subscription _(optional)_
 
 ### Service Account
 

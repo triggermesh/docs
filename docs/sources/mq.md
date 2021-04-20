@@ -2,6 +2,10 @@
 
 This event source is meant to be used as a Container Source with a Knative cluster to consume messages from IBM Message Queue and send them to a Knative service/function.
 
+## Prerequisite(s)
+
+- IBM MQ
+
 ### Local Usage with Docker
 
 1. Setup local IBM MQ following [this tutorial](https://developer.ibm.com/messaging/learn-mq/mq-tutorials/mq-connect-to-queue-manager/#docker)

@@ -2,7 +2,7 @@
 
 This event source receives .......
 
-## Prerequisites
+## Prerequisite(s)
 
 - unordered list of prerequisites
 - unordered list of prerequisites

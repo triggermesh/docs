@@ -4,12 +4,12 @@ This event source subscribes to blob events from an [Azure Storage Account][stor
 subscription. Events are consumed from a dedicated [Event Hubs instance][eventhubs], which is used as event destination
 in this setup.
 
-## Prerequisites
+## Prerequisite(s)
 
-* Storage Account
-* Service Principal
-* Event Hubs Namespace
-* Event Hubs Instance _(optional)_
+- Storage Account
+- Service Principal
+- Event Hubs Namespace
+- Event Hubs Instance _(optional)_
 
 ### Storage Account
 

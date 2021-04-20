@@ -2,6 +2,10 @@
 
 This event source is meant to be used as a Container Source with a Knative cluster to consume messages from a Azure Storage Queue and send them to a Knative service/function.
 
+## Prerequisite(s)
+
+- Azure Storage Queue
+
 ### Local build
 
 ```

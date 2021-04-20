@@ -2,6 +2,10 @@
 
 For building ContainerSource for Google Cloud Firestore that pulls events from Firestore and sends them to Knative service/channel
 
+## Prerequisite(s)
+
+- Google Cloud Firestore
+
 ## Local Build
 
 ```

@@ -2,6 +2,10 @@
 
 This event source is meant to be used as a Container Source with a Knative cluster to consume messages from [Solace pubsub+](https://solace.com/) and send them to a Knative service/function.
 
+## Prerequisite(s)
+
+- Solace
+
 ### Local Usage
 
 1. Setup local Solace Server in Docker with the following command: 

@@ -2,7 +2,7 @@
 
 This event source launches periodic HTTP requests against an external system endpoint, turning received requests into [CloudEvents][ce] to be consumed by other TriggerMesh components.
 
-## Prerequisites
+## Prerequisite(s)
 
 - An external system that exposes an HTTP endpoint.
 - When using HTTP basic authentication, a secret containing the password.

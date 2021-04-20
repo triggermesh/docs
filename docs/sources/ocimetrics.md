@@ -2,21 +2,29 @@
 
 This event source collects metrics data from the [Oracle Cloud](https://cloud.oracle.com).
 
-## Prerequisites
+## Prerequisite(s)
 
-An Oracle Cloud account with permissions to inspect and read metrics for the
-Oracle Cloud Infrastructure (OCI) compartment is required.  In addition, the
-account must have the account API secret added.
+- Oracle Cloud Account
+- Oracle Cloud Infrastructure (OCI)
+- Oracle Cloud Secret
+
+### Oracle Cloud Account
+
+An Oracle Cloud account is required.
+
+### Oracle Cloud Infrastructure (OCI)
+
+The Oracle Cloud account needs to have permissions to inspect and read metrics for the Oracle Cloud Infrastructure (OCI) compartment is required. In addition, the account must have the account API secret added.
 
 For additional information on how to create an API key and associate it with
 your Oracle Cloud user, go to [Oracle's Developer Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm#Required_Keys_and_OCID)
 
-### Adding the Oracle Cloud Secret
+### Oracle Cloud Secret
 
 Three pieces of information are required for the Oracle Cloud:
 1. API Private Key used for signing the request
-1. API Private Key passphrase to decrypt the key
-1. API Key's fingerprint to identify which key to use on the Oracle Cloud end
+2. API Private Key passphrase to decrypt the key
+3. API Key's fingerprint to identify which key to use on the Oracle Cloud end
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add an Oracle Cloud specific secret.

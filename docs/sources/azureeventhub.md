@@ -2,6 +2,10 @@
 
 This event source is meant to be used as a Container Source with a Knative cluster to consume messages from a Azure Event Hub and send them to a Knative service/function.
 
+## Prerequisite(s)
+
+- Azure Event Hubs & Azure Event Grid
+
 ## Azure Event Hub vs Azure Event Grid
 [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about) is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. 
 

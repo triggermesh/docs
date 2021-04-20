@@ -4,12 +4,12 @@ This event source forwards [Activity Logs][activity-logs] from a given Azure Sub
 Event Hubs][eventhubs]. It does so by registering [Diagnostic Settings][diag-settings] that automatically send a
 selected set of log categories to a dedicated Event Hub, then subscribing to the events from that Event Hub.
 
-## Prerequisites
+## Prerequisite(s)
 
-* Service Principal
-* Event Hubs Namespace
-* Event Hubs Instance _(optional)_
-* Shared Access Policy / Shared Access Signature (SAS)
+- Service Principal
+- Event Hubs Namespace
+- Event Hubs Instance _(optional)_
+- Shared Access Policy / Shared Access Signature (SAS)
 
 ### Service Principal
 

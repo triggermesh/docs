@@ -2,7 +2,7 @@
 
 This event source exposes a generic HTTP endpoint to be configured at external systems webhooks or be called from custom applications. It turns received requests into [CloudEvents][ce] to be consumed by other TriggerMesh components.
 
-## Prerequisites
+## Prerequisite(s)
 
 - An external client that executes HTTP requests.
 - When using HTTP basic authentication, a secret containing the password.
