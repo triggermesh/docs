@@ -15,7 +15,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 * [Datadog](./datadog.md): Forward event payload to Datadog.
 * [Elasticsearch](./elasticsearch.md): Send events to Elasticsearch to be indexed.
 * [Google Sheets](./googlesheets.md): Appends events to a Google Sheet row.
-* [Google Cloud Storage](./googlecloudstorage.md)
+* [Google Cloud Storage](./googlecloudstorage.md): Forward events to Google Cloud Storage.
 * [Hasura](./hasura.md): Send GraphQL queries to Hasura.
 * [HTTP](./http.md): Send HTTP queries to external services.
 * [InfraJS](./infrajs.md): Advanced manipulation of CloudEvents.
