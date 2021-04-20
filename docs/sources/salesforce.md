@@ -5,9 +5,9 @@ after wrapping them in a [CloudEvent][ce] envelope.
 
 ## Prerequisite(s)
 
-- Salesforce Account
-- Salesforce Stream Channel
-- Certificate Key Secret
+* Salesforce Account
+* Salesforce Stream Channel
+* Certificate Key Secret
 
 ### Salesforce Account
 
@@ -20,7 +20,7 @@ We will be using `OpenSSL` but any other certificate generation tool should work
     openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key -out tm-sf.crt
     ```
 
-2. At Salesforce site select `Setup > Apps > App Manager`, click on `New Connected App`.
+1. At Salesforce site select `Setup > Apps > App Manager`, click on `New Connected App`.
 
     * Fill in mandatory fields, then click `Enable OAuth Settings`.
     * A callback URL is mandatory but can be filled with any HTTPS data.
@@ -42,7 +42,7 @@ We will be using `OpenSSL` but any other certificate generation tool should work
     * Add permissions on the data this user will have access to.
     * Save.
 
-3. Retrieve OAuth data to configure Triggermesh Source.
+1. Retrieve OAuth data to configure Triggermesh Source.
 
    * Select the Connected App from the list and at the click on `View`.
    * Copy `Consumer Key`

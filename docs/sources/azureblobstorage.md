@@ -6,10 +6,10 @@ in this setup.
 
 ## Prerequisite(s)
 
-- Storage Account
-- Service Principal
-- Event Hubs Namespace
-- Event Hubs Instance _(optional)_
+* Storage Account
+* Service Principal
+* Event Hubs Namespace
+* Event Hubs Instance _(optional)_
 
 ### Storage Account
 
