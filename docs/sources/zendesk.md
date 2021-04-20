@@ -5,7 +5,7 @@ creations.
 
 ## Prerequisite(s)
 
-* API Token
+- API Token
 
 ### API Token
 

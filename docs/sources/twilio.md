@@ -3,11 +3,7 @@ This event source is to be deployed and then registered as a webhook via Twilio 
 
 ## Prerequisite(s)
 
-* Twilio Account
-
-### Twilio Acoount
-
-A Twilio account (trial or paid) is required.
+- A Twilio account (trial or paid)
 
 ## Deploying an Instance of the Source
 

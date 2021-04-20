@@ -5,9 +5,9 @@ creation of a new user, happens in the user identity pool.
 
 ## Prerequisite(s)
 
-* AWS Cognito User Pool
-* Amazon Resource Name (ARN)
-* API Credentials
+- AWS Cognito User Pool
+- Amazon Resource Name (ARN)
+- API Credentials
 
 ### AWS Cognito User Pool
 
