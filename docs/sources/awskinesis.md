@@ -5,9 +5,9 @@ after wrapping them in a [CloudEvent][ce] envelope.
 
 ## Prerequisite(s)
 
-- Kinesis Data Stream
-- Amazon Resource Name (ARN)
-- API Credentials
+* Kinesis Data Stream
+* Amazon Resource Name (ARN)
+* API Credentials
 
 ### Kinesis Data Stream
 
