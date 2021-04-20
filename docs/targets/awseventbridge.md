@@ -1,6 +1,6 @@
 # Event Target for AWS EventBridge
 
-This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to a [AWS EventBridge partner event
+This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to an [AWS EventBridge partner event
 bus][intro] in a [JSON format][ce-jsonformat].
 
 ## Deploying an Instance of the Target
@@ -9,7 +9,7 @@ Open the Bridge creation screen and add a target of type `AWS EventBridge`.
 
 ![Adding an AWS EventBridge target](../images/awseventbridge-target/create-bridge-1.png)
 
-In the Target creation form, give a name to the event Target and add the following information:
+In the Target creation form, provide a name for the event Target and add the following information:
 
 * [AWS account ID][aws-acc-id]: defines the AWS account in which the TriggerMesh partner event source is to be created.
 * [AWS region][aws-regions]: defines the AWS region in which the TriggerMesh partner event source is to be created.

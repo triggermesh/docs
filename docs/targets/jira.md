@@ -2,22 +2,22 @@
 
 This event Target receives [CloudEvents][ce] and invokes a Jira endpoint.
 
-## Prerequisites
+## Prerequisite(s)
 
-1. Jira instance or Atlassian cloud tenant.
-1. User API token.
+- Jira instance or Atlassian cloud tenant
+- User API token
 
-To create the user API token at Jira:
+## User API token
 
-- Open the Account settings > Security > [Create and manage API Tokens][api-tokens]
-- Press `Create API token` and fill the token name.
-- Copy the API token and create a secret for the Jira token at Triggermesh.
+1. Open **Account settings > Security >** [Create and Manage API Tokens][api-tokens]
+2. Click `Create API token` and fill out the token name.
+3. Copy the API token and create a secret for the Jira token at Triggermesh.
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about how to add the secrets.
+Consult the [Secrets](../guides/secrets.md) guide for more information about how to add a secret.
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a Target of type Jira.
+Open the Bridge creation screen and add a Target of type `Jira`.
 
 ![Adding a Jira Target](../images/jira-target/jira-target-creation.png)
 
@@ -26,40 +26,40 @@ In the Target creation form, provide a name for the event Target, and add the fo
 * **User**: the Jira user account that created the token.
 * **URL**: base URL for the Jira instance.
 
-Click the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
+After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with was successfully created.
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Jira event Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
 ## Event Types
 
-The Jira target accepts these event types:
+The Jira event Target accepts these event types:
 
-- `io.triggermesh.jira.issue.create`
+### io.triggermesh.jira.issue.create
 
-The Jira target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formated as defined at [this schema](../schemas/jira.issue.json)
+The Jira event Target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formatted as defined in [this schema](../schemas/jira.issue.json).
 
-Reply contains a a partially filled Jira issue with updated data.
+Reply contains a partially filled Jira issue with updated data.
 
-- `io.triggermesh.jira.issue.get`
+### io.triggermesh.jira.issue.get
 
-The Jira target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira Issue get request  JSON formated as defined at [this schema](../schemas/jira.issue.get.json)
+The Jira event Target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira issue `GET` request JSON formatted as defined in [this schema](../schemas/jira.issue.get.json).
 
 Reply data contains a Jira issue.
 
-- `io.triggermesh.jira.custom`
+### io.triggermesh.jira.custom
 
-The Jira target will request the Jira API when this event type is received. The CloudEvent data expects a generic API request definition as defined at [this schema](../schemas/jira.custom.json).
+The Jira event Target will send a request to the Jira API when this event type is received. The CloudEvent data expects a generic API request as defined in [this schema](../schemas/jira.custom.json).
 
-Please, refer to the [Jira API][jira-api] on how to fill in values for these requests. Reply contains the raw response for the request.
+For more information on the Jira API, please refer to the [Jira API documentation][jira-api].
 
 ## Examples
 
-Do a custom request to retrieve Jira projects:
+Create a custom request to retrieve Jira projects:
 
-* event type: `io.triggermesh.jira.custom`
-* data:
+* **Event Type**: `io.triggermesh.jira.custom`
+* **Data**:
 ```json
 {
   "method": "GET",
@@ -67,28 +67,28 @@ Do a custom request to retrieve Jira projects:
 }
 ```
 
-List assignable users to a project `PR1`
+List assignable users for a project:
 
-* event type: `io.triggermesh.jira.custom`
-* data:
+* **Event Type**: `io.triggermesh.jira.custom`
+* **Data**:
 ```json
 {
   "method": "GET",
   "path": "/rest/api/3/user/assignable/search",
-  "query": {"project": "PR1"}
+  "query": { "project": "Project1" }
 }
 ```
 
-Create an issue
+Create an issue:
 
-* event type: `io.triggermesh.jira.issue.create`
-* data:
+* **Event Type**: `io.triggermesh.jira.issue.create`
+* **Data**:
 ```json
 {
   "fields": {
     "project":
       {
-        "key": "PR1"
+        "key": "Project1"
       },
       "labels": ["triggermesh","automated"],
       "summary": "Delete this test ticket.",
@@ -105,10 +105,10 @@ Create an issue
 
 Retrieve an issue:
 
-* event type: `io.triggermesh.jira.issue.get`
-* data:
+* **Event Type**: `io.triggermesh.jira.issue.get`
+* **Data**:
 ```json
-{"id":"IP-9"}
+{ "id":"IP-9" }
 ```
 
 [ce]: https://cloudevents.io/

@@ -2,48 +2,51 @@
 
 This event target receives [CloudEvents][ce] and turns them into HTTP requests that consume external services.
 
-## Prerequisites
+## Prerequisite(s)
 
-The HTTP event target sends requests to arbitrary URLs and wraps responses in CloudEvents back to the caller. HTTP endpoints that are unauthenticated, use basic authentication or use custom header values for authentication, can be integrated using this target.
+The HTTP event Target sends requests to arbitrary URLs and wraps responses in CloudEvents back to the caller. HTTP endpoints that are unauthenticated, use basic authentication or use custom header values for authentication, can be integrated using this target.
 
-Responses from external HTTP endpoints are converted into CloudEvents and sent as a reply to the TriggerMesh Broker/Channel. It is important that the HTTP target filters received events and cares about response event type and event source to avoid loops where those responses might end up being processed by the HTTP Target.
+Responses from external HTTP endpoints are converted into CloudEvents and sent as a reply to the TriggerMesh Broker/Channel. It is important that the HTTP Target filters received events and cares about response event type and event source to avoid loops where those responses might end up being processed by the HTTP Target.
 
-Requests from this HTTP target will verify TLS certificates from the remote server if present. If the CA certificate at the server is self-signed, the public certificate needs to be added to the configuration, or alternatively mark the `Skip Verify` option.
+Requests from this HTTP Target will verify TLS certificates from the remote server if present. If the CA certificate at the server is self-signed, the public certificate needs to be added to the configuration, or alternatively mark the `Skip Verify` option.
 
 If the remote endpoint requires basic authentication, the password needs to be created as a secret.
 
-## Create the HTTP Target Integration
+## Deploying an Instance of the Target
 
-Create an instance of the HTTP Target at TriggerMesh as part of a Bridge.
+Open the Bridge creation screen and add a Target of type `HTTP`.
 
-- `Name` is an internal identifier for the target.
-- `Response event type` must be set and will identify the type for responses from the remote endpoint.
-- `EventSource` will identify the origin for all responses. When not informed source will be automatically set to a generated name that includes the HTTP Target component name.
-- `Endpoint` full URL for the remote service, including path and query string if any.
-- `Method` to use when executing requests against the remote endpoint.
-- `CA Certificate`  CA certificate configured for TLS connection.
-- `Skip Verify` skips remote server TLS certificate verification.
-- `Username` when using basic authentication.
-- `Password` when using basic authentication needs to reference the aforementioned password secret.
-- `Headers` is a set of key/value pairs that will be set withing the HTTP request.
+In the Target creation form, provide a name for the event Target and add the following information:
 
-Save the target, fill the rest of the bridge components, and press `Submit Bridge`.
+* **Response Event Type**: The event type for responses from the remote endpoint.
+* **EventSource**: The origin for all responses. When not informed, source will be automatically set to a generated name that includes the HTTP Target component name.
+* **Endpoint**: The full URL for the remote service, including path and query string, if any.
+* **Method**: The method to use when executing requests against the remote endpoint.
+* **CA Certificate**: The CA certificate configured for TLS connection.
+* **Skip Verify**: Allow skipping the remote server TLS certificate verification.
+* **Username**: Username when using basic authentication.
+* **Password**: Password when using basic authentication. Needs to reference the password secret discussed in the prerequisites.
+* **Headers**: A set of key/value pairs that will be set within the HTTP request.
+
+After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
+
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main Bridges page indicates that the Bridge with an Elasticsearch event Target was successfully created.
 
 ## Trigger Configuration
 
 Responses from the remote endpoint will generate new CloudEvents that will be returned to TriggerMesh. Those response events should not be re-processed by the HTTP Target.
 
-It is important that the Trigger that subscribes the HTTP Target to the Broker configure the appropriate filters to avoid these loops.
+It is important that the Trigger that subscribes the HTTP Target to the Broker configures the appropriate filters to avoid these loops.
 
 As an example:
 
-- We configure an HTTP Target to integrate with WorkDay.
+- We configure an HTTP Target to integrate with Workday.
 - HTTP Target is interested in events whose type is `calendar.pto.request`.
-- The response from workday will generate a CloudEvent type `workday.pto.response` and source `workday.instance1`
+- The response from Workday will generate a CloudEvent of type `workday.pto.response` and source of `workday.instance1`.
 
-Trigger should be configured to avoid feeding these responses into the HTTP Target. A filter key `type` and value `calendar.pto.request` would provide such protection.
+Trigger should be configured to avoid feeding these responses into the HTTP Target. A filter key type and value of `calendar.pto.request` would provide such protection.
 
-## Events Types
+## Event Types
 
 The HTTP Target expects a CloudEvent request that complements the Target configured values.
 
@@ -62,7 +65,7 @@ CloudEvent data examples:
 {"path_suffix":"world/italy/cities", "query_string":"top=10&format=csv"}
 ```
 
-If body is a JSON structure, it will need to be _stringified_
+If body is a JSON structure, it will need to be stringified:
 
 ```json
 {"body": "{\"records\":[{\"value\":{\"this\":{\"is\": \"sparta\"}}}]}"}
