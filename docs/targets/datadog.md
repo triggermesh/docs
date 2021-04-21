@@ -1,10 +1,10 @@
 # Event Target for Datadog
 
-This event target receives [CloudEvents][ce] and sends it to [Datadog][datadog].
+This event Target receives [CloudEvents][ce] and sends it to [Datadog][datadog].
 
-## Prerequisites
+## Prerequisite(s)
 
-1. Datadog API token
+- Datadog API token
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the Datadog API token as a secret.
@@ -15,10 +15,10 @@ Open the Bridge creation screen and add a Target of type `Datadog`.
 
 ![Adding a Datadog Target](../images/datadog-target/create-bridge-1.png)
 
-In the Target creation form, provide a name to the event Target, and add the following information:
+In the Target creation form, provide a name for the event Target and add the following information:
 
-* **API Key**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Datadog API key from above
-* **Metric Name Prefix**: _Optional_ prefix to prepend to the metrics being sent
+- **API Key**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Datadog API key as discussed in the [prerequisites](#prerequisites).
+- **Metric Name Prefix (_Optional_)**: Prefix to prepend to the metrics being sent.
 
 ![Datadog Target form](../images/datadog-target/create-bridge-2.png)
 
@@ -26,11 +26,11 @@ After clicking the `Save` button, the console will self-navigate to the Bridge e
 
 ![Bridge overview](../images/datadog-target/create-bridge-3.png)
 
-After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with a Datadog event Target was successfully created.
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Datadog event Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
-For more information, please consult the [Datadog Documentation][datadog]
+For more information about using Datadog, please refer to the [Datadog documentation][datadog].
 
 ## Event Types
 
@@ -64,9 +64,7 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | **displayName**|string|Denote name for the metric|
 | **value**|float64|Numeric value of the metric|
 | **resourceGroup**|string|The resource owning this type of metric|
-| **metricType**|string|The type of metric|
-
-The **metricType** can be one of: `distribution`, `gauge`, or `histogram`.
+| **metricType**|string|The metric type as expected by Datadog: `distribution`, `gauge`, `histogram`|
 
 This event type does not return an event.
 

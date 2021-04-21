@@ -2,11 +2,10 @@
 
 This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS SNS endpoint.
 
-## Prerequisites
+## Prerequisite(s)
 
-1. AWS API key and secret
-
-1. ARN for the SNS topic to invoke
+- AWS API key and secret
+- ARN for the SNS topic to invoke
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the AWS API specific secrets.
@@ -17,14 +16,14 @@ Open the Bridge creation screen and add a Target of type `AWS SNS`.
 
 ![Adding an SNS Target](../images/aws-targets/aws-sns-bridge-create-1.png)
 
-In the Target creation form, provide a name for the event Target, and add the following information:
+In the Target creation form, provide a name for the event Target and add the following information:
 
-* **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites
-* **AWS ARN**: The ARN that points to the AWS SNS topic
+- **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
+- **AWS ARN**: The ARN that points to the AWS SNS topic.
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
-to SNS. By default, this is disabled which means the event payload
-will be sent only.
+to SNS. By default, this is disabled which means only the event payload
+will be sent.
 
 ![AWS SNS Target form](../images/aws-targets/aws-sns-bridge-create-2.png)
 
@@ -32,7 +31,7 @@ After clicking the `Save` button, the console will self-navigate to the Bridge e
 
 ![Bridge overview](../images/aws-targets/aws-sns-bridge-create-3.png)
 
-After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with the AWS SNS Target was successfully created.
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the AWS SNS Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
@@ -40,7 +39,7 @@ For more information about using AWS Simple Notification Service, please refer t
 
 ## Event Types
 
-The AWS SNS Target leaves the [CloudEvent][ce] type definition to the discretion of
+The AWS SNS event Target leaves the [CloudEvent][ce] type definition to the discretion of
 the implementer given the flexible nature of AWS SNS.
 
 However, the response [CloudEvent][ce] would have the following payload:

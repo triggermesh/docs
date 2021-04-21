@@ -1,10 +1,17 @@
 # Event Target for Zendesk
 
-This event target receives [CloudEvents][ce] and uses the Zendesk API to either create a new ticket or tag an existing one.
+This event Target receives [CloudEvents][ce] and uses the Zendesk API to either create a new ticket or tag an existing one.
 
-## Prerequisites
+## Prerequisite(s)
 
-A Zendesk API token is required to utilize this Target. The steps to obtain a token are outlined in the [Zendesk API Docs](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-)
+- Zendesk API token
+
+## Zendesk API Token
+
+You can find the steps to obtain an API token in the [Zendesk API Docs](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-).
+
+Consult the [Secrets](../guides/secrets.md) guide for more information about
+how to add the Zendesk API token as a secret.
 
 ## Deploying an Instance of the Target
 
@@ -14,10 +21,10 @@ Open the Bridge creation screen and add a Target of type `Zendesk`.
 
 In the Target creation form, provide a name to the event Target, and add the following information:
 
-* **Default Ticket Subject**: An optional ticket subject fallback if one is not provided in an incoming event.
-* **Zendesk Subdomain**: Name of the Zendesk [Subdomain][zd-subdom], without the `zendesk.com` domain or `https://` scheme.
-* **Zendesk Email**: Email address associated with the Zendesk account.
-* **Zendesk API Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a [token][zd-token] to communicate with the Zendesk API, as described in the previous section.
+- **Default Ticket Subject**: An optional ticket subject fallback if one is not provided in an incoming event.
+- **Zendesk Subdomain**: Name of the Zendesk [Subdomain][zd-subdom], without the `zendesk.com` domain or `https://` scheme.
+- **Zendesk Email**: Email address associated with the Zendesk account.
+- **Zendesk API Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a [token][zd-token] to communicate with the Zendesk API, as discussed in the [prerequisites](#prerequisites).
 
 ![Zendesk Target form](../images/zendesk-target/create-bridge-2.png)
 
@@ -25,7 +32,7 @@ After clicking the `Save` button, the console will self-navigate to the Bridge e
 
 ![Bridge overview](../images/zendesk-target/create-bridge-3.png)
 
-After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with a Zendesk event Target was successfully created.
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Zendesk event Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
@@ -64,7 +71,7 @@ An example response from the Zendesk Target after consuming an event of this typ
  "via":
    {
      "channel":"api",
-     "source":{"from":{},"to":{},"rel":""}},
+     "source":{"from":{},"to":{},"rel":""},
      "satisfaction_rating":{"id":0,"score":"","comment":""},
      "brand_id":360004879834,
      "allow_attachments":true,
@@ -72,7 +79,7 @@ An example response from the Zendesk Target after consuming an event of this typ
      "created_at":"2020-08-05T20:00:11Z",
      "updated_at":"2020-08-05T20:00:11Z",
      "collaborators":{},
-     "comment":{"created_at":"0001-01-01T00:00:00Z"
+     "comment":{"created_at":"0001-01-01T00:00:00Z"}
    }
 }
 ```

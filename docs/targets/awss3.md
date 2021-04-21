@@ -2,17 +2,16 @@
 
 This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS S3 endpoint.
 
-## Prerequisites
+## Prerequisite(s)
 
-1. AWS API key and secret
-
-1. ARN for the S3 bucket to store the event
+- AWS API key and secret
+- ARN for the S3 bucket to store the event
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the AWS API specific secrets.
 
 The ARN for the S3 bucket must include the account number and region of a
-pre-defined [access point][aws-s3-ap]
+pre-defined [access point][aws-s3-ap].
 
 ## Deploying an Instance of the Target
 
@@ -20,14 +19,14 @@ Open the Bridge creation screen and add a Target of type `AWS S3`.
 
 ![Adding an S3 Target](../images/aws-targets/aws-s3-bridge-create-1.png)
 
-In the Target creation form, provide a name for the event Target, and add the following information:
+In the Target creation form, provide a name for the event Target and add the following information:
 
-* **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites
-* **AWS ARN**: The ARN that points to the AWS S3 bucket
+- **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
+- **AWS ARN**: The ARN that points to the AWS S3 bucket.
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
-to S3 bucket. By default, this is disabled which means the event payload
-will be sent only.
+to S3 bucket. By default, this is disabled which means only the event payload
+will be sent.
 
 ![AWS S3 Target form](../images/aws-targets/aws-s3-bridge-create-2.png)
 
@@ -35,7 +34,7 @@ After clicking the `Save` button, the console will self-navigate to the Bridge e
 
 ![Bridge overview](../images/aws-targets/aws-s3-bridge-create-3.png)
 
-After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with the AWS S3 Target was successfully created.
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the AWS S3 Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
@@ -43,14 +42,14 @@ For more information about using AWS S3, please refer to the [AWS documentation]
 
 ## Event Types
 
-Events of this type will store the event payload into an s3 bucket.
+Events of this type will store the event payload into an AWS S3 bucket.
 
-The AWS S3 Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the flexible nature of what can be stored in S3.  There is
+The AWS S3 event Target leaves the [CloudEvent][ce] type definition to the discretion of
+the implementer given the flexible nature of what can be stored in AWS S3.  There is
 an exception if the `io.triggermesh.awss3.object.put` type is used where the target
 will store the payload body regardless of the `Discard CloudEvent context attributes` setting.
 
-The S3 bucket key used to store the event is defined by the `ce-subject` attribute.
+The AWS S3 bucket key used to store the event is defined by the `ce-subject` attribute.
 If `ce-subject` is not set, the default key will be: **ce-type**/**ce-source**/**ce-time**.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:

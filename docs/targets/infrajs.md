@@ -1,24 +1,28 @@
 # InfraJS Target
 
-This event target does programatic transformations on received [CloudEvents][ce] using a Javascript function.
+This event Target does programmatic transformations on received [CloudEvents][ce] using a Javascript function.
 
-## Prerequisites
+## Prerequisite(s)
 
-Basic knowledge of JavaScript ES5 is required. Please note there are limitations to the interpreter:
+- Basic knowledge of JavaScript ES5 is required. Please note there are limitations to the interpreter:
+    - ES6 is not supported.
+    - Regular expressions are not fully compatible with ES5 specification.
+    - No imports are allowed.
+    - No libraries are pre-loaded.
 
-- ES6 is not supported.
-- Regular expressions are not fully compatible with ES5 specification.
-- No imports are allowed.
-- No libraries are pre-loaded.
+## Deploying an Instance of the Target
 
-## Create the InfraJS Target
+Open the Bridge creation screen and add a Target of type `InfraJS`.
 
-Create an instance of the InfraJS Target at TriggerMesh as part of a Bridge.
+In the Target creation form, provide a name for the event Target and add the following information:
 
-- `Name` is an internal identifier for the target.
-- `JS Script` is the function that contains the event manipulation.
-- `Timeout`  is the amount of milliseconds to wait before timing out the script.
-- `Type Loop Protection` when enabled will raise an error if the returned CloudEvent type is the same as the incoming one.
+- **JS Script**: The function that contains the event manipulation.
+- **Timeout**: The amount of milliseconds to wait before timing out the script.
+- **Type Loop Protection**: When enabled, will raise an error if the returned CloudEvent type is the same as the incoming one.
+
+After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
+
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with an Elasticsearch event Target was successfully created.
 
 ### JS Script
 
@@ -29,10 +33,10 @@ The JS Script field must include a function named `handle` with a single paramet
 - The outgoing event must be a JSON structure that contains [context attributes][ce-context-attributes] at the root and [data payload][ce-data] at the `data` element. See [JSON format reference][ce-json].
 - If the outgoing event is nil or no outgoing event is returned, no CloudEvent will be replied and the processing will be considered successful.
 - When not present at the outgoing event, these context fields will be defaulted:
-  - `specversion` will be set to the incoming value.
-  - `source` will be set to the incoming value.
-  - `id` will be set to the incoming value.
-  - `datacontenttype` will be defaulted to `application/json`.
+    - `specversion` will be set to the incoming value.
+    - `source` will be set to the incoming value.
+    - `id` will be set to the incoming value.
+    - `datacontenttype` will default to `application/json`.
 
 ## Examples
 
@@ -45,7 +49,7 @@ These examples for the InfraJS target show different usages of the `JS Script` f
   "source": "example.source",
   "specversion" : "1.0",
   "datacontenttype" : "application/json",
-  "data": {"key1":"value1","key2":"value2", "key3": true}
+  "data": {"key1":"value1","key2":"value2","key3": true}
 }
 ```
 
@@ -56,14 +60,18 @@ Context fields missing at the new event will be automatically filled from the in
 
 ```js
 function handle(input) {
-  nevent = {
+  newEvent = {
     data: {
       "hello": "world",
-      "nest": {"nested1": [1,2,3],	"nested2": "nestedvalue"}},
+      "nest": {
+        "nested1": [1,2,3],
+        "nested2": "nestedvalue"
+      }
+    },
     "type": "test.response.type",
   };
 
-  return nevent;
+  return newEvent;
 }
 ```
 
@@ -71,22 +79,26 @@ Values from the input event can be used when composing the reply.
 
 ```js
 function handle(input) {
-  nevent = {
+  newEvent = {
     data: {
       "hello": "world",
       "works": input.data.key3,
-      "nest": {"nested1": [1,2,3],	"nested2": input.data.key1}},
+      "nest": {
+        "nested1": [1,2,3],
+        "nested2": input.data.key1
+      }
+    },
     "type": "test.response.type",
   };
 
-  return nevent;
+  return newEvent;
 }
 ```
 
 ### Conditional Reply
 
 Conditionals can be used for a range of cases.
-In this example the value of a field is used to decide if a reply should be emited.
+In this example the value of a field is used to decide if a reply should be emitted.
 
 ```js
 function handle(input) {
@@ -94,12 +106,12 @@ function handle(input) {
     return;
   }
 
-  nevent = {
-    data: {"hello": "world"},
+  newEvent = {
+    data: { "hello": "world" },
     "type": "test.response.type",
   };
 
-  return nevent;
+  return newEvent;
 }
 ```
 
@@ -143,11 +155,11 @@ Although the `console` object is available, the InfraJS script provides a `log` 
 ```js
 function handle(input) {
   if (input.type == "not.wanted.type") {
-    log("we received a non wanted type!")
-    return
+    log("we received a non wanted type!");
+    return;
   }
 
-  input.type = "test.response.type"
+  input.type = "test.response.type";
 
   return input;
 }
@@ -160,14 +172,16 @@ In this example we are preparing a JSON payload to be sent to the [HTTP Target][
 
 ```js
 function handle(input) {
-  body = {"search": [{"key": input.data.key1}]}
+  body = {
+    "search": [{ "key": input.data.key1 }]
+  };
 
   event = {
     type: "searchservice.request",
-    "data": {"body": JSON.stringify(body)}
-  }
+    "data": { "body": JSON.stringify(body) }
+  };
 
-  return event
+  return event;
 }
 ```
 

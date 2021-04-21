@@ -3,11 +3,10 @@
 This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS
 Lambda function.
 
-## Prerequisites
+## Prerequisite(s)
 
-1. AWS API key and secret
-
-1. ARN for the Lambda to invoke
+- AWS API key and secret
+- ARN for the Lambda to invoke
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the AWS API specific secrets.
@@ -18,14 +17,14 @@ Open the Bridge creation screen and add a Target of type `AWS Lambda`.
 
 ![Adding a Lambda Target](../images/aws-targets/aws-lambda-bridge-create-1.png)
 
-In the Target creation form, provide a name for the event Target, and add the following information:
+In the Target creation form, provide a name for the event Target and add the following information:
 
-* **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites
-* **AWS ARN**: The ARN that points to the AWS Lambda function to invoke
+- **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
+- **AWS ARN**: The ARN that points to the AWS Lambda function to invoke
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
-to the lambda function. By default, this is disabled which means the event payload
-will be sent only.
+to the lambda function. By default, this is disabled which means only the event payload
+will be sent.
 
 ![AWS Lambda Target form](../images/aws-targets/aws-lambda-bridge-create-2.png)
 
@@ -33,16 +32,16 @@ After clicking the `Save` button, the console will self-navigate to the Bridge e
 
 ![Bridge overview](../images/aws-targets/aws-lambda-bridge-create-3.png)
 
-After submitting the bridge, and allowing some configuration time, a green check mark on the main _Bridges_ page indicates that the bridge with the AWS Lambda Target was successfully created.
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the AWS Lambda Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
-For more information about using AWS Lambdas, please refer to the [AWS documentation][docs].
+For more information about using AWS Lambda, please refer to the [AWS documentation][docs].
 
 ## Event Types
 
-The AWS Lambda Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the flexible nature of AWS Lambdas.
+The AWS Lambda event Target leaves the [CloudEvent][ce] type definition to the discretion of
+the implementer given the flexible nature of AWS Lambda.
 
 However, the response [CloudEvent][ce] would have the following payload:
 
