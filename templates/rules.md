@@ -10,11 +10,11 @@ For Unorderd Lists (a.k.a. Bullet Lists) we would like to use of `-` instead of 
 
 `-` would be the more logical choice, since it eliminates the ambiguity between `*` (bulltet point), `* *` (italic) and `**` `**` (bold). 
 
-   ## Example Bullet List
+### Example Bullet List
 
-   - Example 
-   - Example 
-   - Example
+- Example 
+- Example 
+- Example
 
 ## Ordered Lists (Number Lists)
 
@@ -24,8 +24,8 @@ For Ordered Lists (a.k.a. Number Lists) we would like to use `1. 1. 1.` instead 
 
 The advantage is that you can add/remove elements to a list without having to renumber everything manually.
 
-   ## Example Number List
+### Example Number List
 
-   1. Example 
-   1. Example  
-   1. Example 
+1. Example 
+1. Example  
+1. Example 
