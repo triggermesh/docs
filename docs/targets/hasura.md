@@ -1,6 +1,6 @@
 # Event Target for Hasura
 
-This event target receives [CloudEvents][ce] as either a [GraphQL][graphql] query or key/value
+This event Target receives [CloudEvents][ce] as either a [GraphQL][graphql] query or key/value
 pairs for a known query and sends it to [Hasura][hasura].
 
 ## Prerequisite(s)
@@ -12,7 +12,7 @@ pairs for a known query and sends it to [Hasura][hasura].
 - If using JWT, you may choose to add an optional user role to invoke the queries as
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the admin or user JWT.
+how to add the admin or user JWT as secrets.
 
 ## Deploying an Instance of the Target
 

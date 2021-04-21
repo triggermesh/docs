@@ -10,7 +10,10 @@ This event Target receives [CloudEvents][ce] over HTTP and writes their payload 
     * User and password
     * API Key
 
-## Elasticsearch Cluster
+Consult the [Secrets](../guides/secrets.md) guide for more information about
+how to add the Elasticsearch password and API key as secrets.
+
+## Creating an Elasticsearch Cluster
 
 Create an Elasticsearch cluster quickly by using either [Elastic Cloud on Kubernetes][eck] or [Elastic Cloud][elasticcloud].
 

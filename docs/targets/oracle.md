@@ -1,46 +1,36 @@
 # Event Target for Oracle Cloud
 
-This event target sends and receives [CloudEvents][ce] over HTTP and calls a targeted
+This event Target sends and receives [CloudEvents][ce] over HTTP and calls a targeted
 Oracle Cloud Service.
 
-Current supported Oracle Cloud Services:
+## Prerequisite(s)
 
-  - [Functions][functions]
+- Oracle API signing key (you can find out how to set up the signing key in the [Oracle Developer Guide][devguide])
 
-## Prerequisites
+Consult the [Secrets](../guides/secrets.md) guide for more information about
+how to add the Oracle API signing key as a secret.
 
-Regardless of the service being chosen, to access any of the services hosted
-on the Oracle Cloud, an API signing key must be generated and granted access.
-The [Oracle Developer Guide][devguide]
-describes how to setup the signing key.
+## Deploying an Instance of the Target
 
-### Deploy the Oracle Cloud Target
+Open the Bridge creation screen and add a Target of type `Oracle`.
 
-At TriggerMesh, add a new secret for the Oracle Cloud. This secret must have
-the following keys defined:
+In the Target creation form, provide a name for the event Target and add the following information:
 
-  - `oracleApiPrivateKey` API Key as the full x509 private key certificate
-  - `oracleApiPrivateKeyPassphrase` Passphrase to decode the API Key above
-  - `oracleApiPrivateKeyFingerprint` Fingerprint of the resulting certificate associated with the API key
+* **Oracle Secrets**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Oracle API signing key as discussed in the prerequisites.
+* **Oracle Tenancy**: The OCID of tenant that holds the service being invoked.
+* **Oracle Username**: The OCID of the user that owns the API key discussed in the prerequisites and will be invoking the service.
+* **Oracle Region**: The Oracle Cloud region hosting the service.
+* **Function**: The OCID of the Oracle Cloud function being invoked.
 
-In addition to the above secrets, the following must be defined to locate the
-service to be triggered:
+After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-  - `oracleTenancy` The OCID of tenant that holds the service being invoked
-  - `oracleUser` The OCID of the user that owns the API key cited above, and
-    will be invoking the service
-  - `oracleRegion` The Oracle Cloud region hosting the service
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Datadog event Target was successfully created.
 
-Lastly for the supported services defined:
+## Supported Oracle Cloud Service Events
 
-  - `function`
-    - `function` The OCID of the Oracle Cloud function being invoked
+### Functions
 
-## Supported Cloud Service Events
-
-### Function
-
-The Oracle Cloud Functions target is designed to allow for free-form JSON objects
+The [Oracle Cloud Functions][functions] event Target is designed to allow for free-form JSON objects
 to be passed directly to the function and rely on the Oracle Cloud function to
 perform whatever action is desired.
 

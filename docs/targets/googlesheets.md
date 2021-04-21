@@ -1,11 +1,14 @@
 # Event Target for Google Sheets
 
-This event target receives [CloudEvents][ce] over HTTP and appends the event payload to a GoogleSheets Sheet.
+This event Target receives [CloudEvents][ce] over HTTP and appends the event payload to a GoogleSheets Sheet.
 
 ## Prerequisite(s)
 
 - Google API Credentials
 - GoogleSheets Sheet ID
+
+Consult the [Secrets](../guides/secrets.md) guide for more information about
+how to add the Google API key as a secret.
 
 ## Google API Credentials
 
@@ -49,7 +52,7 @@ After submitting the Bridge, and allowing for some configuration time, a green c
 
 ## Event Types
 
-The GoogleSheets target will accept any event type, and by default, will stringify
+The GoogleSheets Target will accept any event type, and by default, will stringify
 the [CloudEvent][ce] and save the data in a new row.
 
 ### io.triggermesh.googlesheet.append

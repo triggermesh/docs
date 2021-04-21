@@ -1,6 +1,6 @@
 # Event Target for AWS EventBridge
 
-This event target receives arbitrary [CloudEvents][ce] over HTTP and sends them to an [AWS EventBridge partner event
+This event Target receives arbitrary [CloudEvents][ce] over HTTP and sends them to an [AWS EventBridge partner event
 bus][intro] in a [JSON format][ce-jsonformat].
 
 ## Deploying an Instance of the Target
@@ -54,7 +54,7 @@ For more information about using AWS EventBridge, please refer to the [EventBrid
 
 ## Event Types
 
-The AWS EventBridge event target can consume events of any type.
+The AWS EventBridge event Target can consume events of any type.
 
 [intro]: https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html
 [userguide]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html

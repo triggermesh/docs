@@ -1,6 +1,6 @@
 # Event Target for HTTP
 
-This event target receives [CloudEvents][ce] and turns them into HTTP requests that consume external services.
+This event Target receives [CloudEvents][ce] and turns them into HTTP requests that consume external services.
 
 ## Prerequisite(s)
 
@@ -10,7 +10,8 @@ Responses from external HTTP endpoints are converted into CloudEvents and sent a
 
 Requests from this HTTP Target will verify TLS certificates from the remote server if present. If the CA certificate at the server is self-signed, the public certificate needs to be added to the configuration, or alternatively mark the `Skip Verify` option.
 
-If the remote endpoint requires basic authentication, the password needs to be created as a secret.
+If the remote endpoint requires basic authentication, the password needs to be created as a secret. Consult the [Secrets](../guides/secrets.md) guide for more information about
+how to add the password as a secret.
 
 ## Deploying an Instance of the Target
 

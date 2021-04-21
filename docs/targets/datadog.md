@@ -1,6 +1,6 @@
 # Event Target for Datadog
 
-This event target receives [CloudEvents][ce] and sends it to [Datadog][datadog].
+This event Target receives [CloudEvents][ce] and sends it to [Datadog][datadog].
 
 ## Prerequisite(s)
 

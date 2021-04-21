@@ -1,7 +1,7 @@
 
 # Event Target for Confluent
 
-This event target receives [CloudEvents][ce] and forwards the event to a Confluent Kafka cluster.
+This event Target receives [CloudEvents][ce] and forwards the event to a Confluent Kafka cluster.
 
 ## Prerequisite(s)
 
@@ -13,7 +13,7 @@ for additional information on how to add the password as a secret.
 ## Kafka cluster details
 
 Depending on the cluster and user permissions, the Kafka topic must
-exist prior to setting up the target. Otherwise, the target will attempt to create
+exist prior to setting up the target. Otherwise, the Target will attempt to create
 the topic which will require setting the `Topic replication` and `Topic partition`.
 
 ## Deploying an Instance of the Target
