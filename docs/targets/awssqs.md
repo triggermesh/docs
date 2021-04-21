@@ -5,7 +5,6 @@ This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS SQS en
 ## Prerequisite(s)
 
 - AWS API key and secret
-
 - ARN for the SQS queue to invoke
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
@@ -19,8 +18,8 @@ Open the Bridge creation screen and add a Target of type `AWS SQS`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites.
-* **AWS ARN**: The ARN that points to the AWS SQS queue.
+- **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
+- **AWS ARN**: The ARN that points to the AWS SQS queue.
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
 to SQS. By default, this is disabled which means only the event payload

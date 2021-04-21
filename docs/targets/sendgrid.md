@@ -4,8 +4,8 @@ This event Target receives [CloudEvents][ce] and utilizes [SendGrid][sg] to enab
 
 ## Prerequisite(s)
 
-* A [SendGrid account][sgSU]
-* A [SendGrid API token][api]
+- [SendGrid account][sgSU]
+- [SendGrid API token][api]
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about how to add the SendGrid API token as a secret.
 
@@ -17,12 +17,12 @@ Open the Bridge creation screen and add a target of type `SendGrid`.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **Default sender name**: Define a default 'name' to be assigned in the `From:` section of the email to be created, if the received event does not contain a `FromName` property.
-* **Default sender email**: Define a default email address to be assigned in the `From:` section of the email to be created, if the received event does not contain a `FromEmail` property.
-* **Default recipient name**: Define a default name to be assigned in the `To:` section of the email to be created, if the received event does not contain a `FromEmail` property.
-* **Default recipient email**: Define a default 'email address' to be assigned in the `To:` section of the email to be created, if the received event does not contain a `ToEmail` property.
-* **Default subject**: Define a default subject to be assigned to the outgoing email to be created, if the received event does not contain a `subject` property.
-* **API Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing an [API token][api] for authenticating requests
+- **Default sender name**: Define a default 'name' to be assigned in the `From:` section of the email to be created, if the received event does not contain a `FromName` property.
+- **Default sender email**: Define a default email address to be assigned in the `From:` section of the email to be created, if the received event does not contain a `FromEmail` property.
+- **Default recipient name**: Define a default name to be assigned in the `To:` section of the email to be created, if the received event does not contain a `FromEmail` property.
+- **Default recipient email**: Define a default 'email address' to be assigned in the `To:` section of the email to be created, if the received event does not contain a `ToEmail` property.
+- **Default subject**: Define a default subject to be assigned to the outgoing email to be created, if the received event does not contain a `subject` property.
+- **API Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing an [API token][api] for authenticating requests
 
 **Note:** If there is not a default value specified for all of the optional fields, the event received by that deployment *MUST* contain all of the information noted in the [Event Types](#event-types), except for `Message`, or the Target **will fail**.
 

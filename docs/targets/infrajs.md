@@ -16,9 +16,9 @@ Open the Bridge creation screen and add a Target of type `InfraJS`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* **JS Script**: The function that contains the event manipulation.
-* **Timeout**: The amount of milliseconds to wait before timing out the script.
-* **Type Loop Protection**: When enabled, will raise an error if the returned CloudEvent type is the same as the incoming one.
+- **JS Script**: The function that contains the event manipulation.
+- **Timeout**: The amount of milliseconds to wait before timing out the script.
+- **Type Loop Protection**: When enabled, will raise an error if the returned CloudEvent type is the same as the incoming one.
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 

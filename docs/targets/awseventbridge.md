@@ -11,8 +11,8 @@ Open the Bridge creation screen and add a target of type `AWS EventBridge`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* [AWS account ID][aws-acc-id]: defines the AWS account in which the TriggerMesh partner event source is to be created.
-* [AWS region][aws-regions]: defines the AWS region in which the TriggerMesh partner event source is to be created.
+- [AWS account ID][aws-acc-id]: defines the AWS account in which the TriggerMesh partner event source is to be created.
+- [AWS region][aws-regions]: defines the AWS region in which the TriggerMesh partner event source is to be created.
 
 ![AWS EventBridge target form](../images/awseventbridge-target/create-bridge-2.png)
 

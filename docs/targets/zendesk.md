@@ -4,7 +4,11 @@ This event Target receives [CloudEvents][ce] and uses the Zendesk API to either 
 
 ## Prerequisite(s)
 
-- Zendesk API token (steps to obtain a token are outlined in the [Zendesk API Docs](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-))
+- Zendesk API token
+
+## Zendesk API Token
+
+You can find the steps to obtain an API token in the [Zendesk API Docs](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-).
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the Zendesk API token as a secret.
@@ -17,10 +21,10 @@ Open the Bridge creation screen and add a Target of type `Zendesk`.
 
 In the Target creation form, provide a name to the event Target, and add the following information:
 
-* **Default Ticket Subject**: An optional ticket subject fallback if one is not provided in an incoming event.
-* **Zendesk Subdomain**: Name of the Zendesk [Subdomain][zd-subdom], without the `zendesk.com` domain or `https://` scheme.
-* **Zendesk Email**: Email address associated with the Zendesk account.
-* **Zendesk API Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a [token][zd-token] to communicate with the Zendesk API, as discussed in the prerequisites.
+- **Default Ticket Subject**: An optional ticket subject fallback if one is not provided in an incoming event.
+- **Zendesk Subdomain**: Name of the Zendesk [Subdomain][zd-subdom], without the `zendesk.com` domain or `https://` scheme.
+- **Zendesk Email**: Email address associated with the Zendesk account.
+- **Zendesk API Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a [token][zd-token] to communicate with the Zendesk API, as discussed in the [prerequisites](#prerequisites).
 
 ![Zendesk Target form](../images/zendesk-target/create-bridge-2.png)
 

@@ -6,7 +6,7 @@ in a [JSON format][ce-jsonformat].
 ## Prerequisite(s)
 
 - Enable HTTP Event Collector Input
-- An HEC token
+- HEC token
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the HEC token as a secret.
@@ -16,7 +16,7 @@ how to add the HEC token as a secret.
 In order to be able to use the TriggerMesh event Target for Splunk, an administrator must:
 
 1. Enable the [HTTP Event Collector][hec] data input in the Splunk installation.
-2. Create a token for receiving data over HTTP.
+1. Create a token for receiving data over HTTP.
 
 To do so, open the Splunk web console, then navigate to **Settings > Data > Data inputs**.
 
@@ -46,7 +46,7 @@ In the Target creation form, give a name to the event Target and add the followi
   (Enterprise, self-service Cloud, managed Cloud). Only the scheme, hostname, and port (optionally) are evaluated, the
   URL path is trimmed if present.
 - **HEC Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a token for authenticating requests against
-  the HEC, as discussed in the prerequisites.
+  the HEC, as discussed in the [prerequisites](#prerequisites).
 - [**Index**][index]: Name of the index to send events to. When undefined, events are sent to the default index defined
   in the HEC token's configuration.
 

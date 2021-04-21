@@ -10,8 +10,8 @@ This event Target receives [CloudEvents][ce] and invokes a Jira endpoint.
 ## User API token
 
 1. Open **Account settings > Security >** [Create and Manage API Tokens][api-tokens]
-2. Click `Create API token` and fill out the token name.
-3. Copy the API token and create a secret for the Jira token at Triggermesh.
+1. Click `Create API token` and fill out the token name.
+1. Copy the API token and create a secret for the Jira token at Triggermesh.
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about how to add a secret.
 
@@ -23,8 +23,8 @@ Open the Bridge creation screen and add a Target of type `Jira`.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **User**: the Jira user account that created the token.
-* **URL**: base URL for the Jira instance.
+- **User**: the Jira user account that created the token.
+- **URL**: base URL for the Jira instance.
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
@@ -58,8 +58,8 @@ For more information on the Jira API, please refer to the [Jira API documentatio
 
 Create a custom request to retrieve Jira projects:
 
-* **Event Type**: `io.triggermesh.jira.custom`
-* **Data**:
+- **Event Type**: `io.triggermesh.jira.custom`
+- **Data**:
 ```json
 {
   "method": "GET",
@@ -69,8 +69,8 @@ Create a custom request to retrieve Jira projects:
 
 List assignable users for a project:
 
-* **Event Type**: `io.triggermesh.jira.custom`
-* **Data**:
+- **Event Type**: `io.triggermesh.jira.custom`
+- **Data**:
 ```json
 {
   "method": "GET",
@@ -81,8 +81,8 @@ List assignable users for a project:
 
 Create an issue:
 
-* **Event Type**: `io.triggermesh.jira.issue.create`
-* **Data**:
+- **Event Type**: `io.triggermesh.jira.issue.create`
+- **Data**:
 ```json
 {
   "fields": {
@@ -105,8 +105,8 @@ Create an issue:
 
 Retrieve an issue:
 
-* **Event Type**: `io.triggermesh.jira.issue.get`
-* **Data**:
+- **Event Type**: `io.triggermesh.jira.issue.get`
+- **Data**:
 ```json
 { "id":"IP-9" }
 ```

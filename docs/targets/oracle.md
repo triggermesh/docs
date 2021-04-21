@@ -5,7 +5,11 @@ Oracle Cloud Service.
 
 ## Prerequisite(s)
 
-- Oracle API signing key (you can find out how to set up the signing key in the [Oracle Developer Guide][devguide])
+- Oracle API signing key
+
+## Oracle API Signing Key
+
+You can find the steps to obtain an API signing key in the [Oracle Developer Guide][devguide].
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the Oracle API signing key as a secret.
@@ -16,11 +20,11 @@ Open the Bridge creation screen and add a Target of type `Oracle`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* **Oracle Secrets**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Oracle API signing key as discussed in the prerequisites.
-* **Oracle Tenancy**: The OCID of tenant that holds the service being invoked.
-* **Oracle Username**: The OCID of the user that owns the API key discussed in the prerequisites and will be invoking the service.
-* **Oracle Region**: The Oracle Cloud region hosting the service.
-* **Function**: The OCID of the Oracle Cloud function being invoked.
+- **Oracle Secrets**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Oracle API signing key as discussed in the [prerequisites](#prerequisites).
+- **Oracle Tenancy**: The OCID of tenant that holds the service being invoked.
+- **Oracle Username**: The OCID of the user that owns the API key discussed in the [prerequisites](#prerequisites), and will be invoking the service.
+- **Oracle Region**: The Oracle Cloud region hosting the service.
+- **Function**: The OCID of the Oracle Cloud function being invoked.
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 

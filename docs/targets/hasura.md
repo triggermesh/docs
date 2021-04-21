@@ -7,9 +7,13 @@ pairs for a known query and sends it to [Hasura][hasura].
 
 - Hasura server URL to submit the query against
 
-- If the server requires authentication, an [admin secret][hasura-admin] or [JWT][hasura-jwt] signed with the server's key will be required
+- Admin secret or JWT
 
-- If using JWT, you may choose to add an optional user role to invoke the queries as
+## Admin Secret or JWT
+
+If the Hasura server requires authentication, an [admin secret][hasura-admin] or [JWT][hasura-jwt] signed with the server's key will be required.
+
+If using JWT, you may choose to add an optional user role to invoke the queries as.
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the admin or user JWT as secrets.
@@ -22,10 +26,10 @@ Open the Bridge creation screen and add a Target of type `Hasura`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* **Admin Token for Hasura**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing an [admin secret][hasura-admin] or [JWT][hasura-jwt] to communicate with Hasura as discussed in the prerequisites.
-* **Hasura Server URL**: URL endpoint to communicate with Hasura.
-* **Default Role**: Specify the Hasura user role to use when querying Hasura.
-* **Pre-canned Queries**: A key/value pair of predefined queries available for [CloudEvents][ce] to specify.
+- **Admin Token for Hasura**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing an [admin secret][hasura-admin] or [JWT][hasura-jwt] to communicate with Hasura as discussed in [Admin Secret or JWT](#admin-secret-or-jwt).
+- **Hasura Server URL**: URL endpoint to communicate with Hasura.
+- **Default Role**: Specify the Hasura user role to use when querying Hasura.
+- **Pre-canned Queries**: A key/value pair of predefined queries available for [CloudEvents][ce] to specify.
 
 ![Hasura Target form](../images/hasura-target/create-bridge-2.png)
 

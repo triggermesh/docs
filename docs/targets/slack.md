@@ -4,18 +4,18 @@ This event Target receives [CloudEvents][ce] over HTTP and sends them to Slack u
 
 ## Prerequisite(s)
 
-- A Slack user that can manage applications
-- A pre-existing Slack App
-- A Slack API token
+- Slack user that can manage applications
+- Pre-existing Slack App
+- Slack API token
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about how to add a Slack API token as a secret.
 
 ## Configuring Your Slack App
 1. Create a new [Slack App][slack-apps].
-2. Go to **Basic Information > Add features and functionality** and select the `Permissions` pane.
-3. Under **Bot Token Scopes** add `chat:write`.
-4. From the **Install App** menu follow steps to deploy to your workspace.
-6. Copy the **Bot OAuth Access token**, it should begin with `xoxb-...`
+1. Go to **Basic Information > Add features and functionality** and select the `Permissions` pane.
+1. Under **Bot Token Scopes** add `chat:write`.
+1. From the **Install App** menu follow steps to deploy to your workspace.
+1. Copy the **Bot OAuth Access token**, it should begin with `xoxb-...`
 
 ## Deploying an Instance of the Target
 

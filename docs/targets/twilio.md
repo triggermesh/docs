@@ -6,7 +6,7 @@ messages via event data and event occurrence, respectively.
 ## Prerequisite(s)
 
 - [Twilio][try] account with access to the [Account SID][sid] & [API Access Token][token]
-- A [phone number][pn]
+- [Phone number][pn]
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the Twilio Account SID and API Access Token as secrets.
@@ -19,11 +19,11 @@ Open the Bridge creation screen and add a Target of type `Twilio`.
 
 In the Target creation form, give a name to the event Target and add the following information:
 
-* **Default source phone number (_Optional_)**: Sender's phone number, usually configured to the [phone number][pn] purchased at
+- **Default source phone number (_Optional_)**: Sender's phone number, usually configured to the [phone number][pn] purchased at
   Twilio.
-* **Default destination (_Optional_)**: Phone number to send messages to by default.
-* **SID Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the [SID of the Twilio account][sid].
-* **Token Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing an [API Access token][token] for
+- **Default destination (_Optional_)**: Phone number to send messages to by default.
+- **SID Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the [SID of the Twilio account][sid].
+- **Token Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing an [API Access token][token] for
   authenticating requests against the Twilio API.
 
 Both the **Default source phone number** and **Default destination** configurations may be overridden by any

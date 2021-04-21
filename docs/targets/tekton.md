@@ -5,7 +5,7 @@ create a [Tekton][tekton] `TaskRun` or `PipelineRun` object.
 
 ## Prerequisite(s)
 
-- A Tekton Task must exist prior to creating the Target
+- Tekton Task
 
 ## Creating a Tekton Task
 

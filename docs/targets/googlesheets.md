@@ -4,22 +4,22 @@ This event Target receives [CloudEvents][ce] over HTTP and appends the event pay
 
 ## Prerequisite(s)
 
-- Google API Credentials
+- Google API credentials
 - GoogleSheets Sheet ID
-
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the Google API key as a secret.
 
 ## Google API Credentials
 
 1. Head to the [Google Developers Console][google-dashboard] and create a new
  project (or select the one you have).
-2. Under **APIs & Services > Library**, search for “**Sheets API**” and enable it.
-3. Go to **APIs & Services > Credentials** and choose “**Create credentials > Service account**”. Enter a service account name, ID, and description. You can skip optional fields, no additional roles or
+1. Under **APIs & Services > Library**, search for “**Sheets API**” and enable it.
+1. Go to **APIs & Services > Credentials** and choose “**Create credentials > Service account**”. Enter a service account name, ID, and description. You can skip optional fields, no additional roles or
  user access is required.
-4. On the last step of service account creation, download the JSON key file.
-5. Use the email from the `client_email` field within the JSON key file to share the
+1. On the last step of service account creation, download the JSON key file.
+1. Use the email from the `client_email` field within the JSON key file to share the
 GoogleSheets Sheet you want the Target to have access to. The **Notify people** checkbox should be unchecked.
+
+Consult the [Secrets](../guides/secrets.md) guide for more information about
+how to add the Google API key as a secret.
 
 ## GoogleSheets Sheet ID
 
@@ -36,9 +36,9 @@ Open the Bridge creation screen and add a Target of type `GoogleSheets`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* **Google Service Account Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a Google API key as discussed in the prerequisites.
-* **ID**: The GoogleSheets Sheet ID to send the event payload to.
-* **Default Prefix**: A string used during new sheet creation when the event does not provide one.
+- **Google Service Account Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a Google API key as discussed in [Google API Credentials](#google-api-credentials).
+- **ID**: The GoogleSheets Sheet ID to send the event payload to.
+- **Default Prefix**: A string used during new sheet creation when the event does not provide one.
 
 ![GoogleSheets Target form](../images/googlesheets-target/create-bridge-2.png)
 

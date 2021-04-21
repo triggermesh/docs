@@ -5,13 +5,10 @@ This event Target receives [CloudEvents][ce] over HTTP and writes their payload 
 ## Prerequisite(s)
 
 - An Elasticsearch cluster
-
-- Credentials for the Elasticsearch cluster in either of the following forms:
-    * User and password
-    * API Key
+- Elasticsearch credentials (username and password or API key)
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the Elasticsearch password and API key as secrets.
+how to add the Elasticsearch credentials as a secret.
 
 ## Creating an Elasticsearch Cluster
 
@@ -25,13 +22,13 @@ Open the Bridge creation screen and add a Target of type `Elasticsearch`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* **Index**: Name of the index to write documents to.
-* **Addresses**: List of URLs of Elasticsearch servers.
-* **Skip verify**: Allow skipping of server certificate verification.
-* **CA certificate**: CA certificate to be used by the event Target's client, in PEM format.
-* **Username**: Elasticsearch username.
-* **Password**:  Reference a [TriggerMesh secret](../guides/secrets.md) containing a password to communicate with the Elasticsearch API, as discussed in the prerequisites.
-* **API key**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an API token to communicate with the Elasticsearch API, as discussed in the prerequisites.
+- **Index**: Name of the index to write documents to.
+- **Addresses**: List of URLs of Elasticsearch servers.
+- **Skip verify**: Allow skipping of server certificate verification.
+- **CA certificate**: CA certificate to be used by the event Target's client, in PEM format.
+- **Username**: Elasticsearch username.
+- **Password**:  Reference a [TriggerMesh secret](../guides/secrets.md) containing a password to communicate with the Elasticsearch API, as discussed in the [prerequisites](#prerequisites).
+- **API key**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an API token to communicate with the Elasticsearch API, as discussed in the [prerequisites](#prerequisites).
 
 When using a self-signed certificate you will need to either inform the **CA certificate** or set the **Skip verify** field.
 

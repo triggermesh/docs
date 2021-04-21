@@ -17,8 +17,8 @@ Open the Bridge creation screen and add a Target of type `Datadog`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* **API Key**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Datadog API key as discussed in the prerequisites.
-* **Metric Name Prefix (_Optional_)**: Prefix to prepend to the metrics being sent.
+- **API Key**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Datadog API key as discussed in the [prerequisites](#prerequisites).
+- **Metric Name Prefix (_Optional_)**: Prefix to prepend to the metrics being sent.
 
 ![Datadog Target form](../images/datadog-target/create-bridge-2.png)
 

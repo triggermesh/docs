@@ -5,7 +5,6 @@ This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS S3 end
 ## Prerequisite(s)
 
 - AWS API key and secret
-
 - ARN for the S3 bucket to store the event
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
@@ -22,8 +21,8 @@ Open the Bridge creation screen and add a Target of type `AWS S3`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites.
-* **AWS ARN**: The ARN that points to the AWS S3 bucket.
+- **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
+- **AWS ARN**: The ARN that points to the AWS S3 bucket.
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
 to S3 bucket. By default, this is disabled which means only the event payload

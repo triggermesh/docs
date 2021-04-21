@@ -38,15 +38,15 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
     - Add permissions on the data this user will have access to.
     - Click `Save`.
 
-2. Retrieve OAuth data to configure TriggerMesh Target.
+1. Retrieve OAuth data to configure TriggerMesh Target.
     - Select the connected app from the list and then click `View`.
     - Copy the `Consumer Key`.
     - Reveal and copy the `Consumer Secret`.
 
 ## Certificate Key Secret
 
-The TriggerMesh Salesforce integration needs a certificate key secret to sign requests for the Salesforce API.
-A [secret needs to be created at TriggerMesh][tm-secret] that contains that certificate key.
+The TriggerMesh Salesforce integration needs a certificate key secret to sign requests for the Salesforce API. Consult the [Secrets](../guides/secrets.md) guide for more information about how to add the certificate key as a secret.
+
 The file name containing the key will need to be renamed to `certKey`. After that, go to **Secrets > Add Secret > File Upload**.
 
 ![Upload secret](../images/salesforce/file-upload-secret.png)
@@ -59,10 +59,10 @@ Open the Bridge creation screen and add a Target of type Salesforce.
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
-* **Client ID**: The client ID as retrieved from the Salesforce connected app.
-* **Server**: The server used for Salesforce authentication.
-* **User**: User for the Salesforce account.
-* **Reply Events Policy**: Indicates when event responses should be sent back from this target.
+- **Client ID**: The client ID as retrieved from the Salesforce connected app.
+- **Server**: The server used for Salesforce authentication.
+- **User**: User for the Salesforce account.
+- **Reply Events Policy**: Indicates when event responses should be sent back from this target.
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
@@ -112,8 +112,8 @@ Returned errors structure is defined in [this schema](../schemas/triggermesh.err
 
 Create a Salesforce Account object:
 
-* **Event Type**: `io.triggermesh.salesforce.apicall`
-* **Data**:
+- **Event Type**: `io.triggermesh.salesforce.apicall`
+- **Data**:
 ```json
 {
   "action": "POST",
@@ -125,8 +125,8 @@ Create a Salesforce Account object:
 
 Update a Salesforce Account object:
 
-* **Event Type**: `io.triggermesh.salesforce.apicall`
-* **Data**:
+- **Event Type**: `io.triggermesh.salesforce.apicall`
+- **Data**:
 ```json
 {
   "action": "PATCH",
@@ -139,8 +139,8 @@ Update a Salesforce Account object:
 
 Retrieve specific fields of a Salesforce Account:
 
-* **Event Type**: `io.triggermesh.salesforce.apicall`
-* **Data**:
+- **Event Type**: `io.triggermesh.salesforce.apicall`
+- **Data**:
 ```json
 {
   "action": "GET",
@@ -152,8 +152,8 @@ Retrieve specific fields of a Salesforce Account:
 ```
 
 Delete a Salesforce Account object:
-* **Event Type**: `io.triggermesh.salesforce.apicall`
-* **Data**:
+- **Event Type**: `io.triggermesh.salesforce.apicall`
+- **Data**:
 ```json
 {
   "action": "DELETE",

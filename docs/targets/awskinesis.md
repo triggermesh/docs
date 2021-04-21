@@ -6,9 +6,7 @@ AWS Kinesis.
 ## Prerequisite(s)
 
 - AWS API key and secret
-
 - ARN for the Kinesis stream
-
 - A Kinesis partition name to publish the events to
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about
@@ -22,9 +20,9 @@ Open the Bridge creation screen and add a Target of type `AWS Kinesis`.
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
-* **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the prerequisites.
-* **AWS ARN**: The ARN that points to the AWS Kinesis stream.
-* **Partition**: The Kinesis partition to publish the events to.
+- **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
+- **AWS ARN**: The ARN that points to the AWS Kinesis stream.
+- **Partition**: The Kinesis partition to publish the events to.
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
 to Kinesis. By default, this is disabled which means only the event payload
