@@ -19,6 +19,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 * [HTTP](./http.md): Send HTTP queries to external services.
 * [InfraJS](./infrajs.md): Advanced manipulation of CloudEvents.
 * [Jira](./jira.md): Send requests to Jira API.
+* [Logz.io](./logz.md): Forward events to Logz.io
 * [Oracle](./oracle.md): Forward events to the Oracle Cloud.
 * [Salesforce](./salesforce.md): Forward arbitrary events to Salesforce.
 * [SendGrid](./sendgrid.md): Forward arbitrary events to SendGrid.
