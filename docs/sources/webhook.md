@@ -4,8 +4,8 @@ This event source exposes a generic HTTP endpoint to be configured at external s
 
 ## Prerequisite(s)
 
-* An external client that executes HTTP requests.
-* When using HTTP basic authentication, a secret containing the password.
+- An external client that executes HTTP requests.
+- When using HTTP basic authentication, a secret containing the password.
 
 ## Deploying an Instance of the Webhook Source
 
@@ -13,12 +13,12 @@ Open the Bridge creation screen and add a source of type `Webhook`.
 
 In the Source creation form add the following information:
 
-* **Name**: all Triggermesh components need a unique name per namespace.
-* **Broker**: request converted into [CloudEvents][ce] will be sent to this location.
-* **EventType**: string that identifies the purpose for all messages produced from this source.
-* **EventSource**: string that identifies the origin for all messages produced from this source.
-* **Basic Auth Username**: (optional) HTTP basic authentication username.
-* **Basic Auth Password** (optional) points to a secret that contains the HTTP basic authentication password.
+- **Name**: all Triggermesh components need a unique name per namespace.
+- **Broker**: request converted into [CloudEvents][ce] will be sent to this location.
+- **EventType**: string that identifies the purpose for all messages produced from this source.
+- **EventSource**: string that identifies the origin for all messages produced from this source.
+- **Basic Auth Username**: (optional) HTTP basic authentication username.
+- **Basic Auth Password** (optional) points to a secret that contains the HTTP basic authentication password.
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining components to the Bridge, then submit it.
 

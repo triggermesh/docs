@@ -4,9 +4,9 @@ This event source subscribes to messages sent to a [Google Cloud Pub/Sub][gc-pub
 
 ## Prerequisite(s)
 
-* Service Account
-* Pub/Sub Topic
-* Pub/Sub Subscription _(optional)_
+- Service Account
+- Pub/Sub Topic
+- Pub/Sub Subscription _(optional)_
 
 ### Service Account
 
@@ -16,15 +16,15 @@ accounts][gc-iam-svcacc].
 
 The service account must be granted an [IAM Role][gc-iam-roles] with at least the following permissions:
 
-* `pubsub.subscriptions.consume`
-* `pubsub.subscriptions.get`
+- `pubsub.subscriptions.consume`
+- `pubsub.subscriptions.get`
 
 The following set of permissions is also required if you delegate the management of the Pub/Sub subscription to the
 event source. In case you prefer to manage the subscription yourself, these can be safely be omitted. More details on
 that topic are provided in the [Pub/Sub Subscription](#pubsub-subscription-optional) section below.
 
-* `pubsub.subscriptions.create`
-* `pubsub.subscriptions.delete`
+- `pubsub.subscriptions.create`
+- `pubsub.subscriptions.delete`
 
 The predefined `roles/pubsub.editor` role is one example of role that is suitable for use with the TriggerMesh event
 source for Google Cloud Pub/Sub.
@@ -70,9 +70,9 @@ Open the Bridge creation screen and add a source of type `Google Cloud Pub/Sub`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [**Secret**][gc-iam-key]: Service account key in JSON format, as described in the previous sections.
-* [**Topic**][gc-pubsub-resname]: Full resource name of the Pub/Sub topic to subscribe to.
-* **Subscription ID**: _(optional)_ ID of the subscription to use for pulling messages from the Pub/Sub topic, in case
+- [**Secret**][gc-iam-key]: Service account key in JSON format, as described in the previous sections.
+- [**Topic**][gc-pubsub-resname]: Full resource name of the Pub/Sub topic to subscribe to.
+- **Subscription ID**: _(optional)_ ID of the subscription to use for pulling messages from the Pub/Sub topic, in case
   you prefer to manage this subscription yourself as described in the previous sections.
 
 ![Google Cloud Pub/Sub source form](../images/googlecloudpubsub-source/create-bridge-2.png)
@@ -91,7 +91,7 @@ topic.
 
 The TriggerMesh event source for Google Cloud Pub/Sub emits events of the following type:
 
-* `com.google.cloud.pubsub.message`
+- `com.google.cloud.pubsub.message`
 
 [gc-pubsub]: https://cloud.google.com/pubsub
 [gc-pubsub-svcacc]: https://cloud.google.com/pubsub/docs/authentication#service-accounts

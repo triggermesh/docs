@@ -4,9 +4,9 @@ This event source collects metrics data from the [Oracle Cloud](https://cloud.or
 
 ## Prerequisite(s)
 
-* Oracle Cloud Account
-* Oracle Cloud Infrastructure (OCI)
-* Oracle Cloud Secret
+- Oracle Cloud Account
+- Oracle Cloud Infrastructure (OCI)
+- Oracle Cloud Secret
 
 ### Oracle Cloud Account
 
@@ -41,13 +41,13 @@ In the source creation form, provide a unique name and broker. These are used by
 Triggermesh to uniquely identify the source and where to send the events to.
 
 For the Oracle Cloud specific information, provide the following information:
-* Oracle tenancy using the Oracle Cloud ID (OCID)
-* Oracle username as an OCID
-* Oracle Cloud region where the metrics should be pulled from
+- Oracle tenancy using the Oracle Cloud ID (OCID)
+- Oracle username as an OCID
+- Oracle Cloud region where the metrics should be pulled from
 
 For the metrics specific information:
-* Metrics namespace such as `oci_computeagent` or `oci_vcn`
-* The metrics query based on [MQL](https://docs.cloud.oracle.com/en-us/iaas/Content/Monitoring/Reference/mql.htm)
+- Metrics namespace such as `oci_computeagent` or `oci_vcn`
+- The metrics query based on [MQL](https://docs.cloud.oracle.com/en-us/iaas/Content/Monitoring/Reference/mql.htm)
 
 For details on how to write a query, consult the
 [Oracle Cloud Monitoring Overview](https://docs.cloud.oracle.com/en-us/iaas/Content/Monitoring/Concepts/monitoringoverview.htm)

@@ -5,10 +5,10 @@ to a [Google Cloud Pub/Sub][gc-storage-events] topic.
 
 ## Prerequisite(s)
 
-* Storage Bucket
-* Pub/Sub Topic and Subscription
-* Notification Configuration
-* Service Account
+- Storage Bucket
+- Pub/Sub Topic and Subscription
+- Notification Configuration
+- Service Account
 
 ### Storage Bucket
 
@@ -70,7 +70,7 @@ accounts][gc-iam-svcacc].
 
 The service account must be granted an [IAM Role][gc-iam-roles] with at least the following permission:
 
-* `pubsub.subscriptions.consume`
+- `pubsub.subscriptions.consume`
 
 The predefined `roles/pubsub.subscriber` role is one example of role that is suitable for use with the TriggerMesh event
 source for Google Cloud Storage.
@@ -88,9 +88,9 @@ Open the Bridge creation screen and add a source of type `Google Cloud Storage`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [**Secret**][gc-iam-key]: Service account key in JSON format, as described in the previous sections.
-* **Google Cloud project name**: Name of the Google Cloud project containing the storage bucket.
-* **Pub/Sub Subscription name**: Name of a Pub/Sub subscription which pulls messages from the topic where the Cloud
+- [**Secret**][gc-iam-key]: Service account key in JSON format, as described in the previous sections.
+- **Google Cloud project name**: Name of the Google Cloud project containing the storage bucket.
+- **Pub/Sub Subscription name**: Name of a Pub/Sub subscription which pulls messages from the topic where the Cloud
   Storage bucket sends its change notifications.
 
 ![Google Cloud Storage source form](../images/googlecloudstorage-source/create-bridge-2.png)
@@ -109,7 +109,7 @@ notifications from the Pub/Sub topic.
 
 The TriggerMesh event source for Google Cloud Storage emits events of the following type:
 
-* `com.triggermesh.googlecloudstorage.event`
+- `com.triggermesh.googlecloudstorage.event`
 
 [gc-storage]: https://cloud.google.com/storage/docs/introduction
 [gc-storage-events]: https://cloud.google.com/storage/docs/pubsub-notifications

@@ -5,9 +5,9 @@ sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].
 
 ## Prerequisite(s)
 
-* DynamoDB Table and Stream
-* Amazon Resource Name (ARN)
-* API Credentials
+- DynamoDB Table and Stream
+- Amazon Resource Name (ARN)
+- API Credentials
 
 ### DynamoDB Table and Stream
 
@@ -89,8 +89,8 @@ Open the Bridge creation screen and add a source of type `AWS DynamoDB`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [**AWS ARN**][arn]: ARN of the DynamoDB Table, as described in the previous sections.
-* [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
+- [**AWS ARN**][arn]: ARN of the DynamoDB Table, as described in the previous sections.
+- [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the AWS DynamoDB API, as described in the previous sections.
 
 ![AWS DynamoDB source form](../images/awsdynamodb-source/create-bridge-2.png)
@@ -109,9 +109,9 @@ DynamoDB Stream.
 
 The AWS DynamoDB event source emits events of the following types:
 
-* `com.amazon.dynamodb.insert`
-* `com.amazon.dynamodb.modify`
-* `com.amazon.dynamodb.remove`
+- `com.amazon.dynamodb.insert`
+- `com.amazon.dynamodb.modify`
+- `com.amazon.dynamodb.remove`
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazondynamodb.html#amazondynamodb-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

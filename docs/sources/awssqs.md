@@ -4,9 +4,9 @@ The event source captures messages sent to a [AWS SQS queue][sqs-docs] and sends
 
 ## Prerequisite(s)
 
-* SQS Queue
-* Amazon Resource Name (ARN)
-* API Credentials
+- SQS Queue
+- Amazon Resource Name (ARN)
+- API Credentials
 
 ### SQS Queue
 
@@ -83,9 +83,9 @@ Open the Bridge creation screen and add a source of type `AWS SQS`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
+- [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the AWS SQS API, as described in the previous sections.
-* [**AWS ARN**][arn]: ARN of the SQS queue, as described in the previous sections.
+- [**AWS ARN**][arn]: ARN of the SQS queue, as described in the previous sections.
 
 ![AWS SQS source form](../images/awssqs-source/bridge-form-sqs-source-form.png)
 
@@ -103,7 +103,7 @@ SQS queue.
 
 The AWS SQS event source emits events of the following type:
 
-* `com.amazon.sqs.message`
+- `com.amazon.sqs.message`
 
 [sqs-docs]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
 [sqs-getting-started]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.html

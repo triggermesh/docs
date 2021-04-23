@@ -5,10 +5,10 @@ an [Amazon SQS queue][sqs-docs] in order to be consumable by the event source.
 
 ## Prerequisite(s)
 
-* S3 Bucket
-* Amazon Resource Name (ARN)
-* API Credentials
-* SQS Queue _(optional)_
+- S3 Bucket
+- Amazon Resource Name (ARN)
+- API Credentials
+- SQS Queue _(optional)_
 
 ### S3 Bucket
 
@@ -121,13 +121,13 @@ Open the Bridge creation screen and add a source of type `AWS S3`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [**Source secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a
+- [**Source secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a
   Secret Access Key to communicate with the AWS API, as described in the previous sections.
-* [**Bucket ARN**][arn]: ARN of the S3 bucket. This ARN needs to include the AWS region and account ID, as described in the
+- [**Bucket ARN**][arn]: ARN of the S3 bucket. This ARN needs to include the AWS region and account ID, as described in the
   previous sections.
-* [**Queue ARN**][arn]: _(optional)_ ARN of the SQS queue which acts as event destination, in case you prefer to manage
+- [**Queue ARN**][arn]: _(optional)_ ARN of the SQS queue which acts as event destination, in case you prefer to manage
   this queue yourself as described in the previous sections.
-* [**Event types**][s3-events]: List of event types to subscribe to.
+- [**Event types**][s3-events]: List of event types to subscribe to.
 
 ![AWS S3 source form](../images/awss3-source/create-bridge-2.png)
 
@@ -150,12 +150,12 @@ contains a new Event Notification targeting the SQS queue.
 
 The TriggerMesh event source for Amazon S3 emits events of the following types:
 
-* `com.amazon.s3.objectcreated`
-* `com.amazon.s3.objectremoved`
-* `com.amazon.s3.objectrestore`
-* `com.amazon.s3.reducedredundancylostobject`
-* `com.amazon.s3.replication`
-* `com.amazon.s3.testevent`
+- `com.amazon.s3.objectcreated`
+- `com.amazon.s3.objectremoved`
+- `com.amazon.s3.objectrestore`
+- `com.amazon.s3.reducedredundancylostobject`
+- `com.amazon.s3.replication`
+- `com.amazon.s3.testevent`
 
 [arn]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

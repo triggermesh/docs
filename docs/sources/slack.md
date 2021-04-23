@@ -4,22 +4,22 @@ This event source uses the [Slack Events API][slack-events-api] through a [bot u
 
 ## Prerequisite(s)
 
-* A Slack user that can manage applications is required to configure the source.
+- A Slack user that can manage applications is required to configure the source.
 
 ## Create the Slack Source Integration
 
 Deploy the Slack source in 3 steps:
 
 1. Deploy the Slack source, retrieve exposed endpoint at Triggermesh.
-2. Configure Slack App to send events to the Slack Source endpoint.
-3. (optional) Modify the Slack Source to add Signing Secret and AppID from the configured App.
+1. Configure Slack App to send events to the Slack Source endpoint.
+1. (optional) Modify the Slack Source to add Signing Secret and AppID from the configured App.
 
 ### Deploy Slack Source
 
 Create an instance of the Slack Source at Triggermesh as part of a Bridge.
 
-* `name` is an internal identifier inside the bridge.
-* `broker` where messages should be sent to.
+- `name` is an internal identifier inside the bridge.
+- `broker` where messages should be sent to.
 
 Save the source, fill the rest of the bridge fields and press `Submit Bridge`. The Slack source creates a service, navigate to Functions/Services and copy the URL for the exposed service.
 
@@ -29,27 +29,27 @@ Save the source, fill the rest of the bridge fields and press `Submit Bridge`. T
 
 ![Slack app](../images/slack-source/01createslackapp.png)
 
-2. From Basic Information, Features and functionality, select `Event Subscriptions`
+1. From Basic Information, Features and functionality, select `Event Subscriptions`
 
   ![Features and functionality](../images/slack-source/02featuresandfunctionality.png)
 
-3. Slide the `Enable Events` selector to `on` and write the Slack source exposed URL at the `Request URL` box. A request with a verification challenge will be sent and when the Slack source adapter answer it will be validated and a green check will be shown.
+1. Slide the `Enable Events` selector to `on` and write the Slack source exposed URL at the `Request URL` box. A request with a verification challenge will be sent and when the Slack source adapter answer it will be validated and a green check will be shown.
 
   ![Request URL verified](../images/slack-source/03requestverify.png)
 
-4. At the `Subscribe to bot events` section select the bot events that will be sent on behalf of this integration and then press `Save Changes` at the bottom of the page.. Refer to Slack documentation on which ones to use, as a hint the we think these 3 could be useful for different scenarios:
+1. At the `Subscribe to bot events` section select the bot events that will be sent on behalf of this integration and then press `Save Changes` at the bottom of the page.. Refer to Slack documentation on which ones to use, as a hint the we think these 3 could be useful for different scenarios:
 
-   * `app_mention` will send an event when the App is mentioned.
-   * `message.im` will send an event when sending a direct message to the App.
-   * `message.channels` an event will be sent for each message at a channel where the App is invited.
+   - `app_mention` will send an event when the App is mentioned.
+   - `message.im` will send an event when sending a direct message to the App.
+   - `message.channels` an event will be sent for each message at a channel where the App is invited.
 
   ![Subscribe](../images/slack-source/04subscribe.png)
 
-5. At `Install App` section click on `Install App to Workspace`
+1. At `Install App` section click on `Install App to Workspace`
 
   ![Install to workspace](../images/slack-source/05install.png)
 
-6. (Optional)Return to the application's `Basic Information` and take note of `App ID` and `Signing Secret`
+1. (Optional)Return to the application's `Basic Information` and take note of `App ID` and `Signing Secret`
 
     ![Retrieve info](../images/slack-source/06appinfo.png)
 
@@ -63,8 +63,8 @@ Create a new secret at Triggermesh and add a key named `signingSecret` containin
 
 Go back to the bridge and edit the source:
 
-* `Signing secret` set to the created secret.
-* `App ID` is also optional and will filter for the App ID in case the endpoint is used for multiple integrations.
+- `Signing secret` set to the created secret.
+- `App ID` is also optional and will filter for the App ID in case the endpoint is used for multiple integrations.
 
 ## Events
 
