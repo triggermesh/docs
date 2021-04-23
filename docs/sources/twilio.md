@@ -70,7 +70,7 @@ All done!
 
 The Twilio event source emits events of the following type:
 
-* `com.triggermesh.twilio.sms`
+- `com.triggermesh.twilio.sms`
 
 ### Example event emited from this source:
 

@@ -6,10 +6,10 @@ selected set of log categories to a dedicated Event Hub, then subscribing to the
 
 ## Prerequisite(s)
 
-* Service Principal
-* Event Hubs Namespace
-* Event Hubs Instance _(optional)_
-* Shared Access Policy / Shared Access Signature (SAS)
+- Service Principal
+- Event Hubs Namespace
+- Event Hubs Instance _(optional)_
+- Shared Access Policy / Shared Access Signature (SAS)
 
 ### Service Principal
 
@@ -20,10 +20,10 @@ authority over the Azure Subscription to monitor. You can create a Service Princ
 The section called _Assign a role to the application_ describes how to assign permissions to the Service Principal. Make
 sure you select a role which has at least the following permissions:
 
-* `Microsoft.Insights/DiagnosticSettings/Read`
-* `Microsoft.Insights/DiagnosticSettings/Delete`
-* `Microsoft.Insights/DiagnosticSettings/Write`
-* `Microsoft.EventHub/namespaces/authorizationRules/listkeys/action`
+- `Microsoft.Insights/DiagnosticSettings/Read`
+- `Microsoft.Insights/DiagnosticSettings/Delete`
+- `Microsoft.Insights/DiagnosticSettings/Write`
+- `Microsoft.EventHub/namespaces/authorizationRules/listkeys/action`
 
 Additionally, assign the role `Azure Event Hubs Data Receiver` to the Service Principal to allow it to receive events
 from Event Hubs.
@@ -62,8 +62,8 @@ The corresponding role JSON is given as a reference which you can replicate to c
 
 After the Service Principal is created and assigned suitable roles, take note of the following information:
 
-* **Tenant ID** and **Client ID** (see _Get tenant and app ID values for signing in_)
-* **Client secret** (see _Create a new application secret_)
+- **Tenant ID** and **Client ID** (see _Get tenant and app ID values for signing in_)
+- **Client secret** (see _Create a new application secret_)
 
 ### Event Hubs Namespace
 
@@ -137,13 +137,13 @@ In the Source creation form, give a name to the event source and add the followi
     The ID of the Azure subscription which Activity Logs are to be subscribed to is inferred from the **Event Hub ID**
     parameter below. Therefore, the form does not require providing a subscription ID explicitly.
 
-* [Secret][sp-create]: Service Principal authentication credentials, as described in the previous sections.
-* [Event Hub ID][eventhubs-create]: Resource ID of either
-    * an Event Hubs _namespace_ (Event Hub managed by Azure, defaults to `insights-activity-logs`)
-    * an Event Hubs _instance_ (Event Hub managed by the user)
-* [SAS Policy][sas-policy]: _(optional)_ Name of a SAS policy with Manage permissions on the Event Hubs namespace
+- [Secret][sp-create]: Service Principal authentication credentials, as described in the previous sections.
+- [Event Hub ID][eventhubs-create]: Resource ID of either
+    - an Event Hubs _namespace_ (Event Hub managed by Azure, defaults to `insights-activity-logs`)
+    - an Event Hubs _instance_ (Event Hub managed by the user)
+- [SAS Policy][sas-policy]: _(optional)_ Name of a SAS policy with Manage permissions on the Event Hubs namespace
   referenced in the **Event Hub ID** field. Uses Azure's default "RootManageSharedAccessKey" policy if not provided.
-* [Log categories][log-categories]: _(optional)_ Categories of Activity Logs to collect. All available categories are
+- [Log categories][log-categories]: _(optional)_ Categories of Activity Logs to collect. All available categories are
   selected when the list of categories is left empty.
 
 ![Azure Activity Logs source form](../images/azureactivitylogs-source/create-bridge-2.png)
@@ -168,7 +168,7 @@ within the Azure Subscription.
 
 The Azure Activity Logs event source emits events of the following type:
 
-* `com.microsoft.azure.monitor.activity-log`
+- `com.microsoft.azure.monitor.activity-log`
 
 [activity-logs]: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-log
 [diag-settings]: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings

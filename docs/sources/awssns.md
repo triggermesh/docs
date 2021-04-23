@@ -5,9 +5,9 @@ sink.
 
 ## Prerequisite(s)
 
-* SNS Topic (standard)
-* Amazon Resource Name (ARN)
-* API Credentials
+- SNS Topic (standard)
+- Amazon Resource Name (ARN)
+- API Credentials
 
 ### SNS Topic (standard)
 
@@ -91,10 +91,10 @@ Open the Bridge creation screen and add a source of type `AWS SNS`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
+- [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the AWS SNS API, as described in the previous sections.
-* [**AWS ARN**][arn]: ARN of the SNS topic, as described in the previous sections.
-* [**DeliveryPolicy**][sns-delivery-policy]: Delivery policy to define how Amazon SNS retries the delivery of messages
+- [**AWS ARN**][arn]: ARN of the SNS topic, as described in the previous sections.
+- [**DeliveryPolicy**][sns-delivery-policy]: Delivery policy to define how Amazon SNS retries the delivery of messages
   to HTTP/S endpoints.
 
 ![AWS SNS source form](../images/awssns-source/bridge-form-sns-source-form.png)
@@ -113,7 +113,7 @@ topic.
 
 The AWS SNS event source emits events of the following type:
 
-* `com.amazon.sns.notification`
+- `com.amazon.sns.notification`
 
 [sns-docs]: https://docs.aws.amazon.com/sns/latest/dg/welcome.html
 [sns-getting-started]: https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html

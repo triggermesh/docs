@@ -6,10 +6,10 @@ in this setup.
 
 ## Prerequisite(s)
 
-* Storage Account
-* Service Principal
-* Event Hubs Namespace
-* Event Hubs Instance _(optional)_
+- Storage Account
+- Service Principal
+- Event Hubs Namespace
+- Event Hubs Instance _(optional)_
 
 ### Storage Account
 
@@ -52,17 +52,17 @@ authority over the Azure Subscription to monitor. You can create a Service Princ
 The section called _Assign a role to the application_ describes how to assign permissions to the Service Principal. Make
 sure you select a role which has at least the following permissions:
 
-* `Microsoft.EventGrid/eventSubscriptions/read`
-* `Microsoft.EventGrid/eventSubscriptions/write`
-* `Microsoft.EventGrid/eventSubscriptions/delete`
-* `Microsoft.EventHub/namespaces/eventhubs/write`
+- `Microsoft.EventGrid/eventSubscriptions/read`
+- `Microsoft.EventGrid/eventSubscriptions/write`
+- `Microsoft.EventGrid/eventSubscriptions/delete`
+- `Microsoft.EventHub/namespaces/eventhubs/write`
 
 The following set of permissions is also required if you decide to delegate the management of the Event Hub to the event
 source. In case you prefer to use your own Event Hub, these can be safely be omitted. More details on that topic are
 provided in the [Event Hubs Instance](#event-hubs-instance-optional) section below.
 
-* `Microsoft.EventHub/namespaces/eventhubs/read` _(optional)_
-* `Microsoft.EventHub/namespaces/eventhubs/delete` _(optional)_
+- `Microsoft.EventHub/namespaces/eventhubs/read` _(optional)_
+- `Microsoft.EventHub/namespaces/eventhubs/delete` _(optional)_
 
 Additionally, assign the [built-in role][builtin-roles] `Azure Event Hubs Data Receiver` to the Service Principal to
 allow it to receive events from an Event Hubs instance.
@@ -104,8 +104,8 @@ The corresponding role JSON is given as a reference which you can replicate to c
 
 After the Service Principal is created and assigned suitable roles, take note of the following information:
 
-* **Tenant ID** and **Client ID** (see _Get tenant and app ID values for signing in_)
-* **Client secret** (see _Create a new application secret_)
+- **Tenant ID** and **Client ID** (see _Get tenant and app ID values for signing in_)
+- **Client secret** (see _Create a new application secret_)
 
 ### Event Hubs Namespace
 
@@ -161,12 +161,12 @@ Open the Bridge creation screen and add a source of type `Azure Blob Storage`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [Secret][sp-create]: Service Principal authentication credentials, as described in the previous sections.
-* [Storage Account ID][storage-acc]: Resource ID of the Storage Account.
-* [Event Hub ID][eventhubs-create]: Resource ID of either
-    * an Event Hubs _namespace_ (Event Hub managed by the event source)
-    * an Event Hubs _instance_ (Event Hub managed by the user)
-* [Event types][event-types]: _(optional)_ List of event types to subscribe to. `BlobCreated` and `BlobDeleted` are
+- [Secret][sp-create]: Service Principal authentication credentials, as described in the previous sections.
+- [Storage Account ID][storage-acc]: Resource ID of the Storage Account.
+- [Event Hub ID][eventhubs-create]: Resource ID of either
+    - an Event Hubs _namespace_ (Event Hub managed by the event source)
+    - an Event Hubs _instance_ (Event Hub managed by the user)
+- [Event types][event-types]: _(optional)_ List of event types to subscribe to. `BlobCreated` and `BlobDeleted` are
   enabled by default when no item is set.
 
 ![Azure Blob Storage source form](../images/azureblobstorage-source/create-bridge-2.png)
@@ -183,8 +183,8 @@ configured Storage Account, and that the event source is ready to consume events
 
 This can be confirmed by navigating back to the Azure Portal and ensuring that:
 
-* The Storage Account contains a new Event Subscription targeting Event Hubs.
-* The Resource Group contains an Event Grid System Topic with an Event Subscription matching the one from the Storage
+- The Storage Account contains a new Event Subscription targeting Event Hubs.
+- The Resource Group contains an Event Grid System Topic with an Event Subscription matching the one from the Storage
   Account.
 
 ![Event Subscription](../images/azureblobstorage-source/after-creation-1.png)
@@ -194,12 +194,12 @@ This can be confirmed by navigating back to the Azure Portal and ensuring that:
 
 The TriggerMesh event source for Azure Blob Storage emits events of the following type:
 
-* `Microsoft.Storage.BlobCreated`
-* `Microsoft.Storage.BlobDeleted`
-* `Microsoft.Storage.BlobRenamed`
-* `Microsoft.Storage.DirectoryCreated`
-* `Microsoft.Storage.DirectoryDeleted`
-* `Microsoft.Storage.DirectoryRenamed`
+- `Microsoft.Storage.BlobCreated`
+- `Microsoft.Storage.BlobDeleted`
+- `Microsoft.Storage.BlobRenamed`
+- `Microsoft.Storage.DirectoryCreated`
+- `Microsoft.Storage.DirectoryDeleted`
+- `Microsoft.Storage.DirectoryRenamed`
 
 [storage-acc]: https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview
 

@@ -5,9 +5,9 @@ after wrapping them in a [CloudEvent][ce] envelope.
 
 ## Prerequisite(s)
 
-* Kinesis Data Stream
-* Amazon Resource Name (ARN)
-* API Credentials
+- Kinesis Data Stream
+- Amazon Resource Name (ARN)
+- API Credentials
 
 ### Kinesis Data Stream
 
@@ -82,8 +82,8 @@ Open the Bridge creation screen and add a source of type `AWS Kinesis`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [**AWS ARN**][arn]: ARN of the Kinesis Data Stream, as described in the previous sections.
-* [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
+- [**AWS ARN**][arn]: ARN of the Kinesis Data Stream, as described in the previous sections.
+- [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the AWS Kinesis API, as described in the previous sections.
 
 ![AWS Kinesis source form](../images/awskinesis-source/create-bridge-2.png)
@@ -102,7 +102,7 @@ Kinesis Data Stream.
 
 The AWS Kinesis event source emits events of the following types:
 
-* `com.amazon.kinesis.stream_record`
+- `com.amazon.kinesis.stream_record`
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonkinesis.html#amazonkinesis-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

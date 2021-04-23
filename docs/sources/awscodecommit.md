@@ -5,9 +5,9 @@ as a new commit or the creation of a pull request, happens in this repository.
 
 ## Prerequisite(s)
 
-* CodeCommit Repository and Branch
-* Amazon Resource Name (ARN)
-* API Credentials
+- CodeCommit Repository and Branch
+- Amazon Resource Name (ARN)
+- API Credentials
 
 ### CodeCommit Repository and Branch
 
@@ -90,10 +90,10 @@ Open the Bridge creation screen and add a source of type `AWS CodeCommit`.
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [**AWS ARN**][arn]: ARN of the CodeCommit repository, as described in the previous sections.
-* [**Branch name**][cc-branches]: Name of the Git branch the source should be watching for commits.
-* **Event types**: List of event types the event source should subscribe to.
-* [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
+- [**AWS ARN**][arn]: ARN of the CodeCommit repository, as described in the previous sections.
+- [**Branch name**][cc-branches]: Name of the Git branch the source should be watching for commits.
+- **Event types**: List of event types the event source should subscribe to.
+- [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the AWS CodeCommit API, as described in the previous sections.
 
 ![AWS CodeCommit source form](../images/awscodecommit-source/create-bridge-2.png)
@@ -112,8 +112,8 @@ CodeCommit repository.
 
 The AWS CodeCommit event source emits events of the following types:
 
-* `com.amazon.codecommit.push`
-* `com.amazon.codecommit.pull_request`
+- `com.amazon.codecommit.push`
+- `com.amazon.codecommit.pull_request`
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscodecommit.html#awscodecommit-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys
