@@ -24,15 +24,21 @@ mkdocs serve
 
 Commit your changes and CI will automatically build the new site and deploy it
 
+---
+
 # Contributing
 
 ## Code of Conduct
 
 TriggerMesh has adopted a [Code of Conduct](./contributing/CODE_OF_CONDUCT.md) that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
 
-## Contributing guide
+## Contributing Guide
 
-Read our [contributing guide](./contributing/CONTRIBUTING.md)to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes.
+Read our [Contributing Guide](./contributing/CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes.
+
+## Style Guide
+
+Read our [Style Guide](./contributing/STYLE_GUIDE.md) to learn more about TriggerMesh's writing style.
 
 ## Beginner-friendly bugs
 
