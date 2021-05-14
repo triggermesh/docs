@@ -29,8 +29,7 @@ that topic are provided in the [Pub/Sub Subscription](#pubsub-subscription-optio
 The predefined `roles/pubsub.editor` role is one example of role that is suitable for use with the TriggerMesh event
 source for Google Cloud Pub/Sub.
 
-<!-- NOTE(antoineco): image from googlecloudstorage source purposely reused for simplicity -->
-![Service account](../images/googlecloudstorage-source/iam-1.png)
+![Service account](../images/googlecloudpubsub-source/iam-1.png)
 
 Create a [key][gc-iam-key] for this service account and save it. This key must be in JSON format. It is required to be
 able to run an instance of the Google Cloud Pub/Sub event source.
@@ -43,8 +42,7 @@ and subscriptions][gc-pubsub-adm].
 Take note of the full [topic name][gc-pubsub-resname], it is a required input to be able to run an instance of the
 Google Cloud Pub/Sub event source.
 
-<!-- NOTE(antoineco): image from googlecloudstorage source purposely reused for simplicity -->
-![Topic](../images/googlecloudstorage-source/topic-1.png)
+![Topic](../images/googlecloudpubsub-source/topic-1.png)
 
 ### Pub/Sub Subscription _(optional)_
 
@@ -59,8 +57,7 @@ If, however, you prefer messages to be pulled using a subscription which you man
 subscription is a "pull" subscription as described in the documentation page [Managing topics and
 subscriptions][gc-pubsub-adm].
 
-<!-- NOTE(antoineco): image from googlecloudstorage source purposely reused for simplicity -->
-![Subscription](../images/googlecloudstorage-source/subscription-1.png)
+![Subscription](../images/googlecloudpubsub-source/subscription-1.png)
 
 ## Deploying an Instance of the Source
 
