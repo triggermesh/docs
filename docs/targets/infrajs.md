@@ -38,6 +38,22 @@ The JS Script field must include a function named `handle` with a single paramet
     - `id` will be set to the incoming value.
     - `datacontenttype` will default to `application/json`.
 
+### XML Support
+
+InfraJS scripting does not support any XML library and cannot manipulate XML. However under certain circunstances XML can be used to create outgoing events:
+
+- Incoming event `data` element must contain a valid XML element
+- `datacontenttype` attribute, which is `Content-Type` HTTP header, must be set to either `application/xml` or `text/xml`
+
+In such cases the XML data is converted to JSON element by element. If XML attributes are present the element is rendered using prefixes:
+
+- An attribute will be rendered as a chile JSON element prepended with `-`
+- An element that contains attributes and also text, will render the text on a `#text` element.
+
+For example:
+- incoming event `<A><B>B value</B><C attr="C attr">C Value</C></A>`
+- will be avaliable as `{"A":{"B":"B value","C":{"#text":"C Value","-attr":"C attr"}}}`
+
 ## Examples
 
 These examples for the InfraJS target show different usages of the `JS Script` function. The incoming parameter for all of the examples will be this CloudEvent:
