@@ -31,7 +31,7 @@ This target will consume arbitrary events and upload them into a table with the 
 
 ### io.triggermesh.google.bigquery.query
 
-Events of this type contain nuanced data that is used to register an Google Bigquery job. 
+Events of this type contain nuanced data that is used to query a Google Bigquery instance.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
