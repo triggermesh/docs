@@ -14,6 +14,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 - [Confluent](./confluent.md): Forward events to Confluent Kafka.
 - [Datadog](./datadog.md): Forward event payload to Datadog.
 - [Elasticsearch](./elasticsearch.md): Send events to Elasticsearch to be indexed.
+- [Google Cloud Workflows](./googlecloudworkflows.md): Create and or run Google Cloud Workflows. 
 - [Google Sheets](./googlesheets.md): Append events to a GoogleSheets Sheet row.
 - [Hasura](./hasura.md): Send GraphQL queries to Hasura.
 - [HTTP](./http.md): Send HTTP queries to external services.
