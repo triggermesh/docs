@@ -1,3 +1,4 @@
+copyright: 2021, TriggerMesh
 site_author: TriggerMesh
 site_description: TriggerMesh's Docs
 site_name: TriggerMesh
@@ -28,6 +29,7 @@ nav:
 theme:
   name: material
   favicon: images/favicon.ico
+  logo: images/tmLogo-white.png
 
 markdown_extensions:
   - attr_list
