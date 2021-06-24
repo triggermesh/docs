@@ -27,8 +27,7 @@ nav:
     - About: about.md
 theme:
   name: material
-  custom_dir: custom_theme
-  favicon: img/favicon.ico
+  favicon: images/favicon.ico
 
 markdown_extensions:
   - attr_list
