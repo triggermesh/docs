@@ -31,6 +31,15 @@ theme:
   favicon: images/favicon.ico
   logo: images/tmLogo-white.png
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/triggermesh
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/triggermesh/
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/triggermesh
+
 markdown_extensions:
   - attr_list
   - admonition
