@@ -1,6 +1,6 @@
 FROM python:3 AS builder
 
-RUN pip install mkdocs
+RUN pip install mkdocs-material
 
 COPY . /docs
 
