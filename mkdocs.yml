@@ -1,4 +1,7 @@
+site_author: TriggerMesh
+site_description: TriggerMesh's Docs
 site_name: TriggerMesh
+site_url: https://docs.triggermesh.io
 repo_url: https://github.com/triggermesh/docs
 google_analytics: ['UA-127409524-1', 'docs.triggermesh.io']
 extra_css: [extra.css]
@@ -23,8 +26,9 @@ nav:
     - Cloud: https://cloud.triggermesh.io
     - About: about.md
 theme:
-  name: mkdocs
-  custom_dir: "custom_theme/"
+  name: material
+  custom_dir: custom_theme
+  favicon: img/favicon.ico
 
 markdown_extensions:
   - attr_list
