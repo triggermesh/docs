@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Do you have an idea how to make the docs better?
-title: "[ENHANCEMENT]:"
+title: "[ENHANCEMENT]: "
 labels: enhancement
 assignees: ''
 
