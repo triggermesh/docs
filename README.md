@@ -6,12 +6,14 @@ Install it with:
 
 ```
 pip install mkdocs
+pip3 install mkdocs-material
 ```
 
 If you have Python3, you may need to run
 
 ```
 pip3 install mkdocs
+pip3 install mkdocs-material
 ```
 
 ## Serve the site locally
