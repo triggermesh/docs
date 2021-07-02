@@ -4,7 +4,6 @@ site_description: TriggerMesh's Docs
 site_name: TriggerMesh
 site_url: https://docs.triggermesh.io
 repo_url: https://github.com/triggermesh/docs
-google_analytics: ['UA-127409524-1', 'docs.triggermesh.io']
 extra_css: [extra.css]
 extra_javascript: [extra.js]
 nav:
@@ -30,6 +29,8 @@ theme:
   name: material
   favicon: images/favicon.ico
   logo: images/tmLogo-white.png
+  analytics:
+    gtag: G-V4SM2FT345
 
 extra:
   social:
