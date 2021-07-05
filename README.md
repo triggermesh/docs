@@ -5,7 +5,7 @@ This uses [`mkdocs`](https://www.mkdocs.org/)
 Install it with:
 
 ```
-pip3 install mkdocs-material
+pip install mkdocs-material
 ```
 
 If you have Python3, you may need to run
