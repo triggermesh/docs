@@ -5,6 +5,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 ## Current TriggerMesh Targets
 
 - AWS
+    - [AWS Comprehend](./awscomprehend.md): Perform sentiment analysis on cloudevents.
     - [AWS Lambda](./awslambda.md): Forward event payload to AWS Lambda.
     - [AWS S3](./awss3.md): Forward event payload to AWS S3 bucket.
     - [AWS SNS](./awssns.md): Forward event payload to AWS Simple Notification Service (SNS).
