@@ -30,4 +30,3 @@ returns the analysis in a response event of type `io.triggermesh.targets.aws.com
 
 
 [ce]: https://cloudevents.io/
-[ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
