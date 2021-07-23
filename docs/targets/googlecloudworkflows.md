@@ -23,23 +23,6 @@ A ready status on the main _Bridges_ page indicates that the Google Cloud Workfl
 For more information about using Google Cloud Workflows, please refer to the [documentation][https://cloud.google.com/workflows/docs].
 
 ## Event Types
-### io.trigermesh.google.workflows.create
-
-Events of this type contain nuanced data that is used to create a Google Workflow
-
-This type expects a [JSON][ce-jsonformat] payload with the following properties:
-
-| Name  |  Type |  Comment | Example
-|---|---|---|---|
-| **parent** | string | Project and location in which the workflow should be created. Format:  `projects/{project}/locations/{location}` | "projects/ultra-hologram-297914/locations/us-central1" |
-| **workflow_id** | string | An ID for the workflow| "demowf" | 
-| **workflow.name** | string | The resource name of the workflow. | "projects/ultra-hologram-297914/locations/us-central1/workflows/testna2me" |
-| **workflow.description** | string | Description of the workflow provided by the user. |"this is an example workflow"|
-| **workflow.state** | int | State of the workflow deployment. | 1 |
-| **workflow.revision_id** | string | A revision ID to assign the workflow | "001111-a42sd" |
-| **workflow.labels** | map[string]string | Labels associated with this workflow. | {"test":"test1"} |
-| **workflow.source_code** | string | The source code of the workflow | "[{\"step1\": {\"assign\": [{\"a\": 1}]}}]" |
-
 ### io.trigermesh.google.workflows.run
 
 Events of this type contain nuanced data that is used to run a Google Workflow
@@ -51,23 +34,6 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | **parent** | string | Project and location in which the workflow should be created. Format:  projects/{project}/locations/{location} | "projects/ultra-hologram-297914/locations/us-central1" |
 | **executionName** | string |  The resource name of the execution. Format: `projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}`| "demowf" | 
 
-## Event Types
-### io.trigermesh.google.workflows.create.run
-
-Events of this type contain nuanced data that is used to create and run a Google Workflow
-
-This type expects a [JSON][ce-jsonformat] payload with the following properties:
-
-| Name  |  Type |  Comment | Example
-|---|---|---|---|
-| **parent** | string | Project and location in which the workflow should be created. Format:  `projects/{project}/locations/{location}` | "projects/ultra-hologram-297914/locations/us-central1" |
-| **workflow_id** | string | An ID for the workflow| "demowf" | 
-| **workflow.name** | string | The resource name of the workflow. | "projects/ultra-hologram-297914/locations/us-central1/workflows/testna2me" |
-| **workflow.description** | string | Description of the workflow provided by the user. |"this is an example workflow"|
-| **workflow.state** | int | State of the workflow deployment. | 1 |
-| **workflow.revision_id** | string | A revision ID to assign the workflow | "001111-a42sd" |
-| **workflow.labels** | map[string]string | Labels associated with this workflow. | {"test":"test1"} |
-| **workflow.source_code** | string | The source code of the workflow | "[{\"step1\": {\"assign\": [{\"a\": 1}]}}]" |
 
 
 [ce]: https://cloudevents.io/
