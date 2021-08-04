@@ -44,7 +44,7 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 | Name  |  Type |  Comment | Required |
 | ---|---|---|---|
-| **text**|string|The body of the event. Limited to 4000 characters. The text supports markdown. Use msg_text with the Datadog Ruby library.|true|
+| **text**|string|The body of the event. Limited to 4000 characters. The text supports markdown. |true|
 | **title**|string|The event title. Limited to 100 characters. Use msg_title with the Datadog Ruby library.|true|
 | **alert_type**|string|If an alert event is enabled, set its type. For example, error, warning, info, success, user_update, recommendation, and snapshot. Allowed enum values: error,warning,info,success,user_update,recommendation,snapshot| false|
 | **date_happened**|int64|POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 7 days.| false|
