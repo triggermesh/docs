@@ -46,12 +46,12 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | ---|---|---|---|
 | **text**|string|The body of the event. Limited to 4000 characters. The text supports markdown. |true|
 | **title**|string|The event title. Limited to 100 characters. Use msg_title with the Datadog Ruby library.|true|
-| **alert_type**|string|If an alert event is enabled, set its type. For example, error, warning, info, success, user_update, recommendation, and snapshot. Allowed enum values: error,warning,info,success,user_update,recommendation,snapshot| false|
+| **alert_type**|string|If an alert event is enabled, set its type. For example, error, warning, info, success, user_update, recommendation, and snapshot. Allowed enum values: error,warning,info,success,user_update,recommendation,snapshot. | false|
 | **date_happened**|int64|POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 7 days.| false|
 | **device_name**|string|A device name.| false|
 | **host**|string|Host name to associate with the event. Any tags associated with the host are also applied to this event.| false|
 | **id**|int64|Integer ID of the event.| false|
-| **priority**|string|The priority of the event. For example, normal or low. Allowed enum values: normal,low| false|
+| **priority**|string|The priority of the event. For example, normal or low. Allowed enum values: normal,low. | false|
 | **related_event_id**|int64|ID of the parent event. Must be sent as an integer (i.e. no quotes).| false|
 | **source_type_name**|string|The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values available here.|false|
 | **status**|string|A status.|false|
