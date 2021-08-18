@@ -42,12 +42,11 @@ indicates that the Bridge was successfully created.
 
 A Twilio event Target accepts the following [CloudEvent][ce] types:
 
-
 ### io.triggermesh.twilio.sms.send 
 
 Events of this type intend to send a SMS message via Twilio.
 
-the [CloudEvent][ce] with the following properties:
+This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 | Name | Type | Description |
 |------|------|-------------|
