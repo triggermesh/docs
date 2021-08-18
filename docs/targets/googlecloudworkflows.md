@@ -25,13 +25,13 @@ For more information about using Google Cloud Workflows, please refer to the [do
 ## Event Types
 ### io.trigermesh.google.workflows.run
 
-Events of this type contain nuanced data that is used to run a Google Workflow
+Events of this type contain nuanced data that is used to run a Google Workflow.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 | Name  |  Type |  Comment | Example
 |---|---|---|---|
-| **parent** | string | Project and location in which the workflow should be created. Format:  projects/{project}/locations/{location} | "projects/ultra-hologram-297914/locations/us-central1" |
+| **parent** | string | Project and location in which the workflow should be created. Format:  `projects/{project}/locations/{location}` | "projects/ultra-hologram-297914/locations/us-central1" |
 | **executionName** | string |  The resource name of the execution. Format: `projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}`| "demowf" | 
 
 
