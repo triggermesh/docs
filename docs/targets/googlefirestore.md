@@ -14,11 +14,10 @@ Open the Bridge creation screen and add a target of type `Google Firestore`.
 In the Target creation form, give a name to the event Target and add the following information:
 
 - **Credentials**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the JSON credentials of a Service Account.
-- **Project ID**: The Google Cloud Console Project ID
-- **Default Collection**: The default collection to publish data
+- **Project ID**: The Google Cloud Console Project ID.
+- **Default Collection**: The default collection to publish data.
 
-
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
+After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed by adding the remaining
 components to the Bridge, then submit it.
 
 A ready status on the main _Bridges_ page indicates that the Google Firestore target is ready to accept events.
@@ -39,24 +38,23 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 | Name  |  Type |  Comment | Example
 |---|---|---|---|
-| **collection** | string | Defines the firebase collection to be written under | "eventtst" |
-| **document** | string | Defines the firebase document name to be written|  "doctestst" |
-| **data** | map[string]interface{} | Defines the items to be written to the document |  {"fromEmail":"bob@triggermesh.com","hello":"pls"} |
+| **collection** | string | Defines the firebase collection to be written. | "eventtst" |
+| **document** | string | Defines the firebase document name to be written. |  "doctestst" |
+| **data** | map[string]interface{} | Defines the items to be written to the document. |  {"fromEmail":"bob@triggermesh.com","hello":"pls"} |
 
 This event responds with an event of type: `io.triggermesh.google.firestore.write.response`
 
 ### io.triggermesh.google.firestore.query.tables
 
-Events of this type contain nuanced data that is used to return all tables in a provided collection
+Events of this type contain nuanced data that is used to return all tables in a provided collection.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 | Name  |  Type |  Comment | Example
 |---|---|---|---|
-| **collection** | string | Defines the firebase collection to be queried | "eventtst" |
+| **collection** | string | Defines the firebase collection to be queried. | "eventtst" |
 
 This event responds with an event of type: `io.triggermesh.google.firestore.query.tables.response`
-
 
 ### io.triggermesh.google.firestore.query.table
 
@@ -66,11 +64,10 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
 | Name  |  Type |  Comment | Example
 |---|---|---|---|
-| **collection** | string | Defines the firebase collection to be queried | "eventtst" |
-| **document** | string | Defines the firebase document name to retrieved |  "536808d3-88be-4077-9d7a-a3f162s705f79" |
+| **collection** | string | Defines the firebase collection to be queried. | "eventtst" |
+| **document** | string | Defines the firebase document name to retrieved. |  "536808d3-88be-4077-9d7a-a3f162s705f79" |
 
 This event responds with an event of type: `io.triggermesh.google.firestore.query.table.response`
-
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
