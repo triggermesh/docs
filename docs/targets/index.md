@@ -5,6 +5,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 ## Current TriggerMesh Targets
 
 - AWS
+    - [AWS Comprehend](./awscomprehend.md): Perform sentiment analysis on cloudevents.
     - [AWS Lambda](./awslambda.md): Forward event payload to AWS Lambda.
     - [AWS S3](./awss3.md): Forward event payload to AWS S3 bucket.
     - [AWS SNS](./awssns.md): Forward event payload to AWS Simple Notification Service (SNS).
@@ -15,6 +16,7 @@ The following is a list of Triggermesh event destinations known as `Targets`. So
 - [Datadog](./datadog.md): Forward event payload to Datadog.
 - [Elasticsearch](./elasticsearch.md): Send events to Elasticsearch to be indexed.
 - [Google Cloud Workflows](./googlecloudworkflows.md): Execute Google Cloud Workflows with Cloudevents. 
+- [Google Firestore](./googlefirestore.md): Send events to Google Firestore
 - [Google Sheets](./googlesheets.md): Append events to a GoogleSheets Sheet row.
 - [Hasura](./hasura.md): Send GraphQL queries to Hasura.
 - [HTTP](./http.md): Send HTTP queries to external services.

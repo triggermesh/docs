@@ -1,45 +1,10 @@
-/* We will need to use !important to override default styles */
-body:before {
-  font-family: Roboto, sans-serif;
-  background-color: #fafafa;
-  background-image: none !important;
-}
-
-.bg-primary {
-  background-color: #1976d2 !important;
-  background-image: none !important;
-}
-
-.navbar-brand {
-  font-size: 24px;
-}
-
-.dropdown-item:hover {
-  color: #37474f;
-  background: #eceff1;
-}
-
-.dropdown-item.active {
-  background-color: #e3f2fd;
-  color: #37474f;
-}
-
-#toc-collapse {
-  background-color: white !important;
-}
-
-.nav-link {
-  color: #37474f;
-}
-
-.nav-link:hover {
-  color: #1976d2;
-}
-
-.nav-link.active {
-  color: #1976d2;
-}
-
-a {
-  color: #1976d2;
+:root {
+    --md-accent-fg-color:           #1976d2; /* nav mouseover */
+    --md-default-bg-color:          #fafafa; /* page bg */
+    --md-default-fg-color--light:   #37474f; /* h1 color */
+    --md-default-fg-color--lighter: #e3f2fd; /* pencil color */
+    --md-default-fg-color:          #000000; /* page text */
+    --md-primary-bg-color--light:   #eceff1; /* search panel */
+    --md-primary-bg-color:          #e3f2fd; /* header bg */
+    --md-primary-fg-color:          #1976d2; /* header */
 }

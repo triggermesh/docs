@@ -13,7 +13,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - checkout
-      - run: pip install mkdocs
+      - run: pip install mkdocs-material
       - run:
           name: Building package
           command: make build
@@ -95,7 +95,7 @@ jobs:
           command: |
             git add overlays
             git commit -m "Update overlays/<< parameters.cluster >>/docs deployment to '${CIRCLE_TAG:-${CIRCLE_SHA1}}'"
-            git push origin master
+            git push origin main
 
 workflows:
   build-test-and-publish:
@@ -113,7 +113,7 @@ workflows:
             tags:
               only: /^v([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
             branches:
-              only: master
+              only: main
       - deploy:
           name: update-production-config
           cluster: prod
