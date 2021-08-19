@@ -34,7 +34,5 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | **parent** | string | Project and location in which the workflow should be created. Format:  `projects/{project}/locations/{location}` | "projects/ultra-hologram-297914/locations/us-central1" |
 | **executionName** | string |  The resource name of the execution. Format: `projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}`| "demowf" | 
 
-
-
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
