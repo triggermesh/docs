@@ -12,7 +12,7 @@ to a [Google Cloud Pub/Sub][gc-storage-events] topic.
 ### Event Source for Google Cloud Pub/Sub
 
 Change notifications from Cloud Storage buckets can not be consumed directly, but are instead sent to a Google Cloud
-Pub/Sub topic. Follow the instructions at [Event Source for Google Cloud Storage](./googlecloudpubsub.md) for setting up
+Pub/Sub topic. Follow the instructions at [Event Source for Google Cloud Pub/Sub](./googlecloudpubsub.md) for setting up
 a Pub/Sub topic and running an instance of the Pub/Sub event source.
 
 !!! note
