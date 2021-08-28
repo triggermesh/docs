@@ -16,6 +16,7 @@ solutions on our Cloud.
     - [AWS S3](./awss3.md): Subscribe to event notifications from an Amazon S3 bucket.
     - [AWS SNS](./awssns.md): Subscribe to messages from a AWS SNS topic.
     - [AWS SQS](./awssqs.md): Capture messages from an AWS SQS queue.
+- [Github](./github.md): Consume Github events as Cloudevents
 - Google Cloud
     - [Google Cloud Pub/Sub](./googlecloudpubsub.md): Receive messages from a Google Cloud Pub/Sub topic.
     - [Google Cloud Storage](./googlecloudstorage.md): Capture change notifications from a Google Cloud Storage bucket.
