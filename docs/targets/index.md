@@ -3,7 +3,8 @@
 The following is a list of Triggermesh event destinations known as `Targets`. Some are available as open source projects, some as hosted solutions on our Cloud.
 
 ## Current TriggerMesh Targets
-
+- Alibaba
+    - [Alibaba OSS](./alibabaoss.md): Forward arbitrary events to an Alibaba Cloud OSS bucket.
 - AWS
     - [AWS Comprehend](./awscomprehend.md): Perform sentiment analysis on cloudevents.
     - [AWS Lambda](./awslambda.md): Forward event payload to AWS Lambda.
