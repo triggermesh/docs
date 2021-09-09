@@ -1,6 +1,6 @@
 # Event Target for Alibaba OSS 
 
-This event target receives [CloudEvents][ce] over HTTP and sends them to [Alibaba OSS](https://www.alibabacloud.com/product/oss)
+This event target receives [CloudEvents][ce] over HTTP and sends them to [Alibaba OSS][oss]
 creating a new file containing the event data.
 
 ## Prerequisite(s)
@@ -33,3 +33,4 @@ The response event type will contain the original event type with `.response` ap
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
+[oss]: https://www.alibabacloud.com/product/oss
