@@ -1,20 +1,20 @@
-# Event source for AWS Cognito User Pool
+# Event source for Amazon Cognito User Pool
 
-This event source captures messages from an [AWS Cognito User Pool ][cup-docs] whenever a specific action, such as the creation of a new user, happens in the user identity pool.
+This event source captures messages from an [Amazon Cognito User Pool][cup-docs] whenever a specific action, such as the creation of a new user, happens in the user identity pool.
 
 ## Prerequisite(s)
 
-* AWS Cognito User Pool
+* Amazon Cognito User Pool
 * Amazon Resource Name (ARN)
 * API Credentials
 
-### AWS Cognito User Pool
+### Amazon Cognito User Pool
 
-If you don't already have an AWS Cognito User Pool, create one by following the instructions in the [Getting started with User Pools][cup-getting-started] guide.
+If you don't already have an Amazon Cognito User Pool, create one by following the instructions in the [Getting started with User Pools][cup-getting-started] guide.
 
 ### Amazon Resource Name (ARN)
 
-A fully qualified ARN is required to uniquely identify the AWS Cognito User Pool.
+A fully qualified ARN is required to uniquely identify the Amazon Cognito User Pool.
 
 ![User Pool ARN](../images/awscognitouserpool-source/userpool-arn.png)
 
@@ -40,11 +40,11 @@ $ aws --region us-west-2 cognito-idp describe-user-pool --user-pool-id us-west-2
 
 ### API credentials
 
-The TriggerMesh AWS Cognito UserPool event source authenticates calls to the AWS Cognito API using an [Access Key][accesskey]. The page at this link contains instructions to create an access key when signed either as the root user or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance of the event source.
+The TriggerMesh Amazon Cognito UserPool event source authenticates calls to the Amazon Cognito API using an [Access Key][accesskey]. The page at this link contains instructions to create an access key when signed either as the root user or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be used to create an instance of the event source.
 
 It is considered a [good practice][iam-bestpractices] to create dedicated users with restricted privileges in order to programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching [IAM Policies][iam-policies] to it.
 
-As an example, the following policy contains the permissions required by the TriggerMesh AWS Cognito User Pool event source to list users in any user pool associated with the AWS account:
+As an example, the following policy contains the permissions required by the TriggerMesh Amazon Cognito User Pool event source to list users in any user pool associated with the AWS account:
 
 ```json
 {
@@ -62,13 +62,13 @@ As an example, the following policy contains the permissions required by the Tri
 
 ## Deploying an instance of the Source
 
-Open the Bridge creation screen and add a source of type `AWS Cognito User Pool`.
+Open the Bridge creation screen and add a source of type `Amazon Cognito User Pool`.
 
 ![Search Results](../images/awscognitouserpool-source/source-cognito-userpool.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
-* [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret Access Key to communicate with the AWS SQS API, as described in the previous sections.
+* [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret Access Key to communicate with the Amazon Cognito API, as described in the previous sections.
 * [**AWS ARN**][arn]: ARN of the User Pool, as described in the previous sections.
 
 ![Source form](../images/awscognitouserpool-source/source-cognito-userpool-form.png)
@@ -77,13 +77,13 @@ After clicking the `Save` button, you will be taken back to the Bridge editor. P
 
 ![Bridge overview](../images/awscognitouserpool-source/bridge-form-target.png)
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the AWS Cognito User Pool.
+A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the Amazon Cognito User Pool.
 
 ![Bridge status](../images/awscognitouserpool-source/bridge-status.png)
 
 ## Event Types
 
-The AWS Cognito UserPool event source emits events of the following type:
+The Amazon Cognito UserPool event source emits events of the following type:
 
 * `com.amazon.cognito-idp.sync_trigger`
 

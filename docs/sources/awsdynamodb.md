@@ -1,6 +1,6 @@
-# Event Source for AWS DynamoDB
+# Event Source for Amazon DynamoDB
 
-This event source captures changes to items stored in an [AWS DynamoDB Table][ddb-docs] by reading the time-ordered
+This event source captures changes to items stored in an [Amazon DynamoDB Table][ddb-docs] by reading the time-ordered
 sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].
 
 ## Prerequisite(s)
@@ -11,8 +11,8 @@ sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].
 
 ### DynamoDB Table and Stream
 
-If you don't already have an AWS DynamoDB Table, create one by following the instructions at [Getting Started with
-DynamoDB][ddb-gettingstarted]. In order for change notifications to be consumed by the TriggerMesh AWS DynamoDB event
+If you don't already have an Amazon DynamoDB Table, create one by following the instructions at [Getting Started with
+DynamoDB][ddb-gettingstarted]. In order for change notifications to be consumed by the TriggerMesh Amazon DynamoDB event
 source, it is mandatory to enable a [Stream][ddb-streams] on the DynamoDB Table. To do so, follow the instructions at
 [Enabling a Stream][ddb-stream-enable]. You are free to select the _View type_ that is the most suitable for your own
 usage of the event source.
@@ -21,7 +21,7 @@ usage of the event source.
 
 ### Amazon Resource Name (ARN)
 
-A fully qualified ARN is required to uniquely identify the AWS DynamoDB Table.
+A fully qualified ARN is required to uniquely identify the Amazon DynamoDB Table.
 
 This ARN can be obtained directly from the _Overview_ tab after clicking the DynamoDB Table name in the list of existing
 tables. It typically has the following format:
@@ -58,7 +58,7 @@ It is considered a [good practice][iam-bestpractices] to create dedicated users 
 programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
 [IAM Policies][iam-policies] to it.
 
-As an example, the following policy contains only the permissions required by the TriggerMesh AWS DynamoDB event
+As an example, the following policy contains only the permissions required by the TriggerMesh Amazon DynamoDB event
 source to operate:
 
 ```json
@@ -83,31 +83,31 @@ source to operate:
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `AWS DynamoDB`.
+Open the Bridge creation screen and add a source of type `Amazon DynamoDB`.
 
-![Adding an AWS DynamoDB source](../images/awsdynamodb-source/create-bridge-1.png)
+![Adding an Amazon DynamoDB source](../images/awsdynamodb-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
 - [**AWS ARN**][arn]: ARN of the DynamoDB Table, as described in the previous sections.
 - [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
-  Access Key to communicate with the AWS DynamoDB API, as described in the previous sections.
+  Access Key to communicate with the Amazon DynamoDB API, as described in the previous sections.
 
-![AWS DynamoDB source form](../images/awsdynamodb-source/create-bridge-2.png)
+![Amazon DynamoDB source form](../images/awsdynamodb-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
 ![Bridge overview](../images/awsdynamodb-source/create-bridge-3.png)
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the AWS
-DynamoDB Stream.
+A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the
+Amazon DynamoDB Stream.
 
 ![Bridge status](../images/bridge-status-green.png)
 
 ## Event Types
 
-The AWS DynamoDB event source emits events of the following types:
+The Amazon DynamoDB event source emits events of the following types:
 
 - `com.amazon.dynamodb.insert`
 - `com.amazon.dynamodb.modify`

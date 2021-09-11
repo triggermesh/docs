@@ -1,6 +1,6 @@
-# Event Source for AWS Kinesis
+# Event Source for Amazon Kinesis
 
-This event source acts as a consumer of an [AWS Kinesis Data Stream][kinesis-docs] and forwards all messages it reads
+This event source acts as a consumer of an [Amazon Kinesis Data Stream][kinesis-docs] and forwards all messages it reads
 after wrapping them in a [CloudEvent][ce] envelope.
 
 ## Prerequisite(s)
@@ -11,12 +11,12 @@ after wrapping them in a [CloudEvent][ce] envelope.
 
 ### Kinesis Data Stream
 
-If you don't already have an AWS Kinesis Data Stream, create one by following the instructions at [Creating and Updating
-Data Streams][kinesis-stream-create].
+If you don't already have an Amazon Kinesis Data Stream, create one by following the instructions at [Creating and
+Updating Data Streams][kinesis-stream-create].
 
 ### Amazon Resource Name (ARN)
 
-A fully qualified ARN is required to uniquely identify the AWS Kinesis Stream.
+A fully qualified ARN is required to uniquely identify the Amazon Kinesis Stream.
 
 This ARN can be obtained directly from the overview page of the Kinesis Stream. It typically has the following format:
 
@@ -52,8 +52,8 @@ It is considered a [good practice][iam-bestpractices] to create dedicated users 
 programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
 [IAM Policies][iam-policies] to it.
 
-As an example, the following policy contains only the permissions required by the TriggerMesh AWS Kinesis event source
-to operate:
+As an example, the following policy contains only the permissions required by the TriggerMesh Amazon Kinesis event
+source to operate:
 
 ```json
 {
@@ -76,31 +76,31 @@ to operate:
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `AWS Kinesis`.
+Open the Bridge creation screen and add a source of type `Amazon Kinesis`.
 
-![Adding an AWS Kinesis source](../images/awskinesis-source/create-bridge-1.png)
+![Adding an Amazon Kinesis source](../images/awskinesis-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
 - [**AWS ARN**][arn]: ARN of the Kinesis Data Stream, as described in the previous sections.
 - [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
-  Access Key to communicate with the AWS Kinesis API, as described in the previous sections.
+  Access Key to communicate with the Amazon Kinesis API, as described in the previous sections.
 
-![AWS Kinesis source form](../images/awskinesis-source/create-bridge-2.png)
+![Amazon Kinesis source form](../images/awskinesis-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
 ![Bridge overview](../images/awskinesis-source/create-bridge-3.png)
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to forward messages from the AWS
+A ready status on the main _Bridges_ page indicates that the event source is ready to forward messages from the Amazon
 Kinesis Data Stream.
 
 ![Bridge status](../images/bridge-status-green.png)
 
 ## Event Types
 
-The AWS Kinesis event source emits events of the following types:
+The Amazon Kinesis event source emits events of the following types:
 
 - `com.amazon.kinesis.stream_record`
 

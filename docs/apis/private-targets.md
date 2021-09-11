@@ -56,7 +56,7 @@ Resource Types:
 <h3 id="targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget
 </h3>
 <p>
-<p>AWSKinesisTarget is the Schema for an AWS Kinesis Target.</p>
+<p>AWSKinesisTarget is the Schema for an Amazon Kinesis Target.</p>
 </p>
 <table>
 <thead>
@@ -321,7 +321,7 @@ AWSTargetStatus
 <h3 id="targets.triggermesh.io/v1alpha1.AWSS3Target">AWSS3Target
 </h3>
 <p>
-<p>AWSS3Target is the Schema for an AWS s3 Target.</p>
+<p>AWSS3Target is the Schema for an Amazon S3 Target.</p>
 </p>
 <table>
 <thead>
@@ -575,7 +575,7 @@ AWSTargetStatus
 <h3 id="targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget
 </h3>
 <p>
-<p>AWSSQSTarget is the Schema for an AWS SQS Target.</p>
+<p>AWSSQSTarget is the Schema for an Amazon SQS Target.</p>
 </p>
 <table>
 <thead>
@@ -2878,7 +2878,7 @@ When this property is true, only the CloudEvent data is included.</p>
 <a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus</a>)
 </p>
 <p>
-<p>AWSTargetStatus communicates the observed state of the various  AWS Targets (from the controller).</p>
+<p>AWSTargetStatus communicates the observed state of the various AWS Targets (from the controller).</p>
 </p>
 <table>
 <thead>

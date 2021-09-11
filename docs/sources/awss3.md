@@ -115,7 +115,7 @@ according to Amazon's documentation: [Configuring a bucket for notifications][s3
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `AWS S3`.
+Open the Bridge creation screen and add a source of type `Amazon S3`.
 
 ![Adding an Amazon S3 source](../images/awss3-source/create-bridge-1.png)
 
@@ -129,7 +129,7 @@ In the Source creation form, give a name to the event source and add the followi
   this queue yourself as described in the previous sections.
 - [**Event types**][s3-events]: List of event types to subscribe to.
 
-![AWS S3 source form](../images/awss3-source/create-bridge-2.png)
+![Amazon S3 source form](../images/awss3-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed by adding the remaining
 components to the Bridge, then submit it.

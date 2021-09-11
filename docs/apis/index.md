@@ -11,5 +11,4 @@ Knative API is [documented at the project](https://knative.dev/docs/reference/ap
 ## TriggerMesh Targets API
 
 * [Triggermesh Targets](./private-targets.md).
-* [Triggermesh AWS EventBridge target](./awseventbridge-target.md).
-
+* [Triggermesh Amazon EventBridge target](./awseventbridge-target.md).

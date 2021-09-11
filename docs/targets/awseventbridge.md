@@ -1,20 +1,20 @@
-# Event Target for AWS EventBridge
+# Event Target for Amazon EventBridge
 
-This event Target receives arbitrary [CloudEvents][ce] over HTTP and sends them to an [AWS EventBridge partner event
+This event Target receives arbitrary [CloudEvents][ce] over HTTP and sends them to an [Amazon EventBridge partner event
 bus][intro] in a [JSON format][ce-jsonformat].
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a target of type `AWS EventBridge`.
+Open the Bridge creation screen and add a target of type `Amazon EventBridge`.
 
-![Adding an AWS EventBridge target](../images/awseventbridge-target/create-bridge-1.png)
+![Adding an Amazon EventBridge target](../images/awseventbridge-target/create-bridge-1.png)
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
 - [AWS account ID][aws-acc-id]: defines the AWS account in which the TriggerMesh partner event source is to be created.
 - [AWS region][aws-regions]: defines the AWS region in which the TriggerMesh partner event source is to be created.
 
-![AWS EventBridge target form](../images/awseventbridge-target/create-bridge-2.png)
+![Amazon EventBridge target form](../images/awseventbridge-target/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
@@ -30,7 +30,7 @@ the TriggerMesh partner event source with a corresponding [partner event bus][ev
 
 To associate the TriggerMesh partner event source with a partner event bus:
 
-1. Navigate to the _Partner event sources_ menu of the AWS EventBridge Console.
+1. Navigate to the _Partner event sources_ menu of the Amazon EventBridge Console.
 1. Select the "Pending" partner event source which name starts with `aws.partner/triggermesh.com`.
 1. Click the `Associate with event bus` button.
 
@@ -48,13 +48,13 @@ You will also see a custom event bus named after the TriggerMesh partner event s
 
 ![Event buses](../images/awseventbridge-target/associate-partner-event-source-4.png)
 
-Your can now start creating rules that trigger on certain events in the AWS EventBridge console.
+Your can now start creating rules that trigger on certain events in the Amazon EventBridge console.
 
-For more information about using AWS EventBridge, please refer to the [EventBridge user guide][userguide].
+For more information about using Amazon EventBridge, please refer to the [EventBridge user guide][userguide].
 
 ## Event Types
 
-The AWS EventBridge event Target can consume events of any type.
+The Amazon EventBridge event Target can consume events of any type.
 
 [intro]: https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html
 [userguide]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html

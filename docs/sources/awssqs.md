@@ -1,6 +1,6 @@
-# Event Source for AWS SQS
+# Event Source for Amazon SQS
 
-The event source captures messages sent to a [AWS SQS queue][sqs-docs] and sends them as CloudEvents to an event sink.
+The event source captures messages sent to a [Amazon SQS queue][sqs-docs] and sends them as CloudEvents to an event sink.
 
 ## Prerequisite(s)
 
@@ -10,12 +10,12 @@ The event source captures messages sent to a [AWS SQS queue][sqs-docs] and sends
 
 ### SQS Queue
 
-If you don't already have an AWS SQS queue, create one by following the instructions in the [Getting started with Amazon
-SQS][sqs-getting-started] guide.
+If you don't already have an Amazon SQS queue, create one by following the instructions in the [Getting started with
+Amazon SQS][sqs-getting-started] guide.
 
 ### Amazon Resource Name (ARN)
 
-A fully qualified ARN is required to uniquely identify the AWS SQS queue.
+A fully qualified ARN is required to uniquely identify the Amazon SQS queue.
 
 ![SQS queue](../images/awssqs-source/sqs-queue.png)
 
@@ -49,7 +49,7 @@ It is considered a [good practice][iam-bestpractices] to create dedicated users 
 programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
 [IAM Policies][iam-policies] to it.
 
-As an example, the following policy contains the permissions required by the TriggerMesh AWS SQS event source to read
+As an example, the following policy contains the permissions required by the TriggerMesh Amazon SQS event source to read
 and delete messages from any queue linked to the AWS account:
 
 ```json
@@ -77,31 +77,31 @@ and delete messages from any queue linked to the AWS account:
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `AWS SQS`.
+Open the Bridge creation screen and add a source of type `Amazon SQS`.
 
-![Adding an AWS SQS source](../images/awssqs-source/bridge-form-sqs-source.png)
+![Adding an Amazon SQS source](../images/awssqs-source/bridge-form-sqs-source.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
 - [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
-  Access Key to communicate with the AWS SQS API, as described in the previous sections.
+  Access Key to communicate with the Amazon SQS API, as described in the previous sections.
 - [**AWS ARN**][arn]: ARN of the SQS queue, as described in the previous sections.
 
-![AWS SQS source form](../images/awssqs-source/bridge-form-sqs-source-form.png)
+![Amazon SQS source form](../images/awssqs-source/bridge-form-sqs-source-form.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
 ![Bridge overview](../images/awssqs-source/bridge-form-target.png)
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the AWS
-SQS queue.
+A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the
+Amazon SQS queue.
 
 ![Bridge status](../images/awssqs-source/bridge-deployed.png)
 
 ## Event Types
 
-The AWS SQS event source emits events of the following type:
+The Amazon SQS event source emits events of the following type:
 
 - `com.amazon.sqs.message`
 

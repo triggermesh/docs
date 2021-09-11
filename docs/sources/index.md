@@ -10,12 +10,12 @@ solutions on our Cloud.
     - [Azure Blob Storage](./azureblobstorage.md): Subscribe to events from an Azure storage account.
 - AWS
     - [AWS CodeCommit](./awscodecommit.md): Capture notifications from an AWS CodeCommit repository.
-    - [AWS Cognito User Pool](./awscognitouserpool.md): Capture notifications from an AWS Cognito User Pool.
-    - [AWS DynamoDB](./awsdynamodb.md): Capture activity from an AWS DynamoDB table.
-    - [AWS Kinesis](./awskinesis.md): Forward messages from an AWS Kinesis Data Stream.
-    - [AWS S3](./awss3.md): Subscribe to event notifications from an Amazon S3 bucket.
-    - [AWS SNS](./awssns.md): Subscribe to messages from a AWS SNS topic.
-    - [AWS SQS](./awssqs.md): Capture messages from an AWS SQS queue.
+    - [Amazon Cognito User Pool](./awscognitouserpool.md): Capture notifications from an Amazon Cognito User Pool.
+    - [Amazon DynamoDB](./awsdynamodb.md): Capture activity from an Amazon DynamoDB table.
+    - [Amazon Kinesis](./awskinesis.md): Forward messages from an Amazon Kinesis Data Stream.
+    - [Amazon S3](./awss3.md): Subscribe to event notifications from an Amazon S3 bucket.
+    - [Amazon SNS](./awssns.md): Subscribe to messages from a Amazon SNS topic.
+    - [Amazon SQS](./awssqs.md): Capture messages from an Amazon SQS queue.
 - [Github](./github.md): Consume Github events as Cloudevents
 - Google Cloud
     - [Google Cloud Pub/Sub](./googlecloudpubsub.md): Receive messages from a Google Cloud Pub/Sub topic.

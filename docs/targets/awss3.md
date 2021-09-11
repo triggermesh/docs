@@ -1,6 +1,6 @@
-# Event Target for AWS S3
+# Event Target for Amazon S3
 
-This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS S3 endpoint.
+This event Target receives [CloudEvents][ce] over HTTP and invokes an Amazon S3 endpoint.
 
 ## Prerequisite(s)
 
@@ -15,41 +15,41 @@ pre-defined [access point][aws-s3-ap].
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a Target of type `AWS S3`.
+Open the Bridge creation screen and add a Target of type `Amazon S3`.
 
 ![Adding an S3 Target](../images/aws-targets/aws-s3-bridge-create-1.png)
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
 - **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
-- **AWS ARN**: The ARN that points to the AWS S3 bucket.
+- **AWS ARN**: The ARN that points to the Amazon S3 bucket.
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent
 to S3 bucket. By default, this is disabled which means only the event payload
 will be sent.
 
-![AWS S3 Target form](../images/aws-targets/aws-s3-bridge-create-2.png)
+![Amazon S3 Target form](../images/aws-targets/aws-s3-bridge-create-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
 ![Bridge overview](../images/aws-targets/aws-s3-bridge-create-3.png)
 
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the AWS S3 Target was successfully created.
+After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the Amazon S3 Target was successfully created.
 
 ![Bridge status](../images/bridge-status-green.png)
 
-For more information about using AWS S3, please refer to the [AWS documentation][docs].
+For more information about using Amazon S3, please refer to the [AWS documentation][docs].
 
 ## Event Types
 
-Events of this type will store the event payload into an AWS S3 bucket.
+Events of this type will store the event payload into an Amazon S3 bucket.
 
-The AWS S3 event Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the flexible nature of what can be stored in AWS S3.  There is
+The Amazon S3 event Target leaves the [CloudEvent][ce] type definition to the discretion of
+the implementer given the flexible nature of what can be stored in Amazon S3.  There is
 an exception if the `io.triggermesh.awss3.object.put` type is used where the target
 will store the payload body regardless of the `Discard CloudEvent context attributes` setting.
 
-The AWS S3 bucket key used to store the event is defined by the `ce-subject` attribute.
+The Amazon S3 bucket key used to store the event is defined by the `ce-subject` attribute.
 If `ce-subject` is not set, the default key will be: **ce-type**/**ce-source**/**ce-time**.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:

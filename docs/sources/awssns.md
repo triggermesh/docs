@@ -1,6 +1,6 @@
-# Event Source for AWS SNS
+# Event Source for Amazon SNS
 
-This event source subscribes to messages from a [AWS SNS topic][sns-docs] and sends them as CloudEvents to an event
+This event source subscribes to messages from a [Amazon SNS topic][sns-docs] and sends them as CloudEvents to an event
 sink.
 
 ## Prerequisite(s)
@@ -11,12 +11,12 @@ sink.
 
 ### SNS Topic (standard)
 
-If you don't already have an AWS SNS standard topic, create one by following the instructions in the [Getting started
+If you don't already have an Amazon SNS standard topic, create one by following the instructions in the [Getting started
 with Amazon SNS][sns-getting-started] guide.
 
 ### Amazon Resource Name (ARN)
 
-A fully qualified ARN is required to uniquely identify the AWS SNS topic.
+A fully qualified ARN is required to uniquely identify the Amazon SNS topic.
 
 ![SNS topic](../images/awssns-source/sns-topic.png)
 
@@ -54,7 +54,7 @@ It is considered a [good practice][iam-bestpractices] to create dedicated users 
 programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
 [IAM Policies][iam-policies] to it.
 
-As an example, the following policy contains the permissions required by the TriggerMesh AWS SNS event source to read
+As an example, the following policy contains the permissions required by the TriggerMesh Amazon SNS event source to read
 and delete messages from any topic linked to the AWS account:
 
 ```json
@@ -85,33 +85,33 @@ and delete messages from any topic linked to the AWS account:
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `AWS SNS`.
+Open the Bridge creation screen and add a source of type `Amazon SNS`.
 
-![Adding an AWS SNS source](../images/awssns-source/bridge-form-sns-source.png)
+![Adding an Amazon SNS source](../images/awssns-source/bridge-form-sns-source.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
 - [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
-  Access Key to communicate with the AWS SNS API, as described in the previous sections.
+  Access Key to communicate with the Amazon SNS API, as described in the previous sections.
 - [**AWS ARN**][arn]: ARN of the SNS topic, as described in the previous sections.
 - [**DeliveryPolicy**][sns-delivery-policy]: Delivery policy to define how Amazon SNS retries the delivery of messages
   to HTTP/S endpoints.
 
-![AWS SNS source form](../images/awssns-source/bridge-form-sns-source-form.png)
+![Amazon SNS source form](../images/awssns-source/bridge-form-sns-source-form.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
 ![Bridge overview](../images/awssns-source/bridge-form-target.png)
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to receive messages from the AWS SNS
-topic.
+A ready status on the main _Bridges_ page indicates that the event source is ready to receive messages from the Amazon
+SNS topic.
 
 ![Bridge status](../images/awssns-source/bridge-deployed.png)
 
 ## Event Types
 
-The AWS SNS event source emits events of the following type:
+The Amazon SNS event source emits events of the following type:
 
 - `com.amazon.sns.notification`
 

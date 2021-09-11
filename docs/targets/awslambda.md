@@ -1,7 +1,6 @@
 # Event Target for AWS Lambda
 
-This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS
-Lambda function.
+This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS Lambda function.
 
 ## Prerequisite(s)
 
