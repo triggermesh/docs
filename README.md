@@ -50,7 +50,7 @@ and open http://localhost:8081 to view the content.
 
 We would love your feedback and help on this documentation, so don't hesitate to let
 us know what is wrong and how we could improve them, just file an
-[issue](https://github.com/triggermesh/docs/issues/new) or join those of use
+[issue](https://github.com/triggermesh/docs/issues/new) or join those of us
 who are maintaining them and submit a
 [PR](https://github.com/triggermesh/docs/compare)
 
