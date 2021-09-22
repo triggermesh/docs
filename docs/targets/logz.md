@@ -6,6 +6,7 @@ This event Target receives [CloudEvents][ce] and ships messages to [Logz.io](htt
 
 - Logz.io account
 - Logz.io shipping [token](https://docs.logz.io/user-guide/tokens/)
+- Logz.io metric shipping (if you want to ship metrics) [token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about how to add the Logz.io shipping token as a secret.
 
@@ -18,6 +19,7 @@ Open the Bridge creation screen and add a Target of type `Logz`.
 In the Target creation form, provide a name for the event Target, and add the following information:
 
 * **Shipping Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Logz.io [shipping token](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/) as discussed in the [prerequisites](#prerequisites).
+ * **Metrics Shipping Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Logz.io [metrics shipping token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) as discussed in the [prerequisites](#prerequisites).
 * **Logs Listener URL**: An API endpoint that can be found above your shipping token in the Logz.io dashboard.
 
 ![Adding a Target](../images/logz-target/create-bridge-2.png)
