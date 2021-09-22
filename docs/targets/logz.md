@@ -30,13 +30,9 @@ After submitting the Bridge, and allowing for some configuration time, a green c
 
 A Logz event Target accepts the following CloudEvent types:
 
-### io.triggermesh.logz.ship
+### Aribitrary
 
-The Logz event Target can also consume events of type `io.triggermesh.logz.ship`, and will produce responses typed `io.triggermesh.logz.ship.response`. 
-
-The payload contains a [JSON][ce-json] structure with elements to execute the API request:
-
-- `message`: The message to log within Logz.io
+The Logz event Target can also consume aribtary events, and will produce responses typed `io.triggermesh.logz.ship.response`. 
 
 ## Examples
 
@@ -48,5 +44,30 @@ Create a Logz message:
 { "message":"hello world" }
 ```
 
+### `io.triggermesh.logz.metrics.counter.send` 
+
+Events of type `io.triggermesh.logz.metrics.counter.send` intend to post metrics via the counter method 
+ref -> https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/go-custom-metrics
+
+| Name | Value | Description |
+|---|---|---|
+|**meterProvider**| string | Denotes the name of the metric as it will appear in the dashboard.|
+|**metricDescription** | string | Provides a breif description of the metric.|
+|**attributes**| Attributes | Attributes to assign the metric in the dashboard.|
+|**metricValue**| string | Denotes the value to set for the metric.|
+
+the Attributes struct is as follows:
+```go
+	Attributes struct {
+		Key   string `json:"key"`
+		Value string `json:"value"`
+	} `json:"attributes"`
+```
+
+- **Event Type**: `io.triggermesh.logz.metrics.counter.send`
+- **Data**:
+```json
+{"meterProvider":"triggermesh_metrics", "metricDescription":"description","metricValue": 500, "attributes":{"key":"test","value":"tv"}}
+```
 [ce]: https://cloudevents.io/
 [ce-json]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
