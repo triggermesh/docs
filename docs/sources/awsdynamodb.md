@@ -107,11 +107,9 @@ Amazon DynamoDB Stream.
 
 ## Event Types
 
-The Amazon DynamoDB event source emits events of the following types:
+The Amazon DynamoDB event source emits events of the following type:
 
-- `com.amazon.dynamodb.insert`
-- `com.amazon.dynamodb.modify`
-- `com.amazon.dynamodb.remove`
+- `com.amazon.dynamodb.stream_record`
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazondynamodb.html#amazondynamodb-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

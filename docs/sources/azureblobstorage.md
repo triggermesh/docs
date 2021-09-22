@@ -192,7 +192,7 @@ This can be confirmed by navigating back to the Azure Portal and ensuring that:
 
 ## Event Types
 
-The TriggerMesh event source for Azure Blob Storage emits events of the following type:
+The TriggerMesh event source for Azure Blob Storage emits events of the following types:
 
 - `Microsoft.Storage.BlobCreated`
 - `Microsoft.Storage.BlobDeleted`
@@ -200,6 +200,9 @@ The TriggerMesh event source for Azure Blob Storage emits events of the followin
 - `Microsoft.Storage.DirectoryCreated`
 - `Microsoft.Storage.DirectoryDeleted`
 - `Microsoft.Storage.DirectoryRenamed`
+- `Microsoft.Storage.BlobTierChanged`
+- `Microsoft.Storage.AsyncOperationInitiated`
+- `Microsoft.Storage.BlobInventoryPolicyCompleted`
 
 [storage-acc]: https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview
 
