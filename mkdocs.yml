@@ -6,31 +6,49 @@ site_url: https://docs.triggermesh.io
 repo_url: https://github.com/triggermesh/docs
 extra_css: [extra.css]
 extra_javascript: [extra.js]
+
 nav:
     - Home: index.md
     - Guides:
       - 'Getting Started': guides/gettingstarted.md
-      - 'CD': guides/cd.md
-      - 'Actions': guides/actions.md
-      - 'Bridge': guides/bridge.md
-      - 'Secrets': guides/secrets.md
-    - Client:
+    - TIL: 'til/index.md'
+    - Function:
       - 'Installation': 'tm/install.md'
       - 'Configuration': 'tm/configuration.md'
       - 'Usage': 'tm/usage.md'
       - 'Registry': 'tm/registry.md'
       - 'Serverless Manifest': 'tm/serverless.md'
-    - Sources: sources/index.md
-    - Targets: targets/index.md
-    - API: apis/index.md
-    - Cloud: https://cloud.triggermesh.io
-    - About: about.md
+    - Reference: 
+      - 'Getting Started' : 'apis/apis.md'
+      - 'Sources': 'apis/sources.md'
+      - 'Targets': 'apis/targets.md'
+      - 'Routing': 'apis/routing.md'
+      - 'Function': 'apis/function.md'
+      - 'Transformation': 'apis/transformation.md'
+    - Cloud:
+      - cloud/index.md
+      - 'Bridge': 'cloud/bridge.md'
+      - 'Sources': 'cloud/sources/sources.md'
+      - 'Targets': 'cloud/targets/targets.md'
+      - 'Secrets': 'cloud/secrets.md'
+
 theme:
   name: material
   favicon: images/favicon.ico
   logo: images/tmLogo-white.png
+  custom_dir: overrides
   analytics:
     gtag: G-V4SM2FT345
+  features:
+  - content.code.annotate
+  - content.tabs.link
+  - navigation.expand
+  - navigation.indexes
+  - navigation.sections
+  - navigation.tabs
+  - navigation.tabs.sticky
+  - navigation.top
+  - navigation.tracking
 
 extra:
   social:

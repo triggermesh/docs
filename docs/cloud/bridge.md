@@ -1,11 +1,3 @@
-# EveryBridge
-
-The [EveryBridge](https://triggermesh.com/cloud_native_integration_platform/everybridge/) service makes it easy to create links between event _Sources_ and _Targets_.
-
-<!-- I would like to see 'Sources' and 'Targets' hyperlinked to their respective documentation -->
-
-![](../images/tmeverybridge.png)
-
 
 Each _bridge_ created within the TM console operates via the following `flow`:
 
