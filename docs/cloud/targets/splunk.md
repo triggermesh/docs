@@ -20,16 +20,16 @@ In order to be able to use the TriggerMesh event Target for Splunk, an administr
 
 To do so, open the Splunk web console, then navigate to **Settings > Data > Data inputs**.
 
-![Splunk settings](../images/splunk-target/hec-1.png)
+![Splunk settings](../../assets/images/splunk-target/hec-1.png)
 
 In the list of local inputs, click **HTTP Event Collector**.
 
-![Data inputs](../images/splunk-target/hec-2.png)
+![Data inputs](../../assets/images/splunk-target/hec-2.png)
 
 Click **New token** in order to generate a new token with custom settings, then take note of the value of that token. The
 default HEC token (`splunk_hec_token`) is also suitable for use with the TriggerMesh event Target for Splunk.
 
-![](../images/splunk-target/hec-3.png)
+![](../../assets/images/splunk-target/hec-3.png)
 
 This procedure is described in more detail in the Splunk documentation: [Set up and use HTTP Event Collector in Splunk
 Web][hec].
@@ -38,7 +38,7 @@ Web][hec].
 
 Open the Bridge creation screen and add a Target of type `Splunk`.
 
-![Adding a Splunk target](../images/splunk-target/create-bridge-1.png)
+![Adding a Splunk target](../../assets/images/splunk-target/create-bridge-1.png)
 
 In the Target creation form, give a name to the event Target and add the following information:
 
@@ -50,21 +50,21 @@ In the Target creation form, give a name to the event Target and add the followi
 - [**Index**][index]: Name of the index to send events to. When undefined, events are sent to the default index defined
   in the HEC token's configuration.
 
-![Splunk target form](../images/splunk-target/create-bridge-2.png)
+![Splunk target form](../../assets/images/splunk-target/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/splunk-target/create-bridge-3.png)
+![Bridge overview](../../assets/images/splunk-target/create-bridge-3.png)
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the Splunk Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 New events should now be visible in the **Search & Reporting** app inside Splunk.
 
-![Data summary](../images/splunk-target/search-1.png)
-![Data search](../images/splunk-target/search-2.png)
+![Data summary](../../assets/images/splunk-target/search-1.png)
+![Data search](../../assets/images/splunk-target/search-2.png)
 
 For more information about using Splunk, please refer to the [Splunk documentation][docs].
 

@@ -28,14 +28,14 @@ We will be using `OpenSSL` but any other certificate generation tool should work
     - Add Scopes for `api` and `refresh_token, offline_access`.
     - Save.
 
-    ![Salesforce connected app](../images/salesforce/salesforce-connected-app.png)
+    ![Salesforce connected app](../../assets/images/salesforce/salesforce-connected-app.png)
 
     - Select the Connected App from the list and at the click on `Manage`.
     - Click `Edit policies`.
     - Set Permitted users to `Admin approved users are pre-authorized`.
     - Save.
 
-    ![Connected app policies](../images/salesforce/connected-app-policies.png)
+    ![Connected app policies](../../assets/images/salesforce/connected-app-policies.png)
 
     - Select the Connected App from the list and at the click on `Manage`.
     - Click `Manage Profiles`.
@@ -65,13 +65,13 @@ The TriggerMesh Salesforce integration needs the certificate key to sign authent
 A [secret needs to be created at Triggermesh][tm-secret] that contains that certificate key.
 The file name containing the key will need to be renamed to `certKey`, then select `Secrets` > `+ ADD SECRET`, `File Upload`
 
-![Upload secret](../images/salesforce-source/file-upload-secret.png)
+![Upload secret](../../assets/images/salesforce-source/file-upload-secret.png)
 
 ## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Salesforce`.
 
-![Adding Salesforce source](../images/salesforce-source/salesforce-source.png)
+![Adding Salesforce source](../../assets/images/salesforce-source/salesforce-source.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -81,13 +81,13 @@ In the Source creation form, give a name to the event source and add the followi
 - **User** for the Salesforce account.
 - **Channel** as configured at the Salesforce stream.
 
-![Salesforce source form](../images/salesforce-source/salesforce-source-form.png)
+![Salesforce source form](../../assets/images/salesforce-source/salesforce-source-form.png)
 
 After clicking `Save` at the source, you will be taken back to the Bridge editor. Proceed to add the remaining components to the Bridge, then submit it.
 
 Wait a few seconds for all components to become ready, the green `Status` indicator for the bridge indicates that the event source is ready to forward messages from the Salesforce event Stream.
 
-![Bridge status](../images/salesforce-source/salesforce-bridge-ready.png)
+![Bridge status](../../assets/images/salesforce-source/salesforce-bridge-ready.png)
 
 ## Event Types
 

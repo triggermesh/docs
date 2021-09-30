@@ -1,14 +1,29 @@
 # Triggermesh APIs
 
-Triggermesh is built on top of Knative API, which you can use with your credentials.
-Knative API is [documented at the project](https://knative.dev/docs/reference/api/).
+TriggerMesh is composed of a set of APIS representing:
+
+* Event sources
+* Event targets
+* Transformation
+* Function
+* Routing components
 
 ## TriggerMesh Sources API
 
-* [Triggermesh Public Sources](./public-sources.md).
-* [Triggermesh Sources](./private-sources.md).
+* [Sources](./sources.md).
 
 ## TriggerMesh Targets API
 
-* [Triggermesh Targets](./private-targets.md).
-* [Triggermesh Amazon EventBridge target](./awseventbridge-target.md).
+* [Targets](./targets.md).
+
+## TriggerMesh Transformation API
+
+* [Transformation](./flow.md).
+
+## TriggerMesh Function API
+
+* [Function](./extensions.md).
+
+## TriggerMesh Routing API
+
+* [Routing](./routing.md).

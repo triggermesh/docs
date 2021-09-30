@@ -17,7 +17,7 @@ the instructions at [Generating a new API token ][zd-token].
 
 Open the Bridge creation screen and add a source of type `Zendesk`.
 
-![Adding a Zendesk source](../images/zendesk-source/create-bridge-1.png)
+![Adding a Zendesk source](../../assets/images/zendesk-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -27,17 +27,17 @@ In the Source creation form, give a name to the event source and add the followi
   Zendesk API, as described in the previous section.
 - **Webhook username/password**: arbitrary user name and password, used to verify event callbacks.
 
-![Zendesk source form](../images/zendesk-source/create-bridge-2.png)
+![Zendesk source form](../../assets/images/zendesk-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/zendesk-source/create-bridge-3.png)
+![Bridge overview](../../assets/images/zendesk-source/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the Zendesk [Target][zd-target] and [Trigger][zd-trigger] were
 successfully created and that the event source is ready to forward events from Zendesk.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Verification of External Resources
 
@@ -45,21 +45,21 @@ To verify the successful deployment of the Zendesk event source, navigate to the
 _Extensions_ screen in the Zendesk Admin interface, below the _Settings_ section. The event source instance should have
 created a Target following the naming pattern `io.triggermesh.zendesksource.<user namespace>.<source name>`.
 
-![Zendesk Target name](../images/zendesk-source/targets-1.png)
+![Zendesk Target name](../../assets/images/zendesk-source/targets-1.png)
 
 The Target is configured to include the webhook username and password defined earlier in each request header.
 
-![Zendesk Target details](../images/zendesk-source/targets-2.png)
+![Zendesk Target details](../../assets/images/zendesk-source/targets-2.png)
 
 The Target is linked to a [Trigger][zd-trigger], which can be found by navigating to the _Triggers_ screen, below the
 _Business rules_ section. This Trigger follows the same naming convention as the matching Target.
 
-![Zendesk Trigger name](../images/zendesk-source/triggers-1.png)
+![Zendesk Trigger name](../../assets/images/zendesk-source/triggers-1.png)
 
 The Trigger defines the condition on which a new event is generated and sent to the Target. In the example below, the
 condition is the creation of a new ticket.
 
-![Zendesk Trigger details](../images/zendesk-source/triggers-2.png)
+![Zendesk Trigger details](../../assets/images/zendesk-source/triggers-2.png)
 
 If the Trigger is marked as `active`, it will be sending notifications to the HTTP(S) endpoint exposed by the instance
 of the TriggerMesh Zendesk event source as soon as a corresponding action happens in Zendesk.

@@ -15,7 +15,7 @@ how to add the Twilio Account SID and API Access Token as secrets.
 
 Open the Bridge creation screen and add a Target of type `Twilio`.
 
-![Adding a Twilio Target](../images/twilio-target/create-bridge-1.png)
+![Adding a Twilio Target](../../assets/images/twilio-target/create-bridge-1.png)
 
 In the Target creation form, give a name to the event Target and add the following information:
 
@@ -31,12 +31,12 @@ Both the **Default source phone number** and **Default destination** configurati
 
 For more information about using Twilio, please refer to the [Twilio documentation][docs].
 
-![Twilio Target form](../images/twilio-target/create-bridge-2.png)
+![Twilio Target form](../../assets/images/twilio-target/create-bridge-2.png)
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page
 indicates that the Bridge was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Event Types
 

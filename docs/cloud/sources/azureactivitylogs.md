@@ -30,8 +30,8 @@ from Event Hubs.
 
 In the example below, we create a custom IAM role that is dedicated to the TriggerMesh Activity Logs event source:
 
-![IAM roles](../images/azureactivitylogs-source/iam-1.png)
-![Custom IAM role](../images/azureactivitylogs-source/iam-2.png)
+![IAM roles](../../assets/images/azureactivitylogs-source/iam-1.png)
+![Custom IAM role](../../assets/images/azureactivitylogs-source/iam-2.png)
 
 The corresponding role JSON is given as a reference which you can replicate to create a similar custom IAM role:
 
@@ -71,7 +71,7 @@ Follow the instructions at [Quickstart: Create an Event Hub using Azure portal][
 Event Hubs namespace. This namespace will contain an Event Hubs instance which will be configured by the event source as
 the destination of Activity Logs originating from the Azure subscription.
 
-![Event Hubs namespaces](../images/azureactivitylogs-source/eventhubs-ns-1.png)
+![Event Hubs namespaces](../../assets/images/azureactivitylogs-source/eventhubs-ns-1.png)
 
 ### Event Hubs Instance _(optional)_
 
@@ -93,8 +93,8 @@ A resource ID for an Event Hub has the following format:
     The resource ID of the corresponding Event Hubs namespace is obtained by simply omitting the
     `/eventHubs/{eventHubName}` part of the Event Hub's resource ID.
 
-![Event Hub overview](../images/azureactivitylogs-source/eventhub-1.png)
-![Event Hub resource ID](../images/azureactivitylogs-source/eventhub-2.png)
+![Event Hub overview](../../assets/images/azureactivitylogs-source/eventhub-1.png)
+![Event Hub resource ID](../../assets/images/azureactivitylogs-source/eventhub-2.png)
 
 Resource IDs can also be obtained using the [Azure CLI][azure-cli] (`az`). The following command line uses values from
 the screenshots above:
@@ -123,13 +123,13 @@ Hubs screen. By default, the namespace contains a pre-created policy called `Roo
 Send, Listen` claims, which is perfectly suitable for the TriggerMesh Activity Logs event source. If you prefer to use
 your own policy instead, make sure it has the same `Manage, Send, Listen` claims as the default policy.
 
-![Event Hubs SAS key](../images/azureactivitylogs-source/eventhubs-sas-key.png)
+![Event Hubs SAS key](../../assets/images/azureactivitylogs-source/eventhubs-sas-key.png)
 
 ## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Azure Activity Logs`.
 
-![Adding an Azure Activity Logs source](../images/azureactivitylogs-source/create-bridge-1.png)
+![Adding an Azure Activity Logs source](../../assets/images/azureactivitylogs-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -146,23 +146,23 @@ In the Source creation form, give a name to the event source and add the followi
 - [Log categories][log-categories]: _(optional)_ Categories of Activity Logs to collect. All available categories are
   selected when the list of categories is left empty.
 
-![Azure Activity Logs source form](../images/azureactivitylogs-source/create-bridge-2.png)
+![Azure Activity Logs source form](../../assets/images/azureactivitylogs-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/azureactivitylogs-source/create-bridge-3.png)
+![Bridge overview](../../assets/images/azureactivitylogs-source/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the [Diagnostic Settings][diag-settings] were successfully
 created and that the event source is ready to route events from Event Hubs.
 
-![Bridge status](../images/azureactivitylogs-source/create-bridge-4.png)
+![Bridge status](../../assets/images/azureactivitylogs-source/create-bridge-4.png)
 
 After creating a Bridge with the Azure Activity Logs event source, navigate back to the Event Hubs screen in the Azure
 Portal. You should see a message count above 0 within the namespace, providing that activity logs are being generated
 within the Azure Subscription.
 
-![Event Hub messages](../images/azureactivitylogs-source/eventhub-msgs.png)
+![Event Hub messages](../../assets/images/azureactivitylogs-source/eventhub-msgs.png)
 
 ## Event Types
 

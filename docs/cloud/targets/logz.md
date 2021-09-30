@@ -13,14 +13,14 @@ Consult the [Secrets](../guides/secrets.md) guide for more information about how
 
 Open the Bridge creation screen and add a Target of type `Logz`.
 
-![Adding a Logz Target](../images/logz-target/create-bridge-1.png)
+![Adding a Logz Target](../../assets/images/logz-target/create-bridge-1.png)
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
 * **Shipping Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Logz.io [shipping token](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/) as discussed in the [prerequisites](#prerequisites).
 * **Logs Listener URL**: An API endpoint that can be found above your shipping token in the Logz.io dashboard.
 
-![Adding a Target](../images/logz-target/create-bridge-2.png)
+![Adding a Target](../../assets/images/logz-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 

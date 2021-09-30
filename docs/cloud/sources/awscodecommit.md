@@ -15,7 +15,7 @@ If you don't already have an AWS CodeCommit repository, create one by following 
 CodeCommit repository][cc-create]. The repository should contain at least one [branch][cc-branches]. To create one,
 follow the instructions at [Create a branch in AWS CodeCommit][cc-branch-create].
 
-![CodeCommit repository](../images/awscodecommit-source/repo-1.png)
+![CodeCommit repository](../../assets/images/awscodecommit-source/repo-1.png)
 
 ### Amazon Resource Name (ARN)
 
@@ -80,13 +80,13 @@ source to operate:
 }
 ```
 
-![Creating an IAM user](../images/awscodecommit-source/iam-user-1.png)
+![Creating an IAM user](../../assets/images/awscodecommit-source/iam-user-1.png)
 
 ## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `AWS CodeCommit`.
 
-![Adding an AWS CodeCommit source](../images/awscodecommit-source/create-bridge-1.png)
+![Adding an AWS CodeCommit source](../../assets/images/awscodecommit-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -96,17 +96,17 @@ In the Source creation form, give a name to the event source and add the followi
 - [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the AWS CodeCommit API, as described in the previous sections.
 
-![AWS CodeCommit source form](../images/awscodecommit-source/create-bridge-2.png)
+![AWS CodeCommit source form](../../assets/images/awscodecommit-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/awscodecommit-source/create-bridge-3.png)
+![Bridge overview](../../assets/images/awscodecommit-source/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the AWS
 CodeCommit repository.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Event Types
 
@@ -126,4 +126,4 @@ The AWS CodeCommit event source emits events of the following types:
 [cc-branches]: https://docs.aws.amazon.com/codecommit/latest/userguide/branches.html
 [cc-branch-create]: https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-create-branch.html
 
-[tm-secret]: ../guides/secrets.md
+[tm-secret]: ../secrets.md

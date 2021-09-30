@@ -7,23 +7,23 @@ bus][intro] in a [JSON format][ce-jsonformat].
 
 Open the Bridge creation screen and add a target of type `Amazon EventBridge`.
 
-![Adding an Amazon EventBridge target](../images/awseventbridge-target/create-bridge-1.png)
+![Adding an Amazon EventBridge target](../../assets/images/awseventbridge-target/create-bridge-1.png)
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
 - [AWS account ID][aws-acc-id]: defines the AWS account in which the TriggerMesh partner event source is to be created.
 - [AWS region][aws-regions]: defines the AWS region in which the TriggerMesh partner event source is to be created.
 
-![Amazon EventBridge target form](../images/awseventbridge-target/create-bridge-2.png)
+![Amazon EventBridge target form](../../assets/images/awseventbridge-target/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/awseventbridge-target/create-bridge-3.png)
+![Bridge overview](../../assets/images/awseventbridge-target/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the TriggerMesh partner event source was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 Although this event source can immediately start receiving events, those events **can only be consumed after associating
 the TriggerMesh partner event source with a corresponding [partner event bus][event-bus]**.
@@ -34,19 +34,19 @@ To associate the TriggerMesh partner event source with a partner event bus:
 1. Select the "Pending" partner event source which name starts with `aws.partner/triggermesh.com`.
 1. Click the `Associate with event bus` button.
 
-![Partner event sources](../images/awseventbridge-target/associate-partner-event-source-1.png)
+![Partner event sources](../../assets/images/awseventbridge-target/associate-partner-event-source-1.png)
 
 On the next screen called _Associate with event bus_, click the `Associate` button.
 
-![Associate with event bus](../images/awseventbridge-target/associate-partner-event-source-2.png)
+![Associate with event bus](../../assets/images/awseventbridge-target/associate-partner-event-source-2.png)
 
 Back to the _Partner event sources_ page, your partner event source should now show as "Active".
 
-![Successful association](../images/awseventbridge-target/associate-partner-event-source-3.png)
+![Successful association](../../assets/images/awseventbridge-target/associate-partner-event-source-3.png)
 
 You will also see a custom event bus named after the TriggerMesh partner event source on the _Event buses_ page.
 
-![Event buses](../images/awseventbridge-target/associate-partner-event-source-4.png)
+![Event buses](../../assets/images/awseventbridge-target/associate-partner-event-source-4.png)
 
 Your can now start creating rules that trigger on certain events in the Amazon EventBridge console.
 

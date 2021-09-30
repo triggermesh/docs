@@ -32,7 +32,7 @@ In your browser, navigate to the GoogleSheets Sheet you want to use. You can fin
 
 Open the Bridge creation screen and add a Target of type `GoogleSheets`.
 
-![Adding a GoogleSheets Target](../images/googlesheets-target/create-bridge-1.png)
+![Adding a GoogleSheets Target](../../assets/images/googlesheets-target/create-bridge-1.png)
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
@@ -40,15 +40,15 @@ In the Target creation form, provide a name for the event Target and add the fol
 - **ID**: The GoogleSheets Sheet ID to send the event payload to.
 - **Default Prefix**: A string used during new sheet creation when the event does not provide one.
 
-![GoogleSheets Target form](../images/googlesheets-target/create-bridge-2.png)
+![GoogleSheets Target form](../../assets/images/googlesheets-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-![Bridge overview](../images/googlesheets-target/create-bridge-3.png)
+![Bridge overview](../../assets/images/googlesheets-target/create-bridge-3.png)
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a GoogleSheets event Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Event Types
 

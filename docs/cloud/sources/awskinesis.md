@@ -24,7 +24,7 @@ This ARN can be obtained directly from the overview page of the Kinesis Stream. 
 arn:aws:kinesis:{awsRegion}:{awsAccountId}:stream/{steamName}
 ```
 
-![Kinesis Data Stream](../images/awskinesis-source/stream-1.png)
+![Kinesis Data Stream](../../assets/images/awskinesis-source/stream-1.png)
 
 Alternatively, one can obtain the ARN of a Kinesis Stream by using the [AWS CLI][aws-cli]. The following command
 retrieves the information of a stream called `triggermeshtest` in the `us-west-2` region:
@@ -72,13 +72,13 @@ source to operate:
 }
 ```
 
-![Creating an IAM user](../images/awskinesis-source/iam-user-1.png)
+![Creating an IAM user](../../assets/images/awskinesis-source/iam-user-1.png)
 
 ## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Amazon Kinesis`.
 
-![Adding an Amazon Kinesis source](../images/awskinesis-source/create-bridge-1.png)
+![Adding an Amazon Kinesis source](../../assets/images/awskinesis-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -86,17 +86,17 @@ In the Source creation form, give a name to the event source and add the followi
 - [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the Amazon Kinesis API, as described in the previous sections.
 
-![Amazon Kinesis source form](../images/awskinesis-source/create-bridge-2.png)
+![Amazon Kinesis source form](../../assets/images/awskinesis-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/awskinesis-source/create-bridge-3.png)
+![Bridge overview](../../assets/images/awskinesis-source/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the event source is ready to forward messages from the Amazon
 Kinesis Data Stream.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Event Types
 
@@ -113,6 +113,6 @@ The Amazon Kinesis event source emits events of the following types:
 [kinesis-docs]: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
 [kinesis-stream-create]: https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html
 
-[tm-secret]: ../guides/secrets.md
+[tm-secret]: ../secrets.md
 
 [ce]: https://cloudevents.io/

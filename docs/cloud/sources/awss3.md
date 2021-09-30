@@ -31,7 +31,7 @@ A fully qualified ARN is required to uniquely identify the Amazon S3 bucket.
     Without the region and account ID, this event source would be unable to set an accurate identity-based access policy
     on the SQS queue described in the [SQS Queue](#sqs-queue-optional) section of this document.
 
-![S3 Bucket ARN](../images/awss3-source/arn-region-1.png)
+![S3 Bucket ARN](../../assets/images/awss3-source/arn-region-1.png)
 
 ### API Credentials
 
@@ -99,7 +99,7 @@ for you (see next section for more information):
 }
 ```
 
-![IAM Policy](../images/awss3-source/iam-policy-1.png)
+![IAM Policy](../../assets/images/awss3-source/iam-policy-1.png)
 
 ### SQS Queue _(optional)_
 
@@ -117,7 +117,7 @@ according to Amazon's documentation: [Configuring a bucket for notifications][s3
 
 Open the Bridge creation screen and add a source of type `Amazon S3`.
 
-![Adding an Amazon S3 source](../images/awss3-source/create-bridge-1.png)
+![Adding an Amazon S3 source](../../assets/images/awss3-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -129,22 +129,22 @@ In the Source creation form, give a name to the event source and add the followi
   this queue yourself as described in the previous sections.
 - [**Event types**][s3-events]: List of event types to subscribe to.
 
-![Amazon S3 source form](../images/awss3-source/create-bridge-2.png)
+![Amazon S3 source form](../../assets/images/awss3-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed by adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/awss3-source/create-bridge-3.png)
+![Bridge overview](../../assets/images/awss3-source/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the
 Amazon S3 bucket.
 
-![Bridge status](../images/awss3-source/create-bridge-4.png)
+![Bridge status](../../assets/images/awss3-source/create-bridge-4.png)
 
 This can be confirmed by navigating to the _Properties_ tab of the S3 bucket in the AWS console, and ensuring that it
 contains a new Event Notification targeting the SQS queue.
 
-![Bucket - Event notification](../images/awss3-source/after-creation-1.png)
+![Bucket - Event notification](../../assets/images/awss3-source/after-creation-1.png)
 
 ## Event Types
 
@@ -172,4 +172,4 @@ The TriggerMesh event source for Amazon S3 emits events of the following types:
 [s3-dest-config]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/ways-to-add-notification-config-to-bucket.html
 [s3-events]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html
 
-[tm-secret]: ../guides/secrets.md
+[tm-secret]: ../secrets.md

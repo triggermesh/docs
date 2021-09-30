@@ -21,21 +21,21 @@ Consult the [Secrets](../guides/secrets.md) guide for more information about how
 
 From TriggerMesh, open the Bridge creation screen and add a Target of type `Slack`.
 
-![Adding a Slack Target](../images/slack-target/bridge-create-1.png)
+![Adding a Slack Target](../../assets/images/slack-target/bridge-create-1.png)
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
 * **Slack Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing a Slack API token.
 
-![Slack Target form](../images/slack-target/bridge-create-2.png)
+![Slack Target form](../../assets/images/slack-target/bridge-create-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-![Bridge overview](../images/slack-target/bridge-create-3.png)
+![Bridge overview](../../assets/images/slack-target/bridge-create-3.png)
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the Slack Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 For more information about using the Slack API, please refer to the [Slack API documentation][slack-web-api].
 

@@ -17,7 +17,7 @@ how to add the Zendesk API token as a secret.
 
 Open the Bridge creation screen and add a Target of type `Zendesk`.
 
-![Adding a Zendesk Target](../images/zendesk-target/create-bridge-1.png)
+![Adding a Zendesk Target](../../assets/images/zendesk-target/create-bridge-1.png)
 
 In the Target creation form, provide a name to the event Target, and add the following information:
 
@@ -26,15 +26,15 @@ In the Target creation form, provide a name to the event Target, and add the fol
 - **Zendesk Email**: Email address associated with the Zendesk account.
 - **Zendesk API Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a [token][zd-token] to communicate with the Zendesk API, as discussed in the [prerequisites](#prerequisites).
 
-![Zendesk Target form](../images/zendesk-target/create-bridge-2.png)
+![Zendesk Target form](../../assets/images/zendesk-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-![Bridge overview](../images/zendesk-target/create-bridge-3.png)
+![Bridge overview](../../assets/images/zendesk-target/create-bridge-3.png)
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Zendesk event Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 For more information about using Zendesk, please refer to the [Zendesk documentation][docs].
 

@@ -13,22 +13,22 @@ how to add the Datadog API token as a secret.
 
 Open the Bridge creation screen and add a Target of type `Datadog`.
 
-![Adding a Datadog Target](../images/datadog-target/create-bridge-1.png)
+![Adding a Datadog Target](../../assets/images/datadog-target/create-bridge-1.png)
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
 - **API Key**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Datadog API key as discussed in the [prerequisites](#prerequisites).
 - **Metric Name Prefix (_Optional_)**: Prefix to prepend to the metrics being sent.
 
-![Datadog Target form](../images/datadog-target/create-bridge-2.png)
+![Datadog Target form](../../assets/images/datadog-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-![Bridge overview](../images/datadog-target/create-bridge-3.png)
+![Bridge overview](../../assets/images/datadog-target/create-bridge-3.png)
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Datadog event Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 For more information about using Datadog, please refer to the [Datadog documentation][datadog].
 

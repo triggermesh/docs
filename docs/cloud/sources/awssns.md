@@ -18,7 +18,7 @@ with Amazon SNS][sns-getting-started] guide.
 
 A fully qualified ARN is required to uniquely identify the Amazon SNS topic.
 
-![SNS topic](../images/awssns-source/sns-topic.png)
+![SNS topic](../../assets/images/awssns-source/sns-topic.png)
 
 As shown in the above screenshot, you can obtain the ARN of a SNS topic from the AWS console. It typically has the
 following format:
@@ -81,13 +81,13 @@ and delete messages from any topic linked to the AWS account:
 }
 ```
 
-![Creating an IAM user](../images/awssns-source/sns-user-policy.png)
+![Creating an IAM user](../../assets/images/awssns-source/sns-user-policy.png)
 
 ## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Amazon SNS`.
 
-![Adding an Amazon SNS source](../images/awssns-source/bridge-form-sns-source.png)
+![Adding an Amazon SNS source](../../assets/images/awssns-source/bridge-form-sns-source.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -97,17 +97,17 @@ In the Source creation form, give a name to the event source and add the followi
 - [**DeliveryPolicy**][sns-delivery-policy]: Delivery policy to define how Amazon SNS retries the delivery of messages
   to HTTP/S endpoints.
 
-![Amazon SNS source form](../images/awssns-source/bridge-form-sns-source-form.png)
+![Amazon SNS source form](../../assets/images/awssns-source/bridge-form-sns-source-form.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/awssns-source/bridge-form-target.png)
+![Bridge overview](../../assets/images/awssns-source/bridge-form-target.png)
 
 A ready status on the main _Bridges_ page indicates that the event source is ready to receive messages from the Amazon
 SNS topic.
 
-![Bridge status](../images/awssns-source/bridge-deployed.png)
+![Bridge status](../../assets/images/awssns-source/bridge-deployed.png)
 
 ## Event Types
 
@@ -123,4 +123,4 @@ The Amazon SNS event source emits events of the following type:
 [iam-bestpractices]: https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html#iam-user-access-keys
 [iam-policies]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
 [arn]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsns.html#amazonsns-resources-for-iam-policies
-[tm-secret]: ../guides/secrets.md
+[tm-secret]: ../secrets.md

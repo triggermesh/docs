@@ -17,7 +17,7 @@ Amazon SQS][sqs-getting-started] guide.
 
 A fully qualified ARN is required to uniquely identify the Amazon SQS queue.
 
-![SQS queue](../images/awssqs-source/sqs-queue.png)
+![SQS queue](../../assets/images/awssqs-source/sqs-queue.png)
 
 As shown in the above screenshot, you can obtain the ARN of a SQS queue from the AWS console. It typically has the
 following format:
@@ -73,13 +73,13 @@ and delete messages from any queue linked to the AWS account:
 }
 ```
 
-![Creating an IAM user](../images/awssqs-source/sqs-user-policy.png)
+![Creating an IAM user](../../assets/images/awssqs-source/sqs-user-policy.png)
 
 ## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Amazon SQS`.
 
-![Adding an Amazon SQS source](../images/awssqs-source/bridge-form-sqs-source.png)
+![Adding an Amazon SQS source](../../assets/images/awssqs-source/bridge-form-sqs-source.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -87,17 +87,17 @@ In the Source creation form, give a name to the event source and add the followi
   Access Key to communicate with the Amazon SQS API, as described in the previous sections.
 - [**AWS ARN**][arn]: ARN of the SQS queue, as described in the previous sections.
 
-![Amazon SQS source form](../images/awssqs-source/bridge-form-sqs-source-form.png)
+![Amazon SQS source form](../../assets/images/awssqs-source/bridge-form-sqs-source-form.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/awssqs-source/bridge-form-target.png)
+![Bridge overview](../../assets/images/awssqs-source/bridge-form-target.png)
 
 A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the
 Amazon SQS queue.
 
-![Bridge status](../images/awssqs-source/bridge-deployed.png)
+![Bridge status](../../assets/images/awssqs-source/bridge-deployed.png)
 
 ## Event Types
 
@@ -112,4 +112,4 @@ The Amazon SQS event source emits events of the following type:
 [iam-bestpractices]: https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html#iam-user-access-keys
 [iam-policies]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html
-[tm-secret]: ../guides/secrets.md
+[tm-secret]: ../secrets.md

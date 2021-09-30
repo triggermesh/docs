@@ -35,7 +35,7 @@ how to add an Oracle Cloud specific secret.
 
 Open the Bridge creation screen and add a source of type `OCIMetrics`.
 
-![Adding an OCI Metric](../images/ocimetrics-source/create-bridge-1.png)
+![Adding an OCI Metric](../../assets/images/ocimetrics-source/create-bridge-1.png)
 
 In the source creation form, provide a unique name and broker. These are used by
 Triggermesh to uniquely identify the source and where to send the events to.
@@ -52,12 +52,12 @@ For the metrics specific information:
 For details on how to write a query, consult the
 [Oracle Cloud Monitoring Overview](https://docs.cloud.oracle.com/en-us/iaas/Content/Monitoring/Concepts/monitoringoverview.htm)
 
-![Adding OCI Metric Details](../images/ocimetrics-source/create-bridge-2.png)
+![Adding OCI Metric Details](../../assets/images/ocimetrics-source/create-bridge-2.png)
 
 After clicking the `SAVE` button, you will be taken back to the Bridge editor.
 Continue to add the targets, and then submit the bridge.
 
-![Bridge overview](../images/ocimetrics-source/create-bridge-3.png)
+![Bridge overview](../../assets/images/ocimetrics-source/create-bridge-3.png)
 
 ## Event Types
 
