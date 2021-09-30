@@ -14,7 +14,7 @@ how to add the AWS API specific secrets.
 
 Open the Bridge creation screen and add a Target of type `Amazon SQS`.
 
-![Adding an SQS Target](../images/aws-targets/aws-sqs-bridge-create-1.png)
+![Adding an SQS Target](../../assets/images/aws-targets/aws-sqs-bridge-create-1.png)
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
@@ -25,15 +25,15 @@ There is an optional toggle flag indicating if the full CloudEvent should be sen
 to SQS. By default, this is disabled which means only the event payload
 will be sent.
 
-![Amazon SQS Target form](../images/aws-targets/aws-sqs-bridge-create-2.png)
+![Amazon SQS Target form](../../assets/images/aws-targets/aws-sqs-bridge-create-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-![Bridge overview](../images/aws-targets/aws-sqs-bridge-create-3.png)
+![Bridge overview](../../assets/images/aws-targets/aws-sqs-bridge-create-3.png)
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the Amazon SQS Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 For more information about using AWS Simple Queue Service, please refer to the [AWS documentation][docs].
 

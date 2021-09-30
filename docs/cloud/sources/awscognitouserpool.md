@@ -18,7 +18,7 @@ with User Pools][cup-getting-started] guide.
 
 A fully qualified ARN is required to uniquely identify the Amazon Cognito User Pool.
 
-![User Pool ARN](../images/awscognitouserpool-source/userpool-arn.png)
+![User Pool ARN](../../assets/images/awscognitouserpool-source/userpool-arn.png)
 
 As shown in the above screenshot, you can obtain the ARN of a User Pool from the AWS console. It typically has the
 following format:
@@ -77,7 +77,7 @@ source to list users in any user pool associated with the AWS account:
 
 Open the Bridge creation screen and add a source of type `Amazon Cognito User Pool`.
 
-![Search Results](../images/awscognitouserpool-source/source-cognito-userpool.png)
+![Search Results](../../assets/images/awscognitouserpool-source/source-cognito-userpool.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -85,17 +85,17 @@ In the Source creation form, give a name to the event source and add the followi
   Access Key to communicate with the Amazon Cognito API, as described in the previous sections.
 - [**AWS ARN**][arn]: ARN of the User Pool, as described in the previous sections.
 
-![Source form](../images/awscognitouserpool-source/source-cognito-userpool-form.png)
+![Source form](../../assets/images/awscognitouserpool-source/source-cognito-userpool-form.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/awscognitouserpool-source/bridge-form-target.png)
+![Bridge overview](../../assets/images/awscognitouserpool-source/bridge-form-target.png)
 
 A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the
 Amazon Cognito User Pool.
 
-![Bridge status](../images/awscognitouserpool-source/bridge-status.png)
+![Bridge status](../../assets/images/awscognitouserpool-source/bridge-status.png)
 
 ## Event Types
 
@@ -109,4 +109,4 @@ The Amazon Cognito User Pool event source emits events of the following type:
 [iam-bestpractices]: https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html#iam-user-access-keys
 [iam-policies]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncognitouserpools.html
-[tm-secret]: ../guides/secrets.md
+[tm-secret]: ../secrets.md

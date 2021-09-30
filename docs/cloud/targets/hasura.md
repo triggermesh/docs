@@ -22,7 +22,7 @@ how to add the admin or user JWT as secrets.
 
 Open the Bridge creation screen and add a Target of type `Hasura`.
 
-![Adding a Hasura Target](../images/hasura-target/create-bridge-1.png)
+![Adding a Hasura Target](../../assets/images/hasura-target/create-bridge-1.png)
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
@@ -31,15 +31,15 @@ In the Target creation form, provide a name for the event Target and add the fol
 - **Default Role**: Specify the Hasura user role to use when querying Hasura.
 - **Pre-canned Queries**: A key/value pair of predefined queries available for [CloudEvents][ce] to specify.
 
-![Hasura Target form](../images/hasura-target/create-bridge-2.png)
+![Hasura Target form](../../assets/images/hasura-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-![Bridge overview](../images/hasura-target/create-bridge-3.png)
+![Bridge overview](../../assets/images/hasura-target/create-bridge-3.png)
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Hasura event Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 For more information about using Hasura and GraphQL, please refer to the [Hasura][hasura] and [GraphQL][graphql] documentation.
 

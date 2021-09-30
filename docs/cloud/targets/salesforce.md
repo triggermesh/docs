@@ -24,14 +24,14 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
     - Add Scopes for `api`, `refresh_token`, and `offline_access`.
     - Click `Save`.
 
-    ![Salesforce connected app](../images/salesforce/salesforce-connected-app.png)
+    ![Salesforce connected app](../../assets/images/salesforce/salesforce-connected-app.png)
 
     - Select the connected app you just created from the list and then click `Manage`.
     - Click `Edit policies`.
     - Set `Permitted users` to `Admin approved users are pre-authorized`.
     - Click `Save`.
 
-    ![Connected app policies](../images/salesforce/connected-app-policies.png)
+    ![Connected app policies](../../assets/images/salesforce/connected-app-policies.png)
 
     - Select the connected app from the list and then click `Manage`.
     - Click `Manage Profiles`.
@@ -49,13 +49,13 @@ The TriggerMesh Salesforce integration needs a certificate key secret to sign re
 
 The file name containing the key will need to be renamed to `certKey`. After that, go to **Secrets > Add Secret > File Upload**.
 
-![Upload secret](../images/salesforce/file-upload-secret.png)
+![Upload secret](../../assets/images/salesforce/file-upload-secret.png)
 
 ## Deploying an Instance of the Target
 
 Open the Bridge creation screen and add a Target of type Salesforce.
 
-![Adding a Salesforce Target](../images/salesforce/target/salesforce-target-creation.png)
+![Adding a Salesforce Target](../../assets/images/salesforce/target/salesforce-target-creation.png)
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
@@ -68,11 +68,11 @@ After clicking the `Save` button, the console will self-navigate to the Bridge e
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Event Types
 
-The Salesforce event Target expects an event type of `io.triggermesh.salesforce.apicall` to perform a request against the Salesforce API, and will producedresponses typed `io.triggermesh.salesforce.apicall.response`. The CloudEvent data should contain a request as defined in [this schema](../schemas/salesforce.apicall.json).
+The Salesforce event Target expects an event type of `io.triggermesh.salesforce.apicall` to perform a request against the Salesforce API, and will producedresponses typed `io.triggermesh.salesforce.apicall.response`. The CloudEvent data should contain a request as defined in [this schema](../../schemas/salesforce.apicall.json).
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
@@ -106,7 +106,7 @@ When a response is produced from a Target, the extended attribute `category` is 
 - `Success`: For when the request succeeds.
 - `Error`: For when an error occurs.
 
-Returned errors structure is defined in [this schema](../schemas/triggermesh.error.json).
+Returned errors structure is defined in [this schema](../../schemas/triggermesh.error.json).
 
 ## Examples
 

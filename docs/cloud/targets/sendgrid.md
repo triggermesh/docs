@@ -13,7 +13,7 @@ Consult the [Secrets](../guides/secrets.md) guide for more information about how
 
 Open the Bridge creation screen and add a target of type `SendGrid`.
 
-![Adding a SendGrid target](../images/sendgrid-target/create-bridge-1.png)
+![Adding a SendGrid target](../../assets/images/sendgrid-target/create-bridge-1.png)
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
@@ -26,13 +26,13 @@ In the Target creation form, provide a name for the event Target, and add the fo
 
 **Note:** If there is not a default value specified for all of the optional fields, the event received by that deployment *MUST* contain all of the information noted in the [Event Types](#event-types), except for `Message`, or the Target **will fail**.
 
-![SendGridTarget form](../images/sendgrid-target/create-bridge-2.png)
+![SendGridTarget form](../../assets/images/sendgrid-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a SendGrid event Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 For more information about using SendGrid, please refer to the [SendGrid documentation][docs].
 

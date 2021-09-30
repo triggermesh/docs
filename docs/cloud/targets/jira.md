@@ -19,7 +19,7 @@ Consult the [Secrets](../guides/secrets.md) guide for more information about how
 
 Open the Bridge creation screen and add a Target of type `Jira`.
 
-![Adding a Jira Target](../images/jira-target/jira-target-creation.png)
+![Adding a Jira Target](../../assets/images/jira-target/jira-target-creation.png)
 
 In the Target creation form, provide a name for the event Target, and add the following information:
 
@@ -30,7 +30,7 @@ After clicking the `Save` button, the console will self-navigate to the Bridge e
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Jira event Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Event Types
 
@@ -38,19 +38,19 @@ The Jira event Target accepts these event types:
 
 ### io.triggermesh.jira.issue.create
 
-The Jira event Target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formatted as defined in [this schema](../schemas/jira.issue.json).
+The Jira event Target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formatted as defined in [this schema](../../schemas/jira.issue.json).
 
 Reply contains a partially filled Jira issue with updated data.
 
 ### io.triggermesh.jira.issue.get
 
-The Jira event Target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira issue `GET` request JSON formatted as defined in [this schema](../schemas/jira.issue.get.json).
+The Jira event Target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira issue `GET` request JSON formatted as defined in [this schema](../../schemas/jira.issue.get.json).
 
 Reply data contains a Jira issue.
 
 ### io.triggermesh.jira.custom
 
-The Jira event Target will send a request to the Jira API when this event type is received. The CloudEvent data expects a generic API request as defined in [this schema](../schemas/jira.custom.json).
+The Jira event Target will send a request to the Jira API when this event type is received. The CloudEvent data expects a generic API request as defined in [this schema](../../schemas/jira.custom.json).
 
 For more information on the Jira API, please refer to the [Jira API documentation][jira-api].
 

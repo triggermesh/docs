@@ -1,16 +1,23 @@
-# TriggerMesh Cloud
+# TriggerMesh Enterprise
 
-If you need to sign-up, check the section below.
+TriggerMesh Enterprise provides additional capabilities such as:
 
-## Sign-Up
+* Powerful web interface
+* Administration dashboard
+* Integration visual editor
+* Single sign-on
+* Custom connectors builder
+* Knative distribution
 
-Go to [https://cloud.triggermesh.io](https://cloud.triggermesh.io), click on the log-in button at the top right of the page, choose your favorite identity provider or create an email and password as credentials.
+## Preview
 
-![login page](./images/tmlogin.png)
+The following screenshots give you a preview of what the TriggerMesh interface looks like.
 
-You are ready to use the TriggerMesh console shown just below.
+![login page](../assets//images/tmlogin.png)
 
-![console view](./images/tmconsole.png)
+Once logged in you have acess to the Dashboard.
+
+![console view](../assets/images/tmconsole.png)
 
 If you want to use our command line client keep reading...
 

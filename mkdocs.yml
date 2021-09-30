@@ -1,42 +1,91 @@
+# Copyright 2021 TriggerMesh Inc.
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Copyright
 copyright: © 2021, TriggerMesh
+
+# Project information
 site_author: TriggerMesh
 site_description: TriggerMesh's Docs
 site_name: TriggerMesh
 site_url: https://docs.triggermesh.io
 repo_url: https://github.com/triggermesh/docs
-extra_css: [extra.css]
-extra_javascript: [extra.js]
 
+extra_css:
+  - extra.css
+extra_javascript:
+  - extra.js
+
+# Page tree
 nav:
     - Home: index.md
+    - Concepts: concepts.md
     - Guides:
-      - 'Getting Started': guides/gettingstarted.md
-    - TIL: 'til/index.md'
-    - Function:
-      - 'Installation': 'tm/install.md'
-      - 'Configuration': 'tm/configuration.md'
-      - 'Usage': 'tm/usage.md'
-      - 'Registry': 'tm/registry.md'
-      - 'Serverless Manifest': 'tm/serverless.md'
+      - Getting Started: guides/gettingstarted.md
+      - Creating a Source: guides/creatingasource.md
+      - Creating a Target: guides/creatingatarget.md
+      - Doing a Transformation: guides/doingatransformation.md
+      - Writing a Function: guides/writingafunction.md
+      - Creating a Service: guides/creatingaservice.md
+      - Using the `tm` CLI:
+        - Installation: tm/install.md
+        - Configuration: tm/configuration.md
+        - Usage: tm/usage.md
+        - Registry: tm/registry.md
+        - Serverless Manifest: tm/serverless.md
+    - Installation: guides/installation.md
+    - Integration Language:
+      - til/Home.md
+      - CLI: til/Commands.md
+      - Language:
+        - Concepts: til/Concepts.md
+        - Bridge Description Files: til/Bridge-Description-Files.md
+        - Component Categories: til/Component-Categories.md
+        - Global Settings: til/Global-Settings.md
+        - Secret References: til/Secret-References.md
+        - Function Expresssions: til/Function-Expressions.md
+      - Implementations:
+        - Channels: til/Channels.md
+        - Routers: til/Routers.md
+        - Transformers: til/Transformers.md
+        - Sources: til/Sources.md
+        - Targets: til/Targets.md
+      - Deployment:
+        - Output Format: til/Output-Format.md
+        - Using Helm: til/Helm.md
+        - Using Carvel kapp: til/Carvel-kapp.md
+        - Using kubectl: til/Kubectl.md
+        - Using kustomize: til/Kustomize.md
     - Reference: 
-      - 'Getting Started' : 'apis/apis.md'
-      - 'Sources': 'apis/sources.md'
-      - 'Targets': 'apis/targets.md'
-      - 'Routing': 'apis/routing.md'
-      - 'Function': 'apis/function.md'
-      - 'Transformation': 'apis/transformation.md'
-    - Cloud:
+      - Getting Started : apis/apis.md
+      - Sources: apis/sources.md
+      - Targets: apis/targets.md
+      - Routing: apis/routing.md
+      - Function: apis/extensions.md
+      - Transformation: apis/flow.md
+    - Enterprise:
       - cloud/index.md
-      - 'Bridge': 'cloud/bridge.md'
-      - 'Sources': 'cloud/sources/sources.md'
-      - 'Targets': 'cloud/targets/targets.md'
-      - 'Secrets': 'cloud/secrets.md'
+      - Bridge: cloud/bridge.md
+      - Sources: cloud/sources/sources.md
+      - Targets: cloud/targets/targets.md
+      - Secrets: cloud/secrets.md
 
 theme:
   name: material
-  favicon: images/favicon.ico
-  logo: images/tmLogo-white.png
-  custom_dir: overrides
+  favicon: assets/images/favicon.ico
+  logo: assets/images/tmLogo-white.png
+  custom_dir: docs/overrides
   analytics:
     gtag: G-V4SM2FT345
   features:

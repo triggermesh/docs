@@ -20,7 +20,7 @@ the topic which will require setting the `Topic replication` and `Topic partitio
 
 Open the Bridge creation screen and add a Target of type `Confluent`.
 
-![Adding a Confluent Target](../images/confluent-target/create-bridge-1.png)
+![Adding a Confluent Target](../../assets/images/confluent-target/create-bridge-1.png)
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
@@ -37,15 +37,15 @@ There is an optional toggle flag indicating if the full CloudEvent should be sen
 to Confluent. By default, this is disabled which means only the event payload
 will be sent.
 
-![Confluent Target form](../images/confluent-target/create-bridge-2.png)
+![Confluent Target form](../../assets/images/confluent-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-![Bridge overview](../images/confluent-target/create-bridge-3.png)
+![Bridge overview](../../assets/images/confluent-target/create-bridge-3.png)
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Confluent event Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 For more information on how to configure Confluent, refer to the [Confluent documentation][docs].
 

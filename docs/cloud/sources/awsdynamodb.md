@@ -17,7 +17,7 @@ source, it is mandatory to enable a [Stream][ddb-streams] on the DynamoDB Table.
 [Enabling a Stream][ddb-stream-enable]. You are free to select the _View type_ that is the most suitable for your own
 usage of the event source.
 
-![DynamoDB Table](../images/awsdynamodb-source/table-1.png)
+![DynamoDB Table](../../assets/images/awsdynamodb-source/table-1.png)
 
 ### Amazon Resource Name (ARN)
 
@@ -30,7 +30,7 @@ tables. It typically has the following format:
 arn:aws:dynamodb:{awsRegion}:{awsAccountId}:table/{tableName}
 ```
 
-![DynamoDB Table ARN](../images/awsdynamodb-source/table-2.png)
+![DynamoDB Table ARN](../../assets/images/awsdynamodb-source/table-2.png)
 
 Alternatively, one can obtain the ARN of a DynamoDB Table by using the [AWS CLI][aws-cli]. The following command
 retrieves the information of a table called `triggermeshtest` in the `us-west-2` region:
@@ -79,13 +79,13 @@ source to operate:
 }
 ```
 
-![Creating an IAM user](../images/awsdynamodb-source/iam-user-1.png)
+![Creating an IAM user](../../assets/images/awsdynamodb-source/iam-user-1.png)
 
 ## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Amazon DynamoDB`.
 
-![Adding an Amazon DynamoDB source](../images/awsdynamodb-source/create-bridge-1.png)
+![Adding an Amazon DynamoDB source](../../assets/images/awsdynamodb-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -93,17 +93,17 @@ In the Source creation form, give a name to the event source and add the followi
 - [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the Amazon DynamoDB API, as described in the previous sections.
 
-![Amazon DynamoDB source form](../images/awsdynamodb-source/create-bridge-2.png)
+![Amazon DynamoDB source form](../../assets/images/awsdynamodb-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/awsdynamodb-source/create-bridge-3.png)
+![Bridge overview](../../assets/images/awsdynamodb-source/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the
 Amazon DynamoDB Stream.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Event Types
 
@@ -122,4 +122,4 @@ The Amazon DynamoDB event source emits events of the following type:
 [ddb-gettingstarted]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html
 [ddb-stream-enable]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html#Streams.Enabling
 
-[tm-secret]: ../guides/secrets.md
+[tm-secret]: ../secrets.md

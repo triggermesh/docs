@@ -29,7 +29,7 @@ that topic are provided in the [Pub/Sub Subscription](#pubsub-subscription-optio
 The predefined `roles/pubsub.editor` role is one example of role that is suitable for use with the TriggerMesh event
 source for Google Cloud Pub/Sub.
 
-![Service account](../images/googlecloudpubsub-source/iam-1.png)
+![Service account](../../assets/images/googlecloudpubsub-source/iam-1.png)
 
 Create a [key][gc-iam-key] for this service account and save it. This key must be in JSON format. It is required to be
 able to run an instance of the Google Cloud Pub/Sub event source.
@@ -42,7 +42,7 @@ and subscriptions][gc-pubsub-adm].
 Take note of the full [topic name][gc-pubsub-resname], it is a required input to be able to run an instance of the
 Google Cloud Pub/Sub event source.
 
-![Topic](../images/googlecloudpubsub-source/topic-1.png)
+![Topic](../../assets/images/googlecloudpubsub-source/topic-1.png)
 
 ### Pub/Sub Subscription _(optional)_
 
@@ -57,13 +57,13 @@ If, however, you prefer messages to be pulled using a subscription which you man
 subscription is a "pull" subscription as described in the documentation page [Managing topics and
 subscriptions][gc-pubsub-adm].
 
-![Subscription](../images/googlecloudpubsub-source/subscription-1.png)
+![Subscription](../../assets/images/googlecloudpubsub-source/subscription-1.png)
 
 ## Deploying an Instance of the Source
 
 Open the Bridge creation screen and add a source of type `Google Cloud Pub/Sub`.
 
-![Adding a Google Cloud Pub/Sub source](../images/googlecloudpubsub-source/create-bridge-1.png)
+![Adding a Google Cloud Pub/Sub source](../../assets/images/googlecloudpubsub-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the following information:
 
@@ -72,17 +72,17 @@ In the Source creation form, give a name to the event source and add the followi
 - **Subscription ID**: _(optional)_ ID of the subscription to use for pulling messages from the Pub/Sub topic, in case
   you prefer to manage this subscription yourself as described in the previous sections.
 
-![Google Cloud Pub/Sub source form](../images/googlecloudpubsub-source/create-bridge-2.png)
+![Google Cloud Pub/Sub source form](../../assets/images/googlecloudpubsub-source/create-bridge-2.png)
 
 After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
 components to the Bridge, then submit it.
 
-![Bridge overview](../images/googlecloudpubsub-source/create-bridge-3.png)
+![Bridge overview](../../assets/images/googlecloudpubsub-source/create-bridge-3.png)
 
 A ready status on the main _Bridges_ page indicates that the event source is ready to consume messages from the Pub/Sub
 topic.
 
-![Bridge status](../images/googlecloudpubsub-source/create-bridge-4.png)
+![Bridge status](../../assets/images/googlecloudpubsub-source/create-bridge-4.png)
 
 ## Event Types
 

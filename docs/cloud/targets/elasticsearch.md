@@ -18,7 +18,7 @@ Create an Elasticsearch cluster quickly by using either [Elastic Cloud on Kubern
 
 Open the Bridge creation screen and add a Target of type `Elasticsearch`.
 
-![Adding a Elasticsearch Target](../images/elasticsearch-target/create-bridge-1.png)
+![Adding a Elasticsearch Target](../../assets/images/elasticsearch-target/create-bridge-1.png)
 
 In the Target creation form, provide a name for the event Target and add the following information:
 
@@ -32,13 +32,13 @@ In the Target creation form, provide a name for the event Target and add the fol
 
 When using a self-signed certificate you will need to either inform the **CA certificate** or set the **Skip verify** field.
 
-![Elastic target form](../images/elasticsearch-target/create-bridge-2.png)
+![Elastic target form](../../assets/images/elasticsearch-target/create-bridge-2.png)
 
 After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
 After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with an Elasticsearch event Target was successfully created.
 
-![Bridge status](../images/bridge-status-green.png)
+![Bridge status](../../assets/images/bridge-status-green.png)
 
 For more information about using Elasticsearch, please refer to the [Elasticsearch documentation][docs].
 
