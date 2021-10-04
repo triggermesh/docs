@@ -5,40 +5,56 @@ to a [Google Cloud Pub/Sub][gc-auditlogs-events] topic.
 
 ## Prerequisite(s)
 
-- Event Source for Google Cloud Pub/Sub
 - Service Name: The name of the API service performing the operation. For example, "pubsub.googleapis.com".
 - Method Name: The name of the service method or operation. For API calls, this should be 
                the name of the API method. For example, "google.pubsub.v1.Publisher.CreateTopic".
 - Resource Name (Optional): The resource or collection that is the target of the operation. The name is
                             a scheme-less URI, not including the API service name. [Google Cloud Audit Logs Types][gc-auditlogs-types]
 
-### Event Source for Google Cloud Pub/Sub
+### Service Account
 
-Cloud Audit Logs events support [multiple destinations][gc-auditlogs-destinations] in this case are instead sent to a Google Cloud
-Pub/Sub topic. Follow the instructions at [Event Source for Google Cloud Pub/Sub](./googlecloudpubsub.md) for setting up
-a Pub/Sub topic and running an instance of the Pub/Sub event source.
+A Service Account is required to authenticate the event source and allow it to interact with Google
+Cloud Audit Logs.
 
-!!! note
-    The topic needs to be previously created, it will not be automatically created with the audit logs sink creation.
+The service account must be granted an IAM Role with at least the following permissions:
 
-### Audit Logs Sink
+- `logging.sinks.get`
+- `logging.sinks.create`
+- `logging.sinks.delete`
 
-Below is an example of command which applies to create an Audit Logs Sink configured to get events from Pub/Sub topics creations with a
-Pub/Sub topic called `triggermesh-auditlogs-source` set as event destination using the [`gsutil`][gsutil] command-line tool.
+The following set of permissions is also required because this source delegates the management of the Pub/Sub subscription to the Pub/Sub Source.
 
-```console
-$ gcloud pubsub topics create triggermesh-auditlogs-source
-Created topic [projects/my-project/topics/triggermesh-auditlogs-source].
+- `pubsub.subscriptions.create`
+- `pubsub.subscriptions.delete`
 
-$ gcloud logging sinks create pubsub-sink pubsub.googleapis.com/projects/my-project/topics/triggermesh-auditlogs-source
-  --log-filter="protoPayload.methodName="google.pubsub.v1.Publisher.CreateTopic" AND
-  protoPayload.serviceName="pubsub.googleapis.com" AND protoPayload."@type"="type.googleapis.com/google.cloud.audit.AuditLog""
+The predefined `roles/logging.admin` and `roles/pubsub.editor` roles are an example of roles that are suitable for use with the TriggerMesh event
+source for Google Cloud Audit Logs.
 
-Created [https://logging.googleapis.com/v2/projects/my-project/sinks/triggermesh-audit-pubsub].
-Please remember to grant `serviceAccount:`p123124124123`-123456@gcp-sa-logging.iam.gserviceaccount.com` the Pub/Sub Publisher role on the topic.
-More information about sinks can be found at https://cloud.google.com/logging/docs/export/configure_export
+Create a key for this service account and save it. This key must be in JSON format. It is required to be
+able to run an instance of the Google Cloud Audit Logs event source.
 
-```
+### Deploying an Instance of the Source
+
+Open the Bridge creationg screen and add a source of type Google Cloud Audit Logs.
+
+![Adding a Google Cloud AuditLogs source](../images/googlecloudauditlogs-source/create-bridge-1.png)
+
+In the Source creation form, give a name to the event source and add the required parameters:
+
+![Google Cloud Audit Logs source form](../images/googlecloudauditlogs-source/create-bridge-2.png)
+
+After clicking the Save button, you will be taken back to the Bridge editor. Proceed to adding the remaining components to the Bridge, then submit it.
+
+![Bridge overview](../images/googlecloudauditlogs-source/create-bridge-3.png)
+
+A ready status on the main Bridges page indicates that the event source is ready to consume messages from the Audit Logs Sink configured.
+
+![Bridge status](../images/googlecloudauditlogs-source/create-bridge-4.png)
+
+### Event Types
+The TriggerMesh event source for Google Cloud Audit Logs emits events of the following type:
+
+- com.google.cloud.auditlogs.message
 
 [gc-auditlogs]: https://cloud.google.com/logging/docs/audit
 [gc-auditlogs-events]: https://cloud.google.com/pubsub/docs/audit-logging
