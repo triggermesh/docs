@@ -37,6 +37,8 @@ nav:
       - Creating a Target: guides/creatingatarget.md
       - Doing a Transformation: guides/doingatransformation.md
       - Writing a Function: guides/writingafunction.md
+      - Creating a Splitter: guides/creatingasplitter.md
+      - Writing a Filter: guides/writingafilter.md
       - Creating a Service: guides/creatingaservice.md
       - Using the `tm` CLI:
         - Installation: tm/install.md
