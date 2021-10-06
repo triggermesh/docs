@@ -37,19 +37,19 @@ able to run an instance of the Google Cloud Audit Logs event source.
 
 Open the Bridge creationg screen and add a source of type Google Cloud Audit Logs.
 
-![Adding a Google Cloud AuditLogs source](../images/googlecloudauditlogs-source/create-bridge-1.png)
+![Adding a Google Cloud AuditLogs source](../../assets/images/googlecloudauditlogs-source/create-bridge-1.png)
 
 In the Source creation form, give a name to the event source and add the required parameters:
 
-![Google Cloud Audit Logs source form](../images/googlecloudauditlogs-source/create-bridge-2.png)
+![Google Cloud Audit Logs source form](../../assets/images/googlecloudauditlogs-source/create-bridge-2.png)
 
 After clicking the Save button, you will be taken back to the Bridge editor. Proceed to adding the remaining components to the Bridge, then submit it.
 
-![Bridge overview](../images/googlecloudauditlogs-source/create-bridge-3.png)
+![Bridge overview](../../assets/images/googlecloudauditlogs-source/create-bridge-3.png)
 
 A ready status on the main Bridges page indicates that the event source is ready to consume messages from the Audit Logs Sink configured.
 
-![Bridge status](../images/googlecloudauditlogs-source/create-bridge-4.png)
+![Bridge status](../../assets/images/googlecloudauditlogs-source/create-bridge-4.png)
 
 ### Event Types
 The TriggerMesh event source for Google Cloud Audit Logs emits events of the following type:
