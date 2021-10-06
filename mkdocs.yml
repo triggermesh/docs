@@ -17,7 +17,7 @@ copyright: © 2021, TriggerMesh
 
 # Project information
 site_author: TriggerMesh
-site_description: TriggerMesh's Docs
+site_description: Build your event driven applications in Kubernetes with TriggerMesh APIs. Event sources, targets, filters, splitters, functions, you can do it all.
 site_name: TriggerMesh
 site_url: https://docs.triggermesh.io
 repo_url: https://github.com/triggermesh/docs
