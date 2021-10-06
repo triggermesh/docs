@@ -31,7 +31,7 @@ You will need:
 
 From that list above `password` is a sensible field which we require to be inserted through a secret. It is required that the created key is named `password`:
 
-![Secret creation](../../images/slack-confluent-bridge/secret-creation.png)
+![Secret creation](../../assets/images/slack-confluent-bridge/secret-creation.png)
 
 ## Create the Slack to Confluent Bridge
 
@@ -39,7 +39,7 @@ We can proceed to create the Bridge now. Slack Event API needs the URL to send d
 
 Create a new Bridge, click on `Source`, and look for Slack.
 
-![Slack source](../../images/slack-confluent-bridge/slack-source-list.png)
+![Slack source](../../assets/images/slack-confluent-bridge/slack-source-list.png)
 
 We are using the `default` broker for this demo, select it, add a name to the component and press `Save`.
 
@@ -51,7 +51,7 @@ Now click on the `Target` block at the bottom of the page, a list of targets to 
 - Username for the integration.
 - The secret containing the password created at a previous step.
 
-![Confluent target](../../images/slack-confluent-bridge/confluent-target.png)
+![Confluent target](../../assets/images/slack-confluent-bridge/confluent-target.png)
 
 Press `Submit Bridge` and you are done with Triggermesh configuration.
 
@@ -59,7 +59,7 @@ Press `Submit Bridge` and you are done with Triggermesh configuration.
 
 The Slack Source component creates an external URL that should be used as the `Request URL` callback when configuring the Slack Bot App. In order to obtain it, open the `Services` area at Triggermesh and look for a service by the name of the Slack Source you just created. Then copy the exposing URL.
 
-![Slack URL](../../images/slack-confluent-bridge/slack-url.png)
+![Slack URL](../../assets/images/slack-confluent-bridge/slack-url.png)
 
 ## Subscribe to Slack Events
 
@@ -71,12 +71,12 @@ Open the Slack web site at the [Apps home](https://api.slack.com/apps) anc click
 - Slide the `Enable Events` slide button.
 - At the `Request URL` field set the Slack Source URL that Triggermesh is exposing. The Slack Source is a serverless service, it could happen that the verification process expires waiting for the first request to succeed. If that happens, please try again to do the verification.
 
-![URL verification](../../images/slack-confluent-bridge/url-verification.png)
+![URL verification](../../assets/images/slack-confluent-bridge/url-verification.png)
 
 Scroll down and expand the Subscribe to bot events. Select which events you want your bot to subscribe to.
 Once you have selected them, press save changes at the bottom of the page.
 
-![Slack subscriptions](../../images/slack-confluent-bridge/slack-subscriptions.png)
+![Slack subscriptions](../../assets/images/slack-confluent-bridge/slack-subscriptions.png)
 
 Your application needs to get deployed to your workspace. For that to happen click on Install App, select the workspace and review permissions.
 Once you allow the App to be deployed, you are all set.
@@ -85,4 +85,4 @@ Once you allow the App to be deployed, you are all set.
 
 At our example we subscribed out App bot to the `app_mention` event, we just need to mention by its name and the message should make its way from Slack to Confluent:
 
-![Slack Confluent test](../../images/slack-confluent-bridge/slack-confluent-test.png)
+![Slack Confluent test](../../assets/images/slack-confluent-bridge/slack-confluent-test.png)

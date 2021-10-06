@@ -23,31 +23,31 @@ spec:
 
 The TM console provides an easy to use YAML window for deploying Tasks from the browser. This is accessed by selecting _Tasks_ from the Navigation menu.
 
-![](../images/tmDashTask.png)
+![](../assets/images/tmDashTask.png)
 
 
   Click on the _Create Task_ button and select _from YAML_, to create a new task.
 
- ![](../images/tmDashCreateTask.png)
+ ![](../assets/images/tmDashCreateTask.png)
 
 
 You will be presented with the following view in which you can paste your Task manifest.
 
-![](../images/tmTaskYaml.png)
+![](../assets/images/tmTaskYaml.png)
 
 ### Execute a Task
 
 Clicking on the green _RUN_ button will launch the execution of the Task
 
-![](../images/taskexec.png)
+![](../assets/images/taskexec.png)
 
 Once executed, the _TaskRun_ view will show a green TaskRun object as below:
 
-![](../images/taskrunshow.png)
+![](../assets/images/taskrunshow.png)
 
 Clicking on the object name will lead you to the _Task Run Details_ here we can view our YAML as well as the Logs. Navigate to the logs to find the a magnificent `hello world`:
 
-![](../images/taskrunlogs.png)
+![](../assets/images/taskrunlogs.png)
 
 
 ### CLI lovers can use use [`kubectl`](https://kubernetes.io/docs/reference/kubectl/overview/) and [`tm`](https://github.com/triggermesh/tm) to [create Tasks from the CLI.](https://github.com/triggermesh/tm#deployment-pipelines)

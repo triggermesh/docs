@@ -11,24 +11,24 @@ The TriggerMesh console provides an interface called [Repositories.](https://clo
 
 1. Select the _Repositories_ section from the Navigation menu and then _CREATE NEW_
 
-![](../images/tmRepoView.png)
+![](../assets/images/tmRepoView.png)
 
 2. Select a source control provider. Upon submission of this form you will be asked to authenticate with the chosen provider.
 
-![](../images/repowiz1.png)
+![](../assets/images/repowiz1.png)
 
 
 3. Select the  [sample repository](https://github.com/sebgoa/tmserverless) from the drop down list.
 
-![](../images/repowiz2.png)
+![](../assets/images/repowiz2.png)
 
 4. Here you can specify the location of the `serverless.yaml` manifest as well as select specific _Branch_ and _Tag_ name's from the repository.
 
-![](../images/repowiz3.png)
+![](../assets/images/repowiz3.png)
 
 5. Once registration is complete the _Repositories_ view will contain your function project. You can disable the registration at any time by clicking on the _Trash Can_ icon located on the right hand side of the item you would like to disable. 
 
-![](../images/repowiz4.png)
+![](../assets/images/repowiz4.png)
 
 ## Viewing the Deployment
 
@@ -36,29 +36,29 @@ The TriggerMesh console provides an interface called [Repositories.](https://clo
 
 * Navigate to the _Tasks_ view in the **Actions** section and click on the _Task_ name.
 
-![](../images/repotask.png)
+![](../assets/images/repotask.png)
 
 * This will display the manifest of the Task.
 
-![](../images/tmTaskYamlView.png)
+![](../assets/images/tmTaskYamlView.png)
 
 
 ## Deploying on Push Events
 
 * A _Task_ will execute on each push event to its respective repository. You can view the details of the _Task_ in the [_Task Runs_](https://cloud.triggermesh.io/taskruns) section
 
-![](../images/tmTaskRuns.png)
+![](../assets/images/tmTaskRuns.png)
 
 
 * Any push event on the registered repository will trigger a new build described in your `serverless.yaml` manifest.
 
-![](../images/repotaskrun.png)
+![](../assets/images/repotaskrun.png)
 
 ## Service Creation
 
 * On successful execution of the _Task_ the service will be available and you will be able to see and use the function by navigating to the [_Services_](https://cloud.triggermesh.io/services) tab.
 
-![](../images/serviceview.png)
+![](../assets/images/serviceview.png)
 
 
 [^1]: A sample manifest can be found here -> [https://github.com/sebgoa/transform/blob/master/serverless.yaml](https://github.com/sebgoa/transform/blob/master/serverless.yaml)
