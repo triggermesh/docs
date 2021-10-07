@@ -1,18 +1,18 @@
 # Writing a Filter
 
-Filter is an important part of TriggerMesh event routing mechanism.
-Content-based events filtering is happening according to conditions expressed in
-Google's [Common Expression Language](https://opensource.google/projects/cel).
+Filters are an important part of TriggerMesh's event routing mechanism.
+Content-based event filtering is expressed in Google's
+[Common Expression Language](https://opensource.google/projects/cel).
 
-## Prerequesites
+## Prerequisites
 
-1. K8s cluster and confiured kubectl
-1. [Knative serving and eventing](https://knative.dev/docs/admin/install/knative-with-operators/)
+1. K8s cluster and configured kubectl
+1. [Knative Serving and Eventing Operators](https://knative.dev/docs/admin/install/knative-with-operators/)
 1. [TriggerMesh Function](https://github.com/triggermesh/function)
 
 ## Event display
 
-First of all, we need to have a tool to see filtering results. Create `sockeye`
+First of all, we need to have a tool to see filtering results. Create a `sockeye`
 service:
 
 ```yaml
@@ -27,7 +27,7 @@ spec:
         - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
 ```
 
-Open its web interface in browser:
+Open the web interface in a browser:
 
 ```shell
 browse $(kubectl get ksvc sockeye -o=jsonpath='{.status.url}')
@@ -82,7 +82,7 @@ spec:
 ## Filter events
 
 Create the object that would filter events from the first PingSource. Only events
-from the second source should appear in `sockeye` web interface.
+from the second source should appear in the `sockeye` web interface.
 
 ```yaml
 apiVersion: routing.triggermesh.io/v1alpha1
@@ -91,7 +91,7 @@ metadata:
   name: filter-demo
 spec:
   expression: $sub.array.0.(string) == "hello" && $foo.(string) != "bar" || $var1.(int64) + $var2.(int64) > 10
-  sink: 
+  sink:
     ref:
       apiVersion: serving.knative.dev/v1
       kind: Service
