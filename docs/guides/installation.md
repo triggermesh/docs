@@ -42,7 +42,6 @@ Upon successful creation of the CRDs and successful deployment of the controller
 kubectl get pods -n triggermesh
 $ kubectl get pods -n triggermesh
 NAME                                                   READY   STATUS    RESTARTS   AGE
-
 triggermesh-controller-5cd97f4c8f-z6r2r                1/1     Running   0          57m
 triggermesh-webhook-79cd8d6f5d-gf2lj                   1/1     Running   0          57m
 ```
