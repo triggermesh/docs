@@ -22,24 +22,23 @@ The knative project is a dependency of TriggerMesh, install it using the instruc
 
 All TriggerMersh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all CRDs.
 
-```
-kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh-crds.yaml
+```console
+$ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh-crds.yaml
 ```
 
 ## Install the controller
 
 By default the controller gets deployed in the `triggermesh` namespace. Deploy the controller with the following `kubectl apply` command:
 
-```
-kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh.yaml
+```console
+$ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh.yaml
 ```
 
 ## Verifying the installation
 
 Upon successful creation of the CRDs and successful deployment of the controller you should see two Pods running in the `triggermesh` namespace
 
-```
-kubectl get pods -n triggermesh
+```console
 $ kubectl get pods -n triggermesh
 NAME                                                   READY   STATUS    RESTARTS   AGE
 triggermesh-controller-5cd97f4c8f-z6r2r                1/1     Running   0          57m
@@ -48,8 +47,8 @@ triggermesh-webhook-79cd8d6f5d-gf2lj                   1/1     Running   0      
 
 All event sources and targets will be available to you as new API objects. For example you can list all AWS related sources and targets with:
 
-```
-kubectl get crds |grep triggermesh |grep aws
+```console
+$ kubectl get crds |grep triggermesh |grep aws
 awscloudwatchlogssources.sources.triggermesh.io         2021-10-06T09:01:27Z
 awscloudwatchsources.sources.triggermesh.io             2021-10-06T09:01:27Z
 awscodecommitsources.sources.triggermesh.io             2021-10-06T09:01:27Z
@@ -73,7 +72,7 @@ awssqstargets.targets.triggermesh.io                    2021-10-06T09:01:30Z
 
 A handy way to start exploring the API is to use `kubectl explain` on a specific `kind`, for example the AWS SQS source like below:
 
-```
+```console
 $ kubectl explain awssqssources
 KIND:     AWSSQSSource
 VERSION:  sources.triggermesh.io/v1alpha1
