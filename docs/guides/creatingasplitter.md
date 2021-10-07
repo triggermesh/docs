@@ -3,15 +3,15 @@
 Splitter is a part of TriggerMesh routing solution that has a simple purpose to
 split JSON arrays into multiple CloudEvents.
 
-## Prerequesites
+## Prerequisites
 
-1. K8s cluster and confiured kubectl
-1. [Knative serving and eventing](https://knative.dev/docs/admin/install/knative-with-operators/)
+1. K8s cluster and configured kubectl
+1. [Knative Serving and Eventing Operators](https://knative.dev/docs/admin/install/knative-with-operators/)
 1. [TriggerMesh Function](https://github.com/triggermesh/function)
 
 ## Event display
 
-Create `sockeye` service to see resulting events:
+Create a `sockeye` service to see resulting events:
 
 ```yaml
 apiVersion: serving.knative.dev/v1

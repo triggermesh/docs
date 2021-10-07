@@ -4,15 +4,15 @@ TriggerMesh Function CR provides ample opportunities to implement custom events
 flow logic and can act as a source, transformation, or target. Currently,
 Functions supports Python, NodeJS, and Ruby runtimes.
 
-## Prerequesites
+## Prerequisites
 
-1. K8s cluster and confiured kubectl
-1. [Knative serving and eventing](https://knative.dev/docs/admin/install/knative-with-operators/)
+1. K8s cluster and configured kubectl
+1. [Knative Serving and Eventing Operators](https://knative.dev/docs/admin/install/knative-with-operators/)
 1. [TriggerMesh Function](https://github.com/triggermesh/function)
 
 ## Python function
 
-Function object spec requires minimal amount of configuration.
+The Function object spec requires a minimal amount of configuration.
 
 ```yaml
 apiVersion: extensions.triggermesh.io/v1alpha1
