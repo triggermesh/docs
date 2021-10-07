@@ -36,7 +36,7 @@ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1
 
 ## Verifying the installation
 
-Upon succesful creation of the CRDs and successfull deployment of the controller you should see two Pods running in the `triggermesh` namespace
+Upon successful creation of the CRDs and successful deployment of the controller you should see two Pods running in the `triggermesh` namespace
 
 ```
 kubectl get pods -n triggermesh
