@@ -2,7 +2,7 @@
 
 The TriggerMesh Cloud-Native Integration Platform is composed of a set of APIs implemented as Kubernetes Custom Resource Definitions (CRDs) and a controller.
 
-Installing TriggerMesh consists in:
+Installing TriggerMesh consists of:
 
 * Having a Kubernetes cluster up and running
 * Having the Knative project deployed in that cluster
@@ -28,13 +28,7 @@ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1
 
 ## Install the controller
 
-By default the controller gets deployed in the `triggermesh` namespace. First create that namespace:
-
-```
-kubectl create ns triggermesh
-```
-
-Then deploy the controller with the following `kubectl apply` command:
+By default the controller gets deployed in the `triggermesh` namespace. Deploy the controller with the following `kubectl apply` command:
 
 ```
 kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh.yaml
