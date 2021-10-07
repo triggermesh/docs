@@ -13,12 +13,12 @@ These four steps are highlighted below. The first two steps (i.e Access to a Kub
 
 ## Pre-requisites
 
-The knative project is a dependency of TriggerMesh, install it using the instructions in the [documenation](https://knative.dev/docs/admin/install/)
+The knative project is a dependency of TriggerMesh, install it using the instructions in the [documentation](https://knative.dev/docs/admin/install/)
 
 * A kubernetes cluster version `v1.20+`
 * knative `v0.26+`
 
-## Install the CRD
+## Install the CRDs
 
 All TriggerMersh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all CRDs.
 
@@ -35,7 +35,6 @@ kubectl create ns triggermesh
 ```
 
 Then deploy the controller with the following `kubectl apply` command:
-
 
 ```
 kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh.yaml
