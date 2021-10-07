@@ -19,6 +19,7 @@ solutions on our Cloud.
 - [Github](./github.md): Consume Github events as Cloudevents
 - Google Cloud
     - [Google Cloud Audit Logs](./googlecloudauditlogs.md): Capture messages from a Google Cloud Audit Logs Sink.
+    - [Google Cloud Billing](./googlecloudbilling.md): Capture messages from a Google Cloud Billing Budget.
     - [Google Cloud Pub/Sub](./googlecloudpubsub.md): Receive messages from a Google Cloud Pub/Sub topic.
     - [Google Cloud Storage](./googlecloudstorage.md): Capture change notifications from a Google Cloud Storage bucket.
 - [Webhook](./webhook.md): Generic Webhook integration.
