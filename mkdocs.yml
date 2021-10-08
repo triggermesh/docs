@@ -95,7 +95,6 @@ theme:
   - content.tabs.link
   - navigation.expand
   - navigation.indexes
-  - navigation.sections
   - navigation.tabs
   - navigation.tabs.sticky
   - navigation.top
