@@ -1,13 +1,16 @@
 # TriggerMesh Enterprise
 
-TriggerMesh Enterprise provides additional capabilities such as:
+!!! info "TriggerMesh Enterprise builds on the TriggerMesh Open Source Platform"
+    TriggerMesh Enterprise provides additional capabilities such as:
+    
+    * Powerful web interface
+    * Administration dashboard
+    * Integration visual editor
+    * Single sign-on
+    * Custom connectors builder
+    * Knative distribution
 
-* Powerful web interface
-* Administration dashboard
-* Integration visual editor
-* Single sign-on
-* Custom connectors builder
-* Knative distribution
+    If you want to know more, contact us at info@triggermesh.com
 
 ## Preview
 

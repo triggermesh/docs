@@ -39,7 +39,6 @@ nav:
       - Writing a Function: guides/writingafunction.md
       - Creating a Splitter: guides/creatingasplitter.md
       - Writing a Filter: guides/writingafilter.md
-      - Creating a Service: guides/creatingaservice.md
       - Using the `tm` CLI:
         - Installation: tm/install.md
         - Configuration: tm/configuration.md
@@ -82,6 +81,7 @@ nav:
       - Sources: cloud/sources/sources.md
       - Targets: cloud/targets/targets.md
       - Secrets: cloud/secrets.md
+      - Creating a Service: guides/creatingaservice.md
 
 theme:
   name: material
@@ -116,3 +116,4 @@ extra:
 markdown_extensions:
   - attr_list
   - admonition
+  - pymdownx.superfences
