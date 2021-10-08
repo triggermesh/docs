@@ -1,7 +1,7 @@
 # Event Source for Google Cloud Billing
 
-This event source receives messages from a [Google Cloud Billing][gc-billing] Budget by subscribing
-to a [Google Cloud Pub/Sub][gc-billing-events] topic.
+This event source receives messages from a Google Cloud Billing Budget [gc-billing]
+over a Pub/Sub topic [gc-billing-events].
 
 ### Service Account
 
@@ -13,7 +13,7 @@ The service account must be granted an IAM Role with at least the following perm
 - `billing.budgets.get`
 - `billing.budgets.update`
 
-The following set of permissions is also required because this source delegates the management of the Pub/Sub subscription to the Pub/Sub Source.
+The following set of permissions is also required to allow this source to manage the Pub/Sub topic and subscription:
 
 - `pubsub.subscriptions.create`
 - `pubsub.subscriptions.delete`
@@ -29,7 +29,7 @@ able to run an instance of the Google Cloud Billing event source.
 #### Prerequisite(s)
 
 - Billing Account ID: The identifier for the Cloud Billing account owning the budget. For example, 01D4EE-079462-DFD6EC.
-- Budget ID: The identifier for the Cloud Billing budget. You can locate the budget's ID in your budget under Manage notifications.
+- Budget ID: The identifier for the Cloud Billing budget. You can locate the budget's ID in your budget under "Manage notifications".
              The ID is displayed after you select Connect a Pub/Sub topic to this budget. For example, de72f49d-779b-4945-a127-4d6ce8def0bb.
 
 Open the Bridge creationg screen and add a source of type Google Cloud Billing.
@@ -49,15 +49,16 @@ A ready status on the main Bridges page indicates that the event source is ready
 ![Bridge status](../../assets/images/googlecloudbilling-source/create-bridge-4.png)
 
 ### Event Types
+
 The TriggerMesh event source for Google Cloud Billing emits events of the following type:
 
-- com.google.cloud.billing.message
-
-[gc-billing]: https://cloud.google.com/billing/docs
-[gc-billing-events]: https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications
+- `com.google.cloud.billing.message`
 
 ### Known Issues
 
-This event source has a bug at the deletion time because a problem with Google Cloud Billing API.
-The Google Cloud Billing Budget Notification field will continue be enabled after the deletion,
-but the notification will be disabled because the Google Pub/Sub Topic will be deleted.
+Because the Google Cloud Billing API doesn't allow disabling a Budget's notifications programmatically,
+budget notifications will remain enabled even after the deletion of the event source. The destination
+Pub/Sub topic will nevertheless be deleted, effectively causing the interruption of budget notifications.
+
+[gc-billing]: https://cloud.google.com/billing/docs
+[gc-billing-events]: https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications
