@@ -14,7 +14,7 @@ Search for the **TriggerMesh** AMI in **Community AMIs** and select it for the E
 
 ![TriggerMesh AMI Search](../assets/images/triggermesh-ami/search_ami.png)
 
-The TriggerMesh AMI deploys the TriggerMesh Cloud-Native Integration Platform (and its dependencies) on top of a Kubernetes cluster ([K3S](https://k3s.io/)). The recommended instance type for the EC2 instance is `t2.xlarge` or higher. 
+The TriggerMesh AMI runs the TriggerMesh Cloud-Native Integration Platform (and its dependencies) on top of a single node Kubernetes cluster using ([k3s](https://k3s.io/)). The recommended instance type for the EC2 instance is `t2.xlarge` or higher. 
 
 The instance requires `32GiB` or higher as required.
 
