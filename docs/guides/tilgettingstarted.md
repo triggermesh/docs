@@ -41,7 +41,7 @@ With the `til` CLI installed you are ready to write your first Bridge.
 
 In this guide we take the simple example of a point to point conection between a GitHub repository and an AWS Lambda function. This assumes:
 
-* We are using a sample repository on Github called `sebgoa/transform`. Pick one that you have access to
+* We are using a sample repository on GitHub called `sebgoa/transform`. Pick one that you have access to
 * We are using a GitHub token stored as a Kubernetes secret called `my-github-secret`
 * We are using AWS IAM credentials stored as a Kubernettes secret called `my-aws-access-keys`
 * We are using an AWS Lambda function called `github-processing` as our Target.
