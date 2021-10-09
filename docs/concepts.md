@@ -1,4 +1,4 @@
-The following diagram depicts the core concepts of the TriggerMesh Cloud-Native Integration Platform. 
+The following diagram depicts the core concepts of the TriggerMesh Cloud-Native Integration Platform: Source, Target, Function, Transformation, Filter, Splitter.
 
 ![](./assets/images/concepts.png)
 
