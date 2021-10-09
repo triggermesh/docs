@@ -45,7 +45,10 @@ nav:
         - Usage: tm/usage.md
         - Registry: tm/registry.md
         - Serverless Manifest: tm/serverless.md
-    - Installation: guides/installation.md
+    - Installation:
+      - guides/installation.md
+      - AWS AMI: guides/installation-ami.md
+      - Helm: guides/installation-helm.md
     - Integration Language:
       - til/Home.md
       - CLI: til/Commands.md
