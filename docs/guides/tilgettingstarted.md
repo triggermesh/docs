@@ -18,7 +18,7 @@ mv til_v0.1.0_linux_amd64 /usr/local/bin/til
 chmod +x /usr/local/bin/til
 ```
 
-Check that you can run the command
+Check that you can run the command.
 
 ```console
 $ til -h
@@ -33,7 +33,7 @@ COMMANDS:
     graph        Represent a Bridge as a directed graph in DOT format.
 ```
 
-For the complete usage reference go to the [TIL documentation](../til/Introduction.md)
+For the complete usage reference go to the [TIL documentation](../til/Introduction.md).
 
 ## Example
 
