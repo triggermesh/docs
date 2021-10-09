@@ -25,7 +25,7 @@ $ til -h
 Interpreter for TriggerMesh's Integration Language.
 
 USAGE:
-    ./til <command>
+    til <command>
 
 COMMANDS:
     generate     Generate Kubernetes manifests for deploying a Bridge.
