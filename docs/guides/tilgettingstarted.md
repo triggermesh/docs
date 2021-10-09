@@ -44,7 +44,6 @@ In this guide we take the simple example of a point to point conection between a
 * We are using a sample repository on Github called `triggermesh/bridges`. Pick one that you have access to
 * We are using a GitHub token stored as a Kubernetes secret called `github-source-tokens`, see the [GitHub secret class](../til/Secret-References.md#github-secret-class) for details.
 * We are using Splunk credentials stored as a Kubernettes secret called `my_splunk_credentials`, see the [Splunk secret class](../til/Secret-References.md#splunk_hec-secret-class) for details.
-
 * We want to receive all events related to `push` and `pull_requests` actions in our repository.
 
 Using the TIL syntax you write this point to point connection in a file called `til-demo.brg.hcl` as is:
@@ -81,7 +80,7 @@ target splunk "github_archive_index" {
 To generate the manifest in YAML you issue the following command:
 
 ```console
-til generate ../til-demo.brg.hcl --yaml
+$ til generate ../til-demo.brg.hcl --yaml
 apiVersion: targets.triggermesh.io/v1alpha1
 kind: SplunkTarget
 metadata:
