@@ -2,6 +2,9 @@
 
 This document walks you through deploying the TriggerMesh AMI (beta) on the Amazon AWS platform.
 
+!!! warning
+    This installation method is meant to provide a fast mechanism to test TriggerMesh on AWS. It is not meant to be used in a production environment.
+    
 ## Pre-requisites
 
 * [Amazon AWS account](https://aws.amazon.com)
