@@ -1,29 +1,18 @@
 # Triggermesh APIs
 
-TriggerMesh is composed of a set of APIS representing:
+TriggerMesh is composed of a set of APIs representing:
 
-* Event sources
-* Event targets
-* Transformation
-* Function
-* Routing components
+* Event [sources]((./sources.md))
+* Event [targets](./targets.md)
+* Declarative event [Transformation](./flow.md)
+* Event processing using [Function](./extensions.md)
+* Event Routing [components](./routing.md)
 
-## TriggerMesh Sources API
+## Repository structure
 
-* [Sources](./sources.md).
+All APIs are available in the TriggerMesh GitHub repository `triggermesh/triggermesh` under the `pkg/apis` [directory](https://github.com/triggermesh/triggermesh/tree/main/pkg/apis)
 
-## TriggerMesh Targets API
+!!! info API documentation generation
+    This documentation is automatically generated using this [code](https://github.com/triggermesh/apidocs-gen) which is a slightly modified version of what the Knative project [uses](https://github.com/ahmetb/gen-crd-api-reference-docs).
 
-* [Targets](./targets.md).
 
-## TriggerMesh Transformation API
-
-* [Transformation](./flow.md).
-
-## TriggerMesh Function API
-
-* [Function](./extensions.md).
-
-## TriggerMesh Routing API
-
-* [Routing](./routing.md).
