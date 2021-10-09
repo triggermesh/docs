@@ -1,4 +1,4 @@
-The TriggerMesh Integration Language (TIL) is a configuration language based on the [HCL syntax](hcl-spec) which purpose is to provide a user-friendly interface for describing [TriggerMesh Bridges]().
+The TriggerMesh Integration Language (TIL) is a configuration language based on the [HCL syntax][hcl-spec] which purpose is to provide a user-friendly interface for describing [TriggerMesh Bridges][tm-brg].
 
 !!! info "Use TIL with the TriggerMesh Platform"
     The TriggerMesh Integration Language is easily usable with the `til` CLI which helps you generate the manifests describing your event-driven application. It is the perfect companion to the TriggerMesh controller. Go to the [complete documentation](../til/Introduction.md) for the detailed specification.
@@ -11,7 +11,7 @@ Download the CLI from the GitHub [release page](https://github.com/triggermesh/t
 wget https://github.com/triggermesh/til/releases/download/v0.1.0/til_v0.1.0_linux_amd64
 ```
 
-Put it in your PATH and make the binary executable
+Put it in your `PATH` and make the binary executable.
 
 ```console
 mv til_v0.1.0_linux_amd64 /usr/local/bin/til
@@ -39,93 +39,105 @@ For the complete usage reference go to the [TIL documentation](../til/Introducti
 
 With the `til` CLI installed you are ready to write your first Bridge.
 
-In this guide we take the simple example of a point to point conection between a GitHub repository and an AWS Lambda function. This assumes:
+In this guide we take the simple example of a point to point conection between a GitHub repository and a Splunk index. This assumes:
 
-* We are using a sample repository on Github called `sebgoa/transform`. Pick one that you have access to
-* We are using a GitHub token stored as a Kubernetes secret called `my-github-secret`
-* We are using AWS IAM credentials stored as a Kubernettes secret called `my-aws-access-keys`
-* We are using an AWS Lambda function called `github-processing` as our Target.
-* We want to receive all events related to `issues` in our repository.
+* We are using a sample repository on Github called `triggermesh/bridges`. Pick one that you have access to
+* We are using a GitHub token stored as a Kubernetes secret called `github-source-tokens`, see the [GitHub secret class](../til/Secret-References.md#github-secret-class) for details.
+* We are using Splunk credentials stored as a Kubernettes secret called `my_splunk_credentials`, see the [Splunk secret class](../til/Secret-References.md#splunk_hec-secret-class) for details.
 
-Using the TIL syntax you write this point to point connection in a file called `til-demo.tf` as is:
+* We want to receive all events related to `push` and `pull_requests` actions in our repository.
 
-```
-source "github" "git_source" {
-  owner_and_repository = "sebgoa/transform"
-  event_types = ["issues"]
-  tokens = secret_name("my-github-secret")
+Using the TIL syntax you write this point to point connection in a file called `til-demo.brg.hcl` as is:
 
-  to = target.my_lambda
+```hcl
+bridge "github_to_splunk" { }
+
+/* Event source block 
+   Sources events from a GitHub repository
+*/
+source github "my_repo" {
+  owner_and_repository = "triggermesh/bridges"
+  tokens = secret_name("github-source-tokens")
+
+  event_types = [
+    "push", 
+    "pull_request",
+  ]
+
+  to = target.github_archive_index
 }
 
-target aws_lambda "my_lambda" {
-  arn = "arn:aws:lambda:us-east-1:123456789:function:github-processing"
-  credentials = secret_name("my-aws-access-keys")
+/* Event target block 
+   Receives events and stores them into a Splunk index
+*/
+target splunk "github_archive_index" {
+  endpoint = "https://prd-x-12345.splunkcloud.com"
+  auth = secret_name("my-splunk-credentials")
+
+  index = "github_events"
 }
 ```
 
 To generate the manifest in YAML you issue the following command:
 
 ```console
-$ til generate til-demo.tf --yaml
+til generate ../til-demo.brg.hcl --yaml
 apiVersion: targets.triggermesh.io/v1alpha1
-kind: AWSLambdaTarget
+kind: SplunkTarget
 metadata:
   labels:
-    bridges.triggermesh.io/id: til_generated
-  name: my-lambda
+    bridges.triggermesh.io/id: github_to_splunk
+  name: github-archive-index
 spec:
-  arn: arn:aws:lambda:us-east-1:123456789:function:github-processing
-  awsApiKey:
-    secretKeyRef:
-      key: access_key_id
-      name: my-aws-access-keys
-  awsApiSecret:
-    secretKeyRef:
-      key: secret_access_key
-      name: my-aws-access-keys
+  endpoint: https://prd-x-12345.splunkcloud.com
+  index: github_events
+  token:
+    valueFromSecret:
+      key: hec_token
+      name: my-splunk-credentials
 ---
 apiVersion: sources.knative.dev/v1alpha1
 kind: GitHubSource
 metadata:
   labels:
-    bridges.triggermesh.io/id: til_generated
-  name: git-source
+    bridges.triggermesh.io/id: github_to_splunk
+  name: my-repo
 spec:
   accessToken:
     secretKeyRef:
       key: access_token
-      name: my-github-secret
+      name: github-source-tokens
   eventTypes:
-  - issues
-  ownerAndRepository: sebgoa/transform
+  - push
+  - pull_request
+  ownerAndRepository: triggermesh/bridges
   secretToken:
     secretKeyRef:
       key: webhook_secret
-      name: my-github-secret
+      name: github-source-tokens
   sink:
     ref:
       apiVersion: targets.triggermesh.io/v1alpha1
-      kind: AWSLambdaTarget
-      name: my-lambda
+      kind: SplunkTarget
+      name: github-archive-index
 ```
 
-With these manifests ready you can deploy them easily. For example using [kapp]()
+With these manifests ready you can deploy them easily. For example using [kapp](https://carvel.dev/kapp/)
 
 !!! info "Deployment options for TIL"
-    TIL is a specification language and a CLI to help you author Kubernetes objects. It does not dictate how you deploy your Bridge. As suh you can choose `helm`, `kapp` or simply `kubectl`. Check the deployment [samples](../til/Helm.md)
+    TIL is a specification language and a CLI to help you author Kubernetes objects. It does not dictate how you deploy your Bridge. As suh you can choose `helm`, `kapp` or simply `kubectl`. Check the deployment [samples](../til/Introduction.md#deployment)
 
 ## Generate the diagram of your event flow
 
 If you want to generate a diagram of your flow, you can create a so-called dot file using `til`.
 
 ```console
-til graph til-demo.tf > til-demo.dot
+til graph til-demo.brg.hcl > til-demo.dot
 dot -Tpng til-demo.dot > til-demo.png
 ```
 
 !!! info
-    To visualize your event flow you can install [Graphviz](https://graphviz.org/) on your local machine or use the [on-line viewer](https://dreampuf.github.io/GraphvizOnline)
+    To visualize your event flow you can install [Graphviz](https://graphviz.org/) on your local machine or use the [on-line viewer](http://magjac.com/graphviz-visual-editor/)
 
 The PNG file created will look like the one below.
 
