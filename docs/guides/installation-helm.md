@@ -34,7 +34,7 @@ $ helm install --name my-release triggermesh/triggermesh
 !!! info
     If you face any issues please let us know about it and create an [issue](https://github.com/triggermesh/triggermesh/issues/new)
 
-The command deploys the TriggerMesh opensource components in the default configuration. Refer to the [configuration](#configuration) section for the complete list of parameters that can be specified to customize the deployment of the controller.
+The command deploys the TriggerMesh open source components in the default configuration. Refer to the [configuration](#configuration) section for the complete list of parameters that can be specified to customize the deployment of the controller.
 
 ## Uninstalling the Chart
 
