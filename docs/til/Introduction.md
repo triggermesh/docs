@@ -5,7 +5,7 @@ The _TriggerMesh Integration Language_ is a configuration language based on the 
 Using the `til` CLI tool, it is possible to turn Bridge descriptions into deployment manifests which can run complete messaging systems on the TriggerMesh platform.
 
 !!! info "Get Started with `til`"
-    To learn how to install `til` and get started quickly with your first bridge go the TIL [getting started guide](../guides/tilgettingstarted.md)
+    To learn how to install `til` and get started quickly with your first bridge go the TIL [getting started guide](../guides/tilgettingstarted.md).
 
 
 ## CLI Features
