@@ -1,7 +1,7 @@
 The TriggerMesh Integration Language (TIL) is a configuration language based on the [HCL syntax](hcl-spec) which purpose is to provide a user-friendly interface for describing [TriggerMesh Bridges]().
 
 !!! info "Use TIL with the TriggerMesh Platform"
-    The TriggerMesh Integration Language is easily usable with the `til` CLI which helps you to generate the manifests describing your event-driven application. It is the perfect companion to the TriggerMesh controller. Go to the [complete documentation](../til/Introduction.md) for the detailed specification.
+    The TriggerMesh Integration Language is easily usable with the `til` CLI which helps you generate the manifests describing your event-driven application. It is the perfect companion to the TriggerMesh controller. Go to the [complete documentation](../til/Introduction.md) for the detailed specification.
 
 ## Installation
 
