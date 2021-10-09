@@ -2,7 +2,7 @@
 
 TriggerMesh is composed of a set of APIs representing:
 
-* Event [sources]((./sources.md))
+* Event [sources](./sources.md)
 * Event [targets](./targets.md)
 * Declarative event [Transformation](./flow.md)
 * Event processing using [Function](./extensions.md)

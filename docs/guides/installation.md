@@ -11,7 +11,7 @@ Installing TriggerMesh consists of:
 
 These four steps are highlighted below. The first two steps (i.e Access to a Kubernetes cluster and installation of Knative are not described in details in this documentation). After completing those four steps you can validate your TriggerMesh installation.
 
-Alternatively you can also use the [TriggerMesh AMI](triggermesh-ami.md) to deploy the platform in a AWS EC2 instance.
+Alternatively you can also use the [TriggerMesh AMI](installation-ami.md) to deploy the platform in a AWS EC2 instance.
 
 ## Pre-requisites
 
