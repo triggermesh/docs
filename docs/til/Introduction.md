@@ -1,10 +1,12 @@
-## Introduction
-
 This is the documentation of TriggerMesh's Integration Language and its tooling.
 
 The _TriggerMesh Integration Language_ is a configuration language based on the [HCL syntax](https://github.com/hashicorp/hcl/blob/main/hclsyntax/spec.md) which purpose is to provide a user-friendly interface for describing [TriggerMesh Bridges](https://www.triggermesh.com/integrations).
 
 Using the `til` CLI tool, it is possible to turn Bridge descriptions into deployment manifests which can run complete messaging systems on the TriggerMesh platform.
+
+!!! info "Get Started with `til`"
+    To learn how to install `til` and get started quickly with your first bridge go the TIL [getting started guide](../guides/tilgettingstarted.md)
+
 
 ## CLI Features
 

@@ -38,7 +38,8 @@ nav:
       - Doing a Transformation: guides/doingatransformation.md
       - Writing a Function: guides/writingafunction.md
       - Creating a Splitter: guides/creatingasplitter.md
-      - Writing a Filter: guides/writingafilter.md
+      - Creating a Filter: guides/writingafilter.md
+      - Using TIL: guides/tilgettingstarted.md
       - Using the `tm` CLI:
         - Installation: tm/install.md
         - Configuration: tm/configuration.md
@@ -50,7 +51,7 @@ nav:
       - AWS AMI: guides/installation-ami.md
       - Helm: guides/installation-helm.md
     - Integration Language:
-      - til/Home.md
+      - til/Introduction.md
       - CLI: til/Commands.md
       - Language:
         - Concepts: til/Concepts.md
@@ -96,7 +97,6 @@ theme:
   features:
   - content.code.annotate
   - content.tabs.link
-  - navigation.expand
   - navigation.indexes
   - navigation.tabs
   - navigation.tabs.sticky
