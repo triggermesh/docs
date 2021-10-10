@@ -4,7 +4,7 @@ The following diagram depicts the core concepts of the TriggerMesh Cloud-Native 
 
 TriggerMesh allows you to integrate applications (on-premises or cloud services) by defining event sources and targets which are seen as the start and the end of a so-called Bridge. While events flow through the Bridge they can undergo splitting, filtering and transformation. Transformation of events can be done declaratively or through a function.
 
-To route events TriggerMesh makes use of the Knative eventing primitives (e.g Brokers, Channels, Triggers).
+To route events, TriggerMesh makes use of the Knative Eventing primitives (e.g Brokers, Channels, Triggers).
 
 Each component of a Bridge can be defined using an API object available through the TriggerMesh platform or through Knative.
 
