@@ -8,7 +8,7 @@ To route events TriggerMesh makes use of the Knative eventing primitives (e.g Br
 
 Each component of a Bridge can be defined using an API object available through the TriggerMesh platform or through Knative.
 
-To facilitate writing your integrations we provide a language call the TriggerMesh Integration Language (TIL). 
+To facilitate writing your integrations, we provide a language called the TriggerMesh Integration Language (TIL). 
 
 ## Sources
 
