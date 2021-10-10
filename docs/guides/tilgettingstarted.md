@@ -121,10 +121,10 @@ spec:
       name: github-archive-index
 ```
 
-With these manifests ready you can deploy them easily. For example using [kapp](https://carvel.dev/kapp/)
+With these manifests ready you can deploy them easily. For example using [kapp](https://carvel.dev/kapp/).
 
 !!! info "Deployment options for TIL"
-    TIL is a specification language and a CLI to help you author Kubernetes objects. It does not dictate how you deploy your Bridge. As suh you can choose `helm`, `kapp` or simply `kubectl`. Check the deployment [samples](../til/Introduction.md#deployment)
+    TIL is a specification language and a CLI to help you author Kubernetes objects. It does not dictate how you deploy your Bridge. As suh you can choose `helm`, `kapp` or simply `kubectl`. Check the deployment [samples](../til/Introduction.md#deployment).
 
 ## Generate the diagram of your event flow
 
@@ -136,7 +136,7 @@ dot -Tpng til-demo.dot > til-demo.png
 ```
 
 !!! info
-    To visualize your event flow you can install [Graphviz](https://graphviz.org/) on your local machine or use the [on-line viewer](http://magjac.com/graphviz-visual-editor/)
+    To visualize your event flow you can install [Graphviz](https://graphviz.org/) on your local machine or use the [on-line viewer](http://magjac.com/graphviz-visual-editor/).
 
 The PNG file created will look like the one below.
 
