@@ -1,7 +1,7 @@
 # Event Source for Google Cloud Billing
 
-This event source receives messages from a Google Cloud Billing Budget [gc-billing]
-over a Pub/Sub topic [gc-billing-events].
+This event source receives messages from a [Google Cloud Billing][gc-billing] Budget
+over a [Google Cloud Pub/Sub][gc-billing-events] topic.
 
 ### Service Account
 
