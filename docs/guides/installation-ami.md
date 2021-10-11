@@ -19,7 +19,7 @@ Search for the **TriggerMesh** AMI in **Community AMIs** and select it for the E
 
 The TriggerMesh AMI runs the TriggerMesh Cloud-Native Integration Platform (and its dependencies) on top of a single node Kubernetes cluster using ([k3s](https://k3s.io/)). The recommended instance type for the EC2 instance is `t2.2xlarge` or higher. 
 
-The instance requires `32GiB` or higher as required.
+The instance requires `100GiB` or higher as required.
 
 For the Knative services to be accessible externally over the HTTP protocol, configure the EC2 instance security group to allow HTTP traffic to the instance as shown in the screenshot below:
 
