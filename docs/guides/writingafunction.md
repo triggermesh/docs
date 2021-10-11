@@ -1,51 +1,85 @@
 # Writing a Function
 
-TriggerMesh Function CR provides ample opportunities to implement custom events
-flow logic and can act as a source, transformation, or target. Currently,
-Functions supports Python, NodeJS, and Ruby runtimes.
+The TriggerMesh `Function` API provides opportunities to implement custom events flow logic and can act as a source, transformation, or target. Currently, Python, NodeJS, and Ruby runtimes are supported.
 
-## Prerequisites
+!!! Info "Prerequisites"
+    You need a working TriggerMesh platform installation. See the [installation steps](installation.md)
+    You can verify that the API is available with the following command:
+    
+    ```console
+    $ kubectl get crd |grep function
+    functions.extensions.triggermesh.io        2021-10-06T09:01:33Z
+    ```
 
-1. K8s cluster and configured kubectl
-1. [Knative Serving and Eventing Operators](https://knative.dev/docs/admin/install/knative-with-operators/)
-1. [TriggerMesh Function](https://github.com/triggermesh/function)
+!!! Warning
+    The TriggerMesh `Function` API is an opinionated, simple to consume, Function as a Service (FaaS) system. It is aimed to be used for event processing and does not support external dependencies. Functions that may need external dependencies are best served with [Knative serving](https://knative.dev/docs/getting-started/first-service/).
 
-## Python function
+## Example: A Python function
 
-The Function object spec requires a minimal amount of configuration.
+As an example, let's write a Python function which reads a name from an incoming payload and returns a "Hello" message.
+
+Writing a function requires two steps:
+
+- [ ] Writing a function manifest
+- [ ] Applying the manifest to your Kubernetes
+
+The Function object spec requires a minimal amount of configuration:
+
+* The `runtime`, here we choose `python`
+* Whether the function is accessible publicly or not using the `public` keyword.
+* The `entrypoint`, which specifies the name of the function
+* The `code`, written in-line with the function manifest
+
+Save the YAML manifest below in a file called `function.yaml`
 
 ```yaml
 apiVersion: extensions.triggermesh.io/v1alpha1
 kind: Function
 metadata:
-  name: inline-python-function
+  name: python-function-hello
 spec:
   runtime: python
   public: true
   entrypoint: endpoint
   code: |
-    from random import randrange
-
     def endpoint(event, context):
-      val = randrange(10)
-      if (val % 2) == 0:
-        return "even"
-
-      else:
-        return "odd"
+      return "Hello " + event['name']
 ```
 
-After creating the sample function you should be able to send requests directly
-to Python code and receive its responses.
+You can then create the function with:
 
-```shell
-curl $(kubectl get fn inline-python-function -o=jsonpath='{.status.address.url}')
-
-{"id":"f20d13e6-cd0f-45af-b709-f1ed84d5afc4","type":"io.triggermesh.function.python","source":"source.py","specversion":"1.0","time":"2021-10-05T12:39:28Z","datacontenttype":"text/plain","data":"even"}
+```console
+kubectl apply -f function.yaml
 ```
 
-The main constraint while working with functions is that it does not support
-external dependencies.
+You have completed the two steps required to create a function
 
-More details and examples can be found
-[here](https://github.com/triggermesh/function#readme).
+- [x] Writing a function manifest
+- [x] Applying the manifest to your Kubernetes
+
+You can find the public endpoint of your function and test it like so:
+
+```console
+$ kubectl get function
+NAME                    ADDRESS                                                          READY   REASON
+python-function-hello   https://python-function-hello-mvf2bk.sebgoa.dev.triggermesh.io   True
+
+$ curl -ks -d '{"name":"seb"}' https://python-function-hello-mvf2bk.sebgoa.dev.triggermesh.io |jq
+{
+  "id": "62402f5a-0a82-48e8-8e67-db68d57efdf9",
+  "type": "io.triggermesh.function.python",
+  "source": "source.py",
+  "specversion": "1.0",
+  "time": "2021-10-11T16:26:49Z",
+  "datacontenttype": "text/plain",
+  "data": "Hello seb"
+}
+```
+
+!!! note
+    The returned event adheres to the [CloudEvent specification](https://cloudevents.io/).
+
+## Specification
+
+The object specification can be found in the API
+[reference](../apis/extensions.md).
