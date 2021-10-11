@@ -4,10 +4,10 @@ The TriggerMesh Cloud-Native Integration Platform is composed of a set of APIs i
 
 Installing TriggerMesh consists of:
 
-* Having a Kubernetes cluster up and running
-* Having the Knative project deployed in that cluster
-* Installing the TriggerMesh CRDs
-* Installing the TriggerMesh controller
+- [x] Having a Kubernetes cluster up and running
+- [x] Having the Knative project deployed in that cluster
+- [x] Installing the TriggerMesh CRDs
+- [x] Installing the TriggerMesh controller
 
 These four steps are highlighted below. The first two steps (i.e Access to a Kubernetes cluster and installation of Knative are not described in details in this documentation). After completing those four steps you can validate your TriggerMesh installation.
 
