@@ -43,7 +43,7 @@ nav:
       - Getting Started: guides/gettingstarted.md
       - Creating a Source: guides/creatingasource.md
       - Creating a Target: guides/creatingatarget.md
-      - Creating a Filter: guides/writingafilter.md
+      - Writing a Filter: guides/writingafilter.md
       - Creating a Splitter: guides/creatingasplitter.md
       - Doing a Transformation: guides/doingatransformation.md
       - Writing a Function: guides/writingafunction.md
