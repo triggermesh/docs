@@ -1,10 +1,20 @@
-A target is an event receiver which performs some processing on messages. An event target may act as a gateway between the messaging system (Bridge) and an external service.
+A target is an event receiver which performs some processing on messages. An event target may act as a gateway between the Bridge and an external service.
 
-Although a target can be considered as the final destination of an event, it may reply with another event (acknowledgment, error, ...) to an arbitrary event destination.
+Although a target may be considered the destination for an event, it may in turn reply with another event (acknowledgment, error, ...) generating further events. These additional events may need to be managed with separate Bridges.
 
-All targets are listed and documented in the [reference](apis/targets)
+## Examples
 
-The specification of each target is available through `kubectl explain`. For instance:
+Examples of Targets include Datadog, Elasticsearch, Salesforce, Twilio, ZenDesk, or any number of cloud-based destinations such as Amazon SQS or Google Cloud Firestore.
+
+There is an example of [Creating a Target](../guides/creatingatarget.md) available under Guides.
+
+## API Reference
+
+All TriggerMesh-provided targets are listed and documented in the [API Reference](../apis/targets.md)
+
+## Specifications
+
+The specification of each target is available through `kubectl explain`. For example:
 
 ```console
 kubectl explain awslambdatarget.spec

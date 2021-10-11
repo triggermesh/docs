@@ -36,7 +36,7 @@ nav:
       - Sources: concepts/sources.md
       - Targets: concepts/targets.md
       - Routing: concepts/routing.md
-      - Transformations: concepts/transformations.md
+      - Transformation: concepts/transformation.md
       - Functions: concepts/functions.md
       - TriggerMesh Integration Language: til/Introduction.md
     - Guides:
@@ -85,7 +85,7 @@ nav:
       - Sources: apis/sources.md
       - Targets: apis/targets.md
       - Routing: apis/routing.md
-      - Transformations: apis/flow.md
+      - Transformation: apis/flow.md
       - Functions: apis/extensions.md
     - Enterprise:
       - '': cloud/index.md

@@ -1,9 +1,22 @@
-Sources are the origin of data and events for ingestion into TriggerMesh.
-A source emits events into the messaging system (Bridge) by sending to a designated event receiver. An event source often acts as a gateway between an external service and the messaging system.
+Sources are the origin of data and events for ingestion into TriggerMesh. An event source often acts as a gateway between an external service and the Bridge. Sources may be irregular events, periodic data updates, batch processes, or even continuous event streams.
 
-All sources are listed and documented in the [reference](apis/sources/)
+## Examples
 
-The specificiation of each source is available through `kubectl explain`. For instance:
+Examples of Sources include GitHub, IBM DB2 and Oracle databases, Salesforce, ZenDesk, or any number of cloud-based events such as Amazon S3, Azure Activity Log, or Google Cloud Audit Logs.
+
+There is an example of [Creating a Source](../guides/creatingasource.md) available under Guides.
+
+## API Reference
+
+All TriggerMesh-provided sources are listed and documented in the [API Reference](../apis/sources.md).
+
+## Knative Event Sources
+
+There are a number of additional [event sources provided by Knative](https://knative.dev/docs/developer/eventing/sources/).
+
+## Specifications
+
+The specification of each source is available through `kubectl explain`. For example:
 
 ```console
 kubectl explain googlecloudstoragesource.spec
