@@ -1,13 +1,18 @@
-<p>Packages:</p>
+<style>
+.bs-sidebar {
+display: none;
+}
+</style>
+<p>Package:</p>
 <ul>
 <li>
 <a href="#sources.triggermesh.io%2fv1alpha1">sources.triggermesh.io/v1alpha1</a>
 </li>
 </ul>
 <h2 id="sources.triggermesh.io/v1alpha1">sources.triggermesh.io/v1alpha1</h2>
-<div>
+<p>
 <p>Package v1alpha1 contains API Schema definitions for the sources/v1alpha1 API group.</p>
-</div>
+</p>
 Resource Types:
 <ul><li>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSource">AWSCloudWatchLogsSource</a>
@@ -40,13 +45,19 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource</a>
 </li><li>
+<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSource">AzureIOTHubSource</a>
+</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSource">AzureQueueStorageSource</a>
+</li><li>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSource">AzureServiceBusQueueSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource">GoogleCloudAuditLogsSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource">GoogleCloudPubSubSource</a>
+</li><li>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSource">GoogleCloudRepositoriesSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSource">GoogleCloudStorageSource</a>
 </li><li>
@@ -66,9 +77,9 @@ Resource Types:
 </li></ul>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSource">AWSCloudWatchLogsSource
 </h3>
-<div>
+<p>
 <p>AWSCloudWatchLogsSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -79,7 +90,7 @@ Resource Types:
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -89,14 +100,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSCloudWatchLogsSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -110,7 +121,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">
 AWSCloudWatchLogsSourceSpec
@@ -123,7 +134,7 @@ AWSCloudWatchLogsSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -138,7 +149,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -150,7 +161,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>pollingInterval</code><br/>
+<code>pollingInterval</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
 </em>
@@ -164,7 +175,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -180,7 +191,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -194,9 +205,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchSource">AWSCloudWatchSource
 </h3>
-<div>
+<p>
 <p>AWSCloudWatchSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -207,7 +218,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -217,14 +228,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSCloudWatchSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -238,7 +249,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">
 AWSCloudWatchSourceSpec
@@ -251,7 +262,7 @@ AWSCloudWatchSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -266,7 +277,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>region</code><br/>
+<code>region</code></br>
 <em>
 string
 </em>
@@ -279,7 +290,7 @@ Available region codes are documented at
 </tr>
 <tr>
 <td>
-<code>pollingInterval</code><br/>
+<code>pollingInterval</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
 </em>
@@ -293,7 +304,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>metricQueries</code><br/>
+<code>metricQueries</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricQuery">
 []AWSCloudWatchMetricQuery
@@ -307,7 +318,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -323,7 +334,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -337,9 +348,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCodeCommitSource">AWSCodeCommitSource
 </h3>
-<div>
+<p>
 <p>AWSCodeCommitSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -350,7 +361,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -360,14 +371,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSCodeCommitSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -381,7 +392,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSourceSpec">
 AWSCodeCommitSourceSpec
@@ -394,7 +405,7 @@ AWSCodeCommitSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -409,7 +420,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -421,7 +432,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>branch</code><br/>
+<code>branch</code></br>
 <em>
 string
 </em>
@@ -432,7 +443,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -444,7 +455,7 @@ Valid values: [push, pull_request]</p>
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -460,7 +471,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -474,9 +485,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySource">AWSCognitoIdentitySource
 </h3>
-<div>
+<p>
 <p>AWSCognitoIdentitySource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -487,7 +498,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -497,14 +508,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSCognitoIdentitySource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -518,7 +529,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySourceSpec">
 AWSCognitoIdentitySourceSpec
@@ -531,7 +542,7 @@ AWSCognitoIdentitySourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -546,7 +557,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -558,7 +569,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -574,7 +585,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -588,9 +599,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSource">AWSCognitoUserPoolSource
 </h3>
-<div>
+<p>
 <p>AWSCognitoUserPoolSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -601,7 +612,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -611,14 +622,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSCognitoUserPoolSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -632,7 +643,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSourceSpec">
 AWSCognitoUserPoolSourceSpec
@@ -645,7 +656,7 @@ AWSCognitoUserPoolSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -660,7 +671,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -672,7 +683,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -688,7 +699,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -702,9 +713,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSDynamoDBSource">AWSDynamoDBSource
 </h3>
-<div>
+<p>
 <p>AWSDynamoDBSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -715,7 +726,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -725,14 +736,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSDynamoDBSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -746,7 +757,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSourceSpec">
 AWSDynamoDBSourceSpec
@@ -759,7 +770,7 @@ AWSDynamoDBSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -774,7 +785,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -786,7 +797,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -802,7 +813,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -816,9 +827,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSKinesisSource">AWSKinesisSource
 </h3>
-<div>
+<p>
 <p>AWSKinesisSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -829,7 +840,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -839,14 +850,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSKinesisSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -860,7 +871,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">
 AWSKinesisSourceSpec
@@ -873,7 +884,7 @@ AWSKinesisSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -888,7 +899,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -900,7 +911,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -916,7 +927,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -930,9 +941,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSource">AWSPerformanceInsightsSource
 </h3>
-<div>
+<p>
 <p>AWSPerformanceInsightsSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -943,7 +954,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -953,14 +964,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSPerformanceInsightsSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -974,7 +985,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">
 AWSPerformanceInsightsSourceSpec
@@ -987,7 +998,7 @@ AWSPerformanceInsightsSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -1002,7 +1013,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -1014,7 +1025,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>pollingInterval</code><br/>
+<code>pollingInterval</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
 </em>
@@ -1026,7 +1037,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>metrics</code><br/>
+<code>metrics</code></br>
 <em>
 []string
 </em>
@@ -1039,7 +1050,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -1055,7 +1066,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -1069,9 +1080,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSS3Source">AWSS3Source
 </h3>
-<div>
+<p>
 <p>AWSS3Source is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1082,7 +1093,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1092,14 +1103,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSS3Source</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1113,7 +1124,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">
 AWSS3SourceSpec
@@ -1126,7 +1137,7 @@ AWSS3SourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -1141,7 +1152,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -1156,7 +1167,7 @@ required by the reconciler to operate properly.</p>
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -1170,7 +1181,7 @@ Accepted values:
 </tr>
 <tr>
 <td>
-<code>queueARN</code><br/>
+<code>queueARN</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -1185,7 +1196,7 @@ from the S3 bucket is automatically created and configured.</p>
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -1201,7 +1212,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceStatus">
 AWSS3SourceStatus
@@ -1215,9 +1226,9 @@ AWSS3SourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSSNSSource">AWSSNSSource
 </h3>
-<div>
+<p>
 <p>AWSSNSSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1228,7 +1239,7 @@ AWSS3SourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1238,14 +1249,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSSNSSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1259,7 +1270,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceSpec">
 AWSSNSSourceSpec
@@ -1272,7 +1283,7 @@ AWSSNSSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -1287,7 +1298,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -1299,7 +1310,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>subscriptionAttributes</code><br/>
+<code>subscriptionAttributes</code></br>
 <em>
 map[string]*string
 </em>
@@ -1314,7 +1325,7 @@ For a list of supported subscription attributes, please refer to the following r
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -1330,7 +1341,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceStatus">
 AWSSNSSourceStatus
@@ -1344,9 +1355,9 @@ AWSSNSSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSSQSSource">AWSSQSSource
 </h3>
-<div>
+<p>
 <p>AWSSQSSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1357,7 +1368,7 @@ AWSSNSSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1367,14 +1378,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSSQSSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1388,7 +1399,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">
 AWSSQSSourceSpec
@@ -1401,7 +1412,7 @@ AWSSQSSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -1416,7 +1427,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -1428,7 +1439,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>receiveOptions</code><br/>
+<code>receiveOptions</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceReceiveOptions">
 AWSSQSSourceReceiveOptions
@@ -1442,7 +1453,7 @@ AWSSQSSourceReceiveOptions
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -1458,7 +1469,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -1472,9 +1483,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureActivityLogsSource">AzureActivityLogsSource
 </h3>
-<div>
+<p>
 <p>AzureActivityLogsSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1485,7 +1496,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1495,14 +1506,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AzureActivityLogsSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1516,7 +1527,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">
 AzureActivityLogsSourceSpec
@@ -1529,7 +1540,7 @@ AzureActivityLogsSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -1544,7 +1555,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -1564,7 +1575,7 @@ subscribed to.</p>
 </tr>
 <tr>
 <td>
-<code>eventHubsSASPolicy</code><br/>
+<code>eventHubsSASPolicy</code></br>
 <em>
 string
 </em>
@@ -1581,7 +1592,7 @@ field.</p>
 </tr>
 <tr>
 <td>
-<code>categories</code><br/>
+<code>categories</code></br>
 <em>
 []string
 </em>
@@ -1595,7 +1606,7 @@ field.</p>
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
 AzureAuth
@@ -1612,7 +1623,7 @@ This event source only supports the ServicePrincipal authentication.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceStatus">
 AzureActivityLogsSourceStatus
@@ -1626,9 +1637,9 @@ AzureActivityLogsSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureBlobStorageSource">AzureBlobStorageSource
 </h3>
-<div>
+<p>
 <p>AzureBlobStorageSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1639,7 +1650,7 @@ AzureActivityLogsSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1649,14 +1660,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AzureBlobStorageSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1670,7 +1681,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">
 AzureBlobStorageSourceSpec
@@ -1683,7 +1694,7 @@ AzureBlobStorageSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -1698,7 +1709,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>storageAccountID</code><br/>
+<code>storageAccountID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.StorageAccountResourceID">
 StorageAccountResourceID
@@ -1715,7 +1726,7 @@ uniquely identify the Storage Account within Azure.</p>
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -1735,7 +1746,7 @@ Otherwise, the user-provided Event Hub is used.</p>
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -1753,7 +1764,7 @@ to the following event types:
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
 AzureAuth
@@ -1770,7 +1781,7 @@ This event source only supports the ServicePrincipal authentication.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">
 AzureBlobStorageSourceStatus
@@ -1784,9 +1795,9 @@ AzureBlobStorageSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureEventGridSource">AzureEventGridSource
 </h3>
-<div>
+<p>
 <p>AzureEventGridSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1797,7 +1808,7 @@ AzureBlobStorageSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1807,14 +1818,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AzureEventGridSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1828,7 +1839,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">
 AzureEventGridSourceSpec
@@ -1841,7 +1852,7 @@ AzureEventGridSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -1856,7 +1867,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>scope</code><br/>
+<code>scope</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
 AzureResourceID
@@ -1876,7 +1887,7 @@ AzureResourceID
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -1892,7 +1903,7 @@ Azure services that support system topics at
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -1912,7 +1923,7 @@ Otherwise, the user-provided Event Hub is used.</p>
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
 AzureAuth
@@ -1929,7 +1940,7 @@ This event source only supports the ServicePrincipal authentication.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">
 AzureEventGridSourceStatus
@@ -1943,9 +1954,9 @@ AzureEventGridSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource
 </h3>
-<div>
+<p>
 <p>AzureEventHubSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1956,7 +1967,7 @@ AzureEventGridSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1966,14 +1977,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AzureEventHubSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1987,7 +1998,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">
 AzureEventHubSourceSpec
@@ -2000,7 +2011,7 @@ AzureEventHubSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -2015,7 +2026,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -2030,7 +2041,7 @@ EventHubResourceID
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
 AzureAuth
@@ -2046,7 +2057,7 @@ AzureAuth
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -2058,11 +2069,11 @@ EventSourceStatus
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.AzureQueueStorageSource">AzureQueueStorageSource
+<h3 id="sources.triggermesh.io/v1alpha1.AzureIOTHubSource">AzureIOTHubSource
 </h3>
-<div>
-<p>AzureQueueStorageSource is the Schema for the event source.</p>
-</div>
+<p>
+<p>AzureIOTHubSource is the Schema for the event source.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -2073,7 +2084,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2083,14 +2094,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
-<td><code>AzureQueueStorageSource</code></td>
+<td><code>AzureIOTHubSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2104,10 +2115,10 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSourceSpec">
-AzureQueueStorageSourceSpec
+<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceSpec">
+AzureIOTHubSourceSpec
 </a>
 </em>
 </td>
@@ -2117,7 +2128,7 @@ AzureQueueStorageSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -2132,7 +2143,109 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>accountName</code><br/>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>AzureAuth contains multiple authentication methods for Azure services.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceStatus">
+AzureIOTHubSourceStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureQueueStorageSource">AzureQueueStorageSource
+</h3>
+<p>
+<p>AzureQueueStorageSource is the Schema for the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>AzureQueueStorageSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSourceSpec">
+AzureQueueStorageSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>accountName</code></br>
 <em>
 string
 </em>
@@ -2142,7 +2255,7 @@ string
 </tr>
 <tr>
 <td>
-<code>queueName</code><br/>
+<code>queueName</code></br>
 <em>
 string
 </em>
@@ -2152,7 +2265,7 @@ string
 </tr>
 <tr>
 <td>
-<code>accountKey</code><br/>
+<code>accountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -2167,7 +2280,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -2179,11 +2292,11 @@ EventSourceStatus
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource">GoogleCloudAuditLogsSource
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSource">AzureServiceBusQueueSource
 </h3>
-<div>
-<p>GoogleCloudAuditLogsSource is the Schema for the event source.</p>
-</div>
+<p>
+<p>AzureServiceBusQueueSource is the Schema for the event source.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -2194,7 +2307,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2204,14 +2317,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
-<td><code>GoogleCloudAuditLogsSource</code></td>
+<td><code>AzureServiceBusQueueSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2225,10 +2338,10 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">
-GoogleCloudAuditLogsSourceSpec
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">
+AzureServiceBusQueueSourceSpec
 </a>
 </em>
 </td>
@@ -2238,7 +2351,7 @@ GoogleCloudAuditLogsSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -2253,7 +2366,108 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>serviceName</code><br/>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceStatus">
+AzureServiceBusQueueSourceStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource">GoogleCloudAuditLogsSource
+</h3>
+<p>
+<p>GoogleCloudAuditLogsSource is the Schema for the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>GoogleCloudAuditLogsSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">
+GoogleCloudAuditLogsSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>serviceName</code></br>
 <em>
 string
 </em>
@@ -2265,7 +2479,7 @@ example: compute.googleapis.com</p>
 </tr>
 <tr>
 <td>
-<code>methodName</code><br/>
+<code>methodName</code></br>
 <em>
 string
 </em>
@@ -2278,7 +2492,7 @@ beta.compute.instances.insert</p>
 </tr>
 <tr>
 <td>
-<code>resourceName</code><br/>
+<code>resourceName</code></br>
 <em>
 string
 </em>
@@ -2292,7 +2506,7 @@ example: &ldquo;projects/PROJECT_ID/zones/us-central1-a/instances&rdquo;</p>
 </tr>
 <tr>
 <td>
-<code>pubsub</code><br/>
+<code>pubsub</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">
 GoogleCloudAuditLogsSourcePubSubSpec
@@ -2305,7 +2519,7 @@ GoogleCloudAuditLogsSourcePubSubSpec
 </tr>
 <tr>
 <td>
-<code>serviceAccountKey</code><br/>
+<code>serviceAccountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -2322,7 +2536,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">
 GoogleCloudAuditLogsSourceStatus
@@ -2336,9 +2550,9 @@ GoogleCloudAuditLogsSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource
 </h3>
-<div>
+<p>
 <p>GoogleCloudBillingSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2349,7 +2563,7 @@ GoogleCloudAuditLogsSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2359,14 +2573,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>GoogleCloudBillingSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2380,7 +2594,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">
 GoogleCloudBillingSourceSpec
@@ -2393,7 +2607,7 @@ GoogleCloudBillingSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -2408,7 +2622,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>billingAccountId</code><br/>
+<code>billingAccountId</code></br>
 <em>
 string
 </em>
@@ -2419,7 +2633,7 @@ string
 </tr>
 <tr>
 <td>
-<code>budgetId</code><br/>
+<code>budgetId</code></br>
 <em>
 string
 </em>
@@ -2432,7 +2646,7 @@ The ID is displayed after you select Connect a Pub/Sub topic to this budget.</p>
 </tr>
 <tr>
 <td>
-<code>pubsub</code><br/>
+<code>pubsub</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">
 GoogleCloudBillingSourcePubSubSpec
@@ -2445,7 +2659,7 @@ GoogleCloudBillingSourcePubSubSpec
 </tr>
 <tr>
 <td>
-<code>serviceAccountKey</code><br/>
+<code>serviceAccountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -2462,7 +2676,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">
 GoogleCloudBillingSourceStatus
@@ -2476,9 +2690,9 @@ GoogleCloudBillingSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource">GoogleCloudPubSubSource
 </h3>
-<div>
+<p>
 <p>GoogleCloudPubSubSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2489,7 +2703,7 @@ GoogleCloudBillingSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2499,14 +2713,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>GoogleCloudPubSubSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2520,7 +2734,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">
 GoogleCloudPubSubSourceSpec
@@ -2533,7 +2747,7 @@ GoogleCloudPubSubSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -2548,10 +2762,10 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -2562,7 +2776,7 @@ format &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;.</p>
 </tr>
 <tr>
 <td>
-<code>subscriptionID</code><br/>
+<code>subscriptionID</code></br>
 <em>
 string
 </em>
@@ -2577,7 +2791,7 @@ created on behalf of the user.</p>
 </tr>
 <tr>
 <td>
-<code>serviceAccountKey</code><br/>
+<code>serviceAccountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -2594,7 +2808,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">
 GoogleCloudPubSubSourceStatus
@@ -2606,11 +2820,11 @@ GoogleCloudPubSubSourceStatus
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSource">GoogleCloudStorageSource
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSource">GoogleCloudRepositoriesSource
 </h3>
-<div>
-<p>GoogleCloudStorageSource is the Schema for the event source.</p>
-</div>
+<p>
+<p>GoogleCloudRepositoriesSource is the Schema for the event source.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -2621,7 +2835,7 @@ GoogleCloudPubSubSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2631,14 +2845,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
-<td><code>GoogleCloudStorageSource</code></td>
+<td><code>GoogleCloudRepositoriesSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2652,10 +2866,10 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">
-GoogleCloudStorageSourceSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">
+GoogleCloudRepositoriesSourceSpec
 </a>
 </em>
 </td>
@@ -2665,7 +2879,7 @@ GoogleCloudStorageSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -2680,7 +2894,136 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>bucket</code><br/>
+<code>repository</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Name of the Cloud repo to receive notifications from.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>pubsub</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourcePubSubSpec">
+GoogleCloudRepositoriesSourcePubSubSpec
+</a>
+</em>
+</td>
+<td>
+<p>Settings related to the Pub/Sub resources associated with the repo events.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>serviceAccountKey</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>Service account key in JSON format.
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">
+GoogleCloudRepositoriesSourceStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSource">GoogleCloudStorageSource
+</h3>
+<p>
+<p>GoogleCloudStorageSource is the Schema for the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>GoogleCloudStorageSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">
+GoogleCloudStorageSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>bucket</code></br>
 <em>
 string
 </em>
@@ -2691,7 +3034,7 @@ string
 </tr>
 <tr>
 <td>
-<code>pubsub</code><br/>
+<code>pubsub</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">
 GoogleCloudStorageSourcePubSubSpec
@@ -2704,7 +3047,7 @@ GoogleCloudStorageSourcePubSubSpec
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -2719,7 +3062,7 @@ GoogleCloudStorageSourcePubSubSpec
 </tr>
 <tr>
 <td>
-<code>serviceAccountKey</code><br/>
+<code>serviceAccountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -2736,7 +3079,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">
 GoogleCloudStorageSourceStatus
@@ -2750,9 +3093,9 @@ GoogleCloudStorageSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.HTTPPollerSource">HTTPPollerSource
 </h3>
-<div>
+<p>
 <p>HTTPPollerSource is the schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2763,7 +3106,7 @@ GoogleCloudStorageSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2773,14 +3116,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>HTTPPollerSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2794,7 +3137,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSourceSpec">
 HTTPPollerSourceSpec
@@ -2807,7 +3150,7 @@ HTTPPollerSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -2827,7 +3170,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>eventType</code><br/>
+<code>eventType</code></br>
 <em>
 string
 </em>
@@ -2839,7 +3182,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventSource</code><br/>
+<code>eventSource</code></br>
 <em>
 string
 </em>
@@ -2852,7 +3195,7 @@ string
 </tr>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
 knative.dev/pkg/apis.URL
@@ -2865,7 +3208,7 @@ knative.dev/pkg/apis.URL
 </tr>
 <tr>
 <td>
-<code>method</code><br/>
+<code>method</code></br>
 <em>
 string
 </em>
@@ -2877,7 +3220,7 @@ string
 </tr>
 <tr>
 <td>
-<code>skipVerify</code><br/>
+<code>skipVerify</code></br>
 <em>
 bool
 </em>
@@ -2890,7 +3233,7 @@ chain and host name when communicating over TLS.</p>
 </tr>
 <tr>
 <td>
-<code>caCertificate</code><br/>
+<code>caCertificate</code></br>
 <em>
 string
 </em>
@@ -2903,7 +3246,7 @@ the identity of remote servers when communicating over TLS.</p>
 </tr>
 <tr>
 <td>
-<code>basicAuthUsername</code><br/>
+<code>basicAuthUsername</code></br>
 <em>
 string
 </em>
@@ -2915,7 +3258,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthPassword</code><br/>
+<code>basicAuthPassword</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -2929,7 +3272,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>headers</code><br/>
+<code>headers</code></br>
 <em>
 map[string]string
 </em>
@@ -2941,7 +3284,7 @@ map[string]string
 </tr>
 <tr>
 <td>
-<code>interval</code><br/>
+<code>interval</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
 </em>
@@ -2956,7 +3299,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -2970,9 +3313,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource
 </h3>
-<div>
+<p>
 <p>OCIMetricsSource is the schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2983,7 +3326,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2993,14 +3336,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>OCIMetricsSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3014,7 +3357,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSourceSpec">
 OCIMetricsSourceSpec
@@ -3027,7 +3370,7 @@ OCIMetricsSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -3047,7 +3390,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKey</code><br/>
+<code>oracleApiPrivateKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -3060,7 +3403,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKeyPassphrase</code><br/>
+<code>oracleApiPrivateKeyPassphrase</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -3073,7 +3416,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKeyFingerprint</code><br/>
+<code>oracleApiPrivateKeyFingerprint</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -3086,7 +3429,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>oracleTenancy</code><br/>
+<code>oracleTenancy</code></br>
 <em>
 string
 </em>
@@ -3097,7 +3440,7 @@ string
 </tr>
 <tr>
 <td>
-<code>oracleUser</code><br/>
+<code>oracleUser</code></br>
 <em>
 string
 </em>
@@ -3108,7 +3451,7 @@ string
 </tr>
 <tr>
 <td>
-<code>oracleRegion</code><br/>
+<code>oracleRegion</code></br>
 <em>
 string
 </em>
@@ -3119,7 +3462,7 @@ string
 </tr>
 <tr>
 <td>
-<code>metricsPollingFrequency</code><br/>
+<code>metricsPollingFrequency</code></br>
 <em>
 string
 </em>
@@ -3131,7 +3474,7 @@ string
 </tr>
 <tr>
 <td>
-<code>metrics</code><br/>
+<code>metrics</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.OCIMetrics">
 []OCIMetrics
@@ -3147,7 +3490,7 @@ string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -3161,9 +3504,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.SalesforceSource">SalesforceSource
 </h3>
-<div>
+<p>
 <p>SalesforceSource is the Schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3174,7 +3517,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3184,14 +3527,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>SalesforceSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3205,7 +3548,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.SalesforceSourceSpec">
 SalesforceSourceSpec
@@ -3218,7 +3561,7 @@ SalesforceSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -3233,7 +3576,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.SalesforceAuth">
 SalesforceAuth
@@ -3246,7 +3589,7 @@ SalesforceAuth
 </tr>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 <em>
 string
 </em>
@@ -3258,7 +3601,7 @@ string
 </tr>
 <tr>
 <td>
-<code>subscription</code><br/>
+<code>subscription</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.SalesforceSubscription">
 SalesforceSubscription
@@ -3274,7 +3617,7 @@ SalesforceSubscription
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -3288,9 +3631,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.SlackSource">SlackSource
 </h3>
-<div>
+<p>
 <p>SlackSource is the schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3301,7 +3644,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3311,14 +3654,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>SlackSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3332,7 +3675,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.SlackSourceSpec">
 SlackSourceSpec
@@ -3345,7 +3688,7 @@ SlackSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -3365,7 +3708,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>signingSecret</code><br/>
+<code>signingSecret</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -3381,7 +3724,7 @@ See: <a href="https://api.slack.com/authentication/verifying-requests-from-slack
 </tr>
 <tr>
 <td>
-<code>appID</code><br/>
+<code>appID</code></br>
 <em>
 string
 </em>
@@ -3398,7 +3741,7 @@ applications shared an endpoint. See: <a href="https://api.slack.com/events-api"
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -3412,9 +3755,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.TwilioSource">TwilioSource
 </h3>
-<div>
+<p>
 <p>TwilioSource is the schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3425,7 +3768,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3435,14 +3778,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>TwilioSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3456,7 +3799,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.TwilioSourceSpec">
 TwilioSourceSpec
@@ -3469,7 +3812,7 @@ TwilioSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -3487,7 +3830,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -3501,9 +3844,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.WebhookSource">WebhookSource
 </h3>
-<div>
+<p>
 <p>WebhookSource is the schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3514,7 +3857,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3524,14 +3867,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>WebhookSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3545,7 +3888,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.WebhookSourceSpec">
 WebhookSourceSpec
@@ -3558,7 +3901,7 @@ WebhookSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -3578,7 +3921,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>eventType</code><br/>
+<code>eventType</code></br>
 <em>
 string
 </em>
@@ -3590,7 +3933,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventSource</code><br/>
+<code>eventSource</code></br>
 <em>
 string
 </em>
@@ -3603,7 +3946,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthUsername</code><br/>
+<code>basicAuthUsername</code></br>
 <em>
 string
 </em>
@@ -3615,7 +3958,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthPassword</code><br/>
+<code>basicAuthPassword</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -3632,7 +3975,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -3646,9 +3989,9 @@ EventSourceStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.ZendeskSource">ZendeskSource
 </h3>
-<div>
+<p>
 <p>ZendeskSource is the schema for the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3659,7 +4002,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3669,14 +4012,14 @@ sources.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>ZendeskSource</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3690,7 +4033,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceSpec">
 ZendeskSourceSpec
@@ -3703,7 +4046,7 @@ ZendeskSourceSpec
 <table>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -3723,7 +4066,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -3737,7 +4080,7 @@ allowing the source to auto-register the webhook to authenticate callbacks.</p>
 </tr>
 <tr>
 <td>
-<code>email</code><br/>
+<code>email</code></br>
 <em>
 string
 </em>
@@ -3749,7 +4092,7 @@ allowing the source to auto-register the webhook to authenticate callbacks.</p>
 </tr>
 <tr>
 <td>
-<code>webhookPassword</code><br/>
+<code>webhookPassword</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -3763,7 +4106,7 @@ to the adapter.</p>
 </tr>
 <tr>
 <td>
-<code>webhookUsername</code><br/>
+<code>webhookUsername</code></br>
 <em>
 string
 </em>
@@ -3775,7 +4118,7 @@ to the adapter.</p>
 </tr>
 <tr>
 <td>
-<code>subdomain</code><br/>
+<code>subdomain</code></br>
 <em>
 string
 </em>
@@ -3789,7 +4132,7 @@ string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceStatus">
 ZendeskSourceStatus
@@ -3804,11 +4147,12 @@ ZendeskSourceStatus
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSource">AWSCloudWatchLogsSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSource">AWSCloudWatchLogsSource</a>)
 </p>
-<div>
-<p>AWSCloudWatchSourceSpec defines the desired state of the event source.</p>
-</div>
+<p>
+<p>AWSCloudWatchLogsSourceSpec defines the desired state of the event source.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -3819,7 +4163,7 @@ ZendeskSourceStatus
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -3834,7 +4178,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -3846,7 +4190,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>pollingInterval</code><br/>
+<code>pollingInterval</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
 </em>
@@ -3860,7 +4204,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -3876,10 +4220,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchMetric">AWSCloudWatchMetric
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricStat">AWSCloudWatchMetricStat</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricStat">AWSCloudWatchMetricStat</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSCloudWatchMetric is a metric definition.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -3890,7 +4236,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>dimensions</code><br/>
+<code>dimensions</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricDimension">
 []AWSCloudWatchMetricDimension
@@ -3902,7 +4248,7 @@ AWSSecurityCredentials
 </tr>
 <tr>
 <td>
-<code>metricName</code><br/>
+<code>metricName</code></br>
 <em>
 string
 </em>
@@ -3912,7 +4258,7 @@ string
 </tr>
 <tr>
 <td>
-<code>namespace</code><br/>
+<code>namespace</code></br>
 <em>
 string
 </em>
@@ -3925,10 +4271,12 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricDimension">AWSCloudWatchMetricDimension
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetric">AWSCloudWatchMetric</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetric">AWSCloudWatchMetric</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSCloudWatchMetricDimension represents the dimensions of a metric.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -3939,7 +4287,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>name</code><br/>
+<code>name</code></br>
 <em>
 string
 </em>
@@ -3949,7 +4297,7 @@ string
 </tr>
 <tr>
 <td>
-<code>value</code><br/>
+<code>value</code></br>
 <em>
 string
 </em>
@@ -3962,12 +4310,13 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricQuery">AWSCloudWatchMetricQuery
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">AWSCloudWatchSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">AWSCloudWatchSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>AWSCloudWatchMetricQuery represents a CloudWatch MetricDataQuery.
 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html</a></p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3978,7 +4327,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>name</code><br/>
+<code>name</code></br>
 <em>
 string
 </em>
@@ -3989,7 +4338,7 @@ string
 </tr>
 <tr>
 <td>
-<code>expression</code><br/>
+<code>expression</code></br>
 <em>
 string
 </em>
@@ -4001,7 +4350,7 @@ string
 </tr>
 <tr>
 <td>
-<code>metric</code><br/>
+<code>metric</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricStat">
 AWSCloudWatchMetricStat
@@ -4018,10 +4367,13 @@ AWSCloudWatchMetricStat
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricStat">AWSCloudWatchMetricStat
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricQuery">AWSCloudWatchMetricQuery</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricQuery">AWSCloudWatchMetricQuery</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSCloudWatchMetricStat is a representation of a metric with statistics,
+period, and units, but no math expression.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -4032,7 +4384,7 @@ AWSCloudWatchMetricStat
 <tbody>
 <tr>
 <td>
-<code>metric</code><br/>
+<code>metric</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetric">
 AWSCloudWatchMetric
@@ -4044,7 +4396,7 @@ AWSCloudWatchMetric
 </tr>
 <tr>
 <td>
-<code>period</code><br/>
+<code>period</code></br>
 <em>
 int64
 </em>
@@ -4055,7 +4407,7 @@ int64
 </tr>
 <tr>
 <td>
-<code>stat</code><br/>
+<code>stat</code></br>
 <em>
 string
 </em>
@@ -4066,7 +4418,7 @@ string
 </tr>
 <tr>
 <td>
-<code>unit</code><br/>
+<code>unit</code></br>
 <em>
 string
 </em>
@@ -4080,11 +4432,12 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">AWSCloudWatchSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSource">AWSCloudWatchSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSource">AWSCloudWatchSource</a>)
 </p>
-<div>
+<p>
 <p>AWSCloudWatchSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4095,7 +4448,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4110,7 +4463,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>region</code><br/>
+<code>region</code></br>
 <em>
 string
 </em>
@@ -4123,7 +4476,7 @@ Available region codes are documented at
 </tr>
 <tr>
 <td>
-<code>pollingInterval</code><br/>
+<code>pollingInterval</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
 </em>
@@ -4137,7 +4490,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>metricQueries</code><br/>
+<code>metricQueries</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchMetricQuery">
 []AWSCloudWatchMetricQuery
@@ -4151,7 +4504,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4167,11 +4520,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCodeCommitSourceSpec">AWSCodeCommitSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSource">AWSCodeCommitSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSource">AWSCodeCommitSource</a>)
 </p>
-<div>
+<p>
 <p>AWSCodeCommitSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4182,7 +4536,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4197,7 +4551,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4209,7 +4563,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>branch</code><br/>
+<code>branch</code></br>
 <em>
 string
 </em>
@@ -4220,7 +4574,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -4232,7 +4586,7 @@ Valid values: [push, pull_request]</p>
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4248,11 +4602,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySourceSpec">AWSCognitoIdentitySourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySource">AWSCognitoIdentitySource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySource">AWSCognitoIdentitySource</a>)
 </p>
-<div>
+<p>
 <p>AWSCognitoIdentitySourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4263,7 +4618,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4278,7 +4633,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4290,7 +4645,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4306,11 +4661,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSourceSpec">AWSCognitoUserPoolSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSource">AWSCognitoUserPoolSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSource">AWSCognitoUserPoolSource</a>)
 </p>
-<div>
+<p>
 <p>AWSCognitoUserPoolSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4321,7 +4677,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4336,7 +4692,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4348,7 +4704,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4364,11 +4720,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSDynamoDBSourceSpec">AWSDynamoDBSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSource">AWSDynamoDBSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSource">AWSDynamoDBSource</a>)
 </p>
-<div>
+<p>
 <p>AWSDynamoDBSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4379,7 +4736,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4394,7 +4751,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4406,7 +4763,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4422,11 +4779,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSource">AWSKinesisSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSource">AWSKinesisSource</a>)
 </p>
-<div>
+<p>
 <p>AWSKinesisSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4437,7 +4795,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4452,7 +4810,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4464,7 +4822,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4480,11 +4838,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">AWSPerformanceInsightsSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSource">AWSPerformanceInsightsSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSource">AWSPerformanceInsightsSource</a>)
 </p>
-<div>
+<p>
 <p>AWSPerformanceInsightsSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4495,7 +4854,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4510,7 +4869,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4522,7 +4881,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>pollingInterval</code><br/>
+<code>pollingInterval</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
 </em>
@@ -4534,7 +4893,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>metrics</code><br/>
+<code>metrics</code></br>
 <em>
 []string
 </em>
@@ -4547,7 +4906,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4563,11 +4922,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSS3Source">AWSS3Source</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3Source">AWSS3Source</a>)
 </p>
-<div>
+<p>
 <p>AWSS3SourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4578,7 +4938,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4593,7 +4953,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4608,7 +4968,7 @@ required by the reconciler to operate properly.</p>
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -4622,7 +4982,7 @@ Accepted values:
 </tr>
 <tr>
 <td>
-<code>queueARN</code><br/>
+<code>queueARN</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4637,7 +4997,7 @@ from the S3 bucket is automatically created and configured.</p>
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4653,11 +5013,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSS3SourceStatus">AWSS3SourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSS3Source">AWSS3Source</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3Source">AWSS3Source</a>)
 </p>
-<div>
+<p>
 <p>AWSS3SourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4668,7 +5029,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -4683,7 +5044,7 @@ EventSourceStatus
 </tr>
 <tr>
 <td>
-<code>queueARN</code><br/>
+<code>queueARN</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4696,11 +5057,12 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <h3 id="sources.triggermesh.io/v1alpha1.AWSSNSSourceSpec">AWSSNSSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSSNSSource">AWSSNSSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSource">AWSSNSSource</a>)
 </p>
-<div>
+<p>
 <p>AWSSNSSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4711,7 +5073,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4726,7 +5088,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4738,7 +5100,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>subscriptionAttributes</code><br/>
+<code>subscriptionAttributes</code></br>
 <em>
 map[string]*string
 </em>
@@ -4753,7 +5115,7 @@ For a list of supported subscription attributes, please refer to the following r
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4769,11 +5131,12 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSSNSSourceStatus">AWSSNSSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSSNSSource">AWSSNSSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSource">AWSSNSSource</a>)
 </p>
-<div>
+<p>
 <p>AWSSNSSourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4784,7 +5147,7 @@ AWSSecurityCredentials
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -4799,7 +5162,7 @@ EventSourceStatus
 </tr>
 <tr>
 <td>
-<code>subscriptionARN</code><br/>
+<code>subscriptionARN</code></br>
 <em>
 string
 </em>
@@ -4812,12 +5175,13 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.AWSSQSSourceReceiveOptions">AWSSQSSourceReceiveOptions
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>AWSSQSSourceReceiveOptions defines options that control the behavior of
 Amazon SQS message receivers.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4828,7 +5192,7 @@ Amazon SQS message receivers.</p>
 <tbody>
 <tr>
 <td>
-<code>visibilityTimeout</code><br/>
+<code>visibilityTimeout</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
 </em>
@@ -4848,11 +5212,12 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <h3 id="sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSSQSSource">AWSSQSSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSource">AWSSQSSource</a>)
 </p>
-<div>
+<p>
 <p>AWSSQSSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4863,7 +5228,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4878,7 +5243,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
@@ -4890,7 +5255,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>receiveOptions</code><br/>
+<code>receiveOptions</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceReceiveOptions">
 AWSSQSSourceReceiveOptions
@@ -4904,7 +5269,7 @@ AWSSQSSourceReceiveOptions
 </tr>
 <tr>
 <td>
-<code>credentials</code><br/>
+<code>credentials</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
 AWSSecurityCredentials
@@ -4920,12 +5285,23 @@ AWSSecurityCredentials
 <h3 id="sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">AWSSecurityCredentials
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">AWSCloudWatchSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSourceSpec">AWSCodeCommitSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySourceSpec">AWSCognitoIdentitySourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSourceSpec">AWSCognitoUserPoolSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSourceSpec">AWSDynamoDBSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">AWSPerformanceInsightsSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceSpec">AWSSNSSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">AWSCloudWatchSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSourceSpec">AWSCodeCommitSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySourceSpec">AWSCognitoIdentitySourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSourceSpec">AWSCognitoUserPoolSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSourceSpec">AWSDynamoDBSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">AWSPerformanceInsightsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceSpec">AWSSNSSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>AWSSecurityCredentials represents a set of AWS security credentials.
 See <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a></p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4936,7 +5312,7 @@ See <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credenti
 <tbody>
 <tr>
 <td>
-<code>accessKeyID</code><br/>
+<code>accessKeyID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -4948,7 +5324,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>secretAccessKey</code><br/>
+<code>secretAccessKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -4963,11 +5339,12 @@ ValueFromField
 <h3 id="sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSource">AzureActivityLogsSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSource">AzureActivityLogsSource</a>)
 </p>
-<div>
+<p>
 <p>AzureActivityLogsSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4978,7 +5355,7 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -4993,7 +5370,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -5013,7 +5390,7 @@ subscribed to.</p>
 </tr>
 <tr>
 <td>
-<code>eventHubsSASPolicy</code><br/>
+<code>eventHubsSASPolicy</code></br>
 <em>
 string
 </em>
@@ -5030,7 +5407,7 @@ field.</p>
 </tr>
 <tr>
 <td>
-<code>categories</code><br/>
+<code>categories</code></br>
 <em>
 []string
 </em>
@@ -5044,7 +5421,7 @@ field.</p>
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
 AzureAuth
@@ -5061,11 +5438,12 @@ This event source only supports the ServicePrincipal authentication.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceStatus">AzureActivityLogsSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSource">AzureActivityLogsSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSource">AzureActivityLogsSource</a>)
 </p>
-<div>
+<p>
 <p>AzureActivityLogsSourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5076,7 +5454,7 @@ This event source only supports the ServicePrincipal authentication.</p>
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -5094,11 +5472,17 @@ EventSourceStatus
 <h3 id="sources.triggermesh.io/v1alpha1.AzureAuth">AzureAuth
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceSpec">AzureIOTHubSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">AzureServiceBusQueueSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>AzureAuth contains multiple authentication methods for Azure services.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5109,7 +5493,7 @@ EventSourceStatus
 <tbody>
 <tr>
 <td>
-<code>servicePrincipal</code><br/>
+<code>servicePrincipal</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureServicePrincipal">
 AzureServicePrincipal
@@ -5125,7 +5509,7 @@ See <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/app
 </tr>
 <tr>
 <td>
-<code>sasToken</code><br/>
+<code>sasToken</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureSASToken">
 AzureSASToken
@@ -5143,11 +5527,12 @@ See <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-o
 <h3 id="sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSource">AzureBlobStorageSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSource">AzureBlobStorageSource</a>)
 </p>
-<div>
+<p>
 <p>AzureBlobStorageSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5158,7 +5543,7 @@ See <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-o
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -5173,7 +5558,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>storageAccountID</code><br/>
+<code>storageAccountID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.StorageAccountResourceID">
 StorageAccountResourceID
@@ -5190,7 +5575,7 @@ uniquely identify the Storage Account within Azure.</p>
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -5210,7 +5595,7 @@ Otherwise, the user-provided Event Hub is used.</p>
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -5228,7 +5613,7 @@ to the following event types:
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
 AzureAuth
@@ -5245,11 +5630,12 @@ This event source only supports the ServicePrincipal authentication.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSource">AzureBlobStorageSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSource">AzureBlobStorageSource</a>)
 </p>
-<div>
+<p>
 <p>AzureBlobStorageSourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5260,7 +5646,7 @@ This event source only supports the ServicePrincipal authentication.</p>
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -5275,7 +5661,7 @@ EventSourceStatus
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -5292,11 +5678,12 @@ events from the Azure Event Grid subscription.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSource">AzureEventGridSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSource">AzureEventGridSource</a>)
 </p>
-<div>
+<p>
 <p>AzureEventGridSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5307,7 +5694,7 @@ events from the Azure Event Grid subscription.</p>
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -5322,7 +5709,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>scope</code><br/>
+<code>scope</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
 AzureResourceID
@@ -5342,7 +5729,7 @@ AzureResourceID
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -5358,7 +5745,7 @@ Azure services that support system topics at
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -5378,7 +5765,7 @@ Otherwise, the user-provided Event Hub is used.</p>
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
 AzureAuth
@@ -5395,11 +5782,12 @@ This event source only supports the ServicePrincipal authentication.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSource">AzureEventGridSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSource">AzureEventGridSource</a>)
 </p>
-<div>
+<p>
 <p>AzureEventGridSourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5410,7 +5798,7 @@ This event source only supports the ServicePrincipal authentication.</p>
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -5425,7 +5813,7 @@ EventSourceStatus
 </tr>
 <tr>
 <td>
-<code>eventSubscriptionID</code><br/>
+<code>eventSubscriptionID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
 AzureResourceID
@@ -5439,7 +5827,7 @@ registered for the user-provided scope.</p>
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -5456,11 +5844,12 @@ events from the Azure Event Grid subscription.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource</a>)
 </p>
-<div>
+<p>
 <p>AzureEventHubSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5471,7 +5860,7 @@ events from the Azure Event Grid subscription.</p>
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -5486,7 +5875,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>eventHubID</code><br/>
+<code>eventHubID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
 EventHubResourceID
@@ -5501,7 +5890,7 @@ EventHubResourceID
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
 AzureAuth
@@ -5514,14 +5903,15 @@ AzureAuth
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.AzureQueueStorageSourceSpec">AzureQueueStorageSourceSpec
+<h3 id="sources.triggermesh.io/v1alpha1.AzureIOTHubSourceSpec">AzureIOTHubSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSource">AzureQueueStorageSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSource">AzureIOTHubSource</a>)
 </p>
-<div>
-<p>AzureQueueStorageSourceSpec defines the desired state of the event source.</p>
-</div>
+<p>
+<p>AzureIOTHubSourceSpec defines the desired state of the event source.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -5532,7 +5922,7 @@ AzureAuth
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -5547,7 +5937,88 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>accountName</code><br/>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>AzureAuth contains multiple authentication methods for Azure services.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureIOTHubSourceStatus">AzureIOTHubSourceStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSource">AzureIOTHubSource</a>)
+</p>
+<p>
+<p>AzureIOTHubSourceStatus defines the observed state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>EventSourceStatus</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
+EventSourceStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>EventSourceStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureQueueStorageSourceSpec">AzureQueueStorageSourceSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSource">AzureQueueStorageSource</a>)
+</p>
+<p>
+<p>AzureQueueStorageSourceSpec defines the desired state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>accountName</code></br>
 <em>
 string
 </em>
@@ -5557,7 +6028,7 @@ string
 </tr>
 <tr>
 <td>
-<code>queueName</code><br/>
+<code>queueName</code></br>
 <em>
 string
 </em>
@@ -5567,7 +6038,7 @@ string
 </tr>
 <tr>
 <td>
-<code>accountKey</code><br/>
+<code>accountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -5582,11 +6053,13 @@ ValueFromField
 <h3 id="sources.triggermesh.io/v1alpha1.AzureResourceID">AzureResourceID
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>)
 </p>
-<div>
+<p>
 <p>AzureResourceID represents a resource ID for an Azure resource.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5597,7 +6070,7 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>SubscriptionID</code><br/>
+<code>SubscriptionID</code></br>
 <em>
 string
 </em>
@@ -5607,7 +6080,7 @@ string
 </tr>
 <tr>
 <td>
-<code>ResourceGroup</code><br/>
+<code>ResourceGroup</code></br>
 <em>
 string
 </em>
@@ -5617,7 +6090,7 @@ string
 </tr>
 <tr>
 <td>
-<code>ResourceProvider</code><br/>
+<code>ResourceProvider</code></br>
 <em>
 string
 </em>
@@ -5627,7 +6100,7 @@ string
 </tr>
 <tr>
 <td>
-<code>ResourceType</code><br/>
+<code>ResourceType</code></br>
 <em>
 string
 </em>
@@ -5637,7 +6110,7 @@ string
 </tr>
 <tr>
 <td>
-<code>ResourceName</code><br/>
+<code>ResourceName</code></br>
 <em>
 string
 </em>
@@ -5650,11 +6123,12 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureAuth">AzureAuth</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">AzureAuth</a>)
 </p>
-<div>
+<p>
 <p>AzureSASToken represents an Azure SAS token.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5665,7 +6139,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>keyName</code><br/>
+<code>keyName</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -5677,7 +6151,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>keyValue</code><br/>
+<code>keyValue</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -5689,7 +6163,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>connectionString</code><br/>
+<code>connectionString</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -5701,14 +6175,15 @@ ValueFromField
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">AzureServiceBusQueueSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureAuth">AzureAuth</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSource">AzureServiceBusQueueSource</a>)
 </p>
-<div>
-<p>AzureServicePrincipal represents an AAD Service Principal.</p>
-</div>
+<p>
+<p>AzureServiceBusQueueSourceSpec defines the desired state of the event source.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -5719,7 +6194,87 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>tenantID</code><br/>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceStatus">AzureServiceBusQueueSourceStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSource">AzureServiceBusQueueSource</a>)
+</p>
+<p>
+<p>AzureServiceBusQueueSourceStatus defines the observed state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>EventSourceStatus</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
+EventSourceStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>EventSourceStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">AzureAuth</a>)
+</p>
+<p>
+<p>AzureServicePrincipal represents an AAD Service Principal.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>tenantID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -5731,7 +6286,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>clientID</code><br/>
+<code>clientID</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -5743,7 +6298,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>clientSecret</code><br/>
+<code>clientSecret</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -5758,11 +6313,17 @@ ValueFromField
 <h3 id="sources.triggermesh.io/v1alpha1.EventHubResourceID">EventHubResourceID
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>EventHubResourceID represents a resource ID for an Event Hubs instance or namespace.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5773,7 +6334,7 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>SubscriptionID</code><br/>
+<code>SubscriptionID</code></br>
 <em>
 string
 </em>
@@ -5783,7 +6344,7 @@ string
 </tr>
 <tr>
 <td>
-<code>ResourceGroup</code><br/>
+<code>ResourceGroup</code></br>
 <em>
 string
 </em>
@@ -5793,7 +6354,7 @@ string
 </tr>
 <tr>
 <td>
-<code>Namespace</code><br/>
+<code>Namespace</code></br>
 <em>
 string
 </em>
@@ -5803,7 +6364,7 @@ string
 </tr>
 <tr>
 <td>
-<code>EventHub</code><br/>
+<code>EventHub</code></br>
 <em>
 string
 </em>
@@ -5815,17 +6376,48 @@ string
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.EventSource">EventSource
 </h3>
-<div>
+<p>
 <p>EventSource is implemented by all event source types.</p>
-</div>
+</p>
 <h3 id="sources.triggermesh.io/v1alpha1.EventSourceStatus">EventSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSource">AWSCloudWatchLogsSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSource">AWSCloudWatchSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSource">AWSCodeCommitSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySource">AWSCognitoIdentitySource</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSource">AWSCognitoUserPoolSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSource">AWSDynamoDBSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSource">AWSKinesisSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSource">AWSPerformanceInsightsSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSSQSSource">AWSSQSSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSource">AzureQueueStorageSource</a>, <a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSource">HTTPPollerSource</a>, <a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource</a>, <a href="#sources.triggermesh.io/v1alpha1.SalesforceSource">SalesforceSource</a>, <a href="#sources.triggermesh.io/v1alpha1.SlackSource">SlackSource</a>, <a href="#sources.triggermesh.io/v1alpha1.TwilioSource">TwilioSource</a>, <a href="#sources.triggermesh.io/v1alpha1.WebhookSource">WebhookSource</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceStatus">AWSS3SourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceStatus">AWSSNSSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceStatus">AzureActivityLogsSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatusManager">EventSourceStatusManager</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceStatus">ZendeskSourceStatus</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSource">AWSCloudWatchLogsSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSource">AWSCloudWatchSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSource">AWSCodeCommitSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySource">AWSCognitoIdentitySource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSource">AWSCognitoUserPoolSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSource">AWSDynamoDBSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSource">AWSKinesisSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSource">AWSPerformanceInsightsSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSource">AWSSQSSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSource">AzureQueueStorageSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSource">HTTPPollerSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.SalesforceSource">SalesforceSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.SlackSource">SlackSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.TwilioSource">TwilioSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.WebhookSource">WebhookSource</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceStatus">AWSS3SourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceStatus">AWSSNSSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceStatus">AzureActivityLogsSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceStatus">AzureIOTHubSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceStatus">AzureServiceBusQueueSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatusManager">EventSourceStatusManager</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">GoogleCloudRepositoriesSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceStatus">ZendeskSourceStatus</a>)
 </p>
-<div>
+<p>
 <p>EventSourceStatus defines the observed state of an event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5836,7 +6428,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>SourceStatus</code><br/>
+<code>SourceStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
 knative.dev/pkg/apis/duck/v1.SourceStatus
@@ -5851,7 +6443,7 @@ knative.dev/pkg/apis/duck/v1.SourceStatus
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -5868,9 +6460,9 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.EventSourceStatusManager">EventSourceStatusManager
 </h3>
-<div>
+<p>
 <p>EventSourceStatusManager manages the status of event sources.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5881,7 +6473,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <tbody>
 <tr>
 <td>
-<code>ConditionSet</code><br/>
+<code>ConditionSet</code></br>
 <em>
 knative.dev/pkg/apis.ConditionSet
 </em>
@@ -5891,7 +6483,7 @@ knative.dev/pkg/apis.ConditionSet
 </tr>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -5903,19 +6495,31 @@ EventSourceStatus
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">GCloudPubSubResourceName
+<h3 id="sources.triggermesh.io/v1alpha1.GCloudResourceName">GCloudResourceName
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">GoogleCloudAuditLogsSourcePubSubSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">GoogleCloudBillingSourcePubSubSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">GoogleCloudStorageSourcePubSubSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">GoogleCloudAuditLogsSourcePubSubSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">GoogleCloudBillingSourcePubSubSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourcePubSubSpec">GoogleCloudRepositoriesSourcePubSubSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">GoogleCloudRepositoriesSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">GoogleCloudRepositoriesSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">GoogleCloudStorageSourcePubSubSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>)
 </p>
-<div>
-<p>GCloudPubSubResourceName represents a fully qualified Pub/Sub resource name,
+<p>
+<p>GCloudResourceName represents a fully qualified resource name,
 as described at
-<a href="https://cloud.google.com/pubsub/docs/admin#resource_names">https://cloud.google.com/pubsub/docs/admin#resource_names</a></p>
+<a href="https://cloud.google.com/apis/design/resource_names">https://cloud.google.com/apis/design/resource_names</a></p>
 <p>Examples of such resource names include:
 - projects/{project_name}/topics/{topic_name}
+- projects/{project_name}/repos/{repo_name}
 - projects/{project_name}/subscriptions/{subscription_name}</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5926,7 +6530,7 @@ as described at
 <tbody>
 <tr>
 <td>
-<code>Project</code><br/>
+<code>Project</code></br>
 <em>
 string
 </em>
@@ -5936,7 +6540,7 @@ string
 </tr>
 <tr>
 <td>
-<code>Collection</code><br/>
+<code>Collection</code></br>
 <em>
 string
 </em>
@@ -5946,7 +6550,7 @@ string
 </tr>
 <tr>
 <td>
-<code>Resource</code><br/>
+<code>Resource</code></br>
 <em>
 string
 </em>
@@ -5959,12 +6563,13 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">GoogleCloudAuditLogsSourcePubSubSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudAuditLogsSourcePubSubSpec defines the attributes related to the
 configuration of Pub/Sub resources.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5975,10 +6580,10 @@ configuration of Pub/Sub resources.</p>
 <tbody>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -5994,7 +6599,7 @@ referenced by the Project attribute.</p>
 </tr>
 <tr>
 <td>
-<code>project</code><br/>
+<code>project</code></br>
 <em>
 string
 </em>
@@ -6012,11 +6617,12 @@ the project name.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource">GoogleCloudAuditLogsSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource">GoogleCloudAuditLogsSource</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudAuditLogsSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6027,7 +6633,7 @@ the project name.</p>
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -6042,7 +6648,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>serviceName</code><br/>
+<code>serviceName</code></br>
 <em>
 string
 </em>
@@ -6054,7 +6660,7 @@ example: compute.googleapis.com</p>
 </tr>
 <tr>
 <td>
-<code>methodName</code><br/>
+<code>methodName</code></br>
 <em>
 string
 </em>
@@ -6067,7 +6673,7 @@ beta.compute.instances.insert</p>
 </tr>
 <tr>
 <td>
-<code>resourceName</code><br/>
+<code>resourceName</code></br>
 <em>
 string
 </em>
@@ -6081,7 +6687,7 @@ example: &ldquo;projects/PROJECT_ID/zones/us-central1-a/instances&rdquo;</p>
 </tr>
 <tr>
 <td>
-<code>pubsub</code><br/>
+<code>pubsub</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">
 GoogleCloudAuditLogsSourcePubSubSpec
@@ -6094,7 +6700,7 @@ GoogleCloudAuditLogsSourcePubSubSpec
 </tr>
 <tr>
 <td>
-<code>serviceAccountKey</code><br/>
+<code>serviceAccountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -6111,11 +6717,12 @@ ValueFromField
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource">GoogleCloudAuditLogsSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource">GoogleCloudAuditLogsSource</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudAuditLogsSourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6126,7 +6733,7 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -6141,7 +6748,7 @@ EventSourceStatus
 </tr>
 <tr>
 <td>
-<code>auditLogsSink</code><br/>
+<code>auditLogsSink</code></br>
 <em>
 string
 </em>
@@ -6152,10 +6759,10 @@ string
 </tr>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6165,10 +6772,10 @@ GCloudPubSubResourceName
 </tr>
 <tr>
 <td>
-<code>subscription</code><br/>
+<code>subscription</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6182,12 +6789,13 @@ the managed topic.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">GoogleCloudBillingSourcePubSubSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudBillingSourcePubSubSpec defines the attributes related to the
 configuration of Pub/Sub resources.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6198,10 +6806,10 @@ configuration of Pub/Sub resources.</p>
 <tbody>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6217,7 +6825,7 @@ referenced by the Project attribute.</p>
 </tr>
 <tr>
 <td>
-<code>project</code><br/>
+<code>project</code></br>
 <em>
 string
 </em>
@@ -6235,11 +6843,12 @@ the project name.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudBillingSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6250,7 +6859,7 @@ the project name.</p>
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -6265,7 +6874,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>billingAccountId</code><br/>
+<code>billingAccountId</code></br>
 <em>
 string
 </em>
@@ -6276,7 +6885,7 @@ string
 </tr>
 <tr>
 <td>
-<code>budgetId</code><br/>
+<code>budgetId</code></br>
 <em>
 string
 </em>
@@ -6289,7 +6898,7 @@ The ID is displayed after you select Connect a Pub/Sub topic to this budget.</p>
 </tr>
 <tr>
 <td>
-<code>pubsub</code><br/>
+<code>pubsub</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">
 GoogleCloudBillingSourcePubSubSpec
@@ -6302,7 +6911,7 @@ GoogleCloudBillingSourcePubSubSpec
 </tr>
 <tr>
 <td>
-<code>serviceAccountKey</code><br/>
+<code>serviceAccountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -6319,11 +6928,12 @@ ValueFromField
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudBillingSourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6334,7 +6944,7 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -6349,10 +6959,10 @@ EventSourceStatus
 </tr>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6362,10 +6972,10 @@ GCloudPubSubResourceName
 </tr>
 <tr>
 <td>
-<code>subscription</code><br/>
+<code>subscription</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6379,11 +6989,12 @@ the managed topic.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource">GoogleCloudPubSubSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource">GoogleCloudPubSubSource</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudPubSubSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6394,7 +7005,7 @@ the managed topic.</p>
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -6409,10 +7020,10 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6423,7 +7034,7 @@ format &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;.</p>
 </tr>
 <tr>
 <td>
-<code>subscriptionID</code><br/>
+<code>subscriptionID</code></br>
 <em>
 string
 </em>
@@ -6438,7 +7049,7 @@ created on behalf of the user.</p>
 </tr>
 <tr>
 <td>
-<code>serviceAccountKey</code><br/>
+<code>serviceAccountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -6455,11 +7066,12 @@ ValueFromField
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource">GoogleCloudPubSubSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource">GoogleCloudPubSubSource</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudPubSubSourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6470,7 +7082,7 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -6485,10 +7097,10 @@ EventSourceStatus
 </tr>
 <tr>
 <td>
-<code>subscription</code><br/>
+<code>subscription</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6497,15 +7109,16 @@ GCloudPubSubResourceName
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">GoogleCloudStorageSourcePubSubSpec
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourcePubSubSpec">GoogleCloudRepositoriesSourcePubSubSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">GoogleCloudRepositoriesSourceSpec</a>)
 </p>
-<div>
-<p>GoogleCloudStorageSourcePubSubSpec defines the attributes related to the
+<p>
+<p>GoogleCloudRepositoriesSourcePubSubSpec defines the attributes related to the
 configuration of Pub/Sub resources.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6516,10 +7129,199 @@ configuration of Pub/Sub resources.</p>
 <tbody>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Full resource name of the Pub/Sub topic where change notifications
+originating from the configured sink are sent to. If not supplied,
+a topic is created on behalf of the user, in the GCP project
+referenced by the Project attribute.</p>
+<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
+&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>project</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the GCP project where Pub/Sub resources associated with the
+Cloud repo are to be created.</p>
+<p>Mutually exclusive with Topic which, if supplied, already contains
+the project name.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">GoogleCloudRepositoriesSourceSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSource">GoogleCloudRepositoriesSource</a>)
+</p>
+<p>
+<p>GoogleCloudRepositoriesSourceSpec defines the desired state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>repository</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Name of the Cloud repo to receive notifications from.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>pubsub</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourcePubSubSpec">
+GoogleCloudRepositoriesSourcePubSubSpec
+</a>
+</em>
+</td>
+<td>
+<p>Settings related to the Pub/Sub resources associated with the repo events.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>serviceAccountKey</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>Service account key in JSON format.
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">GoogleCloudRepositoriesSourceStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSource">GoogleCloudRepositoriesSource</a>)
+</p>
+<p>
+<p>GoogleCloudRepositoriesSourceStatus defines the observed state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>EventSourceStatus</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
+EventSourceStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>EventSourceStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Resource name of the target Pub/Sub topic.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>subscription</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Resource name of the managed Pub/Sub subscription associated with
+the managed topic.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">GoogleCloudStorageSourcePubSubSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>)
+</p>
+<p>
+<p>GoogleCloudStorageSourcePubSubSpec defines the attributes related to the
+configuration of Pub/Sub resources.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6535,7 +7337,7 @@ referenced by the Project attribute.</p>
 </tr>
 <tr>
 <td>
-<code>project</code><br/>
+<code>project</code></br>
 <em>
 string
 </em>
@@ -6553,11 +7355,12 @@ the project name.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSource">GoogleCloudStorageSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSource">GoogleCloudStorageSource</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudStorageSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6568,7 +7371,7 @@ the project name.</p>
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -6583,7 +7386,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>bucket</code><br/>
+<code>bucket</code></br>
 <em>
 string
 </em>
@@ -6594,7 +7397,7 @@ string
 </tr>
 <tr>
 <td>
-<code>pubsub</code><br/>
+<code>pubsub</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">
 GoogleCloudStorageSourcePubSubSpec
@@ -6607,7 +7410,7 @@ GoogleCloudStorageSourcePubSubSpec
 </tr>
 <tr>
 <td>
-<code>eventTypes</code><br/>
+<code>eventTypes</code></br>
 <em>
 []string
 </em>
@@ -6622,7 +7425,7 @@ GoogleCloudStorageSourcePubSubSpec
 </tr>
 <tr>
 <td>
-<code>serviceAccountKey</code><br/>
+<code>serviceAccountKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -6639,11 +7442,12 @@ ValueFromField
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSource">GoogleCloudStorageSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSource">GoogleCloudStorageSource</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudStorageSourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6654,7 +7458,7 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -6669,7 +7473,7 @@ EventSourceStatus
 </tr>
 <tr>
 <td>
-<code>notificationID</code><br/>
+<code>notificationID</code></br>
 <em>
 string
 </em>
@@ -6680,10 +7484,10 @@ string
 </tr>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6693,10 +7497,10 @@ GCloudPubSubResourceName
 </tr>
 <tr>
 <td>
-<code>subscription</code><br/>
+<code>subscription</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudPubSubResourceName">
-GCloudPubSubResourceName
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
 </a>
 </em>
 </td>
@@ -6710,11 +7514,12 @@ the managed topic.</p>
 <h3 id="sources.triggermesh.io/v1alpha1.HTTPPollerSourceSpec">HTTPPollerSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSource">HTTPPollerSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSource">HTTPPollerSource</a>)
 </p>
-<div>
+<p>
 <p>HTTPPollerSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6725,7 +7530,7 @@ the managed topic.</p>
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -6745,7 +7550,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>eventType</code><br/>
+<code>eventType</code></br>
 <em>
 string
 </em>
@@ -6757,7 +7562,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventSource</code><br/>
+<code>eventSource</code></br>
 <em>
 string
 </em>
@@ -6770,7 +7575,7 @@ string
 </tr>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
 knative.dev/pkg/apis.URL
@@ -6783,7 +7588,7 @@ knative.dev/pkg/apis.URL
 </tr>
 <tr>
 <td>
-<code>method</code><br/>
+<code>method</code></br>
 <em>
 string
 </em>
@@ -6795,7 +7600,7 @@ string
 </tr>
 <tr>
 <td>
-<code>skipVerify</code><br/>
+<code>skipVerify</code></br>
 <em>
 bool
 </em>
@@ -6808,7 +7613,7 @@ chain and host name when communicating over TLS.</p>
 </tr>
 <tr>
 <td>
-<code>caCertificate</code><br/>
+<code>caCertificate</code></br>
 <em>
 string
 </em>
@@ -6821,7 +7626,7 @@ the identity of remote servers when communicating over TLS.</p>
 </tr>
 <tr>
 <td>
-<code>basicAuthUsername</code><br/>
+<code>basicAuthUsername</code></br>
 <em>
 string
 </em>
@@ -6833,7 +7638,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthPassword</code><br/>
+<code>basicAuthPassword</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -6847,7 +7652,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>headers</code><br/>
+<code>headers</code></br>
 <em>
 map[string]string
 </em>
@@ -6859,7 +7664,7 @@ map[string]string
 </tr>
 <tr>
 <td>
-<code>interval</code><br/>
+<code>interval</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
 </em>
@@ -6874,10 +7679,12 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <h3 id="sources.triggermesh.io/v1alpha1.OCIMetrics">OCIMetrics
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSourceSpec">OCIMetricsSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSourceSpec">OCIMetricsSourceSpec</a>)
 </p>
-<div>
-</div>
+<p>
+<p>OCIMetrics represents OCI metrics structure.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -6888,7 +7695,7 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <tbody>
 <tr>
 <td>
-<code>name</code><br/>
+<code>name</code></br>
 <em>
 string
 </em>
@@ -6899,7 +7706,7 @@ string
 </tr>
 <tr>
 <td>
-<code>metricsNamespace</code><br/>
+<code>metricsNamespace</code></br>
 <em>
 string
 </em>
@@ -6910,7 +7717,7 @@ string
 </tr>
 <tr>
 <td>
-<code>metricsQuery</code><br/>
+<code>metricsQuery</code></br>
 <em>
 string
 </em>
@@ -6921,7 +7728,7 @@ string
 </tr>
 <tr>
 <td>
-<code>oracleCompartment</code><br/>
+<code>oracleCompartment</code></br>
 <em>
 string
 </em>
@@ -6935,11 +7742,12 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.OCIMetricsSourceSpec">OCIMetricsSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource</a>)
 </p>
-<div>
+<p>
 <p>OCIMetricsSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6950,7 +7758,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -6970,7 +7778,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKey</code><br/>
+<code>oracleApiPrivateKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -6983,7 +7791,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKeyPassphrase</code><br/>
+<code>oracleApiPrivateKeyPassphrase</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -6996,7 +7804,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKeyFingerprint</code><br/>
+<code>oracleApiPrivateKeyFingerprint</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -7009,7 +7817,7 @@ ValueFromField
 </tr>
 <tr>
 <td>
-<code>oracleTenancy</code><br/>
+<code>oracleTenancy</code></br>
 <em>
 string
 </em>
@@ -7020,7 +7828,7 @@ string
 </tr>
 <tr>
 <td>
-<code>oracleUser</code><br/>
+<code>oracleUser</code></br>
 <em>
 string
 </em>
@@ -7031,7 +7839,7 @@ string
 </tr>
 <tr>
 <td>
-<code>oracleRegion</code><br/>
+<code>oracleRegion</code></br>
 <em>
 string
 </em>
@@ -7042,7 +7850,7 @@ string
 </tr>
 <tr>
 <td>
-<code>metricsPollingFrequency</code><br/>
+<code>metricsPollingFrequency</code></br>
 <em>
 string
 </em>
@@ -7054,7 +7862,7 @@ string
 </tr>
 <tr>
 <td>
-<code>metrics</code><br/>
+<code>metrics</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.OCIMetrics">
 []OCIMetrics
@@ -7070,11 +7878,12 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.SalesforceSourceSpec">SalesforceSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.SalesforceSourceSpec">SalesforceSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>SalesforceAuth contains Salesforce credentials.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7085,7 +7894,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>clientID</code><br/>
+<code>clientID</code></br>
 <em>
 string
 </em>
@@ -7095,7 +7904,7 @@ string
 </tr>
 <tr>
 <td>
-<code>server</code><br/>
+<code>server</code></br>
 <em>
 string
 </em>
@@ -7105,7 +7914,7 @@ string
 </tr>
 <tr>
 <td>
-<code>user</code><br/>
+<code>user</code></br>
 <em>
 string
 </em>
@@ -7115,7 +7924,7 @@ string
 </tr>
 <tr>
 <td>
-<code>certKey</code><br/>
+<code>certKey</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -7130,11 +7939,12 @@ ValueFromField
 <h3 id="sources.triggermesh.io/v1alpha1.SalesforceSourceSpec">SalesforceSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.SalesforceSource">SalesforceSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.SalesforceSource">SalesforceSource</a>)
 </p>
-<div>
+<p>
 <p>SalesforceSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7145,7 +7955,7 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -7160,7 +7970,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.SalesforceAuth">
 SalesforceAuth
@@ -7173,7 +7983,7 @@ SalesforceAuth
 </tr>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 <em>
 string
 </em>
@@ -7185,7 +7995,7 @@ string
 </tr>
 <tr>
 <td>
-<code>subscription</code><br/>
+<code>subscription</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.SalesforceSubscription">
 SalesforceSubscription
@@ -7201,11 +8011,12 @@ SalesforceSubscription
 <h3 id="sources.triggermesh.io/v1alpha1.SalesforceSubscription">SalesforceSubscription
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.SalesforceSourceSpec">SalesforceSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.SalesforceSourceSpec">SalesforceSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>SalesforceSubscription to connect to.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7216,7 +8027,7 @@ SalesforceSubscription
 <tbody>
 <tr>
 <td>
-<code>channel</code><br/>
+<code>channel</code></br>
 <em>
 string
 </em>
@@ -7226,7 +8037,7 @@ string
 </tr>
 <tr>
 <td>
-<code>replayID</code><br/>
+<code>replayID</code></br>
 <em>
 int
 </em>
@@ -7239,11 +8050,12 @@ int
 <h3 id="sources.triggermesh.io/v1alpha1.SlackSourceSpec">SlackSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.SlackSource">SlackSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.SlackSource">SlackSource</a>)
 </p>
-<div>
+<p>
 <p>SlackSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7254,7 +8066,7 @@ int
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -7274,7 +8086,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>signingSecret</code><br/>
+<code>signingSecret</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -7290,7 +8102,7 @@ See: <a href="https://api.slack.com/authentication/verifying-requests-from-slack
 </tr>
 <tr>
 <td>
-<code>appID</code><br/>
+<code>appID</code></br>
 <em>
 string
 </em>
@@ -7307,11 +8119,12 @@ applications shared an endpoint. See: <a href="https://api.slack.com/events-api"
 <h3 id="sources.triggermesh.io/v1alpha1.StorageAccountResourceID">StorageAccountResourceID
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>StorageAccountResourceID represents a resource ID for a Storage Account.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7322,7 +8135,7 @@ applications shared an endpoint. See: <a href="https://api.slack.com/events-api"
 <tbody>
 <tr>
 <td>
-<code>SubscriptionID</code><br/>
+<code>SubscriptionID</code></br>
 <em>
 string
 </em>
@@ -7332,7 +8145,7 @@ string
 </tr>
 <tr>
 <td>
-<code>ResourceGroup</code><br/>
+<code>ResourceGroup</code></br>
 <em>
 string
 </em>
@@ -7342,7 +8155,7 @@ string
 </tr>
 <tr>
 <td>
-<code>StorageAccount</code><br/>
+<code>StorageAccount</code></br>
 <em>
 string
 </em>
@@ -7355,11 +8168,12 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.TwilioSourceSpec">TwilioSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.TwilioSource">TwilioSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.TwilioSource">TwilioSource</a>)
 </p>
-<div>
+<p>
 <p>TwilioSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7370,7 +8184,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -7388,12 +8202,27 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <h3 id="sources.triggermesh.io/v1alpha1.ValueFromField">ValueFromField
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">AWSSecurityCredentials</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSourceSpec">AzureQueueStorageSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken</a>, <a href="#sources.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSourceSpec">HTTPPollerSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSourceSpec">OCIMetricsSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth</a>, <a href="#sources.triggermesh.io/v1alpha1.SlackSourceSpec">SlackSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec</a>, <a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceSpec">ZendeskSourceSpec</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">AWSSecurityCredentials</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSourceSpec">AzureQueueStorageSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">GoogleCloudRepositoriesSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSourceSpec">HTTPPollerSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSourceSpec">OCIMetricsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.SlackSourceSpec">SlackSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceSpec">ZendeskSourceSpec</a>)
 </p>
-<div>
+<p>
 <p>ValueFromField is a struct field that can have its value either defined
 explicitly or sourced from another entity.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7404,7 +8233,7 @@ explicitly or sourced from another entity.</p>
 <tbody>
 <tr>
 <td>
-<code>value</code><br/>
+<code>value</code></br>
 <em>
 string
 </em>
@@ -7416,7 +8245,7 @@ string
 </tr>
 <tr>
 <td>
-<code>valueFromSecret</code><br/>
+<code>valueFromSecret</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#secretkeyselector-v1-core">
 Kubernetes core/v1.SecretKeySelector
@@ -7433,11 +8262,12 @@ Kubernetes core/v1.SecretKeySelector
 <h3 id="sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.WebhookSource">WebhookSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.WebhookSource">WebhookSource</a>)
 </p>
-<div>
+<p>
 <p>WebhookSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7448,7 +8278,7 @@ Kubernetes core/v1.SecretKeySelector
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -7468,7 +8298,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>eventType</code><br/>
+<code>eventType</code></br>
 <em>
 string
 </em>
@@ -7480,7 +8310,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventSource</code><br/>
+<code>eventSource</code></br>
 <em>
 string
 </em>
@@ -7493,7 +8323,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthUsername</code><br/>
+<code>basicAuthUsername</code></br>
 <em>
 string
 </em>
@@ -7505,7 +8335,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthPassword</code><br/>
+<code>basicAuthPassword</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -7522,11 +8352,12 @@ ValueFromField
 <h3 id="sources.triggermesh.io/v1alpha1.ZendeskSourceSpec">ZendeskSourceSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.ZendeskSource">ZendeskSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.ZendeskSource">ZendeskSource</a>)
 </p>
-<div>
+<p>
 <p>ZendeskSourceSpec defines the desired state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7537,7 +8368,7 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>SourceSpec</code><br/>
+<code>SourceSpec</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
 knative.dev/pkg/apis/duck/v1.SourceSpec
@@ -7557,7 +8388,7 @@ and modifications of the event sent to the sink.</p>
 </tr>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -7571,7 +8402,7 @@ allowing the source to auto-register the webhook to authenticate callbacks.</p>
 </tr>
 <tr>
 <td>
-<code>email</code><br/>
+<code>email</code></br>
 <em>
 string
 </em>
@@ -7583,7 +8414,7 @@ allowing the source to auto-register the webhook to authenticate callbacks.</p>
 </tr>
 <tr>
 <td>
-<code>webhookPassword</code><br/>
+<code>webhookPassword</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -7597,7 +8428,7 @@ to the adapter.</p>
 </tr>
 <tr>
 <td>
-<code>webhookUsername</code><br/>
+<code>webhookUsername</code></br>
 <em>
 string
 </em>
@@ -7609,7 +8440,7 @@ to the adapter.</p>
 </tr>
 <tr>
 <td>
-<code>subdomain</code><br/>
+<code>subdomain</code></br>
 <em>
 string
 </em>
@@ -7623,11 +8454,12 @@ string
 <h3 id="sources.triggermesh.io/v1alpha1.ZendeskSourceStatus">ZendeskSourceStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#sources.triggermesh.io/v1alpha1.ZendeskSource">ZendeskSource</a>)
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.ZendeskSource">ZendeskSource</a>)
 </p>
-<div>
+<p>
 <p>ZendeskSourceStatus defines the observed state of the event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7638,7 +8470,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code><br/>
+<code>EventSourceStatus</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
 EventSourceStatus
@@ -7656,5 +8488,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ffb9f0d</code>.
+on git commit <code>c307f87</code>.
 </em></p>

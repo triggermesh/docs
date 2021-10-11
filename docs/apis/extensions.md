@@ -1,48 +1,27 @@
-<p>Packages:</p>
+<style>
+.bs-sidebar {
+display: none;
+}
+</style>
+<p>Package:</p>
 <ul>
 <li>
 <a href="#extensions.triggermesh.io%2fv1alpha1">extensions.triggermesh.io/v1alpha1</a>
 </li>
 </ul>
 <h2 id="extensions.triggermesh.io/v1alpha1">extensions.triggermesh.io/v1alpha1</h2>
-<div>
-</div>
-Resource Types:
-<ul></ul>
-<h3 id="extensions.triggermesh.io/v1alpha1.EventStoreConnection">EventStoreConnection
-</h3>
 <p>
-(<em>Appears on:</em><a href="#extensions.triggermesh.io/v1alpha1.FunctionSpec">FunctionSpec</a>)
+<p>Package v1alpha1 contains API Schema definitions for the extensions/v1alpha1 API group.</p>
 </p>
-<div>
-<p>EventStoreConnection contains the data to connect to
-an EventStore instance</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>uri</code><br/>
-<em>
-string
-</em>
-</td>
-<td>
-<p>URI is the gRPC location to the EventStore</p>
-</td>
-</tr>
-</tbody>
-</table>
+Resource Types:
+<ul><li>
+<a href="#extensions.triggermesh.io/v1alpha1.Function">Function</a>
+</li></ul>
 <h3 id="extensions.triggermesh.io/v1alpha1.Function">Function
 </h3>
-<div>
-</div>
+<p>
+<p>Function is an addressable object that executes function code.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -53,7 +32,24 @@ string
 <tbody>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+extensions.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>Function</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -68,7 +64,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#extensions.triggermesh.io/v1alpha1.FunctionSpec">
 FunctionSpec
@@ -83,7 +79,7 @@ FunctionSpec
 <table>
 <tr>
 <td>
-<code>runtime</code><br/>
+<code>runtime</code></br>
 <em>
 string
 </em>
@@ -93,7 +89,7 @@ string
 </tr>
 <tr>
 <td>
-<code>entrypoint</code><br/>
+<code>entrypoint</code></br>
 <em>
 string
 </em>
@@ -103,7 +99,7 @@ string
 </tr>
 <tr>
 <td>
-<code>public</code><br/>
+<code>public</code></br>
 <em>
 bool
 </em>
@@ -113,7 +109,7 @@ bool
 </tr>
 <tr>
 <td>
-<code>code</code><br/>
+<code>code</code></br>
 <em>
 string
 </em>
@@ -123,9 +119,9 @@ string
 </tr>
 <tr>
 <td>
-<code>responseMode</code><br/>
+<code>responseIsEvent</code></br>
 <em>
-string
+bool
 </em>
 </td>
 <td>
@@ -133,7 +129,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventStore</code><br/>
+<code>eventStore</code></br>
 <em>
 <a href="#extensions.triggermesh.io/v1alpha1.EventStoreConnection">
 EventStoreConnection
@@ -145,7 +141,7 @@ EventStoreConnection
 </tr>
 <tr>
 <td>
-<code>ceOverrides</code><br/>
+<code>ceOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#CloudEventOverrides">
 knative.dev/pkg/apis/duck/v1.CloudEventOverrides
@@ -157,7 +153,7 @@ knative.dev/pkg/apis/duck/v1.CloudEventOverrides
 </tr>
 <tr>
 <td>
-<code>sink</code><br/>
+<code>sink</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
 knative.dev/pkg/apis/duck/v1.Destination
@@ -172,7 +168,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#extensions.triggermesh.io/v1alpha1.FunctionStatus">
 FunctionStatus
@@ -186,14 +182,16 @@ FunctionStatus
 </tr>
 </tbody>
 </table>
-<h3 id="extensions.triggermesh.io/v1alpha1.FunctionSpec">FunctionSpec
+<h3 id="extensions.triggermesh.io/v1alpha1.EventStoreConnection">EventStoreConnection
 </h3>
 <p>
-(<em>Appears on:</em><a href="#extensions.triggermesh.io/v1alpha1.Function">Function</a>)
+(<em>Appears on:</em>
+<a href="#extensions.triggermesh.io/v1alpha1.FunctionSpec">FunctionSpec</a>)
 </p>
-<div>
-<p>FunctionSpec holds the desired state of the Function Specification</p>
-</div>
+<p>
+<p>EventStoreConnection contains the data to connect to
+an EventStore instance</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -204,7 +202,37 @@ FunctionStatus
 <tbody>
 <tr>
 <td>
-<code>runtime</code><br/>
+<code>uri</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>URI is the gRPC location to the EventStore</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="extensions.triggermesh.io/v1alpha1.FunctionSpec">FunctionSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#extensions.triggermesh.io/v1alpha1.Function">Function</a>)
+</p>
+<p>
+<p>FunctionSpec holds the desired state of the Function Specification</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>runtime</code></br>
 <em>
 string
 </em>
@@ -214,7 +242,7 @@ string
 </tr>
 <tr>
 <td>
-<code>entrypoint</code><br/>
+<code>entrypoint</code></br>
 <em>
 string
 </em>
@@ -224,7 +252,7 @@ string
 </tr>
 <tr>
 <td>
-<code>public</code><br/>
+<code>public</code></br>
 <em>
 bool
 </em>
@@ -234,7 +262,7 @@ bool
 </tr>
 <tr>
 <td>
-<code>code</code><br/>
+<code>code</code></br>
 <em>
 string
 </em>
@@ -244,9 +272,9 @@ string
 </tr>
 <tr>
 <td>
-<code>responseMode</code><br/>
+<code>responseIsEvent</code></br>
 <em>
-string
+bool
 </em>
 </td>
 <td>
@@ -254,7 +282,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventStore</code><br/>
+<code>eventStore</code></br>
 <em>
 <a href="#extensions.triggermesh.io/v1alpha1.EventStoreConnection">
 EventStoreConnection
@@ -266,7 +294,7 @@ EventStoreConnection
 </tr>
 <tr>
 <td>
-<code>ceOverrides</code><br/>
+<code>ceOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#CloudEventOverrides">
 knative.dev/pkg/apis/duck/v1.CloudEventOverrides
@@ -278,7 +306,7 @@ knative.dev/pkg/apis/duck/v1.CloudEventOverrides
 </tr>
 <tr>
 <td>
-<code>sink</code><br/>
+<code>sink</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
 knative.dev/pkg/apis/duck/v1.Destination
@@ -293,11 +321,12 @@ knative.dev/pkg/apis/duck/v1.Destination
 <h3 id="extensions.triggermesh.io/v1alpha1.FunctionStatus">FunctionStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#extensions.triggermesh.io/v1alpha1.Function">Function</a>)
+(<em>Appears on:</em>
+<a href="#extensions.triggermesh.io/v1alpha1.Function">Function</a>)
 </p>
-<div>
+<p>
 <p>FunctionStatus communicates the observed state of the Function (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -308,7 +337,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 <tbody>
 <tr>
 <td>
-<code>SourceStatus</code><br/>
+<code>SourceStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
 knative.dev/pkg/apis/duck/v1.SourceStatus
@@ -323,7 +352,7 @@ knative.dev/pkg/apis/duck/v1.SourceStatus
 </tr>
 <tr>
 <td>
-<code>address</code><br/>
+<code>address</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Addressable">
 knative.dev/pkg/apis/duck/v1.Addressable
@@ -340,5 +369,5 @@ knative.dev/pkg/apis/duck/v1.Addressable
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ffb9f0d</code>.
+on git commit <code>c307f87</code>.
 </em></p>

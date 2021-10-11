@@ -1,13 +1,18 @@
-<p>Packages:</p>
+<style>
+.bs-sidebar {
+display: none;
+}
+</style>
+<p>Package:</p>
 <ul>
 <li>
 <a href="#targets.triggermesh.io%2fv1alpha1">targets.triggermesh.io/v1alpha1</a>
 </li>
 </ul>
 <h2 id="targets.triggermesh.io/v1alpha1">targets.triggermesh.io/v1alpha1</h2>
-<div>
+<p>
 <p>Package v1alpha1 contains API Schema definitions for the targets/v1alpha1 API group.</p>
-</div>
+</p>
 Resource Types:
 <ul><li>
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget</a>
@@ -70,9 +75,9 @@ Resource Types:
 </li></ul>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget
 </h3>
-<div>
+<p>
 <p>AWSComprehendTarget is the Schema for an AWS Comprehend Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -83,7 +88,7 @@ Resource Types:
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -93,14 +98,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSComprehendTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -114,7 +119,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">
 AWSComprehendTargetSpec
@@ -128,7 +133,7 @@ AWSComprehendTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -136,12 +141,12 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
+<p>AWS account Key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -149,23 +154,23 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>AWS account secret key</p>
+<p>AWS account secret key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>region</code><br/>
+<code>region</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Region</p>
+<p>Region to use for calling into Comprehend API.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -173,17 +178,18 @@ EventOptions
 </em>
 </td>
 <td>
-<p>EventOptions for targets</p>
+<p>EventOptions for targets.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>language</code><br/>
+<code>language</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>Language code to use to interact with Comprehend. The supported list can be found at: <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html</a></p>
 </td>
 </tr>
 </table>
@@ -191,7 +197,7 @@ string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">
 AWSComprehendTargetStatus
@@ -206,9 +212,9 @@ AWSComprehendTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget
 </h3>
-<div>
+<p>
 <p>AWSDynamoDBTarget is the Schema for an AWS DynamoDB Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -219,7 +225,7 @@ AWSComprehendTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -229,14 +235,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSDynamoDBTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -250,7 +256,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetSpec">
 AWSDynamoDBTargetSpec
@@ -264,7 +270,7 @@ AWSDynamoDBTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -277,7 +283,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -290,7 +296,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -305,7 +311,7 @@ string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">
 AWSDynamoDBTargetStatus
@@ -320,9 +326,9 @@ AWSDynamoDBTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget
 </h3>
-<div>
+<p>
 <p>AWSKinesisTarget is the Schema for an AWS Kinesis Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -333,7 +339,7 @@ AWSDynamoDBTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -343,14 +349,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSKinesisTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -364,7 +370,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTargetSpec">
 AWSKinesisTargetSpec
@@ -378,7 +384,7 @@ AWSKinesisTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -391,7 +397,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -404,7 +410,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -416,7 +422,7 @@ string
 </tr>
 <tr>
 <td>
-<code>partition</code><br/>
+<code>partition</code></br>
 <em>
 string
 </em>
@@ -427,7 +433,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -443,7 +449,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
 AWSTargetStatus
@@ -458,9 +464,9 @@ AWSTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget
 </h3>
-<div>
+<p>
 <p>AWSLambdaTarget is the Schema for an AWS Lambda Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -471,7 +477,7 @@ AWSTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -481,14 +487,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSLambdaTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -502,7 +508,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTargetSpec">
 AWSLambdaTargetSpec
@@ -516,7 +522,7 @@ AWSLambdaTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -529,7 +535,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -542,7 +548,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -554,7 +560,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -570,7 +576,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
 AWSTargetStatus
@@ -585,9 +591,9 @@ AWSTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSS3Target">AWSS3Target
 </h3>
-<div>
+<p>
 <p>AWSS3Target is the Schema for an AWS s3 Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -598,7 +604,7 @@ AWSTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -608,14 +614,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSS3Target</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -629,7 +635,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetSpec">
 AWSS3TargetSpec
@@ -643,7 +649,7 @@ AWSS3TargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -656,7 +662,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -669,7 +675,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -681,7 +687,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -697,7 +703,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">
 AWSS3TargetStatus
@@ -712,9 +718,9 @@ AWSS3TargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget
 </h3>
-<div>
-<p>AWSTarget is the Schema for an AWS Target.</p>
-</div>
+<p>
+<p>AWSSNSTarget is the Schema for the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -725,7 +731,7 @@ AWSS3TargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -735,14 +741,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSSNSTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -756,7 +762,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSSNSTargetSpec">
 AWSSNSTargetSpec
@@ -770,7 +776,7 @@ AWSSNSTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -783,7 +789,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -796,7 +802,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -808,7 +814,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -824,7 +830,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
 AWSTargetStatus
@@ -839,9 +845,9 @@ AWSTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget
 </h3>
-<div>
+<p>
 <p>AWSSQSTarget is the Schema for an AWS SQS Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -852,7 +858,7 @@ AWSTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -862,14 +868,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AWSSQSTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -883,7 +889,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSSQSTargetSpec">
 AWSSQSTargetSpec
@@ -897,7 +903,7 @@ AWSSQSTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -910,7 +916,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -923,7 +929,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -935,7 +941,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -951,7 +957,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
 AWSTargetStatus
@@ -966,9 +972,9 @@ AWSTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget
 </h3>
-<div>
+<p>
 <p>AlibabaOSSTarget is the Schema for an Alibaba Object Storage Service Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -979,7 +985,7 @@ AWSTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -989,14 +995,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>AlibabaOSSTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1010,7 +1016,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">
 AlibabaOSSTargetSpec
@@ -1023,7 +1029,7 @@ AlibabaOSSTargetSpec
 <table>
 <tr>
 <td>
-<code>accessKeyID</code><br/>
+<code>accessKeyID</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -1031,11 +1037,14 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<p>Alibaba SDK access key id as registered. For more information on how to
+create an access key pair, please refer to
+<a href="https://www.alibabacloud.com/help/doc-detail/53045.htm?spm=a2c63.p38356.879954.9.23bc7d91ARN6Hy#task968">https://www.alibabacloud.com/help/doc-detail/53045.htm?spm=a2c63.p38356.879954.9.23bc7d91ARN6Hy#task968</a>.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>accessKeySecret</code><br/>
+<code>accessKeySecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -1043,31 +1052,36 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<p>Alibaba SDK access key secret as registered.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>The domain name used to access the OSS. For more information, please refer
+to the region and endpoint guide at
+<a href="https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.p38356.879954.8.23bc7d91ARN6Hy#concept-zt4-cvy-5db">https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.p38356.879954.8.23bc7d91ARN6Hy#concept-zt4-cvy-5db</a></p>
 </td>
 </tr>
 <tr>
 <td>
-<code>bucket</code><br/>
+<code>bucket</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>The unique container to store objects in OSS.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -1083,7 +1097,7 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">
 AlibabaOSSTargetStatus
@@ -1097,9 +1111,9 @@ AlibabaOSSTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget
 </h3>
-<div>
+<p>
 <p>ConfluentTarget is the Schema for an ConfluentTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1110,7 +1124,7 @@ AlibabaOSSTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1120,14 +1134,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>ConfluentTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1141,7 +1155,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.ConfluentTargetSpec">
 ConfluentTargetSpec
@@ -1155,7 +1169,7 @@ ConfluentTargetSpec
 <table>
 <tr>
 <td>
-<code>username</code><br/>
+<code>username</code></br>
 <em>
 string
 </em>
@@ -1166,7 +1180,7 @@ string
 </tr>
 <tr>
 <td>
-<code>password</code><br/>
+<code>password</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -1179,7 +1193,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
 string
 </em>
@@ -1190,7 +1204,7 @@ string
 </tr>
 <tr>
 <td>
-<code>topicReplicationFactor</code><br/>
+<code>topicReplicationFactor</code></br>
 <em>
 int
 </em>
@@ -1202,7 +1216,7 @@ int
 </tr>
 <tr>
 <td>
-<code>topicPartitions</code><br/>
+<code>topicPartitions</code></br>
 <em>
 int
 </em>
@@ -1214,7 +1228,7 @@ int
 </tr>
 <tr>
 <td>
-<code>bootstrapServers</code><br/>
+<code>bootstrapServers</code></br>
 <em>
 []string
 </em>
@@ -1225,7 +1239,7 @@ int
 </tr>
 <tr>
 <td>
-<code>securityProtocol</code><br/>
+<code>securityProtocol</code></br>
 <em>
 string
 </em>
@@ -1236,7 +1250,7 @@ string
 </tr>
 <tr>
 <td>
-<code>saslMechanism</code><br/>
+<code>saslMechanism</code></br>
 <em>
 string
 </em>
@@ -1247,7 +1261,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -1263,7 +1277,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.ConfluentTargetStatus">
 ConfluentTargetStatus
@@ -1278,9 +1292,9 @@ ConfluentTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget
 </h3>
-<div>
+<p>
 <p>DatadogTarget is the Schema for an HTTP Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1291,7 +1305,7 @@ ConfluentTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1301,14 +1315,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>DatadogTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1322,7 +1336,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">
 DatadogTargetSpec
@@ -1335,7 +1349,7 @@ DatadogTargetSpec
 <table>
 <tr>
 <td>
-<code>apiKey</code><br/>
+<code>apiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -1348,7 +1362,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>metricPrefix</code><br/>
+<code>metricPrefix</code></br>
 <em>
 string
 </em>
@@ -1360,7 +1374,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -1376,7 +1390,7 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetStatus">
 DatadogTargetStatus
@@ -1390,9 +1404,9 @@ DatadogTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.ElasticsearchTarget">ElasticsearchTarget
 </h3>
-<div>
+<p>
 <p>ElasticsearchTarget is the Schema for an Elasticsearch Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1403,7 +1417,7 @@ DatadogTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1413,14 +1427,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>ElasticsearchTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1435,7 +1449,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">
 ElasticsearchTargetSpec
@@ -1449,7 +1463,7 @@ ElasticsearchTargetSpec
 <table>
 <tr>
 <td>
-<code>connection</code><br/>
+<code>connection</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.Connection">
 Connection
@@ -1458,23 +1472,23 @@ Connection
 </td>
 <td>
 <em>(Optional)</em>
-<p>Connection information to elasticsearch</p>
+<p>Connection information to elasticsearch.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>indexName</code><br/>
+<code>indexName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>IndexName to write to</p>
+<p>IndexName to write to.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -1487,7 +1501,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -1495,7 +1509,7 @@ EventOptions
 </em>
 </td>
 <td>
-<p>EventOptions for targets</p>
+<p>EventOptions for targets.</p>
 </td>
 </tr>
 </table>
@@ -1503,7 +1517,7 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetStatus">
 ElasticsearchTargetStatus
@@ -1519,9 +1533,9 @@ ElasticsearchTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget
 </h3>
-<div>
+<p>
 <p>GoogleCloudFirestoreTarget is the Schema for the GoogleCloudFirestore Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1532,7 +1546,7 @@ ElasticsearchTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1542,14 +1556,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>GoogleCloudFirestoreTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1563,7 +1577,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">
 GoogleCloudFirestoreTargetSpec
@@ -1576,7 +1590,7 @@ GoogleCloudFirestoreTargetSpec
 <table>
 <tr>
 <td>
-<code>credentialsJson</code><br/>
+<code>credentialsJson</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -1589,7 +1603,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>defaultCollection</code><br/>
+<code>defaultCollection</code></br>
 <em>
 string
 </em>
@@ -1600,7 +1614,7 @@ string
 </tr>
 <tr>
 <td>
-<code>projectID</code><br/>
+<code>projectID</code></br>
 <em>
 string
 </em>
@@ -1611,7 +1625,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -1624,7 +1638,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -1640,7 +1654,7 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetStatus">
 GoogleCloudFirestoreTargetStatus
@@ -1654,9 +1668,9 @@ GoogleCloudFirestoreTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget
 </h3>
-<div>
+<p>
 <p>GoogleCloudStorageTarget is the Schema for an Google Storage Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1667,7 +1681,7 @@ GoogleCloudFirestoreTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1677,14 +1691,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>GoogleCloudStorageTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1698,7 +1712,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">
 GoogleCloudStorageTargetSpec
@@ -1711,7 +1725,7 @@ GoogleCloudStorageTargetSpec
 <table>
 <tr>
 <td>
-<code>credentialsJson</code><br/>
+<code>credentialsJson</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -1724,7 +1738,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>bucketName</code><br/>
+<code>bucketName</code></br>
 <em>
 string
 </em>
@@ -1735,7 +1749,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -1751,7 +1765,7 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetStatus">
 GoogleCloudStorageTargetStatus
@@ -1765,9 +1779,9 @@ GoogleCloudStorageTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget
 </h3>
-<div>
+<p>
 <p>GoogleCloudWorkflowsTarget is the Schema for an Google Cloud Workflows Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1778,7 +1792,7 @@ GoogleCloudStorageTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1788,14 +1802,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>GoogleCloudWorkflowsTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1809,7 +1823,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">
 GoogleCloudWorkflowsTargetSpec
@@ -1822,7 +1836,7 @@ GoogleCloudWorkflowsTargetSpec
 <table>
 <tr>
 <td>
-<code>credentialsJson</code><br/>
+<code>credentialsJson</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -1835,7 +1849,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -1851,7 +1865,7 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetStatus">
 GoogleCloudWorkflowsTargetStatus
@@ -1865,9 +1879,9 @@ GoogleCloudWorkflowsTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleSheetTarget">GoogleSheetTarget
 </h3>
-<div>
+<p>
 <p>GoogleSheetTarget is the Schema for an GoogleSheet Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1878,7 +1892,7 @@ GoogleCloudWorkflowsTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -1888,14 +1902,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>GoogleSheetTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -1910,7 +1924,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetSpec">
 GoogleSheetTargetSpec
@@ -1924,7 +1938,7 @@ GoogleSheetTargetSpec
 <table>
 <tr>
 <td>
-<code>googleServiceAccount</code><br/>
+<code>googleServiceAccount</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -1937,7 +1951,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>id</code><br/>
+<code>id</code></br>
 <em>
 string
 </em>
@@ -1948,7 +1962,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultPrefix</code><br/>
+<code>defaultPrefix</code></br>
 <em>
 string
 </em>
@@ -1962,7 +1976,7 @@ string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetStatus">
 GoogleSheetTargetStatus
@@ -1978,9 +1992,9 @@ GoogleSheetTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget
 </h3>
-<div>
+<p>
 <p>HTTPTarget is the Schema for an HTTP Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -1991,7 +2005,7 @@ GoogleSheetTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2001,14 +2015,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>HTTPTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2022,7 +2036,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.HTTPTargetSpec">
 HTTPTargetSpec
@@ -2035,7 +2049,7 @@ HTTPTargetSpec
 <table>
 <tr>
 <td>
-<code>response</code><br/>
+<code>response</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.HTTPEventResponse">
 HTTPEventResponse
@@ -2048,7 +2062,7 @@ HTTPEventResponse
 </tr>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
 knative.dev/pkg/apis.URL
@@ -2061,7 +2075,7 @@ knative.dev/pkg/apis.URL
 </tr>
 <tr>
 <td>
-<code>method</code><br/>
+<code>method</code></br>
 <em>
 string
 </em>
@@ -2072,7 +2086,7 @@ string
 </tr>
 <tr>
 <td>
-<code>headers</code><br/>
+<code>headers</code></br>
 <em>
 map[string]string
 </em>
@@ -2084,7 +2098,7 @@ map[string]string
 </tr>
 <tr>
 <td>
-<code>skipVerify</code><br/>
+<code>skipVerify</code></br>
 <em>
 bool
 </em>
@@ -2096,7 +2110,7 @@ bool
 </tr>
 <tr>
 <td>
-<code>caCertificate</code><br/>
+<code>caCertificate</code></br>
 <em>
 string
 </em>
@@ -2108,7 +2122,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthUsername</code><br/>
+<code>basicAuthUsername</code></br>
 <em>
 string
 </em>
@@ -2120,7 +2134,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthPassword</code><br/>
+<code>basicAuthPassword</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -2134,7 +2148,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>oauthClientID</code><br/>
+<code>oauthClientID</code></br>
 <em>
 string
 </em>
@@ -2146,7 +2160,7 @@ string
 </tr>
 <tr>
 <td>
-<code>oauthClientSecret</code><br/>
+<code>oauthClientSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -2160,7 +2174,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>oauthTokenURL</code><br/>
+<code>oauthTokenURL</code></br>
 <em>
 string
 </em>
@@ -2172,7 +2186,7 @@ string
 </tr>
 <tr>
 <td>
-<code>oauthScopes</code><br/>
+<code>oauthScopes</code></br>
 <em>
 []string
 </em>
@@ -2187,7 +2201,7 @@ string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.HTTPTargetStatus">
 HTTPTargetStatus
@@ -2201,9 +2215,9 @@ HTTPTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget
 </h3>
-<div>
+<p>
 <p>HasuraTarget is the Schema for the event target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2214,7 +2228,7 @@ HTTPTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2224,14 +2238,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>HasuraTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2245,7 +2259,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.HasuraTargetSpec">
 HasuraTargetSpec
@@ -2258,17 +2272,18 @@ HasuraTargetSpec
 <table>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>The GraphQL server endpoint.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>jwt</code><br/>
+<code>jwt</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -2276,11 +2291,13 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<em>(Optional)</em>
+<p>A user token for interfacing with Hasura.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>admin</code><br/>
+<code>admin</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -2288,26 +2305,32 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<em>(Optional)</em>
+<p>An alternate token for interfacing with Hasura using admin privileges.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>defaultRole</code><br/>
+<code>defaultRole</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<em>(Optional)</em>
+<p>A default role that the queries should use when running the query.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>queries</code><br/>
+<code>queries</code></br>
 <em>
 map[string]string
 </em>
 </td>
 <td>
+<em>(Optional)</em>
+<p>A predefined list of queries that an event can specify in the io.triggermesh.graphql.query event type.</p>
 </td>
 </tr>
 </table>
@@ -2315,7 +2338,7 @@ map[string]string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.HasuraTargetStatus">
 HasuraTargetStatus
@@ -2329,9 +2352,9 @@ HasuraTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget
 </h3>
-<div>
+<p>
 <p>InfraTarget is the Schema for the Infra JS Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2342,7 +2365,7 @@ HasuraTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2352,14 +2375,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>InfraTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2373,7 +2396,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.InfraTargetSpec">
 InfraTargetSpec
@@ -2386,7 +2409,7 @@ InfraTargetSpec
 <table>
 <tr>
 <td>
-<code>script</code><br/>
+<code>script</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.InfraTargetScript">
 InfraTargetScript
@@ -2399,7 +2422,7 @@ InfraTargetScript
 </tr>
 <tr>
 <td>
-<code>state</code><br/>
+<code>state</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.InfraTargetState">
 InfraTargetState
@@ -2407,17 +2430,18 @@ InfraTargetState
 </em>
 </td>
 <td>
-<p>State actions and options</p>
+<p>State actions and options.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>typeLoopProtection</code><br/>
+<code>typeLoopProtection</code></br>
 <em>
 bool
 </em>
 </td>
 <td>
+<p>TypeLoopProtection protect against infinite loops when the cloudevent type does not change.</p>
 </td>
 </tr>
 </table>
@@ -2425,7 +2449,7 @@ bool
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.InfraTargetStatus">
 InfraTargetStatus
@@ -2439,9 +2463,9 @@ InfraTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget
 </h3>
-<div>
+<p>
 <p>JiraTarget is the Schema for the Infra JS Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2452,7 +2476,7 @@ InfraTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2462,14 +2486,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>JiraTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2483,7 +2507,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.JiraTargetSpec">
 JiraTargetSpec
@@ -2496,7 +2520,7 @@ JiraTargetSpec
 <table>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.JiraAuth">
 JiraAuth
@@ -2509,13 +2533,13 @@ JiraAuth
 </tr>
 <tr>
 <td>
-<code>url</code><br/>
+<code>url</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>URL for Jira service</p>
+<p>URL for Jira service.</p>
 </td>
 </tr>
 </table>
@@ -2523,7 +2547,7 @@ string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.JiraTargetStatus">
 JiraTargetStatus
@@ -2537,9 +2561,9 @@ JiraTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget
 </h3>
-<div>
+<p>
 <p>LogzTarget is the Schema for the Logz Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2550,7 +2574,7 @@ JiraTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2560,14 +2584,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>LogzTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2581,7 +2605,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">
 LogzTargetSpec
@@ -2594,7 +2618,7 @@ LogzTargetSpec
 <table>
 <tr>
 <td>
-<code>shippingToken</code><br/>
+<code>shippingToken</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -2607,7 +2631,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>logsListenerURL</code><br/>
+<code>logsListenerURL</code></br>
 <em>
 string
 </em>
@@ -2618,7 +2642,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -2634,7 +2658,7 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.LogzTargetStatus">
 LogzTargetStatus
@@ -2648,9 +2672,9 @@ LogzTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget
 </h3>
-<div>
+<p>
 <p>OracleTarget is the Schema for an Oracle Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2661,7 +2685,7 @@ LogzTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2671,14 +2695,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>OracleTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2693,7 +2717,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.OracleTargetSpec">
 OracleTargetSpec
@@ -2707,7 +2731,7 @@ OracleTargetSpec
 <table>
 <tr>
 <td>
-<code>oracleApiPrivateKey</code><br/>
+<code>oracleApiPrivateKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -2715,12 +2739,12 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Oracle User API private key</p>
+<p>Oracle User API private key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKeyPassphrase</code><br/>
+<code>oracleApiPrivateKeyPassphrase</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -2728,12 +2752,12 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Oracle User API private key passphrase</p>
+<p>Oracle User API private key passphrase.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKeyFingerprint</code><br/>
+<code>oracleApiPrivateKeyFingerprint</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -2741,45 +2765,45 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Oracle User API cert fingerprint</p>
+<p>Oracle User API cert fingerprint.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleTenancy</code><br/>
+<code>oracleTenancy</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Oracle Tenancy OCID</p>
+<p>Oracle Tenancy OCID.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleUser</code><br/>
+<code>oracleUser</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Oracle User OCID associated with the API key</p>
+<p>Oracle User OCID associated with the API key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleRegion</code><br/>
+<code>oracleRegion</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Oracle Cloud Region</p>
+<p>Oracle Cloud Region.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>function</code><br/>
+<code>function</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.OracleFunctionSpecSpec">
 OracleFunctionSpecSpec
@@ -2794,7 +2818,7 @@ OracleFunctionSpecSpec
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.OracleTargetStatus">
 OracleTargetStatus
@@ -2810,9 +2834,15 @@ OracleTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget
 </h3>
-<div>
-<p>SalesforceTarget is the Schema for the Salesforce Target.</p>
-</div>
+<p>
+<p>SalesforceTarget receives CloudEvents typed <code>io.triggermesh.salesforce.apicall</code>
+that fullfil the schema at <a href="https://docs.triggermesh.io/schemas/salesforce.apicall.json">https://docs.triggermesh.io/schemas/salesforce.apicall.json</a>
+and consumes the Salesforce API.</p>
+<p>Upon a successful call a response is returned typed <code>io.triggermesh.salesforce.apicall.response</code>
+containing the returned payload as the CloudEvent data and a <code>category: success</code> extension.
+In case of an error the payload will be conformant with <a href="https://docs.triggermesh.io/schemas/triggermesh.error.json">https://docs.triggermesh.io/schemas/triggermesh.error.json</a>
+and the CloudEvent extension will be set to <code>category: error</code>.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -2823,7 +2853,7 @@ OracleTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2833,14 +2863,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>SalesforceTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2854,7 +2884,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetSpec">
 SalesforceTargetSpec
@@ -2867,7 +2897,7 @@ SalesforceTargetSpec
 <table>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceAuth">
 SalesforceAuth
@@ -2875,24 +2905,24 @@ SalesforceAuth
 </em>
 </td>
 <td>
-<p>Authentication method to interact with the Salesforce API.</p>
+<p>Authentication information to interact with the Salesforce API.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 <em>
 string
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>APIVersion at Salesforce.</p>
+<p>APIVersion at Salesforce. If not set the latest version will be used.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -2900,6 +2930,7 @@ EventOptions
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>EventOptions for targets</p>
 </td>
 </tr>
@@ -2908,7 +2939,7 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetStatus">
 SalesforceTargetStatus
@@ -2922,9 +2953,9 @@ SalesforceTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget
 </h3>
-<div>
+<p>
 <p>SendGridTarget is the Schema for an Sendgrid Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -2935,7 +2966,7 @@ SalesforceTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -2945,14 +2976,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>SendGridTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -2967,7 +2998,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetSpec">
 SendGridTargetSpec
@@ -2981,7 +3012,7 @@ SendGridTargetSpec
 <table>
 <tr>
 <td>
-<code>apiKey</code><br/>
+<code>apiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -2994,7 +3025,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>defaultFromEmail</code><br/>
+<code>defaultFromEmail</code></br>
 <em>
 string
 </em>
@@ -3006,7 +3037,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultToEmail</code><br/>
+<code>defaultToEmail</code></br>
 <em>
 string
 </em>
@@ -3018,7 +3049,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultToName</code><br/>
+<code>defaultToName</code></br>
 <em>
 string
 </em>
@@ -3030,7 +3061,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultFromName</code><br/>
+<code>defaultFromName</code></br>
 <em>
 string
 </em>
@@ -3042,7 +3073,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultMessage</code><br/>
+<code>defaultMessage</code></br>
 <em>
 string
 </em>
@@ -3054,7 +3085,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultSubject</code><br/>
+<code>defaultSubject</code></br>
 <em>
 string
 </em>
@@ -3066,7 +3097,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -3082,7 +3113,7 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetStatus">
 SendGridTargetStatus
@@ -3098,9 +3129,9 @@ SendGridTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget
 </h3>
-<div>
-<p>SlackTarget defines the schema for the Slack target</p>
-</div>
+<p>
+<p>SlackTarget defines the schema for the Slack target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -3111,7 +3142,7 @@ SendGridTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3121,14 +3152,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>SlackTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3143,7 +3174,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SlackTargetSpec">
 SlackTargetSpec
@@ -3157,7 +3188,7 @@ SlackTargetSpec
 <table>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -3173,7 +3204,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SlackTargetStatus">
 SlackTargetStatus
@@ -3189,9 +3220,9 @@ SlackTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget
 </h3>
-<div>
+<p>
 <p>SplunkTarget is the Schema for the event target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3202,7 +3233,7 @@ SlackTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3212,14 +3243,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>SplunkTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3233,7 +3264,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SplunkTargetSpec">
 SplunkTargetSpec
@@ -3246,7 +3277,7 @@ SplunkTargetSpec
 <table>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
 knative.dev/pkg/apis.URL
@@ -3261,7 +3292,7 @@ see <a href="https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTP
 </tr>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -3275,7 +3306,7 @@ see <a href="https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTP
 </tr>
 <tr>
 <td>
-<code>index</code><br/>
+<code>index</code></br>
 <em>
 string
 </em>
@@ -3288,7 +3319,7 @@ When undefined, events are sent to the default index defined in the HEC token&rs
 </tr>
 <tr>
 <td>
-<code>skipTLSVerify</code><br/>
+<code>skipTLSVerify</code></br>
 <em>
 bool
 </em>
@@ -3304,7 +3335,7 @@ chain and host name when communicating over TLS.</p>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SplunkTargetStatus">
 SplunkTargetStatus
@@ -3318,9 +3349,9 @@ SplunkTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget
 </h3>
-<div>
-<p>TektonTarget defines the schema for the Tekton target</p>
-</div>
+<p>
+<p>TektonTarget defines the schema for the Tekton target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -3331,7 +3362,7 @@ SplunkTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3341,14 +3372,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>TektonTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3362,7 +3393,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.TektonTargetSpec">
 TektonTargetSpec
@@ -3376,7 +3407,7 @@ TektonTargetSpec
 <table>
 <tr>
 <td>
-<code>reapPolicy</code><br/>
+<code>reapPolicy</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.TektonTargetReapPolicy">
 TektonTargetReapPolicy
@@ -3393,7 +3424,7 @@ TektonTargetReapPolicy
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.TektonTargetStatus">
 TektonTargetStatus
@@ -3409,9 +3440,9 @@ TektonTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget
 </h3>
-<div>
+<p>
 <p>TwilioTarget is the Schema for an Twilio Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3422,7 +3453,7 @@ TektonTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3432,14 +3463,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>TwilioTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3454,7 +3485,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.TwilioTargetSpec">
 TwilioTargetSpec
@@ -3468,7 +3499,7 @@ TwilioTargetSpec
 <table>
 <tr>
 <td>
-<code>sid</code><br/>
+<code>sid</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -3481,7 +3512,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -3494,7 +3525,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>defaultPhoneFrom</code><br/>
+<code>defaultPhoneFrom</code></br>
 <em>
 string
 </em>
@@ -3506,7 +3537,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultPhoneTo</code><br/>
+<code>defaultPhoneTo</code></br>
 <em>
 string
 </em>
@@ -3516,12 +3547,25 @@ string
 <p>DefaultPhoneTo is the destination phone</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.TwilioTargetStatus">
 TwilioTargetStatus
@@ -3537,9 +3581,9 @@ TwilioTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget
 </h3>
-<div>
+<p>
 <p>UiPathTarget is the Schema for the event target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3550,7 +3594,7 @@ TwilioTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3560,14 +3604,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>UiPathTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3581,7 +3625,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.UiPathTargetSpec">
 UiPathTargetSpec
@@ -3594,7 +3638,7 @@ UiPathTargetSpec
 <table>
 <tr>
 <td>
-<code>userKey</code><br/>
+<code>userKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -3602,66 +3646,73 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<p>UserKey An OAuth token used to obtain an access key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>robotName</code><br/>
+<code>robotName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>RobotName is the robot to invoke with this target.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>processName</code><br/>
+<code>processName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>ProccessName is the process name that will be used by UiPath for the target.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>tenantName</code><br/>
+<code>tenantName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>TenantName is the tenant that contains the components that will be invoked by the target.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>accountLogicalName</code><br/>
+<code>accountLogicalName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>AccountLogicalName is the unique site URL used to identif the UiPath tenant.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>clientID</code><br/>
+<code>clientID</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>ClientID is the OAuth id registered to this target.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>organizationUnitID</code><br/>
+<code>organizationUnitID</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>OrganizationUnitID is the organization unit within the tenant that the UiPath proccess will run under.</p>
 </td>
 </tr>
 </table>
@@ -3669,7 +3720,7 @@ string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.UiPathTargetStatus">
 UiPathTargetStatus
@@ -3683,9 +3734,9 @@ UiPathTargetStatus
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget
 </h3>
-<div>
+<p>
 <p>ZendeskTarget is the Schema for an Zendesk Target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -3696,7 +3747,7 @@ UiPathTargetStatus
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -3706,14 +3757,14 @@ targets.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>ZendeskTarget</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -3727,7 +3778,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.ZendeskTargetSpec">
 ZendeskTargetSpec
@@ -3741,7 +3792,7 @@ ZendeskTargetSpec
 <table>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -3749,34 +3800,34 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Token contains the Zendesk account Token</p>
+<p>Token contains the Zendesk account Token.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>subdomain</code><br/>
+<code>subdomain</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Subdomain the Zendesk subdomain</p>
+<p>Subdomain the Zendesk subdomain.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>email</code><br/>
+<code>email</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Email the regestierd Zendesk email account</p>
+<p>Email the registered Zendesk email account.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>subject</code><br/>
+<code>subject</code></br>
 <em>
 string
 </em>
@@ -3791,7 +3842,7 @@ string
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.ZendeskTargetStatus">
 ZendeskTargetStatus
@@ -3807,10 +3858,12 @@ ZendeskTargetStatus
 <h3 id="targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSComprehendTargetSpec holds the desired state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -3821,7 +3874,7 @@ ZendeskTargetStatus
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -3829,12 +3882,12 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
+<p>AWS account Key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -3842,23 +3895,23 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>AWS account secret key</p>
+<p>AWS account secret key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>region</code><br/>
+<code>region</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Region</p>
+<p>Region to use for calling into Comprehend API.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -3866,17 +3919,18 @@ EventOptions
 </em>
 </td>
 <td>
-<p>EventOptions for targets</p>
+<p>EventOptions for targets.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>language</code><br/>
+<code>language</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>Language code to use to interact with Comprehend. The supported list can be found at: <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html</a></p>
 </td>
 </tr>
 </tbody>
@@ -3884,10 +3938,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">AWSComprehendTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSComprehendTargetStatus communicates the observed state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -3898,7 +3954,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>AWSTargetStatus</code><br/>
+<code>AWSTargetStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
 AWSTargetStatus
@@ -3913,7 +3969,7 @@ AWSTargetStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -3932,10 +3988,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetSpec">AWSDynamoDBTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSDynamoDBTargetSpec holds the desired state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -3946,7 +4004,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -3959,7 +4017,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -3972,7 +4030,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -3987,10 +4045,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSDynamoDBTargetStatus communicates the observed state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -4001,7 +4061,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>AWSTargetStatus</code><br/>
+<code>AWSTargetStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
 AWSTargetStatus
@@ -4016,7 +4076,7 @@ AWSTargetStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -4035,10 +4095,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.AWSKinesisTargetSpec">AWSKinesisTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSKinesisTargetSpec holds the desired state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -4049,7 +4111,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4062,7 +4124,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4075,7 +4137,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -4087,7 +4149,7 @@ string
 </tr>
 <tr>
 <td>
-<code>partition</code><br/>
+<code>partition</code></br>
 <em>
 string
 </em>
@@ -4098,7 +4160,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -4114,10 +4176,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSLambdaTargetSpec">AWSLambdaTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSLambdaTargetSpec holds the desired state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -4128,7 +4192,7 @@ When this property is true, only the CloudEvent data is included.</p>
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4141,7 +4205,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4154,7 +4218,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -4166,7 +4230,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -4182,10 +4246,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSS3TargetSpec">AWSS3TargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSS3Target">AWSS3Target</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSS3Target">AWSS3Target</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSS3TargetSpec holds the desired state of the even target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -4196,7 +4262,7 @@ When this property is true, only the CloudEvent data is included.</p>
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4209,7 +4275,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4222,7 +4288,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -4234,7 +4300,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -4250,10 +4316,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSS3Target">AWSS3Target</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSS3Target">AWSS3Target</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSS3TargetStatus communicates the observed state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -4264,7 +4332,7 @@ When this property is true, only the CloudEvent data is included.</p>
 <tbody>
 <tr>
 <td>
-<code>AWSTargetStatus</code><br/>
+<code>AWSTargetStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
 AWSTargetStatus
@@ -4279,7 +4347,7 @@ AWSTargetStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -4298,10 +4366,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.AWSSNSTargetSpec">AWSSNSTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSSNSTargetSpec holds the desired state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -4312,7 +4382,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4325,7 +4395,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4338,7 +4408,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -4350,7 +4420,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -4366,10 +4436,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSSQSTargetSpec">AWSSQSTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>AWSSQSTargetSpec holds the desired state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -4380,7 +4452,7 @@ When this property is true, only the CloudEvent data is included.</p>
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code><br/>
+<code>awsApiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4393,7 +4465,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>awsApiSecret</code><br/>
+<code>awsApiSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4406,7 +4478,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>arn</code><br/>
+<code>arn</code></br>
 <em>
 string
 </em>
@@ -4418,7 +4490,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -4434,11 +4506,18 @@ When this property is true, only the CloudEvent data is included.</p>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSTargetStatus">AWSTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">AWSComprehendTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">AWSComprehendTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus</a>)
 </p>
-<div>
+<p>
 <p>AWSTargetStatus communicates the observed state of the various  AWS Targets (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4449,7 +4528,7 @@ When this property is true, only the CloudEvent data is included.</p>
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -4469,7 +4548,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -4488,11 +4567,12 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <h3 id="targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>)
 </p>
-<div>
+<p>
 <p>AlibabaOSSTargetSpec holds the desired state of the AlibabaOSSTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4503,7 +4583,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <tbody>
 <tr>
 <td>
-<code>accessKeyID</code><br/>
+<code>accessKeyID</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4511,11 +4591,14 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<p>Alibaba SDK access key id as registered. For more information on how to
+create an access key pair, please refer to
+<a href="https://www.alibabacloud.com/help/doc-detail/53045.htm?spm=a2c63.p38356.879954.9.23bc7d91ARN6Hy#task968">https://www.alibabacloud.com/help/doc-detail/53045.htm?spm=a2c63.p38356.879954.9.23bc7d91ARN6Hy#task968</a>.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>accessKeySecret</code><br/>
+<code>accessKeySecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4523,31 +4606,36 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<p>Alibaba SDK access key secret as registered.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>The domain name used to access the OSS. For more information, please refer
+to the region and endpoint guide at
+<a href="https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.p38356.879954.8.23bc7d91ARN6Hy#concept-zt4-cvy-5db">https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.p38356.879954.8.23bc7d91ARN6Hy#concept-zt4-cvy-5db</a></p>
 </td>
 </tr>
 <tr>
 <td>
-<code>bucket</code><br/>
+<code>bucket</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>The unique container to store objects in OSS.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -4563,11 +4651,12 @@ EventOptions
 <h3 id="targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">AlibabaOSSTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>)
 </p>
-<div>
+<p>
 <p>AlibabaOSSTargetStatus communicates the observed state of the AlibabaOSSTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4578,7 +4667,7 @@ EventOptions
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -4593,7 +4682,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -4608,7 +4697,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -4627,12 +4716,30 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.CloudEventStatus">CloudEventStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">AWSComprehendTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">AlibabaOSSTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetStatus">DatadogTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetStatus">GoogleCloudFirestoreTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetStatus">GoogleCloudStorageTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetStatus">GoogleCloudWorkflowsTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetStatus">GoogleSheetTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.HasuraTargetStatus">HasuraTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.LogzTargetStatus">LogzTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetStatus">SalesforceTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetStatus">SendGridTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.SlackTargetStatus">SlackTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.TektonTargetStatus">TektonTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.TwilioTargetStatus">TwilioTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.UiPathTargetStatus">UiPathTargetStatus</a>, <a href="#targets.triggermesh.io/v1alpha1.ZendeskTargetStatus">ZendeskTargetStatus</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">AWSComprehendTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">AlibabaOSSTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.DatadogTargetStatus">DatadogTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetStatus">GoogleCloudFirestoreTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetStatus">GoogleCloudStorageTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetStatus">GoogleCloudWorkflowsTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetStatus">GoogleSheetTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.HasuraTargetStatus">HasuraTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.LogzTargetStatus">LogzTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetStatus">SalesforceTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SendGridTargetStatus">SendGridTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SlackTargetStatus">SlackTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.TektonTargetStatus">TektonTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.TwilioTargetStatus">TwilioTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.UiPathTargetStatus">UiPathTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.ZendeskTargetStatus">ZendeskTargetStatus</a>)
 </p>
-<div>
+<p>
 <p>CloudEventStatus contains attributes that target types can embed to declare
 the event types they accept and emit.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4643,7 +4750,7 @@ the event types they accept and emit.</p>
 <tbody>
 <tr>
 <td>
-<code>acceptedEventTypes</code><br/>
+<code>acceptedEventTypes</code></br>
 <em>
 []string
 </em>
@@ -4655,7 +4762,7 @@ the event types they accept and emit.</p>
 </tr>
 <tr>
 <td>
-<code>ceAttributes</code><br/>
+<code>ceAttributes</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#CloudEventAttributes">
 []knative.dev/pkg/apis/duck/v1.CloudEventAttributes
@@ -4673,11 +4780,12 @@ NOTE: the json tag <em>must</em> be exactly <code>ceAttributes</code> to satisfy
 <h3 id="targets.triggermesh.io/v1alpha1.ConfluentTargetSpec">ConfluentTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>)
 </p>
-<div>
+<p>
 <p>ConfluentTargetSpec holds the desired state of the ConfluentTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4688,7 +4796,7 @@ NOTE: the json tag <em>must</em> be exactly <code>ceAttributes</code> to satisfy
 <tbody>
 <tr>
 <td>
-<code>username</code><br/>
+<code>username</code></br>
 <em>
 string
 </em>
@@ -4699,7 +4807,7 @@ string
 </tr>
 <tr>
 <td>
-<code>password</code><br/>
+<code>password</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4712,7 +4820,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>topic</code><br/>
+<code>topic</code></br>
 <em>
 string
 </em>
@@ -4723,7 +4831,7 @@ string
 </tr>
 <tr>
 <td>
-<code>topicReplicationFactor</code><br/>
+<code>topicReplicationFactor</code></br>
 <em>
 int
 </em>
@@ -4735,7 +4843,7 @@ int
 </tr>
 <tr>
 <td>
-<code>topicPartitions</code><br/>
+<code>topicPartitions</code></br>
 <em>
 int
 </em>
@@ -4747,7 +4855,7 @@ int
 </tr>
 <tr>
 <td>
-<code>bootstrapServers</code><br/>
+<code>bootstrapServers</code></br>
 <em>
 []string
 </em>
@@ -4758,7 +4866,7 @@ int
 </tr>
 <tr>
 <td>
-<code>securityProtocol</code><br/>
+<code>securityProtocol</code></br>
 <em>
 string
 </em>
@@ -4769,7 +4877,7 @@ string
 </tr>
 <tr>
 <td>
-<code>saslMechanism</code><br/>
+<code>saslMechanism</code></br>
 <em>
 string
 </em>
@@ -4780,7 +4888,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -4796,11 +4904,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <h3 id="targets.triggermesh.io/v1alpha1.ConfluentTargetStatus">ConfluentTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>)
 </p>
-<div>
+<p>
 <p>ConfluentTargetStatus communicates the observed state of the ConfluentTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4811,7 +4920,7 @@ When this property is true, only the CloudEvent data is included.</p>
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -4831,7 +4940,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -4850,11 +4959,12 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <h3 id="targets.triggermesh.io/v1alpha1.Connection">Connection
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec</a>)
 </p>
-<div>
+<p>
 <p>Connection contains connection and configuration parameters</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4865,47 +4975,51 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <tbody>
 <tr>
 <td>
-<code>addresses</code><br/>
+<code>addresses</code></br>
 <em>
 []string
 </em>
 </td>
 <td>
+<p>Array of hostnames or IP addresses to connect the target to.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>caCert</code><br/>
+<code>caCert</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>CA Certificate used to verify connection with the Elasticsearch instance.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>skipVerify</code><br/>
+<code>skipVerify</code></br>
 <em>
 bool
 </em>
 </td>
 <td>
+<p>Skip verification of the SSL certificate during the connection.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>username</code><br/>
+<code>username</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>Elasticsearch account username.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>password</code><br/>
+<code>password</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4913,11 +5027,12 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<p>Elasticsearch account password.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>apiKey</code><br/>
+<code>apiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4925,7 +5040,7 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>When informed supersedes username and password</p>
+<p>When informed supersedes username and password.</p>
 </td>
 </tr>
 </tbody>
@@ -4933,11 +5048,12 @@ SecretValueFromSource
 <h3 id="targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>)
 </p>
-<div>
+<p>
 <p>DatadogTargetSpec holds the desired state of the DatadogTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -4948,7 +5064,7 @@ SecretValueFromSource
 <tbody>
 <tr>
 <td>
-<code>apiKey</code><br/>
+<code>apiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -4961,7 +5077,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>metricPrefix</code><br/>
+<code>metricPrefix</code></br>
 <em>
 string
 </em>
@@ -4973,7 +5089,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -4989,11 +5105,12 @@ EventOptions
 <h3 id="targets.triggermesh.io/v1alpha1.DatadogTargetStatus">DatadogTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>)
 </p>
-<div>
+<p>
 <p>DatadogTargetStatus communicates the observed state of the DatadogTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5004,7 +5121,7 @@ EventOptions
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -5019,7 +5136,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -5034,7 +5151,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -5053,11 +5170,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTarget">ElasticsearchTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTarget">ElasticsearchTarget</a>)
 </p>
-<div>
+<p>
 <p>ElasticsearchTargetSpec holds the desired state of the ElasticsearchTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5068,7 +5186,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>connection</code><br/>
+<code>connection</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.Connection">
 Connection
@@ -5077,23 +5195,23 @@ Connection
 </td>
 <td>
 <em>(Optional)</em>
-<p>Connection information to elasticsearch</p>
+<p>Connection information to elasticsearch.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>indexName</code><br/>
+<code>indexName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>IndexName to write to</p>
+<p>IndexName to write to.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -5106,7 +5224,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -5114,7 +5232,7 @@ EventOptions
 </em>
 </td>
 <td>
-<p>EventOptions for targets</p>
+<p>EventOptions for targets.</p>
 </td>
 </tr>
 </tbody>
@@ -5122,11 +5240,12 @@ EventOptions
 <h3 id="targets.triggermesh.io/v1alpha1.ElasticsearchTargetStatus">ElasticsearchTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTarget">ElasticsearchTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTarget">ElasticsearchTarget</a>)
 </p>
-<div>
+<p>
 <p>ElasticsearchTargetStatus communicates the observed state of the ElasticsearchTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5137,7 +5256,7 @@ EventOptions
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -5157,7 +5276,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -5174,19 +5293,30 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tbody>
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.EnvKeyValue">EnvKeyValue
-(<code>map[string]string</code> alias)</h3>
-<div>
+(<code>map[string]string</code> alias)</p></h3>
+<p>
 <p>EnvKeyValue is a list of keys/values that can be serialized to a format
 compatible with kelseyhightower/envconfig.</p>
-</div>
+</p>
 <h3 id="targets.triggermesh.io/v1alpha1.EventOptions">EventOptions
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">GoogleCloudStorageTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetSpec">SalesforceTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetSpec">SendGridTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">GoogleCloudStorageTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetSpec">SalesforceTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SendGridTargetSpec">SendGridTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.TwilioTargetSpec">TwilioTargetSpec</a>)
 </p>
-<div>
-<p>EventOptions modifies target adapter management of CloudEvents.</p>
-</div>
+<p>
+<p>EventOptions modifies CloudEvents management at Targets.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -5197,14 +5327,20 @@ compatible with kelseyhightower/envconfig.</p>
 <tbody>
 <tr>
 <td>
-<code>payloadPolicy</code><br/>
+<code>payloadPolicy</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/targets/adapter/cloudevents.PayloadPolicy
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>PayloadPolicy sets when to send a new event at replies.</p>
+<p>PayloadPolicy indicates if replies from the target should include
+a payload if available. Possible values are:</p>
+<ul>
+<li>always: will return a with the reply payload if avaliable.</li>
+<li>errors: will only reply with payload in case of an error.</li>
+<li>never: will not reply with payload.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -5212,11 +5348,12 @@ github.com/triggermesh/triggermesh/pkg/targets/adapter/cloudevents.PayloadPolicy
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudFirestoreTargetSpec holds the desired state of the GoogleCloudFirestoreTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5227,7 +5364,7 @@ github.com/triggermesh/triggermesh/pkg/targets/adapter/cloudevents.PayloadPolicy
 <tbody>
 <tr>
 <td>
-<code>credentialsJson</code><br/>
+<code>credentialsJson</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -5240,7 +5377,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>defaultCollection</code><br/>
+<code>defaultCollection</code></br>
 <em>
 string
 </em>
@@ -5251,7 +5388,7 @@ string
 </tr>
 <tr>
 <td>
-<code>projectID</code><br/>
+<code>projectID</code></br>
 <em>
 string
 </em>
@@ -5262,7 +5399,7 @@ string
 </tr>
 <tr>
 <td>
-<code>discardCloudEventContext</code><br/>
+<code>discardCloudEventContext</code></br>
 <em>
 bool
 </em>
@@ -5275,7 +5412,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -5291,11 +5428,12 @@ EventOptions
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetStatus">GoogleCloudFirestoreTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudFirestoreTargetStatus communicates the observed state of the GoogleCloudFirestoreTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5306,7 +5444,7 @@ EventOptions
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -5321,7 +5459,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -5336,7 +5474,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -5354,11 +5492,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">GoogleCloudStorageTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudStorageTargetSpec holds the desired state of the GoogleCloudStorageTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5369,7 +5508,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>credentialsJson</code><br/>
+<code>credentialsJson</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -5382,7 +5521,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>bucketName</code><br/>
+<code>bucketName</code></br>
 <em>
 string
 </em>
@@ -5393,7 +5532,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -5409,11 +5548,12 @@ EventOptions
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetStatus">GoogleCloudStorageTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudStorageTargetStatus communicates the observed state of the GoogleCloudStorageTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5424,7 +5564,7 @@ EventOptions
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -5439,7 +5579,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -5454,7 +5594,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -5473,11 +5613,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudWorkflowsTargetSpec holds the desired state of the GoogleCloudWorkflowsTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5488,7 +5629,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>credentialsJson</code><br/>
+<code>credentialsJson</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -5501,7 +5642,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -5517,11 +5658,12 @@ EventOptions
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetStatus">GoogleCloudWorkflowsTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget</a>)
 </p>
-<div>
+<p>
 <p>GoogleCloudWorkflowsTargetStatus communicates the observed state of the GoogleCloudWorkflowsTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5532,7 +5674,7 @@ EventOptions
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -5547,7 +5689,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -5562,7 +5704,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -5581,11 +5723,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleSheetTargetSpec">GoogleSheetTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTarget">GoogleSheetTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTarget">GoogleSheetTarget</a>)
 </p>
-<div>
+<p>
 <p>GoogleSheetTargetSpec holds the desired state of the GoogleSheetTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5596,7 +5739,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>googleServiceAccount</code><br/>
+<code>googleServiceAccount</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -5609,7 +5752,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>id</code><br/>
+<code>id</code></br>
 <em>
 string
 </em>
@@ -5620,7 +5763,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultPrefix</code><br/>
+<code>defaultPrefix</code></br>
 <em>
 string
 </em>
@@ -5634,11 +5777,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleSheetTargetStatus">GoogleSheetTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTarget">GoogleSheetTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTarget">GoogleSheetTarget</a>)
 </p>
-<div>
+<p>
 <p>GoogleSheetTargetStatus communicates the observed state of the GoogleSheetTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5649,7 +5793,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -5669,7 +5813,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -5685,7 +5829,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -5704,11 +5848,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.HTTPEventResponse">HTTPEventResponse
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.HTTPTargetSpec">HTTPTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.HTTPTargetSpec">HTTPTargetSpec</a>)
 </p>
-<div>
+<p>
 <p>HTTPEventResponse for reply events context.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5719,7 +5864,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>eventType</code><br/>
+<code>eventType</code></br>
 <em>
 string
 </em>
@@ -5730,7 +5875,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventSource</code><br/>
+<code>eventSource</code></br>
 <em>
 string
 </em>
@@ -5744,11 +5889,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.HTTPTargetSpec">HTTPTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget</a>)
 </p>
-<div>
+<p>
 <p>HTTPTargetSpec holds the desired state of the HTTPTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5759,7 +5905,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>response</code><br/>
+<code>response</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.HTTPEventResponse">
 HTTPEventResponse
@@ -5772,7 +5918,7 @@ HTTPEventResponse
 </tr>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
 knative.dev/pkg/apis.URL
@@ -5785,7 +5931,7 @@ knative.dev/pkg/apis.URL
 </tr>
 <tr>
 <td>
-<code>method</code><br/>
+<code>method</code></br>
 <em>
 string
 </em>
@@ -5796,7 +5942,7 @@ string
 </tr>
 <tr>
 <td>
-<code>headers</code><br/>
+<code>headers</code></br>
 <em>
 map[string]string
 </em>
@@ -5808,7 +5954,7 @@ map[string]string
 </tr>
 <tr>
 <td>
-<code>skipVerify</code><br/>
+<code>skipVerify</code></br>
 <em>
 bool
 </em>
@@ -5820,7 +5966,7 @@ bool
 </tr>
 <tr>
 <td>
-<code>caCertificate</code><br/>
+<code>caCertificate</code></br>
 <em>
 string
 </em>
@@ -5832,7 +5978,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthUsername</code><br/>
+<code>basicAuthUsername</code></br>
 <em>
 string
 </em>
@@ -5844,7 +5990,7 @@ string
 </tr>
 <tr>
 <td>
-<code>basicAuthPassword</code><br/>
+<code>basicAuthPassword</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -5858,7 +6004,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>oauthClientID</code><br/>
+<code>oauthClientID</code></br>
 <em>
 string
 </em>
@@ -5870,7 +6016,7 @@ string
 </tr>
 <tr>
 <td>
-<code>oauthClientSecret</code><br/>
+<code>oauthClientSecret</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -5884,7 +6030,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>oauthTokenURL</code><br/>
+<code>oauthTokenURL</code></br>
 <em>
 string
 </em>
@@ -5896,7 +6042,7 @@ string
 </tr>
 <tr>
 <td>
-<code>oauthScopes</code><br/>
+<code>oauthScopes</code></br>
 <em>
 []string
 </em>
@@ -5911,11 +6057,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.HTTPTargetStatus">HTTPTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget</a>)
 </p>
-<div>
+<p>
 <p>HTTPTargetStatus communicates the observed state of the HTTPTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5926,7 +6073,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -5941,7 +6088,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -5959,11 +6106,12 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <h3 id="targets.triggermesh.io/v1alpha1.HasuraTargetSpec">HasuraTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget</a>)
 </p>
-<div>
+<p>
 <p>HasuraTargetSpec defines the desired state of the event target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -5974,17 +6122,18 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <tbody>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>The GraphQL server endpoint.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>jwt</code><br/>
+<code>jwt</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -5992,11 +6141,13 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<em>(Optional)</em>
+<p>A user token for interfacing with Hasura.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>admin</code><br/>
+<code>admin</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -6004,26 +6155,32 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<em>(Optional)</em>
+<p>An alternate token for interfacing with Hasura using admin privileges.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>defaultRole</code><br/>
+<code>defaultRole</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<em>(Optional)</em>
+<p>A default role that the queries should use when running the query.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>queries</code><br/>
+<code>queries</code></br>
 <em>
 map[string]string
 </em>
 </td>
 <td>
+<em>(Optional)</em>
+<p>A predefined list of queries that an event can specify in the io.triggermesh.graphql.query event type.</p>
 </td>
 </tr>
 </tbody>
@@ -6031,11 +6188,12 @@ map[string]string
 <h3 id="targets.triggermesh.io/v1alpha1.HasuraTargetStatus">HasuraTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget</a>)
 </p>
-<div>
+<p>
 <p>HasuraTargetStatus defines the observed state of the event target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6046,7 +6204,7 @@ map[string]string
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -6061,7 +6219,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -6076,7 +6234,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -6093,39 +6251,23 @@ CloudEventStatus
 </tbody>
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.HeaderPolicy">HeaderPolicy
-(<code>string</code> alias)</h3>
+(<code>string</code> alias)</p></h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.InfraTargetState">InfraTargetState</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.InfraTargetState">InfraTargetState</a>)
 </p>
-<div>
+<p>
 <p>HeaderPolicy is the action to take on stateful headers</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr><td><p>&#34;ensure&#34;</p></td>
-<td><p>HeaderPolicyEnsure headers, will create or copy stateful headers to the new CloudEvent.</p>
-</td>
-</tr><tr><td><p>&#34;none&#34;</p></td>
-<td><p>HeaderPolicyNone wont copy stateful headers to the new CloudEvent.</p>
-</td>
-</tr><tr><td><p>&#34;propagate&#34;</p></td>
-<td><p>HeaderPolicyPropagate will copy stateful headers to the new CloudEvent.</p>
-</td>
-</tr></tbody>
-</table>
+</p>
 <h3 id="targets.triggermesh.io/v1alpha1.InfraTargetScript">InfraTargetScript
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.InfraTargetSpec">InfraTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.InfraTargetSpec">InfraTargetSpec</a>)
 </p>
-<div>
+<p>
 <p>InfraTargetScript holds the script options</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6136,7 +6278,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>code</code><br/>
+<code>code</code></br>
 <em>
 string
 </em>
@@ -6147,7 +6289,7 @@ string
 </tr>
 <tr>
 <td>
-<code>timeout</code><br/>
+<code>timeout</code></br>
 <em>
 int
 </em>
@@ -6162,11 +6304,12 @@ it will be halted.</p>
 <h3 id="targets.triggermesh.io/v1alpha1.InfraTargetSpec">InfraTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>)
 </p>
-<div>
+<p>
 <p>InfraTargetSpec holds the desired state of the InfraTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6177,7 +6320,7 @@ it will be halted.</p>
 <tbody>
 <tr>
 <td>
-<code>script</code><br/>
+<code>script</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.InfraTargetScript">
 InfraTargetScript
@@ -6190,7 +6333,7 @@ InfraTargetScript
 </tr>
 <tr>
 <td>
-<code>state</code><br/>
+<code>state</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.InfraTargetState">
 InfraTargetState
@@ -6198,17 +6341,18 @@ InfraTargetState
 </em>
 </td>
 <td>
-<p>State actions and options</p>
+<p>State actions and options.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>typeLoopProtection</code><br/>
+<code>typeLoopProtection</code></br>
 <em>
 bool
 </em>
 </td>
 <td>
+<p>TypeLoopProtection protect against infinite loops when the cloudevent type does not change.</p>
 </td>
 </tr>
 </tbody>
@@ -6216,11 +6360,12 @@ bool
 <h3 id="targets.triggermesh.io/v1alpha1.InfraTargetState">InfraTargetState
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.InfraTargetSpec">InfraTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.InfraTargetSpec">InfraTargetSpec</a>)
 </p>
-<div>
+<p>
 <p>InfraTargetState holds the state options</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6231,7 +6376,7 @@ bool
 <tbody>
 <tr>
 <td>
-<code>headersPolicy</code><br/>
+<code>headersPolicy</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.HeaderPolicy">
 HeaderPolicy
@@ -6244,7 +6389,7 @@ HeaderPolicy
 </tr>
 <tr>
 <td>
-<code>bridge</code><br/>
+<code>bridge</code></br>
 <em>
 string
 </em>
@@ -6262,11 +6407,12 @@ when storing variables in the state store.</p>
 <h3 id="targets.triggermesh.io/v1alpha1.InfraTargetStatus">InfraTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>)
 </p>
-<div>
+<p>
 <p>InfraTargetStatus communicates the observed state of the InfraTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6277,7 +6423,7 @@ when storing variables in the state store.</p>
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -6292,7 +6438,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -6310,11 +6456,12 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <h3 id="targets.triggermesh.io/v1alpha1.JiraAuth">JiraAuth
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.JiraTargetSpec">JiraTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.JiraTargetSpec">JiraTargetSpec</a>)
 </p>
-<div>
+<p>
 <p>JiraAuth contains Jira credentials.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6325,17 +6472,18 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <tbody>
 <tr>
 <td>
-<code>user</code><br/>
+<code>user</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>Jira username to connect to the instance as.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -6343,6 +6491,7 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<p>Jira API token bound to the user.</p>
 </td>
 </tr>
 </tbody>
@@ -6350,11 +6499,12 @@ SecretValueFromSource
 <h3 id="targets.triggermesh.io/v1alpha1.JiraTargetSpec">JiraTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>)
 </p>
-<div>
+<p>
 <p>JiraTargetSpec holds the desired state of the JiraTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6365,7 +6515,7 @@ SecretValueFromSource
 <tbody>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.JiraAuth">
 JiraAuth
@@ -6378,13 +6528,13 @@ JiraAuth
 </tr>
 <tr>
 <td>
-<code>url</code><br/>
+<code>url</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>URL for Jira service</p>
+<p>URL for Jira service.</p>
 </td>
 </tr>
 </tbody>
@@ -6392,11 +6542,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.JiraTargetStatus">JiraTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>)
 </p>
-<div>
+<p>
 <p>JiraTargetStatus communicates the observed state of the JiraTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6407,7 +6558,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -6422,7 +6573,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -6440,11 +6591,12 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <h3 id="targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>)
 </p>
-<div>
+<p>
 <p>LogzTargetSpec holds the desired state of the LogzTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6455,7 +6607,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <tbody>
 <tr>
 <td>
-<code>shippingToken</code><br/>
+<code>shippingToken</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -6468,7 +6620,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>logsListenerURL</code><br/>
+<code>logsListenerURL</code></br>
 <em>
 string
 </em>
@@ -6479,7 +6631,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -6495,11 +6647,12 @@ EventOptions
 <h3 id="targets.triggermesh.io/v1alpha1.LogzTargetStatus">LogzTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>)
 </p>
-<div>
+<p>
 <p>LogzTargetStatus communicates the observed state of the LogzTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6510,7 +6663,7 @@ EventOptions
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -6525,7 +6678,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -6540,7 +6693,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -6558,10 +6711,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.OracleFunctionSpecSpec">OracleFunctionSpecSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.OracleTargetSpec">OracleTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.OracleTargetSpec">OracleTargetSpec</a>)
 </p>
-<div>
-</div>
+<p>
+<p>OracleFunctionSpecSpec holds the Oracle Cloud ID of the function to invoke.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -6572,7 +6727,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>function</code><br/>
+<code>function</code></br>
 <em>
 string
 </em>
@@ -6581,6 +6736,7 @@ string
 <p>
 (Members of <code>function</code> are embedded into this type.)
 </p>
+<p>Oracle Cloud ID of the function to invoke.</p>
 </td>
 </tr>
 </tbody>
@@ -6588,10 +6744,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.OracleTargetSpec">OracleTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>OracleTargetSpec holds the desired state of the event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -6602,7 +6760,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>oracleApiPrivateKey</code><br/>
+<code>oracleApiPrivateKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -6610,12 +6768,12 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Oracle User API private key</p>
+<p>Oracle User API private key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKeyPassphrase</code><br/>
+<code>oracleApiPrivateKeyPassphrase</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -6623,12 +6781,12 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Oracle User API private key passphrase</p>
+<p>Oracle User API private key passphrase.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleApiPrivateKeyFingerprint</code><br/>
+<code>oracleApiPrivateKeyFingerprint</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -6636,45 +6794,45 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Oracle User API cert fingerprint</p>
+<p>Oracle User API cert fingerprint.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleTenancy</code><br/>
+<code>oracleTenancy</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Oracle Tenancy OCID</p>
+<p>Oracle Tenancy OCID.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleUser</code><br/>
+<code>oracleUser</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Oracle User OCID associated with the API key</p>
+<p>Oracle User OCID associated with the API key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>oracleRegion</code><br/>
+<code>oracleRegion</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Oracle Cloud Region</p>
+<p>Oracle Cloud Region.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>function</code><br/>
+<code>function</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.OracleFunctionSpecSpec">
 OracleFunctionSpecSpec
@@ -6689,11 +6847,12 @@ OracleFunctionSpecSpec
 <h3 id="targets.triggermesh.io/v1alpha1.OracleTargetStatus">OracleTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>)
 </p>
-<div>
+<p>
 <p>OracleTargetStatus communicates the observed state of the OracleTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6704,7 +6863,7 @@ OracleFunctionSpecSpec
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -6724,7 +6883,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -6743,11 +6902,14 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <h3 id="targets.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetSpec">SalesforceTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetSpec">SalesforceTargetSpec</a>)
 </p>
-<div>
-<p>SalesforceAuth contains Salesforce credentials.</p>
-</div>
+<p>
+<p>SalesforceAuth contains OAuth JWT information to interact with the
+Salesforce API. See:
+<a href="https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_jwt_flow.htm">https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_jwt_flow.htm</a></p>
+</p>
 <table>
 <thead>
 <tr>
@@ -6758,37 +6920,40 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <tbody>
 <tr>
 <td>
-<code>clientID</code><br/>
+<code>clientID</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>ClientID for the Salesforce connected app.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>server</code><br/>
+<code>server</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>Server points to the authorization URL.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>user</code><br/>
+<code>user</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>User configuring the connected app.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>certKey</code><br/>
+<code>certKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -6796,6 +6961,7 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<p>CertKey is the private key used to sign requests from the target.</p>
 </td>
 </tr>
 </tbody>
@@ -6803,11 +6969,12 @@ SecretValueFromSource
 <h3 id="targets.triggermesh.io/v1alpha1.SalesforceTargetSpec">SalesforceTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>)
 </p>
-<div>
+<p>
 <p>SalesforceTargetSpec holds the desired state of the SalesforceTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6818,7 +6985,7 @@ SecretValueFromSource
 <tbody>
 <tr>
 <td>
-<code>auth</code><br/>
+<code>auth</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceAuth">
 SalesforceAuth
@@ -6826,24 +6993,24 @@ SalesforceAuth
 </em>
 </td>
 <td>
-<p>Authentication method to interact with the Salesforce API.</p>
+<p>Authentication information to interact with the Salesforce API.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 <em>
 string
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>APIVersion at Salesforce.</p>
+<p>APIVersion at Salesforce. If not set the latest version will be used.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -6851,6 +7018,7 @@ EventOptions
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>EventOptions for targets</p>
 </td>
 </tr>
@@ -6859,11 +7027,12 @@ EventOptions
 <h3 id="targets.triggermesh.io/v1alpha1.SalesforceTargetStatus">SalesforceTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>)
 </p>
-<div>
+<p>
 <p>SalesforceTargetStatus communicates the observed state of the SalesforceTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6874,7 +7043,7 @@ EventOptions
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -6889,7 +7058,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -6904,7 +7073,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -6922,11 +7091,37 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.SecretValueFromSource">SecretValueFromSource
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetSpec">AWSDynamoDBTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTargetSpec">AWSKinesisTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTargetSpec">AWSLambdaTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetSpec">AWSS3TargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSSNSTargetSpec">AWSSNSTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.AWSSQSTargetSpec">AWSSQSTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.ConfluentTargetSpec">ConfluentTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.Connection">Connection</a>, <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">GoogleCloudStorageTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetSpec">GoogleSheetTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.HTTPTargetSpec">HTTPTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.HasuraTargetSpec">HasuraTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.JiraAuth">JiraAuth</a>, <a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.OracleTargetSpec">OracleTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth</a>, <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetSpec">SendGridTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.SlackTargetSpec">SlackTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.TwilioTargetSpec">TwilioTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.UiPathTargetSpec">UiPathTargetSpec</a>, <a href="#targets.triggermesh.io/v1alpha1.ZendeskTargetSpec">ZendeskTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetSpec">AWSDynamoDBTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTargetSpec">AWSKinesisTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTargetSpec">AWSLambdaTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetSpec">AWSS3TargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSSNSTargetSpec">AWSSNSTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSSQSTargetSpec">AWSSQSTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.ConfluentTargetSpec">ConfluentTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.Connection">Connection</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">GoogleCloudStorageTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetSpec">GoogleSheetTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.HTTPTargetSpec">HTTPTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.HasuraTargetSpec">HasuraTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.JiraAuth">JiraAuth</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.OracleTargetSpec">OracleTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SendGridTargetSpec">SendGridTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SlackTargetSpec">SlackTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.TwilioTargetSpec">TwilioTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.UiPathTargetSpec">UiPathTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.ZendeskTargetSpec">ZendeskTargetSpec</a>)
 </p>
-<div>
+<p>
 <p>SecretValueFromSource represents the source of a secret value</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6937,7 +7132,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>secretKeyRef</code><br/>
+<code>secretKeyRef</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#secretkeyselector-v1-core">
 Kubernetes core/v1.SecretKeySelector
@@ -6953,11 +7148,12 @@ Kubernetes core/v1.SecretKeySelector
 <h3 id="targets.triggermesh.io/v1alpha1.SendGridTargetSpec">SendGridTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget</a>)
 </p>
-<div>
+<p>
 <p>SendGridTargetSpec holds the desired state of the SendGridTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -6968,7 +7164,7 @@ Kubernetes core/v1.SecretKeySelector
 <tbody>
 <tr>
 <td>
-<code>apiKey</code><br/>
+<code>apiKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -6981,7 +7177,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>defaultFromEmail</code><br/>
+<code>defaultFromEmail</code></br>
 <em>
 string
 </em>
@@ -6993,7 +7189,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultToEmail</code><br/>
+<code>defaultToEmail</code></br>
 <em>
 string
 </em>
@@ -7005,7 +7201,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultToName</code><br/>
+<code>defaultToName</code></br>
 <em>
 string
 </em>
@@ -7017,7 +7213,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultFromName</code><br/>
+<code>defaultFromName</code></br>
 <em>
 string
 </em>
@@ -7029,7 +7225,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultMessage</code><br/>
+<code>defaultMessage</code></br>
 <em>
 string
 </em>
@@ -7041,7 +7237,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultSubject</code><br/>
+<code>defaultSubject</code></br>
 <em>
 string
 </em>
@@ -7053,7 +7249,7 @@ string
 </tr>
 <tr>
 <td>
-<code>eventOptions</code><br/>
+<code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
 EventOptions
@@ -7069,11 +7265,12 @@ EventOptions
 <h3 id="targets.triggermesh.io/v1alpha1.SendGridTargetStatus">SendGridTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget</a>)
 </p>
-<div>
+<p>
 <p>SendGridTargetStatus communicates the observed state of the SendGridTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7084,7 +7281,7 @@ EventOptions
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -7104,7 +7301,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -7120,7 +7317,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -7139,11 +7336,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.SlackTargetSpec">SlackTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget</a>)
 </p>
-<div>
-<p>SlackTargetSpec defines the spec for the Slack Taret</p>
-</div>
+<p>
+<p>SlackTargetSpec defines the spec for the Slack Taret.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -7154,7 +7352,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -7170,11 +7368,12 @@ SecretValueFromSource
 <h3 id="targets.triggermesh.io/v1alpha1.SlackTargetStatus">SlackTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget</a>)
 </p>
-<div>
+<p>
 <p>SlackTargetStatus communicates the observed state of the SlackTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7185,7 +7384,7 @@ SecretValueFromSource
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -7205,7 +7404,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -7221,7 +7420,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -7240,11 +7439,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.SplunkTargetSpec">SplunkTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget</a>)
 </p>
-<div>
+<p>
 <p>SplunkTargetSpec defines the desired state of the event target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7255,7 +7455,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>endpoint</code><br/>
+<code>endpoint</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
 knative.dev/pkg/apis.URL
@@ -7270,7 +7470,7 @@ see <a href="https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTP
 </tr>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -7284,7 +7484,7 @@ see <a href="https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTP
 </tr>
 <tr>
 <td>
-<code>index</code><br/>
+<code>index</code></br>
 <em>
 string
 </em>
@@ -7297,7 +7497,7 @@ When undefined, events are sent to the default index defined in the HEC token&rs
 </tr>
 <tr>
 <td>
-<code>skipTLSVerify</code><br/>
+<code>skipTLSVerify</code></br>
 <em>
 bool
 </em>
@@ -7313,11 +7513,12 @@ chain and host name when communicating over TLS.</p>
 <h3 id="targets.triggermesh.io/v1alpha1.SplunkTargetStatus">SplunkTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget</a>)
 </p>
-<div>
+<p>
 <p>SplunkTargetStatus defines the observed state of the event target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7328,7 +7529,7 @@ chain and host name when communicating over TLS.</p>
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -7343,7 +7544,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -7361,10 +7562,12 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <h3 id="targets.triggermesh.io/v1alpha1.TektonTargetReapPolicy">TektonTargetReapPolicy
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.TektonTargetSpec">TektonTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.TektonTargetSpec">TektonTargetSpec</a>)
 </p>
-<div>
-</div>
+<p>
+<p>TektonTargetReapPolicy defines desired Repeating Policy.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -7375,7 +7578,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <tbody>
 <tr>
 <td>
-<code>success</code><br/>
+<code>success</code></br>
 <em>
 string
 </em>
@@ -7386,7 +7589,7 @@ string
 </tr>
 <tr>
 <td>
-<code>fail</code><br/>
+<code>fail</code></br>
 <em>
 string
 </em>
@@ -7400,10 +7603,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.TektonTargetSpec">TektonTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>)
 </p>
-<div>
-</div>
+<p>
+<p>TektonTargetSpec holds the desired state of event target.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -7414,7 +7619,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>reapPolicy</code><br/>
+<code>reapPolicy</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.TektonTargetReapPolicy">
 TektonTargetReapPolicy
@@ -7431,11 +7636,12 @@ TektonTargetReapPolicy
 <h3 id="targets.triggermesh.io/v1alpha1.TektonTargetStatus">TektonTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>)
 </p>
-<div>
+<p>
 <p>TektonTargetStatus communicates the observed state of the TektonTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7446,7 +7652,7 @@ TektonTargetReapPolicy
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -7466,7 +7672,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -7482,7 +7688,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -7501,11 +7707,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.TwilioTargetSpec">TwilioTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>)
 </p>
-<div>
+<p>
 <p>TwilioTargetSpec holds the desired state of the TwilioTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7516,7 +7723,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>sid</code><br/>
+<code>sid</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -7529,7 +7736,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -7542,7 +7749,7 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
-<code>defaultPhoneFrom</code><br/>
+<code>defaultPhoneFrom</code></br>
 <em>
 string
 </em>
@@ -7554,7 +7761,7 @@ string
 </tr>
 <tr>
 <td>
-<code>defaultPhoneTo</code><br/>
+<code>defaultPhoneTo</code></br>
 <em>
 string
 </em>
@@ -7564,16 +7771,30 @@ string
 <p>DefaultPhoneTo is the destination phone</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.TwilioTargetStatus">TwilioTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>)
 </p>
-<div>
+<p>
 <p>TwilioTargetStatus communicates the observed state of the TwilioTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7584,7 +7805,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -7604,7 +7825,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -7620,7 +7841,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -7639,11 +7860,12 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.UiPathTargetSpec">UiPathTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget</a>)
 </p>
-<div>
+<p>
 <p>UiPathTargetSpec defines the desired state of the event target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7654,7 +7876,7 @@ CloudEventStatus
 <tbody>
 <tr>
 <td>
-<code>userKey</code><br/>
+<code>userKey</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -7662,66 +7884,73 @@ SecretValueFromSource
 </em>
 </td>
 <td>
+<p>UserKey An OAuth token used to obtain an access key.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>robotName</code><br/>
+<code>robotName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>RobotName is the robot to invoke with this target.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>processName</code><br/>
+<code>processName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>ProccessName is the process name that will be used by UiPath for the target.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>tenantName</code><br/>
+<code>tenantName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>TenantName is the tenant that contains the components that will be invoked by the target.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>accountLogicalName</code><br/>
+<code>accountLogicalName</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>AccountLogicalName is the unique site URL used to identif the UiPath tenant.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>clientID</code><br/>
+<code>clientID</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>ClientID is the OAuth id registered to this target.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>organizationUnitID</code><br/>
+<code>organizationUnitID</code></br>
 <em>
 string
 </em>
 </td>
 <td>
+<p>OrganizationUnitID is the organization unit within the tenant that the UiPath proccess will run under.</p>
 </td>
 </tr>
 </tbody>
@@ -7729,11 +7958,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.UiPathTargetStatus">UiPathTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget</a>)
 </p>
-<div>
+<p>
 <p>UiPathTargetStatus defines the observed state of the event target.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7744,7 +7974,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -7759,7 +7989,7 @@ knative.dev/pkg/apis/duck/v1.Status
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -7774,7 +8004,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -7793,12 +8023,13 @@ CloudEventStatus
 <h3 id="targets.triggermesh.io/v1alpha1.ValueFromField">ValueFromField
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.SplunkTargetSpec">SplunkTargetSpec</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SplunkTargetSpec">SplunkTargetSpec</a>)
 </p>
-<div>
+<p>
 <p>ValueFromField is a struct field that can have its value either defined
 explicitly or sourced from another entity.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7809,7 +8040,7 @@ explicitly or sourced from another entity.</p>
 <tbody>
 <tr>
 <td>
-<code>value</code><br/>
+<code>value</code></br>
 <em>
 string
 </em>
@@ -7821,7 +8052,7 @@ string
 </tr>
 <tr>
 <td>
-<code>valueFromSecret</code><br/>
+<code>valueFromSecret</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#secretkeyselector-v1-core">
 Kubernetes core/v1.SecretKeySelector
@@ -7838,11 +8069,12 @@ Kubernetes core/v1.SecretKeySelector
 <h3 id="targets.triggermesh.io/v1alpha1.ZendeskTargetSpec">ZendeskTargetSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget</a>)
 </p>
-<div>
+<p>
 <p>ZendeskTargetSpec holds the desired state of the ZendeskTarget.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7853,7 +8085,7 @@ Kubernetes core/v1.SecretKeySelector
 <tbody>
 <tr>
 <td>
-<code>token</code><br/>
+<code>token</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
 SecretValueFromSource
@@ -7861,34 +8093,34 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Token contains the Zendesk account Token</p>
+<p>Token contains the Zendesk account Token.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>subdomain</code><br/>
+<code>subdomain</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Subdomain the Zendesk subdomain</p>
+<p>Subdomain the Zendesk subdomain.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>email</code><br/>
+<code>email</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<p>Email the regestierd Zendesk email account</p>
+<p>Email the registered Zendesk email account.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>subject</code><br/>
+<code>subject</code></br>
 <em>
 string
 </em>
@@ -7903,11 +8135,12 @@ string
 <h3 id="targets.triggermesh.io/v1alpha1.ZendeskTargetStatus">ZendeskTargetStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget</a>)
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget</a>)
 </p>
-<div>
+<p>
 <p>ZendeskTargetStatus communicates the observed state of the ZendeskTarget (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -7918,7 +8151,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>Status</code><br/>
+<code>Status</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
 knative.dev/pkg/apis/duck/v1.Status
@@ -7938,7 +8171,7 @@ state.</p>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -7954,7 +8187,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 <tr>
 <td>
-<code>CloudEventStatus</code><br/>
+<code>CloudEventStatus</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
 CloudEventStatus
@@ -7965,7 +8198,7 @@ CloudEventStatus
 <p>
 (Members of <code>CloudEventStatus</code> are embedded into this type.)
 </p>
-<p>Accepted/emitted CloudEvent attributes</p>
+<p>Accepted/emitted CloudEvent attributes.</p>
 </td>
 </tr>
 </tbody>
@@ -7973,5 +8206,5 @@ CloudEventStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>d4e1658</code>.
+on git commit <code>c307f87</code>.
 </em></p>

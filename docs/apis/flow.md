@@ -1,22 +1,28 @@
-<p>Packages:</p>
+<style>
+.bs-sidebar {
+display: none;
+}
+</style>
+<p>Package:</p>
 <ul>
 <li>
 <a href="#flow.triggermesh.io%2fv1alpha1">flow.triggermesh.io/v1alpha1</a>
 </li>
 </ul>
 <h2 id="flow.triggermesh.io/v1alpha1">flow.triggermesh.io/v1alpha1</h2>
-<div>
-</div>
+<p>
+<p>Package v1alpha1 contains API Schema definitions for the flow/v1alpha1 API group.</p>
+</p>
 Resource Types:
 <ul><li>
 <a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>
 </li></ul>
 <h3 id="flow.triggermesh.io/v1alpha1.Transformation">Transformation
 </h3>
-<div>
+<p>
 <p>Transformation is a Knative abstraction that encapsulates the interface by which Knative
 components express a desire to have a particular image cached.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -27,7 +33,7 @@ components express a desire to have a particular image cached.</p>
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -37,14 +43,14 @@ flow.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>Transformation</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -59,7 +65,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.TransformationSpec">
 TransformationSpec
@@ -74,7 +80,7 @@ TransformationSpec
 <table>
 <tr>
 <td>
-<code>sink</code><br/>
+<code>sink</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
 knative.dev/pkg/apis/duck/v1.Destination
@@ -87,7 +93,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 <tr>
 <td>
-<code>context</code><br/>
+<code>context</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.Transform">
 []Transform
@@ -100,7 +106,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 <tr>
 <td>
-<code>data</code><br/>
+<code>data</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.Transform">
 []Transform
@@ -116,7 +122,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.TransformationStatus">
 TransformationStatus
@@ -133,11 +139,12 @@ TransformationStatus
 <h3 id="flow.triggermesh.io/v1alpha1.Path">Path
 </h3>
 <p>
-(<em>Appears on:</em><a href="#flow.triggermesh.io/v1alpha1.Transform">Transform</a>)
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.Transform">Transform</a>)
 </p>
-<div>
+<p>
 <p>Path is a key-value pair that represents JSON object path</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -148,7 +155,7 @@ TransformationStatus
 <tbody>
 <tr>
 <td>
-<code>key</code><br/>
+<code>key</code></br>
 <em>
 string
 </em>
@@ -158,7 +165,7 @@ string
 </tr>
 <tr>
 <td>
-<code>value</code><br/>
+<code>value</code></br>
 <em>
 string
 </em>
@@ -171,11 +178,12 @@ string
 <h3 id="flow.triggermesh.io/v1alpha1.Transform">Transform
 </h3>
 <p>
-(<em>Appears on:</em><a href="#flow.triggermesh.io/v1alpha1.TransformationSpec">TransformationSpec</a>)
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.TransformationSpec">TransformationSpec</a>)
 </p>
-<div>
+<p>
 <p>Transform describes transformation schemes for different CE types.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -186,7 +194,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>operation</code><br/>
+<code>operation</code></br>
 <em>
 string
 </em>
@@ -196,7 +204,7 @@ string
 </tr>
 <tr>
 <td>
-<code>paths</code><br/>
+<code>paths</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.Path">
 []Path
@@ -211,11 +219,12 @@ string
 <h3 id="flow.triggermesh.io/v1alpha1.TransformationSpec">TransformationSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>)
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>)
 </p>
-<div>
+<p>
 <p>TransformationSpec holds the desired state of the Transformation (from the client).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -226,7 +235,7 @@ string
 <tbody>
 <tr>
 <td>
-<code>sink</code><br/>
+<code>sink</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
 knative.dev/pkg/apis/duck/v1.Destination
@@ -239,7 +248,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 <tr>
 <td>
-<code>context</code><br/>
+<code>context</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.Transform">
 []Transform
@@ -252,7 +261,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 <tr>
 <td>
-<code>data</code><br/>
+<code>data</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.Transform">
 []Transform
@@ -268,11 +277,12 @@ knative.dev/pkg/apis/duck/v1.Destination
 <h3 id="flow.triggermesh.io/v1alpha1.TransformationStatus">TransformationStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>)
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>)
 </p>
-<div>
+<p>
 <p>TransformationStatus communicates the observed state of the Transformation (from the controller).</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -283,7 +293,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 <tbody>
 <tr>
 <td>
-<code>SourceStatus</code><br/>
+<code>SourceStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
 knative.dev/pkg/apis/duck/v1.SourceStatus
@@ -298,7 +308,7 @@ knative.dev/pkg/apis/duck/v1.SourceStatus
 </tr>
 <tr>
 <td>
-<code>address</code><br/>
+<code>address</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Addressable">
 knative.dev/pkg/apis/duck/v1.Addressable
@@ -315,5 +325,5 @@ knative.dev/pkg/apis/duck/v1.Addressable
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ffb9f0d</code>.
+on git commit <code>c307f87</code>.
 </em></p>

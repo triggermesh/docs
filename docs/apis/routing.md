@@ -1,12 +1,18 @@
-<p>Packages:</p>
+<style>
+.bs-sidebar {
+display: none;
+}
+</style>
+<p>Package:</p>
 <ul>
 <li>
 <a href="#routing.triggermesh.io%2fv1alpha1">routing.triggermesh.io/v1alpha1</a>
 </li>
 </ul>
 <h2 id="routing.triggermesh.io/v1alpha1">routing.triggermesh.io/v1alpha1</h2>
-<div>
-</div>
+<p>
+<p>Package v1alpha1 contains API Schema definitions for the routing/v1alpha1 API group.</p>
+</p>
 Resource Types:
 <ul><li>
 <a href="#routing.triggermesh.io/v1alpha1.Filter">Filter</a>
@@ -15,10 +21,10 @@ Resource Types:
 </li></ul>
 <h3 id="routing.triggermesh.io/v1alpha1.Filter">Filter
 </h3>
-<div>
+<p>
 <p>Filter is an addressable object that filters incoming events according
 to provided Common Language Expression</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -29,7 +35,7 @@ to provided Common Language Expression</p>
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -39,14 +45,14 @@ routing.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>Filter</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -61,7 +67,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#routing.triggermesh.io/v1alpha1.FilterSpec">
 FilterSpec
@@ -76,7 +82,7 @@ FilterSpec
 <table>
 <tr>
 <td>
-<code>expression</code><br/>
+<code>expression</code></br>
 <em>
 string
 </em>
@@ -86,7 +92,7 @@ string
 </tr>
 <tr>
 <td>
-<code>sink</code><br/>
+<code>sink</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
 knative.dev/pkg/apis/duck/v1.Destination
@@ -102,7 +108,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#routing.triggermesh.io/v1alpha1.RouterStatus">
 RouterStatus
@@ -118,10 +124,10 @@ RouterStatus
 </table>
 <h3 id="routing.triggermesh.io/v1alpha1.Splitter">Splitter
 </h3>
-<div>
+<p>
 <p>Splitter is an addressable object that splits incoming events according
-to provided specification</p>
-</div>
+to provided specification.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -132,7 +138,7 @@ to provided specification</p>
 <tbody>
 <tr>
 <td>
-<code>apiVersion</code><br/>
+<code>apiVersion</code></br>
 string</td>
 <td>
 <code>
@@ -142,14 +148,14 @@ routing.triggermesh.io/v1alpha1
 </tr>
 <tr>
 <td>
-<code>kind</code><br/>
+<code>kind</code></br>
 string
 </td>
 <td><code>Splitter</code></td>
 </tr>
 <tr>
 <td>
-<code>metadata</code><br/>
+<code>metadata</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -164,7 +170,7 @@ Refer to the Kubernetes API documentation for the fields of the
 </tr>
 <tr>
 <td>
-<code>spec</code><br/>
+<code>spec</code></br>
 <em>
 <a href="#routing.triggermesh.io/v1alpha1.SplitterSpec">
 SplitterSpec
@@ -179,7 +185,7 @@ SplitterSpec
 <table>
 <tr>
 <td>
-<code>path</code><br/>
+<code>path</code></br>
 <em>
 string
 </em>
@@ -189,7 +195,7 @@ string
 </tr>
 <tr>
 <td>
-<code>ceContext</code><br/>
+<code>ceContext</code></br>
 <em>
 <a href="#routing.triggermesh.io/v1alpha1.CloudEventContext">
 CloudEventContext
@@ -201,7 +207,7 @@ CloudEventContext
 </tr>
 <tr>
 <td>
-<code>sink</code><br/>
+<code>sink</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
 knative.dev/pkg/apis/duck/v1.Destination
@@ -216,7 +222,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 <tr>
 <td>
-<code>status</code><br/>
+<code>status</code></br>
 <em>
 <a href="#routing.triggermesh.io/v1alpha1.RouterStatus">
 RouterStatus
@@ -233,10 +239,12 @@ RouterStatus
 <h3 id="routing.triggermesh.io/v1alpha1.CloudEventContext">CloudEventContext
 </h3>
 <p>
-(<em>Appears on:</em><a href="#routing.triggermesh.io/v1alpha1.SplitterSpec">SplitterSpec</a>)
+(<em>Appears on:</em>
+<a href="#routing.triggermesh.io/v1alpha1.SplitterSpec">SplitterSpec</a>)
 </p>
-<div>
-</div>
+<p>
+<p>CloudEventContext declares context attributes that will be propagated to resulting events.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -247,7 +255,7 @@ RouterStatus
 <tbody>
 <tr>
 <td>
-<code>type</code><br/>
+<code>type</code></br>
 <em>
 string
 </em>
@@ -257,7 +265,7 @@ string
 </tr>
 <tr>
 <td>
-<code>source</code><br/>
+<code>source</code></br>
 <em>
 string
 </em>
@@ -267,7 +275,7 @@ string
 </tr>
 <tr>
 <td>
-<code>extensions</code><br/>
+<code>extensions</code></br>
 <em>
 map[string]string
 </em>
@@ -280,11 +288,12 @@ map[string]string
 <h3 id="routing.triggermesh.io/v1alpha1.FilterSpec">FilterSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#routing.triggermesh.io/v1alpha1.Filter">Filter</a>)
+(<em>Appears on:</em>
+<a href="#routing.triggermesh.io/v1alpha1.Filter">Filter</a>)
 </p>
-<div>
+<p>
 <p>FilterSpec contains CEL expression string and the destination sink</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -295,7 +304,7 @@ map[string]string
 <tbody>
 <tr>
 <td>
-<code>expression</code><br/>
+<code>expression</code></br>
 <em>
 string
 </em>
@@ -305,7 +314,7 @@ string
 </tr>
 <tr>
 <td>
-<code>sink</code><br/>
+<code>sink</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
 knative.dev/pkg/apis/duck/v1.Destination
@@ -320,17 +329,20 @@ knative.dev/pkg/apis/duck/v1.Destination
 </table>
 <h3 id="routing.triggermesh.io/v1alpha1.Router">Router
 </h3>
-<div>
+<p>
 <p>Router is implemented by all Routing types.</p>
-</div>
+</p>
 <h3 id="routing.triggermesh.io/v1alpha1.RouterStatus">RouterStatus
 </h3>
 <p>
-(<em>Appears on:</em><a href="#routing.triggermesh.io/v1alpha1.Filter">Filter</a>, <a href="#routing.triggermesh.io/v1alpha1.Splitter">Splitter</a>, <a href="#routing.triggermesh.io/v1alpha1.RouterStatusManager">RouterStatusManager</a>)
+(<em>Appears on:</em>
+<a href="#routing.triggermesh.io/v1alpha1.Filter">Filter</a>, 
+<a href="#routing.triggermesh.io/v1alpha1.Splitter">Splitter</a>, 
+<a href="#routing.triggermesh.io/v1alpha1.RouterStatusManager">RouterStatusManager</a>)
 </p>
-<div>
+<p>
 <p>RouterStatus defines the observed state of an event source.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -341,7 +353,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 <tbody>
 <tr>
 <td>
-<code>SourceStatus</code><br/>
+<code>SourceStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
 knative.dev/pkg/apis/duck/v1.SourceStatus
@@ -356,7 +368,7 @@ knative.dev/pkg/apis/duck/v1.SourceStatus
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code><br/>
+<code>AddressStatus</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
 knative.dev/pkg/apis/duck/v1.AddressStatus
@@ -373,9 +385,9 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </table>
 <h3 id="routing.triggermesh.io/v1alpha1.RouterStatusManager">RouterStatusManager
 </h3>
-<div>
+<p>
 <p>RouterStatusManager manages the status of routers.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -386,7 +398,7 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <tbody>
 <tr>
 <td>
-<code>ConditionSet</code><br/>
+<code>ConditionSet</code></br>
 <em>
 knative.dev/pkg/apis.ConditionSet
 </em>
@@ -396,7 +408,7 @@ knative.dev/pkg/apis.ConditionSet
 </tr>
 <tr>
 <td>
-<code>RouterStatus</code><br/>
+<code>RouterStatus</code></br>
 <em>
 <a href="#routing.triggermesh.io/v1alpha1.RouterStatus">
 RouterStatus
@@ -411,11 +423,12 @@ RouterStatus
 <h3 id="routing.triggermesh.io/v1alpha1.SplitterSpec">SplitterSpec
 </h3>
 <p>
-(<em>Appears on:</em><a href="#routing.triggermesh.io/v1alpha1.Splitter">Splitter</a>)
+(<em>Appears on:</em>
+<a href="#routing.triggermesh.io/v1alpha1.Splitter">Splitter</a>)
 </p>
-<div>
-<p>SplitterSpec holds the desired state of the Splitter</p>
-</div>
+<p>
+<p>SplitterSpec holds the desired state of the Splitter.</p>
+</p>
 <table>
 <thead>
 <tr>
@@ -426,7 +439,7 @@ RouterStatus
 <tbody>
 <tr>
 <td>
-<code>path</code><br/>
+<code>path</code></br>
 <em>
 string
 </em>
@@ -436,7 +449,7 @@ string
 </tr>
 <tr>
 <td>
-<code>ceContext</code><br/>
+<code>ceContext</code></br>
 <em>
 <a href="#routing.triggermesh.io/v1alpha1.CloudEventContext">
 CloudEventContext
@@ -448,7 +461,7 @@ CloudEventContext
 </tr>
 <tr>
 <td>
-<code>sink</code><br/>
+<code>sink</code></br>
 <em>
 <a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
 knative.dev/pkg/apis/duck/v1.Destination
@@ -462,10 +475,10 @@ knative.dev/pkg/apis/duck/v1.Destination
 </table>
 <h3 id="routing.triggermesh.io/v1alpha1.ValueFromField">ValueFromField
 </h3>
-<div>
+<p>
 <p>ValueFromField is a struct field that can have its value either defined
 explicitly or sourced from another entity.</p>
-</div>
+</p>
 <table>
 <thead>
 <tr>
@@ -476,7 +489,7 @@ explicitly or sourced from another entity.</p>
 <tbody>
 <tr>
 <td>
-<code>value</code><br/>
+<code>value</code></br>
 <em>
 string
 </em>
@@ -488,7 +501,7 @@ string
 </tr>
 <tr>
 <td>
-<code>valueFromSecret</code><br/>
+<code>valueFromSecret</code></br>
 <em>
 <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#secretkeyselector-v1-core">
 Kubernetes core/v1.SecretKeySelector
@@ -505,5 +518,5 @@ Kubernetes core/v1.SecretKeySelector
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ffb9f0d</code>.
+on git commit <code>c307f87</code>.
 </em></p>
