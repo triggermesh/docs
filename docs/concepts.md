@@ -1,98 +1,16 @@
-The following diagram depicts the core concepts of the TriggerMesh Cloud-Native Integration Platform: Source, Target, Function, Transformation, Filter, Splitter.
+# TriggerMesh Concepts
 
-![](./assets/images/concepts.png)
+The TriggerMesh Cloud Native Integration Platform allows you to integrate applications (on-premises or cloud services) by defining sources and targets which are seen as the start and the end of what we call "Bridges". While data and events flow through the Bridge, they may are defined using an API object and may undergo splitting, filtering, and/or transformations.
 
-TriggerMesh allows you to integrate applications (on-premises or cloud services) by defining event sources and targets which are seen as the start and the end of a so-called Bridge. While events flow through the Bridge, they can undergo splitting, filtering and transformation. Transformation of events can be done declaratively or through a function.
+| ![concepts.png](./assets/images/concepts.png) |
+|:--:|
+| TriggerMesh Bridges Concepts |
 
-To route events, TriggerMesh makes use of the Knative Eventing primitives (e.g Brokers, Channels, Triggers).
+Bridges define how we connect our applications and services, and they may consist of the following concepts:
 
-Each component of a Bridge can be defined using an API object available through the TriggerMesh platform or through Knative.
-
-To facilitate writing your integrations, we provide a language called the TriggerMesh Integration Language (TIL). 
-
-## Sources
-
-All sources are listed and documented in the [reference](apis/sources/)
-
-The specificiation of each source is available through `kubectl explain`. For instance:
-
-```console
-kubectl explain googlecloudstoragesource.spec
-KIND:     GoogleCloudStorageSource
-VERSION:  sources.triggermesh.io/v1alpha1
-
-RESOURCE: spec <Object>
-
-DESCRIPTION:
-     Desired state of the event source.
-
-FIELDS:
-   bucket	<string> -required-
-     Name of the Cloud Storage bucket to receive change notifications from. Must
-     meet the naming requirements described at
-     https://cloud.google.com/storage/docs/naming-buckets
-
-   eventTypes	<[]string>
-     Types of events to receive change notifications for. Accepted values are
-     listed at
-     https://cloud.google.com/storage/docs/pubsub-notifications#events. All
-     types are selected when this attribute is not set.
-
-   pubsub	<Object> -required-
-     Attributes related to the configuration of Pub/Sub resources associated
-     with the Cloud Storage bucket.
-
-   serviceAccountKey	<Object> -required-
-     Service account key used to authenticate the event source and allow it to
-     interact with Google Cloud APIs. Only the JSON format is supported.
-
-   sink	<Object> -required-
-     The destination of events received via change notifications.
-```
-
-## Targets
-
-All targets are listed and documented in the [reference](apis/targets)
-
-The specification of each target is available through `kubectl explain`. For instance:
-
-```console
-kubectl explain awslambdatarget.spec
-KIND:     AWSLambdaTarget
-VERSION:  targets.triggermesh.io/v1alpha1
-
-RESOURCE: spec <Object>
-
-DESCRIPTION:
-     Desired state of event target.
-
-FIELDS:
-   arn	<string>
-     ARN of the Lambda function that will receive events. The expected format is
-     documented at
-     https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html
-
-   awsApiKey	<Object>
-     API Key to interact with the Amazon Lambda API. For more information about
-     AWS security credentials, please refer to the AWS General Reference at
-     https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html
-
-   awsApiSecret	<Object>
-     API Secret to interact with the Amazon Lambda API. For more information
-     about AWS security credentials, please refer to the AWS General Reference
-     at
-     https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html
-
-   discardCloudEventContext	<boolean>
-     Produce a new cloud event based on the response from the lambda function.
-```
-
-## Transformation
-
-## Function
-
-## Routing
-
-## Bridge
-
-## TriggerMesh Integration Language (TIL)
+* [Sources](concepts/sources.md) are the origin of data and events. These may be on-premises or cloud-based. Examples include databases, message queues, logs, and events from applications or services.
+* [Filters](concepts/routing.md) determine which events to process based on their content. An example would be to drop log messages that are below a required level of criticality.
+* [Splitters](concepts/routing.md) break individual events into multiple events which may be sent to different destinations. These may be on-premises and/or cloud-based targets.
+* [Transformations](concepts/transformations.md) are a set of modifications to incoming events. Examples include annotating incoming events with timestamps, dropping fields, or rearranging data to fit an expected format. Transformations may be done declaratively or through a [function](guides/writingafunction.md).
+* [Targets](concepts/targets.md) are the destination for the processed events or data. Examples include databases, message queues, monitoring systems, and cloud services.
+* [TriggerMesh Integration Language](til/Introduction.md) (TIL) is a templated configuration language for writing your integrations as code. TIL is based off of the [HashiCorp Configuration Language](https://github.com/hashicorp/hcl) and should be familiar to users of [Terraform](https://terraform.io).
