@@ -48,12 +48,6 @@ nav:
       - Doing a Transformation: guides/doingatransformation.md
       - Writing a Function: guides/writingafunction.md
       - Using TIL: guides/tilgettingstarted.md
-      - Using the `tm` CLI:
-        - Installation: tm/install.md
-        - Configuration: tm/configuration.md
-        - Usage: tm/usage.md
-        - Registry: tm/registry.md
-        - Serverless Manifest: tm/serverless.md
     - Installation:
       - '': guides/installation.md
       - AWS AMI: guides/installation-ami.md
@@ -94,6 +88,12 @@ nav:
       - Targets: cloud/targets/targets.md
       - Secrets: cloud/secrets.md
       - Creating a Service: guides/creatingaservice.md
+      - Using the CLI:
+        - Installation: tm/install.md
+        - Configuration: tm/configuration.md
+        - Usage: tm/usage.md
+        - Registry: tm/registry.md
+        - Serverless Manifest: tm/serverless.md
 
 theme:
   name: material
