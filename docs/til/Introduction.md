@@ -1,4 +1,4 @@
-This is the documentation of TriggerMesh's Integration Language and its tooling.
+# TriggerMesh Integration Language
 
 The _TriggerMesh Integration Language_ is a configuration language based on the [HCL syntax](https://github.com/hashicorp/hcl/blob/main/hclsyntax/spec.md) which purpose is to provide a user-friendly interface for describing [TriggerMesh Bridges](https://www.triggermesh.com/integrations).
 

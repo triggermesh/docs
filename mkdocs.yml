@@ -31,15 +31,22 @@ extra_javascript:
 # Page tree
 nav:
     - Home: index.md
-    - Concepts: concepts.md
+    - Concepts:
+      - '': concepts.md
+      - Sources: concepts/sources.md
+      - Targets: concepts/targets.md
+      - Routing: concepts/routing.md
+      - Transformation: concepts/transformation.md
+      - Functions: concepts/functions.md
+      - TriggerMesh Integration Language: til/Introduction.md
     - Guides:
       - Getting Started: guides/gettingstarted.md
       - Creating a Source: guides/creatingasource.md
       - Creating a Target: guides/creatingatarget.md
+      - Writing a Filter: guides/writingafilter.md
+      - Creating a Splitter: guides/creatingasplitter.md
       - Doing a Transformation: guides/doingatransformation.md
       - Writing a Function: guides/writingafunction.md
-      - Creating a Splitter: guides/creatingasplitter.md
-      - Creating a Filter: guides/writingafilter.md
       - Using TIL: guides/tilgettingstarted.md
       - Using the `tm` CLI:
         - Installation: tm/install.md
@@ -48,11 +55,11 @@ nav:
         - Registry: tm/registry.md
         - Serverless Manifest: tm/serverless.md
     - Installation:
-      - guides/installation.md
+      - '': guides/installation.md
       - AWS AMI: guides/installation-ami.md
       - Helm: guides/installation-helm.md
     - Integration Language:
-      - til/Introduction.md
+      - '': til/Introduction.md
       - CLI: til/Commands.md
       - Language:
         - Concepts: til/Concepts.md
@@ -73,15 +80,15 @@ nav:
         - Using Carvel kapp: til/Carvel-kapp.md
         - Using kubectl: til/Kubectl.md
         - Using kustomize: til/Kustomize.md
-    - Reference: 
-      - Getting Started : apis/apis.md
+    - Reference:
+      - '': apis/apis.md
       - Sources: apis/sources.md
       - Targets: apis/targets.md
       - Routing: apis/routing.md
-      - Function: apis/extensions.md
       - Transformation: apis/flow.md
+      - Functions: apis/extensions.md
     - Enterprise:
-      - cloud/index.md
+      - '': cloud/index.md
       - Bridge: cloud/bridge.md
       - Sources: cloud/sources/sources.md
       - Targets: cloud/targets/targets.md
