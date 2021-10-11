@@ -1,17 +1,27 @@
-# Creating a Splitter
+# Creating an Event Splitter
 
-Splitter is a part of TriggerMesh routing solution that has a simple purpose to
-split JSON arrays into multiple CloudEvents.
+An event `Splitter` is part of the TriggerMesh routing solution. It has a simple purpose of splitting JSON arrays into multiple [CloudEvents](https://cloudevents.io/).
 
-## Prerequisites
+!!! Info "Prerequisites"
+    You need a working TriggerMesh platform installation. See the [installation steps](installation.md). You can verify that the API is available with the following command:
+    
+    ```console
+       $ kubectl get crd|grep splitter
+       splitters.routing.triggermesh.io                        2021-10-06T09:01:38Z
+    ```
 
-1. K8s cluster and configured kubectl
-1. [Knative Serving and Eventing Operators](https://knative.dev/docs/admin/install/knative-with-operators/)
-1. [TriggerMesh Function](https://github.com/triggermesh/function)
+![](../assets/images/splitter.png)
+
+Let's create all the required objects:
+
+- [x] The sockeye target which serves as an event display.
+- [x] The `PingSource` which produces a JSON array in its payload.
+- [x] The `Splitter` to generate the multiple events.
 
 ## Event display
 
-Create a `sockeye` service to see resulting events:
+First of all, we need to have a tool to see filtering results. Create a `sockeye`
+service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
 
 ```yaml
 apiVersion: serving.knative.dev/v1
@@ -25,17 +35,20 @@ spec:
         - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
 ```
 
-Open its web interface in browser:
+```
+kubectl apply -f sockeye.yaml
+```
+
+Open the web interface in a browser:
 
 ```shell
 browse $(kubectl get ksvc sockeye -o=jsonpath='{.status.url}')
 ```
 
-## Event producers
+## Events producer
 
-Next, create
-[PingSource](https://knative.dev/docs/developer/eventing/sources/ping-source) to
-produce CloudEvents:
+Next we the create
+[PingSource](https://knative.dev/docs/developer/eventing/sources/ping-source) which produces CloudEvents that contain a list in their payload. Save the following YAML manifest in a file and apply it to your Kubernetes cluster with `kubectl apply`.
 
 ```yaml
 apiVersion: sources.knative.dev/v1
@@ -64,10 +77,9 @@ spec:
       name: splitter-demo
 ```
 
-## Split events
+## The Splitter
 
-Create the Splitter that will produce two events from every single CloudEvent
-received from the PingSource:
+Finally, create the `Splitter` that will produce two events from every single CloudEvent received from the PingSource by saving the following YAML manifest and applying it to your Kubernetes cluster.
 
 ```yaml
 apiVersion: routing.triggermesh.io/v1alpha1
@@ -86,5 +98,12 @@ spec:
       name: sockeye
 ```
 
-More details and Splitter examples are available
-[here](https://github.com/triggermesh/routing#triggermesh-events-splitter)
+Note that you define the path where you are going to find a list in the incoming event and you define the CloudEvent attributes of the generated events (i.e _splitter_ as the source and _foo.bar.type_ as the type).
+
+!!! tip "Play with your Splitter as Code"
+    You can play around by modifying the `Splitter` object and re-applying it with `kubectl`. This gives you a declarative event splitter which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
+
+## Specification
+
+The object specification can be found in the API
+[reference](../apis/routing.md).
