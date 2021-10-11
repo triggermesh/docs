@@ -4,7 +4,7 @@ Filters are an important part of TriggerMesh's event routing mechanism. They all
 [Common Expression Language](https://opensource.google/projects/cel) within the TriggerMesh `Filter` API specification.
 
 !!! Info "Prerequisites"
-    You need a working TriggerMesh platform installation. See the [installation steps](installation.md)
+    You need a working TriggerMesh platform installation. See the [installation steps](installation.md).
     You can verify that the API is available with the following command:
     
     ```console
@@ -18,9 +18,9 @@ To demonstrate filtering in TriggerMesh we are going to setup the event flow dep
 
 Let's create all the required objects:
 
-- [x] The sockeye target which serves as an event display
-- [x] The two `PingSource`
-- [x] The `Filter`
+- [x] The sockeye target which serves as an event display.
+- [x] The two `PingSource` to produce events.
+- [x] The `Filter` to discard or not incoming events.
 
 ## Event display
 

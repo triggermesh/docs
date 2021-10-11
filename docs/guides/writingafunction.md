@@ -3,7 +3,7 @@
 The TriggerMesh `Function` API provides opportunities to implement custom events flow logic and can act as a source, transformation, or target. Currently, Python, NodeJS, and Ruby runtimes are supported.
 
 !!! Info "Prerequisites"
-    You need a working TriggerMesh platform installation. See the [installation steps](installation.md)
+    You need a working TriggerMesh platform installation. See the [installation steps](installation.md).
     You can verify that the API is available with the following command:
     
     ```console
