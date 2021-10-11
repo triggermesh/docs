@@ -34,19 +34,19 @@ nav:
     - Concepts:
       - '': concepts.md
       - Sources: concepts/sources.md
-      - Filters: concepts/routing.md
-      - Splitters: concepts/routing.md
-      - Transformations: concepts/transformations.md
       - Targets: concepts/targets.md
+      - Routing: concepts/routing.md
+      - Transformations: concepts/transformations.md
+      - Functions: concepts/functions.md
       - TriggerMesh Integration Language: til/Introduction.md
     - Guides:
       - Getting Started: guides/gettingstarted.md
       - Creating a Source: guides/creatingasource.md
       - Creating a Target: guides/creatingatarget.md
+      - Creating a Filter: guides/writingafilter.md
+      - Creating a Splitter: guides/creatingasplitter.md
       - Doing a Transformation: guides/doingatransformation.md
       - Writing a Function: guides/writingafunction.md
-      - Creating a Splitter: guides/creatingasplitter.md
-      - Creating a Filter: guides/writingafilter.md
       - Using TIL: guides/tilgettingstarted.md
       - Using the `tm` CLI:
         - Installation: tm/install.md
@@ -85,8 +85,8 @@ nav:
       - Sources: apis/sources.md
       - Targets: apis/targets.md
       - Routing: apis/routing.md
-      - Function: apis/extensions.md
-      - Transformation: apis/flow.md
+      - Transformations: apis/flow.md
+      - Functions: apis/extensions.md
     - Enterprise:
       - '': cloud/index.md
       - Bridge: cloud/bridge.md
