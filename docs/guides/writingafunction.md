@@ -20,8 +20,8 @@ As an example, let's write a Python function which reads a name from an incoming
 
 Writing a function requires two steps:
 
-- [ ] Writing a function manifest
-- [ ] Applying the manifest to your Kubernetes cluster
+- [x] Writing a function manifest
+- [x] Applying the manifest to your Kubernetes cluster
 
 The Function object spec requires a minimal amount of configuration:
 
@@ -51,11 +51,6 @@ You can then create the function with:
 ```console
 kubectl apply -f function.yaml
 ```
-
-You have completed the two steps required to create a function
-
-- [x] Writing a function manifest
-- [x] Applying the manifest to your Kubernetes
 
 You can find the public endpoint of your function and test it:
 
