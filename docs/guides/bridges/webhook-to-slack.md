@@ -193,12 +193,14 @@ Use `curl` or any HTTP capable client to post messages at Slack.
 curl -d '{"message":"test my bridge"}' https://webhooksource-post-message.woodford.dev.triggermesh.io
 ```
 
-Moving forward this bridge could be added:
+Thid Bridge can be extended in many different ways:
 
 - Validation and error handling at the transformation Function.
 - The Channel could be provided as a parameter from the WebhookSource, defaulting to a channel provided by the Function.
 - AWS Comprehend could be used for sentiment analysis.
 - Messages could be enriched if they contain word `avocado` with 🥑
+- Add a Twilio Source that will also feed incoming messages to the Broker.
+- Add a Datadog Target that will convert a subset of filtered messages into alerts.
 
 If you have any questions on how to build this Bridge or how to modify it to suit your needs, join our [Community Slack](http://triggermesh-community.slack.com/) and [contact us](mailto:info@triggermesh.com).
 
