@@ -2,14 +2,18 @@
 
 The TriggerMesh `Function` API provides opportunities to implement custom event flow logic and may act as a source, transformation, or a target. Currently, Python, NodeJS, and Ruby runtimes are supported.
 
-!!! Info "Prerequisites"
-    You need a working TriggerMesh platform installation. See the [installation steps](installation.md).
+!!! tip
     You can verify that the API is available with the following command:
 
     ```console
     $ kubectl get crd functions.extensions.triggermesh.io
     NAME                                  CREATED AT
     functions.extensions.triggermesh.io   2021-10-06T09:01:33Z
+    ```
+    
+    You can also explore the API specification with:
+    ```console
+    $ kubectl explain functions
     ```
 
 !!! Warning

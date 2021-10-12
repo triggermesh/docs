@@ -2,13 +2,18 @@
 
 An event `Splitter` is part of the TriggerMesh routing solution. It has the simple purpose of splitting JSON arrays into multiple [CloudEvents](https://cloudevents.io/) for further processing.
 
-!!! Info "Prerequisites"
-    You need a working TriggerMesh platform installation. See the [installation steps](installation.md). You can verify that the API is available with the following command:
+!!! tip
+    You can verify that the API is available with the following command:
 
     ```console
     $ kubectl get crd splitters.routing.triggermesh.io
     NAME                               CREATED AT
     splitters.routing.triggermesh.io   2021-10-06T09:01:38Z
+    ```
+    
+    You can also explore the API specification with:
+    ```console
+    $ kubectl explain splitter
     ```
 
 ![](../assets/images/splitter.png)
