@@ -8,8 +8,9 @@ simple flow (a.k.a Bridge) with an event producer and a transformation to see th
     You need a working TriggerMesh platform installation. See the [installation steps](installation.md). You can verify that the API is available with the following command:
 
     ```console
-       $ kubectl get crd|grep transformation
-       transformations.flow.triggermesh.io                     2021-10-06T09:01:40Z
+    $ kubectl get crd transformations.flow.triggermesh.io
+    NAME                                  CREATED AT
+    transformations.flow.triggermesh.io   2021-10-06T09:01:40Z
     ```
 
 ![](../assets/images/transformation.png)
