@@ -186,14 +186,15 @@ Retrieve the URL where the Webhook is listening for incoming requests.
 $ kubectl get webhooksources.sources.triggermesh.io post-message
 NAME           READY   REASON   URL                                                                  SINK                                                                            AGE
 post-message   True             https://webhooksource-post-message.woodford.dev.triggermesh.io   http://broker-ingress.knative-eventing.svc.cluster.local/woodford/default   61s
+```
 
 Use `curl` or any HTTP capable client to post messages at Slack.
 
-```
+```console
 curl -d '{"message":"test my bridge"}' https://webhooksource-post-message.woodford.dev.triggermesh.io
 ```
 
-Thid Bridge can be extended in many different ways:
+This Bridge can be extended in many different ways:
 
 - Validation and error handling at the transformation Function.
 - The Channel could be provided as a parameter from the WebhookSource, defaulting to a channel provided by the Function.
