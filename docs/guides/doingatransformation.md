@@ -23,7 +23,7 @@ Let's create all the required objects:
 
 ## Event display
 
-First of all, we need to have a tool to see filtering results. Create a `sockeye`
+First of all, we need to have a tool to see the transformed events. Create a `sockeye`
 service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
 
 ```yaml
@@ -42,10 +42,10 @@ spec:
 kubectl apply -f sockeye.yaml
 ```
 
-Open the web interface in a browser:
+Open the web interface in a browser at the URL that you find with the following command
 
 ```shell
-browse $(kubectl get ksvc sockeye -o=jsonpath='{.status.url}')
+$ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
 ```
 
 ## Events producer

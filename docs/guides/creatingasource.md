@@ -39,7 +39,7 @@ browse $(kubectl get ksvc sockeye -o=jsonpath='{.status.url}')
 
 ## Create a AWS SQS Event source
 
-You can explore the specification of the object using the `kubectl explain` command. You will see that you need the ARN (i.e Amazon Resource Name) or your AWS SQS queue and you need your AWS API keys.
+You can explore the specification of the object using the `kubectl explain` command. You will see that you need the ARN (i.e Amazon Resource Name) of your AWS SQS queue and you need your AWS API keys.
 
 
 ```console
@@ -76,7 +76,7 @@ kind: AWSSQSSource
 metadata:
   name: sqs-guide
 spec:
-  arn: arn:aws:sqs:us-east-1:587264312345:triggermesh
+  arn: arn:aws:sqs:us-east-1:123456789012:triggermesh
   credentials:
     accessKeyID:
       valueFromSecret:

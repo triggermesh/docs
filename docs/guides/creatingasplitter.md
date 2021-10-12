@@ -20,7 +20,7 @@ Let's create the required objects:
 
 ## Event display
 
-First of all, we need to have a tool to see filtering results. Create a `sockeye`
+First of all, we need to have a tool to see the split events. Create a `sockeye`
 service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
 
 ```yaml
@@ -39,16 +39,15 @@ spec:
 kubectl apply -f sockeye.yaml
 ```
 
-Open the web interface in a browser:
+Open the web interface in a browser at the URL found with the following command:
 
 ```shell
-browse $(kubectl get ksvc sockeye -o=jsonpath='{.status.url}')
+$ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
 ```
 
 ## Events producer
 
-Next we the create
-[PingSource](https://knative.dev/docs/developer/eventing/sources/ping-source) which produces CloudEvents that contain a list in their payload. Save the following YAML manifest in a file and apply it to your Kubernetes cluster with `kubectl apply`.
+Next we create the [PingSource](https://knative.dev/docs/developer/eventing/sources/ping-source) which produces CloudEvents that contain a list in their payload. Save the following YAML manifest in a file and apply it to your Kubernetes cluster with `kubectl apply`.
 
 ```yaml
 apiVersion: sources.knative.dev/v1
