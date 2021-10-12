@@ -2,7 +2,6 @@
 
 <!-- Please click "Preview" and ensure hyperlinks are working before clicking "Save page". -->
 
-- [Full list](#full-list)
 - [Amazon CloudWatch](#amazon-cloudwatch)
 - [Amazon CloudWatch Logs](#amazon-cloudwatch-logs)
 - [Amazon CodeCommit](#amazon-codecommit)
