@@ -66,7 +66,7 @@ The `eventType` and `eventSource` CloudEvents attributes are being set for furth
 
 ## Slack Target
 
-Salesforce Target requires:
+Slack Target requires:
 
 - Creating a new [Slack App][slack-apps]: add the `chat:write` permission under `Bot Token Scopes`, then install the application at your workspace.
 - A Slack API token: from the **Install App** menu retrieve the OAuth Access token that begins with `xoxb-`.
@@ -130,10 +130,10 @@ spec:
 In order to connect all components we will setup these elements:
 
 - A central Broker that receives messages from the Source
-- A Trigger that consumes Webhook events filtering by the `webhook.slack.postmessage` type and sends then to the transformation Function.
-- A Trigger that consumes transformed events filtering by the `com.slack.webapi.chat.postMessage` type and sends then to the Slack target.
+- A Trigger that consumes Webhook events filtered by the `webhook.slack.postmessage` type and sends them to the transformation Function.
+- A Trigger that consumes transformed events filtered by the `com.slack.webapi.chat.postMessage` type and sends them to the Slack target.
 
-The Broker name is set to `default` to match the one used at the already created Webhook Source.
+The Broker name is set to `default` to match the one used at the Webhook Source earlier.
 
 ```yaml
 apiVersion: eventing.knative.dev/v1
@@ -182,11 +182,10 @@ spec:
 
 Retrieve the URL where the Webhook is listening for incoming requests.
 
-```sh
-kubectl get webhooksources.sources.triggermesh.io post-message
+```console
+$ kubectl get webhooksources.sources.triggermesh.io post-message
 NAME           READY   REASON   URL                                                                  SINK                                                                            AGE
 post-message   True             https://webhooksource-post-message.woodford.dev.triggermesh.io   http://broker-ingress.knative-eventing.svc.cluster.local/woodford/default   61s
-```
 
 Use `curl` or any HTTP capable client to post messages at Slack.
 
