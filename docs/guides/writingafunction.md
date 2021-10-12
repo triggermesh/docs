@@ -7,8 +7,9 @@ The TriggerMesh `Function` API provides opportunities to implement custom event 
     You can verify that the API is available with the following command:
 
     ```console
-    $ kubectl get crd |grep function
-    functions.extensions.triggermesh.io        2021-10-06T09:01:33Z
+    $ kubectl get crd functions.extensions.triggermesh.io
+    NAME                                  CREATED AT
+    functions.extensions.triggermesh.io   2021-10-06T09:01:33Z
     ```
 
 !!! Warning
