@@ -1,7 +1,7 @@
 # Creating a Source
 
 !!! Info "Installation"
-    Make sure you have gone through the installation [procedure](installation.md) first before continuing with any of the guides.
+    Make sure you have completed the installation [procedure](installation.md) before continuing with any of the guides.
 
 In this guide we will create a point to point Bridge between an AWS SQS queue and a microservice application called `sockeye` which displays events in a web interface. This simple flow is depicted below.
 
@@ -42,7 +42,7 @@ $ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
 
 ## Create a AWS SQS Event source
 
-You can explore the specification of the object using the `kubectl explain` command. You will see that you need the ARN (i.e Amazon Resource Name) of your AWS SQS queue and you need AWS API keys that give you access to SQS.
+You can explore the specification of the object using the `kubectl explain` command. You will see that you need the ARN (i.e Amazon Resource Name) of your AWS SQS queue and the AWS API keys that give you access to SQS.
 
 
 ```console
@@ -81,7 +81,7 @@ kubectl create secret generic awscreds \
   --from-literal=secret_access_key=<SECRET_ACCESS_KEY>
 ```
 
-Then, write a YAML manifest for your SQS source similar to the one below. The following sample points to a SQS queue thanks to a reference to its ARN and a secret called `awscreds`.
+Then, write a YAML manifest for your SQS source similar to the one below. The following sample points to a SQS queue, referenced by its ARN and a secret called `awscreds`.
 
 
 ```yaml
