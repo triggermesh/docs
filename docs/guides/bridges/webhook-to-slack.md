@@ -19,7 +19,7 @@ Slack Target expect one of these 3 event types along with their related payload:
 - `com.slack.webapi.chat.scheduleMessage` for consuming [chat.scheduleMessage][chat.scheduleMessage]
 - `com.slack.webapi.chat.update` for consuming [chat.update][chat.update]
 
-This fictional scenario will send this data to the Webhook Source using `curl`.
+This fictional scenario will send the following data to the Webhook Source using `curl`.
 ```json
 {"message": "Hello Slack!"}
 ```
