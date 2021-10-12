@@ -43,7 +43,7 @@ spec:
 kubectl apply -f sockeye.yaml
 ```
 
-Open the web interface in a browser at the URL that you find with the following command
+Open the web interface in a browser at the URL that you find with the following command:
 
 ```shell
 $ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
@@ -153,12 +153,12 @@ If all the components of the Bridge are ready, the `sockeye` web interface will 
 
 ![transformed event](../assets/images/transformation/tx-sockeye.png)
 
-You will notice that the CloudEvent attributes have beeen modified according to the `context` section in the specification of the `Transformation` object. The event type was modified and the `id` was pre-pended with the string `Alice`.
+You will notice that the CloudEvent attributes have beeen modified according to the `context` section in the specification of the `Transformation` object. The event type was modified and the `id` was prepended with the string `Alice`.
 
-The payload was also transformed accorind go the the `data` section of the `Transformation` object. For example the mobile phone was deleted, a key `event` was added and a few keys were _shifted_, "Date of Birth" became "birthday".
+The payload was also transformed according to the `data` section of the `Transformation` object. For example the mobile phone was deleted, a key `event` was added and a few keys were _shifted_: "Date of Birth" became "birthday".
 
 !!! tip "Play with your Transformation as Code"
-    You can play around by modifying the `Transformation` object and re-applying it with `kubectl`. This gives you a declarative event transformer which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
+    You can play around by modifying the `Transformation` object and re-applying it with `kubectl`. This gives you a declarative event transformer which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/).
 
 ## More about Transformations
 
