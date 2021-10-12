@@ -118,6 +118,14 @@ spec:
       name: sockeye
 ```
 
+Verify that your filter is ready with `kubectl` like so:
+
+```console
+$ kubectl get filter
+NAME          ADDRESS                                                      READY   REASON
+filter-demo   http://filter-adapter.sebgoa.svc.cluster.local/filter-demo   True
+```
+
 Only events from the second source should appear in the `sockeye` web interface as shown in the screenshot below:
 
 ![](../assets/images/sockeye-filter.png)
