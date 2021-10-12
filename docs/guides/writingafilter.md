@@ -7,8 +7,9 @@ Filters are an important part of TriggerMesh's event routing mechanism. They all
     You can verify that the API is available with the following command:
 
     ```console
-    $ kubectl get crd|grep filters.routing
-      filters.routing.triggermesh.io                       2021-10-06T09:01:33Z
+    $ kubectl get crd filters.routing.triggermesh.io
+    NAME                             CREATED AT
+    filters.routing.triggermesh.io   2021-10-06T09:01:33Z
     ```
     You can also explore the API specification with:
     ```console
