@@ -59,7 +59,15 @@ FIELDS:
 
 In addition to be able to interact with AWS you need to have your AWS API keys available. You may specify them in an object manifest but for better security you will want to use a Kubernetes secret.
 
-Create the following object by saving the YAML manifest in a file and using the `kubectl apply` command.
+Create a Kubernetes secret called `awscreds` from the command line like so:
+
+```console
+kubectl create secret generic awscreds \
+  --from-literal=access_key_id=<ACCESS_KEY_ID> \
+  --from-literal=secret_access_key=<SECRET_ACCESS_KEY>
+```
+
+Then, create the following object by saving the YAML manifest in a file and using the `kubectl apply` command.
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -89,7 +97,7 @@ kind: PingSource
 metadata:
   name: ping-lambda
 spec:
-  data: '{"hello": "triggermesh"}'
+  data: '{"name": "triggermesh"}'
   schedule: '*/1 * * * *'
   sink:
     ref:
@@ -114,7 +122,9 @@ NAME          URL   READY   REASON               AGE
 lambda-guide         True                         3m12s
 ```
 
-Finally head over to the AWS Lambda console and see the logs of your Lambda. It will show the `{"hello": "triggermesh"}` string in the standard output.
+Finally, go to the AWS Lambda console and see the logs of your Lambda function invocation in a CloudWatch log stream like in the screenshot below:
+
+![](../assets/images/logstream-lambda.png)
 
 ## More about Targets
 
