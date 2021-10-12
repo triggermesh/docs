@@ -47,6 +47,8 @@ nav:
       - Doing a Transformation: guides/doingatransformation.md
       - Writing a Function: guides/writingafunction.md
       - Using TIL: guides/tilgettingstarted.md
+      - Bridges:
+        - Webhook to Slack: guides/bridges/webhook-to-slack.md
     - Installation:
       - '': guides/installation.md
       - Using an AWS AMI: guides/installation-ami.md
