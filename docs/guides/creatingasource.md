@@ -31,10 +31,10 @@ spec:
 kubectl apply -f sockeye.yaml
 ```
 
-Open the web interface in a browser:
+Open the web interface in a browser at the URL found with the following command:
 
 ```shell
-browse $(kubectl get ksvc sockeye -o=jsonpath='{.status.url}')
+$ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
 ```
 
 ## Create a AWS SQS Event source

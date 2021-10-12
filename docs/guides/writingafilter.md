@@ -3,13 +3,16 @@
 Filters are an important part of TriggerMesh's event routing mechanism. They allow for filtering events based on the content of the payload. This content-based event filtering is expressed with Google's
 [Common Expression Language](https://opensource.google/projects/cel) within the TriggerMesh `Filter` API specification.
 
-!!! Info "Prerequisites"
-    You need a working TriggerMesh platform installation. See the [installation steps](installation.md).
+!!! Tip 
     You can verify that the API is available with the following command:
 
     ```console
     $ kubectl get crd|grep filters.routing
       filters.routing.triggermesh.io                       2021-10-06T09:01:33Z
+    ```
+    You can also explore the API specification with:
+    ```console
+    $ kubectl explain filter
     ```
 
 To demonstrate filtering in TriggerMesh we are going to create the event flow depicted in the diagram below. Two sources of kind `PingSource` will send events on a repeating schedule, and only the events which pass the filter will be displayed on the final event target. The target is the [Sockeye application](https://github.com/n3wscott/sockeye), a microservice which displays the content of a [CloudEvent](https://cloudevents.io/).
