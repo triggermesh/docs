@@ -6,8 +6,9 @@ An event `Splitter` is part of the TriggerMesh routing solution. It has the simp
     You need a working TriggerMesh platform installation. See the [installation steps](installation.md). You can verify that the API is available with the following command:
 
     ```console
-       $ kubectl get crd|grep splitter
-       splitters.routing.triggermesh.io                        2021-10-06T09:01:38Z
+    $ kubectl get crd splitters.routing.triggermesh.io
+    NAME                               CREATED AT
+    splitters.routing.triggermesh.io   2021-10-06T09:01:38Z
     ```
 
 ![](../assets/images/splitter.png)
