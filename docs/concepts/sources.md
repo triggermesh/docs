@@ -4,6 +4,13 @@ Sources are the origin of data and events for ingestion into TriggerMesh. An eve
 
 Examples of Sources include GitHub, IBM DB2 and Oracle databases, Salesforce, ZenDesk, or any number of cloud-based events such as Amazon S3, Azure Activity Log, or Google Cloud Audit Logs.
 
+All sources available can be found by listing the CRDs like so:
+
+```console
+$ kubectl get crd -o jsonpath='{.items[?(@.spec.group=="sources.triggermesh.io")].spec.names.kind}'
+AWSCloudWatchLogsSource AWSCloudWatchSource AWSCodeCommitSource AWSCognitoIdentitySource AWSCognitoUserPoolSource AWSDynamoDBSource AWSKinesisSource AWSPerformanceInsightsSource AWSS3Source AWSSNSSource AWSSQSSource AzureActivityLogsSource AzureBlobStorageSource AzureEventGridSource AzureEventHubSource AzureIOTHubSource AzureQueueStorageSource AzureServiceBusQueueSource GoogleCloudAuditLogsSource GoogleCloudBillingSource GoogleCloudPubSubSource GoogleCloudRepositoriesSource GoogleCloudStorageSource HTTPPollerSource OCIMetricsSource SalesforceSource SlackSource TwilioSource WebhookSource ZendeskSource
+```
+
 There is an example of [Creating a Source](../guides/creatingasource.md) available under Guides.
 
 ## API Reference

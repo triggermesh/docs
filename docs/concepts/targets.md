@@ -1,10 +1,17 @@
-A target is an event receiver which performs some processing on messages. An event target may act as a gateway between the Bridge and an external service.
+A target is an event receiver which performs some processing on the received data. An event target may act as a gateway between the Bridge and an external service.
 
 Although a target may be considered the destination for an event, it may in turn reply with another event (acknowledgment, error, ...) generating further events. These additional events may need to be managed with separate Bridges.
 
 ## Examples
 
-Examples of Targets include Datadog, Elasticsearch, Salesforce, Twilio, ZenDesk, or any number of cloud-based destinations such as Amazon SQS or Google Cloud Firestore.
+Examples of Targets include Datadog, Elasticsearch, Salesforce, Twilio, Zendesk, or any number of cloud-based destinations such as Amazon SQS or Google Cloud Firestore.
+
+All targets available can be found by listing the CRDs like so
+
+```console
+$ kubectl get crd -o jsonpath='{.items[?(@.spec.group=="targets.triggermesh.io")].spec.names.kind}'
+AlibabaOSSTarget AWSComprehendTarget AWSDynamoDBTarget AWSEventBridgeTarget AWSKinesisTarget AWSLambdaTarget AWSS3Target AWSSNSTarget AWSSQSTarget ConfluentTarget DatadogTarget ElasticsearchTarget GoogleCloudFirestoreTarget GoogleCloudStorageTarget GoogleCloudWorkflowsTarget GoogleSheetTarget HasuraTarget HTTPTarget InfraTarget JiraTarget LogzTarget OracleTarget SalesforceTarget SendGridTarget SlackTarget SplunkTarget TektonTarget TwilioTarget UiPathTarget ZendeskTarget
+```
 
 There is an example of [Creating a Target](../guides/creatingatarget.md) available under Guides.
 
