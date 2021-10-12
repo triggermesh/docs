@@ -112,7 +112,6 @@ In the sockeye application you will see two individual events that have been gen
 
 ![](../assets/images/splitter-sockeye.png)
 
-
 !!! tip "Play with your Splitter as Code"
     You can play around by modifying the `Splitter` object and re-applying it with `kubectl`. This gives you a declarative event splitter which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
 
