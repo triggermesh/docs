@@ -50,8 +50,8 @@ nav:
       - Using TIL: guides/tilgettingstarted.md
     - Installation:
       - '': guides/installation.md
-      - AWS AMI: guides/installation-ami.md
-      - Helm: guides/installation-helm.md
+      - Using an AWS AMI: guides/installation-ami.md
+      - Using Helm: guides/installation-helm.md
     - Integration Language:
       - '': til/Introduction.md
       - CLI: til/Commands.md
