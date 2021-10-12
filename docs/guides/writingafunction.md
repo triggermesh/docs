@@ -1,18 +1,18 @@
 # Writing a Function
 
-The TriggerMesh `Function` API provides opportunities to implement custom events flow logic and can act as a source, transformation, or target. Currently, Python, NodeJS, and Ruby runtimes are supported.
+The TriggerMesh `Function` API provides opportunities to implement custom event flow logic and may act as a source, transformation, or a target. Currently, Python, NodeJS, and Ruby runtimes are supported.
 
 !!! Info "Prerequisites"
     You need a working TriggerMesh platform installation. See the [installation steps](installation.md).
     You can verify that the API is available with the following command:
-    
+
     ```console
     $ kubectl get crd |grep function
     functions.extensions.triggermesh.io        2021-10-06T09:01:33Z
     ```
 
 !!! Warning
-    The TriggerMesh `Function` API is an opinionated, simple to consume, Function as a Service (FaaS) system. It is aimed to be used for event processing and does not support external dependencies. Functions that may need external dependencies are best served with [Knative serving](https://knative.dev/docs/getting-started/first-service/).
+    The TriggerMesh `Function` API is an opinionated, simple to consume, Function as a Service (FaaS) system. It is aimed to be used for event processing and does not support external dependencies. Functions that may need external dependencies are best served with [Knative Serving](https://knative.dev/docs/getting-started/first-service/).
 
 ## Example: A Python function
 
@@ -21,12 +21,12 @@ As an example, let's write a Python function which reads a name from an incoming
 Writing a function requires two steps:
 
 - [ ] Writing a function manifest
-- [ ] Applying the manifest to your Kubernetes
+- [ ] Applying the manifest to your Kubernetes cluster
 
 The Function object spec requires a minimal amount of configuration:
 
 * The `runtime`, here we choose `python`
-* Whether the function is accessible publicly or not using the `public` keyword.
+* Whether the function is publicly accessible or not using the `public` keyword.
 * The `entrypoint`, which specifies the name of the function
 * The `code`, written in-line with the function manifest
 
@@ -57,7 +57,7 @@ You have completed the two steps required to create a function
 - [x] Writing a function manifest
 - [x] Applying the manifest to your Kubernetes
 
-You can find the public endpoint of your function and test it like so:
+You can find the public endpoint of your function and test it:
 
 ```console
 $ kubectl get function
@@ -79,7 +79,6 @@ $ curl -ks -d '{"name":"seb"}' https://python-function-hello-mvf2bk.sebgoa.dev.t
 !!! note
     The returned event adheres to the [CloudEvent specification](https://cloudevents.io/).
 
-## Specification
+## More about Functions
 
-The object specification can be found in the API
-[reference](../apis/extensions.md).
+Learn more about Functions on the [Concepts page](../concepts/functions.md).

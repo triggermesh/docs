@@ -1,12 +1,12 @@
 # Creating a Source
 
-In this guide we will create a point to point bridge between an AWS SQS queue and a microservice application called `sockeye` which displays events in web interface. This simple flow is depicted below.
+In this guide we will create a point to point Bridge between an AWS SQS queue and a microservice application called `sockeye` which displays events in a web interface. This simple flow is depicted below.
 
 ![](../assets/images/sqs-sockeye.png)
 
 We will create:
 
-- [x] The sockeye target which serves as an event display.
+- [x] The `sockeye` target which serves as an event display.
 - [x] The `AWSSQSSource` which consumes events from an AWS SQS queue.
 
 ## Event display
@@ -112,7 +112,6 @@ The message will get consumed by the source and sent directly to Sockeye in a [C
 
 ![](../assets/images/sqs-sockeye-ui.png)
 
-## Full API Specification
+## More about Sources
 
-All Sources object specification can be found in the API
-[reference](../apis/sources.md).
+Learn more about Sources on the [Concepts page](../concepts/sources.md).

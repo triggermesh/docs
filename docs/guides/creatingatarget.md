@@ -1,8 +1,8 @@
 # Creating a Target
 
-A `Target` is an API object defining an event receiver, processing that event and interacting with a third-party service. See the [concepts page](../concepts/targets.md) for details.
+A `Target` is an API object defining an event receiver, processing the event, and interacting with a third-party service. See the [concepts page](../concepts/targets.md) for further details.
 
-In this getting started guide on targets we are going to create a bridge between a `PingSource` and AWS Lambda. The source will emit an event on schedule and we will receive this event in an AWS Lambda function.
+In this getting started guide on targets we are going to create a Bridge between a `PingSource` and AWS Lambda. The source will emit an event on a repeating schedule and we will send this event to an AWS Lambda function.
 
 ![](../assets/images/target-lambda.png)
 
@@ -14,9 +14,9 @@ We will:
 
 ## Creating an AWS Lambda function
 
-For full details with using the console follow these official [steps](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html).
+For full details with using the Lambda console follow these official [steps](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html).
 
-Our function is writing in Python 3.9 and will print the payload of the incoming event to stdout.
+Our function is written in Python 3.9 and will print the payload of the incoming event to stdout.
 
 ![](../assets/images/lambda-console.png)
 
@@ -24,7 +24,7 @@ This function is uniquely identified by its Amazon Resource Name (i.e ARN).
 
 ## Writing the `AWSLambdaTarget` specification
 
-To learn how to write a Target the fastest way to explore the specification is to use `kubectl explain`. Looking specifically into the `spec` section we see that the ARN of the Lambda is needed
+To learn how to write a Target, use `kubectl explain` to explore the specification. Looking specifically into the `spec` section we see that the ARN of the Lambda is needed
 
 ```console
 $ kubectl explain awslambdatarget.spec
@@ -57,7 +57,7 @@ FIELDS:
      Produce a new cloud event based on the response from the lambda function.
 ```
 
-In addition to be able to interact with AWS you need to have your AWS API keys available. You can specify them literally in an object manifest but for better security you will want to use a Kubernetes secrets.
+In addition to be able to interact with AWS you need to have your AWS API keys available. You may specify them in an object manifest but for better security you will want to use a Kubernetes secret.
 
 Create the following object by saving the YAML manifest in a file and using the `kubectl apply` command.
 
@@ -98,7 +98,7 @@ spec:
       name: lambda-guide
 ```
 
-Note the definition of the `sink` in the previous manifest. You see that it points to the `AWSLambdaTarget` created before.
+Note the definition of the `sink` in the manifest above, it points to the `AWSLambdaTarget` created before.
 
 ## Verifying the Results
 
@@ -107,7 +107,7 @@ You can verify that your objects are ready:
 ```console
 $ kubectl get pingsource
 NAME               SINK                                                                      SCHEDULE      AGE     READY   REASON
-ping-lambda        http://broker-ingress.knative-eventing.svc.cluster.local/sebgoa/default   */1 * * * *   7m52s   True    
+ping-lambda        http://broker-ingress.knative-eventing.svc.cluster.local/sebgoa/default   */1 * * * *   7m52s   True
 
 $ kubectl get awslambdatarget
 NAME          URL   READY   REASON               AGE
@@ -116,7 +116,6 @@ lambda-guide         True                         3m12s
 
 Finally head over to the AWS Lambda console and see the logs of your Lambda. It will show the `{"hello": "triggermesh"}` string in the standard output.
 
-## Full API Specification
+## More about Targets
 
-All Targets object specification can be found in the API
-[reference](../apis/targets.md).
+Learn more about Targets on the [Concepts page](../concepts/targets.md).

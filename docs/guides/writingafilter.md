@@ -6,25 +6,25 @@ Filters are an important part of TriggerMesh's event routing mechanism. They all
 !!! Info "Prerequisites"
     You need a working TriggerMesh platform installation. See the [installation steps](installation.md).
     You can verify that the API is available with the following command:
-    
+
     ```console
     $ kubectl get crd|grep filters.routing
       filters.routing.triggermesh.io                       2021-10-06T09:01:33Z
     ```
 
-To demonstrate filtering in TriggerMesh we are going to setup the event flow depicted in the diagram below. Two sources of kind `PingSource` are going to send events on a schedule, those events will get filtered an only the one who pass the filter will get displayed on the final event target. The final target is the [Sockeye application](https://github.com/n3wscott/sockeye), a microservice with displays the content of a [CloudEvent](https://cloudevents.io/).
+To demonstrate filtering in TriggerMesh we are going to create the event flow depicted in the diagram below. Two sources of kind `PingSource` will send events on a repeating schedule, and only the events which pass the filter will be displayed on the final event target. The target is the [Sockeye application](https://github.com/n3wscott/sockeye), a microservice which displays the content of a [CloudEvent](https://cloudevents.io/).
 
 ![](../assets/images/filter-diagram.png)
 
 Let's create all the required objects:
 
-- [x] The sockeye target which serves as an event display.
-- [x] The two `PingSource` to produce events.
-- [x] The `Filter` to discard or not incoming events.
+- [x] The `sockeye` target which serves as an event display.
+- [x] Two `PingSource` to produce events.
+- [x] The `Filter` to discard unwanted events.
 
 ## Event display
 
-First of all, we need to have a tool to see filtering results. Create a `sockeye`
+First we need to have a tool to see our filter results. Create a `sockeye`
 service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
 
 ```yaml
@@ -53,7 +53,7 @@ browse $(kubectl get ksvc sockeye -o=jsonpath='{.status.url}')
 
 Next, create the two
 [PingSources](https://knative.dev/docs/developer/eventing/sources/ping-source) to
-produce CloudEvents by saving the following YAML manifests in two files and applying them to your Kubernetes cluster with `kubectl apply`:
+produce CloudEvents by saving the following YAML manifests in two separate files and applying them to your Kubernetes cluster with `kubectl apply`:
 
 ```yaml
 apiVersion: sources.knative.dev/v1
@@ -76,8 +76,7 @@ spec:
       name: filter-demo
 ```
 
-The second source uses a different payload to show you how the `Filter` expression can be used to express complex fitlering rules.
-
+The second source uses a different payload to show you how the `Filter` expression may be used to express complex filtering rules.
 
 ```yaml
 apiVersion: sources.knative.dev/v1
@@ -99,7 +98,7 @@ spec:
 
 ## Filter events
 
-Finally, create the `Filter` object that would filter events from the first PingSource. Once again save the following YAML manifest in a file and apply it to your Kubernetes cluster with `kubectl apply`.
+Finally, create the `Filter` object to filter out events from the first PingSource. Once again save the following YAML manifest in a file and apply it to your Kubernetes cluster with `kubectl apply`.
 
 ```yaml
 apiVersion: routing.triggermesh.io/v1alpha1
@@ -119,11 +118,9 @@ Only events from the second source should appear in the `sockeye` web interface 
 
 ![](../assets/images/sockeye-filter.png)
 
+!!! tip "Test your Filter as Code"
+    You can test modifying the filter expression and re-applying it with `kubectl`. This gives you a declarative event filter which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
 
-!!! tip "Play with your Filter as Code"
-    You can play around by modifying the filter expression and re-applying it with `kubectl`. This gives you a declarative event filter which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
+## More about Filters
 
-## Specification
-
-The object specification can be found in the API
-[reference](../apis/routing.md).
+Learn more about Filters on the [Concepts page](../concepts/routing.md).

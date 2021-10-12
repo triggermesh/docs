@@ -40,7 +40,7 @@ nav:
       - Functions: concepts/functions.md
       - TriggerMesh Integration Language: til/Introduction.md
     - Guides:
-      - Getting Started: guides/gettingstarted.md
+      - '': guides/gettingstarted.md
       - Creating a Source: guides/creatingasource.md
       - Creating a Target: guides/creatingatarget.md
       - Writing a Filter: guides/writingafilter.md

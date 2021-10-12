@@ -6,7 +6,7 @@ simple flow (a.k.a Bridge) with an event producer and a transformation to see th
 
 !!! Info "Prerequisites"
     You need a working TriggerMesh platform installation. See the [installation steps](installation.md). You can verify that the API is available with the following command:
-    
+
     ```console
        $ kubectl get crd|grep transformation
        transformations.flow.triggermesh.io                     2021-10-06T09:01:40Z
@@ -159,7 +159,6 @@ The payload was also transformed accorind go the the `data` section of the `Tran
 !!! tip "Play with your Transformation as Code"
     You can play around by modifying the `Transformation` object and re-applying it with `kubectl`. This gives you a declarative event transformer which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
 
-## Specification
+## More about Transformations
 
-The object specification can be found in the API
-[reference](../apis/flow.md).
+Learn more about Transformations on the [Concepts page](../concepts/transformation.md).

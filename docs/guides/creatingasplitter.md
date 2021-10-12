@@ -1,10 +1,10 @@
 # Creating an Event Splitter
 
-An event `Splitter` is part of the TriggerMesh routing solution. It has a simple purpose of splitting JSON arrays into multiple [CloudEvents](https://cloudevents.io/).
+An event `Splitter` is part of the TriggerMesh routing solution. It has the simple purpose of splitting JSON arrays into multiple [CloudEvents](https://cloudevents.io/) for further processing.
 
 !!! Info "Prerequisites"
     You need a working TriggerMesh platform installation. See the [installation steps](installation.md). You can verify that the API is available with the following command:
-    
+
     ```console
        $ kubectl get crd|grep splitter
        splitters.routing.triggermesh.io                        2021-10-06T09:01:38Z
@@ -12,9 +12,9 @@ An event `Splitter` is part of the TriggerMesh routing solution. It has a simple
 
 ![](../assets/images/splitter.png)
 
-Let's create all the required objects:
+Let's create the required objects:
 
-- [x] The sockeye target which serves as an event display.
+- [x] The `sockeye` target which serves as an event display.
 - [x] The `PingSource` which produces a JSON array in its payload.
 - [x] The `Splitter` to generate the multiple events.
 
@@ -103,7 +103,6 @@ Note that you define the path where you are going to find a list in the incoming
 !!! tip "Play with your Splitter as Code"
     You can play around by modifying the `Splitter` object and re-applying it with `kubectl`. This gives you a declarative event splitter which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
 
-## Specification
+## More about Splitters
 
-The object specification can be found in the API
-[reference](../apis/routing.md).
+Learn more about Splitters on the [Concepts page](../concepts/routing.md).
