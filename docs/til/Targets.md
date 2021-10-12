@@ -37,7 +37,7 @@ target aws_dynamodb "my_table" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon Kinesis
 
@@ -51,7 +51,7 @@ target aws_kinesis "my_stream" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon Lambda
 
@@ -65,7 +65,7 @@ target aws_lambda "my_userpool" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon S3
 
@@ -79,7 +79,7 @@ target aws_s3 "my_bucket" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon SNS
 
@@ -93,7 +93,7 @@ target aws_sns "my_topic" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon SQS
 
@@ -107,7 +107,7 @@ target aws_sqs "my_queue" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Container
 

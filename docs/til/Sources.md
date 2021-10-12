@@ -2,6 +2,7 @@
 
 <!-- Please click "Preview" and ensure hyperlinks are working before clicking "Save page". -->
 
+- [Full list](#full-list)
 - [Amazon CloudWatch](#amazon-cloudwatch)
 - [Amazon CloudWatch Logs](#amazon-cloudwatch-logs)
 - [Amazon CodeCommit](#amazon-codecommit)
@@ -61,7 +62,7 @@ source aws_cloudwatch "my_metrics" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon CloudWatch Logs
 
@@ -77,7 +78,7 @@ source aws_cloudwatch_logs "my_logs" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon CodeCommit
 
@@ -94,7 +95,7 @@ source aws_codecommit "my_repo" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon Cognito User Pool
 
@@ -108,7 +109,7 @@ source aws_cognito_userpool "my_userpool" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon DynamoDB
 
@@ -122,7 +123,7 @@ source aws_dynamodb "my_table" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon Kinesis
 
@@ -136,7 +137,7 @@ source aws_kinesis "my_stream" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon RDS Performance Insights
 
@@ -157,7 +158,7 @@ source aws_pi "my_db_metrics" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon S3
 
@@ -176,7 +177,7 @@ source aws_s3 "my_bucket" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon SNS
 
@@ -190,7 +191,7 @@ source aws_sns "my_topic" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Amazon SQS
 
@@ -204,7 +205,7 @@ source aws_sqs "my_queue" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](../Secret-References#aws-secret-class)
 
 ## Azure Activity Logs
 
