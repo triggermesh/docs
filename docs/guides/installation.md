@@ -1,28 +1,29 @@
 # TriggerMesh Installation
 
-The TriggerMesh Cloud-Native Integration Platform is composed of a set of APIs implemented as Kubernetes Custom Resource Definitions (CRDs) and a controller.
+The TriggerMesh Cloud Native Integration Platform is composed of a set of APIs implemented as Kubernetes Custom Resource Definitions (CRDs) and a controller.
 
 Installing TriggerMesh consists of:
 
 * Having a Kubernetes cluster up and running
-* Having the Knative project deployed in that cluster
+* Deploying the Knative project in that cluster
 * Installing the TriggerMesh CRDs
 * Installing the TriggerMesh controller
 
 These four steps are highlighted below. The first two steps (i.e Access to a Kubernetes cluster and installation of Knative are not described in details in this documentation). After completing those four steps you can validate your TriggerMesh installation.
 
-Alternatively you can also use the [TriggerMesh AMI](installation-ami.md) to deploy the platform in a AWS EC2 instance.
+!!! note "Alternative Installation Options"
+    You may also use the [TriggerMesh AMI](installation-ami.md) to test the platform in a AWS EC2 instance. You may also use our [Helm Chart](installation-helm.md).
 
 ## Pre-requisites
 
-The knative project is a dependency of TriggerMesh, install it using the instructions in the [documentation](https://knative.dev/docs/admin/install/)
+The Knative project is a dependency of TriggerMesh, install it using the instructions in the [Knative documentation](https://knative.dev/docs/admin/install/)
 
-* A kubernetes cluster version `v1.20+`
-* knative `v0.26+`
+* A Kubernetes cluster version `v1.20+`
+* Knative `v0.26+`
 
 ## Install the CRDs
 
-All TriggerMersh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all CRDs.
+All TriggerMersh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all of the CRDs.
 
 ```console
 $ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh-crds.yaml
@@ -30,7 +31,7 @@ $ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/
 
 ## Install the controller
 
-By default the controller gets deployed in the `triggermesh` namespace. Deploy the controller with the following `kubectl apply` command:
+By default, the controller gets deployed in the `triggermesh` namespace. Deploy the controller with the following `kubectl apply` command:
 
 ```console
 $ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh.yaml
@@ -38,7 +39,7 @@ $ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/
 
 ## Verifying the installation
 
-Upon successful creation of the CRDs and successful deployment of the controller you should see two Pods running in the `triggermesh` namespace
+Upon successful creation of the CRDs and successful deployment of the controller you should see two pods running in the `triggermesh` namespace
 
 ```console
 $ kubectl get pods -n triggermesh
@@ -47,7 +48,7 @@ triggermesh-controller-5cd97f4c8f-z6r2r                1/1     Running   0      
 triggermesh-webhook-79cd8d6f5d-gf2lj                   1/1     Running   0          57m
 ```
 
-All event sources and targets will be available to you as new API objects. For example you can list all AWS related sources and targets with:
+All event sources and targets will be available to you as new API objects. For example, you can list all AWS related sources and targets with:
 
 ```console
 $ kubectl get crds |grep triggermesh |grep aws
