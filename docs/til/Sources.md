@@ -61,7 +61,7 @@ source aws_cloudwatch "my_metrics" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon CloudWatch Logs
 
@@ -77,7 +77,7 @@ source aws_cloudwatch_logs "my_logs" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon CodeCommit
 
@@ -94,7 +94,7 @@ source aws_codecommit "my_repo" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon Cognito User Pool
 
@@ -108,7 +108,7 @@ source aws_cognito_userpool "my_userpool" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon DynamoDB
 
@@ -122,7 +122,7 @@ source aws_dynamodb "my_table" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon Kinesis
 
@@ -136,7 +136,7 @@ source aws_kinesis "my_stream" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon RDS Performance Insights
 
@@ -157,7 +157,7 @@ source aws_pi "my_db_metrics" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon S3
 
@@ -176,7 +176,7 @@ source aws_s3 "my_bucket" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon SNS
 
@@ -190,7 +190,7 @@ source aws_sns "my_topic" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon SQS
 
@@ -204,7 +204,7 @@ source aws_sqs "my_queue" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Azure Activity Logs
 
@@ -221,7 +221,7 @@ source azure_activity_logs "audit_logs" {
 }
 ```
 
-Secret class: [azure_sp](Secret-References#azure_sp-secret-class)
+Secret class: [azure_sp](Secret-References.md#azure_sp-secret-class)
 
 ## Azure Blob Storage
 
@@ -238,7 +238,7 @@ source azure_blob_storage "my_files" {
 }
 ```
 
-Secret class: [azure_sp](Secret-References#azure_sp-secret-class)
+Secret class: [azure_sp](Secret-References.md#azure_sp-secret-class)
 
 ## Azure Event Hubs
 
@@ -253,7 +253,7 @@ source azure_event_hubs "user_events" {
 }
 ```
 
-Secret class: [azure_sp](Secret-References#azure_sp-secret-class)
+Secret class: [azure_sp](Secret-References.md#azure_sp-secret-class)
 
 ## GitHub
 
@@ -269,7 +269,7 @@ source github "my_repo" {
 }
 ```
 
-Secret class: [github](Secret-References#github-secret-class)
+Secret class: [github](Secret-References.md#github-secret-class)
 
 ## HTTP Poller
 
@@ -308,7 +308,7 @@ source kafka "my_topics" {
 }
 ```
 
-Secret class: [kafka](Secret-References#kafka-secret-class)
+Secret class: [kafka](Secret-References.md#kafka-secret-class)
 
 ## Ping
 
@@ -339,7 +339,7 @@ source salesforce "my_leads" {
 }
 ```
 
-Secret class: [salesforce](Secret-References#salesforce-secret-class)
+Secret class: [salesforce](Secret-References.md#salesforce-secret-class)
 
 ## Slack
 
@@ -352,7 +352,7 @@ source slack "my_app" {
 }
 ```
 
-Secret class: [slack_app](Secret-References#slack_app-secret-class)
+Secret class: [slack_app](Secret-References.md#slack_app-secret-class)
 
 ## Webhook
 
@@ -384,4 +384,4 @@ source zendesk "my_tickets" {
 }
 ```
 
-Secret class: [zendesk](Secret-References#zendesk-secret-class)
+Secret class: [zendesk](Secret-References.md#zendesk-secret-class)

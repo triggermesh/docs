@@ -37,7 +37,7 @@ target aws_dynamodb "my_table" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon Kinesis
 
@@ -51,7 +51,7 @@ target aws_kinesis "my_stream" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon Lambda
 
@@ -65,7 +65,7 @@ target aws_lambda "my_userpool" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon S3
 
@@ -79,7 +79,7 @@ target aws_s3 "my_bucket" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon SNS
 
@@ -93,7 +93,7 @@ target aws_sns "my_topic" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Amazon SQS
 
@@ -107,7 +107,7 @@ target aws_sqs "my_queue" {
 }
 ```
 
-Secret class: [aws](Secret-References#aws-secret-class)
+Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ## Container
 
@@ -149,7 +149,7 @@ target datadog "my_metrics" {
 }
 ```
 
-Secret class: [datadog](Secret-References#datadog-secret-class)
+Secret class: [datadog](Secret-References.md#datadog-secret-class)
 
 ## Event Display
 
@@ -195,7 +195,7 @@ target gcloud_firestore "my_bucket" {
 }
 ```
 
-Secret class: [gcloud_service_account](Secret-References#gcloud_service_account-secret-class)
+Secret class: [gcloud_service_account](Secret-References.md#gcloud_service_account-secret-class)
 
 ## Google Cloud Storage
 
@@ -209,7 +209,7 @@ target gcloud_storage "my_bucket" {
 }
 ```
 
-Secret class: [gcloud_service_account](Secret-References#gcloud_service_account-secret-class)
+Secret class: [gcloud_service_account](Secret-References.md#gcloud_service_account-secret-class)
 
 ## Kafka
 
@@ -225,7 +225,7 @@ target kafka "my_topic" {
 }
 ```
 
-Secret class: [kafka](Secret-References#kafka-secret-class)
+Secret class: [kafka](Secret-References.md#kafka-secret-class)
 
 ## Logz
 
@@ -239,7 +239,7 @@ target logz "my_logs" {
 }
 ```
 
-Secret class: [logz](Secret-References#logz-secret-class)
+Secret class: [logz](Secret-References.md#logz-secret-class)
 
 ## Sendgrid
 
@@ -259,7 +259,7 @@ target sendgrid "email_notifications" {
 }
 ```
 
-Secret class: [sendgrid](Secret-References#sendgrid-secret-class)
+Secret class: [sendgrid](Secret-References.md#sendgrid-secret-class)
 
 ## Slack
 
@@ -271,7 +271,7 @@ target slack "my_channel" {
 }
 ```
 
-Secret class: [slack](Secret-References#slack-secret-class)
+Secret class: [slack](Secret-References.md#slack-secret-class)
 
 ## Sockeye
 
@@ -296,7 +296,7 @@ target splunk "my_event_collector" {
 }
 ```
 
-Secret class: [splunk_hec](Secret-References#splunk_hec-secret-class)
+Secret class: [splunk_hec](Secret-References.md#splunk_hec-secret-class)
 
 ## Twilio
 
@@ -311,7 +311,7 @@ target twilio "sms_notifications" {
 }
 ```
 
-Secret class: [twilio](Secret-References#twilio-secret-class)
+Secret class: [twilio](Secret-References.md#twilio-secret-class)
 
 ## Zendesk
 
@@ -328,4 +328,4 @@ target zendesk "customer_tickets" {
 }
 ```
 
-Secret class: [zendesk](Secret-References#zendesk-secret-class)
+Secret class: [zendesk](Secret-References.md#zendesk-secret-class)
