@@ -105,6 +105,18 @@ spec:
 
 Note that you define the path where you are going to find a list in the incoming event and you define the CloudEvent attributes of the generated events (i.e _splitter_ as the source and _foo.bar.type_ as the type).
 
+Verify that your splitter is ready with `kubectl` like so:
+
+```console
+$ kubectl get splitter
+NAME            ADDRESS                                                          READY   REASON
+splitter-demo   http://splitter-adapter.sebgoa.svc.cluster.local/splitter-demo   True
+```
+
+In the sockeye application you will see two individual events that have been generated from the original list emitted by the source. The snapshot below shows you what you should see:
+
+![](../assets/images/splitter-sockeye.png)
+
 !!! tip "Play with your Splitter as Code"
     You can play around by modifying the `Splitter` object and re-applying it with `kubectl`. This gives you a declarative event splitter which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
 
