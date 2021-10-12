@@ -4,13 +4,18 @@ The `Transformation` object in TriggerMesh defines a set of operations that are
 sequentially applied to incoming CloudEvents. In this guide, we will create a
 simple flow (a.k.a Bridge) with an event producer and a transformation to see the declarative syntax that is used for modifying events.
 
-!!! Info "Prerequisites"
-    You need a working TriggerMesh platform installation. See the [installation steps](installation.md). You can verify that the API is available with the following command:
+!!! tip
+    You can verify that the API is available with the following command:
 
     ```console
     $ kubectl get crd transformations.flow.triggermesh.io
     NAME                                  CREATED AT
     transformations.flow.triggermesh.io   2021-10-06T09:01:40Z
+    ```
+    
+    You can also explore the API specification with:
+    ```console
+    $ kubectl explain transformation
     ```
 
 ![](../assets/images/transformation.png)
