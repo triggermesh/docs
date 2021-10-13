@@ -70,4 +70,4 @@ service.serving.knative.dev "sockeye" deleted
 
 ## Next steps
 
-* [Getting started](gettingstarted.md)
+* [Getting started](creatingasource.md)
