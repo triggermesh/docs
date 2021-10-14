@@ -55,6 +55,8 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource</a>
 </li><li>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSource">GoogleCloudIoTSource</a>
+</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource">GoogleCloudPubSubSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSource">GoogleCloudRepositoriesSource</a>
@@ -2680,6 +2682,135 @@ ValueFromField
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">
 GoogleCloudBillingSourceStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSource">GoogleCloudIoTSource
+</h3>
+<p>
+<p>GoogleCloudIoTSource is the Schema for the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>GoogleCloudIoTSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">
+GoogleCloudIoTSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>registry</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudIoTResourceName">
+GCloudIoTResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Resource name of the Cloud IoT Registry to receive messages from.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>pubsub</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">
+GoogleCloudIoTSourcePubSubSpec
+</a>
+</em>
+</td>
+<td>
+<p>Settings related to the Pub/Sub resources associated with the Cloud IoT Registry.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>serviceAccountKey</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>Service account key in JSON format.
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">
+GoogleCloudIoTSourceStatus
 </a>
 </em>
 </td>
@@ -6410,6 +6541,7 @@ string
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatusManager">EventSourceStatusManager</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">GoogleCloudRepositoriesSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>, 
@@ -6495,6 +6627,69 @@ EventSourceStatus
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.GCloudIoTResourceName">GCloudIoTResourceName
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>)
+</p>
+<p>
+<p>GCloudIoTResourceName represents a fully qualified IoT resource name,
+as described at
+<a href="https://pkg.go.dev/google.golang.org/api/cloudiot/v1#DeviceRegistry.Name">https://pkg.go.dev/google.golang.org/api/cloudiot/v1#DeviceRegistry.Name</a></p>
+<p>Examples of such resource names include:
+- projects/{project_name}/locations/{location_name}/registries/{registry_name}</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>Project</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>Location</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>Collection</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>Resource</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.GCloudResourceName">GCloudResourceName
 </h3>
 <p>
@@ -6503,6 +6698,8 @@ EventSourceStatus
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">GoogleCloudBillingSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">GoogleCloudIoTSourcePubSubSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourcePubSubSpec">GoogleCloudRepositoriesSourcePubSubSpec</a>, 
@@ -6933,6 +7130,195 @@ ValueFromField
 </p>
 <p>
 <p>GoogleCloudBillingSourceStatus defines the observed state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>EventSourceStatus</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
+EventSourceStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>EventSourceStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Resource name of the target Pub/Sub topic.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>subscription</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Resource name of the managed Pub/Sub subscription associated with
+the managed topic.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">GoogleCloudIoTSourcePubSubSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>)
+</p>
+<p>
+<p>GoogleCloudIoTSourcePubSubSpec defines the attributes related to the
+configuration of Pub/Sub resources.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Full resource name of the Pub/Sub topic where change notifications
+originating from the configured IoT Registry are sent to. If not supplied,
+a topic is created on behalf of the user, in the GCP project
+referenced by the Project attribute.</p>
+<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
+&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>project</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the GCP project where Pub/Sub resources associated with the
+Cloud IoT Registry are to be created.</p>
+<p>Mutually exclusive with Topic which, if supplied, already contains
+the project name.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSource">GoogleCloudIoTSource</a>)
+</p>
+<p>
+<p>GoogleCloudIoTSourceSpec defines the desired state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>registry</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudIoTResourceName">
+GCloudIoTResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Resource name of the Cloud IoT Registry to receive messages from.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>pubsub</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">
+GoogleCloudIoTSourcePubSubSpec
+</a>
+</em>
+</td>
+<td>
+<p>Settings related to the Pub/Sub resources associated with the Cloud IoT Registry.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>serviceAccountKey</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>Service account key in JSON format.
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSource">GoogleCloudIoTSource</a>)
+</p>
+<p>
+<p>GoogleCloudIoTSourceStatus defines the observed state of the event source.</p>
 </p>
 <table>
 <thead>
@@ -8209,6 +8595,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <a href="#sources.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">GoogleCloudRepositoriesSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>, 
@@ -8488,5 +8875,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>001faba</code>.
+on git commit <code>6a36250</code>.
 </em></p>
