@@ -26,7 +26,7 @@ The Knative project is a dependency of TriggerMesh, install it using the instruc
 All TriggerMersh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all of the CRDs.
 
 ```console
-$ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh-crds.yaml
+$ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/latest/download/triggermesh-crds.yaml
 ```
 
 ## Install the controller
@@ -34,7 +34,7 @@ $ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/
 By default, the controller gets deployed in the `triggermesh` namespace. Deploy the controller with the following `kubectl apply` command:
 
 ```console
-$ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/download/v1.10.1-rc1/triggermesh.yaml
+$ kubectl apply -f https://github.com/triggermesh/triggermesh/releases/latest/download/triggermesh.yaml
 ```
 
 ## Verifying the installation
