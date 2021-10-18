@@ -325,5 +325,5 @@ knative.dev/pkg/apis/duck/v1.Addressable
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>635f252</code>.
+on git commit <code>0997d4a</code>.
 </em></p>
