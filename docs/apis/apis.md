@@ -1,4 +1,4 @@
-# Triggermesh APIs
+# TriggerMesh APIs
 
 TriggerMesh is composed of a set of APIs representing:
 

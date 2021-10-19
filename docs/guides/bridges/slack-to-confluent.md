@@ -53,11 +53,11 @@ Now click on the `Target` block at the bottom of the page, a list of targets to 
 
 ![Confluent target](../../assets/images/slack-confluent-bridge/confluent-target.png)
 
-Press `Submit Bridge` and you are done with Triggermesh configuration.
+Press `Submit Bridge` and you are done with TriggerMesh configuration.
 
 ## Retrieve Slack Source Exposed URL
 
-The Slack Source component creates an external URL that should be used as the `Request URL` callback when configuring the Slack Bot App. In order to obtain it, open the `Services` area at Triggermesh and look for a service by the name of the Slack Source you just created. Then copy the exposing URL.
+The Slack Source component creates an external URL that should be used as the `Request URL` callback when configuring the Slack Bot App. In order to obtain it, open the `Services` area at TriggerMesh and look for a service by the name of the Slack Source you just created. Then copy the exposing URL.
 
 ![Slack URL](../../assets/images/slack-confluent-bridge/slack-url.png)
 
@@ -69,7 +69,7 @@ Open the Slack web site at the [Apps home](https://api.slack.com/apps) anc click
 - Once create navigate to `Basic Information`.
 - Click on the `Event Subscriptions` pane.
 - Slide the `Enable Events` slide button.
-- At the `Request URL` field set the Slack Source URL that Triggermesh is exposing. The Slack Source is a serverless service, it could happen that the verification process expires waiting for the first request to succeed. If that happens, please try again to do the verification.
+- At the `Request URL` field set the Slack Source URL that TriggerMesh is exposing. The Slack Source is a serverless service, it could happen that the verification process expires waiting for the first request to succeed. If that happens, please try again to do the verification.
 
 ![URL verification](../../assets/images/slack-confluent-bridge/url-verification.png)
 

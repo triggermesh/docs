@@ -65,7 +65,7 @@ curl -v http://slack-target:8080 \
  -H "Ce-Type: com.slack.webapi.chat.postMessage" \
  -H "Ce-Source: awesome/instance" \
  -H "Ce-Id: aabbccdd11223344" \
- -d '{"channel":"C01112A09FT", "text": "Hello from Triggermesh!"}'
+ -d '{"channel":"C01112A09FT", "text": "Hello from TriggerMesh!"}'
 ```
 
 Schedule message:
@@ -78,7 +78,7 @@ curl -v http://slack-target:8080 \
  -H "Ce-Type: com.slack.webapi.chat.scheduleMessage" \
  -H "Ce-Source: awesome/instance" \
  -H "Ce-Id: aabbccdd11223344" \
- -d '{"channel":"C01112A09FT", "text": "Hello from scheduled Triggermesh!", "post_at": 1593430770}'
+ -d '{"channel":"C01112A09FT", "text": "Hello from scheduled TriggerMesh!", "post_at": 1593430770}'
 ```
 
 [ce]: https://cloudevents.io/

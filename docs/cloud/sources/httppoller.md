@@ -39,7 +39,7 @@ The HTTP Poller Source creates a CloudEvent for each request received. CloudEven
 - `event-type` is set to the source's provided value.
 - `event-source` is set to the source's provided value.
 - `id` is set to a generated UID.
-- `date` is timestamped when generating the CloudEvent at Triggermesh.
+- `date` is timestamped when generating the CloudEvent at TriggerMesh.
 
 Request response body is used to fill the CloudEvent data.
 

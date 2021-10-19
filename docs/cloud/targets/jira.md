@@ -11,7 +11,7 @@ This event Target receives [CloudEvents][ce] and invokes a Jira endpoint.
 
 1. Open **Account settings > Security >** [Create and Manage API Tokens][api-tokens]
 1. Click `Create API token` and fill out the token name.
-1. Copy the API token and create a secret for the Jira token at Triggermesh.
+1. Copy the API token and create a secret for the Jira token at TriggerMesh.
 
 Consult the [Secrets](../guides/secrets.md) guide for more information about how to add a secret.
 
@@ -92,7 +92,7 @@ Create an issue:
       },
       "labels": ["triggermesh","automated"],
       "summary": "Delete this test ticket.",
-      "description": "This is a test issue created using Triggermesh Jira Target",
+      "description": "This is a test issue created using TriggerMesh Jira Target",
       "issuetype": {
         "name": "Task"
       },

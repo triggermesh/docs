@@ -1,6 +1,6 @@
 # Event Targets
 
-The following is a list of Triggermesh event destinations known as `Targets`. Some are available as open source projects, some as hosted solutions on our Cloud.
+The following is a list of TriggerMesh event destinations known as `Targets`. Some are available as open source projects, some as hosted solutions on our Cloud.
 
 ## Current TriggerMesh Targets
 - Alibaba

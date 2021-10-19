@@ -1,6 +1,6 @@
 # Event Source for Slack
 
-This event source uses the [Slack Events API][slack-events-api] through a [bot user][slack-bot-user] to ingest events into Triggermesh.
+This event source uses the [Slack Events API][slack-events-api] through a [bot user][slack-bot-user] to ingest events into TriggerMesh.
 
 ## Prerequisite(s)
 
@@ -10,13 +10,13 @@ This event source uses the [Slack Events API][slack-events-api] through a [bot u
 
 Deploy the Slack source in 3 steps:
 
-1. Deploy the Slack source, retrieve exposed endpoint at Triggermesh.
+1. Deploy the Slack source, retrieve exposed endpoint at TriggerMesh.
 1. Configure Slack App to send events to the Slack Source endpoint.
 1. (optional) Modify the Slack Source to add Signing Secret and AppID from the configured App.
 
 ### Deploy Slack Source
 
-Create an instance of the Slack Source at Triggermesh as part of a Bridge.
+Create an instance of the Slack Source at TriggerMesh as part of a Bridge.
 
 - `name` is an internal identifier inside the bridge.
 - `broker` where messages should be sent to.
@@ -57,7 +57,7 @@ You will now have a working integration. Any Slack action that matches the confi
 
 ### Secure the Slack Source (optional)
 
-Create a new secret at Triggermesh and add a key named `signingSecret` containing the value retrieved at the previous step.
+Create a new secret at TriggerMesh and add a key named `signingSecret` containing the value retrieved at the previous step.
 
   ![Signing secret](../../assets/images/slack-source/07createsecret.png)
 

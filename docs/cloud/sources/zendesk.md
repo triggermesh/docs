@@ -106,9 +106,9 @@ Data,
       "account": "TriggerMesh",
       "assignee": {
         "email": "support@triggermesh.com",
-        "first_name": "Triggermesh",
+        "first_name": "TriggerMesh",
         "last_name": "Developer",
-        "name": "Triggermesh Developer"
+        "name": "TriggerMesh Developer"
       },
       "brand_name": "TriggerMesh",
       "cc_names": "",

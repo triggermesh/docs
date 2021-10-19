@@ -27,7 +27,7 @@ A ready status on the main _Bridges_ page indicates that the Twilio Source was s
 
 ## Integrate with Twilio
 
-Retrieve the public URL of the deployed Twilio source by selecting it from within the `Services` section within Triggermesh.
+Retrieve the public URL of the deployed Twilio source by selecting it from within the `Services` section within TriggerMesh.
 
 ![Tm Services](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-4.png)
 

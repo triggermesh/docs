@@ -38,7 +38,7 @@ Open the Bridge creation screen and add a source of type `OCIMetrics`.
 ![Adding an OCI Metric](../../assets/images/ocimetrics-source/create-bridge-1.png)
 
 In the source creation form, provide a unique name and broker. These are used by
-Triggermesh to uniquely identify the source and where to send the events to.
+TriggerMesh to uniquely identify the source and where to send the events to.
 
 For the Oracle Cloud specific information, provide the following information:
 - Oracle tenancy using the Oracle Cloud ID (OCID)

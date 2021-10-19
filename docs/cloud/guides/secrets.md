@@ -1,6 +1,6 @@
 # Secrets
 
-The TriggerMesh console provides a central location to view and store sensitive information called `Secrets.` The secrets created here can then be used by any service deployed via the Triggermesh platform.
+The TriggerMesh console provides a central location to view and store sensitive information called `Secrets.` The secrets created here can then be used by any service deployed via the TriggerMesh platform.
 
 From the _Secrets_ view. Select `Create New`. Selecting the button here will give you a choice to create various secrets (e.g AWS, GitHub, GitLab, GCP)
 

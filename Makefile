@@ -1,5 +1,5 @@
 PACKAGE            = docs
-PACKAGE_DESC       = Triggermesh Docs
+PACKAGE_DESC       = TriggerMesh Docs
 VERSION           ?= $(shell git describe --tags --always)
 
 BASE_DIR          ?= $(CURDIR)
