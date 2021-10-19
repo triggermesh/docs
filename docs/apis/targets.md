@@ -53,6 +53,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTarget">LogzMetricsTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>
@@ -2559,6 +2561,129 @@ JiraTargetStatus
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.LogzMetricsTarget">LogzMetricsTarget
+</h3>
+<p>
+<p>LogzMetricsTarget receives CloudEvents typed <code>io.triggermesh.opentelemetry.metrics.push</code>
+that fullfil the schema at <a href="https://docs.triggermesh.io/schemas/opentelemetry.metrics.push.json">https://docs.triggermesh.io/schemas/opentelemetry.metrics.push.json</a>
+to push new observations.</p>
+<p>The target works using an OpenTelemetry to Cortex adapter, and is able to manage
+OpenTelemetry Synchronous Kinds.
+In case of an error a CloudEvent response conformant with <a href="https://docs.triggermesh.io/schemas/triggermesh.error.json">https://docs.triggermesh.io/schemas/triggermesh.error.json</a>
+and with an the attribute extension <code>category: error</code> can be produced.</p>
+<p>Due to the buffering nature of this target, not returning an error does not guarantee that the
+metrics have been pushed to Logz</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>LogzMetricsTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetSpec">
+LogzMetricsTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>connection</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsConnection">
+LogzMetricsConnection
+</a>
+</em>
+</td>
+<td>
+<p>Connection information for LogzMetrics.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>instruments</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.Instrument">
+[]Instrument
+</a>
+</em>
+</td>
+<td>
+<p>Instruments configured for pushing metrics. It is mandatory that all metrics
+pushed by using this target are pre-registered using this list.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetStatus">
+LogzMetricsTargetStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget
 </h3>
 <p>
@@ -4727,6 +4852,7 @@ CloudEventStatus
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetStatus">GoogleCloudWorkflowsTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetStatus">GoogleSheetTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.HasuraTargetStatus">HasuraTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetStatus">LogzMetricsTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.LogzTargetStatus">LogzTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetStatus">SalesforceTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetStatus">SendGridTargetStatus</a>, 
@@ -5309,6 +5435,7 @@ compatible with kelseyhightower/envconfig.</p>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">GoogleCloudStorageTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetSpec">LogzMetricsTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetSpec">SalesforceTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetSpec">SendGridTargetSpec</a>, 
@@ -6453,6 +6580,93 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.Instrument">Instrument
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetSpec">LogzMetricsTargetSpec</a>)
+</p>
+<p>
+<p>Instrument push metrics for.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>name</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Name for the Instrument.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>description</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Description for the Instrument</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>instrument</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.InstrumentKind">
+InstrumentKind
+</a>
+</em>
+</td>
+<td>
+<p>Instrument Kind as defined by OpenTelemetry. Supported values are:</p>
+<ul>
+<li>Histogram: for absolute values that can be aggregated.</li>
+<li>Counter: for delta values that increase monotonically.</li>
+<li>UpDownCounter: for delta values that can increase and decrease.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>
+<code>number</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.NumberKind">
+NumberKind
+</a>
+</em>
+</td>
+<td>
+<p>Number Kind as defined by OpenTelemetry, defines the measure data type
+accepted by the Instrument. Supported values are:</p>
+<ul>
+<li>Int64.</li>
+<li>Float64.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.InstrumentKind">InstrumentKind
+(<code>string</code> alias)</p></h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.Instrument">Instrument</a>)
+</p>
+<p>
+<p>InstrumentKind as defined by OpenTelemetry.</p>
+</p>
 <h3 id="targets.triggermesh.io/v1alpha1.JiraAuth">JiraAuth
 </h3>
 <p>
@@ -6588,6 +6802,173 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.LogzMetricsConnection">LogzMetricsConnection
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetSpec">LogzMetricsTargetSpec</a>)
+</p>
+<p>
+<p>LogzMetricsConnection contains the information to connect to a Logz tenant to push metrics.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>token</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
+SecretValueFromSource
+</a>
+</em>
+</td>
+<td>
+<p>Token for connecting to Logz metrics listener.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>listenerURL</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>ListenerURL for pushing metrics.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.LogzMetricsTargetSpec">LogzMetricsTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTarget">LogzMetricsTarget</a>)
+</p>
+<p>
+<p>LogzMetricsTargetSpec holds the desired state of the LogzMetricsTarget.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>connection</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsConnection">
+LogzMetricsConnection
+</a>
+</em>
+</td>
+<td>
+<p>Connection information for LogzMetrics.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>instruments</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.Instrument">
+[]Instrument
+</a>
+</em>
+</td>
+<td>
+<p>Instruments configured for pushing metrics. It is mandatory that all metrics
+pushed by using this target are pre-registered using this list.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.LogzMetricsTargetStatus">LogzMetricsTargetStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTarget">LogzMetricsTarget</a>)
+</p>
+<p>
+<p>LogzMetricsTargetStatus communicates the observed state of the LogzMetricsTarget from the controller.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>Status</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
+knative.dev/pkg/apis/duck/v1.Status
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>Status</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>AddressStatus</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
+knative.dev/pkg/apis/duck/v1.AddressStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>AddressStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>CloudEventStatus</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
+CloudEventStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>CloudEventStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec
 </h3>
 <p>
@@ -6708,6 +7089,15 @@ CloudEventStatus
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.NumberKind">NumberKind
+(<code>string</code> alias)</p></h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.Instrument">Instrument</a>)
+</p>
+<p>
+<p>NumberKind as defined by OpenTelemetry.</p>
+</p>
 <h3 id="targets.triggermesh.io/v1alpha1.OracleFunctionSpecSpec">OracleFunctionSpecSpec
 </h3>
 <p>
@@ -7110,6 +7500,7 @@ CloudEventStatus
 <a href="#targets.triggermesh.io/v1alpha1.HTTPTargetSpec">HTTPTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.HasuraTargetSpec">HasuraTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.JiraAuth">JiraAuth</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsConnection">LogzMetricsConnection</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.OracleTargetSpec">OracleTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth</a>, 
@@ -8206,5 +8597,5 @@ CloudEventStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>0abfd31</code>.
+on git commit <code>190ba5a</code>.
 </em></p>
