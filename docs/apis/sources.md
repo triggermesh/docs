@@ -8875,5 +8875,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>a92d933</code>.
+on git commit <code>679e2fb</code>.
 </em></p>
