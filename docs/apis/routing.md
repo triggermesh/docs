@@ -518,5 +518,5 @@ Kubernetes core/v1.SecretKeySelector
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>6a0d17b</code>.
+on git commit <code>1577fca</code>.
 </em></p>
