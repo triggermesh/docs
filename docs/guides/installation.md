@@ -21,6 +21,8 @@ The Knative project is a dependency of TriggerMesh, install it using the instruc
 * A Kubernetes cluster version `v1.20+`
 * Knative `v0.26+`
 
+If you are using VMware's [Tanzu Community Edition](https://tanzucommunityedition.io/), please refer to the [Installation for Tanzu Community Edition](installation-tce.md).
+
 ## Install the CRDs
 
 All TriggerMersh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all of the CRDs.
