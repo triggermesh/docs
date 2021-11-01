@@ -13,7 +13,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - checkout
-      - run: pip install mkdocs-material
+      - run: pip install mkdocs-material mkdocs-redirects
       - run:
           name: Building package
           command: make build
