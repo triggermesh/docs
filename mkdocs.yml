@@ -131,3 +131,8 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+
+plugins:
+    - redirects:
+        redirect_maps:
+            'sources.md': 'concepts/sources.md'

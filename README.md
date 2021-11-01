@@ -5,13 +5,13 @@ This uses [`mkdocs`](https://www.mkdocs.org/)
 Install it with:
 
 ```
-pip install mkdocs-material
+pip install mkdocs-material mkdocs-redirects
 ```
 
 If you have Python3, you may need to run
 
 ```
-pip3 install mkdocs-material
+pip3 install mkdocs-material mkdocs-redirects
 ```
 
 ## Serve the site locally
@@ -64,4 +64,3 @@ to get more details.
 This plugin is by no means part of [CNCF](https://www.cncf.io/) but we abide by
 its
 [code of conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md)
-
