@@ -1,6 +1,6 @@
 FROM python:3 AS builder
 
-RUN pip install mkdocs-material
+RUN pip install mkdocs-material mkdocs-redirects
 
 COPY . /docs
 

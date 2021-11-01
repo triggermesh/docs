@@ -23,7 +23,7 @@ all: build
 
 install-mkdocs:
 ifndef HAS_MKDOCS
-	pip3 install mkdocs
+	pip3 install mkdocs-material mkdocs-redirects
 endif
 
 help: ## Display this help
