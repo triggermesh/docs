@@ -21,7 +21,7 @@ kubectl apply -f https://github.com/knative/serving/releases/download/v0.26.0/se
 ```
 kubectl get pods -n knative-serving
 ```
-1. The version of Contour provided with the Tanzu Community Edition package repository is earlier than the version of `knative-serving` we have installed, so install it from YAML as well.
+1. The version of Contour provided with the Tanzu Community Edition package repository is older than the version of `knative-serving` we have installed, so install it from YAML as well.
 ```
 kubectl apply -f https://github.com/knative/net-contour/releases/download/v0.26.0/contour.yaml
 kubectl apply -f https://github.com/knative/net-contour/releases/download/v0.26.0/net-contour.yaml
