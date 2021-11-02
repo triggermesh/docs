@@ -3,7 +3,7 @@
 [Tanzu Community Edition](https://tanzucommunityedition.io/) is a free and open source Kubernetes platform provided by VMware.
 
 !!! Info "Tanzu Community Edition package repository versions"
-       The version of `knative-serving` currently in the Tanzu Community Edition package repository is version 0.22 which does not meet TriggerMesh's prerequisites. There is also currently not a `knative-eventing` package available, so please follow the instructions below.
+       The `knative-serving` version currently in the Tanzu Community Edition package repository is `0.22`, which does not meet TriggerMesh's minimum requirements. Additionally, at the time of writing, a `knative-eventing` package is not available in the repository. Follow the instructions below for installing a supported version of Knative.
 
 ## Installation
 
