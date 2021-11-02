@@ -53,6 +53,7 @@ nav:
       - '': guides/installation.md
       - Using an AWS AMI: guides/installation-ami.md
       - Using Helm: guides/installation-helm.md
+      - Tanzu Community Edition: guides/installation-tce.md
     - Integration Language:
       - '': til/Introduction.md
       - CLI: til/Commands.md
