@@ -51,6 +51,8 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSource">AzureServiceBusQueueSource</a>
 </li><li>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSource">AzureServiceBusTopicSource</a>
+</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource">GoogleCloudAuditLogsSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource</a>
@@ -2387,6 +2389,124 @@ AzureAuth
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceStatus">
 AzureServiceBusQueueSourceStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSource">AzureServiceBusTopicSource
+</h3>
+<p>
+<p>AzureServiceBusTopicSource is the Schema for the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>AzureServiceBusTopicSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">
+AzureServiceBusTopicSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topicID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>The resource ID the Service Bus Topic to subscribe to.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure REST API.
+This event source only supports the ServicePrincipal authentication.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">
+AzureServiceBusTopicSourceStatus
 </a>
 </em>
 </td>
@@ -5609,7 +5729,8 @@ EventSourceStatus
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceSpec">AzureIOTHubSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">AzureServiceBusQueueSourceSpec</a>)
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">AzureServiceBusQueueSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">AzureServiceBusTopicSourceSpec</a>)
 </p>
 <p>
 <p>AzureAuth contains multiple authentication methods for Azure services.</p>
@@ -6186,7 +6307,9 @@ ValueFromField
 <p>
 (<em>Appears on:</em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>)
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">AzureServiceBusTopicSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">AzureServiceBusTopicSourceStatus</a>)
 </p>
 <p>
 <p>AzureResourceID represents a resource ID for an Azure resource.</p>
@@ -6231,6 +6354,16 @@ string
 </tr>
 <tr>
 <td>
+<code>Namespace</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
 <code>ResourceType</code></br>
 <em>
 string
@@ -6242,6 +6375,26 @@ string
 <tr>
 <td>
 <code>ResourceName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>SubResourceType</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>SubResourceName</code></br>
 <em>
 string
 </em>
@@ -6382,6 +6535,118 @@ EventSourceStatus
 <p>
 (Members of <code>EventSourceStatus</code> are embedded into this type.)
 </p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">AzureServiceBusTopicSourceSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSource">AzureServiceBusTopicSource</a>)
+</p>
+<p>
+<p>AzureServiceBusTopicSourceSpec defines the desired state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topicID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>The resource ID the Service Bus Topic to subscribe to.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure REST API.
+This event source only supports the ServicePrincipal authentication.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">AzureServiceBusTopicSourceStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSource">AzureServiceBusTopicSource</a>)
+</p>
+<p>
+<p>AzureServiceBusTopicSourceStatus defines the observed state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>EventSourceStatus</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
+EventSourceStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>EventSourceStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>subscriptionID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>Resource ID of the Service Bus Subscription that is currently used
+by the event source for consuming events from the configured Service
+Bus Topic.</p>
 </td>
 </tr>
 </tbody>
@@ -6538,6 +6803,7 @@ string
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceStatus">AzureIOTHubSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceStatus">AzureServiceBusQueueSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">AzureServiceBusTopicSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.EventSourceStatusManager">EventSourceStatusManager</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
@@ -8875,5 +9141,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>a44eecd</code>.
+on git commit <code>c13be09</code>.
 </em></p>
