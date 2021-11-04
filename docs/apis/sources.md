@@ -1468,6 +1468,20 @@ AWSSecurityCredentials
 <p>Credentials to interact with the Amazon SQS API.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>endpoint</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEndpoint">
+AWSEndpoint
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Customizations of the AWS REST API endpoint.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -5027,6 +5041,41 @@ AWSSecurityCredentials
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.AWSEndpoint">AWSEndpoint
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
+</p>
+<p>
+<p>AWSEndpoint contains parameters which are used to override the destination
+of REST API calls to AWS services.
+It allows, for example, to target API-compatible alternatives to the public
+AWS cloud (Localstack, Minio, ElasticMQ, &hellip;).</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>url</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
+knative.dev/pkg/apis.URL
+</a>
+</em>
+</td>
+<td>
+<p>URL of the endpoint.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec
 </h3>
 <p>
@@ -5529,6 +5578,20 @@ AWSSecurityCredentials
 </td>
 <td>
 <p>Credentials to interact with the Amazon SQS API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>endpoint</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEndpoint">
+AWSEndpoint
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Customizations of the AWS REST API endpoint.</p>
 </td>
 </tr>
 </tbody>
@@ -9141,5 +9204,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>dab13e5</code>.
+on git commit <code>5542a71</code>.
 </em></p>
