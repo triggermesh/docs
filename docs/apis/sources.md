@@ -1457,15 +1457,15 @@ AWSSQSSourceReceiveOptions
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon SQS API.</p>
+<p>Authentication method to interact with the Amazon SQS API.</p>
 </td>
 </tr>
 <tr>
@@ -4409,6 +4409,41 @@ ZendeskSourceStatus
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.AWSAuth">AWSAuth
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
+</p>
+<p>
+<p>AWSAuth contains multiple authentication methods for AWS services.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>credentials</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
+AWSSecurityCredentials
+</a>
+</em>
+</td>
+<td>
+<p>Security credentials allow AWS to authenticate and authorize
+requests based on a signature composed of an access key ID and a
+corresponding secret access key.
+See <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec
 </h3>
 <p>
@@ -5569,15 +5604,15 @@ AWSSQSSourceReceiveOptions
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon SQS API.</p>
+<p>Authentication method to interact with the Amazon SQS API.</p>
 </td>
 </tr>
 <tr>
@@ -5600,6 +5635,7 @@ AWSEndpoint
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">AWSAuth</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">AWSCloudWatchSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSourceSpec">AWSCodeCommitSourceSpec</a>, 
@@ -5609,12 +5645,10 @@ AWSEndpoint
 <a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">AWSPerformanceInsightsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceSpec">AWSSNSSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
+<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceSpec">AWSSNSSourceSpec</a>)
 </p>
 <p>
-<p>AWSSecurityCredentials represents a set of AWS security credentials.
-See <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a></p>
+<p>AWSSecurityCredentials represents a set of AWS security credentials.</p>
 </p>
 <table>
 <thead>
@@ -9204,5 +9238,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>008fc88</code>.
+on git commit <code>0c68610</code>.
 </em></p>
