@@ -4442,6 +4442,19 @@ corresponding secret access key.
 See <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a></p>
 </td>
 </tr>
+<tr>
+<td>
+<code>iamRole</code></br>
+<em>
+github.com/triggermesh/triggermesh/pkg/apis.ARN
+</em>
+</td>
+<td>
+<p>(Amazon EKS only) The ARN of an IAM role which can be impersonated
+to obtain AWS permissions.
+See <a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html</a></p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec
@@ -9238,5 +9251,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>2d9af3a</code>.
+on git commit <code>d341018</code>.
 </em></p>
