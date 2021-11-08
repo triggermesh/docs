@@ -19,17 +19,20 @@ bucket][s3-create].
 
 A fully qualified ARN is required to uniquely identify the Amazon S3 bucket.
 
-!!! warning
-    The ARN displayed in the AWS Console, which has the format `arn:aws:s3:::{bucket_name}`, lacks some essential
-    information: the [AWS region][aws-region] and the [account ID][aws-acc-id]. Both must be included in the ARN by
-    using the more complete format below:
+!!! note
+    Although not technically required by S3, the ARN provided to this event source _may_ include an [AWS
+    region][aws-region] and [account ID][aws-acc-id], in addition to the bucket name. When this information is provided,
+    it is used to set an accurate identity-based access policy between the S3 bucket and the reconciled SQS queue,
+    unless a user-managed queue is provided as described in the [SQS Queue](#sqs-queue-optional) section of this
+    document.
+
+    The format of such ARN is:
 
     ```
     arn:aws:s3:{aws_region}:{aws_account_id}:{bucket_name}
     ```
 
-    Without the region and account ID, this event source would be unable to set an accurate identity-based access policy
-    on the SQS queue described in the [SQS Queue](#sqs-queue-optional) section of this document.
+    This information is purely optional and will be determined automatically if not provided.
 
 ![S3 Bucket ARN](../../assets/images/awss3-source/arn-region-1.png)
 
@@ -82,6 +85,14 @@ for you (see next section for more information):
     "Version": "2012-10-17",
     "Statement": [
         {
+            "Sid": "S3SourceGetBucketLocation",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
             "Sid": "S3SourceManageQueue",
             "Effect": "Allow",
             "Action": [
@@ -123,8 +134,7 @@ In the Source creation form, give a name to the event source and add the followi
 
 - [**Source secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a
   Secret Access Key to communicate with the AWS API, as described in the previous sections.
-- [**Bucket ARN**][arn]: ARN of the S3 bucket. This ARN needs to include the AWS region and account ID, as described in the
-  previous sections.
+- [**Bucket ARN**][arn]: ARN of the S3 bucket, as described in the previous sections.
 - [**Queue ARN**][arn]: _(optional)_ ARN of the SQS queue which acts as event destination, in case you prefer to manage
   this queue yourself as described in the previous sections.
 - [**Event types**][s3-events]: List of event types to subscribe to.
