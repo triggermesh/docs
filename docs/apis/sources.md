@@ -1164,9 +1164,12 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <p>Bucket ARN
 <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies</a></p>
-<p>Although not technically required by S3, we enforce that bucket ARNs
-include a region and an account ID, because this information is
-required by the reconciler to operate properly.</p>
+<p>Although not technically supported by S3, the ARN provided via this
+attribute may include a region and an account ID. When this
+information is provided, it is used to set an accurate
+identity-based access policy between the S3 bucket and the
+reconciled SQS queue, unless an existing queue is provided via the
+QueueARN attribute.</p>
 </td>
 </tr>
 <tr>
@@ -5309,9 +5312,12 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <p>Bucket ARN
 <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies</a></p>
-<p>Although not technically required by S3, we enforce that bucket ARNs
-include a region and an account ID, because this information is
-required by the reconciler to operate properly.</p>
+<p>Although not technically supported by S3, the ARN provided via this
+attribute may include a region and an account ID. When this
+information is provided, it is used to set an accurate
+identity-based access policy between the S3 bucket and the
+reconciled SQS queue, unless an existing queue is provided via the
+QueueARN attribute.</p>
 </td>
 </tr>
 <tr>
@@ -9251,5 +9257,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>f7da9b1</code>.
+on git commit <code>6347d9d</code>.
 </em></p>
