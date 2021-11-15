@@ -1748,26 +1748,6 @@ uniquely identify the Storage Account within Azure.</p>
 </tr>
 <tr>
 <td>
-<code>eventHubID</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
-</a>
-</em>
-</td>
-<td>
-<p>Resource ID of either the Event Hubs instance or Event Hubs
-namespace to send events to.</p>
-<p>Accepted formats:
-- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventHubs/{eventHubName}
-- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}</p>
-<p>If the resource ID represents an Event Hubs namespace, an Event Hubs
-instance is created on behalf of the user inside that namespace.
-Otherwise, the user-provided Event Hub is used.</p>
-</td>
-</tr>
-<tr>
-<td>
 <code>eventTypes</code></br>
 <em>
 []string
@@ -1782,6 +1762,19 @@ Otherwise, the user-provided Event Hub is used.</p>
 to the following event types:
 - Microsoft.Storage.BlobCreated
 - Microsoft.Storage.BlobDeleted</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>endpoint</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceEndpoint">
+AzureEventGridSourceEndpoint
+</a>
+</em>
+</td>
+<td>
+<p>The destination of events subscribed via Event Grid.</p>
 </td>
 </tr>
 <tr>
@@ -1925,22 +1918,15 @@ Azure services that support system topics at
 </tr>
 <tr>
 <td>
-<code>eventHubID</code></br>
+<code>endpoint</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceEndpoint">
+AzureEventGridSourceEndpoint
 </a>
 </em>
 </td>
 <td>
-<p>Resource ID of either the Event Hubs instance or Event Hubs
-namespace to send events to.</p>
-<p>Accepted formats:
-- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventHubs/{eventHubName}
-- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}</p>
-<p>If the resource ID represents an Event Hubs namespace, an Event Hubs
-instance is created on behalf of the user inside that namespace.
-Otherwise, the user-provided Event Hub is used.</p>
+<p>The destination of events subscribed via Event Grid.</p>
 </td>
 </tr>
 <tr>
@@ -6010,26 +5996,6 @@ uniquely identify the Storage Account within Azure.</p>
 </tr>
 <tr>
 <td>
-<code>eventHubID</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
-</a>
-</em>
-</td>
-<td>
-<p>Resource ID of either the Event Hubs instance or Event Hubs
-namespace to send events to.</p>
-<p>Accepted formats:
-- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventHubs/{eventHubName}
-- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}</p>
-<p>If the resource ID represents an Event Hubs namespace, an Event Hubs
-instance is created on behalf of the user inside that namespace.
-Otherwise, the user-provided Event Hub is used.</p>
-</td>
-</tr>
-<tr>
-<td>
 <code>eventTypes</code></br>
 <em>
 []string
@@ -6044,6 +6010,19 @@ Otherwise, the user-provided Event Hub is used.</p>
 to the following event types:
 - Microsoft.Storage.BlobCreated
 - Microsoft.Storage.BlobDeleted</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>endpoint</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceEndpoint">
+AzureEventGridSourceEndpoint
+</a>
+</em>
+</td>
+<td>
+<p>The destination of events subscribed via Event Grid.</p>
 </td>
 </tr>
 <tr>
@@ -6098,14 +6077,94 @@ EventSourceStatus
 <td>
 <code>eventHubID</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
 </a>
 </em>
 </td>
 <td>
 <p>Resource ID of the Event Hubs instance that is currently receiving
 events from the Azure Event Grid subscription.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureEventGridSourceDestinationEventHubs">AzureEventGridSourceDestinationEventHubs
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceEndpoint">AzureEventGridSourceEndpoint</a>)
+</p>
+<p>
+<p>AzureEventGridSourceDestinationEventHubs contains properties of an Event
+Hubs namespace to use as destination for events.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>namespaceID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>Resource ID of the Event Hubs namespace.</p>
+<p>The expected format is
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventHubName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the Event Hubs instance within the selected namespace. If
+omitted, an Event Hubs instance is created on behalf of the user.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureEventGridSourceEndpoint">AzureEventGridSourceEndpoint
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>)
+</p>
+<p>
+<p>AzureEventGridSourceEndpoint contains possible destinations for events.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>eventHubs</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceDestinationEventHubs">
+AzureEventGridSourceDestinationEventHubs
+</a>
+</em>
+</td>
+<td>
 </td>
 </tr>
 </tbody>
@@ -6180,22 +6239,15 @@ Azure services that support system topics at
 </tr>
 <tr>
 <td>
-<code>eventHubID</code></br>
+<code>endpoint</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceEndpoint">
+AzureEventGridSourceEndpoint
 </a>
 </em>
 </td>
 <td>
-<p>Resource ID of either the Event Hubs instance or Event Hubs
-namespace to send events to.</p>
-<p>Accepted formats:
-- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventHubs/{eventHubName}
-- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}</p>
-<p>If the resource ID represents an Event Hubs namespace, an Event Hubs
-instance is created on behalf of the user inside that namespace.
-Otherwise, the user-provided Event Hub is used.</p>
+<p>The destination of events subscribed via Event Grid.</p>
 </td>
 </tr>
 <tr>
@@ -6264,8 +6316,8 @@ registered for the user-provided scope.</p>
 <td>
 <code>eventHubID</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
 </a>
 </em>
 </td>
@@ -6489,6 +6541,8 @@ ValueFromField
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceDestinationEventHubs">AzureEventGridSourceDestinationEventHubs</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">AzureServiceBusTopicSourceSpec</a>, 
@@ -6894,10 +6948,6 @@ ValueFromField
 <p>
 (<em>Appears on:</em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>)
 </p>
 <p>
@@ -9324,5 +9374,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>8c4d175</code>.
+on git commit <code>5290f80</code>.
 </em></p>
