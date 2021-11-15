@@ -1188,17 +1188,18 @@ Accepted values:
 </tr>
 <tr>
 <td>
-<code>queueARN</code></br>
+<code>destination</code></br>
 <em>
-github.com/triggermesh/triggermesh/pkg/apis.ARN
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceDestination">
+AWSS3SourceDestination
+</a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>SQS Queue ARN
-<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies">https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies</a></p>
-<p>When not provided, a SQS queue for receiving event notifications
-from the S3 bucket is automatically created and configured.</p>
+<p>The destination of notifications originating from the Amazon S3 bucket.</p>
+<p>If omitted, an Amazon SQS queue is automatically created and
+associated with the bucket.</p>
 </td>
 </tr>
 <tr>
@@ -5270,6 +5271,71 @@ AWSSecurityCredentials
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.AWSS3SourceDestination">AWSS3SourceDestination
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>)
+</p>
+<p>
+<p>AWSS3SourceDestination contains possible destinations for bucket notifications.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>sqs</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceDestinationSQS">
+AWSS3SourceDestinationSQS
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Amazon SQS destination.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AWSS3SourceDestinationSQS">AWSS3SourceDestinationSQS
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceDestination">AWSS3SourceDestination</a>)
+</p>
+<p>
+<p>AWSS3SourceDestinationSQS contains properties of an Amazon SQS queue to use
+as destination for bucket notifications.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>queueARN</code></br>
+<em>
+github.com/triggermesh/triggermesh/pkg/apis.ARN
+</em>
+</td>
+<td>
+<p>SQS Queue ARN
+<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies">https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec
 </h3>
 <p>
@@ -5336,17 +5402,18 @@ Accepted values:
 </tr>
 <tr>
 <td>
-<code>queueARN</code></br>
+<code>destination</code></br>
 <em>
-github.com/triggermesh/triggermesh/pkg/apis.ARN
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceDestination">
+AWSS3SourceDestination
+</a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>SQS Queue ARN
-<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies">https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies</a></p>
-<p>When not provided, a SQS queue for receiving event notifications
-from the S3 bucket is automatically created and configured.</p>
+<p>The destination of notifications originating from the Amazon S3 bucket.</p>
+<p>If omitted, an Amazon SQS queue is automatically created and
+associated with the bucket.</p>
 </td>
 </tr>
 <tr>
@@ -9257,5 +9324,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>a3e3f72</code>.
+on git commit <code>8c4d175</code>.
 </em></p>
