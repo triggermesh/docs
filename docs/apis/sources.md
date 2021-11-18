@@ -1577,39 +1577,15 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>eventHubID</code></br>
+<code>destination</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestination">
+AzureActivityLogsSourceDestination
 </a>
 </em>
 </td>
 <td>
-<p>Resource ID of either the Event Hubs instance or Event Hubs namespace to send activity logs to.
-This resource ID also conveniently contains the ID of the subscription which activity logs are to be
-subscribed to.</p>
-<p>If the resource ID represents an Event Hubs namespace, Azure automatically creates an Event Hub with the name
-&lsquo;insights-activity-logs&rsquo; inside that namespace. Otherwise, the user-provided Event Hub is used.</p>
-<p>Accepted formats:
-* /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventHubs/{eventHubName}
-* /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>eventHubsSASPolicy</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Name of a SAS policy with Manage permissions inside the Event Hubs namespace referenced in the EventHubID
-field.</p>
-<p>Defaults to &ldquo;RootManageSharedAccessKey&rdquo;.</p>
-<p>References:
-* <a href="https://docs.microsoft.com/en-us/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/getauthorizationrule">https://docs.microsoft.com/en-us/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/getauthorizationrule</a>
-* <a href="https://docs.microsoft.com/en-us/azure/event-hubs/authorize-access-shared-access-signature">https://docs.microsoft.com/en-us/azure/event-hubs/authorize-access-shared-access-signature</a></p>
+<p>The destination of activity logs.</p>
 </td>
 </tr>
 <tr>
@@ -5756,6 +5732,104 @@ ValueFromField
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestination">AzureActivityLogsSourceDestination
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec</a>)
+</p>
+<p>
+<p>AzureActivityLogsSourceDestination contains possible destinations for
+activity logs.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>eventHubs</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestinationEventHubs">
+AzureActivityLogsSourceDestinationEventHubs
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestinationEventHubs">AzureActivityLogsSourceDestinationEventHubs
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestination">AzureActivityLogsSourceDestination</a>)
+</p>
+<p>
+<p>AzureActivityLogsSourceDestinationEventHubs contains properties of an Event
+Hubs namespace to use as destination for events.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>namespaceID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>Resource ID of the Event Hubs namespace.</p>
+<p>The expected format is
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>hubName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the Event Hubs instance within the selected namespace. If
+omitted, Azure automatically creates an Event Hub with the name
+&lsquo;insights-activity-logs&rsquo; inside the selected namespace.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>sasPolicy</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of a SAS policy with Manage permissions inside the Event Hubs
+namespace referenced in the EventHubID field.</p>
+<p>Defaults to &ldquo;RootManageSharedAccessKey&rdquo;.</p>
+<p>References:
+* <a href="https://docs.microsoft.com/en-us/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/getauthorizationrule">https://docs.microsoft.com/en-us/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/getauthorizationrule</a>
+* <a href="https://docs.microsoft.com/en-us/azure/event-hubs/authorize-access-shared-access-signature">https://docs.microsoft.com/en-us/azure/event-hubs/authorize-access-shared-access-signature</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec
 </h3>
 <p>
@@ -5790,39 +5864,15 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>eventHubID</code></br>
+<code>destination</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestination">
+AzureActivityLogsSourceDestination
 </a>
 </em>
 </td>
 <td>
-<p>Resource ID of either the Event Hubs instance or Event Hubs namespace to send activity logs to.
-This resource ID also conveniently contains the ID of the subscription which activity logs are to be
-subscribed to.</p>
-<p>If the resource ID represents an Event Hubs namespace, Azure automatically creates an Event Hub with the name
-&lsquo;insights-activity-logs&rsquo; inside that namespace. Otherwise, the user-provided Event Hub is used.</p>
-<p>Accepted formats:
-* /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventHubs/{eventHubName}
-* /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>eventHubsSASPolicy</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Name of a SAS policy with Manage permissions inside the Event Hubs namespace referenced in the EventHubID
-field.</p>
-<p>Defaults to &ldquo;RootManageSharedAccessKey&rdquo;.</p>
-<p>References:
-* <a href="https://docs.microsoft.com/en-us/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/getauthorizationrule">https://docs.microsoft.com/en-us/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/getauthorizationrule</a>
-* <a href="https://docs.microsoft.com/en-us/azure/event-hubs/authorize-access-shared-access-signature">https://docs.microsoft.com/en-us/azure/event-hubs/authorize-access-shared-access-signature</a></p>
+<p>The destination of activity logs.</p>
 </td>
 </tr>
 <tr>
@@ -6541,6 +6591,7 @@ ValueFromField
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestinationEventHubs">AzureActivityLogsSourceDestinationEventHubs</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceDestinationEventHubs">AzureEventGridSourceDestinationEventHubs</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
@@ -6947,7 +6998,6 @@ ValueFromField
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>)
 </p>
 <p>
@@ -9374,5 +9424,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>a458b70</code>.
+on git commit <code>bd69609</code>.
 </em></p>
