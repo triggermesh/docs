@@ -31,6 +31,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>
@@ -1103,6 +1105,131 @@ EventOptions
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">
 AlibabaOSSTargetStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget
+</h3>
+<p>
+<p>AzureEventHubsTarget is the Schema for an Alibaba Object Storage Service Target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>AzureEventHubsTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">
+AzureEventHubsTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure Event Hubs API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventHubID</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventHubResourceID">
+EventHubResourceID
+</a>
+</em>
+</td>
+<td>
+<p>Resource ID of the Event Hubs instance.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCEContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetStatus">
+AzureEventHubsTargetStatus
 </a>
 </em>
 </td>
@@ -4838,6 +4965,301 @@ CloudEventStatus
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureAuth">AzureAuth
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>)
+</p>
+<p>
+<p>AzureAuth contains multiple authentication methods for Azure services.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>servicePrincipal</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureServicePrincipal">
+AzureServicePrincipal
+</a>
+</em>
+</td>
+<td>
+<p>Service principals provide a way to create a non-interactive account
+associated with your identity to which you grant only the privileges
+your app needs to run.
+See <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals">https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>sasToken</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureSASToken">
+AzureSASToken
+</a>
+</em>
+</td>
+<td>
+<p>A shared access signature (SAS) provides secure delegated access to
+resources in a storage account.
+See <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview">https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>)
+</p>
+<p>
+<p>AzureEventHubsTargetSpec holds the desired state of the AzureEventHubsTarget.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure Event Hubs API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventHubID</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventHubResourceID">
+EventHubResourceID
+</a>
+</em>
+</td>
+<td>
+<p>Resource ID of the Event Hubs instance.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCEContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureEventHubsTargetStatus">AzureEventHubsTargetStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>)
+</p>
+<p>
+<p>AzureEventHubsTargetStatus communicates the observed state of the AzureEventHubsTarget (from the controller).</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>Status</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
+knative.dev/pkg/apis/duck/v1.Status
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>Status</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>AddressStatus</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
+knative.dev/pkg/apis/duck/v1.AddressStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>AddressStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>CloudEventStatus</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
+CloudEventStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>CloudEventStatus</code> are embedded into this type.)
+</p>
+<p>Accepted/emitted CloudEvent attributes</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureAuth">AzureAuth</a>)
+</p>
+<p>
+<p>AzureSASToken represents an Azure SAS token.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>keyName</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>keyValue</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>connectionString</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureAuth">AzureAuth</a>)
+</p>
+<p>
+<p>AzureServicePrincipal represents an AAD Service Principal.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>tenantID</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>clientID</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>clientSecret</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.CloudEventStatus">CloudEventStatus
 </h3>
 <p>
@@ -4846,6 +5268,7 @@ CloudEventStatus
 <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">AlibabaOSSTargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetStatus">AzureEventHubsTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetStatus">DatadogTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetStatus">GoogleCloudFirestoreTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetStatus">GoogleCloudStorageTargetStatus</a>, 
@@ -5424,12 +5847,72 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <p>EnvKeyValue is a list of keys/values that can be serialized to a format
 compatible with kelseyhightower/envconfig.</p>
 </p>
+<h3 id="targets.triggermesh.io/v1alpha1.EventHubResourceID">EventHubResourceID
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>)
+</p>
+<p>
+<p>EventHubResourceID represents a resource ID for an Event Hubs instance or namespace.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SubscriptionID</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>ResourceGroup</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>Namespace</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>EventHub</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.EventOptions">EventOptions
 </h3>
 <p>
 (<em>Appears on:</em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, 
@@ -8415,6 +8898,8 @@ CloudEventStatus
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SplunkTargetSpec">SplunkTargetSpec</a>)
 </p>
 <p>
@@ -8597,5 +9082,5 @@ CloudEventStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>517e8ba</code>.
+on git commit <code>8f3419e</code>.
 </em></p>
