@@ -21,6 +21,7 @@ solutions on our Cloud.
     - [Google Cloud Audit Logs](./googlecloudauditlogs.md): Capture messages from a Google Cloud Audit Logs Sink.
     - [Google Cloud Billing](./googlecloudbilling.md): Capture budget notifications from Google Cloud Billing.
     - [Google Cloud Pub/Sub](./googlecloudpubsub.md): Receive messages from a Google Cloud Pub/Sub topic.
+    - [Google Cloud Repositories](./googlecloudrepositories.md): Capture change notifications from a Google Cloud Repository.
     - [Google Cloud Storage](./googlecloudstorage.md): Capture change notifications from a Google Cloud Storage bucket.
 - [Webhook](./webhook.md): Generic Webhook integration.
 - [HTTP Poller](./httppoller.md): Generic HTTP Poller.
