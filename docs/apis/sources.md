@@ -179,15 +179,15 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon CloudWatch Logs API.</p>
+<p>Authentication method to interact with the Amazon CloudWatch Logs API.</p>
 </td>
 </tr>
 </table>
@@ -322,15 +322,15 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon CloudWatch API.</p>
+<p>Authentication method to interact with the Amazon CloudWatch API.</p>
 </td>
 </tr>
 </table>
@@ -459,15 +459,15 @@ Valid values: [push, pull_request]</p>
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon CodeCommit API.</p>
+<p>Authentication method to interact with the Amazon CodeCommit API.</p>
 </td>
 </tr>
 </table>
@@ -573,15 +573,15 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon Cognito API.</p>
+<p>Authentication method to interact with the Amazon Cognito API.</p>
 </td>
 </tr>
 </table>
@@ -687,15 +687,15 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon Cognito API.</p>
+<p>Authentication method to interact with the Amazon Cognito API.</p>
 </td>
 </tr>
 </table>
@@ -801,15 +801,15 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon DynamoDB API.</p>
+<p>Authentication method to interact with the Amazon DynamoDB API.</p>
 </td>
 </tr>
 </table>
@@ -915,15 +915,15 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon Kinesis API.</p>
+<p>Authentication method to interact with the Amazon Kinesis API.</p>
 </td>
 </tr>
 </table>
@@ -1054,15 +1054,15 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon RDS and Performance Insights APIs.</p>
+<p>Authentication method to interact with the Amazon RDS and Performance Insights APIs.</p>
 </td>
 </tr>
 </table>
@@ -1204,15 +1204,15 @@ associated with the bucket.</p>
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon S3 and SQS APIs.</p>
+<p>Authentication method to interact with the Amazon S3 and SQS APIs.</p>
 </td>
 </tr>
 </table>
@@ -1333,15 +1333,15 @@ For a list of supported subscription attributes, please refer to the following r
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon SNS API.</p>
+<p>Authentication method to interact with the Amazon SNS API.</p>
 </td>
 </tr>
 </table>
@@ -4395,6 +4395,16 @@ ZendeskSourceStatus
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">AWSCloudWatchSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSourceSpec">AWSCodeCommitSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySourceSpec">AWSCognitoIdentitySourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSourceSpec">AWSCognitoUserPoolSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSourceSpec">AWSDynamoDBSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">AWSPerformanceInsightsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceSpec">AWSSNSSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
 </p>
 <p>
@@ -4499,15 +4509,15 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon CloudWatch Logs API.</p>
+<p>Authentication method to interact with the Amazon CloudWatch Logs API.</p>
 </td>
 </tr>
 </tbody>
@@ -4799,15 +4809,15 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon CloudWatch API.</p>
+<p>Authentication method to interact with the Amazon CloudWatch API.</p>
 </td>
 </tr>
 </tbody>
@@ -4881,15 +4891,15 @@ Valid values: [push, pull_request]</p>
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon CodeCommit API.</p>
+<p>Authentication method to interact with the Amazon CodeCommit API.</p>
 </td>
 </tr>
 </tbody>
@@ -4940,15 +4950,15 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon Cognito API.</p>
+<p>Authentication method to interact with the Amazon Cognito API.</p>
 </td>
 </tr>
 </tbody>
@@ -4999,15 +5009,15 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon Cognito API.</p>
+<p>Authentication method to interact with the Amazon Cognito API.</p>
 </td>
 </tr>
 </tbody>
@@ -5058,15 +5068,15 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon DynamoDB API.</p>
+<p>Authentication method to interact with the Amazon DynamoDB API.</p>
 </td>
 </tr>
 </tbody>
@@ -5152,15 +5162,15 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon Kinesis API.</p>
+<p>Authentication method to interact with the Amazon Kinesis API.</p>
 </td>
 </tr>
 </tbody>
@@ -5236,15 +5246,15 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon RDS and Performance Insights APIs.</p>
+<p>Authentication method to interact with the Amazon RDS and Performance Insights APIs.</p>
 </td>
 </tr>
 </tbody>
@@ -5396,15 +5406,15 @@ associated with the bucket.</p>
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon S3 and SQS APIs.</p>
+<p>Authentication method to interact with the Amazon S3 and SQS APIs.</p>
 </td>
 </tr>
 </tbody>
@@ -5514,15 +5524,15 @@ For a list of supported subscription attributes, please refer to the following r
 </tr>
 <tr>
 <td>
-<code>credentials</code></br>
+<code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>Credentials to interact with the Amazon SNS API.</p>
+<p>Authentication method to interact with the Amazon SNS API.</p>
 </td>
 </tr>
 </tbody>
@@ -5699,17 +5709,7 @@ AWSEndpoint
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">AWSAuth</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">AWSCloudWatchSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSourceSpec">AWSCodeCommitSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySourceSpec">AWSCognitoIdentitySourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSourceSpec">AWSCognitoUserPoolSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSourceSpec">AWSDynamoDBSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">AWSPerformanceInsightsSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceSpec">AWSSNSSourceSpec</a>)
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">AWSAuth</a>)
 </p>
 <p>
 <p>AWSSecurityCredentials represents a set of AWS security credentials.</p>
@@ -9423,5 +9423,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>8609951</code>.
+on git commit <code>740f583</code>.
 </em></p>
