@@ -1577,6 +1577,17 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
+<code>subscriptionID</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>The ID of the Azure subscription which activity logs to subscribe to.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>destination</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestination">
@@ -1585,7 +1596,8 @@ AzureActivityLogsSourceDestination
 </em>
 </td>
 <td>
-<p>The destination of activity logs.</p>
+<p>The intermediate destination of activity logs, before they are
+retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -5755,8 +5767,8 @@ ValueFromField
 <a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec</a>)
 </p>
 <p>
-<p>AzureActivityLogsSourceDestination contains possible destinations for
-activity logs.</p>
+<p>AzureActivityLogsSourceDestination contains possible intermediate
+destinations for activity logs.</p>
 </p>
 <table>
 <thead>
@@ -5788,7 +5800,7 @@ AzureActivityLogsSourceDestinationEventHubs
 </p>
 <p>
 <p>AzureActivityLogsSourceDestinationEventHubs contains properties of an Event
-Hubs namespace to use as destination for events.</p>
+Hubs namespace to use as intermediate destination for events.</p>
 </p>
 <table>
 <thead>
@@ -5880,6 +5892,17 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
+<code>subscriptionID</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>The ID of the Azure subscription which activity logs to subscribe to.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>destination</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestination">
@@ -5888,7 +5911,8 @@ AzureActivityLogsSourceDestination
 </em>
 </td>
 <td>
-<p>The destination of activity logs.</p>
+<p>The intermediate destination of activity logs, before they are
+retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -9423,5 +9447,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>cbd70f7</code>.
+on git commit <code>1662d17</code>.
 </em></p>
