@@ -1762,7 +1762,8 @@ AzureEventGridSourceEndpoint
 </em>
 </td>
 <td>
-<p>The destination of events subscribed via Event Grid.</p>
+<p>The intermediate destination of events subscribed via Event Grid,
+before they are retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -1914,7 +1915,8 @@ AzureEventGridSourceEndpoint
 </em>
 </td>
 <td>
-<p>The destination of events subscribed via Event Grid.</p>
+<p>The intermediate destination of events subscribed via Event Grid,
+before they are retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -6112,7 +6114,8 @@ AzureEventGridSourceEndpoint
 </em>
 </td>
 <td>
-<p>The destination of events subscribed via Event Grid.</p>
+<p>The intermediate destination of events subscribed via Event Grid,
+before they are retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -6187,7 +6190,7 @@ events from the Azure Event Grid subscription.</p>
 </p>
 <p>
 <p>AzureEventGridSourceDestinationEventHubs contains properties of an Event
-Hubs namespace to use as destination for events.</p>
+Hubs namespace to use as intermediate destination for events.</p>
 </p>
 <table>
 <thead>
@@ -6235,7 +6238,7 @@ omitted, an Event Hubs instance is created on behalf of the user.</p>
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>)
 </p>
 <p>
-<p>AzureEventGridSourceEndpoint contains possible destinations for events.</p>
+<p>AzureEventGridSourceEndpoint contains possible intermediate destinations for events.</p>
 </p>
 <table>
 <thead>
@@ -6337,7 +6340,8 @@ AzureEventGridSourceEndpoint
 </em>
 </td>
 <td>
-<p>The destination of events subscribed via Event Grid.</p>
+<p>The intermediate destination of events subscribed via Event Grid,
+before they are retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -9447,5 +9451,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ff63dbd</code>.
+on git commit <code>e110e98</code>.
 </em></p>
