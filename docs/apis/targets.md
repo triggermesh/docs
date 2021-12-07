@@ -9082,5 +9082,5 @@ CloudEventStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>7eac771</code>.
+on git commit <code>8cf6877</code>.
 </em></p>
