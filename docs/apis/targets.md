@@ -687,6 +687,12 @@ string
 <td>
 <p>Amazon Resource Name of the S3 bucket.
 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html#amazons3-resources-for-iam-policies">https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html#amazons3-resources-for-iam-policies</a></p>
+<p>Although not technically supported by S3, the ARN provided via this
+attribute must include a region and an account ID. The format of this ARN is:
+
+    arn:aws:s3:{aws_region}:{aws_account_id}:{bucket_name}
+
+</p>
 </td>
 </tr>
 <tr>
