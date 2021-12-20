@@ -2026,8 +2026,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>eventHubID</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
 </a>
 </em>
 </td>
@@ -6458,8 +6458,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>eventHubID</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
 </a>
 </em>
 </td>
@@ -6640,6 +6640,7 @@ ValueFromField
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceDestinationEventHubs">AzureEventGridSourceDestinationEventHubs</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">AzureServiceBusQueueSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">AzureServiceBusTopicSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">AzureServiceBusTopicSourceStatus</a>)
@@ -7014,65 +7015,6 @@ ValueFromField
 <a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
 </a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.EventHubResourceID">EventHubResourceID
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>)
-</p>
-<p>
-<p>EventHubResourceID represents a resource ID for an Event Hubs instance or namespace.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SubscriptionID</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>ResourceGroup</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>Namespace</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>EventHub</code></br>
-<em>
-string
 </em>
 </td>
 <td>
@@ -9451,5 +9393,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>3802df8</code>.
+on git commit <code>393c94e</code>.
 </em></p>
