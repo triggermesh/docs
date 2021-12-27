@@ -4231,6 +4231,18 @@ ValueFromField
 <p>Password HTTP clients must set to authenticate with the webhook using HTTP Basic authentication.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>corsAllowOrigin</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Specifies the CORS Origin to use in pre-flight headers.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -9252,6 +9264,18 @@ ValueFromField
 <p>Password HTTP clients must set to authenticate with the webhook using HTTP Basic authentication.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>corsAllowOrigin</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Specifies the CORS Origin to use in pre-flight headers.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.ZendeskSourceSpec">ZendeskSourceSpec
@@ -9393,5 +9417,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>c109189</code>.
+on git commit <code>4ca9543</code>.
 </em></p>
