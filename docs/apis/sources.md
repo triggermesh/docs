@@ -67,6 +67,8 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSource">HTTPPollerSource</a>
 </li><li>
+<a href="#sources.triggermesh.io/v1alpha1.IBMMQSource">IBMMQSource</a>
+</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.SalesforceSource">SalesforceSource</a>
@@ -3572,6 +3574,159 @@ EventSourceStatus
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.IBMMQSource">IBMMQSource
+</h3>
+<p>
+<p>IBMMQSource is the Schema the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>IBMMQSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceSpec">
+IBMMQSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>connectionName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueManager</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>channelName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>delivery</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.Delivery">
+Delivery
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>credentials</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.Credentials">
+Credentials
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceStatus">
+IBMMQSourceStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource
 </h3>
 <p>
@@ -7034,6 +7189,109 @@ ValueFromField
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.Credentials">Credentials
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceSpec">IBMMQSourceSpec</a>)
+</p>
+<p>
+<p>Credentials holds the auth details</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>username</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>password</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.Delivery">Delivery
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceSpec">IBMMQSourceSpec</a>)
+</p>
+<p>
+<p>Delivery defines the source&rsquo;s message delivery behavior</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>deadLetterQueueManager</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>deadLetterQueue</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>retry</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>backoffDelay</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+<p>currently not used</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.EventSource">EventSource
 </h3>
 <p>
@@ -7075,6 +7333,7 @@ ValueFromField
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">GoogleCloudRepositoriesSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceStatus">IBMMQSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceStatus">ZendeskSourceStatus</a>)
 </p>
 <p>
@@ -8592,6 +8851,138 @@ Expressed as a duration string, which format is documented at <a href="https://p
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.IBMMQSourceSpec">IBMMQSourceSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.IBMMQSource">IBMMQSource</a>)
+</p>
+<p>
+<p>IBMMQSourceSpec holds the desired state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>connectionName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueManager</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>channelName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>delivery</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.Delivery">
+Delivery
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>credentials</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.Credentials">
+Credentials
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.IBMMQSourceStatus">IBMMQSourceStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.IBMMQSource">IBMMQSource</a>)
+</p>
+<p>
+<p>IBMMQSourceStatus defines the observed state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>EventSourceStatus</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
+EventSourceStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>EventSourceStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.OCIMetrics">OCIMetrics
 </h3>
 <p>
@@ -9123,6 +9514,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSourceSpec">AzureQueueStorageSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.Credentials">Credentials</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>, 
@@ -9417,5 +9809,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>4d4925b</code>.
+on git commit <code>e5ddcd6</code>.
 </em></p>
