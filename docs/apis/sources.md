@@ -61,7 +61,7 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource">GoogleCloudPubSubSource</a>
 </li><li>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSource">GoogleCloudRepositoriesSource</a>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSource">GoogleCloudSourceRepositoriesSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSource">GoogleCloudStorageSource</a>
 </li><li>
@@ -3081,10 +3081,10 @@ GoogleCloudPubSubSourceStatus
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSource">GoogleCloudRepositoriesSource
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSource">GoogleCloudSourceRepositoriesSource
 </h3>
 <p>
-<p>GoogleCloudRepositoriesSource is the Schema for the event source.</p>
+<p>GoogleCloudSourceRepositoriesSource is the Schema for the event source.</p>
 </p>
 <table>
 <thead>
@@ -3109,7 +3109,7 @@ sources.triggermesh.io/v1alpha1
 <code>kind</code></br>
 string
 </td>
-<td><code>GoogleCloudRepositoriesSource</code></td>
+<td><code>GoogleCloudSourceRepositoriesSource</code></td>
 </tr>
 <tr>
 <td>
@@ -3129,8 +3129,8 @@ Refer to the Kubernetes API documentation for the fields of the
 <td>
 <code>spec</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">
-GoogleCloudRepositoriesSourceSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">
+GoogleCloudSourceRepositoriesSourceSpec
 </a>
 </em>
 </td>
@@ -3170,8 +3170,8 @@ GCloudResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourcePubSubSpec">
-GoogleCloudRepositoriesSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">
+GoogleCloudSourceRepositoriesSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -3200,8 +3200,8 @@ ValueFromField
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">
-GoogleCloudRepositoriesSourceStatus
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceStatus">
+GoogleCloudSourceRepositoriesSourceStatus
 </a>
 </em>
 </td>
@@ -7073,7 +7073,7 @@ ValueFromField
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">GoogleCloudRepositoriesSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceStatus">GoogleCloudSourceRepositoriesSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceStatus">ZendeskSourceStatus</a>)
 </p>
@@ -7232,9 +7232,9 @@ string
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourcePubSubSpec">GoogleCloudRepositoriesSourcePubSubSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">GoogleCloudRepositoriesSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">GoogleCloudRepositoriesSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">GoogleCloudSourceRepositoriesSourcePubSubSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceStatus">GoogleCloudSourceRepositoriesSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">GoogleCloudStorageSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>)
 </p>
@@ -8025,14 +8025,14 @@ GCloudResourceName
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourcePubSubSpec">GoogleCloudRepositoriesSourcePubSubSpec
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">GoogleCloudSourceRepositoriesSourcePubSubSpec
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">GoogleCloudRepositoriesSourceSpec</a>)
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>)
 </p>
 <p>
-<p>GoogleCloudRepositoriesSourcePubSubSpec defines the attributes related to the
+<p>GoogleCloudSourceRepositoriesSourcePubSubSpec defines the attributes related to the
 configuration of Pub/Sub resources.</p>
 </p>
 <table>
@@ -8079,14 +8079,14 @@ the project name.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">GoogleCloudRepositoriesSourceSpec
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSource">GoogleCloudRepositoriesSource</a>)
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSource">GoogleCloudSourceRepositoriesSource</a>)
 </p>
 <p>
-<p>GoogleCloudRepositoriesSourceSpec defines the desired state of the event source.</p>
+<p>GoogleCloudSourceRepositoriesSourceSpec defines the desired state of the event source.</p>
 </p>
 <table>
 <thead>
@@ -8128,8 +8128,8 @@ GCloudResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourcePubSubSpec">
-GoogleCloudRepositoriesSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">
+GoogleCloudSourceRepositoriesSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -8153,14 +8153,14 @@ ValueFromField
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceStatus">GoogleCloudRepositoriesSourceStatus
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceStatus">GoogleCloudSourceRepositoriesSourceStatus
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSource">GoogleCloudRepositoriesSource</a>)
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSource">GoogleCloudSourceRepositoriesSource</a>)
 </p>
 <p>
-<p>GoogleCloudRepositoriesSourceStatus defines the observed state of the event source.</p>
+<p>GoogleCloudSourceRepositoriesSourceStatus defines the observed state of the event source.</p>
 </p>
 <table>
 <thead>
@@ -9127,7 +9127,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudRepositoriesSourceSpec">GoogleCloudRepositoriesSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSourceSpec">HTTPPollerSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSourceSpec">OCIMetricsSourceSpec</a>, 
@@ -9417,5 +9417,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>11c7798</code>.
+on git commit <code>74fcc00</code>.
 </em></p>
