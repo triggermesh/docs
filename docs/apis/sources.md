@@ -1723,8 +1723,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>storageAccountID</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.StorageAccountResourceID">
-StorageAccountResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
 </a>
 </em>
 </td>
@@ -6240,8 +6240,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>storageAccountID</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.StorageAccountResourceID">
-StorageAccountResourceID
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
 </a>
 </em>
 </td>
@@ -6803,6 +6803,7 @@ ValueFromField
 <p>
 (<em>Appears on:</em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceDestinationEventHubs">AzureActivityLogsSourceDestinationEventHubs</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceDestinationEventHubs">AzureEventGridSourceDestinationEventHubs</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
@@ -9423,55 +9424,6 @@ applications shared an endpoint. See: <a href="https://api.slack.com/events-api"
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.StorageAccountResourceID">StorageAccountResourceID
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>)
-</p>
-<p>
-<p>StorageAccountResourceID represents a resource ID for a Storage Account.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SubscriptionID</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>ResourceGroup</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>StorageAccount</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.TwilioSourceSpec">TwilioSourceSpec
 </h3>
 <p>
@@ -9809,5 +9761,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>85f652c</code>.
+on git commit <code>a5021d0</code>.
 </em></p>
