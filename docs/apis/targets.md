@@ -445,7 +445,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created Kinesis records.
+<p>Whether to omit CloudEvent context attributes in records created in Kinesis.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -699,7 +699,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created S3 objects.
+<p>Whether to omit CloudEvent context attributes in objects created in S3.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -826,7 +826,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created SNS notifications.
+<p>Whether to omit CloudEvent context attributes in notifications sent to SNS.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -953,7 +953,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created SQS messages.
+<p>Whether to omit CloudEvent context attributes in messages sent to SQS.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -1398,7 +1398,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created messages.
+<p>Whether to omit CloudEvent context attributes in messages sent to Kafka.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -1625,7 +1625,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created documents.
+<p>Whether to omit CloudEvent context attributes in documents created in Elasticsearch.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -1762,7 +1762,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created SNS notifications.
+<p>Whether to omit CloudEvent context attributes in documents created in Firestore.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -2623,6 +2623,9 @@ bool
 </em>
 </td>
 <td>
+<p>Whether to omit CloudEvent context attributes in messages sent to MQ.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
 </td>
 </tr>
 </table>
@@ -4581,7 +4584,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created Kinesis records.
+<p>Whether to omit CloudEvent context attributes in records created in Kinesis.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -4721,7 +4724,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created S3 objects.
+<p>Whether to omit CloudEvent context attributes in objects created in S3.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -4841,7 +4844,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created SNS notifications.
+<p>Whether to omit CloudEvent context attributes in notifications sent to SNS.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -4911,7 +4914,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created SQS messages.
+<p>Whether to omit CloudEvent context attributes in messages sent to SQS.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -5607,7 +5610,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created messages.
+<p>Whether to omit CloudEvent context attributes in messages sent to Kafka.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -5973,7 +5976,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created documents.
+<p>Whether to omit CloudEvent context attributes in documents created in Elasticsearch.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -6223,7 +6226,7 @@ bool
 </em>
 </td>
 <td>
-<p>Whether to omit CloudEvent context attributes in created SNS notifications.
+<p>Whether to omit CloudEvent context attributes in documents created in Firestore.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
 </td>
@@ -7179,6 +7182,9 @@ bool
 </em>
 </td>
 <td>
+<p>Whether to omit CloudEvent context attributes in messages sent to MQ.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
 </td>
 </tr>
 </tbody>
@@ -9500,5 +9506,5 @@ CloudEventStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>68dc7c5</code>.
+on git commit <code>33b9cc4</code>.
 </em></p>
