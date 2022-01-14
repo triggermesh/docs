@@ -17,6 +17,8 @@ Resource Types:
 <ul><li>
 <a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>
 </li><li>
+<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation</a>
+</li><li>
 <a href="#flow.triggermesh.io/v1alpha1.XSLTTransform">XSLTTransform</a>
 </li></ul>
 <h3 id="flow.triggermesh.io/v1alpha1.Transformation">Transformation
@@ -138,6 +140,111 @@ TransformationStatus
 </tr>
 </tbody>
 </table>
+<h3 id="flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation
+</h3>
+<p>
+<p>XMLToJSONTransformation is the schema for the event transformer.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+flow.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>XMLToJSONTransformation</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformationSpec">
+XMLToJSONTransformationSpec
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Spec holds the desired state of the XMLToJSONTransformation (from the client).</p>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>sink</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
+knative.dev/pkg/apis/duck/v1.Destination
+</a>
+</em>
+</td>
+<td>
+<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformationStatus">
+XMLToJSONTransformationStatus
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Status communicates the observed state of the XMLToJSONTransformation (from the controller).</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="flow.triggermesh.io/v1alpha1.XSLTTransform">XSLTTransform
 </h3>
 <p>
@@ -238,6 +345,43 @@ XSLTTransformStatus
 <td>
 <em>(Optional)</em>
 <p>Status communicates the observed state of the XSLTTransform object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow.triggermesh.io/v1alpha1.EventOptions">EventOptions
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformationSpec">XMLToJSONTransformationSpec</a>)
+</p>
+<p>
+<p>EventOptions modifies CloudEvents management at Targets.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>payloadPolicy</code></br>
+<em>
+github.com/triggermesh/triggermesh/pkg/targets/adapter/cloudevents.PayloadPolicy
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>PayloadPolicy indicates if replies from the target should include
+a payload if available. Possible values are:</p>
+<ul>
+<li>always: will return a with the reply payload if avaliable.</li>
+<li>errors: will only reply with payload in case of an error.</li>
+<li>never: will not reply with payload.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -488,6 +632,99 @@ Kubernetes core/v1.ConfigMapKeySelector
 </tr>
 </tbody>
 </table>
+<h3 id="flow.triggermesh.io/v1alpha1.XMLToJSONTransformationSpec">XMLToJSONTransformationSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation</a>)
+</p>
+<p>
+<p>XMLToJSONTransformationSpec holds the desired state of the XMLToJSONTransformation (from the client).</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>sink</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
+knative.dev/pkg/apis/duck/v1.Destination
+</a>
+</em>
+</td>
+<td>
+<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow.triggermesh.io/v1alpha1.XMLToJSONTransformationStatus">XMLToJSONTransformationStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation</a>)
+</p>
+<p>
+<p>XMLToJSONTransformationStatus communicates the observed state of the XMLToJSONTransformation (from the controller).</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceStatus</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
+knative.dev/pkg/apis/duck/v1.SourceStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>address</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Addressable">
+knative.dev/pkg/apis/duck/v1.Addressable
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Address holds the information needed to connect this Addressable up to receive events.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="flow.triggermesh.io/v1alpha1.XSLTTransformSpec">XSLTTransformSpec
 </h3>
 <p>
@@ -589,5 +826,5 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>92e6218</code>.
+on git commit <code>acae0fb</code>.
 </em></p>
