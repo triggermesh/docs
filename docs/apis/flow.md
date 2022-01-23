@@ -223,6 +223,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
 </td>
 </tr>
@@ -672,6 +673,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
 </td>
 </tr>
@@ -711,16 +713,17 @@ knative.dev/pkg/apis/duck/v1.SourceStatus
 </tr>
 <tr>
 <td>
-<code>address</code></br>
+<code>AddressStatus</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Addressable">
-knative.dev/pkg/apis/duck/v1.Addressable
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
+knative.dev/pkg/apis/duck/v1.AddressStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Address holds the information needed to connect this Addressable up to receive events.</p>
+<p>
+(Members of <code>AddressStatus</code> are embedded into this type.)
+</p>
 </td>
 </tr>
 </tbody>
@@ -826,5 +829,5 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>a7b8255</code>.
+on git commit <code>3ce81f8</code>.
 </em></p>
