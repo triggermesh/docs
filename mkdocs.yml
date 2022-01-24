@@ -46,7 +46,7 @@ nav:
       - Creating a Splitter: guides/creatingasplitter.md
       - Doing a Transformation: guides/doingatransformation.md
       - Writing a Function: guides/writingafunction.md
-      - XMLtoJSONTransformation: guides/xmltojsontransformation.md
+      - Transforming XML to JSON: guides/xmltojsontransformation.md
       - Using TIL: guides/tilgettingstarted.md
       - Bridges:
         - Webhook to Slack: guides/bridges/webhook-to-slack.md
