@@ -134,6 +134,7 @@ markdown_extensions:
       custom_checkbox: true
 
 plugins:
+    - search
     - redirects:
         redirect_maps:
             'sources.md': 'concepts/sources.md'
