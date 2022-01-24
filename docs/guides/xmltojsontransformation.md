@@ -13,7 +13,7 @@ This guide shows you how to configure an event flow that transforms an incoming 
 * Deploy a Source that emits XML data.
 * Check the results in the logs of the `EventDisplay` Pod. 
 
-A `XMLToJSONTransformation` can be configured to either reply to the event sender or to send the transformed data to a `Sink` if one is provided. In this guide, we will use a `Sink` to send the transformed data to a so-called `EventDisplay` service. 
+An `XMLToJSONTransformation` object can be configured to either reply to the event sender or to send the transformed data to a `Sink` if one is provided. In this guide, we will use a `Sink` to send the transformed data to a so-called `EventDisplay` service. 
 
 ### Deploying an Event Display
 Let's first deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
