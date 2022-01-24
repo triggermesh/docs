@@ -9,7 +9,7 @@ The TriggerMesh `XMLToJSONTransformation` API object can be used to process a Cl
 This guide shows you how to configure an event flow that transforms an incoming CloudEvent in XML to their JSON representation. It has four steps:
 
 * Deploy the `EventDisplay` service.
-* Deploy the `XMlToJSONTransformation`.
+* Deploy the `XMlToJSONTransformation` object.
 * Deploy a Source that emits XML data.
 * Check the results in the logs of `EventDisplay` Pod. 
 
