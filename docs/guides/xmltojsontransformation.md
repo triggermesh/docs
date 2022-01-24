@@ -52,7 +52,7 @@ spec:
 
 ### Deploying a `PingSource` Object.
 
-Finally, we deploy an event source that emits CloudEvent with XML. We can do this with the `PingSource` which sends Cloudevents on a 
+Finally, we deploy an event source that will emit CloudEvents with XML data in the payload. We can do this with the `PingSource` which sends Cloudevents on a 
 schedule.
 
 The YAML manifest below shows that we will send a _note_ in XML every minute. Write the following YAML in a file and apply it with `kubectl apply -f <manifest.yaml>`.
