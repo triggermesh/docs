@@ -1,15 +1,23 @@
-# Using an XMLtoJSONTransformation
-The `XMLToJSONTransformation` object in Triggermesh exposes a service that can be used to accept an XML 
-Cloudevent and return a JSON representation of the data.
+# Transforming XML to JSON
 
-## Deploying an XMLToJSONTransformation Bridge Inside Triggermesh
-A `XMLToJSONTransformation` can be configured to either reply to the event sender. Or, if a `Sink`
-is provided, the `XMLToJSONTransformation` will send the transformed data to the `Sink`. For this example,
-we will use the `Sink` to send the transformed data to a `EventDisplay`. 
+The TriggerMesh `XMLToJSONTransformation` API object can be used to process a Cloudevent containing XML and return a JSON representation.
+
+![](./../assets/images/xmltojsontransformation.png)
+
+## Configuring an XML to JSON event flow XML
+
+This guide shows you how to configure an event flow which transforms incoming CloudEvent in XML to their JSON representation. It has four steps:
+
+* Deploy the `EventDisplay` service.
+* Deploy the `XMlToJSONTransformation`.
+* Deploy a Source that emits XML data.
+* Check the results in the logs of `EventDisplay` Pod. 
+
+A `XMLToJSONTransformation` can be configured to either reply to the event sender or to send the transformed data to a `Sink` if one is provided. In this guide, we will use a `Sink` to send the transformed data to a so-called `EventDisplay` service. 
 
 ### Deploying an Event Display
-The `EventDisplay` is a simple web application that can be used to display the transformed data. It can 
-be deployed as follows:
+Let's first deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
+be deployed by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`:
 
 ```yaml
 apiVersion: serving.knative.dev/v1
@@ -24,7 +32,10 @@ spec:
 ```
 
 ### Deploying an XMLToJSONTransformation Object
-With the `event-display` in place, the `XMLToJSONTransformation` object can be now deployed as follows:
+With the `event-display` in place, the `XMLToJSONTransformation` object can now be deployed in the same manner using the following manifest:
+
+!!! Tip
+    Below we use a `Sink` to declare where the response go. If you omit the `Sink` the response will go back to the Sender.
 
 ```yaml
 apiVersion: flow.triggermesh.io/v1alpha1
@@ -40,8 +51,11 @@ spec:
 ```
 
 ### Deploying a `PingSource` Object.
-The `PingSource` object is a simple source that can be configured to send Cloudevents on a Cron schedule.
-We will be using it here to send an XML Cloudevent to the `XMLToJSONTransformation` object every 1 minute.
+
+Finally, we deploy an event source that emits CloudEvent with XML. We can do this with the `PingSource` which sends Cloudevents on a 
+schedule.
+
+The YAML manifest below shows that we will send a _note_ in XML every minute. Write the following YAML in a file and apply it with `kubectl apply -f <manifest.yaml>`.
 
 ```yaml
 apiVersion: sources.knative.dev/v1
@@ -60,28 +74,21 @@ spec:
 ```
 
 ### Viewing the Transformation's Output in the Event Display
-With our example Bridge in place, we can now view the transformed data in the `EventDisplay`.
+With our event flow in place, we can now view the transformed data in the `EventDisplay`.
 
-* First, we will need to retrieve the `EventDisplay` pod name. We can do this by running the following command:
-```cmd
-kubectl -n <NAMESPACE> get pods
-```
+We need to retrieve the `EventDisplay` Pod name by running the following command:
 
-This command should return an output similar to the following:
 ```cmd
+kubectl get pods
 NAME                                                             READY   STATUS    RESTARTS   AGE
 xmltojsontransformation-demo-00001-deployment-7f45697d45-4bngq   2/2     Running   0          5m42s
 event-display-00001-deployment-5c97f6c58c-ndjhl                  2/2     Running   0          5m2s
 ```
 
-* Now that we have the pod name, we can run the following command to view the transformed data in the `EventDisplay` pod logs:
+With the Pod name, we can run the following command to view the transformed data in the `EventDisplay` Pod logs:
 
 ```cmd
-kubectl -n <NAMESPACE> logs event-display-00001-deployment-5c97f6c58c-ndjhl user-container
-```
-
-This command should return an output similar to the following:
-```cmd
+kubectl logs event-display-00001-deployment-5c97f6c58c-ndjhl user-container
 ☁️  cloudevents.Event
 Validation: valid
 Context Attributes,
@@ -100,7 +107,7 @@ Data,
       "heading": "Reminder"
     }
   }
-
 ```
 
+We see our beautiful sample note now in JSON format.
 
