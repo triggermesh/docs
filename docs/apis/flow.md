@@ -15,12 +15,124 @@ display: none;
 </p>
 Resource Types:
 <ul><li>
+<a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>
+</li><li>
 <a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>
 </li><li>
 <a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation</a>
 </li><li>
 <a href="#flow.triggermesh.io/v1alpha1.XSLTTransform">XSLTTransform</a>
 </li></ul>
+<h3 id="flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer
+</h3>
+<p>
+<p>Synchronizer is the Schema for the Synchronizer target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+flow.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>Synchronizer</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.SynchronizerSpec">
+SynchronizerSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>correlationKey</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.Correlation">
+Correlation
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>response</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.Response">
+Response
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>sink</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
+knative.dev/pkg/apis/duck/v1.Destination
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.SynchronizerStatus">
+SynchronizerStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="flow.triggermesh.io/v1alpha1.Transformation">Transformation
 </h3>
 <p>
@@ -350,6 +462,45 @@ XSLTTransformStatus
 </tr>
 </tbody>
 </table>
+<h3 id="flow.triggermesh.io/v1alpha1.Correlation">Correlation
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.SynchronizerSpec">SynchronizerSpec</a>)
+</p>
+<p>
+<p>Correlation holds the request-response matching parameters.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>attribute</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>length</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="flow.triggermesh.io/v1alpha1.EventOptions">EventOptions
 </h3>
 <p>
@@ -422,6 +573,139 @@ string
 </em>
 </td>
 <td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow.triggermesh.io/v1alpha1.Response">Response
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.SynchronizerSpec">SynchronizerSpec</a>)
+</p>
+<p>
+<p>Response defines the response handling configuration.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>timeout</code></br>
+<em>
+github.com/triggermesh/triggermesh/pkg/apis.Duration
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow.triggermesh.io/v1alpha1.SynchronizerSpec">SynchronizerSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>)
+</p>
+<p>
+<p>SynchronizerSpec holds the desired state of the Synchronizer.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>correlationKey</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.Correlation">
+Correlation
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>response</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.Response">
+Response
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>sink</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
+knative.dev/pkg/apis/duck/v1.Destination
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow.triggermesh.io/v1alpha1.SynchronizerStatus">SynchronizerStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>)
+</p>
+<p>
+<p>SynchronizerStatus communicates the observed state of the Synchronizer.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceStatus</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
+knative.dev/pkg/apis/duck/v1.SourceStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>AddressStatus</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
+knative.dev/pkg/apis/duck/v1.AddressStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>AddressStatus</code> are embedded into this type.)
+</p>
 </td>
 </tr>
 </tbody>
@@ -829,5 +1113,5 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>3f634e3</code>.
+on git commit <code>74246a2</code>.
 </em></p>
