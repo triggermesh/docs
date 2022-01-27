@@ -47,6 +47,7 @@ nav:
       - Doing a Transformation: guides/doingatransformation.md
       - Writing a Function: guides/writingafunction.md
       - Transforming XML to JSON: guides/xmltojsontransformation.md
+      - Transforming XML with XSLT: guides/xslttransformation.md
       - Using TIL: guides/tilgettingstarted.md
       - Bridges:
         - Webhook to Slack: guides/bridges/webhook-to-slack.md
