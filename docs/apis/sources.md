@@ -7197,7 +7197,7 @@ ValueFromField
 <a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceSpec">IBMMQSourceSpec</a>)
 </p>
 <p>
-<p>Credentials holds the auth details</p>
+<p>Credentials holds the auth details.</p>
 </p>
 <table>
 <thead>
@@ -7231,6 +7231,18 @@ ValueFromField
 <td>
 </td>
 </tr>
+<tr>
+<td>
+<code>tls</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.TLSSpec">
+TLSSpec
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.Delivery">Delivery
@@ -7240,7 +7252,7 @@ ValueFromField
 <a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceSpec">IBMMQSourceSpec</a>)
 </p>
 <p>
-<p>Delivery defines the source&rsquo;s message delivery behavior</p>
+<p>Delivery defines the source&rsquo;s message delivery behavior.</p>
 </p>
 <table>
 <thead>
@@ -7250,16 +7262,6 @@ ValueFromField
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>
-<code>deadLetterQueueManager</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
 <tr>
 <td>
 <code>deadLetterQueue</code></br>
@@ -7282,13 +7284,23 @@ int
 </tr>
 <tr>
 <td>
+<code>deadLetterQueueManager</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>currently not used</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>backoffDelay</code></br>
 <em>
 int
 </em>
 </td>
 <td>
-<p>currently not used</p>
 </td>
 </tr>
 </tbody>
@@ -8984,6 +8996,49 @@ EventSourceStatus
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.Keystore">Keystore
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.TLSSpec">TLSSpec</a>)
+</p>
+<p>
+<p>Keystore represents Key Database components.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>keyDatabase</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>passwordStash</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.OCIMetrics">OCIMetrics
 </h3>
 <p>
@@ -9424,6 +9479,57 @@ applications shared an endpoint. See: <a href="https://api.slack.com/events-api"
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.TLSSpec">TLSSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.Credentials">Credentials</a>)
+</p>
+<p>
+<p>TLSSpec holds the IBM MQ TLS authentication parameters.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>cipher</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>clientAuthRequired</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>keyRepository</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.Keystore">
+Keystore
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.TwilioSourceSpec">TwilioSourceSpec
 </h3>
 <p>
@@ -9474,6 +9580,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSourceSpec">HTTPPollerSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.Keystore">Keystore</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSourceSpec">OCIMetricsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.SlackSourceSpec">SlackSourceSpec</a>, 
@@ -9761,5 +9868,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>6dc0019</code>.
+on git commit <code>971aba2</code>.
 </em></p>
