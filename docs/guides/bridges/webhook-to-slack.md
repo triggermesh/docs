@@ -123,6 +123,11 @@ spec:
         "channel":"REPLACE-CHANNEL-ID",
         "text": event['message']
       }
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
 ```
 
 ## Routing Components
