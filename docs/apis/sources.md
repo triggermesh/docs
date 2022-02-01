@@ -9518,6 +9518,16 @@ bool
 </tr>
 <tr>
 <td>
+<code>certLabel</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
 <code>keyRepository</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.Keystore">
@@ -9868,5 +9878,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>12b2f1e</code>.
+on git commit <code>b6c5324</code>.
 </em></p>
