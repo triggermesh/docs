@@ -443,6 +443,20 @@ bool
 <p>Whether the default XSLT can be overriden at each event</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>sink</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
+knative.dev/pkg/apis/duck/v1.Destination
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -1056,6 +1070,20 @@ bool
 <p>Whether the default XSLT can be overriden at each event</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>sink</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
+knative.dev/pkg/apis/duck/v1.Destination
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="flow.triggermesh.io/v1alpha1.XSLTTransformStatus">XSLTTransformStatus
@@ -1113,5 +1141,5 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>aa1e077</code>.
+on git commit <code>7e75e75</code>.
 </em></p>
