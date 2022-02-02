@@ -5768,7 +5768,7 @@ SecretValueFromSource
 <a href="#targets.triggermesh.io/v1alpha1.IBMMQTargetSpec">IBMMQTargetSpec</a>)
 </p>
 <p>
-<p>Credentials holds the auth details</p>
+<p>Credentials holds the auth details.</p>
 </p>
 <table>
 <thead>
@@ -5796,6 +5796,18 @@ ValueFromField
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>tls</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.TLSSpec">
+TLSSpec
 </a>
 </em>
 </td>
@@ -7670,6 +7682,49 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.Keystore">Keystore
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.TLSSpec">TLSSpec</a>)
+</p>
+<p>
+<p>Keystore represents Key Database components.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>keyDatabase</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>passwordStash</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.LogzMetricsConnection">LogzMetricsConnection
 </h3>
 <p>
@@ -8856,6 +8911,67 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.TLSSpec">TLSSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.Credentials">Credentials</a>)
+</p>
+<p>
+<p>TLSSpec holds the IBM MQ TLS authentication parameters.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>cipher</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>clientAuthRequired</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>certLabel</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>keyRepository</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.Keystore">
+Keystore
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.TektonTargetReapPolicy">TektonTargetReapPolicy
 </h3>
 <p>
@@ -9324,6 +9440,7 @@ CloudEventStatus
 <a href="#targets.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.Credentials">Credentials</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.Keystore">Keystore</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SplunkTargetSpec">SplunkTargetSpec</a>)
 </p>
 <p>
@@ -9506,5 +9623,5 @@ CloudEventStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>9376615</code>.
+on git commit <code>033dc5d</code>.
 </em></p>
