@@ -1880,6 +1880,19 @@ string
 </tr>
 <tr>
 <td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in objects created in Google Cloud Storage.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
@@ -6365,6 +6378,19 @@ string
 </tr>
 <tr>
 <td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in objects created in Google Cloud Storage.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>eventOptions</code></br>
 <em>
 <a href="#targets.triggermesh.io/v1alpha1.EventOptions">
@@ -9623,5 +9649,5 @@ CloudEventStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>7e75e75</code>.
+on git commit <code>b5b7d1f</code>.
 </em></p>
