@@ -11,14 +11,15 @@ This guide shows you how to configure an event flow that transforms an incoming 
 * Configure the [Triggers](https://knative.dev/docs/eventing/broker/triggers/)
 * Deploy a curl pod that will allow us to send events to the broker.
 
+![](../assets/images/xslttransformation.png)
 
 An `XSLTTransformation` object can be configured to either reply to the event sender or to send the 
 transformed data to a `Sink`, if one is provided. In this guide, we will deploy without a `Sink` and 
-configure the replies from the transformation to route to the `EventDisplay` service.
+configure the replies from the transformation to route to the `EventDisplay` service using a `Trigger`.
 
 
-The component needs to be configured with a valid XSLT document.
-For the examples at this document we will use this XSLT:
+The transformation needs to be configured with a valid XSLT document. In this guide we will use the following XSLT:
+
 ```xml
 <xsl:stylesheet version="1.0"	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template match="tests">
@@ -39,7 +40,7 @@ For the examples at this document we will use this XSLT:
 </xsl:stylesheet>
 ```
 
-In order to transform this input:
+It transforms the following XML:
 ```xml
 <tests>
   <test>
@@ -63,7 +64,7 @@ In order to transform this input:
 </tests>
 ```
 
-Expecting this output:
+Into this new XML document:
 ```xml
 <?xml version="1.0"?>
 <output>
@@ -73,8 +74,10 @@ Expecting this output:
 </output>
 ```
 
+Let's go step by step.
+
 ### Deploy the Broker
-One can deploy a Broker by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`:
+Deploy a Broker by writing the following YAML in a file:
 ```yaml
 apiVersion: eventing.knative.dev/v1
 kind: Broker
@@ -82,8 +85,13 @@ metadata:
   name: demo
 ```
 
+Create the Broker with the following command:
+```console
+kubectl apply -f <manifest.yaml>
+```
+
 ### Deploying the `EventDisplay` Service
-Let's first deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
+Let's now deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
 be deployed by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`:
 
 ```yaml
@@ -100,6 +108,9 @@ spec:
 
 ### Deploy the `XSLTTransformation` Object
 With the `event-display` in place, the `XSLTTransformation` object can now be deployed in the same manner using the following manifest:
+
+!!! Note
+    The XSLT is written in-line within the YAML manifest
 
 ```yaml
 apiVersion: flow.triggermesh.io/v1alpha1
@@ -130,7 +141,7 @@ spec:
 ```
 
 ### Configure the Triggers
-Next, Triggers need to be configured to route our Cloudevents to the `XSLTTransformation` and `EventDisplay` objects. This can be done by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`:
+Next, Triggers need to be configured to route our Cloudevents to the `XSLTTransformation` and `EventDisplay` objects. This can be done by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`. We have two triggers, one to send events containing XML to the transformation and one to send all events to the event display.
 
 ```yaml
 kind: Trigger
