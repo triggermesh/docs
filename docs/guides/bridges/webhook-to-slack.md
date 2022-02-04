@@ -53,7 +53,7 @@ metadata:
   name: post-message
 spec:
   eventType: webhook.slack.postmessage
-  eventSource: webhoock.post-message
+  eventSource: webhook.post-message
 
   sink:
     ref:
@@ -148,7 +148,7 @@ Both Triggers are setup on the Broker and subscribe their corresponding destinat
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: wehook-to-transform
+  name: webhook-to-transform
 spec:
   broker: default
   filter:
