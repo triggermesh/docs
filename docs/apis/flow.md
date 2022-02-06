@@ -21,7 +21,7 @@ Resource Types:
 </li><li>
 <a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation</a>
 </li><li>
-<a href="#flow.triggermesh.io/v1alpha1.XSLTTransform">XSLTTransform</a>
+<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation</a>
 </li></ul>
 <h3 id="flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer
 </h3>
@@ -358,10 +358,10 @@ XMLToJSONTransformationStatus
 </tr>
 </tbody>
 </table>
-<h3 id="flow.triggermesh.io/v1alpha1.XSLTTransform">XSLTTransform
+<h3 id="flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation
 </h3>
 <p>
-<p>XSLTTransform is the Schema for an XSLT transformation target.</p>
+<p>XSLTTransformation is the Schema for an XSLT transformation target.</p>
 </p>
 <table>
 <thead>
@@ -386,7 +386,7 @@ flow.triggermesh.io/v1alpha1
 <code>kind</code></br>
 string
 </td>
-<td><code>XSLTTransform</code></td>
+<td><code>XSLTTransformation</code></td>
 </tr>
 <tr>
 <td>
@@ -406,13 +406,13 @@ Refer to the Kubernetes API documentation for the fields of the
 <td>
 <code>spec</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformSpec">
-XSLTTransformSpec
+<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformationSpec">
+XSLTTransformationSpec
 </a>
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the XSLTTransform object.</p>
+<p>Spec holds the desired state of the XSLTTransformation object.</p>
 <br/>
 <br/>
 <table>
@@ -464,14 +464,14 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformStatus">
-XSLTTransformStatus
+<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformationStatus">
+XSLTTransformationStatus
 </a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>Status communicates the observed state of the XSLTTransform object.</p>
+<p>Status communicates the observed state of the XSLTTransformation object.</p>
 </td>
 </tr>
 </tbody>
@@ -875,7 +875,7 @@ knative.dev/pkg/apis/duck/v1.Addressable
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformSpec">XSLTTransformSpec</a>)
+<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformationSpec">XSLTTransformationSpec</a>)
 </p>
 <p>
 <p>ValueFromField is a struct field that can have its value either defined
@@ -1026,14 +1026,14 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 </tr>
 </tbody>
 </table>
-<h3 id="flow.triggermesh.io/v1alpha1.XSLTTransformSpec">XSLTTransformSpec
+<h3 id="flow.triggermesh.io/v1alpha1.XSLTTransformationSpec">XSLTTransformationSpec
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.XSLTTransform">XSLTTransform</a>)
+<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation</a>)
 </p>
 <p>
-<p>XSLTTransformSpec holds the desired state of the XSLTTransform.</p>
+<p>XSLTTransformationSpec holds the desired state of the XSLTTransformation.</p>
 </p>
 <table>
 <thead>
@@ -1086,14 +1086,14 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 </tbody>
 </table>
-<h3 id="flow.triggermesh.io/v1alpha1.XSLTTransformStatus">XSLTTransformStatus
+<h3 id="flow.triggermesh.io/v1alpha1.XSLTTransformationStatus">XSLTTransformationStatus
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.XSLTTransform">XSLTTransform</a>)
+<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation</a>)
 </p>
 <p>
-<p>XSLTTransformStatus communicates the observed state of the component.</p>
+<p>XSLTTransformationStatus communicates the observed state of the component.</p>
 </p>
 <table>
 <thead>
@@ -1141,5 +1141,5 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>edc5ae9</code>.
+on git commit <code>5c598a6</code>.
 </em></p>
