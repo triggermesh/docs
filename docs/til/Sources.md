@@ -210,7 +210,10 @@ Secret class: [aws](Secret-References.md#aws-secret-class)
 
 ```hcl
 source azure_activity_logs "audit_logs" {
-  event_hub_id = "/subscriptions/1234/resourceGroups/my-group/providers/Microsoft.EventHub/namespaces/mylogs"
+  subscription_id = "1234"
+
+  event_hubs_namespace_id = "/subscriptions/1234/resourceGroups/my-group/providers/Microsoft.EventHub/namespaces/mylogs"
+  event_hub_name = "activity-logs" //optional
   event_hubs_sas_policy = "RootManageSharedAccessKey" // optional
 
   categories = ["Administrative", "Security", "Policy"] // optional
@@ -228,7 +231,9 @@ Secret class: [azure_sp](Secret-References.md#azure_sp-secret-class)
 ```hcl
 source azure_blob_storage "my_files" {
   storage_account_id = "/subscriptions/1234/resourceGroups/my-group/providers/Microsoft.Storage/storageAccounts/myfiles"
-  event_hub_id = "/subscriptions/1234/resourceGroups/my-group/providers/Microsoft.EventHub/namespaces/myevents"
+
+  event_hubs_namespace_id = "/subscriptions/1234/resourceGroups/my-group/providers/Microsoft.EventHub/namespaces/myevents"
+  event_hub_name = "files-events" //optional
 
   event_types = ["Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted"] // optional
 
