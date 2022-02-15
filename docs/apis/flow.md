@@ -1141,5 +1141,5 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e3d8a2a</code>.
+on git commit <code>509482d</code>.
 </em></p>
