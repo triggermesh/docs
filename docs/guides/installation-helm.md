@@ -13,9 +13,9 @@ $ helm install -n triggermesh triggermesh triggermesh/triggermesh --create-names
 ```
 
 ## Prerequisites
-  - Kubernetes 1.20+
+  - Kubernetes 1.21+
   - Helm 3.0+
-  - Knative v0.26+
+  - Knative v1.0.0+
 
 ## Installing the Chart
 
