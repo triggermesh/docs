@@ -19,6 +19,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTarget">AWSEventBridgeTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>
@@ -326,6 +328,133 @@ AWSDynamoDBTargetStatus
 </td>
 <td>
 <p>Status communicates the observed state of the AWSDynamoDBTarget (from the controller).</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AWSEventBridgeTarget">AWSEventBridgeTarget
+</h3>
+<p>
+<p>AWSEventBridgeTarget is the Schema for the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>AWSEventBridgeTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTargetSpec">
+AWSEventBridgeTargetSpec
+</a>
+</em>
+</td>
+<td>
+<p>Spec holds the desired state of the AWSEventBridgeTarget (from the client).</p>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>awsApiKey</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
+SecretValueFromSource
+</a>
+</em>
+</td>
+<td>
+<p>AWS account Key</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>awsApiSecret</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
+SecretValueFromSource
+</a>
+</em>
+</td>
+<td>
+<p>AWS account secret key</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>arn</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Amazon Resource Name of the EventBridge Event Bus.
+<a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in notifications sent to EventBridge.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
+AWSTargetStatus
+</a>
+</em>
+</td>
+<td>
+<p>Status communicates the observed state of the AWSEventBridgeTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -4523,6 +4652,76 @@ CloudEventStatus
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.AWSEventBridgeTargetSpec">AWSEventBridgeTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTarget">AWSEventBridgeTarget</a>)
+</p>
+<p>
+<p>AWSEventBridgeTargetSpec holds the desired state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>awsApiKey</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
+SecretValueFromSource
+</a>
+</em>
+</td>
+<td>
+<p>AWS account Key</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>awsApiSecret</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
+SecretValueFromSource
+</a>
+</em>
+</td>
+<td>
+<p>AWS account secret key</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>arn</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Amazon Resource Name of the EventBridge Event Bus.
+<a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in notifications sent to EventBridge.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSKinesisTargetSpec">AWSKinesisTargetSpec
 </h3>
 <p>
@@ -4938,6 +5137,7 @@ When this property is true, only the CloudEvent data is included.</p>
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTarget">AWSEventBridgeTarget</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget</a>, 
@@ -4991,6 +5191,22 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 (Members of <code>AddressStatus</code> are embedded into this type.)
 </p>
 <p>AddressStatus fulfills the Addressable contract.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>CloudEventStatus</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
+CloudEventStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>CloudEventStatus</code> are embedded into this type.)
+</p>
+<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -5446,6 +5662,7 @@ ValueFromField
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">AWSComprehendTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">AWSTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">AlibabaOSSTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetStatus">AzureEventHubsTargetStatus</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetStatus">DatadogTargetStatus</a>, 
@@ -8471,6 +8688,7 @@ CloudEventStatus
 (<em>Appears on:</em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetSpec">AWSDynamoDBTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTargetSpec">AWSEventBridgeTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTargetSpec">AWSKinesisTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTargetSpec">AWSLambdaTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetSpec">AWSS3TargetSpec</a>, 
@@ -9649,5 +9867,5 @@ CloudEventStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>6b0ac3c</code>.
+on git commit <code>e8c8149</code>.
 </em></p>
