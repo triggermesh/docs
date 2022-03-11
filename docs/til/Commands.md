@@ -38,7 +38,11 @@ Options:
 
 Usage: `til validate FILE`
 
-The `til validate` command verifies that the Bridge described in `FILE` is syntactically valid and can be generated, in which case it returns silently with an exit code of `0`. If the Bridge description contains errors, those errors are printed to standard output and the command returns with an exit code of `1`.
+The `til validate` command verifies that the Bridge described in `FILE` is syntactically valid and can be generated, in which case it returns with an exit code of `0`. If the Bridge description contains errors, those errors are printed to standard output and the command returns with an exit code of `1`.
+
+Options:
+
+- `--quiet` Suppress non-error output.
 
 ## `graph` Command
 
