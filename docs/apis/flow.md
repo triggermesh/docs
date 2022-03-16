@@ -15,6 +15,8 @@ display: none;
 </p>
 Resource Types:
 <ul><li>
+<a href="#flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation</a>
+</li><li>
 <a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>
 </li><li>
 <a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>
@@ -23,6 +25,122 @@ Resource Types:
 </li><li>
 <a href="#flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation</a>
 </li></ul>
+<h3 id="flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation
+</h3>
+<p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+flow.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>JQTransformation</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.JQTransformationSpec">
+JQTransformationSpec
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Spec holds the desired state of the JQTransformation (from the client).</p>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>query</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>The query that gets passed to the JQ library</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>sink</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
+knative.dev/pkg/apis/duck/v1.Destination
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.JQTransformationStatus">
+JQTransformationStatus
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Status communicates the observed state of the JQTransformation (from the controller).</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer
 </h3>
 <p>
@@ -519,6 +637,7 @@ int
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.JQTransformationSpec">JQTransformationSpec</a>, 
 <a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformationSpec">XMLToJSONTransformationSpec</a>)
 </p>
 <p>
@@ -548,6 +667,112 @@ a payload if available. Possible values are:</p>
 <li>errors: will only reply with payload in case of an error.</li>
 <li>never: will not reply with payload.</li>
 </ul>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow.triggermesh.io/v1alpha1.JQTransformationSpec">JQTransformationSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation</a>)
+</p>
+<p>
+<p>JQTransformationSpec holds the desired state of the JQTransformation (from the client).</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>query</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>The query that gets passed to the JQ library</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>sink</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
+knative.dev/pkg/apis/duck/v1.Destination
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow.triggermesh.io/v1alpha1.JQTransformationStatus">JQTransformationStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation</a>)
+</p>
+<p>
+<p>JQTransformationStatus communicates the observed state of the JQTransformation (from the controller).</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceStatus</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
+knative.dev/pkg/apis/duck/v1.SourceStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>AddressStatus</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
+knative.dev/pkg/apis/duck/v1.AddressStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>AddressStatus</code> are embedded into this type.)
+</p>
 </td>
 </tr>
 </tbody>
@@ -1141,5 +1366,5 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>0fa76cf</code>.
+on git commit <code>0a9b9bc</code>.
 </em></p>
