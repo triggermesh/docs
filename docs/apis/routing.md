@@ -327,10 +327,10 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 </tbody>
 </table>
-<h3 id="routing.triggermesh.io/v1alpha1.Router">Router
+<h3 id="routing.triggermesh.io/v1alpha1.Reconcilable">Reconcilable
 </h3>
 <p>
-<p>Router is implemented by all Routing types.</p>
+<p>Reconcilable is implemented by all TriggerMesh components.</p>
 </p>
 <h3 id="routing.triggermesh.io/v1alpha1.RouterStatus">RouterStatus
 </h3>
@@ -338,10 +338,10 @@ knative.dev/pkg/apis/duck/v1.Destination
 (<em>Appears on:</em>
 <a href="#routing.triggermesh.io/v1alpha1.Filter">Filter</a>, 
 <a href="#routing.triggermesh.io/v1alpha1.Splitter">Splitter</a>, 
-<a href="#routing.triggermesh.io/v1alpha1.RouterStatusManager">RouterStatusManager</a>)
+<a href="#routing.triggermesh.io/v1alpha1.StatusManager">StatusManager</a>)
 </p>
 <p>
-<p>RouterStatus defines the observed state of an event source.</p>
+<p>RouterStatus defines the observed state of a router.</p>
 </p>
 <table>
 <thead>
@@ -379,43 +379,6 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <p>
 (Members of <code>AddressStatus</code> are embedded into this type.)
 </p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="routing.triggermesh.io/v1alpha1.RouterStatusManager">RouterStatusManager
-</h3>
-<p>
-<p>RouterStatusManager manages the status of routers.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>ConditionSet</code></br>
-<em>
-knative.dev/pkg/apis.ConditionSet
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>RouterStatus</code></br>
-<em>
-<a href="#routing.triggermesh.io/v1alpha1.RouterStatus">
-RouterStatus
-</a>
-</em>
-</td>
-<td>
 </td>
 </tr>
 </tbody>
@@ -473,6 +436,43 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 </tbody>
 </table>
+<h3 id="routing.triggermesh.io/v1alpha1.StatusManager">StatusManager
+</h3>
+<p>
+<p>StatusManager manages the status of a TriggerMesh component.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>ConditionSet</code></br>
+<em>
+knative.dev/pkg/apis.ConditionSet
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>RouterStatus</code></br>
+<em>
+<a href="#routing.triggermesh.io/v1alpha1.RouterStatus">
+RouterStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="routing.triggermesh.io/v1alpha1.ValueFromField">ValueFromField
 </h3>
 <p>
@@ -518,5 +518,5 @@ Kubernetes core/v1.SecretKeySelector
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ca9988c</code>.
+on git commit <code>daa5f57</code>.
 </em></p>

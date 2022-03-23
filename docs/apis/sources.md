@@ -7305,11 +7305,6 @@ int
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.EventSource">EventSource
-</h3>
-<p>
-<p>EventSource is implemented by all event source types.</p>
-</p>
 <h3 id="sources.triggermesh.io/v1alpha1.EventSourceStatus">EventSourceStatus
 </h3>
 <p>
@@ -7339,7 +7334,6 @@ int
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceStatus">AzureIOTHubSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">AzureServiceBusTopicSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatusManager">EventSourceStatusManager</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus</a>, 
@@ -7347,6 +7341,7 @@ int
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceStatus">GoogleCloudSourceRepositoriesSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceStatus">IBMMQSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.StatusManager">StatusManager</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceStatus">ZendeskSourceStatus</a>)
 </p>
 <p>
@@ -7388,43 +7383,6 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <p>
 (Members of <code>AddressStatus</code> are embedded into this type.)
 </p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.EventSourceStatusManager">EventSourceStatusManager
-</h3>
-<p>
-<p>EventSourceStatusManager manages the status of event sources.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>ConditionSet</code></br>
-<em>
-knative.dev/pkg/apis.ConditionSet
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>EventSourceStatus</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
-</a>
-</em>
-</td>
-<td>
 </td>
 </tr>
 </tbody>
@@ -9238,6 +9196,11 @@ string
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.Reconcilable">Reconcilable
+</h3>
+<p>
+<p>Reconcilable is implemented by all TriggerMesh components.</p>
+</p>
 <h3 id="sources.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth
 </h3>
 <p>
@@ -9475,6 +9438,43 @@ string
 <p>AppID identifies the Slack application generating this event.
 It helps identifying the App sourcing events when multiple Slack
 applications shared an endpoint. See: <a href="https://api.slack.com/events-api">https://api.slack.com/events-api</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.StatusManager">StatusManager
+</h3>
+<p>
+<p>StatusManager manages the status of a TriggerMesh component.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>ConditionSet</code></br>
+<em>
+knative.dev/pkg/apis.ConditionSet
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>EventSourceStatus</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
+EventSourceStatus
+</a>
+</em>
+</td>
+<td>
 </td>
 </tr>
 </tbody>
@@ -9878,5 +9878,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ca9988c</code>.
+on git commit <code>daa5f57</code>.
 </em></p>
