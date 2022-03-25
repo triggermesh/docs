@@ -135,7 +135,6 @@ AWSComprehendTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the AWSComprehendTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -207,13 +206,12 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">
-AWSComprehendTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the AWSComprehendTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -272,7 +270,6 @@ AWSDynamoDBTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the AWSDynamoDBTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -321,13 +318,12 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">
-AWSDynamoDBTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the AWSDynamoDBTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -386,7 +382,6 @@ AWSEventBridgeTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the AWSEventBridgeTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -448,13 +443,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
-AWSTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the AWSEventBridgeTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -513,7 +507,6 @@ AWSKinesisTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the AWSKinesisTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -586,13 +579,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
-AWSTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the AWSKinesisTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -651,7 +643,6 @@ AWSLambdaTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the AWSLambdaTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -713,13 +704,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
-AWSTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the AWSLambdaTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -778,7 +768,6 @@ AWSS3TargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the AWSS3Target (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -840,13 +829,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">
-AWSS3TargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the AWSS3Target (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -905,7 +893,6 @@ AWSSNSTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the AWSSNSTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -967,13 +954,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
-AWSTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the AWSSNSTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -1032,7 +1018,6 @@ AWSSQSTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the AWSSQSTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -1094,13 +1079,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
-AWSTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the AWSSQSTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -1234,8 +1218,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">
-AlibabaOSSTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -1359,8 +1343,8 @@ bool
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetStatus">
-AzureEventHubsTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -1423,7 +1407,6 @@ ConfluentTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the ConfluentTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -1539,13 +1522,12 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ConfluentTargetStatus">
-ConfluentTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the ConfluentTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -1652,8 +1634,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.DatadogTargetStatus">
-DatadogTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -1717,7 +1699,6 @@ ElasticsearchTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the ElasticsearchTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -1779,14 +1760,12 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetStatus">
-ElasticsearchTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the ElasticsearchTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -1916,8 +1895,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetStatus">
-GoogleCloudFirestoreTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -2040,8 +2019,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetStatus">
-GoogleCloudStorageTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -2140,8 +2119,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetStatus">
-GoogleCloudWorkflowsTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -2190,7 +2169,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -2205,7 +2183,6 @@ GoogleSheetTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the GoogleSheetTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -2251,14 +2228,12 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetStatus">
-GoogleSheetTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the GoogleSheetTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -2476,8 +2451,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.HTTPTargetStatus">
-HTTPTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -2613,8 +2588,8 @@ map[string]string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.HasuraTargetStatus">
-HasuraTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -2777,8 +2752,8 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.IBMMQTargetStatus">
-IBMMQTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -2888,8 +2863,8 @@ bool
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTargetStatus">
-InfraTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -2986,8 +2961,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.JiraTargetStatus">
-JiraTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -3109,8 +3084,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetStatus">
-LogzMetricsTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -3220,8 +3195,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.LogzTargetStatus">
-LogzTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -3270,7 +3245,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -3285,7 +3259,6 @@ OracleTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the OracleTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -3380,14 +3353,12 @@ OracleFunctionSpecSpec
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.OracleTargetStatus">
-OracleTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the OracleTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -3501,8 +3472,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetStatus">
-SalesforceTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -3551,7 +3522,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -3566,7 +3536,6 @@ SendGridTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the SendGridTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -3675,14 +3644,12 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SendGridTargetStatus">
-SendGridTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the SendGridTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -3727,7 +3694,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -3742,7 +3708,6 @@ SlackTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the SlackTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -3766,14 +3731,12 @@ SecretValueFromSource
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SlackTargetStatus">
-SlackTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the SlackTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -3897,8 +3860,8 @@ chain and host name when communicating over TLS.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SplunkTargetStatus">
-SplunkTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -3961,7 +3924,6 @@ TektonTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the TektonTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -3986,14 +3948,12 @@ TektonTargetReapPolicy
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TektonTargetStatus">
-TektonTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the TektonTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -4038,7 +3998,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -4053,7 +4012,6 @@ TwilioTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the TwilioTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -4127,14 +4085,12 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TwilioTargetStatus">
-TwilioTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the TwilioTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -4282,8 +4238,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.UiPathTargetStatus">
-UiPathTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -4346,7 +4302,6 @@ ZendeskTargetSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the ZendeskTarget (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -4404,13 +4359,12 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ZendeskTargetStatus">
-ZendeskTargetStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>Status communicates the observed state of the ZendeskTarget (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -4495,56 +4449,6 @@ string
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">AWSComprehendTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget</a>)
-</p>
-<p>
-<p>AWSComprehendTargetStatus communicates the observed state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>AWSTargetStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
-AWSTargetStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AWSTargetStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetSpec">AWSDynamoDBTargetSpec
 </h3>
 <p>
@@ -4598,56 +4502,6 @@ string
 <td>
 <p>Table ARN
 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazondynamodb.html#amazondynamodb-resources-for-iam-policies">https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazondynamodb.html#amazondynamodb-resources-for-iam-policies</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget</a>)
-</p>
-<p>
-<p>AWSDynamoDBTargetStatus communicates the observed state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>AWSTargetStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
-AWSTargetStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AWSTargetStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -4943,56 +4797,6 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSS3Target">AWSS3Target</a>)
-</p>
-<p>
-<p>AWSS3TargetStatus communicates the observed state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>AWSTargetStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">
-AWSTargetStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AWSTargetStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.AWSSNSTargetSpec">AWSSNSTargetSpec
 </h3>
 <p>
@@ -5133,84 +4937,6 @@ When this property is true, only the CloudEvent data is included.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.AWSTargetStatus">AWSTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTarget">AWSEventBridgeTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">AWSComprehendTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus</a>)
-</p>
-<p>
-<p>AWSTargetStatus communicates the observed state of the various  AWS Targets (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec
 </h3>
 <p>
@@ -5291,71 +5017,6 @@ EventOptions
 </td>
 <td>
 <p>EventOptions for targets</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">AlibabaOSSTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>)
-</p>
-<p>
-<p>AlibabaOSSTargetStatus communicates the observed state of the AlibabaOSSTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -5480,71 +5141,6 @@ bool
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.AzureEventHubsTargetStatus">AzureEventHubsTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>)
-</p>
-<p>
-<p>AzureEventHubsTargetStatus communicates the observed state of the AzureEventHubsTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken
 </h3>
 <p>
@@ -5659,28 +5255,7 @@ ValueFromField
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetStatus">AWSComprehendTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetStatus">AWSDynamoDBTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetStatus">AWSS3TargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSTargetStatus">AWSTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetStatus">AlibabaOSSTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetStatus">AzureEventHubsTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.DatadogTargetStatus">DatadogTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetStatus">GoogleCloudFirestoreTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetStatus">GoogleCloudStorageTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetStatus">GoogleCloudWorkflowsTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetStatus">GoogleSheetTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.HasuraTargetStatus">HasuraTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.IBMMQTargetStatus">IBMMQTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetStatus">LogzMetricsTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.LogzTargetStatus">LogzTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetStatus">SalesforceTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.SendGridTargetStatus">SendGridTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.SlackTargetStatus">SlackTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.TektonTargetStatus">TektonTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.TwilioTargetStatus">TwilioTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.UiPathTargetStatus">UiPathTargetStatus</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.ZendeskTargetStatus">ZendeskTargetStatus</a>)
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">TargetStatus</a>)
 </p>
 <p>
 <p>CloudEventStatus contains attributes that target types can embed to declare
@@ -5843,61 +5418,6 @@ bool
 <p>Whether to omit CloudEvent context attributes in messages sent to Kafka.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.ConfluentTargetStatus">ConfluentTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>)
-</p>
-<p>
-<p>ConfluentTargetStatus communicates the observed state of the ConfluentTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
 </td>
 </tr>
 </tbody>
@@ -6103,71 +5623,6 @@ EventOptions
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.DatadogTargetStatus">DatadogTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>)
-</p>
-<p>
-<p>DatadogTargetStatus communicates the observed state of the DatadogTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec
 </h3>
 <p>
@@ -6238,67 +5693,6 @@ EventOptions
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.ElasticsearchTargetStatus">ElasticsearchTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTarget">ElasticsearchTarget</a>)
-</p>
-<p>
-<p>ElasticsearchTargetStatus communicates the observed state of the ElasticsearchTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.EnvKeyValue">EnvKeyValue
-(<code>map[string]string</code> alias)</p></h3>
-<p>
-<p>EnvKeyValue is a list of keys/values that can be serialized to a format
-compatible with kelseyhightower/envconfig.</p>
-</p>
 <h3 id="targets.triggermesh.io/v1alpha1.EventHubResourceID">EventHubResourceID
 </h3>
 <p>
@@ -6488,70 +5882,6 @@ EventOptions
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetStatus">GoogleCloudFirestoreTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget</a>)
-</p>
-<p>
-<p>GoogleCloudFirestoreTargetStatus communicates the observed state of the GoogleCloudFirestoreTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">GoogleCloudStorageTargetSpec
 </h3>
 <p>
@@ -6621,71 +5951,6 @@ EventOptions
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetStatus">GoogleCloudStorageTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget</a>)
-</p>
-<p>
-<p>GoogleCloudStorageTargetStatus communicates the observed state of the GoogleCloudStorageTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec
 </h3>
 <p>
@@ -6727,71 +5992,6 @@ EventOptions
 </td>
 <td>
 <p>EventOptions for targets</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetStatus">GoogleCloudWorkflowsTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget</a>)
-</p>
-<p>
-<p>GoogleCloudWorkflowsTargetStatus communicates the observed state of the GoogleCloudWorkflowsTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -6846,77 +6046,6 @@ string
 </td>
 <td>
 <p>DefaultPrefix is a pre-defined prefix for the individual sheets.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.GoogleSheetTargetStatus">GoogleSheetTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTarget">GoogleSheetTarget</a>)
-</p>
-<p>
-<p>GoogleSheetTargetStatus communicates the observed state of the GoogleSheetTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -7130,55 +6259,6 @@ string
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.HTTPTargetStatus">HTTPTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget</a>)
-</p>
-<p>
-<p>HTTPTargetStatus communicates the observed state of the HTTPTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.HasuraTargetSpec">HasuraTargetSpec
 </h3>
 <p>
@@ -7257,71 +6337,6 @@ map[string]string
 <td>
 <em>(Optional)</em>
 <p>A predefined list of queries that an event can specify in the io.triggermesh.graphql.query event type.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.HasuraTargetStatus">HasuraTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget</a>)
-</p>
-<p>
-<p>HasuraTargetStatus defines the observed state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -7440,71 +6455,6 @@ bool
 <p>Whether to omit CloudEvent context attributes in messages sent to MQ.
 When this property is false (default), the entire CloudEvent payload is included.
 When this property is true, only the CloudEvent data is included.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.IBMMQTargetStatus">IBMMQTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.IBMMQTarget">IBMMQTarget</a>)
-</p>
-<p>
-<p>IBMMQTargetStatus communicates the observed state of the event target. (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -7650,55 +6600,6 @@ create cloud events headers as part of its policy.</p>
 <p>The Bridge moniker identifies uniquely the workflow that
 this component is part of, and should be taken into account
 when storing variables in the state store.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.InfraTargetStatus">InfraTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>)
-</p>
-<p>
-<p>InfraTargetStatus communicates the observed state of the InfraTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
 </td>
 </tr>
 </tbody>
@@ -7876,55 +6777,6 @@ string
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.JiraTargetStatus">JiraTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>)
-</p>
-<p>
-<p>JiraTargetStatus communicates the observed state of the JiraTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.Keystore">Keystore
 </h3>
 <p>
@@ -8071,70 +6923,6 @@ EventOptions
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.LogzMetricsTargetStatus">LogzMetricsTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTarget">LogzMetricsTarget</a>)
-</p>
-<p>
-<p>LogzMetricsTargetStatus communicates the observed state of the LogzMetricsTarget from the controller.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec
 </h3>
 <p>
@@ -8187,70 +6975,6 @@ EventOptions
 </td>
 <td>
 <p>EventOptions for targets</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.LogzTargetStatus">LogzTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>)
-</p>
-<p>
-<p>LogzTargetStatus communicates the observed state of the LogzTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
 </td>
 </tr>
 </tbody>
@@ -8438,61 +7162,11 @@ OracleFunctionSpecSpec
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.OracleTargetStatus">OracleTargetStatus
+<h3 id="targets.triggermesh.io/v1alpha1.Reconcilable">Reconcilable
 </h3>
 <p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>)
+<p>Reconcilable is implemented by all TriggerMesh components.</p>
 </p>
-<p>
-<p>OracleTargetStatus communicates the observed state of the OracleTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth
 </h3>
 <p>
@@ -8614,70 +7288,6 @@ EventOptions
 <td>
 <em>(Optional)</em>
 <p>EventOptions for targets</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.SalesforceTargetStatus">SalesforceTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>)
-</p>
-<p>
-<p>SalesforceTargetStatus communicates the observed state of the SalesforceTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
 </td>
 </tr>
 </tbody>
@@ -8858,77 +7468,6 @@ EventOptions
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.SendGridTargetStatus">SendGridTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget</a>)
-</p>
-<p>
-<p>SendGridTargetStatus communicates the observed state of the SendGridTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.SlackTargetSpec">SlackTargetSpec
 </h3>
 <p>
@@ -8957,77 +7496,6 @@ SecretValueFromSource
 </td>
 <td>
 <p>Token for Slack App</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.SlackTargetStatus">SlackTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget</a>)
-</p>
-<p>
-<p>SlackTargetStatus communicates the observed state of the SlackTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -9106,14 +7574,10 @@ chain and host name when communicating over TLS.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.SplunkTargetStatus">SplunkTargetStatus
+<h3 id="targets.triggermesh.io/v1alpha1.StatusManager">StatusManager
 </h3>
 <p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget</a>)
-</p>
-<p>
-<p>SplunkTargetStatus defines the observed state of the event target.</p>
+<p>StatusManager manages the status of a TriggerMesh component.</p>
 </p>
 <table>
 <thead>
@@ -9125,32 +7589,24 @@ chain and host name when communicating over TLS.</p>
 <tbody>
 <tr>
 <td>
-<code>Status</code></br>
+<code>ConditionSet</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
+knative.dev/pkg/apis.ConditionSet
 </em>
 </td>
 <td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>AddressStatus</code></br>
+<code>TargetStatus</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
+<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
 </td>
 </tr>
 </tbody>
@@ -9212,6 +7668,104 @@ Keystore
 </em>
 </td>
 <td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.TargetStatus">TargetStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTarget">AWSEventBridgeTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSS3Target">AWSS3Target</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTarget">ElasticsearchTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTarget">GoogleSheetTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.IBMMQTarget">IBMMQTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTarget">LogzMetricsTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.StatusManager">StatusManager</a>)
+</p>
+<p>
+<p>TargetStatus defines the observed state of an event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>Status</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
+knative.dev/pkg/apis/duck/v1.Status
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>Status</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>AddressStatus</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
+knative.dev/pkg/apis/duck/v1.AddressStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>AddressStatus</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>CloudEventStatus</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
+CloudEventStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>CloudEventStatus</code> are embedded into this type.)
+</p>
+<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -9286,77 +7840,6 @@ TektonTargetReapPolicy
 <td>
 <em>(Optional)</em>
 <p>ReapPolicy dictates the reaping policy to be applied for the target</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.TektonTargetStatus">TektonTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>)
-</p>
-<p>
-<p>TektonTargetStatus communicates the observed state of the TektonTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -9439,77 +7922,6 @@ EventOptions
 </td>
 <td>
 <p>EventOptions for targets</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.TwilioTargetStatus">TwilioTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>)
-</p>
-<p>
-<p>TwilioTargetStatus communicates the observed state of the TwilioTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -9608,71 +8020,6 @@ string
 </td>
 <td>
 <p>OrganizationUnitID is the organization unit within the tenant that the UiPath proccess will run under.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.UiPathTargetStatus">UiPathTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget</a>)
-</p>
-<p>
-<p>UiPathTargetStatus defines the observed state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -9793,79 +8140,8 @@ string
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.ZendeskTargetStatus">ZendeskTargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget</a>)
-</p>
-<p>
-<p>ZendeskTargetStatus communicates the observed state of the ZendeskTarget (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-<p>inherits duck/v1beta1 Status, which currently provides:
-* ObservedGeneration - the &lsquo;Generation&rsquo; of the Service that was last
-processed by the controller.
-* Conditions - the latest available observations of a resource&rsquo;s current
-state.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<p>AddressStatus fulfills the Addressable contract.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>0202588</code>.
+on git commit <code>96a7f86</code>.
 </em></p>
