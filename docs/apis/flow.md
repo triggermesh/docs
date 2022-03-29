@@ -79,8 +79,6 @@ JQTransformationSpec
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Spec holds the desired state of the JQTransformation (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -110,16 +108,18 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>sink</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying.</p>
 </td>
 </tr>
 </table>
@@ -129,14 +129,12 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.JQTransformationStatus">
-JQTransformationStatus
+<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the JQTransformation (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -224,14 +222,18 @@ Response
 </tr>
 <tr>
 <td>
-<code>sink</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying.</p>
 </td>
 </tr>
 </table>
@@ -241,8 +243,8 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.SynchronizerStatus">
-SynchronizerStatus
+<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
@@ -292,7 +294,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -307,24 +308,9 @@ TransformationSpec
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Spec holds the desired state of the Transformation (from the client).</p>
 <br/>
 <br/>
 <table>
-<tr>
-<td>
-<code>sink</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
-</a>
-</em>
-</td>
-<td>
-<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
-</td>
-</tr>
 <tr>
 <td>
 <code>context</code></br>
@@ -351,6 +337,22 @@ knative.dev/pkg/apis/duck/v1.Destination
 <p>Data contains Transformations that must be applied on CE Data</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -358,14 +360,12 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.TransformationStatus">
-TransformationStatus
+<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the Transformation (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -410,7 +410,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -425,8 +424,6 @@ XMLToJSONTransformationSpec
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Spec holds the desired state of the XMLToJSONTransformation (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -445,16 +442,18 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>sink</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying.</p>
 </td>
 </tr>
 </table>
@@ -464,14 +463,12 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformationStatus">
-XMLToJSONTransformationStatus
+<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the XMLToJSONTransformation (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -530,7 +527,6 @@ XSLTTransformationSpec
 </em>
 </td>
 <td>
-<p>Spec holds the desired state of the XSLTTransformation object.</p>
 <br/>
 <br/>
 <table>
@@ -563,16 +559,18 @@ bool
 </tr>
 <tr>
 <td>
-<code>sink</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying.</p>
 </td>
 </tr>
 </table>
@@ -582,14 +580,44 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformationStatus">
-XSLTTransformationStatus
+<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
 </a>
 </em>
 </td>
 <td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow.triggermesh.io/v1alpha1.CloudEventStatus">CloudEventStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">TargetStatus</a>)
+</p>
+<p>
+<p>CloudEventStatus contains attributes that target types can embed to declare
+the event types they accept.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>acceptedEventTypes</code></br>
+<em>
+[]string
+</em>
+</td>
+<td>
 <em>(Optional)</em>
-<p>Status communicates the observed state of the XSLTTransformation object.</p>
+<p>AcceptedEventTypes are the CloudEvent types that a target can process.</p>
 </td>
 </tr>
 </tbody>
@@ -671,6 +699,22 @@ a payload if available. Possible values are:</p>
 </tr>
 </tbody>
 </table>
+<h3 id="flow.triggermesh.io/v1alpha1.EventReceiver">EventReceiver
+</h3>
+<p>
+<p>EventReceiver is implemented by types that receive and process events.</p>
+</p>
+<h3 id="flow.triggermesh.io/v1alpha1.EventSender">EventSender
+</h3>
+<p>
+<p>EventSender is implemented by types that send events to a sink.</p>
+</p>
+<h3 id="flow.triggermesh.io/v1alpha1.EventSource">EventSource
+</h3>
+<p>
+<p>EventSource is implemented by types that emit events, either by sending them
+to a sink or by replying to incoming event requests.</p>
+</p>
 <h3 id="flow.triggermesh.io/v1alpha1.JQTransformationSpec">JQTransformationSpec
 </h3>
 <p>
@@ -714,26 +758,24 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>sink</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying.</p>
 </td>
 </tr>
 </tbody>
 </table>
 <h3 id="flow.triggermesh.io/v1alpha1.JQTransformationStatus">JQTransformationStatus
 </h3>
-<p>
-(<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation</a>)
-</p>
 <p>
 <p>JQTransformationStatus communicates the observed state of the JQTransformation (from the controller).</p>
 </p>
@@ -816,6 +858,11 @@ string
 </tr>
 </tbody>
 </table>
+<h3 id="flow.triggermesh.io/v1alpha1.Reconcilable">Reconcilable
+</h3>
+<p>
+<p>Reconcilable is implemented by all TriggerMesh components.</p>
+</p>
 <h3 id="flow.triggermesh.io/v1alpha1.Response">Response
 </h3>
 <p>
@@ -838,6 +885,43 @@ string
 <code>timeout</code></br>
 <em>
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow.triggermesh.io/v1alpha1.StatusManager">StatusManager
+</h3>
+<p>
+<p>StatusManager manages the status of a TriggerMesh component.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>ConditionSet</code></br>
+<em>
+knative.dev/pkg/apis.ConditionSet
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>TargetStatus</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
+</a>
 </em>
 </td>
 <td>
@@ -888,26 +972,35 @@ Response
 </tr>
 <tr>
 <td>
-<code>sink</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<h3 id="flow.triggermesh.io/v1alpha1.SynchronizerStatus">SynchronizerStatus
+<h3 id="flow.triggermesh.io/v1alpha1.TargetStatus">TargetStatus
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>)
+<a href="#flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation</a>, 
+<a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>, 
+<a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>, 
+<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation</a>, 
+<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation</a>, 
+<a href="#flow.triggermesh.io/v1alpha1.StatusManager">StatusManager</a>)
 </p>
 <p>
-<p>SynchronizerStatus communicates the observed state of the Synchronizer.</p>
+<p>TargetStatus defines the observed state of an event target.</p>
 </p>
 <table>
 <thead>
@@ -945,6 +1038,22 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <p>
 (Members of <code>AddressStatus</code> are embedded into this type.)
 </p>
+</td>
+</tr>
+<tr>
+<td>
+<code>CloudEventStatus</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.CloudEventStatus">
+CloudEventStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>CloudEventStatus</code> are embedded into this type.)
+</p>
+<p>Accepted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -1009,19 +1118,6 @@ string
 <tbody>
 <tr>
 <td>
-<code>sink</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
-</a>
-</em>
-</td>
-<td>
-<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
-</td>
-</tr>
-<tr>
-<td>
 <code>context</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.Transform">
@@ -1046,52 +1142,20 @@ knative.dev/pkg/apis/duck/v1.Destination
 <p>Data contains Transformations that must be applied on CE Data</p>
 </td>
 </tr>
-</tbody>
-</table>
-<h3 id="flow.triggermesh.io/v1alpha1.TransformationStatus">TransformationStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>)
-</p>
-<p>
-<p>TransformationStatus communicates the observed state of the Transformation (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td>
-<code>SourceStatus</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
-knative.dev/pkg/apis/duck/v1.SourceStatus
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>SourceStatus</code> are embedded into this type.)
+(Members of <code>SourceSpec</code> are embedded into this type.)
 </p>
-</td>
-</tr>
-<tr>
-<td>
-<code>address</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Addressable">
-knative.dev/pkg/apis/duck/v1.Addressable
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Address holds the information needed to connect this Addressable up to receive events.</p>
+<p>Support sending to an event sink instead of replying.</p>
 </td>
 </tr>
 </tbody>
@@ -1188,65 +1252,18 @@ EventOptions
 </tr>
 <tr>
 <td>
-<code>sink</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="flow.triggermesh.io/v1alpha1.XMLToJSONTransformationStatus">XMLToJSONTransformationStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation</a>)
-</p>
-<p>
-<p>XMLToJSONTransformationStatus communicates the observed state of the XMLToJSONTransformation (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
-knative.dev/pkg/apis/duck/v1.SourceStatus
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>SourceStatus</code> are embedded into this type.)
+(Members of <code>SourceSpec</code> are embedded into this type.)
 </p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
+<p>Support sending to an event sink instead of replying.</p>
 </td>
 </tr>
 </tbody>
@@ -1297,68 +1314,18 @@ bool
 </tr>
 <tr>
 <td>
-<code>sink</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Sink is a reference to an object that will resolve to a uri to use as the sink.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="flow.triggermesh.io/v1alpha1.XSLTTransformationStatus">XSLTTransformationStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation</a>)
-</p>
-<p>
-<p>XSLTTransformationStatus communicates the observed state of the component.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
-knative.dev/pkg/apis/duck/v1.SourceStatus
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>SourceStatus</code> are embedded into this type.)
+(Members of <code>SourceSpec</code> are embedded into this type.)
 </p>
-<p>Although this is not a source, it is a CloudEvents producing entity.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-<em>(Optional)</em>
-<p>AddressStatus fulfills the Addressable contract.</p>
+<p>Support sending to an event sink instead of replying.</p>
 </td>
 </tr>
 </tbody>
@@ -1366,5 +1333,5 @@ knative.dev/pkg/apis/duck/v1.AddressStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>5911ee6</code>.
+on git commit <code>30316bd</code>.
 </em></p>
