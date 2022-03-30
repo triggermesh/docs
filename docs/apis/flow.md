@@ -15,6 +15,8 @@ display: none;
 </p>
 Resource Types:
 <ul><li>
+<a href="#flow.triggermesh.io/v1alpha1.DataWeaveTransformation">DataWeaveTransformation</a>
+</li><li>
 <a href="#flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation</a>
 </li><li>
 <a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>
@@ -25,6 +27,131 @@ Resource Types:
 </li><li>
 <a href="#flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation</a>
 </li></ul>
+<h3 id="flow.triggermesh.io/v1alpha1.DataWeaveTransformation">DataWeaveTransformation
+</h3>
+<p>
+<p>DataWeaveTransformation is the Schema for an DataWeave transformation target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+flow.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>DataWeaveTransformation</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.DataWeaveTransformationSpec">
+DataWeaveTransformationSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>dw_spell</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>DataWeave spell that will be used by default for transformation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>incoming_content_type</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Content type for incoming transformation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>output_content_type</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Content type for transformation Output.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
+TargetStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation
 </h3>
 <p>
@@ -661,6 +788,76 @@ int
 </tr>
 </tbody>
 </table>
+<h3 id="flow.triggermesh.io/v1alpha1.DataWeaveTransformationSpec">DataWeaveTransformationSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.DataWeaveTransformation">DataWeaveTransformation</a>)
+</p>
+<p>
+<p>DataWeaveTransformationSpec holds the desired state of the DataWeaveTransformation.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>dw_spell</code></br>
+<em>
+<a href="#flow.triggermesh.io/v1alpha1.ValueFromField">
+ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>DataWeave spell that will be used by default for transformation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>incoming_content_type</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Content type for incoming transformation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>output_content_type</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Content type for transformation Output.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="flow.triggermesh.io/v1alpha1.EventOptions">EventOptions
 </h3>
 <p>
@@ -992,6 +1189,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.DataWeaveTransformation">DataWeaveTransformation</a>, 
 <a href="#flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation</a>, 
 <a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>, 
 <a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>, 
@@ -1164,6 +1362,7 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#flow.triggermesh.io/v1alpha1.DataWeaveTransformationSpec">DataWeaveTransformationSpec</a>, 
 <a href="#flow.triggermesh.io/v1alpha1.XSLTTransformationSpec">XSLTTransformationSpec</a>)
 </p>
 <p>
@@ -1333,5 +1532,5 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>f88cfe4</code>.
+on git commit <code>0499b4e</code>.
 </em></p>
