@@ -26,7 +26,9 @@
 {% block footer %}
 <div class="home-footer">
   <div class="md-grid md-typeset">
-    &copy; 2021 TriggerMesh
+    &copy;
+    <script>document.write( new Date().getFullYear() );</script>
+    TriggerMesh
   </div>
 </div>
 {% endblock %}
