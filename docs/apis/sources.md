@@ -157,7 +157,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -169,7 +171,9 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>pollingInterval</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</a>
 </em>
 </td>
 <td>
@@ -199,8 +203,8 @@ AWSAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -298,7 +302,9 @@ Available region codes are documented at
 <td>
 <code>pollingInterval</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</a>
 </em>
 </td>
 <td>
@@ -342,8 +348,8 @@ AWSAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -428,7 +434,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -479,8 +487,8 @@ AWSAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -565,7 +573,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -593,8 +603,8 @@ AWSAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -679,7 +689,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -707,8 +719,8 @@ AWSAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -793,7 +805,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -821,8 +835,8 @@ AWSAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -907,7 +921,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -935,8 +951,8 @@ AWSAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -1021,7 +1037,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -1033,7 +1051,9 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>pollingInterval</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</a>
 </em>
 </td>
 <td>
@@ -1074,8 +1094,8 @@ AWSAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -1160,7 +1180,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -1310,7 +1332,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -1439,7 +1463,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -1495,8 +1521,8 @@ AWSEndpoint
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2059,8 +2085,8 @@ AzureAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2161,8 +2187,8 @@ AzureAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceStatus">
-AzureIOTHubSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2267,8 +2293,8 @@ string
 <td>
 <code>accountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -2282,8 +2308,8 @@ ValueFromField
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2399,8 +2425,8 @@ AzureAuth
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2655,8 +2681,8 @@ GoogleCloudAuditLogsSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -2795,8 +2821,8 @@ GoogleCloudBillingSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -2924,8 +2950,8 @@ GoogleCloudIoTSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -3056,8 +3082,8 @@ created on behalf of the user.</p>
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -3185,8 +3211,8 @@ GoogleCloudSourceRepositoriesSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -3327,8 +3353,8 @@ GoogleCloudStorageSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -3523,8 +3549,8 @@ string
 <td>
 <code>basicAuthPassword</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -3549,7 +3575,9 @@ map[string]string
 <td>
 <code>interval</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</a>
 </em>
 </td>
 <td>
@@ -3564,8 +3592,8 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3717,8 +3745,8 @@ Credentials
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceStatus">
-IBMMQSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3808,8 +3836,8 @@ and modifications of the event sent to the sink.</p>
 <td>
 <code>oracleApiPrivateKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -3821,8 +3849,8 @@ ValueFromField
 <td>
 <code>oracleApiPrivateKeyPassphrase</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -3834,8 +3862,8 @@ ValueFromField
 <td>
 <code>oracleApiPrivateKeyFingerprint</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -3908,8 +3936,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -4035,8 +4063,8 @@ SalesforceSubscription
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -4126,8 +4154,8 @@ and modifications of the event sent to the sink.</p>
 <td>
 <code>signingSecret</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -4159,8 +4187,8 @@ applications shared an endpoint. See: <a href="https://api.slack.com/events-api"
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -4248,8 +4276,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -4376,8 +4404,8 @@ string
 <td>
 <code>basicAuthPassword</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -4405,8 +4433,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -4496,8 +4524,8 @@ and modifications of the event sent to the sink.</p>
 <td>
 <code>token</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -4522,8 +4550,8 @@ allowing the source to auto-register the webhook to authenticate callbacks.</p>
 <td>
 <code>webhookPassword</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -4619,7 +4647,9 @@ See <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credenti
 <td>
 <code>iamRole</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -4666,7 +4696,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -4678,7 +4710,9 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>pollingInterval</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</a>
 </em>
 </td>
 <td>
@@ -4964,7 +4998,9 @@ Available region codes are documented at
 <td>
 <code>pollingInterval</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</a>
 </em>
 </td>
 <td>
@@ -5039,7 +5075,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5121,7 +5159,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5180,7 +5220,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5239,7 +5281,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5333,7 +5377,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5392,7 +5438,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5404,7 +5452,9 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>pollingInterval</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</a>
 </em>
 </td>
 <td>
@@ -5495,7 +5545,9 @@ as destination for bucket notifications.</p>
 <td>
 <code>queueARN</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5541,7 +5593,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5619,16 +5673,16 @@ AWSAuth
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -5636,7 +5690,9 @@ EventSourceStatus
 <td>
 <code>queueARN</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5680,7 +5736,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5737,16 +5795,16 @@ AWSAuth
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -5784,7 +5842,9 @@ Amazon SQS message receivers.</p>
 <td>
 <code>visibilityTimeout</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</a>
 </em>
 </td>
 <td>
@@ -5835,7 +5895,9 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>arn</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
 github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
 </em>
 </td>
 <td>
@@ -5907,8 +5969,8 @@ AWSEndpoint
 <td>
 <code>accessKeyID</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -5919,8 +5981,8 @@ ValueFromField
 <td>
 <code>secretAccessKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -6133,16 +6195,16 @@ This event source only supports the ServicePrincipal authentication.</p>
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -6320,16 +6382,16 @@ This event source only supports the ServicePrincipal authentication.</p>
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -6546,16 +6608,16 @@ This event source only supports the ServicePrincipal authentication.</p>
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -6698,40 +6760,6 @@ AzureAuth
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.AzureIOTHubSourceStatus">AzureIOTHubSourceStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSource">AzureIOTHubSource</a>)
-</p>
-<p>
-<p>AzureIOTHubSourceStatus defines the observed state of the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>EventSourceStatus</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureQueueStorageSourceSpec">AzureQueueStorageSourceSpec
 </h3>
 <p>
@@ -6788,8 +6816,8 @@ string
 <td>
 <code>accountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -6927,8 +6955,8 @@ string
 <td>
 <code>keyName</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -6939,8 +6967,8 @@ ValueFromField
 <td>
 <code>keyValue</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -6951,8 +6979,8 @@ ValueFromField
 <td>
 <code>connectionString</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7105,16 +7133,16 @@ This event source only supports the ServicePrincipal authentication.</p>
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -7156,8 +7184,8 @@ Bus Topic.</p>
 <td>
 <code>tenantID</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7168,8 +7196,8 @@ ValueFromField
 <td>
 <code>clientID</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7180,8 +7208,8 @@ ValueFromField
 <td>
 <code>clientSecret</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7211,8 +7239,8 @@ ValueFromField
 <td>
 <code>username</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7223,8 +7251,8 @@ ValueFromField
 <td>
 <code>password</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7301,88 +7329,6 @@ int
 </em>
 </td>
 <td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.EventSourceStatus">EventSourceStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSource">AWSCloudWatchLogsSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSource">AWSCloudWatchSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSource">AWSCodeCommitSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySource">AWSCognitoIdentitySource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSource">AWSCognitoUserPoolSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSource">AWSDynamoDBSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSource">AWSKinesisSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSource">AWSPerformanceInsightsSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSource">AWSSQSSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSource">AzureQueueStorageSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSource">AzureServiceBusQueueSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSource">HTTPPollerSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.SalesforceSource">SalesforceSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.SlackSource">SlackSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.TwilioSource">TwilioSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.WebhookSource">WebhookSource</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceStatus">AWSS3SourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceStatus">AWSSNSSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceStatus">AzureActivityLogsSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceStatus">AzureBlobStorageSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceStatus">AzureIOTHubSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">AzureServiceBusTopicSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceStatus">GoogleCloudSourceRepositoriesSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.IBMMQSourceStatus">IBMMQSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.StatusManager">StatusManager</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceStatus">ZendeskSourceStatus</a>)
-</p>
-<p>
-<p>EventSourceStatus defines the observed state of an event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
-knative.dev/pkg/apis/duck/v1.SourceStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
 </td>
 </tr>
 </tbody>
@@ -7659,8 +7605,8 @@ GoogleCloudAuditLogsSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7690,16 +7636,16 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -7870,8 +7816,8 @@ GoogleCloudBillingSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7901,16 +7847,16 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -8059,8 +8005,8 @@ GoogleCloudIoTSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -8090,16 +8036,16 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -8197,8 +8143,8 @@ created on behalf of the user.</p>
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -8228,16 +8174,16 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -8371,8 +8317,8 @@ GoogleCloudSourceRepositoriesSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -8402,16 +8348,16 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -8573,8 +8519,8 @@ GoogleCloudStorageSourcePubSubSpec
 <td>
 <code>serviceAccountKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -8604,16 +8550,16 @@ ValueFromField
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -8786,8 +8732,8 @@ string
 <td>
 <code>basicAuthPassword</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -8812,7 +8758,9 @@ map[string]string
 <td>
 <code>interval</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
+</a>
 </em>
 </td>
 <td>
@@ -8920,40 +8868,6 @@ Credentials
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.IBMMQSourceStatus">IBMMQSourceStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.IBMMQSource">IBMMQSource</a>)
-</p>
-<p>
-<p>IBMMQSourceStatus defines the observed state of the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>EventSourceStatus</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.Keystore">Keystore
 </h3>
 <p>
@@ -8975,8 +8889,8 @@ EventSourceStatus
 <td>
 <code>keyDatabase</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -8987,8 +8901,8 @@ ValueFromField
 <td>
 <code>passwordStash</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -9101,8 +9015,8 @@ and modifications of the event sent to the sink.</p>
 <td>
 <code>oracleApiPrivateKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -9114,8 +9028,8 @@ ValueFromField
 <td>
 <code>oracleApiPrivateKeyPassphrase</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -9127,8 +9041,8 @@ ValueFromField
 <td>
 <code>oracleApiPrivateKeyFingerprint</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -9196,11 +9110,6 @@ string
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.Reconcilable">Reconcilable
-</h3>
-<p>
-<p>Reconcilable is implemented by all TriggerMesh components.</p>
-</p>
 <h3 id="sources.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth
 </h3>
 <p>
@@ -9252,8 +9161,8 @@ string
 <td>
 <code>certKey</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -9414,8 +9323,8 @@ and modifications of the event sent to the sink.</p>
 <td>
 <code>signingSecret</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -9438,43 +9347,6 @@ string
 <p>AppID identifies the Slack application generating this event.
 It helps identifying the App sourcing events when multiple Slack
 applications shared an endpoint. See: <a href="https://api.slack.com/events-api">https://api.slack.com/events-api</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.StatusManager">StatusManager
-</h3>
-<p>
-<p>StatusManager manages the status of a TriggerMesh component.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>ConditionSet</code></br>
-<em>
-knative.dev/pkg/apis.ConditionSet
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>EventSourceStatus</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
-</a>
-</em>
-</td>
-<td>
 </td>
 </tr>
 </tbody>
@@ -9574,69 +9446,6 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.ValueFromField">ValueFromField
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">AWSSecurityCredentials</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureQueueStorageSourceSpec">AzureQueueStorageSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.Credentials">Credentials</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSourceSpec">HTTPPollerSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.Keystore">Keystore</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSourceSpec">OCIMetricsSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.SlackSourceSpec">SlackSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.ZendeskSourceSpec">ZendeskSourceSpec</a>)
-</p>
-<p>
-<p>ValueFromField is a struct field that can have its value either defined
-explicitly or sourced from another entity.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>value</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Field value.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>valueFromSecret</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#secretkeyselector-v1-core">
-Kubernetes core/v1.SecretKeySelector
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Field value from a Kubernetes Secret.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec
 </h3>
 <p>
@@ -9715,8 +9524,8 @@ string
 <td>
 <code>basicAuthPassword</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -9780,8 +9589,8 @@ and modifications of the event sent to the sink.</p>
 <td>
 <code>token</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -9806,8 +9615,8 @@ allowing the source to auto-register the webhook to authenticate callbacks.</p>
 <td>
 <code>webhookPassword</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -9860,16 +9669,16 @@ string
 <tbody>
 <tr>
 <td>
-<code>EventSourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.EventSourceStatus">
-EventSourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>EventSourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
@@ -9878,5 +9687,5 @@ EventSourceStatus
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e11e781</code>.
+on git commit <code>7b1b483b</code>.
 </em></p>

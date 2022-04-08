@@ -206,8 +206,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -318,8 +318,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -443,8 +443,8 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -579,8 +579,8 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -704,8 +704,8 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -829,8 +829,8 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -954,8 +954,8 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -1079,8 +1079,8 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -1218,8 +1218,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -1343,8 +1343,8 @@ bool
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -1522,8 +1522,8 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -1634,8 +1634,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -1760,8 +1760,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -1895,8 +1895,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2019,8 +2019,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2119,8 +2119,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2228,8 +2228,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2451,8 +2451,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2588,8 +2588,8 @@ map[string]string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2752,8 +2752,8 @@ When this property is true, only the CloudEvent data is included.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2863,8 +2863,8 @@ bool
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -2961,8 +2961,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3084,8 +3084,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3195,8 +3195,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3353,8 +3353,8 @@ OracleFunctionSpecSpec
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3472,8 +3472,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3644,8 +3644,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3731,8 +3731,8 @@ SecretValueFromSource
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3817,8 +3817,8 @@ see <a href="https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTP
 <td>
 <code>token</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -3860,8 +3860,8 @@ chain and host name when communicating over TLS.</p>
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -3948,8 +3948,8 @@ TektonTargetReapPolicy
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -4085,8 +4085,8 @@ EventOptions
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -4238,8 +4238,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -4359,8 +4359,8 @@ string
 <td>
 <code>status</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -5162,8 +5162,8 @@ bool
 <td>
 <code>keyName</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -5174,8 +5174,8 @@ ValueFromField
 <td>
 <code>keyValue</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -5186,8 +5186,8 @@ ValueFromField
 <td>
 <code>connectionString</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -5217,8 +5217,8 @@ ValueFromField
 <td>
 <code>tenantID</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -5229,8 +5229,8 @@ ValueFromField
 <td>
 <code>clientID</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -5241,59 +5241,12 @@ ValueFromField
 <td>
 <code>clientSecret</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
 <td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.CloudEventStatus">CloudEventStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">TargetStatus</a>)
-</p>
-<p>
-<p>CloudEventStatus contains attributes that target types can embed to declare
-the event types they accept and emit.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>acceptedEventTypes</code></br>
-<em>
-[]string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>AcceptedEventTypes are the CloudEvent types that a target can process.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>ceAttributes</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#CloudEventAttributes">
-[]knative.dev/pkg/apis/duck/v1.CloudEventAttributes
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>ResponseAttributes are the CloudEvent attributes contained in the responses returned by a target.
-NOTE: the json tag <em>must</em> be exactly <code>ceAttributes</code> to satisfy Knative&rsquo;s Source duck type.</p>
 </td>
 </tr>
 </tbody>
@@ -5532,8 +5485,8 @@ SecretValueFromSource
 <td>
 <code>username</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -5544,8 +5497,8 @@ ValueFromField
 <td>
 <code>password</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -6798,8 +6751,8 @@ string
 <td>
 <code>keyDatabase</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -6810,8 +6763,8 @@ ValueFromField
 <td>
 <code>passwordStash</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7162,11 +7115,6 @@ OracleFunctionSpecSpec
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.Reconcilable">Reconcilable
-</h3>
-<p>
-<p>Reconcilable is implemented by all TriggerMesh components.</p>
-</p>
 <h3 id="targets.triggermesh.io/v1alpha1.SalesforceAuth">SalesforceAuth
 </h3>
 <p>
@@ -7536,8 +7484,8 @@ see <a href="https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTP
 <td>
 <code>token</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.ValueFromField">
-ValueFromField
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </a>
 </em>
 </td>
@@ -7570,43 +7518,6 @@ bool
 <em>(Optional)</em>
 <p>Controls whether the Splunk client verifies the server&rsquo;s certificate
 chain and host name when communicating over TLS.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.StatusManager">StatusManager
-</h3>
-<p>
-<p>StatusManager manages the status of a TriggerMesh component.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>ConditionSet</code></br>
-<em>
-knative.dev/pkg/apis.ConditionSet
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>TargetStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
-</a>
-</em>
-</td>
-<td>
 </td>
 </tr>
 </tbody>
@@ -7668,104 +7579,6 @@ Keystore
 </em>
 </td>
 <td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.TargetStatus">TargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTarget">AWSEventBridgeTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSS3Target">AWSS3Target</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTarget">ElasticsearchTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTarget">GoogleSheetTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.IBMMQTarget">IBMMQTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTarget">LogzMetricsTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.StatusManager">StatusManager</a>)
-</p>
-<p>
-<p>TargetStatus defines the observed state of an event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
-knative.dev/pkg/apis/duck/v1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted/emitted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -8024,56 +7837,6 @@ string
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.ValueFromField">ValueFromField
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AzureSASToken">AzureSASToken</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AzureServicePrincipal">AzureServicePrincipal</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.Credentials">Credentials</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.Keystore">Keystore</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.SplunkTargetSpec">SplunkTargetSpec</a>)
-</p>
-<p>
-<p>ValueFromField is a struct field that can have its value either defined
-explicitly or sourced from another entity.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>value</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Field value.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>valueFromSecret</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#secretkeyselector-v1-core">
-Kubernetes core/v1.SecretKeySelector
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Field value from a Kubernetes Secret.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.ZendeskTargetSpec">ZendeskTargetSpec
 </h3>
 <p>
@@ -8143,5 +7906,5 @@ string
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e11e781</code>.
+on git commit <code>7b1b483b</code>.
 </em></p>

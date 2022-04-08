@@ -142,8 +142,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -256,8 +256,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -370,8 +370,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -487,8 +487,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -590,8 +590,8 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -707,44 +707,12 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <td>
 <code>status</code></br>
 <em>
-<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="flow.triggermesh.io/v1alpha1.CloudEventStatus">CloudEventStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">TargetStatus</a>)
-</p>
-<p>
-<p>CloudEventStatus contains attributes that target types can embed to declare
-the event types they accept.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>acceptedEventTypes</code></br>
-<em>
-[]string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>AcceptedEventTypes are the CloudEvent types that a target can process.</p>
 </td>
 </tr>
 </tbody>
@@ -896,22 +864,6 @@ a payload if available. Possible values are:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="flow.triggermesh.io/v1alpha1.EventReceiver">EventReceiver
-</h3>
-<p>
-<p>EventReceiver is implemented by types that receive and process events.</p>
-</p>
-<h3 id="flow.triggermesh.io/v1alpha1.EventSender">EventSender
-</h3>
-<p>
-<p>EventSender is implemented by types that send events to a sink.</p>
-</p>
-<h3 id="flow.triggermesh.io/v1alpha1.EventSource">EventSource
-</h3>
-<p>
-<p>EventSource is implemented by types that emit events, either by sending them
-to a sink or by replying to incoming event requests.</p>
-</p>
 <h3 id="flow.triggermesh.io/v1alpha1.JQTransformationSpec">JQTransformationSpec
 </h3>
 <p>
@@ -1055,11 +1007,6 @@ string
 </tr>
 </tbody>
 </table>
-<h3 id="flow.triggermesh.io/v1alpha1.Reconcilable">Reconcilable
-</h3>
-<p>
-<p>Reconcilable is implemented by all TriggerMesh components.</p>
-</p>
 <h3 id="flow.triggermesh.io/v1alpha1.Response">Response
 </h3>
 <p>
@@ -1081,43 +1028,8 @@ string
 <td>
 <code>timeout</code></br>
 <em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#Duration">
 github.com/triggermesh/triggermesh/pkg/apis.Duration
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="flow.triggermesh.io/v1alpha1.StatusManager">StatusManager
-</h3>
-<p>
-<p>StatusManager manages the status of a TriggerMesh component.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>ConditionSet</code></br>
-<em>
-knative.dev/pkg/apis.ConditionSet
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>TargetStatus</code></br>
-<em>
-<a href="#flow.triggermesh.io/v1alpha1.TargetStatus">
-TargetStatus
 </a>
 </em>
 </td>
@@ -1181,77 +1093,6 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 (Members of <code>SourceSpec</code> are embedded into this type.)
 </p>
 <p>Support sending to an event sink instead of replying.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="flow.triggermesh.io/v1alpha1.TargetStatus">TargetStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#flow.triggermesh.io/v1alpha1.DataWeaveTransformation">DataWeaveTransformation</a>, 
-<a href="#flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation</a>, 
-<a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>, 
-<a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>, 
-<a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation</a>, 
-<a href="#flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation</a>, 
-<a href="#flow.triggermesh.io/v1alpha1.StatusManager">StatusManager</a>)
-</p>
-<p>
-<p>TargetStatus defines the observed state of an event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
-knative.dev/pkg/apis/duck/v1.SourceStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>CloudEventStatus</code></br>
-<em>
-<a href="#flow.triggermesh.io/v1alpha1.CloudEventStatus">
-CloudEventStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>CloudEventStatus</code> are embedded into this type.)
-</p>
-<p>Accepted CloudEvent attributes</p>
 </td>
 </tr>
 </tbody>
@@ -1532,5 +1373,5 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e11e781</code>.
+on git commit <code>7b1b483b</code>.
 </em></p>

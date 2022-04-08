@@ -60,7 +60,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -75,8 +74,6 @@ FilterSpec
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Spec holds the desired state of the Filter (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -110,14 +107,12 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 <code>status</code></br>
 <em>
-<a href="#routing.triggermesh.io/v1alpha1.RouterStatus">
-RouterStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the Filter (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -163,7 +158,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -178,8 +172,6 @@ SplitterSpec
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Spec holds the desired state of the Splitter (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -224,14 +216,12 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 <code>status</code></br>
 <em>
-<a href="#routing.triggermesh.io/v1alpha1.RouterStatus">
-RouterStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the Splitter (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -327,62 +317,6 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 </tbody>
 </table>
-<h3 id="routing.triggermesh.io/v1alpha1.Reconcilable">Reconcilable
-</h3>
-<p>
-<p>Reconcilable is implemented by all TriggerMesh components.</p>
-</p>
-<h3 id="routing.triggermesh.io/v1alpha1.RouterStatus">RouterStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#routing.triggermesh.io/v1alpha1.Filter">Filter</a>, 
-<a href="#routing.triggermesh.io/v1alpha1.Splitter">Splitter</a>, 
-<a href="#routing.triggermesh.io/v1alpha1.StatusManager">StatusManager</a>)
-</p>
-<p>
-<p>RouterStatus defines the observed state of a router.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
-knative.dev/pkg/apis/duck/v1.SourceStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="routing.triggermesh.io/v1alpha1.SplitterSpec">SplitterSpec
 </h3>
 <p>
@@ -436,87 +370,8 @@ knative.dev/pkg/apis/duck/v1.Destination
 </tr>
 </tbody>
 </table>
-<h3 id="routing.triggermesh.io/v1alpha1.StatusManager">StatusManager
-</h3>
-<p>
-<p>StatusManager manages the status of a TriggerMesh component.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>ConditionSet</code></br>
-<em>
-knative.dev/pkg/apis.ConditionSet
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>RouterStatus</code></br>
-<em>
-<a href="#routing.triggermesh.io/v1alpha1.RouterStatus">
-RouterStatus
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="routing.triggermesh.io/v1alpha1.ValueFromField">ValueFromField
-</h3>
-<p>
-<p>ValueFromField is a struct field that can have its value either defined
-explicitly or sourced from another entity.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>value</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Field value.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>valueFromSecret</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#secretkeyselector-v1-core">
-Kubernetes core/v1.SecretKeySelector
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Field value from a Kubernetes Secret.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e11e781</code>.
+on git commit <code>7b1b483b</code>.
 </em></p>
