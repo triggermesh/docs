@@ -57,7 +57,6 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 Refer to the Kubernetes API documentation for the fields of the
 <code>metadata</code> field.
 </td>
@@ -72,8 +71,6 @@ FunctionSpec
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Spec holds the desired state of the Function (from the client).</p>
 <br/>
 <br/>
 <table>
@@ -141,26 +138,20 @@ EventStoreConnection
 </tr>
 <tr>
 <td>
-<code>ceOverrides</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#CloudEventOverrides">
-knative.dev/pkg/apis/duck/v1.CloudEventOverrides
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
-</td>
-</tr>
-<tr>
-<td>
-<code>sink</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
-</a>
-</em>
-</td>
-<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying,
+as well as setting the CloudEvents &lsquo;type&rsquo; and &lsquo;source&rsquo; attributes
+using CloudEventOverrides (hack).</p>
 </td>
 </tr>
 </table>
@@ -176,8 +167,6 @@ FunctionStatus
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status communicates the observed state of the Function (from the controller).</p>
 </td>
 </tr>
 </tbody>
@@ -209,6 +198,46 @@ string
 </td>
 <td>
 <p>URI is the gRPC location to the EventStore</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="extensions.triggermesh.io/v1alpha1.FunctionConfigMapIdentity">FunctionConfigMapIdentity
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#extensions.triggermesh.io/v1alpha1.FunctionStatus">FunctionStatus</a>)
+</p>
+<p>
+<p>FunctionConfigMapIdentity represents the identity of the ConfigMap
+containing the code of a Function.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>name</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>resourceVersion</code></br>
+<em>
+string
+</em>
+</td>
+<td>
 </td>
 </tr>
 </tbody>
@@ -294,26 +323,20 @@ EventStoreConnection
 </tr>
 <tr>
 <td>
-<code>ceOverrides</code></br>
+<code>SourceSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#CloudEventOverrides">
-knative.dev/pkg/apis/duck/v1.CloudEventOverrides
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
 </a>
 </em>
 </td>
 <td>
-</td>
-</tr>
-<tr>
-<td>
-<code>sink</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
-</a>
-</em>
-</td>
-<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+<p>Support sending to an event sink instead of replying,
+as well as setting the CloudEvents &lsquo;type&rsquo; and &lsquo;source&rsquo; attributes
+using CloudEventOverrides (hack).</p>
 </td>
 </tr>
 </tbody>
@@ -325,7 +348,7 @@ knative.dev/pkg/apis/duck/v1.Destination
 <a href="#extensions.triggermesh.io/v1alpha1.Function">Function</a>)
 </p>
 <p>
-<p>FunctionStatus communicates the observed state of the Function (from the controller).</p>
+<p>FunctionStatus defines the observed state of the Function.</p>
 </p>
 <table>
 <thead>
@@ -337,31 +360,29 @@ knative.dev/pkg/apis/duck/v1.Destination
 <tbody>
 <tr>
 <td>
-<code>SourceStatus</code></br>
+<code>Status</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
-knative.dev/pkg/apis/duck/v1.SourceStatus
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
 <td>
 <p>
-(Members of <code>SourceStatus</code> are embedded into this type.)
+(Members of <code>Status</code> are embedded into this type.)
 </p>
 </td>
 </tr>
 <tr>
 <td>
-<code>address</code></br>
+<code>configMap</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Addressable">
-knative.dev/pkg/apis/duck/v1.Addressable
+<a href="#extensions.triggermesh.io/v1alpha1.FunctionConfigMapIdentity">
+FunctionConfigMapIdentity
 </a>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Address holds the information needed to connect this Function up to receive events.</p>
 </td>
 </tr>
 </tbody>
@@ -369,5 +390,5 @@ knative.dev/pkg/apis/duck/v1.Addressable
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>f7172053</code>.
+on git commit <code>58b8d795</code>.
 </em></p>
