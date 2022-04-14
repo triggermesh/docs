@@ -383,8 +383,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <h3 id="flow.triggermesh.io/v1alpha1.Transformation">Transformation
 </h3>
 <p>
-<p>Transformation is a Knative abstraction that encapsulates the interface by which Knative
-components express a desire to have a particular image cached.</p>
+<p>Transformation allows to declaratively perform data transformations on CloudEvents.</p>
 </p>
 <table>
 <thead>
@@ -1373,5 +1372,5 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>47482e69</code>.
+on git commit <code>3f101a38</code>.
 </em></p>
