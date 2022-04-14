@@ -1373,5 +1373,5 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>05df48fb</code>.
+on git commit <code>47482e69</code>.
 </em></p>
