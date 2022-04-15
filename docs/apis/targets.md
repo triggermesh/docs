@@ -4838,7 +4838,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTarget">AWSComprehendTarget</a>)
 </p>
 <p>
-<p>AWSComprehendTargetSpec holds the desired state of the event target.</p>
+<p>AWSComprehendTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -4932,7 +4932,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTarget">AWSDynamoDBTarget</a>)
 </p>
 <p>
-<p>AWSDynamoDBTargetSpec holds the desired state of the event target.</p>
+<p>AWSDynamoDBTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -5003,7 +5003,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTarget">AWSEventBridgeTarget</a>)
 </p>
 <p>
-<p>AWSEventBridgeTargetSpec holds the desired state of the event target.</p>
+<p>AWSEventBridgeTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -5087,7 +5087,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTarget">AWSKinesisTarget</a>)
 </p>
 <p>
-<p>AWSKinesisTargetSpec holds the desired state of the event target.</p>
+<p>AWSKinesisTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -5182,7 +5182,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTarget">AWSLambdaTarget</a>)
 </p>
 <p>
-<p>AWSLambdaTargetSpec holds the desired state of the event target.</p>
+<p>AWSLambdaTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -5350,7 +5350,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.AWSSNSTarget">AWSSNSTarget</a>)
 </p>
 <p>
-<p>AWSSNSTargetSpec holds the desired state of the event target.</p>
+<p>AWSSNSTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -5434,7 +5434,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget</a>)
 </p>
 <p>
-<p>AWSSQSTargetSpec holds the desired state of the event target.</p>
+<p>AWSSQSTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -5518,7 +5518,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>)
 </p>
 <p>
-<p>AlibabaOSSTargetSpec holds the desired state of the AlibabaOSSTarget.</p>
+<p>AlibabaOSSTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -5666,7 +5666,7 @@ See <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-o
 <a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>)
 </p>
 <p>
-<p>AzureEventHubsTargetSpec holds the desired state of the AzureEventHubsTarget.</p>
+<p>AzureEventHubsTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -5860,7 +5860,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 <a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>)
 </p>
 <p>
-<p>ConfluentTargetSpec holds the desired state of the ConfluentTarget.</p>
+<p>ConfluentTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -6142,7 +6142,7 @@ TLSSpec
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>)
 </p>
 <p>
-<p>DatadogTargetSpec holds the desired state of the DatadogTarget.</p>
+<p>DatadogTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -6213,7 +6213,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTarget">ElasticsearchTarget</a>)
 </p>
 <p>
-<p>ElasticsearchTargetSpec holds the desired state of the ElasticsearchTarget.</p>
+<p>ElasticsearchTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -6406,7 +6406,7 @@ a payload if available. Possible values are:</p>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget</a>)
 </p>
 <p>
-<p>GoogleCloudFirestoreTargetSpec holds the desired state of the GoogleCloudFirestoreTarget.</p>
+<p>GoogleCloudFirestoreTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -6500,7 +6500,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget</a>)
 </p>
 <p>
-<p>GoogleCloudStorageTargetSpec holds the desired state of the GoogleCloudStorageTarget.</p>
+<p>GoogleCloudStorageTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -6583,7 +6583,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget</a>)
 </p>
 <p>
-<p>GoogleCloudWorkflowsTargetSpec holds the desired state of the GoogleCloudWorkflowsTarget.</p>
+<p>GoogleCloudWorkflowsTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -6642,7 +6642,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTarget">GoogleSheetTarget</a>)
 </p>
 <p>
-<p>GoogleSheetTargetSpec holds the desired state of the GoogleSheetTarget.</p>
+<p>GoogleSheetTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -6751,7 +6751,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget</a>)
 </p>
 <p>
-<p>HTTPTargetSpec holds the desired state of the HTTPTarget.</p>
+<p>HTTPTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -7038,7 +7038,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.IBMMQTarget">IBMMQTarget</a>)
 </p>
 <p>
-<p>IBMMQTargetSpec holds the desired state of the event target.</p>
+<p>IBMMQTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -7203,7 +7203,7 @@ it will be halted.</p>
 <a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>)
 </p>
 <p>
-<p>InfraTargetSpec holds the desired state of the InfraTarget.</p>
+<p>InfraTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -7450,7 +7450,7 @@ SecretValueFromSource
 <a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>)
 </p>
 <p>
-<p>JiraTargetSpec holds the desired state of the JiraTarget.</p>
+<p>JiraTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -7593,7 +7593,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTarget">LogzMetricsTarget</a>)
 </p>
 <p>
-<p>LogzMetricsTargetSpec holds the desired state of the LogzMetricsTarget.</p>
+<p>LogzMetricsTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -7667,7 +7667,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>)
 </p>
 <p>
-<p>LogzTargetSpec holds the desired state of the LogzTarget.</p>
+<p>LogzTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -7784,7 +7784,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.OracleTargetSpec">OracleTargetSpec</a>)
 </p>
 <p>
-<p>OracleFunctionSpecSpec holds the Oracle Cloud ID of the function to invoke.</p>
+<p>OracleFunctionSpecSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -7817,7 +7817,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>)
 </p>
 <p>
-<p>OracleTargetSpec holds the desired state of the event target.</p>
+<p>OracleTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -8001,7 +8001,7 @@ SecretValueFromSource
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>)
 </p>
 <p>
-<p>SalesforceTargetSpec holds the desired state of the SalesforceTarget.</p>
+<p>SalesforceTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -8132,7 +8132,7 @@ Kubernetes core/v1.SecretKeySelector
 <a href="#targets.triggermesh.io/v1alpha1.SendGridTarget">SendGridTarget</a>)
 </p>
 <p>
-<p>SendGridTargetSpec holds the desired state of the SendGridTarget.</p>
+<p>SendGridTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -8263,7 +8263,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget</a>)
 </p>
 <p>
-<p>SlackTargetSpec defines the spec for the Slack Taret.</p>
+<p>SlackTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -8397,7 +8397,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.Credentials">Credentials</a>)
 </p>
 <p>
-<p>TLSSpec holds the IBM MQ TLS authentication parameters.</p>
+<p>TLSSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -8499,7 +8499,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>)
 </p>
 <p>
-<p>TektonTargetSpec holds the desired state of event target.</p>
+<p>TektonTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -8546,7 +8546,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>)
 </p>
 <p>
-<p>TwilioTargetSpec holds the desired state of the TwilioTarget.</p>
+<p>TwilioTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -8754,7 +8754,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget</a>)
 </p>
 <p>
-<p>ZendeskTargetSpec holds the desired state of the ZendeskTarget.</p>
+<p>ZendeskTargetSpec defines the desired state of the event target.</p>
 </p>
 <table>
 <thead>
@@ -8830,5 +8830,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>c88f946c</code>.
+on git commit <code>044a22be</code>.
 </em></p>

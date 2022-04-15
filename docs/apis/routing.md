@@ -310,7 +310,7 @@ map[string]string
 <a href="#routing.triggermesh.io/v1alpha1.Filter">Filter</a>)
 </p>
 <p>
-<p>FilterSpec contains CEL expression string and the destination sink</p>
+<p>FilterSpec defines the desired state of the component.</p>
 </p>
 <table>
 <thead>
@@ -366,7 +366,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#routing.triggermesh.io/v1alpha1.Splitter">Splitter</a>)
 </p>
 <p>
-<p>SplitterSpec holds the desired state of the Splitter.</p>
+<p>SplitterSpec defines the desired state of the component.</p>
 </p>
 <table>
 <thead>
@@ -429,5 +429,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>c88f946c</code>.
+on git commit <code>044a22be</code>.
 </em></p>

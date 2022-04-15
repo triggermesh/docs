@@ -846,7 +846,7 @@ int
 <a href="#flow.triggermesh.io/v1alpha1.DataWeaveTransformation">DataWeaveTransformation</a>)
 </p>
 <p>
-<p>DataWeaveTransformationSpec holds the desired state of the DataWeaveTransformation.</p>
+<p>DataWeaveTransformationSpec defines the desired state of the component.</p>
 </p>
 <table>
 <thead>
@@ -968,7 +968,7 @@ a payload if available. Possible values are:</p>
 <a href="#flow.triggermesh.io/v1alpha1.JQTransformation">JQTransformation</a>)
 </p>
 <p>
-<p>JQTransformationSpec holds the desired state of the JQTransformation (from the client).</p>
+<p>JQTransformationSpec defines the desired state of the component.</p>
 </p>
 <table>
 <thead>
@@ -1030,51 +1030,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="flow.triggermesh.io/v1alpha1.JQTransformationStatus">JQTransformationStatus
-</h3>
-<p>
-<p>JQTransformationStatus communicates the observed state of the JQTransformation (from the controller).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceStatus">
-knative.dev/pkg/apis/duck/v1.SourceStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceStatus</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>AddressStatus</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
-knative.dev/pkg/apis/duck/v1.AddressStatus
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>AddressStatus</code> are embedded into this type.)
-</p>
 </td>
 </tr>
 </tbody>
@@ -1156,7 +1111,7 @@ github.com/triggermesh/triggermesh/pkg/apis.Duration
 <a href="#flow.triggermesh.io/v1alpha1.Synchronizer">Synchronizer</a>)
 </p>
 <p>
-<p>SynchronizerSpec holds the desired state of the Synchronizer.</p>
+<p>SynchronizerSpec defines the desired state of the component.</p>
 </p>
 <table>
 <thead>
@@ -1270,7 +1225,7 @@ string
 <a href="#flow.triggermesh.io/v1alpha1.Transformation">Transformation</a>)
 </p>
 <p>
-<p>TransformationSpec holds the desired state of the Transformation (from the client).</p>
+<p>TransformationSpec defines the desired state of the component.</p>
 </p>
 <table>
 <thead>
@@ -1406,7 +1361,7 @@ Kubernetes core/v1.ConfigMapKeySelector
 <a href="#flow.triggermesh.io/v1alpha1.XMLToJSONTransformation">XMLToJSONTransformation</a>)
 </p>
 <p>
-<p>XMLToJSONTransformationSpec holds the desired state of the XMLToJSONTransformation (from the client).</p>
+<p>XMLToJSONTransformationSpec defines the desired state of the component.</p>
 </p>
 <table>
 <thead>
@@ -1468,7 +1423,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#flow.triggermesh.io/v1alpha1.XSLTTransformation">XSLTTransformation</a>)
 </p>
 <p>
-<p>XSLTTransformationSpec holds the desired state of the XSLTTransformation.</p>
+<p>XSLTTransformationSpec defines the desired state of the component.</p>
 </p>
 <table>
 <thead>
@@ -1540,5 +1495,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>c88f946c</code>.
+on git commit <code>044a22be</code>.
 </em></p>

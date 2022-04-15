@@ -9603,7 +9603,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#sources.triggermesh.io/v1alpha1.IBMMQSource">IBMMQSource</a>)
 </p>
 <p>
-<p>IBMMQSourceSpec holds the desired state of the event source.</p>
+<p>IBMMQSourceSpec defines the desired state of the event source.</p>
 </p>
 <table>
 <thead>
@@ -10611,5 +10611,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>c88f946c</code>.
+on git commit <code>044a22be</code>.
 </em></p>
