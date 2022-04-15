@@ -100,6 +100,20 @@ knative.dev/pkg/apis/duck/v1.Destination
 <p>Sink is a reference to an object that will resolve to a domain name to use as the sink.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -209,6 +223,20 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 </td>
 </tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -315,6 +343,20 @@ knative.dev/pkg/apis/duck/v1.Destination
 <p>Sink is a reference to an object that will resolve to a domain name to use as the sink.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="routing.triggermesh.io/v1alpha1.SplitterSpec">SplitterSpec
@@ -368,10 +410,24 @@ knative.dev/pkg/apis/duck/v1.Destination
 <td>
 </td>
 </tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>3f101a38</code>.
+on git commit <code>c88f946c</code>.
 </em></p>

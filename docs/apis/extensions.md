@@ -154,6 +154,20 @@ as well as setting the CloudEvents &lsquo;type&rsquo; and &lsquo;source&rsquo; a
 using CloudEventOverrides (hack).</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -339,6 +353,20 @@ as well as setting the CloudEvents &lsquo;type&rsquo; and &lsquo;source&rsquo; a
 using CloudEventOverrides (hack).</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="extensions.triggermesh.io/v1alpha1.FunctionStatus">FunctionStatus
@@ -390,5 +418,5 @@ FunctionConfigMapIdentity
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>3f101a38</code>.
+on git commit <code>c88f946c</code>.
 </em></p>
