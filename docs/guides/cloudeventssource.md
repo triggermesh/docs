@@ -83,7 +83,7 @@ It must be noted when configuring the Rate Limiter that:
 
 ### Configuring CloudEvents Sink
 
-The `spec.sink` parameter is an [Destination](https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination)  that points an object or URL that will receive the ingested CloudEvents.
+The `spec.sink` parameter is a [Destination](https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination) that points to an object or URL that will receive the ingested CloudEvents.
 
 ```yaml
 spec:
