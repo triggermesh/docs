@@ -53,6 +53,8 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSource">AzureServiceBusTopicSource</a>
 </li><li>
+<a href="#sources.triggermesh.io/v1alpha1.CloudEventsSource">CloudEventsSource</a>
+</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource">GoogleCloudAuditLogsSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource</a>
@@ -2811,6 +2813,137 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">
 AzureServiceBusTopicSourceStatus
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.CloudEventsSource">CloudEventsSource
+</h3>
+<p>
+<p>CloudEventsSource is the Schema for the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>CloudEventsSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.CloudEventsSourceSpec">
+CloudEventsSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>credentials</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.HTTPCredentials">
+HTTPCredentials
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Credentials to connect to this source.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>path</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Path under which requests are accepted.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>rateLimiter</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.RateLimiter">
+RateLimiter
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>RateLimiter for incoming events per adapter instance.
+A single CloudEventsSource object can create multiple adapter instances,
+the rate limiting configuration being applied to each of them individually.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </a>
 </em>
 </td>
@@ -7946,6 +8079,82 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.CloudEventsSourceSpec">CloudEventsSourceSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.CloudEventsSource">CloudEventsSource</a>)
+</p>
+<p>
+<p>CloudEventsSourceSpec defines the desired state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>credentials</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.HTTPCredentials">
+HTTPCredentials
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Credentials to connect to this source.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>path</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Path under which requests are accepted.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>rateLimiter</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.RateLimiter">
+RateLimiter
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>RateLimiter for incoming events per adapter instance.
+A single CloudEventsSource object can create multiple adapter instances,
+the rate limiting configuration being applied to each of them individually.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.Credentials">Credentials
 </h3>
 <p>
@@ -9415,6 +9624,78 @@ the managed topic.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.HTTPBasicAuth">HTTPBasicAuth
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.HTTPCredentials">HTTPCredentials</a>)
+</p>
+<p>
+<p>HTTPBasicAuth credentials.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>username</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>password</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.HTTPCredentials">HTTPCredentials
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.CloudEventsSourceSpec">CloudEventsSourceSpec</a>)
+</p>
+<p>
+<p>HTTPCredentials to be used when receiving requests.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>basicAuths</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.HTTPBasicAuth">
+[]HTTPBasicAuth
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.HTTPPollerSourceSpec">HTTPPollerSourceSpec
 </h3>
 <p>
@@ -9960,6 +10241,37 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.RateLimiter">RateLimiter
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.CloudEventsSourceSpec">CloudEventsSourceSpec</a>)
+</p>
+<p>
+<p>RateLimiter parameters.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>requestsPerSecond</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+<p>RequestsPerSecond is used to limit the number of requests that a
+single instance of the CloudEventsSource adapter can accept.</p>
 </td>
 </tr>
 </tbody>
@@ -10611,5 +10923,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>1804c144</code>.
+on git commit <code>e7dc6034</code>.
 </em></p>
