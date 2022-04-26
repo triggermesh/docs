@@ -5245,6 +5245,7 @@ AWSSecurityCredentials
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>Security credentials allow AWS to authenticate and authorize
 requests based on a signature composed of an access key ID and a
 corresponding secret access key.
@@ -5261,6 +5262,7 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>(Amazon EKS only) The ARN of an IAM role which can be impersonated
 to obtain AWS permissions.
 See <a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html</a></p>
@@ -10949,5 +10951,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>166eeeae</code>.
+on git commit <code>8ea27821</code>.
 </em></p>
