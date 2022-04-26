@@ -1631,6 +1631,19 @@ AWSSQSSourceReceiveOptions
 </tr>
 <tr>
 <td>
+<code>messageProcessor</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the message processor to use for converting SQS messages to CloudEvents.
+Supported values are &ldquo;default&rdquo; and &ldquo;s3&rdquo;.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
@@ -6656,6 +6669,19 @@ AWSSQSSourceReceiveOptions
 </tr>
 <tr>
 <td>
+<code>messageProcessor</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the message processor to use for converting SQS messages to CloudEvents.
+Supported values are &ldquo;default&rdquo; and &ldquo;s3&rdquo;.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
@@ -10923,5 +10949,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>80345bae</code>.
+on git commit <code>166eeeae</code>.
 </em></p>
