@@ -8,11 +8,11 @@ The CloudEventsSource accepts parameters to set authentication, URL path and rat
 
 ### Configuring Credentials (Optional)
 
-Credentials can be configured using [Basic Authentication](https://datatracker.ietf.org/doc/html/rfc2617) and an arbitraty token header. Use Kubernetes secrets to manage passwords/tokens.
+Credentials can be configured using [Basic Authentication](https://datatracker.ietf.org/doc/html/rfc2617) using Kubernetes secrets to manage passwords.
 
-Credentials for both methods are defined as arrays, allowing clients to use multiple users/tokens.
+Credentials are defined as arrays, allowing clients to use multiple user/password items.
 
-For Basic Authentication the credentials are defined under `spec.credentials.basicAuths`:
+The credentials are defined under `spec.credentials.basicAuths`:
 
 ```yaml
 spec:
@@ -29,26 +29,6 @@ spec:
           name: password2
           key: password
 ```
-
-For Token headers credentials are defined under `spec.credentials.tokens`:
-
-```yaml
-spec:
-  credentials:
-    tokens:
-    - header: header1
-      value:
-        valueFromSecret:
-          name: token1
-          key: token
-    - header: header2
-      value:
-        valueFromSecret:
-          name: token2
-          key: token
-```
-
-When defining both, Basic Authentication and header tokens for a CloudEventsSource object, requests containing credentials that match any of them will be considered valid.
 
 ### Configuring Path (Optional)
 
@@ -116,17 +96,6 @@ spec:
         valueFromSecret:
           name: password2
           key: password
-    tokens:
-    - header: header1
-      value:
-        valueFromSecret:
-          name: token1
-          key: token
-    - header: header2
-      value:
-        valueFromSecret:
-          name: token2
-          key: token
   path: /mypath
   rateLimiter:
     requestsPerSecond: 1000
@@ -141,20 +110,6 @@ A CloudEvent can be ingested in the cluster using `curl` and Basic Authenticatio
 
 ```console
 curl -sSL -u user2:pw2 "http://cloudeventssource.mycluster.io/mypath" \
-  -H "Ce-Specversion: 1.0" \
-  -H "Ce-Type: json.document" \
-  -H "Ce-Source: curl.shell" \
-  -H "Ce-MyAttribute: my value" \
-  -H "Content-Type: application/json" \
-  -H "Ce-Id: 1234-abcd-x" \
-  -d '{"Hello":"world"}'
-```
-
-A CloudEvent can be ingested in the cluster using `curl` and Token Header:
-
-```console
-curl -sSLv "http://cloudeventssource.mycluster.io/mypath" \
-  -H "header1: tk1" \
   -H "Ce-Specversion: 1.0" \
   -H "Ce-Type: json.document" \
   -H "Ce-Source: curl.shell" \
