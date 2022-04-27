@@ -3677,6 +3677,24 @@ GoogleCloudSourceRepositoriesSourcePubSubSpec
 </tr>
 <tr>
 <td>
+<code>publishServiceAccount</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Email address of the service account used for publishing
+notifications to Pub/Sub. This service account needs to be in the
+same project as the repo, and to have the &lsquo;pubsub.topics.publish&rsquo;
+IAM permission associated with it. It can (but doesn&rsquo;t have to) be
+the same service account as the &lsquo;ServiceAccountKey&rsquo; attribute.</p>
+<p>If unspecified, it defaults to the Compute Engine default service
+account.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>serviceAccountKey</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
@@ -9336,6 +9354,24 @@ GoogleCloudSourceRepositoriesSourcePubSubSpec
 </tr>
 <tr>
 <td>
+<code>publishServiceAccount</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Email address of the service account used for publishing
+notifications to Pub/Sub. This service account needs to be in the
+same project as the repo, and to have the &lsquo;pubsub.topics.publish&rsquo;
+IAM permission associated with it. It can (but doesn&rsquo;t have to) be
+the same service account as the &lsquo;ServiceAccountKey&rsquo; attribute.</p>
+<p>If unspecified, it defaults to the Compute Engine default service
+account.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>serviceAccountKey</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
@@ -10951,5 +10987,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e076d967</code>.
+on git commit <code>58c6e5d3</code>.
 </em></p>
