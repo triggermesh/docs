@@ -96,16 +96,6 @@ string
 </tr>
 <tr>
 <td>
-<code>public</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
 <code>code</code></br>
 <em>
 string
@@ -295,16 +285,6 @@ string
 </tr>
 <tr>
 <td>
-<code>public</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
 <code>code</code></br>
 <em>
 string
@@ -418,5 +398,5 @@ FunctionConfigMapIdentity
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>0589d5b9</code>.
+on git commit <code>64983956</code>.
 </em></p>
