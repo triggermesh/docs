@@ -1,10 +1,10 @@
 # Receiving External CloudEvents
 
-The Trigermesh `CloudEventsSource` API object is used to ingest Cloudevents produced from external sources.
+The Trigermesh `CloudEventsSource` API object is used to ingest Cloudevents produced from external sources via HTTP.
 
 ## Configuring a CloudEventsSource Object
 
-The CloudEventsSource accepts parameters to set authentication, URL path and rate limiter. When succesfuly created it exposes an endpoint to listen for CloudEvents.
+The CloudEventsSource accepts parameters to set authentication, URL path and rate limiter. When succesfuly created it exposes an HTTP endpoint to listen for CloudEvents.
 
 ### Configuring Credentials (Optional)
 
@@ -14,107 +14,129 @@ Credentials are defined as arrays, allowing clients to use multiple user/passwor
 
 The credentials are defined under `spec.credentials.basicAuths`:
 
-```yaml
-spec:
-  credentials:
-    basicAuths:
-    - username: user1
-      password:
-        valueFromSecret:
-          name: password1
-          key: password
-    - username: user2
-      password:
-        valueFromSecret:
-          name: password2
-          key: password
-```
+!!! example "Credentials for 2 users"
+    ```yaml
+    spec:
+      credentials:
+        basicAuths:
+        - username: user1
+          password:
+            valueFromSecret:
+              name: password1
+              key: password
+        - username: user2
+          password:
+            valueFromSecret:
+              name: password2
+              key: password
+    ```
 
 ### Configuring Path (Optional)
 
-The `spec.path` parameter is used configure the URL path where CloudEvents will be accepted.
+The `spec.path` parameter is used configure the URL path where CloudEvents will be accepted. When specified clients using this component must add the designated `path` to the URL, obtaining a 404 for any other requested location.
 
-```yaml
-spec:
-  path: /mypath
-```
+!!! example "Rate limit at 1000 RPS"
+    ```yaml
+    spec:
+      path: /mypath
+    ```
+
+
+!!! tip "Using path"
+    Path is not usually needed. Configure it when an existing CloudEvents producer is already emitting events using that path and cannot be re-configured.
 
 ### Configuring Rate Limiter (Optional)
 
 Rate Limiter is used to filter the quantity of requests per second that an adapter instance can receive. When the configured limit per time window is reached, HTTP code 429 is returned along information on when the client should retry.
 
-```console
-HTTP/1.1 429 Too Many Requests
-retry-after: 1650204469582011930
-```
+!!! example "Example response when rate limit reached"
+    ```console
+    HTTP/1.1 429 Too Many Requests
+    retry-after: 1650204469582011930
+    ```
 
 To configure the Rate Limiter use the `spec.rateLimiter.requestsPerSecond` parameter:
 
-```yaml
-spec:
-  rateLimiter:
-    requestsPerSecond: 1000
-```
+!!! example "Rate limit at 1000 RPS"
+    ```yaml
+    spec:
+      rateLimiter:
+        requestsPerSecond: 1000
+    ```
+
 
 It must be noted when configuring the Rate Limiter that:
 
-- The CloudEventsSource is based on Knative Services and under load will create many adapters. The rate limiter value is set individualy per adapter instance.
-- A low value of the rate limiter might prevent the adapter from scaling.
+!!! tip "Rate limiter is per instance"
+    The CloudEventsSource component is able to scale under load. The rate limiter value is set individualy per each scaled instance, which means that setting this value does not limit the total ammount of requests that can be received, but protects each instance from receiving more the configured value while informing the caller to re-issue the request.
+
+!!! tip "Rate limiter and scaling"
+    A low value of the rate limiter might prevent the adapter from scaling if the configured value is below the scaling rate.
 
 ### Configuring CloudEvents Sink
 
-The `spec.sink` parameter is a [Destination](https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination) that points to an object or URL that will receive the ingested CloudEvents.
+The `spec.sink` parameter is a destination that points to an object or URL that will receive the ingested CloudEvents.
 
-```yaml
-spec:
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
+!!! example "Using a reference"
+    ```yaml
+    spec:
+      sink:
+        ref:
+          apiVersion: eventing.knative.dev/v1
+          kind: Broker
+          name: default
+    ```
+
+!!! example "Using a URL"
+    ```yaml
+    spec:
+      sink:
+        uri: https://mybroker-woodford.triggermesh.io
+    ```
 
 ## Using the CloudEventsSource
 
-Given the CloudEventsSource depicted in the section above:
+Given the CloudEventsSource configuration options depicted in the preceding sections we can create this example CloudEventsSource by creating this object at a TriggerMesh cluster:
 
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: CloudEventsSource
-metadata:
-  name: sample
-spec:
-  credentials:
-    basicAuths:
-    - username: user1
-      password:
-        valueFromSecret:
-          name: password1
-          key: password
-    - username: user2
-      password:
-        valueFromSecret:
-          name: password2
-          key: password
-  path: /mypath
-  rateLimiter:
-    requestsPerSecond: 1000
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
+!!! example "Example CloudEventsSource"
+    ```yaml
+    apiVersion: sources.triggermesh.io/v1alpha1
+    kind: CloudEventsSource
+    metadata:
+      name: sample
+    spec:
+      credentials:
+        basicAuths:
+        - username: user1
+          password:
+            valueFromSecret:
+              name: password1
+              key: password
+        - username: user2
+          password:
+            valueFromSecret:
+              name: password2
+              key: password
+      path: /mypath
+      rateLimiter:
+        requestsPerSecond: 1000
+      sink:
+        ref:
+          apiVersion: eventing.knative.dev/v1
+          kind: Broker
+          name: default
+    ```
 
 A CloudEvent can be ingested in the cluster using `curl` and Basic Authentication:
 
-```console
-curl -sSL -u user2:pw2 "http://cloudeventssource.mycluster.io/mypath" \
-  -H "Ce-Specversion: 1.0" \
-  -H "Ce-Type: json.document" \
-  -H "Ce-Source: curl.shell" \
-  -H "Ce-MyAttribute: my value" \
-  -H "Content-Type: application/json" \
-  -H "Ce-Id: 1234-abcd-x" \
-  -d '{"Hello":"world"}'
-```
+!!! example "Calling the CloudEventsSource"
+    ```console
+    curl -sSL -u user2:pw2 "http://cloudeventssource.mycluster.io/mypath" \
+      -H "Ce-Specversion: 1.0" \
+      -H "Ce-Type: json.document" \
+      -H "Ce-Source: curl.shell" \
+      -H "Ce-MyAttribute: my value" \
+      -H "Content-Type: application/json" \
+      -H "Ce-Id: 1234-abcd-x" \
+      -d '{"Hello":"world"}'
+    ```
