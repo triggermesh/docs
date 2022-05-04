@@ -9,23 +9,7 @@ create a [Tekton][tekton] `TaskRun` or `PipelineRun` object.
 
 ## Creating a Tekton Task
 
-From TriggerMesh, go to **Tasks**, and click the `Create Task` button. A
-menu will drop down providing the option to create the task `from YAML` or `with wizard`. Select `with wizard`.
-
-![Creating a new Task](../../assets/images/tekton-target/tekton-task-1.png)
-
-Give the task a name that will be referenced later on by the Target, and click
-the arrow to expose the task details. Provide a name for `Step 1`, specify 
-the build image to use as well as the command and arguments to run.  Click
-`ADD MORE` if more steps will be required.  When finished, click `CREATE`.
-
-![Populating task steps](../../assets/images/tekton-target/tekton-task-2.png)
-
-The task should appear in the **Tasks** page.  Now to create the Target.
-
-![Task lists](../../assets/images/tekton-target/tekton-task-3.png)
-
-Refer to the [Tekton documentation][tekton] for more information about how to create
+Refer to the [Tekton documentation][tekton] for information about how to create
 tasks and pipelines.
 
 ## Deploying an Instance of the Target
