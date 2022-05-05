@@ -1336,7 +1336,7 @@ AWSS3SourceDestination
 <td>
 <em>(Optional)</em>
 <p>The intermediate destination of notifications originating from the
-Amazon S3 bucket, before they are retrieved by TriggerMesh.
+Amazon S3 bucket, before they are retrieved by this event source.
 If omitted, an Amazon SQS queue is automatically created and
 associated with the bucket.</p>
 </td>
@@ -1795,7 +1795,7 @@ AzureActivityLogsSourceDestination
 </td>
 <td>
 <p>The intermediate destination of activity logs, before they are
-retrieved by TriggerMesh.</p>
+retrieved by this event source.</p>
 </td>
 </tr>
 <tr>
@@ -1975,7 +1975,7 @@ AzureEventGridSourceEndpoint
 </td>
 <td>
 <p>The intermediate destination of events subscribed via Event Grid,
-before they are retrieved by TriggerMesh.</p>
+before they are retrieved by this event source.</p>
 </td>
 </tr>
 <tr>
@@ -2142,7 +2142,7 @@ AzureEventGridSourceEndpoint
 </td>
 <td>
 <p>The intermediate destination of events subscribed via Event Grid,
-before they are retrieved by TriggerMesh.</p>
+before they are retrieved by this event source.</p>
 </td>
 </tr>
 <tr>
@@ -6377,7 +6377,7 @@ AWSS3SourceDestination
 <td>
 <em>(Optional)</em>
 <p>The intermediate destination of notifications originating from the
-Amazon S3 bucket, before they are retrieved by TriggerMesh.
+Amazon S3 bucket, before they are retrieved by this event source.
 If omitted, an Amazon SQS queue is automatically created and
 associated with the bucket.</p>
 </td>
@@ -6941,7 +6941,7 @@ AzureActivityLogsSourceDestination
 </td>
 <td>
 <p>The intermediate destination of activity logs, before they are
-retrieved by TriggerMesh.</p>
+retrieved by this event source.</p>
 </td>
 </tr>
 <tr>
@@ -7156,7 +7156,7 @@ AzureEventGridSourceEndpoint
 </td>
 <td>
 <p>The intermediate destination of events subscribed via Event Grid,
-before they are retrieved by TriggerMesh.</p>
+before they are retrieved by this event source.</p>
 </td>
 </tr>
 <tr>
@@ -7396,7 +7396,7 @@ AzureEventGridSourceEndpoint
 </td>
 <td>
 <p>The intermediate destination of events subscribed via Event Grid,
-before they are retrieved by TriggerMesh.</p>
+before they are retrieved by this event source.</p>
 </td>
 </tr>
 <tr>
@@ -8479,9 +8479,10 @@ GCloudResourceName
 <td>
 <em>(Optional)</em>
 <p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured sink are sent to. If not supplied,
-a topic is created on behalf of the user, in the GCP project
-referenced by the Project attribute.</p>
+originating from the configured sink are sent to, before being
+retrieved by this event source. If not supplied, a topic is created
+on behalf of the user, in the GCP project referenced by the Project
+attribute.</p>
 <p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
 &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
 </td>
@@ -8719,9 +8720,10 @@ GCloudResourceName
 <td>
 <em>(Optional)</em>
 <p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured sink are sent to. If not supplied,
-a topic is created on behalf of the user, in the GCP project
-referenced by the Project attribute.</p>
+originating from the configured sink are sent to, before being
+retrieved by this event source. If not supplied, a topic is created
+on behalf of the user, in the GCP project referenced by the Project
+attribute.</p>
 <p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
 &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
 </td>
@@ -8933,9 +8935,10 @@ GCloudResourceName
 <td>
 <em>(Optional)</em>
 <p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured IoT Registry are sent to. If not supplied,
-a topic is created on behalf of the user, in the GCP project
-referenced by the Project attribute.</p>
+originating from the configured IoT Registry are sent to, before
+being retrieved by this event source. If not supplied, a topic is
+created on behalf of the user, in the GCP project referenced by the
+Project attribute.</p>
 <p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
 &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
 </td>
@@ -9273,9 +9276,10 @@ GCloudResourceName
 <td>
 <em>(Optional)</em>
 <p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured sink are sent to. If not supplied,
-a topic is created on behalf of the user, in the GCP project
-referenced by the Project attribute.</p>
+originating from the configured sink are sent to, before being
+retrieved by this event source. If not supplied, a topic is created
+on behalf of the user, in the GCP project referenced by the Project
+attribute.</p>
 <p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
 &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
 </td>
@@ -9494,9 +9498,10 @@ GCloudResourceName
 <td>
 <em>(Optional)</em>
 <p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured bucket are sent to. If not supplied,
-a topic is created on behalf of the user, in the GCP project
-referenced by the Project attribute.</p>
+originating from the configured bucket are sent to, before being
+retrieved by this event source. If not supplied, a topic is created
+on behalf of the user, in the GCP project referenced by the Project
+attribute.</p>
 <p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
 &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
 </td>
@@ -10990,5 +10995,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>8573c35e</code>.
+on git commit <code>8a2b09c6</code>.
 </em></p>
