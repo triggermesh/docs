@@ -3081,8 +3081,8 @@ example: &ldquo;projects/PROJECT_ID/zones/us-central1-a/instances&rdquo;</p>
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">
-GoogleCloudAuditLogsSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -3235,8 +3235,8 @@ The ID is displayed after you select Connect a Pub/Sub topic to this budget.</p>
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">
-GoogleCloudBillingSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -3378,8 +3378,8 @@ GCloudIoTResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">
-GoogleCloudIoTSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -3667,8 +3667,8 @@ GCloudResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">
-GoogleCloudSourceRepositoriesSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -3826,8 +3826,8 @@ string
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">
-GoogleCloudStorageSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -8386,18 +8386,14 @@ string
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">GoogleCloudAuditLogsSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">GoogleCloudBillingSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">GoogleCloudIoTSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">GoogleCloudSourceRepositoriesSourcePubSubSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">GoogleCloudSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceStatus">GoogleCloudSourceRepositoriesSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">GoogleCloudStorageSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>)
 </p>
 <p>
@@ -8445,61 +8441,6 @@ string
 </em>
 </td>
 <td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">GoogleCloudAuditLogsSourcePubSubSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>)
-</p>
-<p>
-<p>GoogleCloudAuditLogsSourcePubSubSpec defines the attributes related to the
-configuration of Pub/Sub resources.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>topic</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
-GCloudResourceName
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured sink are sent to, before being
-retrieved by this event source. If not supplied, a topic is created
-on behalf of the user, in the GCP project referenced by the Project
-attribute.</p>
-<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
-&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>project</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Name of the GCP project where Pub/Sub resources associated with the
-Cloud Audit log are to be created.</p>
-<p>Mutually exclusive with Topic which, if supplied, already contains
-the project name.</p>
 </td>
 </tr>
 </tbody>
@@ -8579,8 +8520,8 @@ example: &ldquo;projects/PROJECT_ID/zones/us-central1-a/instances&rdquo;</p>
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">
-GoogleCloudAuditLogsSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -8690,61 +8631,6 @@ the managed topic.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">GoogleCloudBillingSourcePubSubSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>)
-</p>
-<p>
-<p>GoogleCloudBillingSourcePubSubSpec defines the attributes related to the
-configuration of Pub/Sub resources.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>topic</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
-GCloudResourceName
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured sink are sent to, before being
-retrieved by this event source. If not supplied, a topic is created
-on behalf of the user, in the GCP project referenced by the Project
-attribute.</p>
-<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
-&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>project</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Name of the GCP project where Pub/Sub resources associated with the
-Cloud Billing budget are to be created.</p>
-<p>Mutually exclusive with Topic which, if supplied, already contains
-the project name.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec
 </h3>
 <p>
@@ -8805,8 +8691,8 @@ The ID is displayed after you select Connect a Pub/Sub topic to this budget.</p>
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">
-GoogleCloudBillingSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -8905,61 +8791,6 @@ the managed topic.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">GoogleCloudIoTSourcePubSubSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>)
-</p>
-<p>
-<p>GoogleCloudIoTSourcePubSubSpec defines the attributes related to the
-configuration of Pub/Sub resources.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>topic</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
-GCloudResourceName
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured IoT Registry are sent to, before
-being retrieved by this event source. If not supplied, a topic is
-created on behalf of the user, in the GCP project referenced by the
-Project attribute.</p>
-<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
-&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>project</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Name of the GCP project where Pub/Sub resources associated with the
-Cloud IoT Registry are to be created.</p>
-<p>Mutually exclusive with Topic which, if supplied, already contains
-the project name.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec
 </h3>
 <p>
@@ -9009,8 +8840,8 @@ GCloudIoTResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">
-GoogleCloudIoTSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -9246,14 +9077,18 @@ GCloudResourceName
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">GoogleCloudSourceRepositoriesSourcePubSubSpec
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">GoogleCloudSourcePubSubSpec
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>)
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>)
 </p>
 <p>
-<p>GoogleCloudSourceRepositoriesSourcePubSubSpec defines the attributes related to the
+<p>GoogleCloudSourcePubSubSpec defines the attributes related to the
 configuration of Pub/Sub resources.</p>
 </p>
 <table>
@@ -9275,11 +9110,11 @@ GCloudResourceName
 </td>
 <td>
 <em>(Optional)</em>
-<p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured sink are sent to, before being
-retrieved by this event source. If not supplied, a topic is created
-on behalf of the user, in the GCP project referenced by the Project
-attribute.</p>
+<p>Full resource name of the Pub/Sub topic where messages/notifications
+originating from the configured Google Cloud resource are sent to,
+before being retrieved by this event source. If not supplied, a
+topic is created on behalf of the user, in the GCP project
+referenced by the Project attribute.</p>
 <p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
 &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
 </td>
@@ -9294,7 +9129,7 @@ string
 <td>
 <em>(Optional)</em>
 <p>Name of the GCP project where Pub/Sub resources associated with the
-Cloud repo are to be created.</p>
+configured Google Cloud resource are to be created.</p>
 <p>Mutually exclusive with Topic which, if supplied, already contains
 the project name.</p>
 </td>
@@ -9350,8 +9185,8 @@ GCloudResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">
-GoogleCloudSourceRepositoriesSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -9468,61 +9303,6 @@ the managed topic.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">GoogleCloudStorageSourcePubSubSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>)
-</p>
-<p>
-<p>GoogleCloudStorageSourcePubSubSpec defines the attributes related to the
-configuration of Pub/Sub resources.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>topic</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
-GCloudResourceName
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Full resource name of the Pub/Sub topic where change notifications
-originating from the configured bucket are sent to, before being
-retrieved by this event source. If not supplied, a topic is created
-on behalf of the user, in the GCP project referenced by the Project
-attribute.</p>
-<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
-&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>project</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Name of the GCP project where Pub/Sub resources associated with the
-Cloud Storage bucket are to be created.</p>
-<p>Mutually exclusive with Topic which, if supplied, already contains
-the project name.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec
 </h3>
 <p>
@@ -9570,8 +9350,8 @@ string
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">
-GoogleCloudStorageSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
+GoogleCloudSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -10995,5 +10775,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>8a2b09c6</code>.
+on git commit <code>f728cf2a</code>.
 </em></p>
