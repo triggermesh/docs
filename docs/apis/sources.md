@@ -1335,8 +1335,9 @@ AWSS3SourceDestination
 </td>
 <td>
 <em>(Optional)</em>
-<p>The destination of notifications originating from the Amazon S3 bucket.</p>
-<p>If omitted, an Amazon SQS queue is automatically created and
+<p>The intermediate destination of notifications originating from the
+Amazon S3 bucket, before they are retrieved by TriggerMesh.
+If omitted, an Amazon SQS queue is automatically created and
 associated with the bucket.</p>
 </td>
 </tr>
@@ -6237,7 +6238,8 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>)
 </p>
 <p>
-<p>AWSS3SourceDestination contains possible destinations for bucket notifications.</p>
+<p>AWSS3SourceDestination contains possible intermediate destinations for
+bucket notifications.</p>
 </p>
 <table>
 <thead>
@@ -6374,8 +6376,9 @@ AWSS3SourceDestination
 </td>
 <td>
 <em>(Optional)</em>
-<p>The destination of notifications originating from the Amazon S3 bucket.</p>
-<p>If omitted, an Amazon SQS queue is automatically created and
+<p>The intermediate destination of notifications originating from the
+Amazon S3 bucket, before they are retrieved by TriggerMesh.
+If omitted, an Amazon SQS queue is automatically created and
 associated with the bucket.</p>
 </td>
 </tr>
@@ -10987,5 +10990,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>f50188dd</code>.
+on git commit <code>8573c35e</code>.
 </em></p>
