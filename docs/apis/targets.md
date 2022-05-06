@@ -35,6 +35,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventsTarget">CloudEventsTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>
@@ -1474,6 +1476,133 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.CloudEventsTarget">CloudEventsTarget
+</h3>
+<p>
+<p>CloudEventsTarget is a gateway that produces received CloudEvents to a destination.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>CloudEventsTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventsTargetSpec">
+CloudEventsTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>credentials</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventsCredentials">
+CloudEventsCredentials
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Credentials to connect to the remote endpoint.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>path</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Path at the remote endpoint under which requests are accepted.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>endpoint</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
+knative.dev/pkg/apis.URL
+</a>
+</em>
+</td>
+<td>
+<p>Endpoint that accept CloudEvents.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>AdapterOverrides sets runtime parameters to the adapter instance.</p>
 </td>
 </tr>
 </table>
@@ -5853,6 +5982,109 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.CloudEventsCredentials">CloudEventsCredentials
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventsTargetSpec">CloudEventsTargetSpec</a>)
+</p>
+<p>
+<p>CloudEventsCredentials to be used when sending requests.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>basicAuth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.HTTPBasicAuth">
+HTTPBasicAuth
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.CloudEventsTargetSpec">CloudEventsTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventsTarget">CloudEventsTarget</a>)
+</p>
+<p>
+<p>CloudEventsTargetSpec defines the desired state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>credentials</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventsCredentials">
+CloudEventsCredentials
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Credentials to connect to the remote endpoint.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>path</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Path at the remote endpoint under which requests are accepted.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>endpoint</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
+knative.dev/pkg/apis.URL
+</a>
+</em>
+</td>
+<td>
+<p>Endpoint that accept CloudEvents.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>AdapterOverrides sets runtime parameters to the adapter instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.ConfluentTargetSpec">ConfluentTargetSpec
 </h3>
 <p>
@@ -6699,6 +6931,47 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.HTTPBasicAuth">HTTPBasicAuth
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.CloudEventsCredentials">CloudEventsCredentials</a>)
+</p>
+<p>
+<p>HTTPBasicAuth credentials.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>username</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>password</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
 </td>
 </tr>
 </tbody>
@@ -8830,5 +9103,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>9e41511a</code>.
+on git commit <code>23f387d6</code>.
 </em></p>
