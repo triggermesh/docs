@@ -39,6 +39,7 @@ nav:
       - Transformation: concepts/transformation.md
       - Functions: concepts/functions.md
       - TriggerMesh Integration Language: til/Introduction.md
+      - Scaling: concepts/scaling.md
     - Guides:
       - Creating a Source: guides/creatingasource.md
       - Creating a Target: guides/creatingatarget.md
