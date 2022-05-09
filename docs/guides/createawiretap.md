@@ -93,7 +93,7 @@ Now that we have all the parts in place, we can utilize our `Wiretap` to monitor
 
 1. View the pod logs of the `sockeye` service:
   * `kubectl get pods` will show the pods that are running. Retrieve the sockeye pod name from the output.
-  * `kubectl logs <SOCKEYE_POD_NAME>` By replacing the `<SOCKEYE_POD_NAME>` with the pod name you can view the logs of the sockeye pod.
+  * `kubectl logs <SOCKEYE_POD_NAME> user-container` By replacing the `<SOCKEYE_POD_NAME>` with the pod name you can view the logs of the sockeye pod.
 
 2. View the web service exposed by the `sockeye` service:
   * `kubectl get ksvc` will show the KSVC's that are running. Retrieve the sockeye public URL from the `URL` column and navigate to it in your browser.
