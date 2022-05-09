@@ -230,7 +230,7 @@ curl -v "http://demo-service.dmo.10.64.140.43.xip.io " \
 ```
 
 
-## (EXTRA) Processing an event containing a structured payload
+## Processing an event containing a structured payload
 
 The following steps illustrate processing an event containing a structured payload, and how to recieve the payload in the adapter.
 
@@ -295,3 +295,6 @@ curl -v "https://localhost:8080" \
        -H "Content-Type: application/json" \
        -d '{"fromName":"richard","toName":"bob","message":"hello"}'
 ```
+
+
+## Utilize the New Target Within a Triggermesh Bridge
