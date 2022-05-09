@@ -1,0 +1,32 @@
+apiVersion: flow.triggermesh.io/v1alpha1
+kind: Bridge
+metadata:
+  name: cron-sockeye
+  annotations:
+    bridges.triggermesh.io/name: cron-sockeye
+    bridges.triggermesh.io/description: >-
+      This is a simple starter bridge containg only a PingSource and a broker.
+spec:
+  components:
+    - object:
+        apiVersion: eventing.knative.dev/v1
+        kind: Broker
+        metadata:
+          name: events
+      options:
+        enableResync: false
+    - object:
+      apiVersion: sources.knative.dev/v1
+      kind: PingSource
+      metadata:
+        name: ping-sockeye
+      spec:
+        data: '{"name": "triggermesh"}'
+        schedule: "*/1 * * * *"
+        sink:
+          ref:
+            apiVersion: eventing.knative.dev/v1
+            kind: Broker
+            name: events
+            options:
+              enableResync: false
