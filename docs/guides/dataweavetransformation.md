@@ -1,7 +1,5 @@
 # Transforming using DataWeave
-The Trigermesh `DataWeaveTransformation` API object can be used to process a Cloudevent containing JSON or XML and transform the document using [DataWeave](https://docs.mulesoft.com/mule-runtime/3.9/dataweave).
-
-## Configuring a DataWeave Transformation Event Flow
+The TriggerMesh `DataWeaveTransformation` API object can be used to process a Cloudevent containing JSON or XML and transform the document using [DataWeave](https://docs.mulesoft.com/mule-runtime/3.9/dataweave).
 
 This guide shows you how to configure an event flow that transforms an incoming CloudEvent in XML by parsing it with a DataWeave Spell. It has five steps:
 
@@ -11,21 +9,22 @@ This guide shows you how to configure an event flow that transforms an incoming 
 * Configure the [Triggers](https://knative.dev/docs/eventing/broker/triggers/)
 * Deploy a curl pod that will allow us to send events to the broker.
 
+## How to use a DataWeaveTransformation
+
 A `DataWeaveTransformation` object can be configured to either reply to the event sender or to send the 
 transformed data to a `Sink`, if one is provided. In this guide, we will deploy without a `Sink` and 
-configure the replies from the transformation to route to the `EventDisplay` service using a `Trigger`.
+configure the replies from the transformation to route to the `EventDisplay` service using a `Broker` and a `Trigger`.
 
-The DataWeaveTransformation can have a pre-defined parameters configured in the yaml but it also allows to send the parameters as part of the request. In this guide we will use both ways, we will configure the pre-defined parameters in the yaml but we will also use anothers parameters in the request, this is possible by enabling the allowPerEventDwSpell parameter.
+The DataWeaveTransformation can have a pre-defined parameters configured in the yaml but it also allows to send the parameters as part of the request. In this guide we will use both ways, we will configure the pre-defined parameters in the yaml but we will also use other parameters in the request, which is made possible by enabling the allowPerEventDwSpell parameter.
 
-DataWeaveTransformation Parameters:
-
+## DataWeaveTransformation parameters
 
 - allowPerEventDwSpell: Allow to send the DataWeaveSpell as part of the request. (Optional)
 - dwSpell: DataWeave spell used to transform incoming CloudEvents. (Optional)
 - inputContentType: Content type for transformation ['application/json', 'application/xml']. (Optional)
 - outputContentType: Content type for transformation output. ['application/json', 'application/xml']. (Optional)
 
-DataWeave Spell
+Below is a sample DataWeave spell that will be used throughout the guide.
 ```
 %dw 2.0
 output application/json
@@ -71,9 +70,13 @@ Into this new JSON document:
 }
 ```
 
-Let's go step by step.
+Let's go step by step to see how we can deploy this transformation as part of a TriggerMesh Bridge.
 
-### Deploy the Broker
+Below is a diagram of the Bridge we will construct.
+
+![](../assets/images/dataweavetransformation.png)
+
+## Deploy the Broker
 Deploy a Broker by writing the following YAML in a file:
 ```yaml
 apiVersion: eventing.knative.dev/v1
@@ -87,7 +90,7 @@ Create the Broker with the following command:
 kubectl apply -f <manifest.yaml>
 ```
 
-### Deploying the `EventDisplay` Service
+## Deploying the `EventDisplay` Service
 Let's now deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
 be deployed by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`:
 
@@ -103,8 +106,8 @@ spec:
         - image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
 ```
 
-### Deploy the `DataWeaveTransformation` Object
-With the `event-display` in place, the `DataWeaveTransformation` object can now be deployed in the same manner using the following manifest:
+## Deploy the `DataWeaveTransformation` Object
+With the `event-display` in place, the `DataWeaveTransformation` object can now be deployed in the same manner using the following manifest. It contains an inline DataWeave spell that will be used by default but can be overridden by passing a spell in the CloudEvent payload.
 
 ```yaml
 apiVersion: flow.triggermesh.io/v1alpha1
@@ -126,7 +129,7 @@ spec:
   outputContentType: application/json
 ```
 
-### Configure the Triggers
+## Configure the Triggers
 Next, Triggers need to be configured to route our Cloudevents to the `DataWeaveTransformation` and `EventDisplay` objects. This can be done by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`. We have two triggers, one to send events containing XML to the transformation and one to send all events to the event display.
 
 ```yaml
@@ -159,8 +162,8 @@ spec:
       name: demo
 ```
 
-### Deploy a Curl Pod
-Finally, an event source can be depoyed that will emit CloudEvents with XML data in the payload. We can do this in two steps:
+## Deploy a Curl Pod
+Finally, an event source can be deployed that will emit CloudEvents with XML data in the payload. We can do this in two steps:
 
     1. Deploy a curl pod that will emit the CloudEvents by writing the following YAML in a file and apply it with `kubectl apply -f <manifest.yaml>`.
 
@@ -194,7 +197,7 @@ kubectl exec -ti curl -- curl -v "http://broker-ingress.knative-eventing.svc.clu
 ```
 
 
-### Viewing the Transformation's Output in the Event Display
+## Viewing the Transformation's Output in the Event Display
 With our event flow in place, we can now view the transformed data in the `EventDisplay`.
 
 We need to retrieve the `EventDisplay` Pod name by running the following command:
@@ -242,7 +245,9 @@ Data,
 We now see the incoming event and the transformed data, as expected. 
 
 
-### Sending the parameters in the request.
+## Sending the parameters in the request.
+Now we can try passing parameters such as the DataWeave spell and input and output content types as part of the Cloud Event.
+
     1. Execute the following command to emit a cloudevent to the broker we created: 
     
 ```cmd
@@ -261,7 +266,7 @@ kubectl exec -ti curl -- curl -v "http://broker-ingress.knative-eventing.svc.clu
 ```
 
 
-### Viewing the Transformation's Output in the Event Display
+## Viewing the Transformation's Output in the Event Display
 ```cmd
 kubectl logs event-display-00001-deployment-fb48c8d7c-2h444 user-container
 ☁️  cloudevents.Event
