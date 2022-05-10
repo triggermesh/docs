@@ -49,6 +49,7 @@ nav:
       - Transforming XML to JSON: guides/xmltojsontransformation.md
       - Transforming XML with XSLT: guides/xslttransformation.md
       - Ingesting External CloudEvents: guides/cloudeventssource.md
+      - Exporting CloudEvents: guides/cloudeventstarget.md
       - Using TIL: guides/tilgettingstarted.md
       - Bridges:
         - Webhook to Slack: guides/bridges/webhook-to-slack.md
