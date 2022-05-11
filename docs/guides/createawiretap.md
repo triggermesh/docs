@@ -16,38 +16,27 @@ Consider the following illustration:
 Lets consider [this example Bridge](../assets/yamlexamples/simple-bridge.yaml) as a starting point. This example is currently configured with a `PingSource` and a `Broker`.
 
 ```yaml
-apiVersion: flow.triggermesh.io/v1alpha1
-kind: Bridge
+
+apiVersion: eventing.knative.dev/v1
+kind: Broker
 metadata:
-  name: cron-sockeye
-  annotations:
-    bridges.triggermesh.io/name: cron-sockeye
-    bridges.triggermesh.io/description: >-
-      This is a simple starter bridge containg only a PingSource and a broker.
+  name: events
+
+---
+
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: ping-sockeye
 spec:
-  components:
-    - object:
-        apiVersion: eventing.knative.dev/v1
-        kind: Broker
-        metadata:
-          name: events
-      options:
-        enableResync: false
-    - object:
-      apiVersion: sources.knative.dev/v1
-      kind: PingSource
-      metadata:
-        name: ping-sockeye
-      spec:
-        data: '{"name": "triggermesh"}'
-        schedule: "*/1 * * * *"
-        sink:
-          ref:
-            apiVersion: eventing.knative.dev/v1
-            kind: Broker
-            name: events
-            options:
-              enableResync: false
+  data: '{"name": "triggermesh"}'
+  schedule: "*/1 * * * *"
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: events
+
 ```
 
 ### Implement a Wiretap
@@ -56,28 +45,30 @@ Now that we have a bridge to work with, lets go ahead and modify our manifest to
 We can accomplish this by adding the following to the manifest under the `PingSource` object:
 
 ```yaml
-    - object:
-      apiVersion: eventing.knative.dev/v1
-      kind: Trigger
-      metadata:
-        name: sockeye
-      spec:
-        broker: events
-        subscriber:
-          ref:
-            apiVersion: serving.knative.dev/v1
-            kind: Service
-            name: sockeye
-    - object:
+
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sockeye
+spec:
+  broker: events
+  subscriber:
+    ref:
       apiVersion: serving.knative.dev/v1
       kind: Service
-      metadata:
-        name: sockeye
-      spec:
-        template:
-          spec:
-            containers:
-              - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+      name: sockeye
+
+---
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sockeye
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
 ```
 
 ### Using the Wiretap
