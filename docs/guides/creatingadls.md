@@ -2,7 +2,7 @@
 
 ## What is a Dead Letter Sink?
 
-Knative Eventing provides various configuration parameters to control the delivery of events in case of failure. For instance, you can decide to retry sending events that failed to be consumed, and if this didn't work you can decide to forward those events to a dead letter sink.
+Triggermesh provides various configuration parameters to control the delivery of events in case of failure. For instance, you can decide to retry sending events that failed to be consumed, and if this didn't work you can decide to forward those events to a dead letter sink.
 
 ## Implementing a Dead Letter Sink
 
