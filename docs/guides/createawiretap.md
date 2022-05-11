@@ -8,16 +8,8 @@ A Wiretap is a powerful debugging tool/methodology that can be used to understan
 
 Consider the following illustration:
 
-```
-                           ┌──────────────┐
-                           │ Wire Tap     │
-                           └──────▲───────┘
-                                  │
-     ┌──────────────┐       ┌─────┴────────┐       ┌──────────────┐
-     │ Curl         ├──────►│ Broker       ├──────>│ Target       │
-     └──────────────┘       └──────────────┘       └──────────────┘
-```
 
+![](../assets/images/wiretap.png)
 
 ## Implementing a Wiretap
 ### Creating an Example Bridge
