@@ -12,33 +12,59 @@ We will create:
 - [x] The `sockeye` target which serves as an event display.
 - [x] The `AWSSQSSource` which consumes events from an AWS SQS queue.
 
-## Event display
+!!! tip "Kubernetes namespace"
+    All objects mentioned in this guide must be created inside the same Kubernetes namespace.
+
+## Sockeye CloudEvents viewer display
 
 First of all, we need to have a tool to see the events that come from our source.
 
-Create a `sockeye` service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
+Create a `sockeye` deployment and service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
 
 ```yaml
-apiVersion: serving.knative.dev/v1
+apiVersion: v1
 kind: Service
 metadata:
   name: sockeye
 spec:
+  selector:
+    app.kubernetes.io/name: sockeye
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sockeye
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: sockeye
   template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: sockeye
     spec:
       containers:
-        - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+      - name: sockeye
+        image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
 ```
 
-```
-kubectl apply -f sockeye.yaml
+```console
+$ kubectl apply -f sockeye.yaml
 ```
 
-Open the web interface in a browser at the URL found with the following command:
+Forward the sockeye service locally to be able to open it in your web browser. Open a dedicated console and issue the following command:
 
-```shell
-$ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
+```console
+$ kubectl port-forward svc/sockeye 8080:80
 ```
+
+Sockeye should be not avaialble at `http://localhost:8080/`
 
 ## Create a AWS SQS Event source
 
@@ -56,20 +82,28 @@ DESCRIPTION:
      Desired state of the event source.
 
 FIELDS:
-   arn	<string> -required-
+   adapterOverrides     <Object>
+     Kubernetes object parameters to apply on top of default adapter values.
+
+   arn  <string> -required-
      ARN of the Amazon SQS queue to consume messages from. The expected format
      is documented at
      https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies.
 
-   credentials	<Object>
-     Credentials to interact with the Amazon SQS API. For more information about
-     AWS security credentials, please refer to the AWS General Reference at
-     https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html
+   auth <Object>
+     Authentication method to interact with the Amazon SQS API.
 
-   receiveOptions	<Object>
+   endpoint     <Object>
+     Customizations of the AWS REST API endpoint.
+
+   messageProcessor     <string>
+     Name of the message processor to use for converting SQS messages to
+     CloudEvents. Supported values are "default" and "s3".
+
+   receiveOptions       <Object>
      Options that control the behavior of message receivers.
 
-   sink	<Object> -required-
+   sink <Object> -required-
      The destination of events sourced from Amazon SQS.
 ```
 
@@ -81,8 +115,10 @@ kubectl create secret generic awscreds \
   --from-literal=secret_access_key=<SECRET_ACCESS_KEY>
 ```
 
-Then, write a YAML manifest for your SQS source similar to the one below. The following sample points to a SQS queue, referenced by its ARN and a secret called `awscreds`.
+!!! tip "AWS Credentials"
+    Instructions about setting up AWS security credentials can be found in the [documentation page for the Amazon SQS source](https://docs.triggermesh.io/cloud/sources/awssqs/#api-credentials).
 
+Then, write a YAML manifest for your SQS source similar to the one below. The following sample points to a SQS queue, referenced by its ARN and a secret called `awscreds`.
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -91,15 +127,16 @@ metadata:
   name: sqs-guide
 spec:
   arn: arn:aws:sqs:us-east-1:123456789012:triggermesh
-  credentials:
-    accessKeyID:
-      valueFromSecret:
-        key: access_key_id
-        name: awscreds
-    secretAccessKey:
-      valueFromSecret:
-        key: secret_access_key
-        name: awscreds
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: secret_access_key
   sink:
     ref:
       apiVersion: serving.knative.dev/v1
