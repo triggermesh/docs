@@ -55,13 +55,13 @@ spec:
 ```
 
 ```console
-kubectl apply -f sockeye.yaml
+$ kubectl apply -f sockeye.yaml
 ```
 
-Forward the sockeye service locally to be able to open it at your browser, open a dedicated console and issue the following command:
+Forward the sockeye service locally to be able to open it in your web browser. Open a dedicated console and issue the following command:
 
 ```console
-$ k port-forward svc/sockeye 8080:80
+$ kubectl port-forward svc/sockeye 8080:80
 ```
 
 Sockeye should be not avaialble at `http://localhost:8080/`
@@ -119,7 +119,6 @@ kubectl create secret generic awscreds \
     Instructions about setting up AWS security credentials can be found in the [documentation page for the Amazon SQS source](https://docs.triggermesh.io/cloud/sources/awssqs/#api-credentials).
 
 Then, write a YAML manifest for your SQS source similar to the one below. The following sample points to a SQS queue, referenced by its ARN and a secret called `awscreds`.
-
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
