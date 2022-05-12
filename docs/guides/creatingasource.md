@@ -13,39 +13,58 @@ We will create:
 - [x] The `AWSSQSSource` which consumes events from an AWS SQS queue.
 
 !!! tip "Kubernetes namespace"
-    The Kubernetes namespace to contain these objects as well as the secret for AWS SQS credentials is up to your choice, and should be the same for all objects.
+    All objects mentioned in this guide must be created inside the same Kubernetes namespace.
 
 ## Sockeye CloudEvents viewer display
 
 First of all, we need to have a tool to see the events that come from our source.
 
-Create a `sockeye` service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
+Create a `sockeye` deployment and service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
 
 ```yaml
-apiVersion: serving.knative.dev/v1
+apiVersion: v1
 kind: Service
 metadata:
   name: sockeye
 spec:
+  selector:
+    app.kubernetes.io/name: sockeye
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sockeye
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: sockeye
   template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: sockeye
     spec:
       containers:
-        - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+      - name: sockeye
+        image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
 ```
 
-```
+```console
 kubectl apply -f sockeye.yaml
 ```
 
-Open the web interface in a browser at the URL found with the following command:
+Forward the sockeye service locally to be able to open it at your browser, open a dedicated console and issue the following command:
 
-```shell
-$ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
+```console
+$ k port-forward svc/sockeye 8080:80
 ```
 
-!!! tip "Minikube"
-    This guide assumes that the Knative service can be addressed from your browser. When using
-    minikube make sure to configure the [Magic DNS option](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#configure-dns).
+Sockeye should be not avaialble at `http://localhost:8080/`
 
 ## Create a AWS SQS Event source
 
@@ -97,7 +116,7 @@ kubectl create secret generic awscreds \
 ```
 
 !!! tip "AWS Credentials"
-    Setting up AWS Credentials tips can be found [here](https://docs.triggermesh.io/cloud/sources/awssqs/#api-credentials).
+    Instructions about setting up AWS security credentials can be found in the [documentation page for the Amazon SQS source](https://docs.triggermesh.io/cloud/sources/awssqs/#api-credentials).
 
 Then, write a YAML manifest for your SQS source similar to the one below. The following sample points to a SQS queue, referenced by its ARN and a secret called `awscreds`.
 
@@ -113,12 +132,12 @@ spec:
     credentials:
       accessKeyID:
         valueFromSecret:
-          key: access_key_id
           name: awscreds
+          key: access_key_id
       secretAccessKey:
         valueFromSecret:
-          key: secret_access_key
           name: awscreds
+          key: secret_access_key
   sink:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -146,31 +165,6 @@ You can go to the AWS SQS console and put a message in the queue as shown in the
 The message will get consumed by the source and sent directly to Sockeye in a [CloudEvent](https://cloudevents.io/) format. Below is a screenshot of Sockeye displaying the received event.
 
 ![](../assets/images/sqs-sockeye-ui.png)
-
-!!! tip "Minikube"
-    Sockeye's URL at minikube will need to be added the networking layer port.
-    ```console
-    kubectl get ksvc sockeye
-    NAME      URL                                            LATESTCREATED   LATESTREADY     READY   REASON
-    sockeye   http://sockeye.sebgoa.192.168.49.2.sslip.io   sockeye-00001   sockeye-00001   True
-    ```
-
-    Replace the network layer name and service if not using kourier.
-
-    ```console
-    kubectl get svc \
-      -n kourier-system kourier \
-      -o jsonpath='{range .spec.ports[*]}{.port}{"\t"}--> {.nodePort}{"\n"}{end}'
-    ```
-
-    Use the retrieved port for the HTTP protocol.
-    ```
-    # If the networking layer were using 31280 nodeport for HTTP
-    http://sockeye.sebgoa.192.168.49.2.sslip.io:31280/
-    ```
-
-
-
 
 ## More about Sources
 
