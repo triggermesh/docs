@@ -19,10 +19,10 @@ The `DataWeaveTransformation` can have a pre-defined parameters configured in th
 
 ## DataWeaveTransformation parameters
 
-- allowPerEventDwSpell: Allow to send the DataWeaveSpell as part of the request. (Optional)
-- dwSpell: DataWeave spell used to transform incoming CloudEvents. (Optional)
-- inputContentType: Content type for transformation ['application/json', 'application/xml']. (Optional)
-- outputContentType: Content type for transformation output. ['application/json', 'application/xml']. (Optional)
+- `allowPerEventDwSpell`: Allow to send the DataWeaveSpell as part of the request. (Optional)
+- `dwSpell`: DataWeave spell used to transform incoming CloudEvents. (Optional)
+- `inputContentType`: Content type for transformation ['application/json', 'application/xml']. (Optional)
+- `outputContentType`: Content type for transformation output. ['application/json', 'application/xml']. (Optional)
 
 Below is a sample DataWeave spell that will be used throughout the guide.
 ```
