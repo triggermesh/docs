@@ -91,7 +91,7 @@ kubectl apply -f <manifest.yaml>
 ```
 
 ## Deploying the `EventDisplay` Service
-Let's now deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
+Let's now deploy the Sink of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
 be deployed by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`:
 
 ```yaml
