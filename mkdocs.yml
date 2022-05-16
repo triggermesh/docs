@@ -57,6 +57,10 @@ nav:
       - Using an AWS AMI: guides/installation-ami.md
       - Using Helm: guides/installation-helm.md
       - Tanzu Community Edition: guides/installation-tce.md
+    - Observability:
+      - '': guides/observability.md
+      - Structured logging: guides/observability-logging.md
+      - Telemetry metrics: guides/observability-metrics.md
     - Integration Language:
       - '': til/Introduction.md
       - CLI: til/Commands.md
@@ -130,9 +134,10 @@ extra:
 
 markdown_extensions:
   - attr_list
-  - admonition
-  - pymdownx.superfences
   - def_list
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
 
