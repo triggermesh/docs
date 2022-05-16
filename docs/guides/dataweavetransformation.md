@@ -15,7 +15,7 @@ A `DataWeaveTransformation` object can be configured to either reply to the even
 transformed data to a `Sink`, if one is provided. In this guide, we will deploy without a `Sink` and 
 configure the replies from the transformation to route to the `EventDisplay` service using a `Broker` and a `Trigger`.
 
-The DataWeaveTransformation can have a pre-defined parameters configured in the yaml but it also allows to send the parameters as part of the request. In this guide we will use both ways, we will configure the pre-defined parameters in the yaml but we will also use other parameters in the request, which is made possible by enabling the allowPerEventDwSpell parameter.
+The `DataWeaveTransformation` can have a pre-defined parameters configured in the YAML but it also allows to send the parameters as part of the request. In this guide we will use both ways; we will configure the pre-defined parameters in the YAML but we will also use other parameters in the request, which is made possible by enabling the `allowPerEventDwSpell` parameter.
 
 ## DataWeaveTransformation parameters
 
