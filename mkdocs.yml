@@ -60,7 +60,7 @@ nav:
       - Tanzu Community Edition: guides/installation-tce.md
     - Observability:
       - '': guides/observability.md
-      - Structured logging: guides/observability-logging.md
+      #- Structured logging: guides/observability-logging.md
       - Telemetry metrics: guides/observability-metrics.md
     - Integration Language:
       - '': til/Introduction.md
