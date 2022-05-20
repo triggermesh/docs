@@ -1,8 +1,8 @@
 # Component Scaling
 
-TriggerMesh Components that are able to spin up replicas without leading to missing or duplicated events will scale uner heavy load.
+TriggerMesh Components that are able to spin up replicas without leading to missing or duplicated events will scale under heavy load.
 
-In contrast those components whose external system imposes a model where multiple instances of a client are not allowed or require distributed coordination won't scale..
+In contrast those components whose external system imposes a model where multiple instances of a client are not allowed or require distributed coordination won't scale.
 
 As a general rule scaling per component type defaults to:
 
