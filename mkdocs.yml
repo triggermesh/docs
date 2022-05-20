@@ -50,6 +50,7 @@ nav:
       - Transforming XML with XSLT: guides/xslttransformation.md
       - Ingesting External CloudEvents: guides/cloudeventssource.md
       - Using TIL: guides/tilgettingstarted.md
+      - Using Kong with Knative: guides/kong-ingress.md
       - Bridges:
         - Webhook to Slack: guides/bridges/webhook-to-slack.md
     - Installation:

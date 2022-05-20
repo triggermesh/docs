@@ -189,7 +189,7 @@ spec:
           env:
             - name: TARGET
               value: Go Sample v1
-" | kubectl apply
+" | kubectl apply -f -
 ```
 
 Please note that the annotation `konghq.com/plugins` is
