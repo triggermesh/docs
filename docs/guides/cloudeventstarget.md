@@ -1,10 +1,10 @@
 # Exporting CloudEvents
 
-The Trigermesh `CloudEventsTarget` API object is used to export Cloudevents to external systems via HTTP.
+The TriggerMesh `CloudEventsTarget` API object is used to export CloudEvents to external systems via HTTP.
 
 ## Configuring a CloudEventsTarget Object
 
-The CloudEventsTarget accepts parameters to set the endpoint where CloudEvents will be sent and authentication. When succesfuly created it consumes and forwards to the configured an HTTP endpoint.
+The CloudEventsTarget accepts parameters to set the endpoint where CloudEvents will be sent and authentication.
 
 ### Configuring CloudEvents Endpoint
 
@@ -22,7 +22,7 @@ If the external system requires [Basic Authentication](https://datatracker.ietf.
 
 The credentials are defined under `spec.credentials.basicAuths`:
 
-!!! example "Credentials for 2 users"
+!!! example "Credentials"
     ```yaml
     spec:
       credentials:
@@ -36,6 +36,7 @@ The credentials are defined under `spec.credentials.basicAuths`:
 
 ## Using the CloudEventsTarget
 
+Lets now create a complete CloudEventsTarget
 Given the configuration options depicted in the preceding sections we can create this example CloudEventsTarget by creating this object at a TriggerMesh cluster:
 
 !!! example "Example CloudEventsTarget"
@@ -55,3 +56,11 @@ Given the configuration options depicted in the preceding sections we can create
               name: ce-target-password
               key: password
     ```
+
+Write the example YAML object above to a file replacing endpoint and credentials to suit your needs, then apply it to your cluster:
+
+```console
+kubectl apply -f my-cloudeventstarget.yaml
+```
+
+The running object might be used now as a Trigger's subscriptor to consume CloudEvents from a Broker and forward them to an external endpoint.
