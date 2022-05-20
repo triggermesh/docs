@@ -15,3 +15,4 @@ Bridges define how we connect our applications and services, and they may consis
 * [Transformations](concepts/transformation.md) are a set of modifications to incoming events. Examples include annotating incoming events with timestamps, dropping fields, or rearranging data to fit an expected format.
 * [Functions](concepts/functions.md) implement custom event flow logic and may act as a source, transformation, or target. Functions support Python, NodeJS, and Ruby runtimes.
 * [TriggerMesh Integration Language](til/Introduction.md) (TIL) is a user-friendly configuration language for writing your Bridges as integrations as code. TIL is based off of the [HCL](https://github.com/hashicorp/hcl) syntax and should be familiar to users of [Terraform](https://terraform.io).
+* [Scaling](concepts/scaling.md) explain how TriggerMesh components scale under load.
