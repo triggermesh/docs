@@ -42,15 +42,3 @@ As an example a load test for a single TriggerMesh component looks like this:
     - Ramp down: replicas start to be removed as long as they are not needed.
     - Zero load: replicas are kept for 5 minutes receiving no requests, then they are removed.
 
-## Configuration
-
-When installing TriggerMesh scaling parameters can be customized to configure:
-
-- Scale to zero enabling.
-- Scaling metrics (requests, concurrency, resources).
-- Metrics threshold.
-- Scaling rate.
-- Time windows.
-
-!!! tip "Tip"
-    Depending on the scaling metrics used a range of further options might be available.
