@@ -14,7 +14,7 @@ Transformation | Yes |
 Routing | Yes |
 
 !!! tip "Tip"
-    When a component that does not support scaling reachs its maximum capacity it is usually a good practice to partition the external service/data and configure multiple components.
+    When a component that does not support scaling reaches its maximum capacity it is usually a good practice to partition the external service/data and configure multiple components.
 
 ## Scaling behavior
 
