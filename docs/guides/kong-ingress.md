@@ -157,7 +157,7 @@ plugin: response-transformer
 EOF
 ```
 
-Next, we will update the Knative service created before and add an annotation in the template:
+Next, we will update the Knative service created before and add an annotation to the template:
 
 ```console
 kubectl apply -f - <<EOF
