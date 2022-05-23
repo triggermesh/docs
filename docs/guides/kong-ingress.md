@@ -180,7 +180,10 @@ spec:
 EOF
 ```
 
-Note that the annotation `konghq.com/plugins` is not added to the Service definition itself but to the `spec.template.metadata.annotations`.
+!!! tip "Kubernetes namespace"
+    Note that the annotation `konghq.com/plugins` is not added to the Service definition itself but to the `spec.template.metadata.annotations`.
+
+
 
 Let's make the request again:
 
