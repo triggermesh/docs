@@ -1,43 +1,53 @@
 # Using Kong with Knative
-The Kong Ingress Controller can be configured as the network layer for serverless workloads managed via Knative.
 
-In this guide, we will learn how to use Kong with Knative services and
-configure plugins for Knative services.
+The Kong Ingress Controller can be configured as the network layer for TriggerMesh/Knative, enabling it to perform internal and external routing.
+
+The steps in this article guide you through the installation and configuration process, referring to external links when information beyond this scope is needed.
 
 ## Pre-requisite
-The Knative project is a dependency, install it using the instructions in the [Knative documentation](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-the-knative-serving-component)
 
-note: *You should not install the networking layer.*
+Knative Serving needs to be installed on a Kubernetes cluster, follow the instructions [at the documentation](https://knative.dev/docs/install/) to install it, skipping the network layer.
 
-* A Kubernetes cluster version `v1.21+`
-* Knative `v1.0.0+`
+!!! Info "Knative networking layer"
+    Kong is a networking layer option for Knative, you don't need to install any of the other choices at the project's documentation.
+
+This guide was written using:
+
+* Kubernetes `v1.21`
+* Knative `v1.4.0`
+* Kong Ingress Controller `2.3.1` (includes Kong `2.8`)
 
 ## Install Kong Ingress Controller
 
-```
+Kong Ingress Controller can be installed using either the YAML manifest at their repository or helm charts.
+
+When using YAML, apply the provided manifest:
+
+```console
 kubectl apply -f https://bit.ly/k4k8s
 ```
 
-You can also use [Helm installation](https://github.com/Kong/charts/blob/main/charts/kong/README.md) method.
+When using Helm [follow their installation instructions](https://github.com/Kong/charts/blob/main/charts/kong/README.md).
 
-Once Kong is installed, you should note down the IP address or public CNAME of `kong-proxy` service.
+Once Kong is installed take note of the IP address or public CNAME of the `kong-proxy` service at the `kong` namespace.
 
-```shell
-$ kubectl -n kong get svc kong-proxy
+```console
+kubectl -n kong get svc kong-proxy
+
 NAME         TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
-kong-proxy   LoadBalancer   10.98.223.191   35.241.22.45     80:30119/TCP,443:31585/TCP   1m
+kong-proxy   LoadBalancer   10.98.223.191   35.141.22.45     80:30119/TCP,443:31585/TCP   1m
 ```
 
-Take a note of the above IP address `35.241.22.45`.
+In the example above the external IP address `35.141.22.45` was provisioned.
 
 ## Configure Knative to use Kong for Ingress
 
-### Ingress class
+### Knative Ingress class
 
 We will configure Knative to use `kong` as the Ingress class:
 
-```
-$ kubectl patch configmap/config-network \
+```console
+kubectl patch configmap/config-network \
   --namespace knative-serving \
     --type merge \
       --patch '{"data":{"ingress.class":"kong"}}'
@@ -45,30 +55,27 @@ $ kubectl patch configmap/config-network \
 
 ## Setup Knative domain
 
-As the final step, we need to configure Knative's base domain at which our services will be accessible. We override the default ConfigMap with the DNS name of `35.241.22.45.nip.io`.
+Use the Kong Ingress external IP or CNAME to configure your the domain name resolution as explained at [Knative's documentation](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#configure-dns).
 
-```
-$ echo '
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: config-domain
-  namespace: knative-serving
-  labels:
-    serving.knative.dev/release: v1.4.0
-data:
-  35.241.22.45.nip.io: ""
-' | kubectl apply -f -
+In this example we are not configuring a real DNS but using free wildcard domain tools like [sslip.io](https://sslip.io/) or [nip.io](https://nip.io/)
+
+```console
+kubectl patch configmap/config-domain \
+  --namespace knative-serving \
+  --type merge \
+  --patch '{"data":{"35.141.22.45.nip.io":""}}'
 ```
 
 Once this is done, the setup is complete.
 
-## Test connectivity to Kong
+## Test
 
-Send a request to the above domain that we have configured:
+### Test Connectivity
 
-```bash
-curl -i http://35.241.22.45.nip.io/
+Send a request to the configured domain and make sure that a 404 response is returned:
+
+```console
+curl -i http://35.141.22.45.nip.io/
 HTTP/1.1 404 Not Found
 Date: Wed, 11 May 2022 12:01:21 GMT
 Content-Type: application/json; charset=utf-8
@@ -80,12 +87,14 @@ Server: kong/2.8.1
 {"message":"no Route matched with those values"}
 ```
 
-The 404 response is expected since we have not configured any services in Knative yet.
+The 404 response is expected since we have not configured any services yet.
 
-## Install a Knative Service
+### Test Service
 
-```
-$ echo "
+Deploy a Knative Service:
+
+```console
+kubectl apply -f - <<EOF
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
@@ -98,46 +107,44 @@ spec:
         - image: gcr.io/knative-samples/helloworld-go
           env:
             - name: TARGET
-              value: Go Sample v1
-" | kubectl apply -f -
+              value: TriggerMesh
+EOF
 ```
 
-It can take a couple of minutes for everything to get configured but eventually, you will see the URL of the Service.
+Wait for the service to be ready, then get it's exposed URL. The URL should be a sub-domain of the configured CNAME:
 
-```shell
-$ kubectl get ksvc
+```console
+kubectl get ksvc
 NAME            URL                                             LATESTCREATED         LATESTREADY           READY   REASON
-helloworld-go   http://helloworld-go.default.35.241.22.45.nip.io   helloworld-go-00001   helloworld-go-00001   True
+helloworld-go   http://helloworld-go.default.35.141.22.45.nip.io   helloworld-go-00001   helloworld-go-00001   True
 ```
 
-Let's make the call to the URL:
+A call to the URL using a web browser or `curl` should return a successful text response:
 
-```shell
-$ curl -v http://helloworld-go.default.35.241.22.45.nip.io
+```console
+curl -v http://helloworld-go.default.35.141.22.45.nip.io
 HTTP/1.1 200 OK
 Content-Type: text/plain; charset=utf-8
 Content-Length: 20
 Connection: keep-alive
 Date: Wed, 11 May 2022 12:10:26 GMT
-X-Kong-Upstream-Latency: 1666
+X-Kong-Upstream-Latency: 16
 X-Kong-Proxy-Latency: 1
 Via: kong/2.8.1
 
-Hello Go Sample v1!
+Hello TriggerMesh!
 ```
 
-The request is served by Knative and from the response HTTP headeres, we can tell that the request was proxied by Kong.
-
-The first request will also take longer to complete as Knative will spin up a new Pod to service the request. We can see how Kong observed this latency and recorded it in the `X-Kong-Upstream-Latency` header. If you perform subsequent requests, they should complete much faster.
+By inspecting the returned headers for the request above we can tell that it was proxied by Kong, latency headers being added to the response.
 
 ## Plugins for knative services
 
-Let's now execute a plugin for our new Knative service.
+Kong supports plugins to customize knative services requests and responses.
 
 First, let's create a KongPlugin resource:
 
-```shell
-$ echo "
+```console
+kubectl apply -f - <<EOF
 apiVersion: configuration.konghq.com/v1
 kind: KongPlugin
 metadata:
@@ -147,13 +154,13 @@ config:
     headers:
     - 'demo: injected-by-kong'
 plugin: response-transformer
-" | kubectl apply -f -
+EOF
 ```
 
 Next, we will update the Knative service created before and add an annotation in the template:
 
-```shell
-$ echo "
+```console
+kubectl apply -f - <<EOF
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
@@ -169,16 +176,16 @@ spec:
         - image: gcr.io/knative-samples/helloworld-go
           env:
             - name: TARGET
-              value: Go Sample v1
-" | kubectl apply -f -
+              value: TriggerMesh
+EOF
 ```
 
-Please note that the annotation `konghq.com/plugins` is not added to the Service definition itself but to the `spec.template.metadata.annotations`.
+Note that the annotation `konghq.com/plugins` is not added to the Service definition itself but to the `spec.template.metadata.annotations`.
 
 Let's make the request again:
 
-```shell
-$ curl -i http://helloworld-go.default.35.241.22.45.nip.io/
+```console
+curl -i http://helloworld-go.default.35.241.22.45.nip.io/
 HTTP/1.1 200 OK
 Content-Type: text/plain; charset=utf-8
 Content-Length: 20
@@ -189,7 +196,7 @@ X-Kong-Upstream-Latency: 3
 X-Kong-Proxy-Latency: 0
 Via: kong/2.8.1
 
-Hello Go Sample v1!
+Hello TriggerMesh!
 ```
 
 As we can see, the response has the `demo` header injected.
