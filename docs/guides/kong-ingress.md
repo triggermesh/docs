@@ -53,7 +53,7 @@ kubectl patch configmap/config-network \
       --patch '{"data":{"ingress.class":"kong"}}'
 ```
 
-## Setup Knative domain
+### Setup Knative Domain
 
 Use the Kong Ingress external IP or CNAME to configure your the domain name resolution as explained at [Knative's documentation](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#configure-dns).
 
