@@ -21,9 +21,7 @@ kubectl apply -f https://bit.ly/k4k8s
 
 You can also use [Helm installation](https://github.com/Kong/charts/blob/main/charts/kong/README.md) method.
 
-Once Kong is installed,
-you should note down the IP address or public CNAME of
-`kong-proxy` service.
+Once Kong is installed, you should note down the IP address or public CNAME of `kong-proxy` service.
 
 In the current case case:
 
