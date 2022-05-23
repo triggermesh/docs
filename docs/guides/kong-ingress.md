@@ -137,7 +137,7 @@ Hello TriggerMesh!
 
 By inspecting the returned headers for the request above we can tell that it was proxied by Kong, latency headers being added to the response.
 
-## Plugins for knative services
+### Test Kong Plugins For Knative Services
 
 Kong supports plugins to customize knative services requests and responses.
 
