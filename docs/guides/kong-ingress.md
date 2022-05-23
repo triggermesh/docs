@@ -40,7 +40,7 @@ kong-proxy   LoadBalancer   10.98.223.191   35.141.22.45     80:30119/TCP,443:31
 
 In the example above the external IP address `35.141.22.45` was provisioned.
 
-## Configure Knative to use Kong for Ingress
+## Configure Kong Network Layer For Knative
 
 ### Knative Ingress class
 
