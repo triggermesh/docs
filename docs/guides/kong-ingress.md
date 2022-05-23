@@ -68,7 +68,7 @@ kubectl patch configmap/config-domain \
 
 Once this is done, the setup is complete.
 
-## Test
+## Try It
 
 ### Test Connectivity
 
