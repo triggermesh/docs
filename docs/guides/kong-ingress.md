@@ -42,7 +42,7 @@ In the example above the external IP address `35.141.22.45` was provisioned.
 
 ## Configure Kong Network Layer For Knative
 
-### Knative Ingress class
+### Knative Ingress Class
 
 We will configure Knative to use `kong` as the Ingress class:
 
