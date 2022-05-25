@@ -62,8 +62,7 @@ and delete messages from any queue linked to the AWS account:
             "Action": [
                 "sqs:GetQueueUrl",
                 "sqs:ReceiveMessage",
-                "sqs:DeleteMessage",
-                "sqs:DeleteMessageBatch"
+                "sqs:DeleteMessage"
             ],
             "Resource": [
                 "arn:aws:sqs:*:*:*"

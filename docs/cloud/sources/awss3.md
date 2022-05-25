@@ -68,8 +68,7 @@ As an example, the following policy contains only the permissions required by th
             "Action": [
                 "sqs:GetQueueUrl",
                 "sqs:ReceiveMessage",
-                "sqs:DeleteMessage",
-                "sqs:DeleteMessageBatch"
+                "sqs:DeleteMessage"
             ],
             "Resource": "arn:aws:sqs:*:*:*"
         }

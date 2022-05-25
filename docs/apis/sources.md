@@ -27,6 +27,8 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSource">AWSDynamoDBSource</a>
 </li><li>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSource">AWSEventBridgeSource</a>
+</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSource">AWSKinesisSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSource">AWSPerformanceInsightsSource</a>
@@ -923,6 +925,168 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
 github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSource">AWSEventBridgeSource
+</h3>
+<p>
+<p>AWSEventBridgeSource is the Schema for the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>AWSEventBridgeSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceSpec">
+AWSEventBridgeSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>arn</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
+github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
+</em>
+</td>
+<td>
+<p>EventBridge event bus ARN
+<a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html#amazoneventbridge-resources-for-iam-policies">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html#amazoneventbridge-resources-for-iam-policies</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventPattern</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Event pattern used to select events that this source should subscribe to.
+If not specified, the event rule is created with a catch-all pattern.
+<a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>destination</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestination">
+AWSEventBridgeSourceDestination
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>The intermediate destination of notifications originating from the
+Amazon EventBridge event bus, before they are retrieved by this
+event source.
+If omitted, an Amazon SQS queue is automatically created and
+associated with the EventBridge event rule.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Amazon S3 and SQS APIs.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceStatus">
+AWSEventBridgeSourceStatus
 </a>
 </em>
 </td>
@@ -5237,6 +5401,7 @@ ZendeskSourceStatus
 <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySourceSpec">AWSCognitoIdentitySourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSourceSpec">AWSCognitoUserPoolSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSourceSpec">AWSDynamoDBSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceSpec">AWSEventBridgeSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">AWSPerformanceInsightsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>, 
@@ -6050,6 +6215,239 @@ knative.dev/pkg/apis.URL
 </td>
 <td>
 <p>URL of the endpoint.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestination">AWSEventBridgeSourceDestination
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceSpec">AWSEventBridgeSourceSpec</a>)
+</p>
+<p>
+<p>AWSEventBridgeSourceDestination contains possible intermediate destinations
+for the event bus&rsquo; events.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>sqs</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestinationSQS">
+AWSEventBridgeSourceDestinationSQS
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Amazon SQS destination.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestinationSQS">AWSEventBridgeSourceDestinationSQS
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestination">AWSEventBridgeSourceDestination</a>)
+</p>
+<p>
+<p>AWSEventBridgeSourceDestinationSQS contains properties of an Amazon SQS
+queue to use as destination for the event bus&rsquo; events.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>queueARN</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
+github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
+</em>
+</td>
+<td>
+<p>SQS Queue ARN
+<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies">https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceSpec">AWSEventBridgeSourceSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSource">AWSEventBridgeSource</a>)
+</p>
+<p>
+<p>AWSEventBridgeSourceSpec defines the desired state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>arn</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
+github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
+</em>
+</td>
+<td>
+<p>EventBridge event bus ARN
+<a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html#amazoneventbridge-resources-for-iam-policies">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html#amazoneventbridge-resources-for-iam-policies</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventPattern</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Event pattern used to select events that this source should subscribe to.
+If not specified, the event rule is created with a catch-all pattern.
+<a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>destination</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestination">
+AWSEventBridgeSourceDestination
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>The intermediate destination of notifications originating from the
+Amazon EventBridge event bus, before they are retrieved by this
+event source.
+If omitted, an Amazon SQS queue is automatically created and
+associated with the EventBridge event rule.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
+AWSAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Amazon S3 and SQS APIs.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceStatus">AWSEventBridgeSourceStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSource">AWSEventBridgeSource</a>)
+</p>
+<p>
+<p>AWSEventBridgeSourceStatus defines the observed state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>Status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>Status</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>ruleARN</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
+github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueARN</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
+github.com/triggermesh/triggermesh/pkg/apis.ARN
+</a>
+</em>
+</td>
+<td>
 </td>
 </tr>
 </tbody>
@@ -10775,5 +11173,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ca57be1e</code>.
+on git commit <code>d260660c</code>.
 </em></p>
