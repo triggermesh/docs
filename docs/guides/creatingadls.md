@@ -30,6 +30,16 @@ spec:
     retry: <integer>
 ```
 
+Where: 
+
+The `deadLetterSink` spec contains configuration settings to enable using a dead letter sink. This tells the Subscription what happens to events that cannot be delivered to the subscriber. When this is configured, events that fail to be delivered are sent to the dead letter sink destination. The destination can be a Knative Service or a URI. In the example, the destination is a Service object, or Knative Service, named example-sink.
+
+The `backoffDelay` delivery parameter specifies the time delay before an event delivery retry is attempted after a failure. The duration of the backoffDelay parameter is specified using the ISO 8601 format. For example, PT1S specifies a 1 second delay.
+
+The `backoffPolicy` delivery parameter can be used to specify the retry back off policy. The policy can be specified as either linear or exponential. When using the linear back off policy, the back off delay is the time interval specified between retries. When using the exponential back off policy, the back off delay is equal to backoffDelay*2^<numberOfRetries>.
+retry specifies the number of times that event delivery is retried before the event is sent to the dead letter sink.
+
+  
 ### Broker Configuration
 
 You can configure how events are delivered for each Broker by adding a delivery spec, as shown in the following example:
