@@ -1,0 +1,20 @@
+
+apiVersion: eventing.knative.dev/v1
+kind: Broker
+metadata:
+  name: events
+---
+
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: ping-sockeye
+spec:
+  data: '{"name": "triggermesh"}'
+  schedule: "*/1 * * * *"
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: events
+

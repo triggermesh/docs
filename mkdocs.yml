@@ -43,6 +43,7 @@ nav:
     - Guides:
       - Creating a Source: guides/creatingasource.md
       - Creating a Target: guides/creatingatarget.md
+      - Creating a Wiretap: guides/createawiretap.md
       - Writing a Filter: guides/writingafilter.md
       - Creating a Splitter: guides/creatingasplitter.md
       - Doing a Transformation: guides/doingatransformation.md
@@ -53,6 +54,7 @@ nav:
       - Ingesting External CloudEvents: guides/cloudeventssource.md
       - Exporting CloudEvents: guides/cloudeventstarget.md
       - Using TIL: guides/tilgettingstarted.md
+      - Using Kong with Knative: guides/kong-ingress.md
       - Using Kuma Mesh with Knative: guides/kuma.md
       - Bridges:
         - Webhook to Slack: guides/bridges/webhook-to-slack.md
