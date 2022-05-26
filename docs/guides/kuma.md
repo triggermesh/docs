@@ -4,7 +4,7 @@
 
 The steps in this article guide you through the installation and configuration process, referring to external links when information beyond this scope is needed.
 
-## Pre-requisite
+## Pre-requisites
 
 Knative Serving needs to be installed on a Kubernetes cluster, follow the instructions [at the documentation](https://knative.dev/docs/install/)
 
