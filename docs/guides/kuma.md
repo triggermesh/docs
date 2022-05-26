@@ -22,9 +22,9 @@ This guide was written using:
 
 ## Install Kuma Service Mesh
 
-Install kumactl, follow the instructions [at the documentation](https://kuma.io/docs/1.6.x/installation/kubernetes/#download-kumactl)
+Kuma can be installed using their command line tool. Follow the instructions [at the documentation](https://kuma.io/docs/1.6.x/installation/kubernetes/#download-kumactl) to install `kumactl`.
 
-Once kumactl is installed, we are going to install Kuma Service Mesh in the cluster.
+Once installed execute this command to deploy Kuma Service Mesh in the cluster.
 
 ```console
 kumactl install control-plane --version=1.5.0 --env-var KUMA_RUNTIME_KUBERNETES_VIRTUAL_PROBES_ENABLED=false| kubectl apply -f -
