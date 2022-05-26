@@ -6,9 +6,9 @@ The steps in this article guide you through the installation and configuration p
 
 ## Pre-requisites
 
-Knative Serving needs to be installed on a Kubernetes cluster, follow the instructions [at the documentation](https://knative.dev/docs/install/)
+Knative Serving needs to be installed on a Kubernetes cluster. We will also install Kong as the networking layer for Knative Serving since it is an ideal companion for Kuma.
 
-Kong Ingress Controller, as our Knative Networking Layer, follow the instructions [at the documentation](kong-ingress.md)
+To install Knative Serving with Kong follow [our guide at the documentation](kong-ingress.md).
 
 !!! Info "Knative networking layer"
     Kong is a networking layer option for Knative, you don't need to install any of the other choices at the project's documentation.
