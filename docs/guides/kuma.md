@@ -33,7 +33,7 @@ kumactl install control-plane --version=1.5.0 --env-var KUMA_RUNTIME_KUBERNETES_
 !!! Info "Kuma Virtual Probes"
     The command provided at this guide disables [Kuma Virtual Probes](https://kuma.io/docs/1.6.x/policies). If you have an existing Kuma installation make sure virtual probes are disabled.
 
-Once Kuma Service Mesh is installed, you can see the pod running in the kuma-system namespace:
+Once Kuma Service Mesh is installed you should see the pod running in the `kuma-system` namespace:
 
 ```console
 kumactl -n kuma-system get pods
