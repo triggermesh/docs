@@ -10,9 +10,6 @@ Knative Serving needs to be installed on a Kubernetes cluster. We will also inst
 
 To install Knative Serving with Kong follow [our guide at the documentation](kong-ingress.md).
 
-!!! Info "Knative networking layer"
-    Kong is a networking layer option for Knative, you don't need to install any of the other choices at the project's documentation.
-
 This guide was written using:
 
 * Kubernetes `v1.21`
