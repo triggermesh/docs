@@ -77,7 +77,7 @@ ingress-kong-66844b5d85-mqmwk   3/3     Running   2 (7m38s ago)   7m51s
 
 Now the kong pod is running in the mesh.
 
-## Configure Knative
+## Add Knative Serving to Kuma Mesh
 
 We will add the label `kuma.io/sidecar-injection` to the knative-serving namespace, so knative-serving will be running in the mesh:
 
