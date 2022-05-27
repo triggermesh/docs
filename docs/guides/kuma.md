@@ -46,22 +46,18 @@ We will add the label `kuma.io/sidecar-injection` to the kong namespace, so kong
 kubectl label namespace kong kuma.io/sidecar-injection=enabled
 ```
 
-The kong-ingress deployment needs the following annotation to be running as a Kuma gateway. The kong installation manifest used already contains this annotation.
+The kong-ingress deployment needs the following annotation to be running as a Kuma gateway.
 
 ```text
 annotations: 
   kuma.io/gateway: enabled 
 ```
 
-We are going to check if it's already set:
+We are going to set it:
 
 ```console
-kubectl -n kong get deploy -o jsonpath='{.items[0].spec.template.metadata.annotations}'   
-
-{"kubectl.kubernetes.io/restartedAt":"2022-05-24T17:21:27+02:00","kuma.io/gateway":"enabled","traffic.sidecar.istio.io/includeInboundPorts":""}
+kubectl -n kong patch deploy ingress-kong --type='json' -p='[{"op": "add", "path": "/spec/template/metadata/annotations/kuma.io~1gateway", "value":"enabled"}]'
 ```
-
-As we can see the `kuma.io/gateway: enabled` is there.
 
 We should restart kong to be running in the mesh and acting as the kuma gateway.
 
