@@ -109,7 +109,7 @@ kubectl -n knative-serving patch deploy activator --type='json' -p='[{"op": "add
 kubectl -n knative-serving patch deploy activator --type='json' -p='[{"op": "add", "path": "/spec/template/metadata/annotations/traffic.kuma.io~1exclude-outbound-ports", "value":"8080"}]'
 ```
 
-Now we should restart the only two pods that we haven't add the port-exclusion to add them to the mesh like the rest:
+Now we should restart the only two pods that we haven't added the port-exclusion to add them to the mesh like the rest:
 
 ```console
 kubectl -n knative-serving rollout restart deployment controller domain-mapping
