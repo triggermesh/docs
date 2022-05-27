@@ -55,6 +55,7 @@ nav:
       - Exporting CloudEvents: guides/cloudeventstarget.md
       - Using TIL: guides/tilgettingstarted.md
       - Using Kong with Knative: guides/kong-ingress.md
+      - Using Kuma Mesh with Knative: guides/kuma.md
       - Bridges:
         - Webhook to Slack: guides/bridges/webhook-to-slack.md
     - Installation:
