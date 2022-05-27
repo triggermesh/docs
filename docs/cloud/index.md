@@ -32,3 +32,6 @@ If you would prefer to use a CLI, we have prepared `tm` for you.
 
 For example you will be able to bypass the console and do something like this:
 
+```
+tm deploy service hello -f gcr.io/google-samples/hello-app:1.0
+```
