@@ -212,7 +212,7 @@ Hello Go Sample v1!
 
 ## Kuma UI
 
-Kuma includes a dashboard that show some util information, to see it we are going to do a port-forward:
+Kuma includes a dashboard that shows information about mesh, gateway and proxies status. You can use `kubectl` to forward the exposed port locally.
 
 ```console
 kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
