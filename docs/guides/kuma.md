@@ -182,7 +182,6 @@ Wait for the service to be ready, then get it's exposed URL. The URL should be a
 kubectl get ksvc
 NAME URL LATESTCREATED LATESTREADY READY REASON
 helloworld-go   http://helloworld-go.default.10.101.62.158.nip.io   helloworld-go-00001   helloworld-go-00001   True 
-
 ```
 
 A call to the URL using a web browser or `curl` should return a successful text response:
