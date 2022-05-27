@@ -62,19 +62,16 @@ Events produced at the PingSource will flow as depicted above until they reach t
 
 Create the Broker as the host for this cluster's CloudEvents:
 
-```console
-kubectl apply -f - <<EOF
+```yaml
 apiVersion: eventing.knative.dev/v1
 kind: Broker
 metadata:
   name: receiver
-EOF
 ```
 
 Create a Knative service that runs the `event_display` image. We will look for received events by looking at the logs of this service.
 
-```console
-kubectl apply -f - <<EOF
+```yaml
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
@@ -87,13 +84,11 @@ spec:
     spec:
       containers:
       - image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
-EOF
 ```
 
 Using a Trigger we can link the `event-display` service with the broker to subscribe to all events flowing through it.
 
-```console
-kubectl apply -f - <<EOF
+```yaml
 kind: Trigger
 apiVersion: eventing.knative.dev/v1
 metadata:
@@ -105,13 +100,11 @@ spec:
       apiVersion: serving.knative.dev/v1
       kind: Service
       name: event-display
-EOF
 ```
 
 The `CloudEventsSource` component will expose an HTTP endpoint that ingest CloudEvents from external systems. We will configure this component to send ingested CloudEvents to the broker.
 
-```console
-kubectl apply -f - <<EOF
+```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
 kind: CloudEventsSource
 metadata:
@@ -122,7 +115,6 @@ spec:
       apiVersion: eventing.knative.dev/v1
       kind: Broker
       name: receiver
-EOF
 ```
 
 After completing the setup for all the receiver cluster components, any CloudEvent sent to the `CloudEventsSource` public endpoint will flow throw the broker and be delivered to the `event-display` service.
@@ -140,19 +132,16 @@ kubectl get cloudeventssources.sources.triggermesh.io gateway-in -ojsonpath='{.s
 
 Create the Broker that as the host for this cluster's CloudEvents:
 
-```console
-kubectl apply -f - <<EOF
+```yaml
 apiVersion: eventing.knative.dev/v1
 kind: Broker
 metadata:
   name: sender
-EOF
 ```
 
 A `PingSource` produces periodic events based on a cron expression. We will send the produced events to the broker object.
 
-```console
-kubectl apply -f - <<EOF
+```yaml
 apiVersion: sources.knative.dev/v1
 kind: PingSource
 metadata:
@@ -166,26 +155,22 @@ spec:
       apiVersion: eventing.knative.dev/v1
       kind: Broker
       name: sender
-EOF
 ```
 
 The `CloudEventsTarget` component is able to subscribe to a broker (using a trigger), and forward events to a remote destination. We will configure this component using the endpoint exposed by the `CloudEventsSource` at the destination cluster, make sure you replace the placeholder text at the following command.
 
-```console
-kubectl apply -f - <<EOF
+```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
 kind: CloudEventsTarget
 metadata:
   name: gateway-out
 spec:
   endpoint: <REPLACE-WITH-CLOUDEVENTSSOURCE-HTTP-ENDPOINT>
-EOF
 ```
 
 Subscribing the `CloudEventsTarget` to CloudEvents flowing through a broker is done via a trigger.
 
-```console
-kubectl apply -f - <<EOF
+```yaml
 kind: Trigger
 apiVersion: eventing.knative.dev/v1
 metadata:
@@ -197,7 +182,6 @@ spec:
       apiVersion: targets.triggermesh.io/v1alpha1
       kind: CloudEventsTarget
       name: gateway-out
-EOF
 ```
 
 ### Receiving Events
