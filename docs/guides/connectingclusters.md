@@ -3,11 +3,12 @@
 !!! Info "Installation"
     Make sure you have completed the installation [procedure](installation.md) before proceeding with any of the guides.
 
-In this guide we will connect 2 TriggerMesh/Knative clusters that will be able to interchange CloudEvents flowing through them. You might want to connect multiple TriggerMesh instances to:
+In this guide we will connect 2 TriggerMesh clusters that will be able to interchange CloudEvents flowing through them. You might want to connect multiple TriggerMesh instances to:
 
 - Move events between environments. For example from production to staging in order to perform tests with actual events.
 - Geographically distribute events among clusters.
 - Perform Cluster migrations.
+- Integrate heterogenous applications through real time events.
 
 ## Scenario
 
@@ -59,7 +60,7 @@ Events produced at the PingSource will flow as depicted above until they reach t
 !!! Info "Receiver cluster"
     Make sure your kubectl configuration is pointing to the receiver cluster.
 
-Create the Broker that as the host for this cluster's CloudEvents:
+Create the Broker as the host for this cluster's CloudEvents:
 
 ```console
 kubectl apply -f - <<EOF
@@ -70,7 +71,7 @@ metadata:
 EOF
 ```
 
-Create a Knative service that runs the `event_display` image. We will look for received events looking at the logs of this service.
+Create a Knative service that runs the `event_display` image. We will look for received events by looking at the logs of this service.
 
 ```console
 kubectl apply -f - <<EOF
