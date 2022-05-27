@@ -1,6 +1,6 @@
-# Using Kong with Knative
+# Using Kong with TriggerMesh
 
-The Kong Ingress Controller can be configured as the network layer for TriggerMesh/Knative, enabling it to perform internal and external routing.
+The Kong Ingress Controller can be configured as the network layer for TriggerMesh, enabling it to perform internal and external routing.
 
 The steps in this article guide you through the installation and configuration process, referring to external links when information beyond this scope is needed.
 

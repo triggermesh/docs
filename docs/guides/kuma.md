@@ -1,6 +1,6 @@
 # Using Kuma Service Mesh with TriggerMesh
 
-[Kuma](https://kuma.io) can be configured as a Service Mesh for TriggerMesh/Knative, providing security, observability and routing among other features.
+[Kuma](https://kuma.io) can be configured as a Service Mesh for TriggerMesh, providing security, observability and routing among other features.
 
 The steps in this article guide you through the installation and configuration process, referring to external links when information beyond this scope is needed.
 
