@@ -46,7 +46,6 @@ Events produced at the PingSource will flow as depicted above until they reach t
 
     Add LoadBalancer support to the receiver cluster by following [kind instructions](https://kind.sigs.k8s.io/docs/user/loadbalancer/).
 
-
     You can switch to each configured cluster using `kubectl config use-context` command.
 
     ```console
