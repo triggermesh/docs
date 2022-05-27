@@ -53,7 +53,7 @@ annotations:
   kuma.io/gateway: enabled 
 ```
 
-We are going to set it:
+Make sure that the annotation exists by issuing this command:
 
 ```console
 kubectl -n kong patch deploy ingress-kong --type='json' -p='[{"op": "add", "path": "/spec/template/metadata/annotations/kuma.io~1gateway", "value":"enabled"}]'
