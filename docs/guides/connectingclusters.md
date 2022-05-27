@@ -231,4 +231,3 @@ Triggers can be configured with filters to make sure only allowed CloudEvents tr
 !!! Info "HTTP Basic Authentication"
     HTTP Basic Authentication is not enctrypted. When used it is thoroughly recommended that Knative Serving is configured with TLS capabilities.
 
-
