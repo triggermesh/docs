@@ -81,7 +81,7 @@ We will add the label `kuma.io/sidecar-injection` to the knative-serving namespa
 kubectl label namespace knative-serving kuma.io/sidecar-injection=enabled
 ```
 
-### Configure Kuma service Mesh to Strict mode
+## Configure Kuma service Mesh to Strict mode
 
 Knative needs some pre-requisites to be able to work in the Kuma Mesh with mTLS set to `STRICT`. We are going to add some [port-exclusions](https://kuma.io/docs/dev/reference/kubernetes-annotations/#traffic-kuma-io-exclude-inbound-ports)
 
@@ -144,7 +144,7 @@ spec:
 EOF
 ```
 
-### Test Service
+## Test Service
 
 Deploy a Knative Service:
 
