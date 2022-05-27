@@ -38,7 +38,7 @@ NAME                                 READY   STATUS    RESTARTS   AGE
 kuma-control-plane-bd98c89dc-kwj97   1/1     Running   0          19s
 ```
 
-## Configure Kong
+## Add Kong to Kuma Mesh
 
 We will add the label `kuma.io/sidecar-injection` to the kong namespace, so kong will be running in the mesh:
 
