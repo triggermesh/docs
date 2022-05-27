@@ -217,16 +217,7 @@ Kuma includes a dashboard that shows information about mesh, gateway and proxies
 kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
 ```
 
-Now in a web browser we can open <http://localhost:5681/gui> and see the dashboard:
+To access the UI opening <http://localhost:5681/gui> with a web browser:
 
-Kuma Global Overview
-![Kuma Global Overview](../../assets/images/kuma/kuma-global-overview.png)
+![Kuma Global Overview](../assets/images/kuma/kuma-global-overview.png)
 
-Kuma Mesh Overview
-![Kuma Mesh Overview](../../assets/images/kuma/kuma-mesh-overview.png)
-
-Kuma Gateway
-![Kuma Gateway](../../assets/images/kuma/kuma-gateway.png)
-
-Kuma Data Plane Proxies
-![Kuma Data Plane Proxies](../../assets/images/kuma/kuma-data-plane-proxies.png)
