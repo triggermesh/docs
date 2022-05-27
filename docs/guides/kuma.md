@@ -65,13 +65,7 @@ We should restart kong to be running in the mesh and acting as the kuma gateway.
 kubectl -n kong rollout restart deployment ingress-kong
 ```
 
-```console
-kubectl -n kong get pods
-NAME                            READY   STATUS    RESTARTS        AGE
-ingress-kong-66844b5d85-mqmwk   3/3     Running   2 (7m38s ago)   7m51s
-```
-
-Now the kong pod is running in the mesh.
+After the restart the respawned Kong pods will be running inside the Kuma mesh.
 
 ## Add Knative Serving to Kuma Mesh
 
