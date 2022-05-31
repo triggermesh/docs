@@ -2,7 +2,7 @@
 
 ## What is a Dead Letter Sink?
 
-Triggermesh provides various configuration parameters to control the delivery of events in case of failure. For instance, you can decide to retry sending events that failed to be consumed, and if this didn't work you can decide to forward those events to a dead letter sink.
+TriggerMesh provides various configuration parameters to control the delivery of events in case of failure. For instance, you can decide to retry sending events that failed to be consumed, and if this didn't work you can decide to forward those events to a dead letter sink.
 
 ## Implementing a Dead Letter Sink
 
@@ -66,77 +66,61 @@ spec:
 Lets take a look at an example of a Broker with a dead letter sink and configure a simple bridge with a dead letter sink. For our discussion, let us consider [this example Bridge](../assets/yamlexamples/simple-bridge.yaml) as a starting point:
 
 ```yaml
-apiVersion: flow.triggermesh.io/v1alpha1
-kind: Bridge
+apiVersion: eventing.knative.dev/v1
+kind: Broker
 metadata:
-  name: cron-sockeye
-  annotations:
-    bridges.triggermesh.io/name: cron-sockeye
-    bridges.triggermesh.io/description: >-
-      This is a simple starter bridge containg only a PingSource and a broker.
+  name: events
+---
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: ping-sockeye
 spec:
-  components:
-    - object:
-        apiVersion: eventing.knative.dev/v1
-        kind: Broker
-        metadata:
-          name: events
-      options:
-        enableResync: false
-    - object:
-      apiVersion: sources.knative.dev/v1
-      kind: PingSource
-      metadata:
-        name: ping-sockeye
-      spec:
-        data: '{"name": "triggermesh"}'
-        schedule: "*/1 * * * *"
-        sink:
-          ref:
-            apiVersion: eventing.knative.dev/v1
-            kind: Broker
-            name: events
-            options:
-              enableResync: false
+  data: '{"name": "triggermesh"}'
+  schedule: "*/1 * * * *"
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: events
 ```
-
+  
 Now, lets modify this example to add a dead letter sink to the `Broker`. We can accomplish this in two steps:
 
 1. Add a service to catch the "dead letter" events. (We will be using `Sockeye` here, but in a production scenario you would want to use something like SQS, Kafka, or another Sink that has some form of persistence.)
 
 ```yaml
-    - object:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      metadata:
-        name: sockeye
-      spec:
-        template:
-          spec:
-            containers:
-              - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sockeye
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
 ```
 
 2. Update the `Broker` section to the following:
 
 ```yaml
-    - object:
-    apiVersion: eventing.knative.dev/v1
-    kind: Broker
-    metadata:
-    name: events
-    spec:
-    delivery:
-        deadLetterSink:
-        ref:
-            apiVersion: serving.knative.dev/v1
-            kind: Service
-            name: sockeye
-        backoffDelay: "PT0.5S"     # or ISO8601 duration
-        backoffPolicy: exponential # or linear
-        retry: 2
+---
+apiVersion: eventing.knative.dev/v1
+kind: Broker
+metadata:
+name: events
+spec:
+  delivery:
+    deadLetterSink:
+    ref:
+        apiVersion: serving.knative.dev/v1
+        kind: Service
+        name: sockeye
+    backoffDelay: "PT0.5S"     # or ISO8601 duration
+    backoffPolicy: exponential # or linear
+    retry: 2
 ```
-
 
 ## Viewing the Results of a Dead Letter Sink
 
