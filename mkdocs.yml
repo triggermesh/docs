@@ -43,6 +43,7 @@ nav:
     - Guides:
       - Creating a Source: guides/creatingasource.md
       - Creating a Target: guides/creatingatarget.md
+      - Creating a DLS: guides/creatingadls.md
       - Creating a Wiretap: guides/createawiretap.md
       - Writing a Filter: guides/writingafilter.md
       - Creating a Splitter: guides/creatingasplitter.md
