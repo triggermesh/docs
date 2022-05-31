@@ -2,75 +2,44 @@
 
 ## What is a Dead Letter Sink?
 
-TriggerMesh provides various configuration parameters to control the delivery of events in case of failure. For instance, you can decide to retry sending events that failed to be consumed, and if this didn't work you can decide to forward those events to a dead letter sink.
+A [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) is a Knative construct that allows the user to configure a destination for events that would otherwise be dropped due to some delivery failure. This is useful for scenarios where you want to ensure that events are not lost due to a failure in the underlying system.
 
-## Implementing a Dead Letter Sink
 
-There are two ways to implement a dead letter sink, either by use of a Subscription or by use of a Broker.
+## Creating a Bridge with a Dead Letter Sink.
 
-### Subscription Configuration
+In this example we are going to create a [Bridge](https://docs.triggermesh.io/concepts/) that contains a [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) object that will emit an event on a regular basis to a [Broker](https://knative.dev/docs/eventing/broker/), named `events`,  that will then forward the event to a [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service), named `event-display`. We will also be configuring our [Broker](https://knative.dev/docs/eventing/broker/) to use a [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) so that in the case of a delivery error to `event-display` the event will go to another [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) named `event-failure-capture`, instead of being lost into the void. We will then break the bridge by removing the `event-display` service, so that we can view the [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) in action!
 
-You can configure how events are delivered for each Subscription by adding a delivery spec to the Subscription object, as shown in the following example:
 
-```yaml
-apiVersion: messaging.knative.dev/v1
-kind: Subscription
-metadata:
-  name: example-subscription
-  namespace: example-namespace
-spec:
-  delivery:
-    deadLetterSink:
-      ref:
-        apiVersion: serving.knative.dev/v1
-        kind: Service
-        name: example-sink
-    backoffDelay: <duration>
-    backoffPolicy: <policy-type>
-    retry: <integer>
-```
+### Step 1: Create the Broker
 
-Where: 
-
-The `deadLetterSink` spec contains configuration settings to enable using a dead letter sink. This tells the Subscription what happens to events that cannot be delivered to the subscriber. When this is configured, events that fail to be delivered are sent to the dead letter sink destination. The destination can be a Knative Service or a URI. In the example, the destination is a Service object, or Knative Service, named example-sink.
-
-The `backoffDelay` delivery parameter specifies the time delay before an event delivery retry is attempted after a failure. The duration of the backoffDelay parameter is specified using the ISO 8601 format. For example, PT1S specifies a 1 second delay.
-
-The `backoffPolicy` delivery parameter can be used to specify the retry back off policy. The policy can be specified as either linear or exponential. When using the linear back off policy, the back off delay is the time interval specified between retries. When using the exponential back off policy, the back off delay is equal to backoffDelay*2^<numberOfRetries>.
-retry specifies the number of times that event delivery is retried before the event is sent to the dead letter sink.
-
-  
-### Broker Configuration
-
-You can configure how events are delivered for each Broker by adding a delivery spec, as shown in the following example:
-
-```yaml
-apiVersion: eventing.knative.dev/v1
-kind: Broker
-metadata:
-  name: with-dead-letter-sink
-spec:
-  delivery:
-    deadLetterSink:
-      ref:
-        apiVersion: serving.knative.dev/v1
-        kind: Service
-        name: example-sink
-    backoffDelay: <duration>
-    backoffPolicy: <policy-type>
-    retry: <integer>
-```
-
-### Example Broker Configuration
-
-Lets take a look at an example of a Broker with a dead letter sink and configure a simple bridge with a dead letter sink. For our discussion, let us consider [this example Bridge](../assets/yamlexamples/simple-bridge.yaml) as a starting point:
+Create a new [Broker](https://knative.dev/docs/eventing/broker/) with following configuration:
 
 ```yaml
 apiVersion: eventing.knative.dev/v1
 kind: Broker
 metadata:
   name: events
----
+spec:
+  delivery:
+    deadLetterSink:
+      ref:
+          apiVersion: serving.knative.dev/v1
+          kind: Service
+          name: event-failure-capture
+    backoffDelay: "PT0.5S"     # or ISO8601 duration
+    backoffPolicy: exponential # or linear
+    retry: 2
+```
+
+Here a [Broker](https://knative.dev/docs/eventing/broker/) named `events` with a [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) configured to send the events to a [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) `sockeye` is configured with a `backoffDelay` of `0.5s`, a `backoffPolicy` of `exponential`, and a `retry` number of 2 (more info about those properties can be found [here](https://knative.dev/docs/eventing/event-delivery/#configuring-subscription-event-delivery).
+
+
+
+### Step 2: Create the PingSource
+
+Create a [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) object with the following configuration:
+
+```yaml
 apiVersion: sources.knative.dev/v1
 kind: PingSource
 metadata:
@@ -84,17 +53,51 @@ spec:
       kind: Broker
       name: events
 ```
-  
-Now, lets modify this example to add a dead letter sink to the `Broker`. We can accomplish this in two steps:
 
-1. Add a service to catch the "dead letter" events. (We will be using `Sockeye` here, but in a production scenario you would want to use something like SQS, Kafka, or another Sink that has some form of persistence.)
+### Step 3: Create the `event-display` Service
+
+Create a [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) named `event-display` with the following configuration:
 
 ```yaml
----
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: sockeye
+  name: event-display
+spec:
+  template:
+    spec:
+      containers:
+      - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+        name: user-container
+```
+
+### Step 4: Create the `event-display` Trigger
+
+Create a [Trigger](https://knative.dev/docs/eventing/broker/triggers/) to route events to the `event-display` [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) with the following configuration:
+
+```yaml
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: failtest
+spec:
+  broker: events
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: event-display
+```
+
+### Step 5: Create the `event-failure-capture` Service
+
+Create a [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) named `event-failure-capture` with the following configuration:
+
+```yaml
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: event-failure-capture
 spec:
   template:
     spec:
@@ -102,33 +105,171 @@ spec:
         - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
 ```
 
-2. Update the `Broker` section to the following:
+### Step 6: Review and Apply
+
+Now that we have created all the necessary objects, we can review and apply the changes to the cluster. A concatenation of all the YAML objects is shown below:
 
 ```yaml
----
 apiVersion: eventing.knative.dev/v1
 kind: Broker
 metadata:
-name: events
+  name: events
 spec:
   delivery:
     deadLetterSink:
-    ref:
-        apiVersion: serving.knative.dev/v1
-        kind: Service
-        name: sockeye
+      ref:
+          apiVersion: serving.knative.dev/v1
+          kind: Service
+          name: event-failure-capture
     backoffDelay: "PT0.5S"     # or ISO8601 duration
     backoffPolicy: exponential # or linear
     retry: 2
+
+---
+
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: ping-sockeye
+spec:
+  data: '{"name": "triggermesh"}'
+  schedule: "*/1 * * * *"
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: events
+
+---
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: event-failure-capture
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+
+---
+
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: failtest
+spec:
+  broker: events
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: event-display
+
+---
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: event-display
+spec:
+  template:
+    spec:
+      containers:
+      - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+        name: user-container
 ```
 
-## Viewing the Results of a Dead Letter Sink
+Apply these changes to the cluster.
 
-Now that we have all the parts in place, we can monitor the events that are being sent to the dead letter sink. We can do this in two ways:
 
-1. View the pod logs of the `sockeye` service:
-  * `kubectl get pods` will show the pods that are running. Retrieve the sockeye pod name from the output.
-  * `kubectl logs <SOCKEYE_POD_NAME> user-container` By replacing the `<SOCKEYE_POD_NAME>` with the pod name you can view the logs of the sockeye pod.
+### Step 7: Test the Bridge
 
-2. View the web service exposed by the `sockeye` service:
-  * `kubectl get ksvc` will show the KSVC's that are running. Retrieve the sockeye public URL from the `URL` column and navigate to it in your browser.
+Now with everything in place if we retrieve the current pods in the namespace of deployment, we should see our `event-display` and `event-failure-capture` services running.
+
+
+```cmd
+$ kubectl get pods
+NAME                                              READY   STATUS    RESTARTS   AGE
+event-display-00001-deployment-689f6d648d-tx4r5   2/2     Running   0          34s
+sockeye-00001-deployment-6f488dcd5b-w8zmb         2/2     Running   0          34s
+```
+
+ After 60 secconds we should see the `event-failure-capture` service spin down, leaving us with only the `event-display` service running.
+
+```cmd
+$ kubectl get pods
+NAME                                              READY   STATUS    RESTARTS   AGE
+event-display-00001-deployment-689f6d648d-tx4r5   2/2     Running   0          2m
+```
+
+View the logs of the `event-display` service, to verify that the events are being recieved from the [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) object.
+
+```cmd
+$ kubectl logs event-display-00001-deployment-689f6d648d-tx4r5 user-container
+
+2022/05/31 20:45:00 Broadasting to 0 clients: {"data":{"name":"triggermesh"},"id":"0e429ad9-cf9d-451d-98ce-886fa92acc35","knativearrivaltime":"2022-05-31T20:45:00.250764419Z","source":"/apis/v1/namespaces/delme/pingsources/ping-sockeye","specversion":"1.0","time":"2022-05-31T20:45:00.250270401Z","type":"dev.knative.sources.ping"}
+got Validation: valid
+Context Attributes,
+  specversion: 1.0
+  type: dev.knative.sources.ping
+  source: /apis/v1/namespaces/delme/pingsources/ping-sockeye
+  id: 5c448228-f413-4cbd-b9a4-1c1472c1b96a
+  time: 2022-05-31T20:46:00.135993596Z
+Extensions,
+  knativearrivaltime: 2022-05-31T20:46:00.136447484Z
+Data,
+  {"name": "triggermesh"}
+
+```
+
+Here we can see that the events are being delivered and the [Bridge](https://docs.triggermesh.io/concepts/) is functioning properly.
+
+
+### Step 8: Break the Bridge
+
+Break the [Bridge](https://docs.triggermesh.io/concepts/) by removing the `event-display` [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service).
+
+```yaml
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: event-display
+spec:
+  template:
+    spec:
+      containers:
+      - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+        name: user-container
+```
+
+
+### Step 9: View the Events in the Dead Letter Sink
+
+Now that our [Bridge](https://docs.triggermesh.io/concepts/) is broken, if we view the current pods we find that the `event-display` [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) has been removed, and our `event-failure-capture` [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) has spun up.
+
+```cmd
+$ kubectl get pods
+NAME                                              READY   STATUS    RESTARTS   AGE
+sockeye-00001-deployment-6f488dcd5b-w8zmb         2/2     Running   0          34s
+```
+
+Retrieve the logs to view the, would be, lost events.
+
+```cmd
+$ kubectl logs sockeye-00001-deployment-6f488dcd5b-w8zmb user-container
+
+2022/05/31 20:45:00 Broadasting to 0 clients: {"data":{"name":"triggermesh"},"id":"0e429ad9-cf9d-451d-98ce-886fa92acc35","knativearrivaltime":"2022-05-31T20:45:00.250764419Z","source":"/apis/v1/namespaces/delme/pingsources/ping-sockeye","specversion":"1.0","time":"2022-05-31T20:45:00.250270401Z","type":"dev.knative.sources.ping"}
+got Validation: valid
+Context Attributes,
+  specversion: 1.0
+  type: dev.knative.sources.ping
+  source: /apis/v1/namespaces/delme/pingsources/ping-sockeye
+  id: 5c448228-f413-4cbd-b9a4-1c1472c1b96a
+  time: 2022-05-31T20:46:00.135993596Z
+Extensions,
+  knativearrivaltime: 2022-05-31T20:46:00.136447484Z
+Data,
+  {"name": "triggermesh"}
+
+```
