@@ -1,6 +1,6 @@
 # Injecting Cloudevents into the Broker
 
-This guide indtends to explain how to inject Cloudevents into a Knative Broker.
+This guide intends to explain how to inject Cloudevents into a Knative Broker.
 
 ## Method 1: Using a Curl Pod
 
