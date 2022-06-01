@@ -9,9 +9,11 @@ A [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) is a Kna
 
 In this example we are going to create a [Bridge](https://docs.triggermesh.io/concepts/) that contains a [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) object that will emit an event on a regular basis to a [Broker](https://knative.dev/docs/eventing/broker/) named `demo`. A [Service](https://knative.dev/docs/serving/services/), named `event-success-capture` will subscribe to PingSource events flowing through the Broker using a [Trigger](https://knative.dev/docs/eventing/broker/triggers/).
 
-The [Broker](https://knative.dev/docs/eventing/broker/) delivery options will be set to use a [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) so that in the case of a delivery error the event will be forwarded to another Service named `event-failure-capture` instead of being lost into the void.
+The Broker delivery options will be set to use a [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) so that in the case of a delivery error the event will be forwarded to another Service named `event-failure-capture` instead of being lost into the void.
 
-We will test the bridge to make sure events are delivered to `event-success-capture`, then we will break the bridge by removing the `event-success-capture` service, in which case we expect the [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) to receive all events that were not delivered.
+![bridge DLS](../assets/images/creatingadls/bridge-diagram.png)
+
+We will test the bridge to make sure events are delivered to `event-success-capture`, then we will break the bridge by removing the `event-success-capture` service, in which case we expect the Dead Letter Sink to receive all events that were not delivered.
 
 ## Creating a Bridge with a Dead Letter Sink
 
@@ -57,15 +59,15 @@ spec:
           apiVersion: serving.knative.dev/v1
           kind: Service
           name: event-failure-capture
-    backoffDelay: "PT0.5S"     # or ISO8601 duration
-    backoffPolicy: exponential # or linear
+    backoffDelay: "PT0.5S"     # ISO8601 duration
+    backoffPolicy: exponential # exponential or linear
     retry: 2
 ```
 
 Here a Broker named `demo` is configured with the following delivery options:
 
 - 2 retries on failure, backing off exponentialy with a 0.5 seconds factor. This is not the focus of this article but it is recommended to setup retries before giving up on delivery and sending to the DLS.
-- Dead letter sink pointing to a service named `event-failure-capture`. You can request the creation of this Broker even if the service does not exists yet.
+- Dead Letter Sink pointing to a service named `event-failure-capture`. Kubernetes can be requested the creation of this object even if the DLS service does not exists yet.
 
 
 ### Step 2: Create the PingSource
