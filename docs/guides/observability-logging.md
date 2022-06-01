@@ -1,9 +1,9 @@
 
 # Structured Logging
 
-TriggerMesh components communicate their internal events through the flexible logging system. Output format, structure,
-and granularity are adjustable through the configuration file. Information produced by the TriggerMesh logging system
-can be collected and stored by the centralized log management platform, such as AWS CloudWatch, and used for further
+TriggerMesh components communicate their internal events through a flexible logging system. Output format, structure,
+and granularity are adjustable through a configuration file. Information produced by the TriggerMesh logging system
+can be collected and stored by a centralized log management platform, such as the ELK stack or AWS CloudWatch, and used for further
 processing.
 
 <!-- This guide describes available logging parameters and demonstrates possible configuration for centralized log
