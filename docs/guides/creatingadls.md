@@ -5,20 +5,51 @@
 A [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) is a Knative construct that allows the user to configure a destination for events that would otherwise be dropped due to some delivery failure. This is useful for scenarios where you want to ensure that events are not lost due to a failure in the underlying system.
 
 
-## Creating a Bridge with a Dead Letter Sink.
+## Scenario Debriefing
 
-In this example we are going to create a [Bridge](https://docs.triggermesh.io/concepts/) that contains a [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) object that will emit an event on a regular basis to a [Broker](https://knative.dev/docs/eventing/broker/), named `events`,  that will then forward the event to a [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service), named `event-display`. We will also be configuring our [Broker](https://knative.dev/docs/eventing/broker/) to use a [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) so that in the case of a delivery error to `event-display` the event will go to another [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) named `event-failure-capture`, instead of being lost into the void. We will then break the bridge by removing the `event-display` service, so that we can view the [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) in action!
+In this example we are going to create a [Bridge](https://docs.triggermesh.io/concepts/) that contains a [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) object that will emit an event on a regular basis to a [Broker](https://knative.dev/docs/eventing/broker/) named `demo`. A [Service](https://knative.dev/docs/serving/services/), named `event-success-capture` will subscribe to PingSource events flowing through the Broker using a [Trigger](https://knative.dev/docs/eventing/broker/triggers/).
+
+The [Broker](https://knative.dev/docs/eventing/broker/) delivery options will be set to use a [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) so that in the case of a delivery error the event will be forwarded to another Service named `event-failure-capture` instead of being lost into the void.
+
+We will test the bridge to make sure events are delivered to `event-success-capture`, then we will break the bridge by removing the `event-success-capture` service, in which case we expect the [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) to receive all events that were not delivered.
+
+## Creating a Bridge with a Dead Letter Sink
+
+!!! Info "Creating objects"
+    All objects mentioned at this guide are intended to be created at kubernetes.
+    When using `kubectl` write the provided YAML manifests to a file and write at a console:
+
+    ```console
+    $ kubectl apply -f my-file.yaml
+    ```
+
+    Alternatively if you don't want to write the manifests to a file you can use this command:
+
+    ```console
+    $ kubectl apply -f - <<EOF
+    apiVersion: some.api/v1
+    kind: SomeObject
+    metadata:
+      name: some-name
+    spec:
+      some: property
+    EOF
+    ```
+
+!!! Info "Bridge manifest"
+    The next steps configure and explain the Bridge to build to demonstrate the usage of the Dead Letter Sink.
+    A single manifest containing all the objects in the bridge can be downloaded [here](../assets/yamlexamples/dls-example.yaml).
 
 
 ### Step 1: Create the Broker
 
-Create a new [Broker](https://knative.dev/docs/eventing/broker/) with following configuration:
+Create a new Broker with following configuration:
 
 ```yaml
 apiVersion: eventing.knative.dev/v1
 kind: Broker
 metadata:
-  name: events
+  name: demo
 spec:
   delivery:
     deadLetterSink:
@@ -31,8 +62,10 @@ spec:
     retry: 2
 ```
 
-Here a [Broker](https://knative.dev/docs/eventing/broker/) named `events` with a [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) configured to send the events to a [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) `sockeye` is configured with a `backoffDelay` of `0.5s`, a `backoffPolicy` of `exponential`, and a `retry` number of 2 (more info about those properties can be found [here](https://knative.dev/docs/eventing/event-delivery/#configuring-subscription-event-delivery).
+Here a Broker named `demo` is configured with the following delivery options:
 
+- 2 retries on failure, backing off exponentialy with a 0.5 seconds factor. This is not the focus of this article but it is recommended to setup retries before giving up on delivery and sending to the DLS.
+- Dead letter sink pointing to a service named `event-failure-capture`. You can request the creation of this Broker even if the service does not exists yet.
 
 
 ### Step 2: Create the PingSource
@@ -43,55 +76,63 @@ Create a [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) ob
 apiVersion: sources.knative.dev/v1
 kind: PingSource
 metadata:
-  name: ping-sockeye
+  name: say-hi
 spec:
-  data: '{"name": "triggermesh"}'
+  data: '{"hello": "triggermesh"}'
   schedule: "*/1 * * * *"
   sink:
     ref:
       apiVersion: eventing.knative.dev/v1
       kind: Broker
-      name: events
+      name: demo
 ```
 
-### Step 3: Create the `event-display` Service
+This object will emit an event every minute to the Broker created in the previous step.
 
-Create a [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) named `event-display` with the following configuration:
+### Step 3: Create the `event-success-capture` Service
+
+Create a Service named `event-success-capture` with the following configuration:
 
 ```yaml
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: event-display
+  name: event-success-capture
 spec:
   template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
     spec:
       containers:
-      - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
-        name: user-container
+      - image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
 ```
 
-### Step 4: Create the `event-display` Trigger
+That service will write to its standard output any CloudEvent received. We will use a Trigger to subscribe to all events flowing through the Broker.
 
-Create a [Trigger](https://knative.dev/docs/eventing/broker/triggers/) to route events to the `event-display` [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) with the following configuration:
+### Step 4: Create the `demo-to-display` Trigger
+
+Create a Trigger to route events to the `event-success-capture` Service with the following configuration:
 
 ```yaml
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: failtest
+  name: demo-to-display
 spec:
-  broker: events
+  broker: demo
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
       kind: Service
-      name: event-display
+      name: event-success-capture
 ```
+
+This Trigger configures the Broker to send all flowing events to the `event-success-capture` service.
 
 ### Step 5: Create the `event-failure-capture` Service
 
-Create a [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) named `event-failure-capture` with the following configuration:
+Create the Service named `event-failure-capture` that was configured at the Broker as the Dead Letter Sink parameter:
 
 ```yaml
 apiVersion: serving.knative.dev/v1
@@ -100,176 +141,104 @@ metadata:
   name: event-failure-capture
 spec:
   template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
     spec:
       containers:
-        - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+      - image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
 ```
 
-### Step 6: Review and Apply
+This service should only receive messages that could not be delivered to a destination.
 
-Now that we have created all the necessary objects, we can review and apply the changes to the cluster. A concatenation of all the YAML objects is shown below:
+## Test the Bridge
 
-```yaml
-apiVersion: eventing.knative.dev/v1
-kind: Broker
-metadata:
-  name: events
-spec:
-  delivery:
-    deadLetterSink:
-      ref:
-          apiVersion: serving.knative.dev/v1
-          kind: Service
-          name: event-failure-capture
-    backoffDelay: "PT0.5S"     # or ISO8601 duration
-    backoffPolicy: exponential # or linear
-    retry: 2
+Make sure that all created objects are ready by inspecting the `READY` column after this command:
 
----
+```console
+$ kubectl get ksvc,broker,trigger
 
-apiVersion: sources.knative.dev/v1
-kind: PingSource
-metadata:
-  name: ping-sockeye
-spec:
-  data: '{"name": "triggermesh"}'
-  schedule: "*/1 * * * *"
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: events
+NAME                                                URL                                                          LATESTCREATED                 LATESTREADY                   READY   REASON
+service.serving.knative.dev/event-failure-capture   http://event-failure-capture.default.192.168.49.2.sslip.io   event-failure-capture-00001   event-failure-capture-00001   True
+service.serving.knative.dev/event-success-capture   http://event-success-capture.default.192.168.49.2.sslip.io   event-success-capture-00001   event-success-capture-00001   True
 
----
+NAME                               URL                                                                     AGE     READY   REASON
+broker.eventing.knative.dev/demo   http://broker-ingress.knative-eventing.svc.cluster.local/default/demo   3m20s   True
 
-apiVersion: serving.knative.dev/v1
-kind: Service
-metadata:
-  name: event-failure-capture
-spec:
-  template:
-    spec:
-      containers:
-        - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
-
----
-
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: failtest
-spec:
-  broker: events
-  subscriber:
-    ref:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: event-display
-
----
-
-apiVersion: serving.knative.dev/v1
-kind: Service
-metadata:
-  name: event-display
-spec:
-  template:
-    spec:
-      containers:
-      - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
-        name: user-container
+NAME                                           BROKER   SUBSCRIBER_URI                                           AGE     READY   REASON
+trigger.eventing.knative.dev/demo-to-display   demo     http://event-success-capture.default.svc.cluster.local   3m20s   True
 ```
 
-Apply these changes to the cluster.
+Each minute a CloudEvent should be produced by PingSource and sent to the Broker, which in turns would deliver it to the `event-success-capture`, while `event-failure-capture` should not be receiving any event. We can confirm that by reading each of those services output:
 
+!!! Info "Retrieving logs command"
+    Kubernetes generates dynamic Pod names, but we can use `kubectl` with the `-l` flag to filter by a label that identifies the Service.
 
-### Step 7: Test the Bridge
+    We also add the `-f` flag to keep receiving logs as they are produced, this way we can see the live feed of events arriving at the Service.
 
-Now with everything in place if we retrieve the current pods in the namespace of deployment, we should see our `event-display` and `event-failure-capture` services running.
+```console
+$ kubectl logs -l serving.knative.dev/service=event-success-capture  -c user-container -f
 
-
-```cmd
-$ kubectl get pods
-NAME                                              READY   STATUS    RESTARTS   AGE
-event-display-00001-deployment-689f6d648d-tx4r5   2/2     Running   0          34s
-sockeye-00001-deployment-6f488dcd5b-w8zmb         2/2     Running   0          34s
-```
-
- After 60 secconds we should see the `event-failure-capture` service spin down, leaving us with only the `event-display` service running.
-
-```cmd
-$ kubectl get pods
-NAME                                              READY   STATUS    RESTARTS   AGE
-event-display-00001-deployment-689f6d648d-tx4r5   2/2     Running   0          2m
-```
-
-View the logs of the `event-display` service, to verify that the events are being recieved from the [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) object.
-
-```cmd
-$ kubectl logs event-display-00001-deployment-689f6d648d-tx4r5 user-container
-
-2022/05/31 20:45:00 Broadasting to 0 clients: {"data":{"name":"triggermesh"},"id":"0e429ad9-cf9d-451d-98ce-886fa92acc35","knativearrivaltime":"2022-05-31T20:45:00.250764419Z","source":"/apis/v1/namespaces/delme/pingsources/ping-sockeye","specversion":"1.0","time":"2022-05-31T20:45:00.250270401Z","type":"dev.knative.sources.ping"}
-got Validation: valid
+☁️  cloudevents.Event
 Context Attributes,
   specversion: 1.0
   type: dev.knative.sources.ping
-  source: /apis/v1/namespaces/delme/pingsources/ping-sockeye
-  id: 5c448228-f413-4cbd-b9a4-1c1472c1b96a
-  time: 2022-05-31T20:46:00.135993596Z
+  source: /apis/v1/namespaces/default/pingsources/say-hi
+  id: efcaa3b7-bcdc-4fa9-a0b3-05d9a3c4a9f9
+  time: 2022-06-01T19:54:00.339597948Z
 Extensions,
-  knativearrivaltime: 2022-05-31T20:46:00.136447484Z
+  knativearrivaltime: 2022-06-01T19:54:00.340295729Z
 Data,
-  {"name": "triggermesh"}
-
+  {"hello": "triggermesh"}
 ```
 
-Here we can see that the events are being delivered and the [Bridge](https://docs.triggermesh.io/concepts/) is functioning properly.
+As expected the `event-success-capture` is receiving events produced by PingSource.
 
-
-### Step 8: Break the Bridge
-
-Break the [Bridge](https://docs.triggermesh.io/concepts/) by removing the `event-display` [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service).
-
-```yaml
-apiVersion: serving.knative.dev/v1
-kind: Service
-metadata:
-  name: event-display
-spec:
-  template:
-    spec:
-      containers:
-      - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
-        name: user-container
+```console
+$ kubectl logs -l serving.knative.dev/service=event-failure-capture  -c user-container -f
+2022/06/01 19:36:45 Failed to read tracing config, using the no-op default: empty json tracing config
 ```
 
+Meanwhile `event-failure-capture` is not showing any event.
 
-### Step 9: View the Events in the Dead Letter Sink
+## Test Failing Bridge
 
-Now that our [Bridge](https://docs.triggermesh.io/concepts/) is broken, if we view the current pods we find that the `event-display` [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) has been removed, and our `event-failure-capture` [Service](https://github.com/knative/specs/blob/main/specs/serving/knative-api-specification-1.0.md#service) has spun up.
+To make the Bridge fail will be removing the `event-success-capture` service. That will make the delivery fail and (after 2 retries) be sent to the Dead Letter Queue.
 
-```cmd
-$ kubectl get pods
-NAME                                              READY   STATUS    RESTARTS   AGE
-sockeye-00001-deployment-6f488dcd5b-w8zmb         2/2     Running   0          34s
+```console
+$ kubectl delete ksvc event-success-capture
+service.serving.knative.dev "event-success-capture" deleted
 ```
 
-Retrieve the logs to view the, would be, lost events.
+After doing so, all events not delivered by Broker through the configured Trigger will be shown at the `event-failure-capture`:
 
-```cmd
-$ kubectl logs sockeye-00001-deployment-6f488dcd5b-w8zmb user-container
+```console
+$ kubectl logs -l serving.knative.dev/service=event-failure-capture  -c user-container -f
 
-2022/05/31 20:45:00 Broadasting to 0 clients: {"data":{"name":"triggermesh"},"id":"0e429ad9-cf9d-451d-98ce-886fa92acc35","knativearrivaltime":"2022-05-31T20:45:00.250764419Z","source":"/apis/v1/namespaces/delme/pingsources/ping-sockeye","specversion":"1.0","time":"2022-05-31T20:45:00.250270401Z","type":"dev.knative.sources.ping"}
-got Validation: valid
+☁️  cloudevents.Event
 Context Attributes,
   specversion: 1.0
   type: dev.knative.sources.ping
-  source: /apis/v1/namespaces/delme/pingsources/ping-sockeye
-  id: 5c448228-f413-4cbd-b9a4-1c1472c1b96a
-  time: 2022-05-31T20:46:00.135993596Z
+  source: /apis/v1/namespaces/default/pingsources/say-hi
+  id: 7e11c3ac-2b00-49af-9602-59575f410b9f
+  time: 2022-06-01T20:14:00.054244562Z
 Extensions,
-  knativearrivaltime: 2022-05-31T20:46:00.136447484Z
+  knativearrivaltime: 2022-06-01T20:14:00.055027909Z
+  knativebrokerttl: 255
+  knativeerrorcode: 500
+  knativeerrordata:
+  knativeerrordest: http://broker-filter.knative-eventing.svc.cluster.local/triggers/default/demo-to-display/bd303253-c341-4d43-b5e2-bc3adf70122a
 Data,
-  {"name": "triggermesh"}
+  {"hello": "triggermesh"}
+```
 
+## Clean up
+
+Clean up the remaining resources by issuing this command:
+
+```console
+kubectl delete ksvc event-failure-capture
+kubectl delete triggers demo-to-display
+kubectl delete pingsource say-hi
+kubectl delete broker demo
 ```
