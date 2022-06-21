@@ -51,6 +51,26 @@ pairs between curly brackets called **labels**. Labels allow differentiating the
 measured. Each unique combination of labels identifies a particular **dimension** of a metric. Labels, and metric
 dimensions by extension, vary from metric to metric.
 
+### Enabling Metrics
+
+By default TriggerMesh does not enable any metrics backend. Observability of TriggerMesh can be configured 
+via the `config-observability` ConfigMap object.
+
+For example, the following ConfigMap object enables the Prometheus metrics exporter in all TriggerMesh components:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-observability
+  namespace: triggermesh
+data:
+  metrics.backend-destination: prometheus
+```
+
+For a description of the configuration settings which are currently supported, please refer to the 
+`observability.yaml` manifest files inside the [Knative Eventing source repository][kn-cmaps].
+
 ### Access to Metrics
 
 Every TriggerMesh component exposes a set of telemetry metrics on the local HTTP endpoint `:9092/metrics`. Available
@@ -348,3 +368,5 @@ amount of possibilities to be explored, the only limit is the choice of labels a
 
 [helm-overview]: https://helm.sh/
 [helm-prom-chart]: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
+
+[kn-cmaps]: https://github.com/knative/eventing/tree/v0.31.0/config/core/configmaps
