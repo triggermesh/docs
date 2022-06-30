@@ -7,7 +7,7 @@
 
 ## Installation
 
-This guide walks you through the deployment of Knative version 1.0.0 [using YAML files](https://knative.dev/docs/admin/install/serving/install-serving-with-yaml/). Please refer to the upstream Knative [documentation](https://knative.dev/docs/install/) for other deployment options.
+This guide walks you through the deployment of Knative version 1.4.0 [using YAML files](https://knative.dev/docs/admin/install/serving/install-serving-with-yaml/). Please refer to the upstream Knative [documentation](https://knative.dev/docs/install/) for other deployment options.
 
 1. Follow the [Getting Started with Tanzu Community Edition](https://tanzucommunityedition.io/docs/latest/getting-started-standalone/) installation instructions and create your Tanzu cluster on your platform of choice.
 
@@ -20,8 +20,8 @@ kubectl config use-context <STANDALONE-CLUSTER-NAME>-admin@<STANDALONE-CLUSTER-N
 1. Install Knative Serving following the [Installing Knative Serving using YAML files](https://knative.dev/docs/admin/install/serving/install-serving-with-yaml/) instructions.
 
 ```bash
-kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.0.2/serving-crds.yaml
-kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.0.2/serving-core.yaml
+kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.4.0/serving-crds.yaml
+kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.4.0/serving-core.yaml
 ```
 
 1. Wait until the pods have started before proceeding.
@@ -33,8 +33,8 @@ kubectl get pods -n knative-serving
 1. The version of Contour provided with the Tanzu Community Edition package repository is older than the version of `knative-serving` we have installed, so install it from YAML as well.
 
 ```bash
-kubectl apply -f https://github.com/knative-sandbox/net-contour/releases/download/knative-v1.0.0/contour.yaml
-kubectl apply -f https://github.com/knative-sandbox/net-contour/releases/download/knative-v1.0.0/net-contour.yaml
+kubectl apply -f https://github.com/knative-sandbox/net-contour/releases/download/knative-v1.4.0/contour.yaml
+kubectl apply -f https://github.com/knative-sandbox/net-contour/releases/download/knative-v1.4.0/net-contour.yaml
 ```
 
 1. Verify the pods have started before proceeding.
@@ -64,8 +64,8 @@ kubectl --namespace contour-external get service envoy
 1. Install Knative Eventing following the [Installing Knative Eventing using YAML files](https://knative.dev/docs/admin/install/eventing/install-eventing-with-yaml/) instructions.
 
 ```bash
-kubectl apply -f https://github.com/knative/eventing/releases/download/knative-v1.0.3/eventing-crds.yaml
-kubectl apply -f https://github.com/knative/eventing/releases/download/knative-v1.0.3/eventing-core.yaml
+kubectl apply -f https://github.com/knative/eventing/releases/download/knative-v1.4.2/eventing-crds.yaml
+kubectl apply -f https://github.com/knative/eventing/releases/download/knative-v1.4.2/eventing-core.yaml
 ```
 
 1. Verify your installation.
