@@ -61,6 +61,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTarget">KafkaTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTarget">LogzMetricsTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>
@@ -3375,6 +3377,166 @@ string
 </td>
 <td>
 <p>URL for Jira service.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.KafkaTarget">KafkaTarget
+</h3>
+<p>
+<p>KafkaTarget is the Schema for an KafkaTarget.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>KafkaTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTargetSpec">
+KafkaTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Topic where messages are produced.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topicReplicationFactor</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>TopicReplicationFactor is the number of replicas for the topic.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topicPartitions</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>TopicPartitions is the number of partitions for the topic.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>bootstrapServers</code></br>
+<em>
+[]string
+</em>
+</td>
+<td>
+<p>BootstrapServers holds the name of the Kafka Bootstrap server.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTargetAuth">
+KafkaTargetAuth
+</a>
+</em>
+</td>
+<td>
+<p>Auth contains Authentication method used to interact with Kafka.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in messages sent to Kafka.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
 </td>
 </tr>
 <tr>
@@ -7773,6 +7935,373 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.KafkaTargetAuth">KafkaTargetAuth
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTargetSpec">KafkaTargetSpec</a>)
+</p>
+<p>
+<p>KafkaTargetAuth contains Authentication method used to interact with Kafka.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>kerberos</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTargetKerberos">
+KafkaTargetKerberos
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>tls</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTargetTLSAuth">
+KafkaTargetTLSAuth
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>saslEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>SASL Enable</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>securityMechanism</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>SecurityMechanisms holds the assignment of the specific SASL mechanisms.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>username</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Username Kafka account User</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>password</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Password Kafka account Password</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.KafkaTargetKerberos">KafkaTargetKerberos
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTargetAuth">KafkaTargetAuth</a>)
+</p>
+<p>
+<p>KafkaTargetKerberos contains kerberos credentials.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>username</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>password</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>serviceName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>configPath</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>keytabPath</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>config</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>keytab</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>realm</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.KafkaTargetSpec">KafkaTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTarget">KafkaTarget</a>)
+</p>
+<p>
+<p>KafkaTargetSpec defines the desired state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Topic where messages are produced.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topicReplicationFactor</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>TopicReplicationFactor is the number of replicas for the topic.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topicPartitions</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>TopicPartitions is the number of partitions for the topic.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>bootstrapServers</code></br>
+<em>
+[]string
+</em>
+</td>
+<td>
+<p>BootstrapServers holds the name of the Kafka Bootstrap server.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTargetAuth">
+KafkaTargetAuth
+</a>
+</em>
+</td>
+<td>
+<p>Auth contains Authentication method used to interact with Kafka.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in messages sent to Kafka.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.KafkaTargetTLSAuth">KafkaTargetTLSAuth
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.KafkaTargetAuth">KafkaTargetAuth</a>)
+</p>
+<p>
+<p>KafkaTargetTLSAuth contains kerberos credentials.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>ca</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>clientCert</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>clientKey</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>skipVerify</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.Keystore">Keystore
 </h3>
 <p>
@@ -9103,5 +9632,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>a8653cf3</code>.
+on git commit <code>0674432a</code>.
 </em></p>
