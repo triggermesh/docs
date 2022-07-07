@@ -7989,6 +7989,18 @@ bool
 </tr>
 <tr>
 <td>
+<code>tlsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>TLS Enable</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>securityMechanism</code></br>
 <em>
 string
@@ -9632,5 +9644,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>7fcade71</code>.
+on git commit <code>04dc92cc</code>.
 </em></p>
