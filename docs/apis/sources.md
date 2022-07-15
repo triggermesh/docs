@@ -2972,6 +2972,18 @@ This event source only supports the ServicePrincipal authentication.</p>
 </tr>
 <tr>
 <td>
+<code>webSocketsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>WebSocketsEnable</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -8573,6 +8585,18 @@ This event source only supports the ServicePrincipal authentication.</p>
 </tr>
 <tr>
 <td>
+<code>webSocketsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>WebSocketsEnable</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -11720,5 +11744,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ea3c1f1c</code>.
+on git commit <code>af1fcfdc</code>.
 </em></p>
