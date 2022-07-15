@@ -3482,7 +3482,7 @@ string
 <td>
 <code>topicReplicationFactor</code></br>
 <em>
-int
+int16
 </em>
 </td>
 <td>
@@ -3494,7 +3494,7 @@ int
 <td>
 <code>topicPartitions</code></br>
 <em>
-int
+int32
 </em>
 </td>
 <td>
@@ -8176,7 +8176,7 @@ string
 <td>
 <code>topicReplicationFactor</code></br>
 <em>
-int
+int16
 </em>
 </td>
 <td>
@@ -8188,7 +8188,7 @@ int
 <td>
 <code>topicPartitions</code></br>
 <em>
-int
+int32
 </em>
 </td>
 <td>
@@ -9644,5 +9644,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>af1fcfdc</code>.
+on git commit <code>6c283eb9</code>.
 </em></p>
