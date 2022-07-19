@@ -5330,6 +5330,21 @@ string
 </tr>
 <tr>
 <td>
+<code>eventExtensionAttributes</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.WebhookEventExtensionAttributes">
+WebhookEventExtensionAttributes
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Options to transform HTTP request data into CloudEvent extensions.
+<a href="https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes">https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes</a></p>
+</td>
+</tr>
+<tr>
+<td>
 <code>basicAuthUsername</code></br>
 <em>
 string
@@ -11475,6 +11490,37 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.WebhookEventExtensionAttributes">WebhookEventExtensionAttributes
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec</a>)
+</p>
+<p>
+<p>WebhookEventExtensionAttributes sets the policy for converting HTTP data into.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>from</code></br>
+<em>
+[]string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>From informs HTTP elements that will be converted into CloudEvents attributes</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec
 </h3>
 <p>
@@ -11535,6 +11581,21 @@ string
 <em>(Optional)</em>
 <p>Value of the CloudEvents &lsquo;source&rsquo; attribute to set on ingested events.
 <a href="https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#source-1">https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#source-1</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventExtensionAttributes</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.WebhookEventExtensionAttributes">
+WebhookEventExtensionAttributes
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Options to transform HTTP request data into CloudEvent extensions.
+<a href="https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes">https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes</a></p>
 </td>
 </tr>
 <tr>
@@ -11744,5 +11805,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>2c19b0dd</code>.
+on git commit <code>2e3f702f</code>.
 </em></p>
