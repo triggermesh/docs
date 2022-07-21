@@ -27,8 +27,6 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSource">AWSDynamoDBSource</a>
 </li><li>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSource">AWSEventBridgeSource</a>
-</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSource">AWSKinesisSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSource">AWSPerformanceInsightsSource</a>
@@ -72,8 +70,6 @@ Resource Types:
 <a href="#sources.triggermesh.io/v1alpha1.HTTPPollerSource">HTTPPollerSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.IBMMQSource">IBMMQSource</a>
-</li><li>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSource">KafkaSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource</a>
 </li><li>
@@ -935,168 +931,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSource">AWSEventBridgeSource
-</h3>
-<p>
-<p>AWSEventBridgeSource is the Schema for the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-sources.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>AWSEventBridgeSource</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceSpec">
-AWSEventBridgeSourceSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>SourceSpec</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
-knative.dev/pkg/apis/duck/v1.SourceSpec
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceSpec</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>arn</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
-github.com/triggermesh/triggermesh/pkg/apis.ARN
-</a>
-</em>
-</td>
-<td>
-<p>EventBridge event bus ARN
-<a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html#amazoneventbridge-resources-for-iam-policies">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html#amazoneventbridge-resources-for-iam-policies</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>eventPattern</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Event pattern used to select events that this source should subscribe to.
-If not specified, the event rule is created with a catch-all pattern.
-<a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>destination</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestination">
-AWSEventBridgeSourceDestination
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>The intermediate destination of notifications originating from the
-Amazon EventBridge event bus, before they are retrieved by this
-event source.
-If omitted, an Amazon SQS queue is automatically created and
-associated with the EventBridge event rule.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
-</a>
-</em>
-</td>
-<td>
-<p>Authentication method to interact with the Amazon S3 and SQS APIs.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceStatus">
-AWSEventBridgeSourceStatus
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSKinesisSource">AWSKinesisSource
 </h3>
 <p>
@@ -1501,9 +1335,8 @@ AWSS3SourceDestination
 </td>
 <td>
 <em>(Optional)</em>
-<p>The intermediate destination of notifications originating from the
-Amazon S3 bucket, before they are retrieved by this event source.
-If omitted, an Amazon SQS queue is automatically created and
+<p>The destination of notifications originating from the Amazon S3 bucket.</p>
+<p>If omitted, an Amazon SQS queue is automatically created and
 associated with the bucket.</p>
 </td>
 </tr>
@@ -1961,7 +1794,7 @@ AzureActivityLogsSourceDestination
 </td>
 <td>
 <p>The intermediate destination of activity logs, before they are
-retrieved by this event source.</p>
+retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -2141,7 +1974,7 @@ AzureEventGridSourceEndpoint
 </td>
 <td>
 <p>The intermediate destination of events subscribed via Event Grid,
-before they are retrieved by this event source.</p>
+before they are retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -2308,7 +2141,7 @@ AzureEventGridSourceEndpoint
 </td>
 <td>
 <p>The intermediate destination of events subscribed via Event Grid,
-before they are retrieved by this event source.</p>
+before they are retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -2972,18 +2805,6 @@ This event source only supports the ServicePrincipal authentication.</p>
 </tr>
 <tr>
 <td>
-<code>webSocketsEnable</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>WebSocketsEnable</p>
-</td>
-</tr>
-<tr>
-<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -3127,20 +2948,6 @@ A single CloudEventsSource object can create multiple adapter instances,
 the rate limiting configuration being applied to each of them individually.</p>
 </td>
 </tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
 </table>
 </td>
 </tr>
@@ -3273,8 +3080,8 @@ example: &ldquo;projects/PROJECT_ID/zones/us-central1-a/instances&rdquo;</p>
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">
+GoogleCloudAuditLogsSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -3427,8 +3234,8 @@ The ID is displayed after you select Connect a Pub/Sub topic to this budget.</p>
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">
+GoogleCloudBillingSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -3570,8 +3377,8 @@ GCloudIoTResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">
+GoogleCloudIoTSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -3859,8 +3666,8 @@ GCloudResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">
+GoogleCloudSourceRepositoriesSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -4018,8 +3825,8 @@ string
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">
+GoogleCloudStorageSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -4457,155 +4264,6 @@ Credentials
 </em>
 </td>
 <td>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.KafkaSource">KafkaSource
-</h3>
-<p>
-<p>KafkaSource is the Schema for the KafkaSource.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-sources.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>KafkaSource</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSourceSpec">
-KafkaSourceSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>SourceSpec</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
-knative.dev/pkg/apis/duck/v1.SourceSpec
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceSpec</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>bootstrapServers</code></br>
-<em>
-[]string
-</em>
-</td>
-<td>
-<p>BootstrapServers holds the name of the Kafka Bootstrap server.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>topics</code></br>
-<em>
-[]string
-</em>
-</td>
-<td>
-<p>Topics holds the name of the Kafka Topics.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>groupID</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>GroupID holds the name of the Kafka Group ID.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSourceAuth">
-KafkaSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Auth contains Authentication method used to interact with Kafka.</p>
 </td>
 </tr>
 <tr>
@@ -5330,21 +4988,6 @@ string
 </tr>
 <tr>
 <td>
-<code>eventExtensionAttributes</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.WebhookEventExtensionAttributes">
-WebhookEventExtensionAttributes
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Options to transform HTTP request data into CloudEvent extensions.
-<a href="https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes">https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes</a></p>
-</td>
-</tr>
-<tr>
-<td>
 <code>basicAuthUsername</code></br>
 <em>
 string
@@ -5593,7 +5236,6 @@ ZendeskSourceStatus
 <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySourceSpec">AWSCognitoIdentitySourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSourceSpec">AWSCognitoUserPoolSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSourceSpec">AWSDynamoDBSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceSpec">AWSEventBridgeSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">AWSPerformanceInsightsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>, 
@@ -6411,239 +6053,6 @@ knative.dev/pkg/apis.URL
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestination">AWSEventBridgeSourceDestination
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceSpec">AWSEventBridgeSourceSpec</a>)
-</p>
-<p>
-<p>AWSEventBridgeSourceDestination contains possible intermediate destinations
-for the event bus&rsquo; events.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>sqs</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestinationSQS">
-AWSEventBridgeSourceDestinationSQS
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Amazon SQS destination.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestinationSQS">AWSEventBridgeSourceDestinationSQS
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestination">AWSEventBridgeSourceDestination</a>)
-</p>
-<p>
-<p>AWSEventBridgeSourceDestinationSQS contains properties of an Amazon SQS
-queue to use as destination for the event bus&rsquo; events.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>queueARN</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
-github.com/triggermesh/triggermesh/pkg/apis.ARN
-</a>
-</em>
-</td>
-<td>
-<p>SQS Queue ARN
-<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies">https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceSpec">AWSEventBridgeSourceSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSource">AWSEventBridgeSource</a>)
-</p>
-<p>
-<p>AWSEventBridgeSourceSpec defines the desired state of the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceSpec</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
-knative.dev/pkg/apis/duck/v1.SourceSpec
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceSpec</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>arn</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
-github.com/triggermesh/triggermesh/pkg/apis.ARN
-</a>
-</em>
-</td>
-<td>
-<p>EventBridge event bus ARN
-<a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html#amazoneventbridge-resources-for-iam-policies">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html#amazoneventbridge-resources-for-iam-policies</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>eventPattern</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Event pattern used to select events that this source should subscribe to.
-If not specified, the event rule is created with a catch-all pattern.
-<a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>destination</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceDestination">
-AWSEventBridgeSourceDestination
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>The intermediate destination of notifications originating from the
-Amazon EventBridge event bus, before they are retrieved by this
-event source.
-If omitted, an Amazon SQS queue is automatically created and
-associated with the EventBridge event rule.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
-</a>
-</em>
-</td>
-<td>
-<p>Authentication method to interact with the Amazon S3 and SQS APIs.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceStatus">AWSEventBridgeSourceStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSource">AWSEventBridgeSource</a>)
-</p>
-<p>
-<p>AWSEventBridgeSourceStatus defines the observed state of the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>ruleARN</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
-github.com/triggermesh/triggermesh/pkg/apis.ARN
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>queueARN</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
-github.com/triggermesh/triggermesh/pkg/apis.ARN
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec
 </h3>
 <p>
@@ -6828,8 +6237,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>)
 </p>
 <p>
-<p>AWSS3SourceDestination contains possible intermediate destinations for
-bucket notifications.</p>
+<p>AWSS3SourceDestination contains possible destinations for bucket notifications.</p>
 </p>
 <table>
 <thead>
@@ -6966,9 +6374,8 @@ AWSS3SourceDestination
 </td>
 <td>
 <em>(Optional)</em>
-<p>The intermediate destination of notifications originating from the
-Amazon S3 bucket, before they are retrieved by this event source.
-If omitted, an Amazon SQS queue is automatically created and
+<p>The destination of notifications originating from the Amazon S3 bucket.</p>
+<p>If omitted, an Amazon SQS queue is automatically created and
 associated with the bucket.</p>
 </td>
 </tr>
@@ -7531,7 +6938,7 @@ AzureActivityLogsSourceDestination
 </td>
 <td>
 <p>The intermediate destination of activity logs, before they are
-retrieved by this event source.</p>
+retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -7746,7 +7153,7 @@ AzureEventGridSourceEndpoint
 </td>
 <td>
 <p>The intermediate destination of events subscribed via Event Grid,
-before they are retrieved by this event source.</p>
+before they are retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -7986,7 +7393,7 @@ AzureEventGridSourceEndpoint
 </td>
 <td>
 <p>The intermediate destination of events subscribed via Event Grid,
-before they are retrieved by this event source.</p>
+before they are retrieved by TriggerMesh.</p>
 </td>
 </tr>
 <tr>
@@ -8600,18 +8007,6 @@ This event source only supports the ServicePrincipal authentication.</p>
 </tr>
 <tr>
 <td>
-<code>webSocketsEnable</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>WebSocketsEnable</p>
-</td>
-</tr>
-<tr>
-<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -8804,20 +8199,6 @@ A single CloudEventsSource object can create multiple adapter instances,
 the rate limiting configuration being applied to each of them individually.</p>
 </td>
 </tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
 </tbody>
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.Credentials">Credentials
@@ -9002,14 +8383,18 @@ string
 </h3>
 <p>
 (<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">GoogleCloudAuditLogsSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">GoogleCloudBillingSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">GoogleCloudIoTSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">GoogleCloudSourcePubSubSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">GoogleCloudSourceRepositoriesSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceStatus">GoogleCloudSourceRepositoriesSourceStatus</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">GoogleCloudStorageSourcePubSubSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceStatus">GoogleCloudStorageSourceStatus</a>)
 </p>
 <p>
@@ -9057,6 +8442,60 @@ string
 </em>
 </td>
 <td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">GoogleCloudAuditLogsSourcePubSubSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>)
+</p>
+<p>
+<p>GoogleCloudAuditLogsSourcePubSubSpec defines the attributes related to the
+configuration of Pub/Sub resources.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Full resource name of the Pub/Sub topic where change notifications
+originating from the configured sink are sent to. If not supplied,
+a topic is created on behalf of the user, in the GCP project
+referenced by the Project attribute.</p>
+<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
+&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>project</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the GCP project where Pub/Sub resources associated with the
+Cloud Audit log are to be created.</p>
+<p>Mutually exclusive with Topic which, if supplied, already contains
+the project name.</p>
 </td>
 </tr>
 </tbody>
@@ -9136,8 +8575,8 @@ example: &ldquo;projects/PROJECT_ID/zones/us-central1-a/instances&rdquo;</p>
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourcePubSubSpec">
+GoogleCloudAuditLogsSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -9247,6 +8686,60 @@ the managed topic.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">GoogleCloudBillingSourcePubSubSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>)
+</p>
+<p>
+<p>GoogleCloudBillingSourcePubSubSpec defines the attributes related to the
+configuration of Pub/Sub resources.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Full resource name of the Pub/Sub topic where change notifications
+originating from the configured sink are sent to. If not supplied,
+a topic is created on behalf of the user, in the GCP project
+referenced by the Project attribute.</p>
+<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
+&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>project</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the GCP project where Pub/Sub resources associated with the
+Cloud Billing budget are to be created.</p>
+<p>Mutually exclusive with Topic which, if supplied, already contains
+the project name.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec
 </h3>
 <p>
@@ -9307,8 +8800,8 @@ The ID is displayed after you select Connect a Pub/Sub topic to this budget.</p>
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourcePubSubSpec">
+GoogleCloudBillingSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -9407,6 +8900,60 @@ the managed topic.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">GoogleCloudIoTSourcePubSubSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>)
+</p>
+<p>
+<p>GoogleCloudIoTSourcePubSubSpec defines the attributes related to the
+configuration of Pub/Sub resources.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Full resource name of the Pub/Sub topic where change notifications
+originating from the configured IoT Registry are sent to. If not supplied,
+a topic is created on behalf of the user, in the GCP project
+referenced by the Project attribute.</p>
+<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
+&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>project</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the GCP project where Pub/Sub resources associated with the
+Cloud IoT Registry are to be created.</p>
+<p>Mutually exclusive with Topic which, if supplied, already contains
+the project name.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec
 </h3>
 <p>
@@ -9456,8 +9003,8 @@ GCloudIoTResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourcePubSubSpec">
+GoogleCloudIoTSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -9693,18 +9240,14 @@ GCloudResourceName
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">GoogleCloudSourcePubSubSpec
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">GoogleCloudSourceRepositoriesSourcePubSubSpec
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>)
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>)
 </p>
 <p>
-<p>GoogleCloudSourcePubSubSpec defines the attributes related to the
+<p>GoogleCloudSourceRepositoriesSourcePubSubSpec defines the attributes related to the
 configuration of Pub/Sub resources.</p>
 </p>
 <table>
@@ -9726,10 +9269,9 @@ GCloudResourceName
 </td>
 <td>
 <em>(Optional)</em>
-<p>Full resource name of the Pub/Sub topic where messages/notifications
-originating from the configured Google Cloud resource are sent to,
-before being retrieved by this event source. If not supplied, a
-topic is created on behalf of the user, in the GCP project
+<p>Full resource name of the Pub/Sub topic where change notifications
+originating from the configured sink are sent to. If not supplied,
+a topic is created on behalf of the user, in the GCP project
 referenced by the Project attribute.</p>
 <p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
 &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
@@ -9745,7 +9287,7 @@ string
 <td>
 <em>(Optional)</em>
 <p>Name of the GCP project where Pub/Sub resources associated with the
-configured Google Cloud resource are to be created.</p>
+Cloud repo are to be created.</p>
 <p>Mutually exclusive with Topic which, if supplied, already contains
 the project name.</p>
 </td>
@@ -9801,8 +9343,8 @@ GCloudResourceName
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourcePubSubSpec">
+GoogleCloudSourceRepositoriesSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -9919,6 +9461,60 @@ the managed topic.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">GoogleCloudStorageSourcePubSubSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>)
+</p>
+<p>
+<p>GoogleCloudStorageSourcePubSubSpec defines the attributes related to the
+configuration of Pub/Sub resources.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Full resource name of the Pub/Sub topic where change notifications
+originating from the configured bucket are sent to. If not supplied,
+a topic is created on behalf of the user, in the GCP project
+referenced by the Project attribute.</p>
+<p>The expected format is described at <a href="https://cloud.google.com/pubsub/docs/admin#resource_names:">https://cloud.google.com/pubsub/docs/admin#resource_names:</a>
+&ldquo;projects/{project_name}/topics/{topic_name}&rdquo;</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>project</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Name of the GCP project where Pub/Sub resources associated with the
+Cloud Storage bucket are to be created.</p>
+<p>Mutually exclusive with Topic which, if supplied, already contains
+the project name.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec
 </h3>
 <p>
@@ -9966,8 +9562,8 @@ string
 <td>
 <code>pubsub</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourcePubSubSpec">
+GoogleCloudStorageSourcePubSubSpec
 </a>
 </em>
 </td>
@@ -10453,374 +10049,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.KafkaSourceAuth">KafkaSourceAuth
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSourceSpec">KafkaSourceSpec</a>)
-</p>
-<p>
-<p>KafkaSourceAuth contains Authentication method used to interact with Kafka.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>kerberos</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSourceKerberos">
-KafkaSourceKerberos
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>tls</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSourceTLSAuth">
-KafkaSourceTLSAuth
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>saslEnable</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<p>SASL Enable</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>tlsEnable</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>TLS Enable</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>securityMechanism</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>SecurityMechanisms holds the assignment of the specific SASL mechanisms.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>username</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Username Kafka account User</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>password</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Password Kafka account Password</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.KafkaSourceKerberos">KafkaSourceKerberos
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSourceAuth">KafkaSourceAuth</a>)
-</p>
-<p>
-<p>KafkaSourceKerberos contains kerberos credentials.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>username</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>password</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>realm</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>serviceName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>configPath</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>keytabPath</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>config</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>keytab</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.KafkaSourceSpec">KafkaSourceSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSource">KafkaSource</a>)
-</p>
-<p>
-<p>KafkaSourceSpec defines the desired state of the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceSpec</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
-knative.dev/pkg/apis/duck/v1.SourceSpec
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceSpec</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>bootstrapServers</code></br>
-<em>
-[]string
-</em>
-</td>
-<td>
-<p>BootstrapServers holds the name of the Kafka Bootstrap server.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>topics</code></br>
-<em>
-[]string
-</em>
-</td>
-<td>
-<p>Topics holds the name of the Kafka Topics.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>groupID</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>GroupID holds the name of the Kafka Group ID.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSourceAuth">
-KafkaSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Auth contains Authentication method used to interact with Kafka.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.KafkaSourceTLSAuth">KafkaSourceTLSAuth
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.KafkaSourceAuth">KafkaSourceAuth</a>)
-</p>
-<p>
-<p>KafkaSourceTLSAuth contains kerberos credentials.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>ca</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>clientCert</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>clientKey</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>skipVerify</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
 </td>
 </tr>
 </tbody>
@@ -11490,37 +10718,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.WebhookEventExtensionAttributes">WebhookEventExtensionAttributes
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec</a>)
-</p>
-<p>
-<p>WebhookEventExtensionAttributes sets the policy for converting HTTP data into.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>from</code></br>
-<em>
-[]string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>From informs HTTP elements that will be converted into CloudEvents attributes</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec
 </h3>
 <p>
@@ -11581,21 +10778,6 @@ string
 <em>(Optional)</em>
 <p>Value of the CloudEvents &lsquo;source&rsquo; attribute to set on ingested events.
 <a href="https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#source-1">https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#source-1</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>eventExtensionAttributes</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.WebhookEventExtensionAttributes">
-WebhookEventExtensionAttributes
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Options to transform HTTP request data into CloudEvent extensions.
-<a href="https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes">https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes</a></p>
 </td>
 </tr>
 <tr>
@@ -11805,5 +10987,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>82003acb</code>.
+on git commit <code>75286950</code>.
 </em></p>
