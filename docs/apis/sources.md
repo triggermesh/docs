@@ -2972,6 +2972,18 @@ This event source only supports the ServicePrincipal authentication.</p>
 </tr>
 <tr>
 <td>
+<code>webSocketsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>WebSocketsEnable</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -3113,6 +3125,20 @@ RateLimiter
 <p>RateLimiter for incoming events per adapter instance.
 A single CloudEventsSource object can create multiple adapter instances,
 the rate limiting configuration being applied to each of them individually.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
 </td>
 </tr>
 </table>
@@ -5300,6 +5326,21 @@ string
 <em>(Optional)</em>
 <p>Value of the CloudEvents &lsquo;source&rsquo; attribute to set on ingested events.
 <a href="https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#source-1">https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#source-1</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventExtensionAttributes</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.WebhookEventExtensionAttributes">
+WebhookEventExtensionAttributes
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Options to transform HTTP request data into CloudEvent extensions.
+<a href="https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes">https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes</a></p>
 </td>
 </tr>
 <tr>
@@ -8559,6 +8600,18 @@ This event source only supports the ServicePrincipal authentication.</p>
 </tr>
 <tr>
 <td>
+<code>webSocketsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>WebSocketsEnable</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -8749,6 +8802,20 @@ RateLimiter
 <p>RateLimiter for incoming events per adapter instance.
 A single CloudEventsSource object can create multiple adapter instances,
 the rate limiting configuration being applied to each of them individually.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
 </td>
 </tr>
 </tbody>
@@ -10444,6 +10511,18 @@ bool
 </tr>
 <tr>
 <td>
+<code>tlsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>TLS Enable</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>securityMechanism</code></br>
 <em>
 string
@@ -11411,6 +11490,37 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.WebhookEventExtensionAttributes">WebhookEventExtensionAttributes
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec</a>)
+</p>
+<p>
+<p>WebhookEventExtensionAttributes sets the policy for converting HTTP data into.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>from</code></br>
+<em>
+[]string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>From informs HTTP elements that will be converted into CloudEvents attributes</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.WebhookSourceSpec">WebhookSourceSpec
 </h3>
 <p>
@@ -11471,6 +11581,21 @@ string
 <em>(Optional)</em>
 <p>Value of the CloudEvents &lsquo;source&rsquo; attribute to set on ingested events.
 <a href="https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#source-1">https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#source-1</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventExtensionAttributes</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.WebhookEventExtensionAttributes">
+WebhookEventExtensionAttributes
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Options to transform HTTP request data into CloudEvent extensions.
+<a href="https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes">https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes</a></p>
 </td>
 </tr>
 <tr>
@@ -11680,5 +11805,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>7fcade71</code>.
+on git commit <code>82003acb</code>.
 </em></p>
