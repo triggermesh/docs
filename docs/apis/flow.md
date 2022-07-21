@@ -86,7 +86,7 @@ DataWeaveTransformationSpec
 <table>
 <tr>
 <td>
-<code>dwSpell</code></br>
+<code>dw_spell</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -94,43 +94,28 @@ ValueFromField
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 <p>DataWeave spell that will be used by default for transformation.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>allowPerEventDwSpell</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Whether the default DwSpell can be overriden at each event</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>inputContentType</code></br>
+<code>incoming_content_type</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Content type for the incoming transformation.</p>
+<p>Content type for incoming transformation.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>outputContentType</code></br>
+<code>output_content_type</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 <p>Content type for transformation Output.</p>
 </td>
 </tr>
@@ -873,7 +858,7 @@ int
 <tbody>
 <tr>
 <td>
-<code>dwSpell</code></br>
+<code>dw_spell</code></br>
 <em>
 <a href="#flow.triggermesh.io/v1alpha1.ValueFromField">
 ValueFromField
@@ -881,43 +866,28 @@ ValueFromField
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 <p>DataWeave spell that will be used by default for transformation.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>allowPerEventDwSpell</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Whether the default DwSpell can be overriden at each event</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>inputContentType</code></br>
+<code>incoming_content_type</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Content type for the incoming transformation.</p>
+<p>Content type for incoming transformation.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>outputContentType</code></br>
+<code>output_content_type</code></br>
 <em>
 string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 <p>Content type for transformation Output.</p>
 </td>
 </tr>
@@ -1525,5 +1495,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>82003acb</code>.
+on git commit <code>75286950</code>.
 </em></p>
