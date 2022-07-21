@@ -1163,19 +1163,6 @@ string
 </tr>
 <tr>
 <td>
-<code>messageGroupId</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Message Group ID is required for FIFO based queues, and is used to uniquely identify the event producer
-<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html</a></p>
-</td>
-</tr>
-<tr>
-<td>
 <code>discardCloudEventContext</code></br>
 <em>
 bool
@@ -3495,7 +3482,7 @@ string
 <td>
 <code>topicReplicationFactor</code></br>
 <em>
-int16
+int
 </em>
 </td>
 <td>
@@ -3507,7 +3494,7 @@ int16
 <td>
 <code>topicPartitions</code></br>
 <em>
-int32
+int
 </em>
 </td>
 <td>
@@ -5788,19 +5775,6 @@ string
 </tr>
 <tr>
 <td>
-<code>messageGroupId</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Message Group ID is required for FIFO based queues, and is used to uniquely identify the event producer
-<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html</a></p>
-</td>
-</tr>
-<tr>
-<td>
 <code>discardCloudEventContext</code></br>
 <em>
 bool
@@ -8015,18 +7989,6 @@ bool
 </tr>
 <tr>
 <td>
-<code>tlsEnable</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>TLS Enable</p>
-</td>
-</tr>
-<tr>
-<td>
 <code>securityMechanism</code></br>
 <em>
 string
@@ -8202,7 +8164,7 @@ string
 <td>
 <code>topicReplicationFactor</code></br>
 <em>
-int16
+int
 </em>
 </td>
 <td>
@@ -8214,7 +8176,7 @@ int16
 <td>
 <code>topicPartitions</code></br>
 <em>
-int32
+int
 </em>
 </td>
 <td>
@@ -9670,5 +9632,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>451713f1</code>.
+on git commit <code>7fcade71</code>.
 </em></p>
