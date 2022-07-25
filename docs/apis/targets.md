@@ -45,6 +45,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTarget">GoogleCloudFirestoreTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTarget">GoogleCloudPubSubTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTarget">GoogleCloudStorageTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget">GoogleCloudWorkflowsTarget</a>
@@ -1163,6 +1165,19 @@ string
 </tr>
 <tr>
 <td>
+<code>messageGroupId</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Message Group ID is required for FIFO based queues, and is used to uniquely identify the event producer
+<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html</a></p>
+</td>
+</tr>
+<tr>
+<td>
 <code>discardCloudEventContext</code></br>
 <em>
 bool
@@ -2213,6 +2228,147 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTarget">GoogleCloudPubSubTarget
+</h3>
+<p>
+<p>GoogleCloudPubSubTarget is the Schema the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>GoogleCloudPubSubTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTargetSpec">
+GoogleCloudPubSubTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Full resource name of the Pub/Sub topic to subscribe to, in the
+format &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>credentialsJson</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
+SecretValueFromSource
+</a>
+</em>
+</td>
+<td>
+<p>Service account key in JSON format.
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>DiscardCloudEventContext is the policy for how to handle the payload of
+the CloudEvent.</p>
 </td>
 </tr>
 </table>
@@ -5775,6 +5931,19 @@ string
 </tr>
 <tr>
 <td>
+<code>messageGroupId</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Message Group ID is required for FIFO based queues, and is used to uniquely identify the event producer
+<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html</a></p>
+</td>
+</tr>
+<tr>
+<td>
 <code>discardCloudEventContext</code></br>
 <em>
 bool
@@ -6753,6 +6922,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTargetSpec">GoogleCloudPubSubTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">GoogleCloudStorageTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.IBMMQTargetSpec">IBMMQTargetSpec</a>, 
@@ -6789,6 +6959,61 @@ a payload if available. Possible values are:</p>
 <li>errors: will only reply with payload in case of an error.</li>
 <li>never: will not reply with payload.</li>
 </ul>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.GCloudResourceName">GCloudResourceName
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTargetSpec">GoogleCloudPubSubTargetSpec</a>)
+</p>
+<p>
+<p>GCloudResourceName represents a fully qualified resource name,
+as described at
+<a href="https://cloud.google.com/apis/design/resource_names">https://cloud.google.com/apis/design/resource_names</a></p>
+<p>Examples of such resource names include:
+- projects/{project_name}/topics/{topic_name}
+- projects/{project_name}/repos/{repo_name}
+- projects/{project_name}/subscriptions/{subscription_name}</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>Project</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>Collection</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>Resource</code></br>
+<em>
+string
+</em>
+</td>
+<td>
 </td>
 </tr>
 </tbody>
@@ -6883,6 +7108,137 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTargetSpec">GoogleCloudPubSubTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTarget">GoogleCloudPubSubTarget</a>)
+</p>
+<p>
+<p>GoogleCloudPubSubTargetSpec holds the desired state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>topic</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.GCloudResourceName">
+GCloudResourceName
+</a>
+</em>
+</td>
+<td>
+<p>Full resource name of the Pub/Sub topic to subscribe to, in the
+format &ldquo;projects/{project_name}/topics/{topic_name}&rdquo;.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>credentialsJson</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
+SecretValueFromSource
+</a>
+</em>
+</td>
+<td>
+<p>Service account key in JSON format.
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>DiscardCloudEventContext is the policy for how to handle the payload of
+the CloudEvent.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTargetStatus">GoogleCloudPubSubTargetStatus
+</h3>
+<p>
+<p>GoogleCloudPubSubTargetStatus communicates the observed state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>Status</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Status">
+knative.dev/pkg/apis/duck/v1.Status
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>Status</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>AddressStatus</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#AddressStatus">
+knative.dev/pkg/apis/duck/v1.AddressStatus
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>AddressStatus</code> are embedded into this type.)
+</p>
 </td>
 </tr>
 </tbody>
@@ -8897,6 +9253,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.Connection">Connection</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTargetSpec">GoogleCloudPubSubTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudStorageTargetSpec">GoogleCloudStorageTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetSpec">GoogleSheetTargetSpec</a>, 
@@ -9644,5 +10001,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>82003acb</code>.
+on git commit <code>b7305449</code>.
 </em></p>
