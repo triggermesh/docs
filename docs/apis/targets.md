@@ -35,6 +35,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTarget">AzureSentinelTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventsTarget">CloudEventsTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>
@@ -1479,6 +1481,153 @@ bool
 </em>
 </td>
 <td>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureSentinelTarget">AzureSentinelTarget
+</h3>
+<p>
+<p>AzureSentinelTarget is the Schema for an Azure Sentinel Target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>AzureSentinelTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTargetSpec">
+AzureSentinelTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>subscriptionID</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>SubscriptionID refers to the Azure Subscription ID that the Azure Sentinel instance is associated with.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>resourceGroup</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>ResourceGroup refers to the resource group where the Azure Sentinel instance is deployed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>workspace</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Workspace refers to the workspace name in Azure Sentinel.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure Event Hubs API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
 </td>
 </tr>
 <tr>
@@ -6073,7 +6222,8 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>)
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTargetSpec">AzureSentinelTargetSpec</a>)
 </p>
 <p>
 <p>AzureAuth contains multiple authentication methods for Azure services.</p>
@@ -6254,6 +6404,98 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </em>
 </td>
 <td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureSentinelTargetSpec">AzureSentinelTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTarget">AzureSentinelTarget</a>)
+</p>
+<p>
+<p>AzureSentinelTargetSpec holds the desired state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>subscriptionID</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>SubscriptionID refers to the Azure Subscription ID that the Azure Sentinel instance is associated with.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>resourceGroup</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>ResourceGroup refers to the resource group where the Azure Sentinel instance is deployed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>workspace</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Workspace refers to the workspace name in Azure Sentinel.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure Event Hubs API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
 </td>
 </tr>
 </tbody>
@@ -6919,6 +7161,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTargetSpec">AzureSentinelTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, 
@@ -10001,5 +10244,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e782e790</code>.
+on git commit <code>b22c2e53</code>.
 </em></p>
