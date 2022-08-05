@@ -58,6 +58,7 @@ nav:
       - Using TIL: guides/tilgettingstarted.md
       - Using Kong with TriggerMesh: guides/kong-ingress.md
       - Using Kuma Mesh with TriggerMesh: guides/kuma.md
+      - Creating a PrivateLink to TriggerMesh Services: guides/triggermesh-privatelink.md
       - Bridges:
         - Webhook to Slack: guides/bridges/webhook-to-slack.md
     - Installation:
