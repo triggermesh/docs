@@ -7214,8 +7214,9 @@ a payload if available. Possible values are:</p>
 </p>
 <p>
 <p>GCloudResourceName represents a fully qualified resource name,
-as described at
-<a href="https://cloud.google.com/apis/design/resource_names">https://cloud.google.com/apis/design/resource_names</a></p>
+as described at</p>
+<pre><code>https://cloud.google.com/apis/design/resource_names
+</code></pre>
 <p>Examples of such resource names include:
 - projects/{project_name}/topics/{topic_name}
 - projects/{project_name}/repos/{repo_name}
@@ -10244,5 +10245,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>aac0f44e</code>.
+on git commit <code>c3164492</code>.
 </em></p>
