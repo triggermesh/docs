@@ -12,8 +12,8 @@ To install Knative Serving with Kong follow [our guide at the documentation](kon
 
 This guide was written using:
 
-* Kubernetes `v1.21`
-* Knative `v1.4.0`
+* Kubernetes `v1.22`
+* Knative `v1.0.0`
 * Kong Ingress Controller `2.3.1` (includes Kong `2.8`)
 * Kuma `v1.5`
 

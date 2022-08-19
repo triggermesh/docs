@@ -13,8 +13,8 @@ Knative Serving needs to be installed on a Kubernetes cluster, follow the instru
 
 This guide was written using:
 
-* Kubernetes `v1.21`
-* Knative `v1.4.0`
+* Kubernetes `v1.22`
+* Knative `v1.0.0`
 * Kong Ingress Controller `2.3.1` (includes Kong `2.8`)
 
 ## Install Kong Ingress Controller
