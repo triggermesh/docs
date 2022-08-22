@@ -19,7 +19,7 @@ These four steps are highlighted below. The first two steps (i.e Access to a Kub
 The Knative project is a dependency of TriggerMesh, install it using the instructions in the [Knative documentation](https://knative.dev/docs/admin/install/)
 
 * A Kubernetes cluster version `v1.22+`
-* Knative `v1.4.0+`
+* Knative `v1.0.0+`
 
 If you are using VMware's [Tanzu Community Edition](https://tanzucommunityedition.io/), please refer to the [Installation for Tanzu Community Edition](installation-tce.md).
 
