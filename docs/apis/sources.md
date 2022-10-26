@@ -1989,7 +1989,8 @@ AzureAuth
 </td>
 <td>
 <p>Authentication method to interact with the Azure Monitor REST API.
-This event source only supports the ServicePrincipal authentication.</p>
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -2155,7 +2156,8 @@ AzureAuth
 </td>
 <td>
 <p>Authentication method to interact with the Azure REST API.
-This event source only supports the ServicePrincipal authentication.</p>
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -2322,7 +2324,8 @@ AzureAuth
 </td>
 <td>
 <p>Authentication method to interact with the Azure REST API.
-This event source only supports the ServicePrincipal authentication.</p>
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -2453,7 +2456,8 @@ AzureAuth
 </em>
 </td>
 <td>
-<p>Authentication method to interact with the Azure Event Hubs API.</p>
+<p>Authentication method to interact with the Azure Event Hubs API.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -2835,7 +2839,8 @@ AzureAuth
 </em>
 </td>
 <td>
-<p>Authentication method to interact with Azure Service Bus.</p>
+<p>Authentication method to interact with Azure Service Bus.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -2967,7 +2972,8 @@ AzureAuth
 </td>
 <td>
 <p>Authentication method to interact with the Azure REST API.
-This event source only supports the ServicePrincipal authentication.</p>
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -7559,7 +7565,8 @@ AzureAuth
 </td>
 <td>
 <p>Authentication method to interact with the Azure Monitor REST API.
-This event source only supports the ServicePrincipal authentication.</p>
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -7760,7 +7767,8 @@ AzureAuth
 </td>
 <td>
 <p>Authentication method to interact with the Azure REST API.
-This event source only supports the ServicePrincipal authentication.</p>
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -8000,7 +8008,8 @@ AzureAuth
 </td>
 <td>
 <p>Authentication method to interact with the Azure REST API.
-This event source only supports the ServicePrincipal authentication.</p>
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -8138,7 +8147,8 @@ AzureAuth
 </em>
 </td>
 <td>
-<p>Authentication method to interact with the Azure Event Hubs API.</p>
+<p>Authentication method to interact with the Azure Event Hubs API.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -8518,7 +8528,8 @@ AzureAuth
 </em>
 </td>
 <td>
-<p>Authentication method to interact with Azure Service Bus.</p>
+<p>Authentication method to interact with Azure Service Bus.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -8595,7 +8606,8 @@ AzureAuth
 </td>
 <td>
 <p>Authentication method to interact with the Azure REST API.
-This event source only supports the ServicePrincipal authentication.</p>
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
 </td>
 </tr>
 <tr>
@@ -11807,5 +11819,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>2f0ff20d</code>.
+on git commit <code>bd56b500</code>.
 </em></p>
