@@ -2,8 +2,6 @@
 
 The TriggerMesh `XMLToJSONTransformation` API object can be used to process a Cloudevent containing XML and return a JSON representation.
 
-![](./../assets/images/xmltojsontransformation.png)
-
 ## Configuring an XML to JSON event flow XML
 
 This guide shows you how to configure an event flow that transforms an incoming CloudEvent in XML to their JSON representation. It has four steps:
@@ -11,12 +9,12 @@ This guide shows you how to configure an event flow that transforms an incoming 
 * Deploy the `EventDisplay` service.
 * Deploy the `XMlToJSONTransformation` object.
 * Deploy a Source that emits XML data.
-* Check the results in the logs of the `EventDisplay` Pod. 
+* Check the results in the logs of the `EventDisplay` Pod.
 
-An `XMLToJSONTransformation` object can be configured to either reply to the event sender or to send the transformed data to a `Sink` if one is provided. In this guide, we will use a `Sink` to send the transformed data to a so-called `EventDisplay` service. 
+An `XMLToJSONTransformation` object can be configured to either reply to the event sender or to send the transformed data to a `Sink` if one is provided. In this guide, we will use a `Sink` to send the transformed data to a so-called `EventDisplay` service.
 
 ### Deploying an Event Display
-Let's first deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
+Let's first deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can
 be deployed by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`:
 
 ```yaml
@@ -52,7 +50,7 @@ spec:
 
 ### Deploying a `PingSource` Object.
 
-Finally, we deploy an event source that will emit CloudEvents with XML data in the payload. We can do this with the `PingSource` which sends Cloudevents on a 
+Finally, we deploy an event source that will emit CloudEvents with XML data in the payload. We can do this with the `PingSource` which sends Cloudevents on a
 schedule.
 
 The YAML manifest below shows that we will send a _note_ in XML every minute. Write the following YAML in a file and apply it with `kubectl apply -f <manifest.yaml>`.
@@ -110,4 +108,3 @@ Data,
 ```
 
 We see our beautiful sample note now in JSON format.
-

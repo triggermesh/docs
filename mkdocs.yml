@@ -32,7 +32,7 @@ extra_javascript:
 nav:
     - Home: index.md
     - Concepts:
-      - '': concepts.md
+      - concepts/index.md
       - Sources: concepts/sources.md
       - Targets: concepts/targets.md
       - Routing: concepts/routing.md
@@ -62,14 +62,14 @@ nav:
       - Bridges:
         - Webhook to Slack: guides/bridges/webhook-to-slack.md
     - Installation:
-      - '': guides/installation.md
-      - Using an AWS AMI: guides/installation-ami.md
-      - Using Helm: guides/installation-helm.md
-      - Tanzu Community Edition: guides/installation-tce.md
+      - installation/index.md
+      - Using an AWS AMI: installation/installation-ami.md
+      - Using Helm: installation/installation-helm.md
+      - Tanzu Community Edition: installation/installation-tce.md
     - Observability:
-      - '': guides/observability.md
-      - Structured logging: guides/observability-logging.md
-      - Telemetry metrics: guides/observability-metrics.md
+      - observability/index.md
+      - Structured logging: observability/observability-logging.md
+      - Telemetry metrics: observability/observability-metrics.md
     - Integration Language:
       - '': til/Introduction.md
       - CLI: til/Commands.md
@@ -93,12 +93,12 @@ nav:
         - Using kubectl: til/Kubectl.md
         - Using kustomize: til/Kustomize.md
     - Reference:
-      - '': apis/apis.md
-      - Sources: apis/sources.md
-      - Targets: apis/targets.md
-      - Routing: apis/routing.md
-      - Transformation: apis/flow.md
-      - Functions: apis/extensions.md
+      - reference/index.md
+      - Sources: reference/sources.md
+      - Targets: reference/targets.md
+      - Routing: reference/routing.md
+      - Transformation: reference/flow.md
+      - Functions: reference/extensions.md
     - Enterprise:
       - '': cloud/index.md
       - Bridge: cloud/bridge.md
@@ -124,7 +124,6 @@ theme:
   - content.code.annotate
   - content.tabs.link
   - navigation.indexes
-  - navigation.tabs
   - navigation.tabs.sticky
   - navigation.top
   - navigation.tracking
