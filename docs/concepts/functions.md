@@ -10,7 +10,7 @@ There is another example of [Writing a Function](../guides/writingafunction.md) 
 
 ## API Reference
 
-Function is documented in the [API Reference](../apis/extensions.md)
+Function is documented in the [API Reference](../reference/extensions.md)
 
 ## Specifications
 

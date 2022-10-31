@@ -15,7 +15,7 @@ There is an example of [Creating a Source](../guides/creatingasource.md) availab
 
 ## API Reference
 
-All TriggerMesh-provided sources are listed and documented in the [API Reference](../apis/sources.md).
+All TriggerMesh-provided sources are listed and documented in the [API Reference](../reference/sources.md).
 
 ## Knative Event Sources
 

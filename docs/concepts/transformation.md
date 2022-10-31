@@ -10,7 +10,7 @@ Transformations may be done declaratively or through a [function](../guides/writ
 
 ## API Reference
 
-Transformation is documented in the [API Reference](../apis/flow.md)
+Transformation is documented in the [API Reference](../reference/flow.md)
 
 ## Specifications
 

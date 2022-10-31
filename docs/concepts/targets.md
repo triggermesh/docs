@@ -17,7 +17,7 @@ There is an example of [Creating a Target](../guides/creatingatarget.md) availab
 
 ## API Reference
 
-All TriggerMesh-provided targets are listed and documented in the [API Reference](../apis/targets.md)
+All TriggerMesh-provided targets are listed and documented in the [API Reference](../reference/targets.md)
 
 ## Specifications
 

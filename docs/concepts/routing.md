@@ -74,4 +74,4 @@ FIELDS:
 
 ## API Reference
 
-Filters and Splitters are listed and documented in the [Routing API reference](../apis/routing.md).
+Filters and Splitters are listed and documented in the [Routing API reference](../reference/routing.md).

@@ -1,7 +1,7 @@
 # Connecting TriggerMesh Clusters
 
 !!! Info "Installation"
-    Make sure you have completed the installation [procedure](installation.md) before proceeding with any of the guides.
+    Make sure you have completed the installation [procedure](../installation/index.md) before proceeding with any of the guides.
 
 In this guide we will connect 2 TriggerMesh clusters that will be able to interchange CloudEvents flowing through them. You might want to connect multiple TriggerMesh instances to:
 

@@ -1,7 +1,7 @@
 # Creating a Source
 
 !!! Info "Installation"
-    Make sure you have completed the installation [procedure](installation.md) before continuing with any of the guides.
+    Make sure you have completed the installation [procedure](../installation/index.md) before continuing with any of the guides.
 
 In this guide we will create a point to point Bridge between an AWS SQS queue and a microservice application called `sockeye` which displays events in a web interface. This simple flow is depicted below.
 
