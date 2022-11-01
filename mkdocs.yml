@@ -91,6 +91,8 @@ nav:
       - Twilio: cloud/targets/twilio.md
       - Zendesk: cloud/targets/zendesk.md
     - Brokers and Triggers:
+      - Brokers: brokers.md
+      - Triggers: triggers.md
       - Writing a Filter: guides/writingafilter.md
       - Routing: concepts/routing.md
     - Transformation:
