@@ -36,7 +36,6 @@ nav:
       - Concepts: get-started/concepts.md
     - Event sources:
       - Overview: concepts/sources.md
-      - SQS: guides/creatingasource.md
       - CloudEvents: guides/cloudeventssource.md
       - Azure Activity Logs: cloud/sources/azureactivitylogs.md
       - Azure Blob Storage: cloud/sources/azureblobstorage.md
