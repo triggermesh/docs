@@ -7,13 +7,46 @@ This event target integrates with GoogleCloudStorage by using received CloudEven
 * Google Storage enabled in Google Cloud Console
 * A Google Cloud Service account with rights to the storage resources and the credentials in JSON format.
 
-## Creating a GoogleCloudStorage Target
+## Kubernetes
 
-A full deployment example is located in the [samples](../samples/googlecloudstorage) directory. It can be deployed via the following steps:
+**Secret**
 
-* Update the `100-secrets.yaml` file to include the JSON credentials
-* Update the `200-target.yaml` file
-* Apply the configuration via `kubectl`
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: googlecloudstorage
+type: Opaque
+stringData:
+  creds: |-
+    {
+      "type": "service_account",
+      "project_id": "dev",
+      "private_key_id": "e1e4ad14a8d234adf4963d398863ad12444df",
+      "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQQWFNBgkqhkiG9w0BAQEFAASCB...R6Y=\n-----END PRIVATE KEY-----\n",
+      "client_email": "tst-27@dev.iam.gserviceaccount.com",
+      "client_id": "11547922342598721477",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gstst-27%40dev.iam.gserviceaccount.com"
+    }
+```
+
+**Target**
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: GoogleCloudStorageTarget
+metadata:
+  name: googlecloudstorage
+spec:
+  bucketName: tmdemo
+  credentialsJson:
+    secretKeyRef:
+      name: googlecloudstorage
+      key: creds
+```
 
 
 ### Talking to the GoogleCloudStorage Target

@@ -36,12 +36,6 @@ Web][hec].
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a Target of type `Splunk`.
-
-![Adding a Splunk target](../../assets/images/splunk-target/create-bridge-1.png)
-
-In the Target creation form, give a name to the event Target and add the following information:
-
 - **HEC Endpoint**: URL of the HTTP Event Collector (HEC). This URL varies depending on the type of Splunk installation
   (Enterprise, self-service Cloud, managed Cloud). Only the scheme, hostname, and port (optionally) are evaluated, the
   URL path is trimmed if present.
@@ -50,16 +44,21 @@ In the Target creation form, give a name to the event Target and add the followi
 - [**Index**][index]: Name of the index to send events to. When undefined, events are sent to the default index defined
   in the HEC token's configuration.
 
-![Splunk target form](../../assets/images/splunk-target/create-bridge-2.png)
+## Kubernetes
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: SplunkTarget
+metadata:
+  name: sample
+spec:
+  endpoint: https://mysplunk.example.com:8088
 
-![Bridge overview](../../assets/images/splunk-target/create-bridge-3.png)
-
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the Splunk Target was successfully created.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
+  token:
+    valueFromSecret:
+      name: splunk-hec
+      key: token
+```
 
 New events should now be visible in the **Search & Reporting** app inside Splunk.
 

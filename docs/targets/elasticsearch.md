@@ -65,6 +65,28 @@ If the Elasticsearch cluster is being served using a self-signed certificate the
 
 Received events will be indexed using `indexName` as the elasticsearch index.
 
+Here is an example with real values:
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: ElasticsearchTarget
+metadata:
+  name: es-indexing
+spec:
+  connection:
+    addresses:
+    - https://elasticsearch-host:9200
+    skipVerify: true
+    username: elastic
+    password:
+      secretKeyRef:
+        name: elasticsearch
+        key: password
+  indexName: tmindex
+  eventOptions:
+    payloadPolicy: error
+```
+
 ### Status
 
 ElasticsearchTarget requires one of `password` or `apiKey` Secrets to be provided, once they are a Knative service will be created. Logs at the controller and kubernetes events can provide detailed information about the target reconciliation process.

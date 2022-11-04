@@ -21,7 +21,11 @@ requisite Tekton objects, then the target can be created by defining a TektonTar
 apiVersion: targets.triggermesh.io/v1alpha1
 kind: TektonTarget
 metadata:
-  name: <TARGET-NAME>
+  name: triggermesh-tekton-target
+spec:
+  reapPolicy:
+    success: 5m  # clean up all successfully completed task runs
+    fail: 1h  # clean up all failed task runs
 ```
 
 ## Tekton Target as an Event Sink

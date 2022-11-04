@@ -7,6 +7,23 @@ This event target receives [CloudEvents][ce] over HTTP and sends them to [Google
 - Google Cloud Console account.
 - A service account and it's associated JSON credentials.
 
+## Kubernetes
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: GoogleCloudFirestoreTarget
+metadata:
+  name: googlecloudfirestore
+spec:
+  defaultCollection: ''
+  projectID: ''
+  discardCloudEventContext: true
+  credentialsJson:
+    secretKeyRef:
+      name: googlecloudfirestore
+      key: creds
+```
+
 ## Sending arbitrary events
 The target will accept arbitrary events and use the Event ID as the Document name
 ```

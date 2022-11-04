@@ -14,12 +14,6 @@ how to add the AWS API specific secrets.
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a Target of type `Amazon Kinesis`.
-
-![Adding a Kinesis Target](../../assets/images/aws-targets/aws-kinesis-bridge-create-1.png)
-
-In the Target creation form, provide a name for the event Target and add the following information:
-
 - **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
 - **AWS ARN**: The ARN that points to the Amazon Kinesis stream.
 - **Partition**: The Kinesis partition to publish the events to.
@@ -28,17 +22,27 @@ There is an optional toggle flag indicating if the full CloudEvent should be sen
 to Kinesis. By default, this is disabled which means only the event payload
 will be sent.
 
-![Amazon Kinesis Target form](../../assets/images/aws-targets/aws-kinesis-bridge-create-2.png)
-
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
-
-![Bridge overview](../../assets/images/aws-targets/aws-kinesis-bridge-create-3.png)
-
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the Amazon Kinesis Target was successfully created.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
-
 For more information about using Amazon Kinesis, please refer to the [AWS documentation][docs].
+
+## Kubernetes
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSKinesisTarget
+metadata:
+  name: triggermesh-aws-kinesis
+spec:
+  arn: arn:aws:kinesis:us-west-2:<PROJECT_ID>:stream/cabtest
+  partition: "test"
+  awsApiKey:
+    secretKeyRef:
+      name: aws
+      key: AWS_ACCESS_KEY_ID
+  awsApiSecret:
+    secretKeyRef:
+      name: aws
+      key: AWS_SECRET_ACCESS_KEY
+```
 
 ## Event Types
 

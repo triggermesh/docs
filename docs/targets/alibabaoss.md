@@ -16,6 +16,41 @@ creating a new file containing the event data.
 
 For more information about using Alibaba OSS, please refer to the [documentation](https://www.alibabacloud.com/help/product/31815.htm?spm=a3c0i.7950270.1834322160.3.5761ab91f9PlWp).
 
+## Kubernetes
+
+**Secret**
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: osscreds
+type: Opaque
+stringData:
+  id: "<Alibaba Access Key ID>"
+  secret: "<Alibaba Secret Access Key>"
+```
+
+**Target**
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AlibabaOSSTarget
+metadata:
+  name: oss
+spec:
+  endpoint: <datacenter-endpoint>
+  bucket: <bucket-name>
+  accessKeyID:
+    secretKeyRef:
+      name: osscreds
+      key: id
+  accessKeySecret:
+    secretKeyRef:
+      name: osscreds
+      key: secret
+```
+
 ## Example
 
 ```

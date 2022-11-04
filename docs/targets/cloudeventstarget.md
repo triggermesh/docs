@@ -1,4 +1,4 @@
-# Exporting CloudEvents
+# CloudEvents Target
 
 The TriggerMesh `CloudEventsTarget` API object is used to export CloudEvents to external systems via HTTP.
 

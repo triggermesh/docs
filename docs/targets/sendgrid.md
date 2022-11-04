@@ -22,14 +22,38 @@ Consult the [Secrets](../guides/secrets.md) guide for more information about how
 
 For more information about using SendGrid, please refer to the [SendGrid documentation][docs].
 
-## Creating a SendGrid Target
+## Kubernetes
 
-A full deployment example is located in the [samples](../samples/sendgrid) directory. It can be deployed via the following steps:
+**Secret**
 
-* Update the `100-secrets.yaml` file to include the API key.  
-* Update the `200-target.yaml` file with the optional `defaultFromEmail`, `defaultFromName`, `defaultToEmail`,`defaultToName`, & `defaultSubject` parameters.
-* Apply the configuration via `kubectl`
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sendgrid
+type: Opaque
+stringData:
+  apiKey: ''  # Update this value with a valid Sendgrid API key
+```
 
+**Target**
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: SendGridTarget
+metadata:
+  name: triggermesh-email
+spec:
+  defaultFromName: Knative
+  defaultToName: bar
+  defaultToEmail: bob@gmail.com
+  defaultFromEmail: bar@gmail.com
+  defaultSubject: Hello World
+  apiKey:
+    secretKeyRef:
+      name: sendgrid
+      key: apiKey
+```
 
 **Note:** If there is not a default value specified for all of the optional fields, the event received by that deployment *MUST* contain all of the information noted in the [Event Types](#event-types), save **Message**, or the Target **will** **fail**
 
