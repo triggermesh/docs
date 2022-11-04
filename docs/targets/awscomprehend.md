@@ -8,24 +8,59 @@ This event target receives [CloudEvents][ce] over HTTP and sends them to [Amazon
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a target of type `Amazon Comprehend`.
-
-In the Target creation form, give a name to the event Target and add the following information:
-
 - **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret.
 - **Region**: Denotes the region to run the Amazon Comprehend services from.
 - **Language**: Denotes the language to expect in the events.
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
-
-A ready status on the main _Bridges_ page indicates that the Amazon Comprehend target is ready to accept events.
-
 For more information about using Amazon Comprehend, please refer to the [documentation][https://docs.aws.amazon.com/comprehend/].
+
+## Examples
+
+curl -v "10.1.215.232:8080" \
+       -X POST \
+       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+       -H "Ce-Specversion: 1.0" \
+       -H "Ce-Type: io.triggermesh.sendgrid.email.send" \
+       -H "Ce-Source: dev.knative.samples/helloworldsource" \
+       -H "Content-Type: application/json" \
+       -d '{"fromEmail":"I LOVE YOU"}'
+
+Response:
+```
+{"positive":0.999502420425415,"negative":0.00006757258961442858,"mixed":0.00005553230221266858,"result":"Positive"}
+```
+
+curl -v "localhost:8080" \
+       -X POST \
+       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+       -H "Ce-Specversion: 1.0" \
+       -H "Ce-Type: io.triggermesh.sendgrid.email.send" \
+       -H "Ce-Source: dev.knative.samples/helloworldsource" \
+       -H "Content-Type: application/json" \
+       -d '{"fromEmail":"I LOVE YOU", "other":"you are great", "another":"awesome job!"}'
+
+Response:
+```
+{"positive":2.979724109172821,"negative":0.001508750458015129,"mixed":0.004781584390002536,"result":"Positive"}
+```
+
+curl -v "localhost:8080" \
+       -X POST \
+       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+       -H "Ce-Specversion: 1.0" \
+       -H "Ce-Type: io.triggermesh.sendgrid.email.send" \
+       -H "Ce-Source: dev.knative.samples/helloworldsource" \
+       -H "Content-Type: application/json" \
+       -d '{"fromEmail":"you suck", "other":"hate you", "another":"go to hell"}'
+
+Response:
+```
+{"positive":0.05191964528057724,"negative":2.70785391330719,"mixed":0.08987980522215366,"result":"Negative"}
+```
 
 ## Event Types
 ### Arbitrary
-This target will consume arbitrary events and analyzes each of the key values sentiment. It then combines the scores and 
+This target will consume arbitrary events and analyzes each of the key values sentiment. It then combines the scores and
 returns the analysis in a response event of type `io.triggermesh.targets.aws.comprehend.result`
 
 

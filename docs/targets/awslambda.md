@@ -12,12 +12,6 @@ how to add the AWS API specific secrets.
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a Target of type `AWS Lambda`.
-
-![Adding a Lambda Target](../../assets/images/aws-targets/aws-lambda-bridge-create-1.png)
-
-In the Target creation form, provide a name for the event Target and add the following information:
-
 - **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
 - **AWS ARN**: The ARN that points to the AWS Lambda function to invoke
 
@@ -25,17 +19,40 @@ There is an optional toggle flag indicating if the full CloudEvent should be sen
 to the lambda function. By default, this is disabled which means only the event payload
 will be sent.
 
-![AWS Lambda Target form](../../assets/images/aws-targets/aws-lambda-bridge-create-2.png)
-
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
-
-![Bridge overview](../../assets/images/aws-targets/aws-lambda-bridge-create-3.png)
-
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the AWS Lambda Target was successfully created.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
-
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSLambdaTarget
+metadata:
+  name: triggermesh-aws-lambda
+spec:
+  arn: arn:aws:lambda:us-west-2:043455440429:function:snslistener
+  awsApiKey:
+    secretKeyRef:
+      name: aws
+      key: AWS_ACCESS_KEY_ID
+  awsApiSecret:
+    secretKeyRef:
+      name: aws
+      key: AWS_SECRET_ACCESS_KEY
+```
 For more information about using AWS Lambda, please refer to the [AWS documentation][docs].
+
+## Triggering an AWS Lambda via the Target
+
+The AWS Lambda can be triggered as a normal web service using a
+tool such as `curl` within the cluster.  A sample message would resemble the
+following:
+
+```console
+curl -v http://triggermesh-aws-lambda.default.svc.cluster.local \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "Ce-Specversion: 1.0" \
+ -H "Ce-Type: dev.knative.source.aws" \
+ -H "Ce-Source: awesome/instance" \
+ -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+ -d '{"greeting":"Hi from TriggerMesh"}'
+```
 
 ## Event Types
 

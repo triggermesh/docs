@@ -11,20 +11,8 @@ Consult the [Secrets](../guides/secrets.md) guide for more information about how
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a Target of type `Logz`.
-
-![Adding a Logz Target](../../assets/images/logz-target/create-bridge-1.png)
-
-In the Target creation form, provide a name for the event Target, and add the following information:
-
 * **Shipping Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Logz.io [shipping token](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/) as discussed in the [prerequisites](#prerequisites).
 * **Logs Listener URL**: An API endpoint that can be found above your shipping token in the Logz.io dashboard.
-
-![Adding a Target](../../assets/images/logz-target/create-bridge-2.png)
-
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
-
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with was successfully created.
 
 ## Event Types
 
@@ -32,7 +20,7 @@ A Logz event Target accepts the following CloudEvent types:
 
 ### io.triggermesh.logz.ship
 
-The Logz event Target can also consume events of type `io.triggermesh.logz.ship`, and will produce responses typed `io.triggermesh.logz.ship.response`. 
+The Logz event Target can also consume events of type `io.triggermesh.logz.ship`, and will produce responses typed `io.triggermesh.logz.ship.response`.
 
 The payload contains a [JSON][ce-json] structure with elements to execute the API request:
 
@@ -47,6 +35,19 @@ Create a Logz message:
 ```json
 { "message":"hello world" }
 ```
+
+Sending information to logz
+
+```cmd
+curl -v http://logztarget-tmlogz.logz.svc.cluster.local \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "Ce-Specversion: 1.0" \
+ -H "Ce-Type: any.event.type" \
+ -H "Ce-Source: some.origin/intance" \
+ -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+ -d '{"message":"Hello from TriggerMesh using GoogleSheet!"}'
+ ```
 
 [ce]: https://cloudevents.io/
 [ce-json]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md

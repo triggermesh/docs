@@ -1,47 +1,116 @@
-# Event Target for Elasticsearch
+# Elasticsearch event target
 
-This event Target receives [CloudEvents][ce] over HTTP and writes their payload to an [Elasticsearch][es] index.
+This event target integrates with Elasticsearch, using received Cloud Event messages to index documents.
 
-## Prerequisite(s)
+## Contents
 
-- An Elasticsearch cluster
-- Elasticsearch credentials (username and password or API key)
+- [Elasticsearch event target for Knative Eventing](#elasticsearch-event-target-for-knative-eventing)
+  - [Contents](#contents)
+  - [Prerequisites](#prerequisites)
+  - [Deploying From Code](#deploying-from-code)
+  - [Creating an Elasticsearch Target](#creating-an-elasticsearch-target)
+    - [Status](#status)
+    - [Elasticsearch Target as an event Sink](#elasticsearch-target-as-an-event-sink)
+    - [Indexing with the Elasticsearch Target](#indexing-with-the-elasticsearch-target)
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the Elasticsearch credentials as a secret.
+## Prerequisites
 
-## Creating an Elasticsearch Cluster
+A Elasticsearch cluster and a set of credentials:
 
-Create an Elasticsearch cluster quickly by using either [Elastic Cloud on Kubernetes][eck] or [Elastic Cloud][elasticcloud].
+- Elastic Cloud on Kubernetes [ECK](https://github.com/elastic/cloud-on-k8s/) is the simplest way to get started, Elastic Cloud or any other Elasticsearch cluster. Version 7.x is preferred.
+- User and password to the Elasticsearch cluster.
+- An APIKey instead of User and password.
+- CACertificate if using self-signed certificate and `SkipVerify` is not configured.
 
-## Deploying an Instance of the Target
+## Creating an Elasticsearch Target
 
-Open the Bridge creation screen and add a Target of type `Elasticsearch`.
+Once the Elasticsearch Target Controller has been deployed along all other needed assets are present we can create integrations by adding ElasticsearchTargets objects.
 
-![Adding a Elasticsearch Target](../../assets/images/elasticsearch-target/create-bridge-1.png)
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: ElasticsearchTarget
+metadata:
+  name: <TARGET-NAME>
+spec:
+  connection:
+    addresses:
+      - <ELASTICSEARCH-URL>
+    skipVerify: <true|false>
+    caCert: <ELASTICSEARCH-CA-CERTIFICATE>
+    apiKey:
+      secretKeyRef:
+        name: <SECRET-CONTAINING-APIKEY>
+        key: <SECRET-KEY-CONTAINING-APIKEY>
+    username: <ELASTICSEARCH-USERNAME>
+    password:
+      secretKeyRef:
+        name: <SECRET-CONTAINING-PASSWORD>
+        key: <SECRET-KEY-CONTAINING-PASSWORD>
+  indexName: <ELASTICSEARCH-INDEX>
+```
 
-In the Target creation form, provide a name for the event Target and add the following information:
+Connection must include at least one address, including protocol scheme and port.
 
-- **Index**: Name of the index to write documents to.
-- **Addresses**: List of URLs of Elasticsearch servers.
-- **Skip verify**: Allow skipping of server certificate verification.
-- **CA certificate**: CA certificate to be used by the event Target's client, in PEM format.
-- **Username**: Elasticsearch username.
-- **Password**:  Reference a [TriggerMesh secret](../guides/secrets.md) containing a password to communicate with the Elasticsearch API, as discussed in the [prerequisites](#prerequisites).
-- **API key**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an API token to communicate with the Elasticsearch API, as discussed in the [prerequisites](#prerequisites).
+- example: `https://elasticsearch-server:9200`
 
-When using a self-signed certificate you will need to either inform the **CA certificate** or set the **Skip verify** field.
+The connection must be filled with one of:
 
-![Elastic target form](../../assets/images/elasticsearch-target/create-bridge-2.png)
+- `username` and `password`
+- `apiKey`
 
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
+If the Elasticsearch cluster is being served using a self-signed certificate the CA can be added, or TLS verify can be skipped:
 
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with an Elasticsearch event Target was successfully created.
+- `caCert` for adding the PEM string for the certificate.
+- `skipVerify` set to true for skip checking certificates.
 
-![Bridge status](../../assets/images/bridge-status-green.png)
+Received events will be indexed using `indexName` as the elasticsearch index.
 
-For more information about using Elasticsearch, please refer to the [Elasticsearch documentation][docs].
+### Status
 
+ElasticsearchTarget requires one of `password` or `apiKey` Secrets to be provided, once they are a Knative service will be created. Logs at the controller and kubernetes events can provide detailed information about the target reconciliation process.
+A Status summary is added to the ElasticsearchTarget object informing of the all conditions that the target needs.
+
+When ready the `status.address.url` will point to the internal point where Cloud Events should be sent.
+
+### Elasticsearch Target as an event Sink
+
+Elasticsearch Target is addressable, which means you can use it as a Sink for Knative components.
+
+```yaml
+apiVersion: eventing.knative.dev/v1beta1
+kind: Trigger
+metadata:
+  name: <TRIGGER-NAME>
+spec:
+  broker: <BROKER-NAME>
+  filter:
+    attributes:
+      type: <MESSAGE-TYPES-ES-PAYLOAD-FORMATTED>
+  subscriber:
+    ref:
+      apiVersion: targets.triggermesh.io/v1alpha1
+      kind: ElasticsearchTarget
+      name: <TARGET-NAME>
+```
+
+### Indexing with the Elasticsearch Target
+
+Elasticsearch Target will forward any JSON payload at the CloudEvent to be indexed. The only requirement is that it is a valid JSON.
+
+It would be desirable that the JSON conforms to the index mapping at elasticsearch.
+
+You can use `curl` from a container in the cluster pointing to the Elasticsearch target exposed URL:
+
+```console
+curl -v http://elasticsearchtarget-es-indexinge5d0adf0209a48c23fa958aa1b8ecf0b.default.svc.cluster.local \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "Ce-Specversion: 1.0" \
+ -H "Ce-Type: something.to.index.type" \
+ -H "Ce-Source: some.origin/intance" \
+ -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+ -d '{"message":"thanks for indexing this message","from": "TriggerMesh targets", "some_number": 12}'
+```
 ## Event Types
 
 The Elasticsearch event Target can consume events of any type.

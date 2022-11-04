@@ -15,28 +15,114 @@ how to add the Zendesk API token as a secret.
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a Target of type `Zendesk`.
-
-![Adding a Zendesk Target](../../assets/images/zendesk-target/create-bridge-1.png)
-
-In the Target creation form, provide a name to the event Target, and add the following information:
-
 - **Default Ticket Subject**: An optional ticket subject fallback if one is not provided in an incoming event.
 - **Zendesk Subdomain**: Name of the Zendesk [Subdomain][zd-subdom], without the `zendesk.com` domain or `https://` scheme.
 - **Zendesk Email**: Email address associated with the Zendesk account.
 - **Zendesk API Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing a [token][zd-token] to communicate with the Zendesk API, as discussed in the [prerequisites](#prerequisites).
 
-![Zendesk Target form](../../assets/images/zendesk-target/create-bridge-2.png)
-
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
-
-![Bridge overview](../../assets/images/zendesk-target/create-bridge-3.png)
-
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Zendesk event Target was successfully created.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
-
 For more information about using Zendesk, please refer to the [Zendesk documentation][docs].
+
+## Creating a Zendesk Target
+
+Once the Zendesk Target Controller has been deployed, A Kubernetes secret named `zendesk` must be created.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: zendesk
+type: Opaque
+stringData:
+   token: <Zendesk token>
+```
+
+A ZendeskTarget can be created by using the following YAML:
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: ZendeskTarget
+metadata:
+  name: triggermesh-zendesk
+spec:
+  #subject provides a default Subject for new Zendesk tickets. Optional
+  subject: '' #Example: tmTickets0
+  subdomain: '' #Example: tmdev1
+  email: '' #Example: jeff@triggermesh.com
+  token:
+     secretKeyRef:
+       name: zendesktargetsecret
+       key: token
+```
+
+`subdomain,` `email,` &  `token` are ***ALL REQUIRED*** to deploy.
+
+### Zendesk Target as an Event Sink
+
+A Zendesk Target is addressable which means it can be used as a Sink for Knative components.
+
+```yaml
+apiVersion: eventing.knative.dev/v1beta1
+kind: Trigger
+metadata:
+  name: zendesk-sample-trigger
+spec:
+  broker: default
+  subscriber:
+    ref:
+      apiVersion: targets.triggermesh.io/v1alpha1
+      kind: ZendeskTarget
+      name: triggermesh-zendesk
+```
+
+A sample sink binding to a Zendesk Target deployment.
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: <Sample Source>
+metadata:
+  name: <Sample Source Name>
+spec:
+  sampleToken:
+    secretKeyRef:
+      name: <sample>
+      key: <sample key>
+  sink:
+    ref:
+      apiVersion: targets.triggermesh.io/v1alpha1
+      kind: ZendeskTarget
+      name: triggermesh-zendesk
+```
+
+### Sending Messages to the Zendesk Target
+
+A Zendesk Target will ONLY accept
+[CloudEvents](https://github.com/cloudevents/spec) with a "Ce-Type" of either
+`com.zendesk.ticket.create` OR `com.zendesk.tag.create`
+
+* Event's of type `com.zendesk.ticket.create` Expect both a `subject` and `body` to be preset.
+
+  - **Example of type : `com.zendesk.ticket.create`**
+    ```sh
+    curl -v https://zendesktarget-triggermesh-zendesk.jnlasersolutions.dev.munu.io  \
+    -H "Content-Type: application/json" \
+    -H "Ce-Specversion: 1.0" \
+    -H "Ce-Type: com.zendesk.ticket.create" \
+    -H "Ce-Source: some.origin/intance" \
+    -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+    -d '{"subject": "Hello", "body" : "World"}'
+    ```
+
+* Event's of type `com.zendesk.tag.create` Expect both a `id` and `tag` to be preset.
+  - **Example of type : `com.zendesk.tag.create`**
+    ```sh
+    curl -v https://zendesktarget-triggermesh-zendesk.jnlasersolutions.dev.munu.io  \
+    -H "Content-Type: application/json" \
+    -H "Ce-Specversion: 1.0" \
+    -H "Ce-Type: com.zendesk.tag.create" \
+    -H "Ce-Source: some.origin/intance" \
+    -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+    -d '{"id":81 , "tag":"triggermesh"}'
+    ```
 
 ## Event Types
 
