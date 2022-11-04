@@ -9,28 +9,83 @@ This event Target receives [CloudEvents][ce] and sends it to [Datadog][datadog].
 Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the Datadog API token as a secret.
 
-## Deploying an Instance of the Target
+## Creating a Datadog Target
 
-Open the Bridge creation screen and add a Target of type `Datadog`.
+Once the Datadog Target Controller has been deployed, A Kubernetes secret in the same namespace must be created containing a key:`apiKey`. With a value populated by a valid Datadog API Key.
 
-![Adding a Datadog Target](../../assets/images/datadog-target/create-bridge-1.png)
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ddapitoken
+type: Opaque
+stringData:
+  apiKey: __API_KEY__
+```
 
-In the Target creation form, provide a name for the event Target and add the following information:
+A Datadog Target can be created by using the following YAML:
 
-- **API Key**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Datadog API key as discussed in the [prerequisites](#prerequisites).
-- **Metric Name Prefix (_Optional_)**: Prefix to prepend to the metrics being sent.
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: DatadogTarget
+metadata:
+ name: datadogtarget
+spec:
+ apiKey:
+  secretKeyRef:
+    name: ddapitoken
+    key: apiKey
+```
 
-![Datadog Target form](../../assets/images/datadog-target/create-bridge-2.png)
+A valid `apiKey` is ***REQUIRED*** to deploy
 
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
 
-![Bridge overview](../../assets/images/datadog-target/create-bridge-3.png)
+## Event Types
 
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Datadog event Target was successfully created.
 
-![Bridge status](../../assets/images/bridge-status-green.png)
+### io.triggermesh.datadog.metric
 
-For more information about using Datadog, please refer to the [Datadog documentation][datadog].
+Events of this type intend to post a metric to Datadog
+
+#### Example CE posting an event of type "io.triggermesh.datadog.metric.submit"
+
+```cmd
+curl -v "http://localhost:8080" \
+       -X POST \
+       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+       -H "Ce-Specversion: 1.0" \
+       -H "Ce-Type: io.triggermesh.datadog.metric.submit" \
+       -H "Ce-Source: ocimetrics/adapter" \
+       -H "Content-Type: application/json" \
+       -d '{"series":[{"metric":"five.golang","points":[["1614962026","14.5"]]}]}'
+```
+
+
+#### Example CE posting an event of type "io.triggermesh.datadog.event.post"
+
+```cmd
+curl -v "http://localhost:8080" \
+       -X POST \
+       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+       -H "Ce-Specversion: 1.0" \
+       -H "Ce-Type: io.triggermesh.datadog.event.post" \
+       -H "Ce-Source: ocimetrics/adapter" \
+       -H "Content-Type: application/json" \
+       -d '{"text": "Oh boy2!","title": "Did you hear the news today?"}'
+```
+
+#### Example CE posting an event of type "io.triggermesh.datadog.logs.send"
+
+```cmd
+curl -v "http://localhost:8080" \
+       -X POST \
+       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+       -H "Ce-Specversion: 1.0" \
+       -H "Ce-Type: io.triggermesh.datadog.log.send" \
+       -H "Ce-Source: ocimetrics/adapter" \
+       -H "Content-Type: application/json" \
+       -d '{  "ddsource": "nginx", "ddtags": "env:staging,version:5.1", "hostname": "i-012345678", "message": "2019-11-19T14:37:58,995 INFO Hello World", "service": "payment"}'
+```
 
 ## Event Types
 

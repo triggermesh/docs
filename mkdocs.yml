@@ -73,18 +73,23 @@ nav:
       - Amazon SQS: targets/awssqs.md
       - Amazon Kinesis: targets/awskinesis.md
       - Amazon EventBridge: targets/awseventbridge.md
+      - Amazon DynamoDB: targets/awsdynamodb.md
+      - Azure Sentinel: targets/azuresentinel.md
       - Confluent: targets/confluent.md
       - Datadog: targets/datadog.md
       - Elasticsearch: targets/elasticsearch.md
       - Google Cloud Workflows: targets/googlecloudworkflows.md
       - Google Firestore: targets/googlefirestore.md
       - Google Sheets: targets/googlesheets.md
+      - Google Cloud Storage: targets/googlecloudstorage.md
       - Hasura: targets/hasura.md
       - HTTP: targets/http.md
       - InfraJS: targets/infrajs.md
+      - InfraTarget: targets/infratarget.md
       - Jira: targets/jira.md
       - Kafka: targets/kafka.md
       - Logz.io: targets/logz.md
+      - OpenTelemetry: targets/opentelemetry.md
       - Oracle: targets/oracle.md
       - Salesforce: targets/salesforce.md
       - SendGrid: targets/sendgrid.md
@@ -92,6 +97,7 @@ nav:
       - Splunk: targets/splunk.md
       - Tekton: targets/tekton.md
       - Twilio: targets/twilio.md
+      - UIPath: targets/uipath.md
       - Zendesk: targets/zendesk.md
     - Brokers and Triggers:
       - Brokers: brokers.md

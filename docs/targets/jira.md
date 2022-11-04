@@ -1,36 +1,123 @@
 # Event Target for Jira
 
-This event Target receives [CloudEvents][ce] and invokes a Jira endpoint.
+This event target integrates with Jira, using received CloudEvent messages to create and retrieve Jira tickets or perform custom actions using Jira API.
 
-## Prerequisite(s)
+## Prerequisites
 
-- Jira instance or Atlassian cloud tenant
-- User API token
+1. Jira instance or Atlassian cloud tenant.
+1. User API token.
 
-## User API token
+To create the user API token at Jira:
 
-1. Open **Account settings > Security >** [Create and Manage API Tokens][api-tokens]
-1. Click `Create API token` and fill out the token name.
-1. Copy the API token and create a secret for the Jira token at TriggerMesh.
+- Open the Account settings > Security > [Create and manage API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
+- Press `Create API token` and fill the token name.
+- Copy the API token and create a secret for the Jira token at TriggerMesh.
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about how to add a secret.
+## Creating a Jira Token Secret
 
-## Deploying an Instance of the Target
+To access the Jira services, an API private key will be required.
 
-Open the Bridge creation screen and add a Target of type `Jira`.
+A sample secret would resemble:
 
-![Adding a Jira Target](../../assets/images/jira-target/jira-target-creation.png)
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jiratoken
+type: Opaque
+stringData:
+  token: "jira-api-token"
+```
 
-In the Target creation form, provide a name for the event Target, and add the following information:
+## Creating a Jira Target
 
-- **User**: the Jira user account that created the token.
-- **URL**: base URL for the Jira instance.
+An example of a Jira target for a function would resemble the following:
 
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: JiraTarget
+metadata:
+  name: tmjira
+spec:
+  auth:
+    user: woodford@triggermesh.com
+    token:
+      secretKeyRef:
+        name: jira
+        key: token
+  url: https://tmtest.atlassian.net
+```
 
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with a Jira event Target was successfully created.
+Jira fields `user`, `token` and `url` are required.
 
-![Bridge status](../../assets/images/bridge-status-green.png)
+### Sending Messages to the Jira Target
+
+The Jira target accepts these event types:
+
+- `com.jira.issue.create`
+
+The Jira target will create an issue when receiving this event type.
+
+```sh
+curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
+-H "content-type: application/json" \
+-H "ce-specversion: 1.0" \
+-H "ce-source: curl-triggermesh" \
+-H "ce-type: io.triggermesh.jira.issue.create" \
+-H "ce-id: 123-abc" \
+-d '{
+    "fields": {
+       "project":
+       {
+          "key": "IP"
+       },
+       "labels": ["alpha","beta"],
+       "summary": "Day 30.",
+       "description": "Issue created using TriggerMesh Jira Target",
+       "issuetype": {
+          "name": "Task"
+       },
+       "assignee": {
+          "accountId": "5fe0704c9edf280075f188f0"
+       }
+   }
+}'
+```
+
+- `com.jira.issue.get`
+
+The Jira target will retrieve an issue when receiving this event type.
+
+```sh
+curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
+-H "content-type: application/json" \
+-H "ce-specversion: 1.0" \
+-H "ce-source: curl-triggermesh" \
+-H "ce-type: io.triggermesh.jira.issue.get" \
+-H "ce-id: 123-abc" \
+-d '{"id":"IP-9"}'
+```
+
+- `com.jira.custom`
+
+The Jira target will request the Jira API when this event type is received. The CloudEvent data expects a generic API request as seen at this example:
+
+```sh
+curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
+-H "content-type: application/json" \
+-H "ce-specversion: 1.0" \
+-H "ce-source: curl-triggermesh" \
+-H "ce-type: io.triggermesh.jira.custom" \
+-H "ce-id: 123-abc" \
+-d '{
+    "method": "GET",
+    "path": "/rest/api/3/user/assignable/search",
+    "query": {"project": "IP"}
+   }'
+```
+
+Please, refer to the [Jira API](https://developer.atlassian.com/cloud/jira/software/rest/intro/) on how to fill in values for these requests.
+
 
 ## Event Types
 
