@@ -17,25 +17,38 @@ Consult the [Secrets](../guides/secrets.md) guide for more information about how
 1. From the **Install App** menu follow steps to deploy to your workspace.
 1. Copy the **Bot OAuth Access token**, it should begin with `xoxb-...`
 
-## Deploying an Instance of the Target
+## Slack Target
 
-From TriggerMesh, open the Bridge creation screen and add a Target of type `Slack`.
+Slack Target requires:
 
-![Adding a Slack Target](../../assets/images/slack-target/bridge-create-1.png)
+- Creating a new [Slack App][slack-apps]: add the `chat:write` permission under `Bot Token Scopes`, then install the application at your workspace.
+- A Slack API token: from the **Install App** menu retrieve the OAuth Access token that begins with `xoxb-`.
 
-In the Target creation form, provide a name for the event Target, and add the following information:
+Create a secret using the Slack API token
 
-* **Slack Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing a Slack API token.
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: slack-tm
+type: Opaque
+stringData:
+  token: xoxb-12345-abcde
+```
 
-![Slack Target form](../../assets/images/slack-target/bridge-create-2.png)
+Create the Slack Target referencing the API token.
 
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
-
-![Bridge overview](../../assets/images/slack-target/bridge-create-3.png)
-
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the Slack Target was successfully created.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: SlackTarget
+metadata:
+  name: slack-tm
+spec:
+  token:
+    secretKeyRef:
+      name: slack-tm
+      key: token
+```
 
 For more information about using the Slack API, please refer to the [Slack API documentation][slack-web-api].
 
