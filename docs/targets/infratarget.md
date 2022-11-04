@@ -112,29 +112,6 @@ The state header can have 3 values:
 - `ensure`: if `statefulbridge` header is not found it will be set with the bridge name as a value . If `statefulid` header is not found it will be set with an arbitrary ID.
 - `propagate`: if headers `statefulbridge`, `statefulid` or `statestep` are found in the incoming event, they will be copied to the outgoing event.
 
-## Deploying from Code
-
-The parent config directory can be used to deploy the controller and all adapters. Please
-consult the [development guide](../DEVELOPMENT.md) for information about how to deploy to
-a cluster.
-
-The adapter can be built and invoked directly. From the top-level source directory:
-
-```sh
-make infra-target-adapater && ./_output/infra-target-adapter
-```
-
-Several environment variables will need to be set prior to invoking the adapter such as:
-
-- `NAMESPACE` at Kubernetes where the adapter is being run. Mandatory.
-- `K_LOGGING_CONFIG` logging configuration as defined at Knative. Mandatory
-- `K_METRICS_CONFIG` metrics configuration as defined at Knative. Mandatory
-- `INFRA_STATE_HEADERS_POLICY` policy for state header creation and propagation. .Defaults to `propagate`
-- `INFRA_STATE_BRIDGE` bridge name where this component runs. Mandatory if headers policy is set to `ensure`
-- `INFRA_SCRIPT_CODE` javascript code snippet to be executed. Optional
-- `INFRA_SCRIPT_TIMEOUT` number of milliseconds before the script execution is halted. Defaults to 2 seconds.
-- `INFRA_TYPE_LOOP_PROTECTION` errors if incoming and outgoing types match. Defaults to true.
-
 ## Create Infra Target Integration
 
 ```yaml
@@ -154,6 +131,32 @@ spec:
     bridge: zendesk-to-slack
   typeLoopProtection: true
 
+```
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: InfraTarget
+metadata:
+  name: ex1
+  namespace: mynamespace
+spec:
+  script:
+    code: |-
+      // add extra field
+      input.data.extra = "this is an extra field";
+      // use javascript to add a value to a new field
+      input.data.date =  Date().toString();
+      // set a new type to avoid loops
+      input.type = "infra.type";
+      // add a header extension
+      input.myextension = "by-triggermesh";
+      // replace existing value
+      input.data["sensible-info"] = "REDACTED";
+      // do some string work joining two input fields into one
+      input.data.fullname = input.data["name"] + " " + input.data["lastname"];
+      delete input.data["name"];
+      delete input.data["lastname"];
+      return input
 ```
 
 Fields at the `spec` above match the environment variables listed for the adapter:

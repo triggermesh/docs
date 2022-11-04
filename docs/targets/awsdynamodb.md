@@ -1,5 +1,25 @@
 # AWS DynamoDB target
 
+## Kubernetes
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AlibabaOSSTarget
+metadata:
+  name: oss
+spec:
+  endpoint: <datacenter-endpoint>
+  bucket: <bucket-name>
+  accessKeyID:
+    secretKeyRef:
+      name: osscreds
+      key: id
+  accessKeySecret:
+    secretKeyRef:
+      name: osscreds
+      key: secret
+```
+
 ## Sending events to the DynamoDB Target
 
 Events can overwrite the default table name set at the spec by providing a table name at the `Ce-Source` attribute.

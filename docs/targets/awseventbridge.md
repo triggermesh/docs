@@ -5,25 +5,8 @@ bus][intro] in a [JSON format][ce-jsonformat].
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a target of type `Amazon EventBridge`.
-
-![Adding an Amazon EventBridge target](../../assets/images/awseventbridge-target/create-bridge-1.png)
-
-In the Target creation form, provide a name for the event Target and add the following information:
-
 - [AWS account ID][aws-acc-id]: defines the AWS account in which the TriggerMesh partner event source is to be created.
 - [AWS region][aws-regions]: defines the AWS region in which the TriggerMesh partner event source is to be created.
-
-![Amazon EventBridge target form](../../assets/images/awseventbridge-target/create-bridge-2.png)
-
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
-
-![Bridge overview](../../assets/images/awseventbridge-target/create-bridge-3.png)
-
-A ready status on the main _Bridges_ page indicates that the TriggerMesh partner event source was successfully created.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
 
 Although this event source can immediately start receiving events, those events **can only be consumed after associating
 the TriggerMesh partner event source with a corresponding [partner event bus][event-bus]**.
@@ -51,6 +34,25 @@ You will also see a custom event bus named after the TriggerMesh partner event s
 Your can now start creating rules that trigger on certain events in the Amazon EventBridge console.
 
 For more information about using Amazon EventBridge, please refer to the [EventBridge user guide][userguide].
+
+## Kubernetes
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSEventBridgeTarget
+metadata:
+  name: triggermesh-aws-eventbridge
+spec:
+  arn: arn:aws:events:us-west-2:<PROJECT_ID>:event-bus/cab-knative-event-test
+  awsApiKey:
+    secretKeyRef:
+      name: aws
+      key: AWS_ACCESS_KEY_ID
+  awsApiSecret:
+    secretKeyRef:
+      name: aws
+      key: AWS_SECRET_ACCESS_KEY
+```
 
 ## Event Types
 

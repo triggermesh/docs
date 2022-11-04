@@ -34,7 +34,20 @@ Both the **Default source phone number** and **Default destination** configurati
 
 For more information about using Twilio, please refer to the [Twilio documentation][docs].
 
-## Creating a Twilio Target
+## Kubernetes
+
+**Secret**
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: twilio
+type: Opaque
+stringData:
+  sid: "<TWILIO-ACCOUNT-SID>"
+  token: "<TWILIO-ACCOUNT-TOKEN>"
+```
 
 Integrations can be created by adding TwilioTargets objects.
 
@@ -63,6 +76,25 @@ matching the phone number purchased with Twilio.
 all messages to the same phone number by default.
 
 Both configurations can be overridden by every CloudEvent message received by the Target.
+
+Example instance:
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: TwilioTarget
+metadata:
+  name: triggermesh-sms
+spec:
+  defaultPhoneFrom: "<PHONE-FROM>"
+  sid:
+    secretKeyRef:
+      name: twilio
+      key: sid
+  token:
+    secretKeyRef:
+      name: twilio
+      key: token
+```
 
 Refer to [Twilio docs for number formating](https://www.twilio.com/docs/lookup/tutorials/validation-and-formatting?code-sample=code-lookup-with-international-formatted-number).
 

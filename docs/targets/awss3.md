@@ -15,12 +15,6 @@ pre-defined [access point][aws-s3-ap].
 
 ## Deploying an Instance of the Target
 
-Open the Bridge creation screen and add a Target of type `Amazon S3`.
-
-![Adding an S3 Target](../../assets/images/aws-targets/aws-s3-bridge-create-1.png)
-
-In the Target creation form, provide a name for the event Target and add the following information:
-
 - **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
 - **AWS ARN**: The ARN that points to the Amazon S3 bucket.
 
@@ -28,17 +22,26 @@ There is an optional toggle flag indicating if the full CloudEvent should be sen
 to S3 bucket. By default, this is disabled which means only the event payload
 will be sent.
 
-![Amazon S3 Target form](../../assets/images/aws-targets/aws-s3-bridge-create-2.png)
-
-After clicking the `Save` button, the console will self-navigate to the Bridge editor. Proceed by adding the remaining components to the Bridge.
-
-![Bridge overview](../../assets/images/aws-targets/aws-s3-bridge-create-3.png)
-
-After submitting the Bridge, and allowing for some configuration time, a green check mark on the main _Bridges_ page indicates that the Bridge with the Amazon S3 Target was successfully created.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
-
 For more information about using Amazon S3, please refer to the [AWS documentation][docs].
+
+## Kubernetes
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSS3Target
+metadata:
+  name: triggermesh-aws-s3-test
+spec:
+  arn: arn:aws:s3:::bucket
+  awsApiKey:
+    secretKeyRef:
+      name: aws
+      key: AWS_ACCESS_KEY_ID
+  awsApiSecret:
+    secretKeyRef:
+      name: aws
+      key: AWS_SECRET_ACCESS_KEY
+```
 
 ## Event Types
 

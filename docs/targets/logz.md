@@ -14,6 +14,35 @@ Consult the [Secrets](../guides/secrets.md) guide for more information about how
 * **Shipping Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Logz.io [shipping token](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/) as discussed in the [prerequisites](#prerequisites).
 * **Logs Listener URL**: An API endpoint that can be found above your shipping token in the Logz.io dashboard.
 
+## Kubernetes
+
+**Secret**
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: logz
+type: Opaque
+stringData:
+  token: my_token  # Update this value with a valid shipping token
+```
+
+**Target**
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: LogzTarget
+metadata:
+  name: tmlogz
+spec:
+  logsListenerURL: listener.logz.io
+  shippingToken:
+    secretKeyRef:
+      name: logz
+      key: token
+```
+
 ## Event Types
 
 A Logz event Target accepts the following CloudEvent types:

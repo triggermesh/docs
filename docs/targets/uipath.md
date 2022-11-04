@@ -1,5 +1,44 @@
 # UI Path Target
 
+## Kubernetes
+
+**Secret**
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: uipath
+type: Opaque
+stringData:
+  userKey: <UIPATH USER KEY SECRET>
+```
+
+**Target**
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: UiPathTarget
+metadata:
+  name: triggermesh-uipath
+spec:
+  robotName: DemoRobot
+  processName: helloworld_demoEnv
+  tenantName: DemoName
+  accountLogicalName: DemoAccount
+  clientID: UiPathClientID
+  organizationUnitID: "666999"
+  userKey:
+    secretKeyRef:
+      name: uipath
+      key: userKey
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+
+```
+
 ### "io.triggermesh.uipath.job"
 
 #### Example starting job with 'InputArguments'   

@@ -34,6 +34,52 @@ In your browser, navigate to the GoogleSheets Sheet you want to use. You can fin
 - **ID**: The GoogleSheets Sheet ID to send the event payload to.
 - **Default Prefix**: A string used during new sheet creation when the event does not provide one.
 
+## Kubernetes
+
+**Secret**
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: googlesheet
+type: Opaque
+stringData:
+  # Replace the example below with a valid Google Credentials JSON string.
+  googleServiceAccount: |-
+    {
+      "type": "service_account",
+      "project_id": "dev",
+      "private_key_id": "e1e4ad14a8d234adf4963d398863ad12444df",
+      "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQQWFNBgkqhkiG9w0BAQEFAASCB...R6Y=\n-----END PRIVATE KEY-----\n",
+      "client_email": "tst-27@dev.iam.gserviceaccount.com",
+      "client_id": "11547922342598721477",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gstst-27%40dev.iam.gserviceaccount.com"
+    }
+```
+
+**Target**
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: GoogleSheetTarget
+metadata:
+  name: triggermesh-googlesheet
+spec:
+  # Below is an example Spreadsheet ID. Change this.
+  id: 14GKZKWVB2TsYy31cCZ43YwA1LoOlVeL4nB7jlZbgFAk
+  # Static prefix assignment for reciving CloudEvents without prior transformation.
+  defaultPrefix: <Default Prefix>
+  # These values should not change.
+  googleServiceAccount:
+    secretKeyRef:
+      name: googlesheet
+      key: credentials
+```
+
 ## Prerequisites
 
 A GoogleSheet API key is required to utilize this target. The steps to obtain a

@@ -14,6 +14,41 @@ This event target receives [CloudEvents][ce] over HTTP and sends them to [Amazon
 
 For more information about using Amazon Comprehend, please refer to the [documentation][https://docs.aws.amazon.com/comprehend/].
 
+## Kubernetes
+
+**Secret**
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: aws
+type: Opaque
+stringData:
+  AWS_ACCESS_KEY_ID: "<AWS Access Key ID>"
+  AWS_SECRET_ACCESS_KEY: "<AWS Secret Access Key>"
+```
+
+**Target**
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSComprehendTarget
+metadata:
+  name: triggermesh-aws-comprehend
+spec:
+  region: us-west-1
+  language: en
+  awsApiKey:
+    secretKeyRef:
+      name: aws
+      key: AWS_ACCESS_KEY_ID
+  awsApiSecret:
+    secretKeyRef:
+      name: aws
+      key: AWS_SECRET_ACCESS_KEY
+```
+
 ## Examples
 
 curl -v "10.1.215.232:8080" \

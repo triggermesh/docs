@@ -13,6 +13,45 @@ This event target receives [CloudEvents][ce] over HTTP and sends them to [Google
 
 For more information about using Google Cloud Workflows, please refer to the [documentation][https://cloud.google.com/workflows/docs].
 
+## Kubernetes
+
+**Secret**
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: googlecloudworkflows
+type: Opaque
+stringData:
+  creds: |-
+    {
+      "type": "service_account",
+      "project_id": "dev",
+      "private_key_id": "e1e4ad14a8d234adf4963d398863ad12444df",
+      "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQQWFNBgkqhkiG9w0BAQEFAASCB...R6Y=\n-----END PRIVATE KEY-----\n",
+      "client_email": "tst-27@dev.iam.gserviceaccount.com",
+      "client_id": "11547922342598721477",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gstst-27%40dev.iam.gserviceaccount.com"
+    }
+```
+
+**Target**
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: GoogleCloudWorkflowsTarget
+metadata:
+  name: googlecloudworkflows
+spec:
+  credentialsJson:
+    secretKeyRef:
+      name: googlecloudworkflows
+      key: creds
+```
 
 ## Sending information to Google Workflows
 
