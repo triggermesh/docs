@@ -3,6 +3,11 @@
 This event source registers itself as a notification receiver in Zendesk in order to capture events such as ticket
 creations.
 
+## CLI
+
+Coming soon.
+
+
 ## Prerequisite(s)
 
 - API Token
@@ -156,5 +161,3 @@ Data,
 [zd-subdom]: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
 
 [tm-secret]: ../guides/secrets.md
-
-

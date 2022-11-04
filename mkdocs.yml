@@ -36,59 +36,63 @@ nav:
       - Concepts: get-started/concepts.md
     - Event sources:
       - Overview: concepts/sources.md
-      - CloudEvents: guides/cloudeventssource.md
-      - Azure Activity Logs: cloud/sources/azureactivitylogs.md
-      - Azure Blob Storage: cloud/sources/azureblobstorage.md
-      - AWS CodeCommit: cloud/sources/awscodecommit.md
-      - Amazon Cognito User Pool: cloud/sources/awscognitouserpool.md
-      - Amazon DynamoDB: cloud/sources/awsdynamodb.md
-      - Amazon Kinesis: cloud/sources/awskinesis.md
-      - Amazon S3: cloud/sources/awss3.md
-      - Amazon SNS: cloud/sources/awssns.md
-      - Amazon SQS: cloud/sources/awssqs.md
-      - Github: cloud/sources/github.md
-      - Google Cloud Audit Logs: cloud/sources/googlecloudauditlogs.md
-      - Google Cloud Billing: cloud/sources/googlecloudbilling.md
-      - Google Cloud Pub/Sub: cloud/sources/googlecloudpubsub.md
-      - Google Cloud Repositories: cloud/sources/googlecloudrepositories.md
-      - Google Cloud Storage: cloud/sources/googlecloudstorage.md
-      - Webhook: cloud/sources/webhook.md
-      - HTTP Poller: cloud/sources/httppoller.md
-      - OCIMetrics: cloud/sources/ocimetrics.md
-      - Salesforce: cloud/sources/salesforce.md
-      - Slack: cloud/sources/slack.md
-      - Zendesk: cloud/sources/zendesk.md
+      - CloudEvents: sources/cloudeventssource.md
+      - Azure Activity Logs: sources/azureactivitylogs.md
+      - Azure Blob Storage: sources/azureblobstorage.md
+      - Azure Event Grid: sources/azureeventgrid.md
+      - AWS CodeCommit: sources/awscodecommit.md
+      - Amazon Cognito User Pool: sources/awscognitouserpool.md
+      - Amazon DynamoDB: sources/awsdynamodb.md
+      - Amazon Kinesis: sources/awskinesis.md
+      - Amazon S3: sources/awss3.md
+      - Amazon SNS: sources/awssns.md
+      - Amazon SQS: sources/awssqs.md
+      - Github: sources/github.md
+      - Google Cloud Audit Logs: sources/googlecloudauditlogs.md
+      - Google Cloud Billing: sources/googlecloudbilling.md
+      - Google Cloud Pub/Sub: sources/googlecloudpubsub.md
+      - Google Cloud Repositories: sources/googlecloudrepositories.md
+      - Google Cloud Storage: sources/googlecloudstorage.md
+      - Google Cloud IoT: sources/googlecloudiot.md
+      - Kafka: sources/kafka.md
+      - Webhook: sources/webhook.md
+      - HTTP Poller: sources/httppoller.md
+      - OCIMetrics: sources/ocimetrics.md
+      - Salesforce: sources/salesforce.md
+      - Slack: sources/slack.md
+      - Zendesk: sources/zendesk.md
     - Targets:
       - Overview: concepts/targets.md
-      - AWS Lambda: guides/creatingatarget.md
-      - CloudEvents: guides/cloudeventstarget.md
-      - Alibaba OSS: cloud/targets/alibabaoss.md
-      - Amazon Comprehend: cloud/targets/awscomprehend.md
-      - AWS Lambda: cloud/targets/awslambda.md
-      - Amazon S3: cloud/targets/awss3.md
-      - Amazon SNS: cloud/targets/awssns.md
-      - Amazon SQS: cloud/targets/awssqs.md
-      - Amazon Kinesis: cloud/targets/awskinesis.md
-      - Amazon EventBridge: cloud/targets/awseventbridge.md
-      - Confluent: cloud/targets/confluent.md
-      - Datadog: cloud/targets/datadog.md
-      - Elasticsearch: cloud/targets/elasticsearch.md
-      - Google Cloud Workflows: cloud/targets/googlecloudworkflows.md
-      - Google Firestore: cloud/targets/googlefirestore.md
-      - Google Sheets: cloud/targets/googlesheets.md
-      - Hasura: cloud/targets/hasura.md
-      - HTTP: cloud/targets/http.md
-      - InfraJS: cloud/targets/infrajs.md
-      - Jira: cloud/targets/jira.md
-      - Logz.io: cloud/targets/logz.md
-      - Oracle: cloud/targets/oracle.md
-      - Salesforce: cloud/targets/salesforce.md
-      - SendGrid: cloud/targets/sendgrid.md
-      - Slack: cloud/targets/slack.md
-      - Splunk: cloud/targets/splunk.md
-      - Tekton: cloud/targets/tekton.md
-      - Twilio: cloud/targets/twilio.md
-      - Zendesk: cloud/targets/zendesk.md
+      - AWS Lambda: targets/creatingatarget.md
+      - CloudEvents: targets/cloudeventstarget.md
+      - Alibaba OSS: targets/alibabaoss.md
+      - Amazon Comprehend: targets/awscomprehend.md
+      - AWS Lambda: targets/awslambda.md
+      - Amazon S3: targets/awss3.md
+      - Amazon SNS: targets/awssns.md
+      - Amazon SQS: targets/awssqs.md
+      - Amazon Kinesis: targets/awskinesis.md
+      - Amazon EventBridge: targets/awseventbridge.md
+      - Confluent: targets/confluent.md
+      - Datadog: targets/datadog.md
+      - Elasticsearch: targets/elasticsearch.md
+      - Google Cloud Workflows: targets/googlecloudworkflows.md
+      - Google Firestore: targets/googlefirestore.md
+      - Google Sheets: targets/googlesheets.md
+      - Hasura: targets/hasura.md
+      - HTTP: targets/http.md
+      - InfraJS: targets/infrajs.md
+      - Jira: targets/jira.md
+      - Kafka: targets/kafka.md
+      - Logz.io: targets/logz.md
+      - Oracle: targets/oracle.md
+      - Salesforce: targets/salesforce.md
+      - SendGrid: targets/sendgrid.md
+      - Slack: targets/slack.md
+      - Splunk: targets/splunk.md
+      - Tekton: targets/tekton.md
+      - Twilio: targets/twilio.md
+      - Zendesk: targets/zendesk.md
     - Brokers and Triggers:
       - Brokers: brokers.md
       - Triggers: triggers.md
@@ -125,8 +129,7 @@ nav:
       - Using Kuma Mesh with TriggerMesh: guides/kuma.md
       - Creating a PrivateLink to TriggerMesh Services: guides/triggermesh-privatelink.md
       - Scaling: concepts/scaling.md
-      - Bridges:
-        - Webhook to Slack: guides/bridges/webhook-to-slack.md
+      - Webhook to Slack: guides/webhook-to-slack.md
     - Reference:
       - CLI commands: cli-commands.md
       - Kubernetes CRDs:
@@ -175,6 +178,3 @@ markdown_extensions:
 
 plugins:
     - search
-    - redirects:
-        redirect_maps:
-            'sources.md': 'concepts/sources.md'
