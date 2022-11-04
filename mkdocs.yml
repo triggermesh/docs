@@ -89,7 +89,6 @@ nav:
       - Jira: targets/jira.md
       - Kafka: targets/kafka.md
       - Logz.io: targets/logz.md
-      - OpenTelemetry: targets/opentelemetry.md
       - Oracle: targets/oracle.md
       - Salesforce: targets/salesforce.md
       - SendGrid: targets/sendgrid.md
