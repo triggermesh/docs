@@ -151,7 +151,7 @@ nav:
       - Scaling: concepts/scaling.md
       - Webhook to Slack: guides/webhook-to-slack.md
     - Reference:
-      - CLI commands: cli-commands.md
+      - CLI commands: reference/cli-commands.md
       - Kubernetes CRDs:
         - reference/index.md
         - Sources: reference/sources.md
@@ -189,12 +189,16 @@ extra:
 
 markdown_extensions:
   - attr_list
+  - md_in_html
   - def_list
   - admonition
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 plugins:
     - search
