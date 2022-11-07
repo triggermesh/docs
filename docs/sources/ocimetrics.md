@@ -33,13 +33,6 @@ how to add an Oracle Cloud specific secret.
 
 ### Creating the Source
 
-Open the Bridge creation screen and add a source of type `OCIMetrics`.
-
-![Adding an OCI Metric](../../assets/images/ocimetrics-source/create-bridge-1.png)
-
-In the source creation form, provide a unique name and broker. These are used by
-TriggerMesh to uniquely identify the source and where to send the events to.
-
 For the Oracle Cloud specific information, provide the following information:
 - Oracle tenancy using the Oracle Cloud ID (OCID)
 - Oracle username as an OCID
@@ -52,12 +45,45 @@ For the metrics specific information:
 For details on how to write a query, consult the
 [Oracle Cloud Monitoring Overview](https://docs.cloud.oracle.com/en-us/iaas/Content/Monitoring/Concepts/monitoringoverview.htm)
 
-![Adding OCI Metric Details](../../assets/images/ocimetrics-source/create-bridge-2.png)
+## Kubernetes
 
-After clicking the `SAVE` button, you will be taken back to the Bridge editor.
-Continue to add the targets, and then submit the bridge.
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: OCIMetricsSource
+metadata:
+  name: sample
+spec:
+  # required to interact with the Oracle Cloud API
+  oracleApiPrivateKey:
+    value: |-
+      -----BEGIN RSA PRIVATE KEY-----
+      MIXEpAIBACKCAQEA2UM2O2lz4D6gN2sAbxUg6VMnGQlrwNbZX7b/wqW6ZEU0Q0BU
+      ...
+      -----END RSA PRIVATE KEY-----
+  oracleApiPrivateKeyPassphrase:
+    value: replace-me
+  oracleApiPrivateKeyFingerprint:
+    value: 5c:75:c4:67:92:a9:46:2a:01:5b:73:54:6a:b2:74:7d
 
-![Bridge overview](../../assets/images/ocimetrics-source/create-bridge-3.png)
+  oracleTenancy: ocid1.tenancy.oc1..aaaaaaaaswreplaceme
+  oracleUser: ocid1.user.oc1..aaaaaaaaqlocaluser
+  oracleRegion: us-ashburn-1
+
+  # required to enable metrics
+  metrics:
+  - name: cpuUtilization
+    metricsNamespace: oci_computeagent
+    metricsQuery: CPUUtilization[1m].mean()
+
+  # optional. default to 5m
+  metricsPollingFrequency: 3m
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

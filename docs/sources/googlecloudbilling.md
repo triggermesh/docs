@@ -37,21 +37,42 @@ able to run an instance of the Google Cloud Billing event source.
 - Budget ID: The identifier for the Cloud Billing budget. You can locate the budget's ID in your budget under "Manage notifications".
              The ID is displayed after you select Connect a Pub/Sub topic to this budget. For example, de72f49d-779b-4945-a127-4d6ce8def0bb.
 
-Open the Bridge creationg screen and add a source of type Google Cloud Billing.
+## Kubernetes
 
-![Adding a Google Cloud Billing source](../../assets/images/googlecloudbilling-source/create-bridge-1.png)
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: GoogleCloudBillingSource
+metadata:
+  name: sample
+spec:
+  billingAccountId: myBillingAccountId
+  budgetId: mybudgetId
 
-In the Source creation form, give a name to the event source and add the required parameters:
+  pubsub:
+    project: my-project
+    # Alternatively, provide a pre-existing Pub/Sub topic:
+    # topic: projects/my-project/topics/my-topic
 
-![Google Cloud Billing source form](../../assets/images/googlecloudbilling-source/create-bridge-2.png)
-
-After clicking the Save button, you will be taken back to the Bridge editor. Proceed to adding the remaining components to the Bridge, then submit it.
-
-![Bridge overview](../../assets/images/googlecloudbilling-source/create-bridge-3.png)
-
-A ready status on the main Bridges page indicates that the event source is ready to consume messages from the Billing budget configured.
-
-![Bridge status](../../assets/images/googlecloudbilling-source/create-bridge-4.png)
+  serviceAccountKey:
+    value: >-
+      {
+        "type": "service_account",
+        "project_id": "my-project",
+        "private_key_id": "0000000000000000000000000000000000000000",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n",
+        "client_email": "triggermesh-billing-source@my-project.iam.gserviceaccount.com",
+        "client_id": "000000000000000000000",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/triggermesh-billing-source%40my-project.iam.gserviceaccount.com"
+      }
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ### Event Types
 

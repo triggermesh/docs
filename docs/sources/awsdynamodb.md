@@ -83,27 +83,37 @@ source to operate:
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `Amazon DynamoDB`.
-
-![Adding an Amazon DynamoDB source](../../assets/images/awsdynamodb-source/create-bridge-1.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - [**AWS ARN**][arn]: ARN of the DynamoDB Table, as described in the previous sections.
 - [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the Amazon DynamoDB API, as described in the previous sections.
 
-![Amazon DynamoDB source form](../../assets/images/awsdynamodb-source/create-bridge-2.png)
+## Kubernetes
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSDynamoDBSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:dynamodb:us-west-2:123456789012:table/triggermeshtest
 
-![Bridge overview](../../assets/images/awsdynamodb-source/create-bridge-3.png)
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the
-Amazon DynamoDB Stream.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

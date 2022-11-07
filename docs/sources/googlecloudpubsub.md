@@ -61,28 +61,41 @@ subscriptions][gc-pubsub-adm].
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `Google Cloud Pub/Sub`.
-
-![Adding a Google Cloud Pub/Sub source](../../assets/images/googlecloudpubsub-source/create-bridge-1.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - [**Secret**][gc-iam-key]: Service account key in JSON format, as described in the previous sections.
 - [**Topic**][gc-pubsub-resname]: Full resource name of the Pub/Sub topic to subscribe to.
 - **Subscription ID**: _(optional)_ ID of the subscription to use for pulling messages from the Pub/Sub topic, in case
   you prefer to manage this subscription yourself as described in the previous sections.
 
-![Google Cloud Pub/Sub source form](../../assets/images/googlecloudpubsub-source/create-bridge-2.png)
+## Kubernetes
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: GoogleCloudPubSubSource
+metadata:
+  name: sample
+spec:
+  topic: projects/my-project/topics/my-topic
 
-![Bridge overview](../../assets/images/googlecloudpubsub-source/create-bridge-3.png)
-
-A ready status on the main _Bridges_ page indicates that the event source is ready to consume messages from the Pub/Sub
-topic.
-
-![Bridge status](../../assets/images/googlecloudpubsub-source/create-bridge-4.png)
+  serviceAccountKey:
+    value: >-
+      {
+        "type": "service_account",
+        "project_id": "my-project",
+        "private_key_id": "0000000000000000000000000000000000000000",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n",
+        "client_email": "triggermesh-pubsub-source@my-project.iam.gserviceaccount.com",
+        "client_id": "000000000000000000000",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/triggermesh-pubsub-source%40my-project.iam.gserviceaccount.com"
+      }
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

@@ -7,7 +7,6 @@ creations.
 
 Coming soon.
 
-
 ## Prerequisite(s)
 
 - API Token
@@ -20,29 +19,11 @@ the instructions at [Generating a new API token ][zd-token].
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `Zendesk`.
-
-![Adding a Zendesk source](../../assets/images/zendesk-source/create-bridge-1.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - **Email**: Email address associated with the Zendesk account.
 - [**Subdomain**][zd-subdom]: Name of the Zendesk subdomain, without the `zendesk.com` domain or `https://` scheme.
 - [**Token**][zd-token]: Reference to a [TriggerMesh secret][tm-secret] containing an API token to communicate with the
   Zendesk API, as described in the previous section.
 - **Webhook username/password**: arbitrary user name and password, used to verify event callbacks.
-
-![Zendesk source form](../../assets/images/zendesk-source/create-bridge-2.png)
-
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
-
-![Bridge overview](../../assets/images/zendesk-source/create-bridge-3.png)
-
-A ready status on the main _Bridges_ page indicates that the Zendesk [Target][zd-target] and [Trigger][zd-trigger] were
-successfully created and that the event source is ready to forward events from Zendesk.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Verification of External Resources
 
@@ -68,6 +49,32 @@ condition is the creation of a new ticket.
 
 If the Trigger is marked as `active`, it will be sending notifications to the HTTP(S) endpoint exposed by the instance
 of the TriggerMesh Zendesk event source as soon as a corresponding action happens in Zendesk.
+
+## Kubernetes
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: ZendeskSource
+metadata:
+  name: sample
+spec:
+
+  subdomain: example-corp
+
+  email: johndoe@example.com
+  token:
+    value: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+  webhookUsername: foo
+  webhookPassword:
+    value: secret1234
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

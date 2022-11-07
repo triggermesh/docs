@@ -69,25 +69,37 @@ The file name containing the key will need to be renamed to `certKey`, then sele
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `Salesforce`.
-
-![Adding Salesforce source](../../assets/images/salesforce-source/salesforce-source.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - **Broker** to send the events to.
 - **Client ID** as retrieved from Salesforce Connected App.
 - **Server** for authentication at Salesforce.
 - **User** for the Salesforce account.
 - **Channel** as configured at the Salesforce stream.
 
-![Salesforce source form](../../assets/images/salesforce-source/salesforce-source-form.png)
+## Kubernetes
 
-After clicking `Save` at the source, you will be taken back to the Bridge editor. Proceed to add the remaining components to the Bridge, then submit it.
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: SalesforceSource
+metadata:
+  name: sample
+spec:
+  subscription:
+    channel: /data/ChangeEvents
+    replayID: -2
 
-Wait a few seconds for all components to become ready, the green `Status` indicator for the bridge indicates that the event source is ready to forward messages from the Salesforce event Stream.
+  auth:
+    clientID: salesforce.client_id
+    server: https://login.salesforce.com
+    user: woodford@example.com
+    certKey:
+      value: my-key
 
-![Bridge status](../../assets/images/salesforce-source/salesforce-bridge-ready.png)
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

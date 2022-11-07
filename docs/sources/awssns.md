@@ -85,29 +85,51 @@ and delete messages from any topic linked to the AWS account:
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `Amazon SNS`.
-
-![Adding an Amazon SNS source](../../assets/images/awssns-source/bridge-form-sns-source.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the Amazon SNS API, as described in the previous sections.
 - [**AWS ARN**][arn]: ARN of the SNS topic, as described in the previous sections.
 - [**DeliveryPolicy**][sns-delivery-policy]: Delivery policy to define how Amazon SNS retries the delivery of messages
   to HTTP/S endpoints.
 
-![Amazon SNS source form](../../assets/images/awssns-source/bridge-form-sns-source-form.png)
+## Kubernetes
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSSNSSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:sns:us-west-2:123456789012:triggermeshtest
 
-![Bridge overview](../../assets/images/awssns-source/bridge-form-target.png)
+  # For a list of supported subscription attributes, please refer to the following resources:
+  #  * https://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html
+  #  * https://docs.aws.amazon.com/sns/latest/dg/sns-how-it-works.html
+  subscriptionAttributes:
+    DeliveryPolicy: |
+      {
+        "healthyRetryPolicy": {
+          "numRetries": 3,
+          "minDelayTarget": 20,
+          "maxDelayTarget": 20
+        }
+      }
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to receive messages from the Amazon
-SNS topic.
-
-![Bridge status](../../assets/images/awssns-source/bridge-deployed.png)
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

@@ -75,27 +75,37 @@ source to list users in any user pool associated with the AWS account:
 
 ## Deploying an instance of the Source
 
-Open the Bridge creation screen and add a source of type `Amazon Cognito User Pool`.
-
-![Search Results](../../assets/images/awscognitouserpool-source/source-cognito-userpool.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the Amazon Cognito API, as described in the previous sections.
 - [**AWS ARN**][arn]: ARN of the User Pool, as described in the previous sections.
 
-![Source form](../../assets/images/awscognitouserpool-source/source-cognito-userpool-form.png)
+## Kubernetes
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSCognitoUserPoolSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:cognito-idp:us-west-2:123456789012:userpool/us-west-2_abcdefghi
 
-![Bridge overview](../../assets/images/awscognitouserpool-source/bridge-form-target.png)
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the
-Amazon Cognito User Pool.
-
-![Bridge status](../../assets/images/awscognitouserpool-source/bridge-status.png)
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

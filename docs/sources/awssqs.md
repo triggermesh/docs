@@ -149,6 +149,8 @@ metadata:
   name: sqs-guide
 spec:
   arn: arn:aws:sqs:us-east-1:123456789012:triggermesh
+  receiveOptions:
+    visibilityTimeout: 30m
   auth:
     credentials:
       accessKeyID:
@@ -161,9 +163,9 @@ spec:
           key: secret_access_key
   sink:
     ref:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: sockeye
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
 ```
 
 Create this source with the `kubectl apply -f` command.

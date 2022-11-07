@@ -76,27 +76,38 @@ source to operate:
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `Amazon Kinesis`.
-
-![Adding an Amazon Kinesis source](../../assets/images/awskinesis-source/create-bridge-1.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - [**AWS ARN**][arn]: ARN of the Kinesis Data Stream, as described in the previous sections.
 - [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the Amazon Kinesis API, as described in the previous sections.
 
-![Amazon Kinesis source form](../../assets/images/awskinesis-source/create-bridge-2.png)
+## Kubernetes
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSKinesisSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:kinesis:us-west-2:123456789012:stream/triggermeshtest
 
-![Bridge overview](../../assets/images/awskinesis-source/create-bridge-3.png)
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to forward messages from the Amazon
-Kinesis Data Stream.
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
-![Bridge status](../../assets/images/bridge-status-green.png)
 
 ## Event Types
 
