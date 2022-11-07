@@ -49,16 +49,23 @@ Cloud Event data example (same as received body):
 ```
 ## Kubernetes
 
-For simplicity we are setting up a non authenticated Webhook and using the default Kubernetes namespace.
-
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
 kind: WebhookSource
 metadata:
-  name: post-message
+  name: sample
 spec:
-  eventType: webhook.slack.postmessage
-  eventSource: webhook.post-message
+  eventType: com.example.mysample.event
+  eventSource: instance-abc123
+
+  eventExtensionAttributes:
+    from:
+    - path
+    - queries
+
+  basicAuthUsername: customuser
+  basicAuthPassword:
+    value: abc123secret
 
   sink:
     ref:
@@ -67,7 +74,7 @@ spec:
       name: default
 ```
 
-The `eventType` and `eventSource` CloudEvents attributes are being set for further event filtering. There is a reference to a Broker sink object where events will be sent, we will get to that one later.
+The `eventType` and `eventSource` CloudEvents attributes are being set for further event filtering. There is a reference to a Broker sink object where events will be sent.
 
 
 [ce]: https://cloudevents.io

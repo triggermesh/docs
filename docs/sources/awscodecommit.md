@@ -84,29 +84,44 @@ source to operate:
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `AWS CodeCommit`.
-
-![Adding an AWS CodeCommit source](../../assets/images/awscodecommit-source/create-bridge-1.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - [**AWS ARN**][arn]: ARN of the CodeCommit repository, as described in the previous sections.
 - [**Branch name**][cc-branches]: Name of the Git branch the source should be watching for commits.
 - **Event types**: List of event types the event source should subscribe to.
 - [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
   Access Key to communicate with the AWS CodeCommit API, as described in the previous sections.
 
-![AWS CodeCommit source form](../../assets/images/awscodecommit-source/create-bridge-2.png)
+## Kubernetes
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSCodeCommitSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:codecommit:us-west-2:123456789012:triggermeshtest
+  branch: master
 
-![Bridge overview](../../assets/images/awscodecommit-source/create-bridge-3.png)
+  eventTypes:
+  - push
+  - pull_request
 
-A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the AWS
-CodeCommit repository.
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
 
-![Bridge status](../../assets/images/bridge-status-green.png)
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

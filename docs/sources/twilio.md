@@ -5,25 +5,20 @@ This event source is to be deployed and then registered as a webhook via Twilio 
 
 - A Twilio account (trial or paid)
 
-## Deploying an Instance of the Source
+## Kubernetes
 
-Open the Bridge creation screen and add a source of type `Twilio`.
-
-![Adding a Twilio source](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/create-bridge-1.png)
-
-In the Source creation form, give a name to the event source and add assign it to a Broker
-
-![Twilio source form](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/create-bridge-2.png)
-
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to add the remaining
-
-components to the Bridge, then submit it.
-
-![Bridge overview](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/create-bridge-3.png)
-
-A ready status on the main _Bridges_ page indicates that the Twilio Source was successfully created and is ready to forward events from Twilio.
-
-![Bridge status](../../assets/images/bridge-status-green.png)
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: TwilioSource
+metadata:
+  name: sample
+spec:
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: broker
+      name: default
+```
 
 ## Integrate with Twilio
 

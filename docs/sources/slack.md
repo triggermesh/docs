@@ -59,12 +59,32 @@ You will now have a working integration. Any Slack action that matches the confi
 
 Create a new secret at TriggerMesh and add a key named `signingSecret` containing the value retrieved at the previous step.
 
-  ![Signing secret](../../assets/images/slack-source/07createsecret.png)
-
-Go back to the bridge and edit the source:
+Then edit the source:
 
 - `Signing secret` set to the created secret.
 - `App ID` is also optional and will filter for the App ID in case the endpoint is used for multiple integrations.
+
+## Kubernetes
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: SlackSource
+metadata:
+  name: sample
+spec:
+  # optional, making sure we are receiving events on behalf of Slack
+  signingSecret:
+    value: XXXXXXXXXXXXXXXXXX
+
+  # optional, making sure the events are being sent for this integration
+  appID: AXXXXXXXXX
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Events
 

@@ -41,23 +41,38 @@ https://cloud.google.com/pubsub/docs/admin#resource_names
 
 
 
-## Deploying an Instance of the Source
+## Kubernetes
 
-Open the Bridge creationg screen and add a source of type Google Cloud Repositories.
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: GoogleCloudSourceRepositoriesSource
+metadata:
+  name: sample
+spec:
+  repository: projects/my-project/repos/my-repo
 
-![Adding a Google Cloud Repositories source](../../assets/images/googlecloudrepositories-source/create-bridge-1.png)
+  publishServiceAccount: pubsub-publisher@my-project.iam.gserviceaccount.com
 
-In the Source creation form, give a name to the event source and add the required parameters:
-
-![Google Cloud Repositories source form](../../assets/images/googlecloudrepositories-source/create-bridge-2.png)
-
-After clicking the Save button, you will be taken back to the Bridge editor. Proceed to adding the remaining components to the Bridge, then submit it.
-
-![Bridge overview](../../assets/images/googlecloudrepositories-source/create-bridge-3.png)
-
-A ready status on the main Bridges page indicates that the event source is ready to consume messages from the Repository configured.
-
-![Bridge status](../../assets/images/googlecloudrepositories-source/create-bridge-4.png)
+  serviceAccountKey:
+    value: >-
+      {
+        "type": "service_account",
+        "project_id": "my-project",
+        "private_key_id": "0000000000000000000000000000000000000000",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n",
+        "client_email": "triggermesh-repositories-source@my-project.iam.gserviceaccount.com",
+        "client_id": "000000000000000000000",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/triggermesh-repositories-source%40my-project.iam.gserviceaccount.com"
+      }
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

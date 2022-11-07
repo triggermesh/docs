@@ -131,12 +131,6 @@ your own policy instead, make sure it has the same `Manage, Send, Listen` claims
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `Azure Activity Logs`.
-
-![Adding an Azure Activity Logs source](../../assets/images/azureactivitylogs-source/create-bridge-1.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 !!! note
     The ID of the Azure subscription which Activity Logs are to be subscribed to is inferred from the **Event Hub ID**
     parameter below. Therefore, the form does not require providing a subscription ID explicitly.
@@ -150,23 +144,48 @@ In the Source creation form, give a name to the event source and add the followi
 - [Log categories][log-categories]: _(optional)_ Categories of Activity Logs to collect. All available categories are
   selected when the list of categories is left empty.
 
-![Azure Activity Logs source form](../../assets/images/azureactivitylogs-source/create-bridge-2.png)
-
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
-
-![Bridge overview](../../assets/images/azureactivitylogs-source/create-bridge-3.png)
-
-A ready status on the main _Bridges_ page indicates that the [Diagnostic Settings][diag-settings] were successfully
-created and that the event source is ready to route events from Event Hubs.
-
-![Bridge status](../../assets/images/azureactivitylogs-source/create-bridge-4.png)
-
 After creating a Bridge with the Azure Activity Logs event source, navigate back to the Event Hubs screen in the Azure
 Portal. You should see a message count above 0 within the namespace, providing that activity logs are being generated
 within the Azure Subscription.
 
 ![Event Hub messages](../../assets/images/azureactivitylogs-source/eventhub-msgs.png)
+
+## Kubernetes
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AzureActivityLogsSource
+metadata:
+  name: sample
+spec:
+  subscriptionID: 00000000-0000-0000-0000-000000000000
+
+  # Available Activity Log categories are documented at
+  # https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-log-schema#categories
+  categories:
+  - Administrative
+  - Security
+  - Policy
+
+  destination:
+    eventHubs:
+      namespaceID: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyGroup/providers/Microsoft.EventHub/namespaces/MyNamespace
+
+  auth:
+    servicePrincipal:
+      tenantID:
+        value: 00000000-0000-0000-0000-000000000000
+      clientID:
+        value: 00000000-0000-0000-0000-000000000000
+      clientSecret:
+        value: some_secret
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

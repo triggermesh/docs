@@ -125,12 +125,6 @@ according to Amazon's documentation: [Configuring a bucket for notifications][s3
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `Amazon S3`.
-
-![Adding an Amazon S3 source](../../assets/images/awss3-source/create-bridge-1.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - [**Source secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a
   Secret Access Key to communicate with the AWS API, as described in the previous sections.
 - [**Bucket ARN**][arn]: ARN of the S3 bucket, as described in the previous sections.
@@ -138,22 +132,42 @@ In the Source creation form, give a name to the event source and add the followi
   this queue yourself as described in the previous sections.
 - [**Event types**][s3-events]: List of event types to subscribe to.
 
-![Amazon S3 source form](../../assets/images/awss3-source/create-bridge-2.png)
-
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed by adding the remaining
-components to the Bridge, then submit it.
-
-![Bridge overview](../../assets/images/awss3-source/create-bridge-3.png)
-
-A ready status on the main _Bridges_ page indicates that the event source is ready to receive notifications from the
-Amazon S3 bucket.
-
-![Bridge status](../../assets/images/awss3-source/create-bridge-4.png)
-
 This can be confirmed by navigating to the _Properties_ tab of the S3 bucket in the AWS console, and ensuring that it
 contains a new Event Notification targeting the SQS queue.
 
 ![Bucket - Event notification](../../assets/images/awss3-source/after-creation-1.png)
+
+## Kubernetes
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSS3Source
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:s3:::triggermeshtest
+
+  eventTypes:
+  - s3:ObjectCreated:*
+  - s3:ObjectRemoved:*
+
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

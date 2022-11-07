@@ -9,10 +9,6 @@ This event source launches periodic HTTP requests against an external system end
 
 ## Deploying an Instance of the HTTP Poller Source
 
-Open the Bridge creation screen and add a source of type `HTTP Poller`.
-
-In the Source creation form add the following information:
-
 - **Name**: all TriggerMesh components need a unique name per namespace.
 - **Broker**: request converted into [CloudEvents][ce] will be sent to this location.
 - **EventType**: string that identifies the purpose for all CloudEvent messages produced from this source.
@@ -30,7 +26,27 @@ In the Source creation form add the following information:
 
 When using `CA Certificate` it should be copied into the text area in plain text.
 
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining components to the Bridge, then submit it.
+## Kubernetes
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: HTTPPollerSource
+metadata:
+  name: sample
+spec:
+  eventType: weather.alerts/kansas
+  eventSource: gov.weather
+
+  endpoint: https://api.weather.gov/alerts/active?area=KS
+  method: GET
+  interval: 20s
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Events Types
 

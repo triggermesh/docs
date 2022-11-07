@@ -37,16 +37,25 @@ nav:
     - Event sources:
       - Overview: concepts/sources.md
       - CloudEvents: sources/cloudeventssource.md
-      - Azure Activity Logs: sources/azureactivitylogs.md
-      - Azure Blob Storage: sources/azureblobstorage.md
-      - Azure Event Grid: sources/azureeventgrid.md
-      - AWS CodeCommit: sources/awscodecommit.md
+      - Amazon CloudWatch: sources/awscloudwatch.md
+      - Amazon CloudWatchLogs: sources/awscloudwatchlogs.md
+      - Amazon CodeCommit: sources/awscodecommit.md
+      - Amazon Cognito User Pool: sources/awscognitoidentity.md
       - Amazon Cognito User Pool: sources/awscognitouserpool.md
       - Amazon DynamoDB: sources/awsdynamodb.md
+      - Amazon EventBridge: sources/awseventbridge.md
       - Amazon Kinesis: sources/awskinesis.md
       - Amazon S3: sources/awss3.md
       - Amazon SNS: sources/awssns.md
       - Amazon SQS: sources/awssqs.md
+      - Azure Activity Logs: sources/azureactivitylogs.md
+      - Azure Blob Storage: sources/azureblobstorage.md
+      - Azure Event Grid: sources/azureeventgrid.md
+      - Azure Event Hubs: sources/azureeventhubs.md
+      - Azure IoT Hub: sources/azureiothub.md
+      - Azure Queue Storage: sources/azurequeuestorage.md
+      - Azure Service Bus Queue: sources/azureservicebusqueue.md
+      - Azure Service Bus Topic: sources/azureservicebustopic.md
       - Github: sources/github.md
       - Google Cloud Audit Logs: sources/googlecloudauditlogs.md
       - Google Cloud Billing: sources/googlecloudbilling.md
@@ -57,17 +66,19 @@ nav:
       - Kafka: sources/kafka.md
       - Webhook: sources/webhook.md
       - HTTP Poller: sources/httppoller.md
+      - IBM MQ: sources/ibmmq.md
       - OCIMetrics: sources/ocimetrics.md
       - Salesforce: sources/salesforce.md
       - Slack: sources/slack.md
+      - Twilio: sources/twilio.md
       - Zendesk: sources/zendesk.md
     - Targets:
       - Overview: concepts/targets.md
-      - AWS Lambda: targets/creatingatarget.md
       - CloudEvents: targets/cloudeventstarget.md
       - Alibaba OSS: targets/alibabaoss.md
       - Amazon Comprehend: targets/awscomprehend.md
-      - AWS Lambda: targets/awslambda.md
+      - Amazon Lambda (guides): targets/creatingatarget.md
+      - Amazon Lambda: targets/awslambda.md
       - Amazon S3: targets/awss3.md
       - Amazon SNS: targets/awssns.md
       - Amazon SQS: targets/awssqs.md

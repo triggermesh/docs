@@ -155,12 +155,6 @@ $ az eventhubs eventhub show --resource-group blobstorage-source-dev --namespace
 
 ## Deploying an Instance of the Source
 
-Open the Bridge creation screen and add a source of type `Azure Blob Storage`.
-
-![Adding an Azure Blob Storage source](../../assets/images/azureblobstorage-source/create-bridge-1.png)
-
-In the Source creation form, give a name to the event source and add the following information:
-
 - [Secret][sp-create]: Service Principal authentication credentials, as described in the previous sections.
 - [Storage Account ID][storage-acc]: Resource ID of the Storage Account.
 - [Event Hub ID][eventhubs-create]: Resource ID of either
@@ -168,18 +162,6 @@ In the Source creation form, give a name to the event source and add the followi
     - an Event Hubs _instance_ (Event Hub managed by the user)
 - [Event types][event-types]: _(optional)_ List of event types to subscribe to. `BlobCreated` and `BlobDeleted` are
   enabled by default when no item is set.
-
-![Azure Blob Storage source form](../../assets/images/azureblobstorage-source/create-bridge-2.png)
-
-After clicking the `Save` button, you will be taken back to the Bridge editor. Proceed to adding the remaining
-components to the Bridge, then submit it.
-
-![Bridge overview](../../assets/images/azureblobstorage-source/create-bridge-3.png)
-
-A ready status on the main _Bridges_ page indicates that the event subscription was successfully created in the
-configured Storage Account, and that the event source is ready to consume events from Event Hubs.
-
-![Bridge status](../../assets/images/azureblobstorage-source/create-bridge-4.png)
 
 This can be confirmed by navigating back to the Azure Portal and ensuring that:
 
@@ -189,6 +171,42 @@ This can be confirmed by navigating back to the Azure Portal and ensuring that:
 
 ![Event Subscription](../../assets/images/azureblobstorage-source/after-creation-1.png)
 ![Event Grid system topic](../../assets/images/azureblobstorage-source/after-creation-2.png)
+
+## Kubernetes
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AzureBlobStorageSource
+metadata:
+  name: sample
+spec:
+  storageAccountID: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyGroup/providers/Microsoft.Storage/storageAccounts/MyBlobStorage
+
+  endpoint:
+    eventHubs:
+      namespaceID: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyGroup/providers/Microsoft.EventHub/namespaces/MyNamespace
+
+  # Available event types are documented at
+  # https://docs.microsoft.com/en-us/azure/event-grid/event-schema-blob-storage
+  eventTypes:
+  - Microsoft.Storage.BlobCreated
+  - Microsoft.Storage.BlobDeleted
+
+  auth:
+    servicePrincipal:
+      tenantID:
+        value: 00000000-0000-0000-0000-000000000000
+      clientID:
+        value: 00000000-0000-0000-0000-000000000000
+      clientSecret:
+        value: some_secret
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ## Event Types
 

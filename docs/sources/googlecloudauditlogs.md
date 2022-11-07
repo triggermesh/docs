@@ -35,21 +35,42 @@ able to run an instance of the Google Cloud Audit Logs event source.
 - Resource Name (Optional): The resource or collection that is the target of the operation. The name is
                             a scheme-less URI, not including the API service name. [Google Cloud Audit Logs Types][gc-auditlogs-types]
 
-Open the Bridge creationg screen and add a source of type Google Cloud Audit Logs.
+## Kubernetes
 
-![Adding a Google Cloud AuditLogs source](../../assets/images/googlecloudauditlogs-source/create-bridge-1.png)
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: GoogleCloudAuditLogsSource
+metadata:
+  name: sample
+spec:
+  serviceName: pubsub.googleapis.com
+  methodName: google.pubsub.v1.Publisher.CreateTopic
 
-In the Source creation form, give a name to the event source and add the required parameters:
+  pubsub:
+    project: my-project
+    # Alternatively, provide a pre-existing Pub/Sub topic:
+    # topic: projects/my-project/topics/my-topic
 
-![Google Cloud Audit Logs source form](../../assets/images/googlecloudauditlogs-source/create-bridge-2.png)
-
-After clicking the Save button, you will be taken back to the Bridge editor. Proceed to adding the remaining components to the Bridge, then submit it.
-
-![Bridge overview](../../assets/images/googlecloudauditlogs-source/create-bridge-3.png)
-
-A ready status on the main Bridges page indicates that the event source is ready to consume messages from the Audit Logs Sink configured.
-
-![Bridge status](../../assets/images/googlecloudauditlogs-source/create-bridge-4.png)
+  serviceAccountKey:
+    value: >-
+      {
+        "type": "service_account",
+        "project_id": "my-project",
+        "private_key_id": "0000000000000000000000000000000000000000",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n",
+        "client_email": "triggermesh-auditlogs-source@my-project.iam.gserviceaccount.com",
+        "client_id": "000000000000000000000",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/triggermesh-auditlogs-source%40my-project.iam.gserviceaccount.com"
+      }
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
 
 ### Event Types
 The TriggerMesh event source for Google Cloud Audit Logs emits events of the following type:
