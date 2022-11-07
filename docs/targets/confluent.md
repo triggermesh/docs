@@ -1,6 +1,9 @@
 
 # Event Target for Confluent
 
+!!! tip "Deprecated"
+    The Confluent Target is deprecated and replaced by the [KafkaTarget](kafka.md).
+
 This event Target receives [CloudEvents][ce] and forwards the event to a Confluent Kafka cluster.
 
 ## Prerequisite(s)

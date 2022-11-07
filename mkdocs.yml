@@ -76,7 +76,7 @@ nav:
       - Amazon DynamoDB: targets/awsdynamodb.md
       - Azure Event Hubs: targets/azureeventhubs.md
       - Azure Sentinel: targets/azuresentinel.md
-      - Confluent: targets/confluent.md
+      - Confluent (deprecated): targets/confluent.md
       - Datadog: targets/datadog.md
       - Elasticsearch: targets/elasticsearch.md
       - Google Cloud Workflows: targets/googlecloudworkflows.md
