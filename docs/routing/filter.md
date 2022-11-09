@@ -1,9 +1,11 @@
-# Writing an Event Filter
+# Filters
 
 Filters are an important part of TriggerMesh's event routing mechanism. They allow for filtering events based on the content of the payload. This content-based event filtering is expressed with Google's
 [Common Expression Language](https://opensource.google/projects/cel) within the TriggerMesh `Filter` API specification.
 
-!!! Tip 
+## Tutorial for Filters on Kubernetes
+
+!!! Tip
     You can verify that the API is available with the following command:
 
     ```console
@@ -26,7 +28,7 @@ Let's create all the required objects:
 - [x] Two `PingSource` to produce events.
 - [x] The `Filter` to discard unwanted events.
 
-## Event display
+### Event display
 
 First we need to have a tool to see our filter results. Create a `sockeye`
 service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
@@ -53,7 +55,7 @@ Open the web interface in a browser at the URL found with the following command:
 $ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
 ```
 
-## Event producers
+### Event producers
 
 Next, create the two
 [PingSources](https://knative.dev/docs/developer/eventing/sources/ping-source) to
@@ -100,7 +102,7 @@ spec:
       name: filter-demo
 ```
 
-## Filter events
+### Filter events
 
 Finally, create the `Filter` object to filter out events from the first PingSource. Once again save the following YAML manifest in a file and apply it to your Kubernetes cluster with `kubectl apply`.
 
@@ -133,6 +135,71 @@ Only events from the second source should appear in the `sockeye` web interface 
 !!! tip "Test your Filter as Code"
     You can test modifying the filter expression and re-applying it with `kubectl`. This gives you a declarative event filter which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
 
-## More about Filters
+## Another filter on Kubernetes example
 
-Learn more about Filters on the [Concepts page](../concepts/routing.md).
+```yaml
+apiVersion: routing.triggermesh.io/v1alpha1
+kind: Filter
+metadata:
+  name: filter-test
+spec:
+  expression: |-
+    ($id.first.(int64) + $id.second.(int64) >= 8) || $company.(string) == "bar" || $0.name.first.(string) == "Jo"
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: sockeye
+---
+apiVersion: sources.knative.dev/v1beta2
+kind: PingSource
+metadata:
+  name: ps1
+spec:
+  contentType: application/json
+  data: '{"id":{"first":5,"second":3}}'
+  schedule: '*/1 * * * *'
+  sink:
+    ref:
+      apiVersion: routing.triggermesh.io/v1alpha1
+      kind: Filter
+      name: filter-test
+---
+apiVersion: sources.knative.dev/v1beta2
+kind: PingSource
+metadata:
+  name: ps2
+spec:
+  contentType: application/json
+  data: '{"id":{"first":2,"second":3}}'
+  schedule: '*/1 * * * *'
+  sink:
+    ref:
+      apiVersion: routing.triggermesh.io/v1alpha1
+      kind: Filter
+      name: filter-test
+---
+apiVersion: sources.knative.dev/v1beta2
+kind: PingSource
+metadata:
+  name: ps3
+spec:
+  contentType: application/json
+  data: '{"foo":"bar"}'
+  schedule: '*/1 * * * *'
+  sink:
+    ref:
+      apiVersion: routing.triggermesh.io/v1alpha1
+      kind: Filter
+      name: filter-test
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sockeye
+spec:
+  template:
+    spec:
+      containers:
+      - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+```

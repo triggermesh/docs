@@ -34,7 +34,7 @@ nav:
     - Get started:
       - Quickstart: get-started/quickstart.md
       - Concepts: get-started/concepts.md
-    - Event sources:
+    - Sources:
       - Overview: concepts/sources.md
       - CloudEvents: sources/cloudeventssource.md
       - Amazon CloudWatch: sources/awscloudwatch.md
@@ -113,19 +113,23 @@ nav:
       - Twilio: targets/twilio.md
       - UIPath: targets/uipath.md
       - Zendesk: targets/zendesk.md
-    - Brokers and Triggers:
-      - Brokers: brokers.md
-      - Triggers: triggers.md
-      - Writing a Filter: guides/writingafilter.md
-      - Routing: concepts/routing.md
+    - Routing:
+      - Routing overview: routing/routingoverview.md
+      - Brokers: routing/brokers.md
+      - Triggers: routing/triggers.md
+      - Filter: routing/filter.md
+      - Splitter: routing/splitter.md
     - Transformation:
-      - Transformation overview: concepts/transformation.md
-      - Doing a Transformation: guides/doingatransformation.md
-      - Transforming using DataWeave: guides/dataweavetransformation.md
-      - Transforming XML to JSON: guides/xmltojsontransformation.md
-      - Transforming XML with XSLT: guides/xslttransformation.md
-      - Function overview: concepts/functions.md
-      - Writing a Function: guides/writingafunction.md
+      - Transformation overview: transformation/transformation.md
+      - Bumbleebee Transformation (JSON): transformation/bumblebee.md
+      - JQ Transformation: transformation/jqtransformation.md
+      - Mulesoft DataWeave Transformation: transformation/dataweavetransformation.md
+      - XMLtoJSON Transformation: transformation/xmltojsontransformation.md
+      - XSLT Transformation: transformation/xslttransformation.md
+      - Function overview: transformation/functionoverview.md
+      - Python functions: transformation/pythonfunctions.md
+      - NodeJS functions: transformation/nodejsfunctions.md
+      - Ruby functions: transformation/rubyfunctions.md
     - Registry:
         - Schema registry: registry.md
     - Replay:

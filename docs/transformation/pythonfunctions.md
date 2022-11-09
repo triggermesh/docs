@@ -1,25 +1,6 @@
-# Writing a Function
+# Python functions
 
-The TriggerMesh `Function` API provides opportunities to implement custom event flow logic and may act as a source, transformation, or a target. Currently, Python, NodeJS, and Ruby runtimes are supported.
-
-!!! tip
-    You can verify that the API is available with the following command:
-
-    ```console
-    $ kubectl get crd functions.extensions.triggermesh.io
-    NAME                                  CREATED AT
-    functions.extensions.triggermesh.io   2021-10-06T09:01:33Z
-    ```
-    
-    You can also explore the API specification with:
-    ```console
-    $ kubectl explain functions
-    ```
-
-!!! Warning
-    The TriggerMesh `Function` API is an opinionated, simple to consume, Function as a Service (FaaS) system. It is aimed to be used for event processing and does not support external dependencies. Functions that may need external dependencies are best served with [Knative Serving](https://knative.dev/docs/getting-started/first-service/).
-
-## Example: A Python function
+## Python function example on K8s
 
 As an example, let's write a Python function which reads a name from an incoming payload and returns a "Hello" message.
 
@@ -79,6 +60,41 @@ $ curl -ks -d '{"name":"seb"}' https://python-function-hello-mvf2bk.sebgoa.dev.t
 !!! note
     The returned event adheres to the [CloudEvent specification](https://cloudevents.io/).
 
-## More about Functions
+## Python random even/odd events example
 
-Learn more about Functions on the [Concepts page](../concepts/functions.md).
+```YAML
+apiVersion: extensions.triggermesh.io/v1alpha1
+kind: Function
+metadata:
+  name: inline-python-function
+spec:
+  runtime: python
+  responseIsEvent: true
+  adapterOverrides:
+    public: true
+  ceOverrides:
+    extensions:
+      type: io.triggermesh.python.sample
+  entrypoint: endpoint
+  code: |
+    from random import randrange
+    def endpoint(event, context):
+      val = randrange(10)
+      if (val % 2) == 0:
+        result = {
+          "type" : "io.triggermesh.klr.even",
+          "datacontenttype" : "application/json",
+          "data" : {
+            "value" : val
+          }
+        }
+      else:
+        result = {
+          "type" : "io.triggermesh.klr.odd",
+          "datacontenttype" : "application/json",
+          "data" : {
+            "value" : val
+          }
+        }
+      return result
+```
