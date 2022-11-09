@@ -1,7 +1,213 @@
-# Doing a Transformation
+# Bumblebee low-code JSON transformation
 
-The `Transformation` object in TriggerMesh defines a set of operations that are
-sequentially applied to incoming CloudEvents. In this guide, we will create a
+## Introduction to Bumblebee
+
+A Bumblebee transformation consists of two main parts: "context" and "data" for corresponding [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) components.
+
+Bumblebee supports `Delete`, `Add`, `Shift`, and `Store` operations.
+
+Transformation operations are applied on the event in the order they are listed in the spec with the  exception of `Store` which runs before the rest to be able to collect variables for the runtime.
+
+### Delete
+
+Delete CE keys or objects.
+
+**Delete a key**
+
+Delete a key.
+
+```yaml
+spec:
+  data:
+  - operation: delete
+    paths:
+    - key: foo
+    - key: array[1].foo
+    - key: foo.array[5]
+```
+
+**Delete a key if**
+
+Delete a "foo" key only if its value is equal to "bar".
+
+```yaml
+spec:
+  data:
+  - operation: delete
+    paths:
+    - key: foo
+      value: bar
+```
+
+**Delete recursively**
+
+Recursively remove all keys with specified value.
+
+```yaml
+spec:
+  data:
+  - operation: delete
+    paths:
+    - value: leaked password
+```
+
+**Delete everything**
+
+Delete everything. Useful for composing completely new CE
+using stored variables.
+
+```yaml
+spec:
+  data:
+  - operation: delete
+    paths:
+    - key:
+```
+
+### Add
+
+Add new or override existing CE keys.
+
+**Override the event type**
+
+Override Cloud Event type. This operation can be used to implement
+complex Transformation logic with multiple Triggers and CE type
+filtering.
+
+```yaml
+spec:
+  context:
+  - operation: add
+    paths:
+    - key: type
+      value: ce.after.transformation
+```
+
+**Add a new object**
+
+Add a new object with nested structure.
+
+```yaml
+spec:
+  data:
+  - operation: add
+    paths:
+    - key: The.Ultimate.Questions.Answer
+      value: "42"
+```
+
+**Add or modify arrays**
+
+Add arrays or modify existing ones. "True" will be added as
+a second item of a new array "array" in a new object "newObject".
+"1337" will be added as a new key "newKey" as a first item of an
+existing array "commits".
+
+```yaml
+spec:
+  data:
+  - operation: add
+    paths:
+    - key: newObject.array[2]
+      value: "true"
+    - key: commits[1].newKey
+      value: "1337"
+```
+
+**Add using variables**
+
+"Add" operation supports value composing from variables and
+static strings.
+
+```yaml
+spec:
+  data:
+  - operation: add
+    paths:
+    - key: id
+      value: ce-$source-$id
+```
+
+### Shift
+
+Move existing CE values to new keys.
+
+**Shift one key's value to another**
+
+Move value from "foo" key to "bar"
+
+```yaml
+spec:
+  data:
+  - operation: shift
+    paths:
+    - key: foo:bar
+```
+
+**Shift if**
+
+Move key only if its value is equal to "bar".
+
+```yaml
+spec:
+  data:
+  - operation: shift
+    paths:
+    - key: old:new
+      value: bar
+```
+
+**Shift nested objects and arrays**
+
+Shift supports nested objects and arrays:
+
+```yaml
+spec:
+  data:
+  - operation: shift
+    paths:
+    - key: array[0].id:newArray[1].newId
+    - key: object.list[0]:newItem
+```
+
+### Store
+
+Store CE value as a pipeline variable. Useful in combination with
+the other operations. The variables are shared between the "context"
+and the "data" parts of the transformation pipeline.
+
+**Store and use event type and source**
+
+Store CE type and source and add them into headers array in a payload.
+Also set a new CE type and save the original one in context extensions.
+
+```yaml
+spec:
+  context:
+  - operation: store
+    paths:
+    - key: $ceType
+      value: type
+    - key: $ceSource
+      value: source
+  - operation: add
+    paths:
+    - key: type
+      value: ce.after.transformation
+    - key: extensions.OriginalType
+      value: $ceType
+  data:
+  - operation: add
+    paths:
+    - key: headers[0].source
+      value: $ceSource
+    - key: headers[1].type
+      value: $ceType
+```
+
+## Kubernetes tutorial
+
+In this Kubernetes guide, we will create a
 simple Bridge with an event producer and a transformation to see the declarative syntax that is used for modifying events.
 
 !!! tip
@@ -12,7 +218,7 @@ simple Bridge with an event producer and a transformation to see the declarative
     NAME                                  CREATED AT
     transformations.flow.triggermesh.io   2021-10-06T09:01:40Z
     ```
-    
+
     You can also explore the API specification with:
     ```console
     $ kubectl explain transformation
@@ -27,7 +233,7 @@ Let's create all the required objects:
 - [x] The `PingSource` which serves as an event producer.
 - [x] The `Transformation` to modify the produced events.
 
-## Event display
+### Event display
 
 First of all, we need to have a tool to see the transformed events. Create a `sockeye`
 service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
@@ -54,7 +260,7 @@ Open the web interface in a browser at the URL that you find with the following 
 $ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
 ```
 
-## Events producer
+### Events producer
 
 Next, we need to create a
 [PingSource](https://knative.dev/docs/developer/eventing/sources/ping-source) to
@@ -91,7 +297,7 @@ spec:
       name: trn-transformation-demo
 ```
 
-## Transformation
+### Transformation
 
 And finally the transformation object that will receive CloudEvents from
 the PingSource defined above, apply its operations and forward modified events to
@@ -164,7 +370,3 @@ The payload was also transformed according to the `data` section of the `Transfo
 
 !!! tip "Play with your Transformation as Code"
     You can play around by modifying the `Transformation` object and re-applying it with `kubectl`. This gives you a declarative event transformer which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/).
-
-## More about Transformations
-
-Learn more about Transformations on the [Concepts page](../concepts/transformation.md).
