@@ -35,7 +35,6 @@ nav:
       - Quickstart: get-started/quickstart.md
       - Concepts: get-started/concepts.md
     - Sources:
-      - Overview: concepts/sources.md
       - CloudEvents: sources/cloudeventssource.md
       - Amazon CloudWatch: sources/awscloudwatch.md
       - Amazon CloudWatchLogs: sources/awscloudwatchlogs.md
@@ -137,8 +136,9 @@ nav:
     - Operations:
       - Installation:
         - installation/index.md
+        - Kubernetes with Helm: installation/kuberneteshelm.md
+        - Docker: installation/docker.md
         - Using an AWS AMI: installation/installation-ami.md
-        - Using Helm: installation/installation-helm.md
         - Tanzu Community Edition: installation/installation-tce.md
       - Observability:
         - observability/index.md
@@ -152,7 +152,7 @@ nav:
       - Using Kong with TriggerMesh: guides/kong-ingress.md
       - Using Kuma Mesh with TriggerMesh: guides/kuma.md
       - Creating a PrivateLink to TriggerMesh Services: guides/triggermesh-privatelink.md
-      - Scaling: concepts/scaling.md
+      - Scaling: guides/scaling.md
       - Webhook to Slack: guides/webhook-to-slack.md
     - Reference:
       - CLI commands: reference/cli-commands.md
@@ -196,8 +196,11 @@ markdown_extensions:
   - md_in_html
   - def_list
   - admonition
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
