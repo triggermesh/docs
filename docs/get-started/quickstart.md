@@ -197,7 +197,7 @@ This simple transformation adds a new key to the event's JSON payload.
 Let's create a Transformation that will transform the data before it hits the HTTP target:
 
 ``` console
-tmctl create transformation --from my-configs/transformation.yaml --source foo-webhooksource --target foo-cloudeventstarget
+tmctl create transformation --from transform.yaml --source foo-webhooksource --target foo-cloudeventstarget
 ```
 
 **:material-numeric-2-box: Send an event**
