@@ -83,7 +83,7 @@ You can keep `watch` running as it will come in handy later.
 
 **:material-numeric-1-box: Create an HTTP endpoint**
 
-HTTP is one of the easiest ways to send events to the Broker from which ever HTTP client you prefer ([Postman](https://www.postman.com/), Curl, [API Tester](https://chrome.google.com/webstore/detail/talend-api-tester-free-ed/aejoelaoggembcahagimdiliamlcdmfm)...). To do this, let's create a Webhook Source:
+HTTP is one of the easiest ways to send events to the Broker from whichever HTTP client you prefer ([Postman](https://www.postman.com/), Curl, [API Tester](https://chrome.google.com/webstore/detail/talend-api-tester-free-ed/aejoelaoggembcahagimdiliamlcdmfm)...). To do this, let's create a Webhook Source:
 
 ```console
 tmctl create source webhook --eventType contact.created
@@ -135,7 +135,7 @@ Context Attributes,
   source: local.foo-webhooksource
   id: 8bce0cd7-74a2-443b-b8ef-825473cc5c51
   time: 2022-11-09T15:37:00.435002345Z
-  datacontenttype: application/x-www-form-urlencoded
+  datacontenttype: application/json
 Data,
   {
     "http": "is easy"
@@ -178,7 +178,7 @@ Lets transform the incoming event before it gets passed to our target service.
 
 **:material-numeric-1-box: Design a transformation**
 
-Using TriggerMesh's Bumbleebee transformation component, we can easily modify an event as it passes through the Broker.
+Using TriggerMesh's Bumbleebee transformation component, we can easily modify an event as it passes through the TriggerMesh.
 
 Create a file called `transform.yaml` with the following contents (Alternatively, you can skip the file and enter the transformation inline in `tmctl` later):
 
@@ -199,6 +199,8 @@ Let's create a Transformation that will transform the data before it hits the HT
 ``` console
 tmctl create transformation --from transform.yaml --source foo-webhooksource --target foo-cloudeventstarget
 ```
+
+We're refering to the previous file we created that contains the transformation. We're using the `--source`parameter to indicate that this transformation will process events coming from `foo-webhooksource` and using the `--target` parameter to indidicate that the transformed events should be passed along to `foo-cloudeventstarget`.
 
 **:material-numeric-2-box: Send an event**
 
