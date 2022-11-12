@@ -3,6 +3,47 @@
 This event source captures messages from an [Amazon Cognito User Pool][cup-docs] whenever a specific action, such as the
 creation of a new user, happens in the user identity pool.
 
+With `tmctl`:
+
+```
+tmctl create
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSCognitoUserPoolSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:cognito-idp:us-west-2:123456789012:userpool/us-west-2_abcdefghi
+
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+Events produced have the following attributes:
+
+* type `com.amazon.cognitouserpool.sync_trigger`
+* Schema of the `data` attribute: [com.amazon.cognitouserpool.sync_trigger.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.cognitouserpool.sync_trigger.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSource) for more details.
+
 ## Prerequisite(s)
 
 - Amazon Cognito User Pool
@@ -72,46 +113,6 @@ source to list users in any user pool associated with the AWS account:
     ]
 }
 ```
-
-## Deploying an instance of the Source
-
-- [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
-  Access Key to communicate with the Amazon Cognito API, as described in the previous sections.
-- [**AWS ARN**][arn]: ARN of the User Pool, as described in the previous sections.
-
-## Kubernetes
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: AWSCognitoUserPoolSource
-metadata:
-  name: sample
-spec:
-  arn: arn:aws:cognito-idp:us-west-2:123456789012:userpool/us-west-2_abcdefghi
-
-  auth:
-    credentials:
-      accessKeyID:
-        valueFromSecret:
-          name: awscreds
-          key: aws_access_key_id
-      secretAccessKey:
-        valueFromSecret:
-          name: awscreds
-          key: aws_secret_access_key
-
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
-
-## Event Types
-
-The Amazon Cognito User Pool event source emits events of the following type:
-
-- `com.amazon.cognito-idp.sync_trigger`
 
 [cup-docs]: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html
 [cup-getting-started]: https://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-with-cognito-user-pools.html

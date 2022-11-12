@@ -1,4 +1,14 @@
-## Kubernetes
+# AWS CloudWatch Logs source
+
+Consumes logs from [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html).
+
+With `tmctl`:
+
+```
+tmctl create source awscloudwatchlogs --arn <arn> --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
+```
+
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -26,3 +36,11 @@ spec:
       kind: Broker
       name: default
 ```
+
+Events produced have the following attributes:
+
+* type `com.amazon.logs.log`
+* source `<arn>`
+* Schema of the `data` attribute: [com.amazon.logs.log.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.logs.log.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSource) for more details.
