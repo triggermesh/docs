@@ -3,6 +3,47 @@
 This event source captures changes to items stored in an [Amazon DynamoDB Table][ddb-docs] by reading the time-ordered
 sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].
 
+With `tmctl`:
+
+```
+tmctl create source awsdynamodb --arn <arn> --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSDynamoDBSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:dynamodb:us-west-2:123456789012:table/triggermeshtest
+
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+Events produced have the following attributes:
+
+* type `com.amazon.dynamodb.stream_record`
+* Schema of the `data` attribute: [com.amazon.dynamodb.stream_record.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.dynamodb.stream_record.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSDynamoDBSource) for more details.
+
 ## Prerequisite(s)
 
 - DynamoDB Table and Stream
@@ -80,46 +121,6 @@ source to operate:
 ```
 
 ![Creating an IAM user](../../assets/images/awsdynamodb-source/iam-user-1.png)
-
-## Deploying an Instance of the Source
-
-- [**AWS ARN**][arn]: ARN of the DynamoDB Table, as described in the previous sections.
-- [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
-  Access Key to communicate with the Amazon DynamoDB API, as described in the previous sections.
-
-## Kubernetes
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: AWSDynamoDBSource
-metadata:
-  name: sample
-spec:
-  arn: arn:aws:dynamodb:us-west-2:123456789012:table/triggermeshtest
-
-  auth:
-    credentials:
-      accessKeyID:
-        valueFromSecret:
-          name: awscreds
-          key: aws_access_key_id
-      secretAccessKey:
-        valueFromSecret:
-          name: awscreds
-          key: aws_secret_access_key
-
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
-
-## Event Types
-
-The Amazon DynamoDB event source emits events of the following type:
-
-- `com.amazon.dynamodb.stream_record`
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazondynamodb.html#amazondynamodb-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

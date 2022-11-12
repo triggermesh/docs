@@ -3,6 +3,66 @@
 This event source subscribes to event notifications from an [Amazon S3 bucket][s3-docs]. Events are published by S3 to
 an [Amazon SQS queue][sqs-docs] in order to be consumable by the event source.
 
+With `tmctl`:
+
+```
+tmctl create source awss3 --arn <arn> --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSS3Source
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:s3:::triggermeshtest
+
+  eventTypes:
+  - s3:ObjectCreated:*
+  - s3:ObjectRemoved:*
+
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+
+Parameters:
+
+- [**Bucket ARN**][arn]: ARN of the S3 bucket, as described in the previous sections.
+- [**Queue ARN**][arn]: _(optional)_ ARN of the SQS queue which acts as event destination, in case you prefer to manage
+  this queue yourself as described in the previous sections.
+- [**Event types**][s3-events]: List of event types to subscribe to.
+
+
+Events produced have the following attributes:
+
+* types
+    - `com.amazon.s3.objectcreated`
+    - `com.amazon.s3.objectremoved`
+    - `com.amazon.s3.objectrestore`
+    - `com.amazon.s3.reducedredundancylostobject`
+    - `com.amazon.s3.replication`
+    - `com.amazon.s3.testevent`
+* Schema of the `data` attribute: [com.amazon.s3.event.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.s3.event.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSS3Source) for more details.
+
 ## Prerequisite(s)
 
 - S3 Bucket
@@ -122,63 +182,6 @@ is set on that SQS queue to only accept messages originating from the configured
 Alternatively, in case you prefer not to delegate this responsibility to the event source, it is possible to provide
 your own SQS queue as an event destination. In this scenario, it is your own responsibility to configure the queue
 according to Amazon's documentation: [Configuring a bucket for notifications][s3-dest-config].
-
-## Deploying an Instance of the Source
-
-- [**Source secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a
-  Secret Access Key to communicate with the AWS API, as described in the previous sections.
-- [**Bucket ARN**][arn]: ARN of the S3 bucket, as described in the previous sections.
-- [**Queue ARN**][arn]: _(optional)_ ARN of the SQS queue which acts as event destination, in case you prefer to manage
-  this queue yourself as described in the previous sections.
-- [**Event types**][s3-events]: List of event types to subscribe to.
-
-This can be confirmed by navigating to the _Properties_ tab of the S3 bucket in the AWS console, and ensuring that it
-contains a new Event Notification targeting the SQS queue.
-
-![Bucket - Event notification](../../assets/images/awss3-source/after-creation-1.png)
-
-## Kubernetes
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: AWSS3Source
-metadata:
-  name: sample
-spec:
-  arn: arn:aws:s3:::triggermeshtest
-
-  eventTypes:
-  - s3:ObjectCreated:*
-  - s3:ObjectRemoved:*
-
-  auth:
-    credentials:
-      accessKeyID:
-        valueFromSecret:
-          name: awscreds
-          key: aws_access_key_id
-      secretAccessKey:
-        valueFromSecret:
-          name: awscreds
-          key: aws_secret_access_key
-
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
-
-## Event Types
-
-The TriggerMesh event source for Amazon S3 emits events of the following types:
-
-- `com.amazon.s3.objectcreated`
-- `com.amazon.s3.objectremoved`
-- `com.amazon.s3.objectrestore`
-- `com.amazon.s3.reducedredundancylostobject`
-- `com.amazon.s3.replication`
-- `com.amazon.s3.testevent`
 
 [arn]: https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

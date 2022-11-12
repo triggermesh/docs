@@ -1,7 +1,61 @@
-# Event Source for AWS CodeCommit
+# AWS CodeCommit source
 
 This event source captures notifications from an [AWS CodeCommit repository][cc-docs] whenever a specific action, such
 as a new commit or the creation of a pull request, happens in this repository.
+
+With `tmctl`:
+
+```
+tmctl create source awscodecommit --arn <arn> --branch <branch> --eventTypes pull_request --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSCodeCommitSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:codecommit:us-west-2:123456789012:triggermeshtest
+  branch: master
+
+  eventTypes:
+  - push
+  - pull_request
+
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+The parameters include the following:
+
+Events produced have the following attributes:
+
+* types
+    * `com.amazon.codecommit.push`
+    * `com.amazon.codecommit.pull_request`
+
+* source ``
+* Schema of the `data` attribute:
+    * [com.amazon.codecommit.push.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.codecommit.push.json)
+    * [com.amazon.codecommit.pull_request.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.codecommit.pull_request.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSCodeCommitSource) for more details.
 
 ## Prerequisite(s)
 
@@ -82,53 +136,6 @@ source to operate:
 
 ![Creating an IAM user](../../assets/images/awscodecommit-source/iam-user-1.png)
 
-## Deploying an Instance of the Source
-
-- [**AWS ARN**][arn]: ARN of the CodeCommit repository, as described in the previous sections.
-- [**Branch name**][cc-branches]: Name of the Git branch the source should be watching for commits.
-- **Event types**: List of event types the event source should subscribe to.
-- [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
-  Access Key to communicate with the AWS CodeCommit API, as described in the previous sections.
-
-## Kubernetes
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: AWSCodeCommitSource
-metadata:
-  name: sample
-spec:
-  arn: arn:aws:codecommit:us-west-2:123456789012:triggermeshtest
-  branch: master
-
-  eventTypes:
-  - push
-  - pull_request
-
-  auth:
-    credentials:
-      accessKeyID:
-        valueFromSecret:
-          name: awscreds
-          key: aws_access_key_id
-      secretAccessKey:
-        valueFromSecret:
-          name: awscreds
-          key: aws_secret_access_key
-
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
-
-## Event Types
-
-The AWS CodeCommit event source emits events of the following types:
-
-- `com.amazon.codecommit.push`
-- `com.amazon.codecommit.pull_request`
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscodecommit.html#awscodecommit-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

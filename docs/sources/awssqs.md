@@ -1,12 +1,48 @@
-# Event Source for Amazon SQS
+# Amazon SQS source
 
-This event source captures events sent to an [Amazon SQS queue][sqs-docs].
+Consumes events from an [Amazon SQS queue][sqs-docs].
 
-The Amazon SQS event source emits events of the following type: `com.amazon.sqs.message`
+With `tmctl`:
 
-## Initial setup
+```
+tmctl create source awssqs --arn <arn> --auth.credentials.accessKeyID <access key> --auth.credentials.secretAccessKey <secret key>
+```
 
-Prerequisites to using the SQS Source are:
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSSQSSource
+metadata:
+  name: sqs-guide
+spec:
+  arn: arn:aws:sqs:us-east-1:123456789012:triggermesh
+  receiveOptions:
+    visibilityTimeout: 30m
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: secret_access_key
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+Events produced have the following attributes:
+
+* type `com.amazon.sqs.message`
+* source `<arn>`
+* Schema of the `data` attribute: [com.amazon.sqs.message.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.sqs.message.json)
+
+## Prerequisites
 
 - An SQS Queue
 - The queue's ARN
@@ -78,52 +114,7 @@ and delete messages from any queue linked to the AWS account:
 
 ![Creating an IAM user](../../assets/images/awssqs-source/sqs-user-policy.png)
 
-## SQS Source with tmctl
-
-```console
-tmctl create source awssqs --arn <arn> --auth.credentials.accessKeyID=<access key> --auth.credentials.secretAccessKey=<secret key>
-```
-## SQS source on Kubernetes
-
-### Using kubectl explain
-
-You can explore the specification of the object using the `kubectl explain` command. You will see that you need the ARN (i.e Amazon Resource Name) of your AWS SQS queue and the AWS API keys that give you access to SQS.
-
-```console
-$ kubectl explain awssqssource.spec
-KIND:     AWSSQSSource
-VERSION:  sources.triggermesh.io/v1alpha1
-
-RESOURCE: spec <Object>
-
-DESCRIPTION:
-     Desired state of the event source.
-
-FIELDS:
-   adapterOverrides     <Object>
-     Kubernetes object parameters to apply on top of default adapter values.
-
-   arn  <string> -required-
-     ARN of the Amazon SQS queue to consume messages from. The expected format
-     is documented at
-     https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsqs.html#amazonsqs-resources-for-iam-policies.
-
-   auth <Object>
-     Authentication method to interact with the Amazon SQS API.
-
-   endpoint     <Object>
-     Customizations of the AWS REST API endpoint.
-
-   messageProcessor     <string>
-     Name of the message processor to use for converting SQS messages to
-     CloudEvents. Supported values are "default" and "s3".
-
-   receiveOptions       <Object>
-     Options that control the behavior of message receivers.
-
-   sink <Object> -required-
-     The destination of events sourced from Amazon SQS.
-```
+## Guide to SQS source on Kubernetes
 
 ### Creating a K8s secret
 
@@ -134,9 +125,6 @@ kubectl create secret generic awscreds \
   --from-literal=access_key_id=<ACCESS_KEY_ID> \
   --from-literal=secret_access_key=<SECRET_ACCESS_KEY>
 ```
-
-!!! tip "AWS Credentials"
-    Instructions about setting up AWS security credentials can be found in the [documentation page for the Amazon SQS source](https://docs.triggermesh.io/cloud/sources/awssqs/#api-credentials).
 
 ### Writing and applying a YAML manifest
 

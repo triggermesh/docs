@@ -1,6 +1,14 @@
 # Amazon EventBridge source
 
-## Kubernetes
+Consumes events from [AWS EventBridge](https://aws.amazon.com/eventbridge/)).
+
+With `tmctl`:
+
+```
+tmctl create source awseventbridge --arn <arn> --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
+```
+
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -37,3 +45,9 @@ spec:
       kind: Broker
       name: default
 ```
+
+Events produced have the following attributes:
+
+* type `com.amazon.events.event`
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSEventBridgeSource) for more details.

@@ -1,7 +1,65 @@
 # Event Source for Amazon SNS
 
-This event source subscribes to messages from a [Amazon SNS topic][sns-docs] and sends them as CloudEvents to an event
-sink.
+This event source subscribes to messages from a [Amazon SNS topic][sns-docs].
+
+With `tmctl`:
+
+```
+tmctl create --arn <arn> --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSSNSSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:sns:us-west-2:123456789012:triggermeshtest
+
+  # For a list of supported subscription attributes, please refer to the following resources:
+  #  * https://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html
+  #  * https://docs.aws.amazon.com/sns/latest/dg/sns-how-it-works.html
+  subscriptionAttributes:
+    DeliveryPolicy: |
+      {
+        "healthyRetryPolicy": {
+          "numRetries": 3,
+          "minDelayTarget": 20,
+          "maxDelayTarget": 20
+        }
+      }
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+Attributes:
+
+- [**AWS ARN**][arn]: ARN of the SNS topic, as described in the previous sections.
+- [**DeliveryPolicy**][sns-delivery-policy]: Delivery policy to define how Amazon SNS retries the delivery of messages
+  to HTTP/S endpoints.
+
+Events produced have the following attributes:
+
+* type `com.amazon.sns.notification`
+* Schema of the `data` attribute: [com.amazon.sns.notification.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.sns.notification.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSSNSSource) for more details.
 
 ## Prerequisite(s)
 
@@ -82,60 +140,6 @@ and delete messages from any topic linked to the AWS account:
 ```
 
 ![Creating an IAM user](../../assets/images/awssns-source/sns-user-policy.png)
-
-## Deploying an Instance of the Source
-
-- [**Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
-  Access Key to communicate with the Amazon SNS API, as described in the previous sections.
-- [**AWS ARN**][arn]: ARN of the SNS topic, as described in the previous sections.
-- [**DeliveryPolicy**][sns-delivery-policy]: Delivery policy to define how Amazon SNS retries the delivery of messages
-  to HTTP/S endpoints.
-
-## Kubernetes
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: AWSSNSSource
-metadata:
-  name: sample
-spec:
-  arn: arn:aws:sns:us-west-2:123456789012:triggermeshtest
-
-  # For a list of supported subscription attributes, please refer to the following resources:
-  #  * https://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html
-  #  * https://docs.aws.amazon.com/sns/latest/dg/sns-how-it-works.html
-  subscriptionAttributes:
-    DeliveryPolicy: |
-      {
-        "healthyRetryPolicy": {
-          "numRetries": 3,
-          "minDelayTarget": 20,
-          "maxDelayTarget": 20
-        }
-      }
-  auth:
-    credentials:
-      accessKeyID:
-        valueFromSecret:
-          name: awscreds
-          key: aws_access_key_id
-      secretAccessKey:
-        valueFromSecret:
-          name: awscreds
-          key: aws_secret_access_key
-
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
-
-## Event Types
-
-The Amazon SNS event source emits events of the following type:
-
-- `com.amazon.sns.notification`
 
 [sns-docs]: https://docs.aws.amazon.com/sns/latest/dg/welcome.html
 [sns-getting-started]: https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html

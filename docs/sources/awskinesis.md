@@ -3,6 +3,47 @@
 This event source acts as a consumer of an [Amazon Kinesis Data Stream][kinesis-docs] and forwards all messages it reads
 after wrapping them in a [CloudEvent][ce] envelope.
 
+With `tmctl`:
+
+```
+tmctl create source awskinesis --arn <arn> --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSKinesisSource
+metadata:
+  name: sample
+spec:
+  arn: arn:aws:kinesis:us-west-2:123456789012:stream/triggermeshtest
+
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: aws_access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: aws_secret_access_key
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+Events produced have the following attributes:
+
+* type `com.amazon.kinesis.stream_record`
+* Schema of the `data` attribute: [com.amazon.kinesis.stream_record.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.kinesis.stream_record.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSKinesisSource) for more details.
+
 ## Prerequisite(s)
 
 - Kinesis Data Stream
@@ -73,47 +114,6 @@ source to operate:
 ```
 
 ![Creating an IAM user](../../assets/images/awskinesis-source/iam-user-1.png)
-
-## Deploying an Instance of the Source
-
-- [**AWS ARN**][arn]: ARN of the Kinesis Data Stream, as described in the previous sections.
-- [**AWS Secret**][accesskey]: Reference to a [TriggerMesh secret][tm-secret] containing an Access Key ID and a Secret
-  Access Key to communicate with the Amazon Kinesis API, as described in the previous sections.
-
-## Kubernetes
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: AWSKinesisSource
-metadata:
-  name: sample
-spec:
-  arn: arn:aws:kinesis:us-west-2:123456789012:stream/triggermeshtest
-
-  auth:
-    credentials:
-      accessKeyID:
-        valueFromSecret:
-          name: awscreds
-          key: aws_access_key_id
-      secretAccessKey:
-        valueFromSecret:
-          name: awscreds
-          key: aws_secret_access_key
-
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
-
-
-## Event Types
-
-The Amazon Kinesis event source emits events of the following types:
-
-- `com.amazon.kinesis.stream_record`
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonkinesis.html#amazonkinesis-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

@@ -1,4 +1,14 @@
-## Kubernetes
+# AWS CloudWatch source
+
+Consumes events from []()).
+
+With `tmctl`:
+
+```
+tmctl create
+```
+
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -39,3 +49,9 @@ spec:
       kind: Broker
       name: default
 ```
+
+Events produced have the following attributes:
+
+* type ``
+* source ``
+* Schema of the `data` attribute: []()
