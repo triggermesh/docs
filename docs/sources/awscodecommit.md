@@ -49,8 +49,6 @@ Events produced have the following attributes:
 * types
     * `com.amazon.codecommit.push`
     * `com.amazon.codecommit.pull_request`
-
-* source ``
 * Schema of the `data` attribute:
     * [com.amazon.codecommit.push.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.codecommit.push.json)
     * [com.amazon.codecommit.pull_request.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.codecommit.pull_request.json)

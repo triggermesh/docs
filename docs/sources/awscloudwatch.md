@@ -1,12 +1,11 @@
 # AWS CloudWatch source
 
-Consumes events from []()).
+Consumes events from [AWS CloudWatch Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html).
 
 With `tmctl`:
 
-```
-tmctl create
-```
+!!! warning "Work in progress"
+    This component is not yet available with `tmctl`.
 
 On Kubernetes:
 
@@ -52,6 +51,9 @@ spec:
 
 Events produced have the following attributes:
 
-* type ``
-* source ``
-* Schema of the `data` attribute: []()
+* type `com.amazon.cloudwatch.metrics.message`
+    * Schema of the `data` attribute: [com.amazon.cloudwatch.metrics.message.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.cloudwatch.metrics.message.json)
+* type `com.amazon.cloudwatch.metrics.metric`
+    * Schema of the `data` attribute: [com.amazon.cloudwatch.metrics.metric.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.amazon.cloudwatch.metrics.metric.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSCloudWatchSource) for more details.

@@ -61,7 +61,8 @@ nav:
       - Google Cloud Pub/Sub: sources/googlecloudpubsub.md
       - Google Cloud Repositories: sources/googlecloudrepositories.md
       - Google Cloud Storage: sources/googlecloudstorage.md
-      - Google Cloud IoT: sources/googlecloudiot.md
+# Looks like Gcloud IoT Core is being retired, maybe we don't need this doc
+#      - Google Cloud IoT: sources/googlecloudiot.md
       - Kafka: sources/kafka.md
       - Webhook: sources/webhook.md
       - HTTP Poller: sources/httppoller.md
@@ -73,7 +74,6 @@ nav:
       - Zendesk: sources/zendesk.md
     - Targets:
       - Overview: concepts/targets.md
-      - CloudEvents: targets/cloudeventstarget.md
       - Alibaba OSS: targets/alibabaoss.md
       - Amazon Comprehend: targets/awscomprehend.md
       - Amazon Lambda (guides): targets/creatingatarget.md
@@ -86,6 +86,7 @@ nav:
       - Amazon DynamoDB: targets/awsdynamodb.md
       - Azure Event Hubs: targets/azureeventhubs.md
       - Azure Sentinel: targets/azuresentinel.md
+      - CloudEvents: targets/cloudeventstarget.md
       - Confluent (deprecated): targets/confluent.md
       - Datadog: targets/datadog.md
       - Elasticsearch: targets/elasticsearch.md

@@ -1,5 +1,7 @@
 # Broker
 
+TODO: in-memory broker, redis broker
+
 !!! Placeholder content !!!
 
 Simpler operations and dependencies with the new TriggerMesh Broker.

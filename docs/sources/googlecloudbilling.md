@@ -1,43 +1,14 @@
-# Event Source for Google Cloud Billing
+# Google Cloud Billing source
 
 This event source receives messages from a [Google Cloud Billing][gc-billing] Budget
 over a [Google Cloud Pub/Sub][gc-billing-events] topic.
 
-## CLI
+With `tmctl`:
 
-Coming soon.
+!!! warning "Work in progress"
+    This component is not yet available with `tmctl`.
 
-
-### Service Account
-
-A Service Account is required to authenticate the event source and allow it to interact with Google
-Cloud Billing budget.
-
-The service account must be granted an IAM Role with at least the following permissions:
-
-- `billing.budgets.get`
-- `billing.budgets.update`
-
-The following set of permissions is also required to allow this source to manage the Pub/Sub topic and subscription:
-
-- `pubsub.subscriptions.create`
-- `pubsub.subscriptions.delete`
-
-The predefined `roles/billing.costsManager` and `roles/pubsub.editor` roles are an example of roles that are suitable for use with the TriggerMesh event
-source for Google Cloud Billing.
-
-Create a key for this service account and save it. This key must be in JSON format. It is required to be
-able to run an instance of the Google Cloud Billing event source.
-
-### Deploying an Instance of the Source
-
-#### Prerequisite(s)
-
-- Billing Account ID: The identifier for the Cloud Billing account owning the budget. For example, 01D4EE-079462-DFD6EC.
-- Budget ID: The identifier for the Cloud Billing budget. You can locate the budget's ID in your budget under "Manage notifications".
-             The ID is displayed after you select Connect a Pub/Sub topic to this budget. For example, de72f49d-779b-4945-a127-4d6ce8def0bb.
-
-## Kubernetes
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -74,13 +45,40 @@ spec:
       name: default
 ```
 
-### Event Types
+Events produced have the following attributes:
 
-The TriggerMesh event source for Google Cloud Billing emits events of the following type:
+* type `com.google.cloud.billing.notification`
 
-- `com.google.cloud.billing.message`
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource) for more details.
 
-### Known Issues
+## Prerequisite(s)
+
+- Billing Account ID: The identifier for the Cloud Billing account owning the budget. For example, 01D4EE-079462-DFD6EC.
+- Budget ID: The identifier for the Cloud Billing budget. You can locate the budget's ID in your budget under "Manage notifications".
+             The ID is displayed after you select Connect a Pub/Sub topic to this budget. For example, de72f49d-779b-4945-a127-4d6ce8def0bb.
+
+### Service Account
+
+A Service Account is required to authenticate the event source and allow it to interact with Google
+Cloud Billing budget.
+
+The service account must be granted an IAM Role with at least the following permissions:
+
+- `billing.budgets.get`
+- `billing.budgets.update`
+
+The following set of permissions is also required to allow this source to manage the Pub/Sub topic and subscription:
+
+- `pubsub.subscriptions.create`
+- `pubsub.subscriptions.delete`
+
+The predefined `roles/billing.costsManager` and `roles/pubsub.editor` roles are an example of roles that are suitable for use with the TriggerMesh event
+source for Google Cloud Billing.
+
+Create a key for this service account and save it. This key must be in JSON format. It is required to be
+able to run an instance of the Google Cloud Billing event source.
+
+## Known Issues
 
 Because the Google Cloud Billing API doesn't allow disabling a Budget's notifications programmatically,
 budget notifications will remain enabled even after the deletion of the event source. The destination
