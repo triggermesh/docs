@@ -1,41 +1,15 @@
-# Event Source for Google Cloud Audit Logs
+# Google Cloud Audit Logs source
 
-This event source receives messages from a [Google Cloud Audit Logs][gc-auditlogs] Sink by subscribing
+This event source receives messages from [Google Cloud Audit Logs][gc-auditlogs] by subscribing
 to a [Google Cloud Pub/Sub][gc-auditlogs-events] topic.
 
-### Service Account
+With `tmctl`:
 
-A Service Account is required to authenticate the event source and allow it to interact with Google
-Cloud Audit Logs.
+```
+tmctl create source googlecloudauditlogs --serviceName <serviceName> --methodName <methodName> --pubsub.project = <project> --serviceAccountKey $(cat ./key.txt)
+```
 
-The service account must be granted an IAM Role with at least the following permissions:
-
-- `logging.sinks.get`
-- `logging.sinks.create`
-- `logging.sinks.delete`
-
-The following set of permissions is also required because this source delegates the management of the Pub/Sub subscription to the Pub/Sub Source.
-
-- `pubsub.subscriptions.create`
-- `pubsub.subscriptions.delete`
-
-The predefined `roles/logging.admin` and `roles/pubsub.editor` roles are an example of roles that are suitable for use with the TriggerMesh event
-source for Google Cloud Audit Logs.
-
-Create a key for this service account and save it. This key must be in JSON format. It is required to be
-able to run an instance of the Google Cloud Audit Logs event source.
-
-### Deploying an Instance of the Source
-
-#### Prerequisite(s)
-
-- Service Name: The name of the API service performing the operation. For example, "pubsub.googleapis.com".
-- Method Name: The name of the service method or operation. For API calls, this should be
-               the name of the API method. For example, "google.pubsub.v1.Publisher.CreateTopic".
-- Resource Name (Optional): The resource or collection that is the target of the operation. The name is
-                            a scheme-less URI, not including the API service name. [Google Cloud Audit Logs Types][gc-auditlogs-types]
-
-## Kubernetes
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -72,10 +46,41 @@ spec:
       name: default
 ```
 
-### Event Types
-The TriggerMesh event source for Google Cloud Audit Logs emits events of the following type:
+Events produced have the following attributes:
 
-- com.google.cloud.auditlogs.message
+* type `com.google.cloud.auditlogs.notification`
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSource) for more details.
+
+## Prerequisite(s)
+
+- Service Name: The name of the API service performing the operation. For example, "pubsub.googleapis.com".
+- Method Name: The name of the service method or operation. For API calls, this should be
+               the name of the API method. For example, "google.pubsub.v1.Publisher.CreateTopic".
+- Resource Name (Optional): The resource or collection that is the target of the operation. The name is
+                            a scheme-less URI, not including the API service name. [Google Cloud Audit Logs Types][gc-auditlogs-types]
+
+### Service Account
+
+A Service Account is required to authenticate the event source and allow it to interact with Google
+Cloud Audit Logs.
+
+The service account must be granted an IAM Role with at least the following permissions:
+
+- `logging.sinks.get`
+- `logging.sinks.create`
+- `logging.sinks.delete`
+
+The following set of permissions is also required because this source delegates the management of the Pub/Sub subscription to the Pub/Sub Source.
+
+- `pubsub.subscriptions.create`
+- `pubsub.subscriptions.delete`
+
+The predefined `roles/logging.admin` and `roles/pubsub.editor` roles are an example of roles that are suitable for use with the TriggerMesh event
+source for Google Cloud Audit Logs.
+
+Create a key for this service account and save it. This key must be in JSON format. It is required to be
+able to run an instance of the Google Cloud Audit Logs event source.
 
 [gc-auditlogs]: https://cloud.google.com/logging/docs/audit
 [gc-auditlogs-events]: https://cloud.google.com/pubsub/docs/audit-logging

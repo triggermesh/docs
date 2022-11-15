@@ -1,3 +1,27 @@
+# Google Cloud IoT source
+
+Consumes events from [Google Cloud IoT](https://cloud.google.com/iot-core).
+
+With `tmctl`:
+
+```
+tmctl create
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion:
+```
+
+Events produced have the following attributes:
+
+* type ``
+* source ``
+* Schema of the `data` attribute: []()
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.) for more details.
+
 ## CLI
 
 Coming soon.

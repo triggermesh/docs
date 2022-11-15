@@ -1,6 +1,50 @@
-# Event Source for Google Cloud Pub/Sub
+# Google Cloud Pub/Sub source
 
 This event source subscribes to messages sent to a [Google Cloud Pub/Sub][gc-pubsub] topic.
+
+With `tmctl`:
+
+```
+tmctl create source googlecloudpubsub --topic <topic> --serviceAccountKey $(cat ./key.txt)
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: GoogleCloudPubSubSource
+metadata:
+  name: sample
+spec:
+  topic: projects/my-project/topics/my-topic
+
+  serviceAccountKey:
+    value: >-
+      {
+        "type": "service_account",
+        "project_id": "my-project",
+        "private_key_id": "0000000000000000000000000000000000000000",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n",
+        "client_email": "triggermesh-pubsub-source@my-project.iam.gserviceaccount.com",
+        "client_id": "000000000000000000000",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/triggermesh-pubsub-source%40my-project.iam.gserviceaccount.com"
+      }
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+Events produced have the following attributes:
+
+* type `com.google.cloud.pubsub.message`
+* Schema of the `data` attribute: [com.google.cloud.pubsub.message.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.google.cloud.pubsub.message.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource) for more details.
 
 ## Prerequisite(s)
 
@@ -58,50 +102,6 @@ subscription is a "pull" subscription as described in the documentation page [Ma
 subscriptions][gc-pubsub-adm].
 
 ![Subscription](../../assets/images/googlecloudpubsub-source/subscription-1.png)
-
-## Deploying an Instance of the Source
-
-- [**Secret**][gc-iam-key]: Service account key in JSON format, as described in the previous sections.
-- [**Topic**][gc-pubsub-resname]: Full resource name of the Pub/Sub topic to subscribe to.
-- **Subscription ID**: _(optional)_ ID of the subscription to use for pulling messages from the Pub/Sub topic, in case
-  you prefer to manage this subscription yourself as described in the previous sections.
-
-## Kubernetes
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: GoogleCloudPubSubSource
-metadata:
-  name: sample
-spec:
-  topic: projects/my-project/topics/my-topic
-
-  serviceAccountKey:
-    value: >-
-      {
-        "type": "service_account",
-        "project_id": "my-project",
-        "private_key_id": "0000000000000000000000000000000000000000",
-        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n",
-        "client_email": "triggermesh-pubsub-source@my-project.iam.gserviceaccount.com",
-        "client_id": "000000000000000000000",
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://oauth2.googleapis.com/token",
-        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/triggermesh-pubsub-source%40my-project.iam.gserviceaccount.com"
-      }
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
-
-## Event Types
-
-The TriggerMesh event source for Google Cloud Pub/Sub emits events of the following type:
-
-- `com.google.cloud.pubsub.message`
 
 [gc-pubsub]: https://cloud.google.com/pubsub
 [gc-pubsub-svcacc]: https://cloud.google.com/pubsub/docs/authentication#service-accounts

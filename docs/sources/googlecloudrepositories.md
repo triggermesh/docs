@@ -1,47 +1,14 @@
-# Event Source for Google Cloud Repositories
+# Google Cloud Source Repositories source
 
-This event source receives messages from a [Google Cloud Repositories][gc-source-repositories]
+This event source receives messages from a [Google Cloud Source Repository][gc-source-repositories]
 over a [Google Cloud Pub/Sub][gc-source-repositories-events] topic.
 
-### Service Account
+With `tmctl`:
 
-A Service Account is required to authenticate the event source and allow it to interact with Google
-Cloud Repositories.
+!!! warning "Work in progress"
+    This component is not yet available with `tmctl`.
 
-The service account must be granted an IAM Role with at least the following permissions:
-
-- `source.repos.updateRepoConfig`
-- `iam.serviceAccounts.actAs`
-
-The following set of permissions is also required to allow this source to manage the Pub/Sub topic and subscription:
-
-- `pubsub.subscriptions.create`
-- `pubsub.subscriptions.delete`
-
-The predefined `roles/source.admin`, `roles/iam.serviceAccountUser` and `roles/pubsub.editor` roles are an example of roles that are suitable for use with the TriggerMesh event
-source for Google Cloud Repositories.
-
-Create a key for this service account and save it. This key must be in JSON format. It is required to be
-able to run an instance of the Google Cloud Repositories event source.
-
-## Prerequisite(s)
-
-- Repository
-- Pub/Sub Topic _(optional)_
-
-### Repository
-
-Full resource name of the Repository. For example, projects/my-project/repos/my-repo.
-
-### Pub/Sub Topic _(optional)_
-Full resource name of the Pub/Sub topic where change notifications originating from the
-configured repo are sent to. If not supplied, a topic is created on behalf of the user, in the
-GCP project referenced by the 'project' attribute. The expected format is described at
-https://cloud.google.com/pubsub/docs/admin#resource_names
-
-
-
-## Kubernetes
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -74,11 +41,48 @@ spec:
       name: default
 ```
 
-## Event Types
+Events produced have the following attributes:
 
-The TriggerMesh event source for Google Cloud Repositories emits events of the following type:
+* type `com.google.cloud.repositories.notification`
 
-- `com.google.cloud.repositories.notification`
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSource) for more details.
+
+## Prerequisite(s)
+
+- Service account
+- Repository
+- Pub/Sub Topic _(optional)_
+
+### Service Account
+
+A Service Account is required to authenticate the event source and allow it to interact with Google
+Cloud Repositories.
+
+The service account must be granted an IAM Role with at least the following permissions:
+
+- `source.repos.updateRepoConfig`
+- `iam.serviceAccounts.actAs`
+
+The following set of permissions is also required to allow this source to manage the Pub/Sub topic and subscription:
+
+- `pubsub.subscriptions.create`
+- `pubsub.subscriptions.delete`
+
+The predefined `roles/source.admin`, `roles/iam.serviceAccountUser` and `roles/pubsub.editor` roles are an example of roles that are suitable for use with the TriggerMesh event
+source for Google Cloud Repositories.
+
+Create a key for this service account and save it. This key must be in JSON format. It is required to be
+able to run an instance of the Google Cloud Repositories event source.
+
+### Repository
+
+Full resource name of the Repository. For example, projects/my-project/repos/my-repo.
+
+### Pub/Sub Topic _(optional)_
+Full resource name of the Pub/Sub topic where change notifications originating from the
+configured repo are sent to. If not supplied, a topic is created on behalf of the user, in the
+GCP project referenced by the 'project' attribute. The expected format is described at
+https://cloud.google.com/pubsub/docs/admin#resource_names
 
 [gc-source-repositories]: https://cloud.google.com/source-repositories/docs
 [gc-source-repositories-events]: https://cloud.google.com/source-repositories/docs/configuring-notifications

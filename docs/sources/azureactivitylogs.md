@@ -1,12 +1,70 @@
-# Event Source for Azure Activity Logs
+# Azure Activity Logs Source
 
-This event source forwards [Activity Logs][activity-logs] from a given Azure Subscription by routing them over [Azure
+Captures [Activity Logs][activity-logs] from a given Azure Subscription by routing them through [Azure
 Event Hubs][eventhubs]. It does so by registering [Diagnostic Settings][diag-settings] that automatically send a
 selected set of log categories to a dedicated Event Hub, then subscribing to the events from that Event Hub.
 
-## CLI
+With `tmctl`:
 
-Coming soon.
+```
+tmctl create source azureactivitylogs --subscriptionID <id> --destination.eventHubs.namespaceID <namespaceID> --auth.servicePrincipal.tenantID <tenantID> --auth.servicePrincipal.clientID <clientID> --auth.servicePrincipal.clientSecret <clientSecret>
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AzureActivityLogsSource
+metadata:
+  name: sample
+spec:
+  subscriptionID: 00000000-0000-0000-0000-000000000000
+
+  # Available Activity Log categories are documented at
+  # https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-log-schema#categories
+  categories:
+  - Administrative
+  - Security
+  - Policy
+
+  destination:
+    eventHubs:
+      namespaceID: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyGroup/providers/Microsoft.EventHub/namespaces/MyNamespace
+
+  auth:
+    servicePrincipal:
+      tenantID:
+        value: 00000000-0000-0000-0000-000000000000
+      clientID:
+        value: 00000000-0000-0000-0000-000000000000
+      clientSecret:
+        value: some_secret
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+!!! note
+    The ID of the Azure subscription which Activity Logs are to be subscribed to is inferred from the **Event Hub ID**
+    parameter below. Therefore, the form does not require providing a subscription ID explicitly.
+
+- [categories][log-categories]: _(optional)_ Categories of Activity Logs to collect. All available categories are
+      selected when the list of categories is left empty.
+- [destination.eventHubs.namespaceID or hubName][eventhubs-create]: Resource ID of either
+    - an Event Hubs _namespace_ (Event Hub managed by Azure, defaults to `insights-activity-logs`)
+    - an Event Hubs _instance_ (Event Hub managed by the user)
+- [destination.eventhubs.sasPolicy][sas-policy]: _(optional)_ Name of a SAS policy with Manage permissions on the Event Hubs namespace
+  referenced in the **Event Hub ID** field. Uses Azure's default "RootManageSharedAccessKey" policy if not provided.
+
+Events produced have the following attributes:
+
+* type `com.microsoft.azure.monitor.activity-log`
+* Schema of the `data` attribute: [com.microsoft.azure.monitor.activity-log.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.microsoft.azure.monitor.activity-log.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AzureActivityLogsSource) for more details.
 
 ## Prerequisite(s)
 
@@ -129,69 +187,14 @@ your own policy instead, make sure it has the same `Manage, Send, Listen` claims
 
 ![Event Hubs SAS key](../../assets/images/azureactivitylogs-source/eventhubs-sas-key.png)
 
-## Deploying an Instance of the Source
+### Checking that you're receiving logs
 
-!!! note
-    The ID of the Azure subscription which Activity Logs are to be subscribed to is inferred from the **Event Hub ID**
-    parameter below. Therefore, the form does not require providing a subscription ID explicitly.
-
-- [Secret][sp-create]: Service Principal authentication credentials, as described in the previous sections.
-- [Event Hub ID][eventhubs-create]: Resource ID of either
-    - an Event Hubs _namespace_ (Event Hub managed by Azure, defaults to `insights-activity-logs`)
-    - an Event Hubs _instance_ (Event Hub managed by the user)
-- [SAS Policy][sas-policy]: _(optional)_ Name of a SAS policy with Manage permissions on the Event Hubs namespace
-  referenced in the **Event Hub ID** field. Uses Azure's default "RootManageSharedAccessKey" policy if not provided.
-- [Log categories][log-categories]: _(optional)_ Categories of Activity Logs to collect. All available categories are
-  selected when the list of categories is left empty.
-
-After creating a Bridge with the Azure Activity Logs event source, navigate back to the Event Hubs screen in the Azure
+After creating an Azure Activity Logs event source, navigate back to the Event Hubs screen in the Azure
 Portal. You should see a message count above 0 within the namespace, providing that activity logs are being generated
 within the Azure Subscription.
 
 ![Event Hub messages](../../assets/images/azureactivitylogs-source/eventhub-msgs.png)
 
-## Kubernetes
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: AzureActivityLogsSource
-metadata:
-  name: sample
-spec:
-  subscriptionID: 00000000-0000-0000-0000-000000000000
-
-  # Available Activity Log categories are documented at
-  # https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-log-schema#categories
-  categories:
-  - Administrative
-  - Security
-  - Policy
-
-  destination:
-    eventHubs:
-      namespaceID: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyGroup/providers/Microsoft.EventHub/namespaces/MyNamespace
-
-  auth:
-    servicePrincipal:
-      tenantID:
-        value: 00000000-0000-0000-0000-000000000000
-      clientID:
-        value: 00000000-0000-0000-0000-000000000000
-      clientSecret:
-        value: some_secret
-
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
-
-## Event Types
-
-The Azure Activity Logs event source emits events of the following type:
-
-- `com.microsoft.azure.monitor.activity-log`
 
 [activity-logs]: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-log
 [diag-settings]: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings

@@ -1,8 +1,13 @@
-## CLI
+# Azure EventGrid source
 
-Coming soon.
+Consumes events from [Azure EventGrid](https://learn.microsoft.com/en-us/azure/event-grid/overview).
 
-## Kubernetes
+With `tmctl`:
+
+!!! warning "Work in progress"
+    This component is not yet available with `tmctl`.
+
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -35,3 +40,5 @@ spec:
       kind: Broker
       name: default
 ```
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AzureEventGridSource) for more details.

@@ -1,7 +1,48 @@
-# Receiving External CloudEvents
+# CloudEvents source
 
-The Trigermesh `CloudEventsSource` API object is used to ingest Cloudevents produced from external sources via HTTP.
+The TriggerMesh `CloudEventsSource` is used to ingest CloudEvents produced from external sources via HTTP. The `CloudEventsSource` acts as an HTTP server that can receives requests.
 
+With `tmctl`:
+
+```
+tmctl create source cloudevents
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: CloudEventsSource
+metadata:
+  name: sample
+spec:
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+Events produced have the following attributes:
+
+* type depends on the metadata passed as part of the CloudEvent at runtime, unless overridden
+* Schema of the `data` attribute is not know by TriggerMesh out of the box
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.CloudEventsSource) for more details.
+
+A CloudEvent can be sent to a CloudEventsSource by using `curl`. The example below includes the optional Basic Authentication and Path.
+
+!!! example "Calling the CloudEventsSource"
+    ```console
+    curl -sSL -u user2:pw2 "http://cloudeventssource.mycluster.io/mypath" \
+      -H "Ce-Specversion: 1.0" \
+      -H "Ce-Type: json.document" \
+      -H "Ce-Source: curl.shell" \
+      -H "Ce-MyAttribute: my value" \
+      -H "Content-Type: application/json" \
+      -H "Ce-Id: 1234-abcd-x" \
+      -d '{"Hello":"world"}'
+    ```
 ## Configuring a CloudEventsSource Object
 
 The CloudEventsSource accepts parameters to set authentication, URL path and rate limiter. When succesfuly created it exposes an HTTP endpoint to listen for CloudEvents.
@@ -125,18 +166,4 @@ Given the CloudEventsSource configuration options depicted in the preceding sect
           apiVersion: eventing.knative.dev/v1
           kind: Broker
           name: default
-    ```
-
-A CloudEvent can be ingested in the cluster using `curl` and Basic Authentication:
-
-!!! example "Calling the CloudEventsSource"
-    ```console
-    curl -sSL -u user2:pw2 "http://cloudeventssource.mycluster.io/mypath" \
-      -H "Ce-Specversion: 1.0" \
-      -H "Ce-Type: json.document" \
-      -H "Ce-Source: curl.shell" \
-      -H "Ce-MyAttribute: my value" \
-      -H "Content-Type: application/json" \
-      -H "Ce-Id: 1234-abcd-x" \
-      -d '{"Hello":"world"}'
     ```

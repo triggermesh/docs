@@ -1,6 +1,14 @@
 # Azure Event Hubs source
 
-## Kubernetes
+Consumes events from [Azure Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
+
+With `tmctl`:
+
+```
+tmctl create source azureeventhub --eventHubID <hubID> --auth.servicePrincipal.tenantID <tenantID> --auth.servicePrincipal.clientID <clientID> --auth.servicePrincipal.clientSecret <clientSecret>
+```
+
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -31,3 +39,9 @@ spec:
       kind: Broker
       name: default
 ```
+
+Events produced have the following attributes:
+
+* type `com.azure.eventhub.event`
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AzureEventHubSource) for more details.

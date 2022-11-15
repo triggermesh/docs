@@ -1,6 +1,14 @@
 # Azure Service Bus Queue source
 
-## Kubernetes
+Consumes events from [Azure Service Bus](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) queues.
+
+With `tmctl`:
+
+```
+tmctl create source azureservicebusqueue --queueID <queueID> --auth.sasToken.connectionString.value <token>
+```
+
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -21,3 +29,10 @@ spec:
       kind: Broker
       name: default
 ```
+
+Events produced have the following attributes:
+
+* type `com.microsoft.azure.servicebus.message`
+* Schema of the `data` attribute: [com.microsoft.azure.servicebus.message.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.microsoft.azure.servicebus.message.json)
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSource) for more details.
