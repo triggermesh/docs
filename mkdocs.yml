@@ -34,6 +34,8 @@ nav:
     - Get started:
       - Quickstart: get-started/quickstart.md
       - Concepts: get-started/concepts.md
+      - Create a local event viewer: get-started/create-local-eventviewer.md
+      - Moving from local to Kubernetes: get-started/moving-from-dev-to-K8s.md
     - Sources:
       - Amazon CloudWatch: sources/awscloudwatch.md
       - Amazon CloudWatchLogs: sources/awscloudwatchlogs.md
@@ -64,13 +66,13 @@ nav:
 # Looks like Gcloud IoT Core is being retired, maybe we don't need this doc
 #      - Google Cloud IoT: sources/googlecloudiot.md
       - Kafka: sources/kafka.md
-      - Webhook: sources/webhook.md
       - HTTP Poller: sources/httppoller.md
       - IBM MQ: sources/ibmmq.md
       - OCIMetrics: sources/ocimetrics.md
       - Salesforce: sources/salesforce.md
       - Slack: sources/slack.md
       - Twilio: sources/twilio.md
+      - Webhook: sources/webhook.md
       - Zendesk: sources/zendesk.md
     - Targets:
       - Overview: concepts/targets.md

@@ -1,32 +1,14 @@
-# Event Source for HTTP Polling
+# HTTP Poller event source
 
-This event source launches periodic HTTP requests against an external system endpoint, turning received requests into [CloudEvents][ce] to be consumed by other TriggerMesh components.
+This event source makes periodic HTTP requests (acting as an HTTP client) to an external HTTP service, and turns the responses into events.
 
-## Prerequisite(s)
+With `tmctl`:
 
-- An external system that exposes an HTTP endpoint.
-- When using HTTP basic authentication, a secret containing the password.
+```
+tmctl create source httppoller --eventType <type> --method GET --endpoint https://example.com --interval 20s
+```
 
-## Deploying an Instance of the HTTP Poller Source
-
-- **Name**: all TriggerMesh components need a unique name per namespace.
-- **Broker**: request converted into [CloudEvents][ce] will be sent to this location.
-- **EventType**: string that identifies the purpose for all CloudEvent messages produced from this source.
-- **EventSource**: (optional) string that identifies the origin for all CloudEvent messages produced from this source.
-- **Enpoint**: URL location for the remote service to be polled.
-- **Method**: HTTP method.
-- **Interval**: interval between requests formatted as [Go duration][go-duration].
-- **CA Certificate**: (optional) CA certificate configured for TLS connection as plain text.
-- **Skip Verify**: (optional) when set to true skips remote server TLS certificate verification.
-- **Basic Auth Username**: (optional) HTTP basic authentication username.
-- **Basic Auth Password** (optional) points to a secret that contains the HTTP basic authentication password.
-- **Headers** (optional) is a set of key/value pairs that will be set within the HTTP request.
-
-`Interval` is formatted after [Go's duration parsing][go-duration]. Most typically this value will contain a number followed by one of "ns", "us" or "µs", "ms", "s", "m", "h". Valid examples are `15000ms` or `15s` for 15 seconds, `60m` or `1h` for one hour.
-
-When using `CA Certificate` it should be copied into the text area in plain text.
-
-## Kubernetes
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -48,16 +30,38 @@ spec:
       name: default
 ```
 
-## Events Types
+- **Name**: all TriggerMesh components need a unique name per namespace.
+- **Broker**: request converted into [CloudEvents][ce] will be sent to this location.
+- **EventType**: string that identifies the purpose for all CloudEvent messages produced from this source.
+- **EventSource**: (optional) string that identifies the origin for all CloudEvent messages produced from this source.
+- **Enpoint**: URL location for the remote service to be polled.
+- **Method**: HTTP method.
+- **Interval**: interval between requests formatted as [Go duration][go-duration].
+- **CA Certificate**: (optional) CA certificate configured for TLS connection as plain text.
+- **Skip Verify**: (optional) when set to true skips remote server TLS certificate verification.
+- **Basic Auth Username**: (optional) HTTP basic authentication username.
+- **Basic Auth Password** (optional) points to a secret that contains the HTTP basic authentication password.
+- **Headers** (optional) is a set of key/value pairs that will be set within the HTTP request.
 
-The HTTP Poller Source creates a CloudEvent for each request received. CloudEvents header values are filled according to these rules:
+`Interval` is formatted after [Go's duration parsing][go-duration]. Most typically this value will contain a number followed by one of "ns", "us" or "µs", "ms", "s", "m", "h". Valid examples are `15000ms` or `15s` for 15 seconds, `60m` or `1h` for one hour.
+
+When using `CA Certificate` it should be copied into the text area in plain text.
+
+Events produced have the following attributes:
 
 - `event-type` is set to the source's provided value.
 - `event-source` is set to the source's provided value.
 - `id` is set to a generated UID.
 - `date` is timestamped when generating the CloudEvent at TriggerMesh.
 
-Request response body is used to fill the CloudEvent data.
+Request response body is used to fill the event payload.
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.HTTPPollerSource) for more details.
+
+## Prerequisite(s)
+
+- An external system that exposes an HTTP endpoint.
+- When using HTTP basic authentication, a secret containing the password.
 
 [ce]: https://cloudevents.io
 [go-duration]: https://golang.org/pkg/time/#ParseDuration

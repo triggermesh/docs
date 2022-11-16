@@ -1,20 +1,14 @@
-# Event Target for Google Cloud Pub Sub
+# Google Cloud Pub Sub target
 
-This event target receives [CloudEvents][ce] over HTTP and sends them to a pre-defined Google Cloud Pub Sub Topic.
+Sends events to a Google Cloud Pub/Sub topic.
 
-## Prerequisite(s)
+With `tmctl`:
 
-- Google Cloud Console account.
-- A service account and it's associated JSON credentials.
-- a pre-existing Google Cloud Pub Sub Topic.
+```
+tmctl create target googlecloudpubsub --topic <topic> --credentialsJson $(cat ./creds.json) --event-types my.type
+```
 
-## Deploying an Instance of the Target
-
-Credentials: JSON credentials of a valid Service Account.
-
-Topic: name of the Google Cloud Pub Sub Topic to which you want to send events.
-
-## Kubernetes
+On Kubernetes:
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -22,17 +16,22 @@ kind: GoogleCloudPubSubTarget
 metadata:
   name: googlecloudpubsub
 spec:
-  topic: ''
+  topic: <topic>
   credentialsJson:
     secretKeyRef:
       name: googlecloudpubsub
       key: creds
 ```
 
-## Event Types
-
-### Arbitrary
 This target consumes events of any type.
+
+See the [Kubernetes object reference](../../reference/sources/#targets.triggermesh.io/v1alpha1.GoogleCloudPubSubTarget) for more details.
+
+## Prerequisite(s)
+
+- Google Cloud Console account.
+- A service account and it's associated JSON credentials.
+- a pre-existing Google Cloud Pub/Sub topic.
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md

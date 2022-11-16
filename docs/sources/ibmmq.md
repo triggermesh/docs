@@ -1,6 +1,14 @@
 # IBM MQ source
 
-## Kubernetes
+Consumes events from [IBM MQ](https://www.ibm.com/products/mq).
+
+With `tmctl`:
+
+```
+tmctl create source ibmmq --connectionName <connectionName> --channelName <channelName> --queueManager <queueManager> --queueName <queueName> --credentials.username <username> --credentials.password <password>
+```
+
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -43,9 +51,15 @@ spec:
       name: default
 ```
 
-## Creating an IBM MQ server for testing
+Events produced have the following attributes:
 
-If you do not have a source for your IBM MQ events, the [config/mq-server.yaml] will deploy an IBM MQ server that you may use for demonstration or testing purposes.
+* type `io.triggermesh.ibm.mq.message`
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.IBMMQSource) for more details.
+
+## Creating an IBM MQ server for testing on Kubernetes
+
+If you do not have a source for your IBM MQ events, the Kubernetes deployment called mq-server.yaml provided below will deploy an IBM MQ server that you may use for demonstration or testing purposes.
 
 ```
 kubectl apply -f config/mq-server.yaml
@@ -65,66 +79,7 @@ https://localhost:9443/ibmmq/console/
 
 and login with the user `admin` and password `passw0rd`.
 
-### Configure your IBM MQ Source
-
-To specify your IBM MQ queue and connection edit the event source manifest `config/mq-source.yaml` and apply it:
-
-```
-kubectl apply -f config/mq-source.yaml
-```
-
-## Local Build and Usage
-
-1. Setup a local IBM MQ with the following commands:
-
-```shell
-docker volume create qmdata
-docker network create mqnetwork
-docker run --rm \
-           --env LICENSE=accept \
-           --env MQ_QMGR_NAME=QM1 \
-           --volume qmdata:/mnt/mqm \
-           --publish 1414:1414 \
-           --publish 9443:9443 \
-           --publish 8080:8080 \
-           --network mqnetwork \
-           --network-alias qmgr \
-           --detach \
-           --env MQ_APP_PASSWORD=password \
-           --name mq \
-           ibmcom/mq:latest
-```
-
-If you face any issues please follow the official [tutorial](https://developer.ibm.com/messaging/learn-mq/mq-tutorials/mq-connect-to-queue-manager/#docker)
-
-1. Connect the Knative event display:
-
-```shell
-docker run --rm --name sockeye --net=container:mq -d docker.io/n3wscott/sockeye:v0.7.0
-```
-
-1. To build the container image from the local source code
-
-```shell
-docker build -t mqsource .
-```
-
-1. Run this _source_ locally with:
-
-```shell
-docker run --rm --env PASSWORD=password \
-                --env K_SINK=http://localhost:8080 \
-                --net=container:mq \
-                mqsource
-```
-
-1. Open the MQ console:
-
-Using _admin_ and _passw0rd_ as default development credentials do:
-
-`open https://localhost:9443/ibmmq/console/`
-
-Add messages to `DEV.QUEUE.1` queue and check the [sockeye](http://localhost:8080) to see the CloudEvents being received.
+mq-server.yaml:
 
 ```yaml
 apiVersion: apps/v1
@@ -199,3 +154,35 @@ spec:
     protocol: TCP
     targetPort: 1414
 ```
+
+## Creating an IBM MQ server for testing on Docker
+
+Setup a local IBM MQ with the following commands:
+
+```shell
+docker volume create qmdata
+docker network create mqnetwork
+docker run --rm \
+           --env LICENSE=accept \
+           --env MQ_QMGR_NAME=QM1 \
+           --volume qmdata:/mnt/mqm \
+           --publish 1414:1414 \
+           --publish 9443:9443 \
+           --publish 8080:8080 \
+           --network mqnetwork \
+           --network-alias qmgr \
+           --detach \
+           --env MQ_APP_PASSWORD=password \
+           --name mq \
+           ibmcom/mq:latest
+```
+
+If you face any issues please follow the official [tutorial](https://developer.ibm.com/messaging/learn-mq/mq-tutorials/mq-connect-to-queue-manager/#docker)
+
+Open the MQ console:
+
+Using _admin_ and _passw0rd_ as default development credentials do:
+
+`open https://localhost:9443/ibmmq/console/`
+
+Add messages to `DEV.QUEUE.1` queue.

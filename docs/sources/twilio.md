@@ -1,11 +1,14 @@
-# Event Source for Twilio
-This event source is to be deployed and then registered as a webhook via Twilio [Proxy][proxy]
+# Twilio source
 
-## Prerequisite(s)
+This event source is to be deployed and then registered as a webhook via a Twilio [Proxy][proxy].
 
-- A Twilio account (trial or paid)
+With `tmctl`:
 
-## Kubernetes
+```
+tmctl create source twilio
+```
+
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -20,54 +23,12 @@ spec:
       name: default
 ```
 
-## Integrate with Twilio
+Events produced have the following attributes:
 
-Retrieve the public URL of the deployed Twilio source by selecting it from within the `Services` section within TriggerMesh.
+* type `com.triggermesh.twilio.sms`
+* Schema of the `data` attribute: [com.triggermesh.twilio.sms.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.triggermesh.twilio.sms.json)
 
-![Tm Services](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-4.png)
-
-Copy down the `Domain` for later steps.
-
-![Tm Services](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-5.png)
-
-Navigate to your Twilio dashboard and search for `proxy`
-
-![Twilio Proxy Search](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-1.png)
-
-From the Twilio Proxy dashboard select `Create new Service` and, in the following pop-up box, assign it a name.
-
-![Twilio Proxy Dash](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-2.png)
-
-You should now be on a similar page to this:
-
-![Twilio Proxy new Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-3.png)
-
-Enter the `Domain` that was retrieved earlier into the  "CALLBACK URL", "INTERCEPT CALLBACK URL", and "OUT OF SESSION CALLBACK URL" fields. Then
-select `Save`
-
-![Twilio Proxy Service](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-6.png)
-
-Select `Proxy Numbers`
-
-![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-7.png)
-
-Select `Add Numbers`
-
-![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-8.png)
-
-Assing an available number
-
-![Twilio Proxy Register](https://github.com/triggermesh/docs/blob/twiliosource/docs/../assets/images/twilio-source/integrate-9.png)
-
-All done!
-
-## Event Type
-
-The Twilio event source emits events of the following type:
-
-- `com.triggermesh.twilio.sms`
-
-### Example event emited from this source:
+Example event emitted from this source:
 
 ```
 ☁️  cloudevents.Event
@@ -105,6 +66,46 @@ Data,
   }
 ```
 
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.TwilioSource) for more details.
+
+## Prerequisite(s)
+
+- A Twilio account (trial or paid)
+
+## Integrate with Twilio
+
+Retrieve the public URL of the deployed TriggerMesh Twilio source.
+
+Navigate to your Twilio dashboard and search for `proxy`
+
+![Twilio Proxy Search](../assets/images/twilio-source/integrate-1.png)
+
+From the Twilio Proxy dashboard select `Create new Service` and, in the following pop-up box, assign it a name.
+
+![Twilio Proxy Dash](../assets/images/twilio-source/integrate-2.png)
+
+You should now be on a similar page to this:
+
+![Twilio Proxy new Service](../assets/images/twilio-source/integrate-3.png)
+
+Enter the `Domain` that was retrieved earlier into the  "CALLBACK URL", "INTERCEPT CALLBACK URL", and "OUT OF SESSION CALLBACK URL" fields. Then
+select `Save`
+
+![Twilio Proxy Service](../assets/images/twilio-source/integrate-6.png)
+
+Select `Proxy Numbers`
+
+![Twilio Proxy Register](../assets/images/twilio-source/integrate-7.png)
+
+Select `Add Numbers`
+
+![Twilio Proxy Register](../assets/images/twilio-source/integrate-8.png)
+
+Assing an available number
+
+![Twilio Proxy Register](../assets/images/twilio-source/integrate-9.png)
+
+All done!
 
 [tm-secret]: ../guides/secrets.md
 

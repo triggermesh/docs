@@ -1,16 +1,54 @@
-# Kafka event source
+# Kafka source
 
 This event source acts as a consumer of a Kafka Cluster and forwards all messages it receives
 as CloudEvents'.
 
-## Contents
+With `tmctl`:
 
-- [Kafka event source](#kafka-event-source)
-  - [Prerequisites](#prerequisites)
-  - [Creating a KafkaSource](#creating-a-kafka-source)
-    - [SASL-PLAIN](#with-sasl-plain)
-    - [Kerberos-SSL](#with-kerberos-ssl)
-  - [Status](#status)
+```
+tmctl create source kafka --bootstrapServers kafka.example.com:9092 --topics <topic> --groupID <groupID> --auth.username <user> --auth.password.value <pass>  --auth.saslEnable true --auth.tlsEnable true --auth.securityMechanism PLAIN
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: KafkaSource
+metadata:
+  name: sample
+spec:
+  groupID: test-consumer-group
+  bootstrapServers:
+    - kafka.example.com:9092
+  topics:
+    - test-topic
+  auth:
+    saslEnable: true
+    tlsEnable: false
+    securityMechanism: PLAIN
+    username: admin
+    password:
+      value: admin-secret
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+Events produced have the following attributes:
+
+* type `io.triggermesh.kafka.event`
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.KafkaSource) for more details.
+
+## Kubernetes guide for KafkaSource
+
+- [Prerequisites](#prerequisites)
+- [Creating a KafkaSource](#creating-a-kafka-source)
+  - [SASL-PLAIN](#with-sasl-plain)
+  - [Kerberos-SSL](#with-kerberos-ssl)
+- [Status](#status)
 
 ## Prerequisites
 

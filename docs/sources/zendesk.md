@@ -1,56 +1,13 @@
-# Event Source for Zendesk
+# Zendesk source
 
-This event source registers itself as a notification receiver in Zendesk in order to capture events such as ticket
-creations.
+This event source registers itself as a notification receiver in Zendesk in order to capture events such as ticket creations.
 
-## CLI
+With `tmctl`:
 
-Coming soon.
+!!! warning "Work in progress"
+    This component is not yet available with `tmctl`.
 
-## Prerequisite(s)
-
-- API Token
-
-### API Token
-
-An API token is required in order to let the TriggerMesh Zendesk event source create a corresponding [Target][zd-target]
-and [Trigger][zd-trigger] in your Zendesk account. To create a new API token from the Zendesk Admin interface, follow
-the instructions at [Generating a new API token ][zd-token].
-
-## Deploying an Instance of the Source
-
-- **Email**: Email address associated with the Zendesk account.
-- [**Subdomain**][zd-subdom]: Name of the Zendesk subdomain, without the `zendesk.com` domain or `https://` scheme.
-- [**Token**][zd-token]: Reference to a [TriggerMesh secret][tm-secret] containing an API token to communicate with the
-  Zendesk API, as described in the previous section.
-- **Webhook username/password**: arbitrary user name and password, used to verify event callbacks.
-
-## Verification of External Resources
-
-To verify the successful deployment of the Zendesk event source, navigate to the [Targets][zd-target] tab of the
-_Extensions_ screen in the Zendesk Admin interface, below the _Settings_ section. The event source instance should have
-created a Target following the naming pattern `io.triggermesh.zendesksource.<user namespace>.<source name>`.
-
-![Zendesk Target name](../../assets/images/zendesk-source/targets-1.png)
-
-The Target is configured to include the webhook username and password defined earlier in each request header.
-
-![Zendesk Target details](../../assets/images/zendesk-source/targets-2.png)
-
-The Target is linked to a [Trigger][zd-trigger], which can be found by navigating to the _Triggers_ screen, below the
-_Business rules_ section. This Trigger follows the same naming convention as the matching Target.
-
-![Zendesk Trigger name](../../assets/images/zendesk-source/triggers-1.png)
-
-The Trigger defines the condition on which a new event is generated and sent to the Target. In the example below, the
-condition is the creation of a new ticket.
-
-![Zendesk Trigger details](../../assets/images/zendesk-source/triggers-2.png)
-
-If the Trigger is marked as `active`, it will be sending notifications to the HTTP(S) endpoint exposed by the instance
-of the TriggerMesh Zendesk event source as soon as a corresponding action happens in Zendesk.
-
-## Kubernetes
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -76,10 +33,12 @@ spec:
       name: default
 ```
 
-## Event Types
+Events produced have the following attributes:
 
-### `com.zendesk.ticket.created`
-When a new ticket is created in Zendesk a registred source will emit an event of type `com.zendesk.ticket.created`. An example event of this type can be found below.
+* type `com.zendesk.ticket.created`
+* Schema of the `data` attribute: [com.zendesk.ticket.created.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.zendesk.ticket.created.json)
+
+An Example ticket create event:
 
 ```
 ☁️  cloudevents.Event
@@ -161,6 +120,51 @@ Data,
   }
 ```
 
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.) for more details.
+
+## Prerequisite(s)
+
+- API Token
+
+### API Token
+
+An API token is required in order to let the TriggerMesh Zendesk event source create a corresponding [Target][zd-target]
+and [Trigger][zd-trigger] in your Zendesk account. To create a new API token from the Zendesk Admin interface, follow
+the instructions at [Generating a new API token ][zd-token].
+
+## Deploying an Instance of the Source
+
+- **Email**: Email address associated with the Zendesk account.
+- [**Subdomain**][zd-subdom]: Name of the Zendesk subdomain, without the `zendesk.com` domain or `https://` scheme.
+- [**Token**][zd-token]: Reference to a [TriggerMesh secret][tm-secret] containing an API token to communicate with the
+  Zendesk API, as described in the previous section.
+- **Webhook username/password**: arbitrary user name and password, used to verify event callbacks.
+
+## Verification of External Resources
+
+To verify the successful deployment of the Zendesk event source, navigate to the [Targets][zd-target] tab of the
+_Extensions_ screen in the Zendesk Admin interface, below the _Settings_ section. The event source instance should have
+created a Target following the naming pattern `io.triggermesh.zendesksource.<user namespace>.<source name>`.
+
+![Zendesk Target name](../../assets/images/zendesk-source/targets-1.png)
+
+The Target is configured to include the webhook username and password defined earlier in each request header.
+
+![Zendesk Target details](../../assets/images/zendesk-source/targets-2.png)
+
+The Target is linked to a [Trigger][zd-trigger], which can be found by navigating to the _Triggers_ screen, below the
+_Business rules_ section. This Trigger follows the same naming convention as the matching Target.
+
+![Zendesk Trigger name](../../assets/images/zendesk-source/triggers-1.png)
+
+The Trigger defines the condition on which a new event is generated and sent to the Target. In the example below, the
+condition is the creation of a new ticket.
+
+![Zendesk Trigger details](../../assets/images/zendesk-source/triggers-2.png)
+
+If the Trigger is marked as `active`, it will be sending notifications to the HTTP(S) endpoint exposed by the instance
+of the TriggerMesh Zendesk event source as soon as a corresponding action happens in Zendesk.
 
 [zd-token]: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
 [zd-target]: https://support.zendesk.com/hc/en-us/articles/203662136-Notifying-external-targets
