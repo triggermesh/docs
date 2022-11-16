@@ -1,24 +1,18 @@
-# Event Target for Alibaba OSS
+# Alibaba OSS target
 
-This event target receives [CloudEvents][ce] over HTTP and sends them to [Alibaba OSS][oss]
-creating a new file containing the event data.
+Sends events to [Alibaba OSS][oss], resulting in a new file that contains the event data.
 
-## Prerequisite(s)
+The response event type will contain the original event type with `.response` appended to the end.
 
-- Alibaba Cloud account.
-- The [Access Key ID and Secret Access Key](https://www.alibabacloud.com/help/faq-detail/142101.htm) associated to the account.
+With `tmctl`:
 
-## Deploying an Instance of the Target
+```
+tmctl create target alibabaoss --bucket <bucket> --endpoint <endpoint> --accessKeyID <accessKeyID> --accessKeySecret <accessKeySecret>
+```
 
-- **Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Access Key ID and Secret Access Key.
-- **Endpoint**: The OSS [endpoint](https://www.alibabacloud.com/help/doc-detail/31834.html?spm=a2c5t.11065259.1996646101.searchclickresult.66795207QoTOLE).
-- **Bucket**: The OSS [Bucket](https://www.alibabacloud.com/help/doc-detail/32135.html?spm=a2c5t.11065259.1996646101.searchclickresult.76164406aMCICT).
+On Kubernetes:
 
-For more information about using Alibaba OSS, please refer to the [documentation](https://www.alibabacloud.com/help/product/31815.htm?spm=a3c0i.7950270.1834322160.3.5761ab91f9PlWp).
-
-## Kubernetes
-
-**Secret**
+Secret
 
 ```yaml
 apiVersion: v1
@@ -31,7 +25,7 @@ stringData:
   secret: "<Alibaba Secret Access Key>"
 ```
 
-**Target**
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -51,7 +45,11 @@ spec:
       key: secret
 ```
 
-## Example
+This target accepts events of all types and uploads them into a table with the Cloudevent ID as the object key.
+
+The response event type will contain the original event type with `.response` appended to the end, e.g. `io.triggermesh.alibaba.oss.response`.
+
+You can test the Target by sending it an event using `curl`:
 
 ```
 curl -v localhost:8080\
@@ -64,12 +62,14 @@ curl -v localhost:8080\
  -d '{"message":"Hello from TriggerMesh!"}'
 ```
 
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget) for more details.
 
-## Event Types
-### Arbitrary
-This target will consume arbitrary events and upload them into a table with the Cloudevent ID as the object key.
+## Prerequisite(s)
 
-The response event type will contain the original event type with `.response` appended to the end.
+- Alibaba Cloud account.
+- The [Access Key ID and Secret Access Key](https://www.alibabacloud.com/help/faq-detail/142101.htm) associated to the account.
+
+For more information about using Alibaba OSS, please refer to the [documentation](https://www.alibabacloud.com/help/product/31815.htm?spm=a3c0i.7950270.1834322160.3.5761ab91f9PlWp).
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md

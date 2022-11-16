@@ -1,4 +1,4 @@
-# Event Source for Amazon DynamoDB
+# Amazon DynamoDB source
 
 This event source captures changes to items stored in an [Amazon DynamoDB Table][ddb-docs] by reading the time-ordered
 sequence of item-level modifications from a [DynamoDB Stream][ddb-streams].

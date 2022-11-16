@@ -75,17 +75,16 @@ nav:
       - Webhook: sources/webhook.md
       - Zendesk: sources/zendesk.md
     - Targets:
-      - Overview: concepts/targets.md
       - Alibaba OSS: targets/alibabaoss.md
       - Amazon Comprehend: targets/awscomprehend.md
+      - Amazon DynamoDB: targets/awsdynamodb.md
+      - Amazon EventBridge: targets/awseventbridge.md
+      - Amazon Kinesis: targets/awskinesis.md
       - Amazon Lambda (guides): targets/creatingatarget.md
       - Amazon Lambda: targets/awslambda.md
       - Amazon S3: targets/awss3.md
       - Amazon SNS: targets/awssns.md
       - Amazon SQS: targets/awssqs.md
-      - Amazon Kinesis: targets/awskinesis.md
-      - Amazon EventBridge: targets/awseventbridge.md
-      - Amazon DynamoDB: targets/awsdynamodb.md
       - Azure Event Hubs: targets/azureeventhubs.md
       - Azure Sentinel: targets/azuresentinel.md
       - CloudEvents: targets/cloudeventstarget.md

@@ -1,4 +1,4 @@
-# Event Source for Github
+# Github source
 
 This event source creates a webhook to listen for incoming Github Events.
 

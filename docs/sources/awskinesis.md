@@ -1,4 +1,4 @@
-# Event Source for Amazon Kinesis
+# Amazon Kinesis source
 
 This event source acts as a consumer of an [Amazon Kinesis Data Stream][kinesis-docs] and forwards all messages it reads
 after wrapping them in a [CloudEvent][ce] envelope.
