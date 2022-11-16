@@ -1,7 +1,50 @@
-# Event Source for Salesforce
+# Salesforce source
 
-This event source acts as a consumer of the [Salesforce stream API][salesforce-stream-api-docs] and forwards all messages it receives
-after wrapping them in a [CloudEvent][ce] envelope.
+This event source acts as a consumer of the [Salesforce stream API][salesforce-stream-api-docs].
+
+With `tmctl`:
+
+```
+tmctl create source salesforce --auth.clientID <clientID> --auth.server <server> --auth.user <user> --auth.certKey <certKey> --subscription.channel <channel> --subscription.replayID <replayID>
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: SalesforceSource
+metadata:
+  name: sample
+spec:
+  subscription:
+    channel: /data/ChangeEvents
+    replayID: -2
+
+  auth:
+    clientID: salesforce.client_id
+    server: https://login.salesforce.com
+    user: woodford@example.com
+    certKey:
+      value: my-key
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+```
+
+- **Broker** to send the events to.
+- **Client ID** as retrieved from Salesforce Connected App.
+- **Server** for authentication at Salesforce.
+- **User** for the Salesforce account.
+- **Channel** as configured at the Salesforce stream.
+
+Events produced have the following attributes:
+
+* type `com.salesforce.stream.message`
+
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.SalesforceSource) for more details.
 
 ## Prerequisite(s)
 
@@ -66,46 +109,6 @@ A [secret needs to be created at TriggerMesh][tm-secret] that contains that cert
 The file name containing the key will need to be renamed to `certKey`, then select `Secrets` > `+ ADD SECRET`, `File Upload`
 
 ![Upload secret](../../assets/images/salesforce-source/file-upload-secret.png)
-
-## Deploying an Instance of the Source
-
-- **Broker** to send the events to.
-- **Client ID** as retrieved from Salesforce Connected App.
-- **Server** for authentication at Salesforce.
-- **User** for the Salesforce account.
-- **Channel** as configured at the Salesforce stream.
-
-## Kubernetes
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: SalesforceSource
-metadata:
-  name: sample
-spec:
-  subscription:
-    channel: /data/ChangeEvents
-    replayID: -2
-
-  auth:
-    clientID: salesforce.client_id
-    server: https://login.salesforce.com
-    user: woodford@example.com
-    certKey:
-      value: my-key
-
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
-
-## Event Types
-
-The Salesforce event source emits events of the following types:
-
-- `com.salesforce.stream.message`
 
 [salesforce-stream-api-docs]: https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/
 [salesforce-oauth-jwt]: https://help.salesforce.com/articleView?id=remoteaccess_oauth_jwt_flow.htm

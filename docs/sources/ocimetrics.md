@@ -1,51 +1,18 @@
-# Event Source for Oracle Cloud Infrastructure Metrics (OCIMetrics)
+# Oracle Cloud Infrastructure Metrics source (OCIMetrics)
 
-This event source collects metrics data from the [Oracle Cloud](https://cloud.oracle.com).
+This event source collects metrics data from [Oracle Cloud](https://cloud.oracle.com).
 
-## Prerequisite(s)
+With `tmctl`:
 
-- Oracle Cloud Account
-- Oracle Cloud Infrastructure (OCI)
-- Oracle Cloud Secret
+!!! warning "Work in progress"
+    This component is not yet available with `tmctl`.
 
-### Oracle Cloud Account
+<!--
+```
+# tmctl create source ocimetrics --oracleApiPrivateKey <oracleApiPrivateKey> --oracleApiPrivateKeyPassphrase <oracleApiPrivateKeyPassphrase> --oracleApiPrivateKeyFingerprint <oracleApiPrivateKeyFingerprint> --oracleTenancy <oracleTenancy> --oracleUser <oracleUser> --oracleRegion <oracleRegion> --metrics <TODO>
+``` -->
 
-An Oracle Cloud account is required.
-
-### Oracle Cloud Infrastructure (OCI)
-
-The Oracle Cloud account needs to have permissions to inspect and read metrics for the Oracle Cloud Infrastructure (OCI) compartment.
-
-For additional information on how to create an API key and associate it with
-your Oracle Cloud user, go to [Oracle's Developer Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm#Required_Keys_and_OCID)
-
-### Oracle Cloud Secret
-
-Three pieces of information are required for the Oracle Cloud:
-1. API Private Key used for signing the request
-1. API Private Key passphrase to decrypt the key
-1. API Key's fingerprint to identify which key to use on the Oracle Cloud end
-
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add an Oracle Cloud specific secret.
-
-## Deploying an Instance of the Source
-
-### Creating the Source
-
-For the Oracle Cloud specific information, provide the following information:
-- Oracle tenancy using the Oracle Cloud ID (OCID)
-- Oracle username as an OCID
-- Oracle Cloud region where the metrics should be pulled from
-
-For the metrics specific information:
-- Metrics namespace such as `oci_computeagent` or `oci_vcn`
-- The metrics query based on [MQL](https://docs.cloud.oracle.com/en-us/iaas/Content/Monitoring/Reference/mql.htm)
-
-For details on how to write a query, consult the
-[Oracle Cloud Monitoring Overview](https://docs.cloud.oracle.com/en-us/iaas/Content/Monitoring/Concepts/monitoringoverview.htm)
-
-## Kubernetes
+On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -85,18 +52,44 @@ spec:
       name: default
 ```
 
-## Event Types
+For the metrics specific information:
+- `metricsNamespace`can take values such as `oci_computeagent` or `oci_vcn`
+- `metricsQuery` is based on [MQL](https://docs.cloud.oracle.com/en-us/iaas/Content/Monitoring/Reference/mql.htm)
 
-The CloudEvent type is:
+For details on how to write a query, consult the
+[Oracle Cloud Monitoring Overview](https://docs.cloud.oracle.com/en-us/iaas/Content/Monitoring/Concepts/monitoringoverview.htm)
 
-    com.oracle.cloud.monitoring
+Events produced have the following attributes:
 
-The CloudEvent source of the form:
+* type `com.oracle.cloud.monitoring`
+* source is of the form `ocimetrics/<namespace>/<source-name>` where `namespace` is your current namespace and `source-name` is the name specified during creation of the source.
+* Schema of the `data` attribute: [com.oracle.cloud.monitoring.json](https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.oracle.cloud.monitoring.json)
 
-    ocimetrics/<namespace>/<source-name>
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.OCIMetricsSource) for more details.
 
-Where `namespace` is your current namespace and `source-name` is the name
-specified during creation of the source.
+## Prerequisite(s)
 
-The event payload will match the payload from the [Oracle Cloud Monitoring API's
-Metric Data](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/monitoring/20180401/MetricData/).
+- Oracle Cloud Account
+- Oracle Cloud Infrastructure (OCI)
+- Oracle Cloud Secret
+
+### Oracle Cloud Account
+
+An Oracle Cloud account is required.
+
+### Oracle Cloud Infrastructure (OCI)
+
+The Oracle Cloud account needs to have permissions to inspect and read metrics for the Oracle Cloud Infrastructure (OCI) compartment.
+
+For additional information on how to create an API key and associate it with
+your Oracle Cloud user, go to [Oracle's Developer Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm#Required_Keys_and_OCID)
+
+### Oracle Cloud Secret
+
+Three pieces of information are required for the Oracle Cloud:
+1. API Private Key used for signing the request
+1. API Private Key passphrase to decrypt the key
+1. API Key's fingerprint to identify which key to use on the Oracle Cloud end
+
+Consult the [Secrets](../guides/secrets.md) guide for more information about
+how to add an Oracle Cloud specific secret.
