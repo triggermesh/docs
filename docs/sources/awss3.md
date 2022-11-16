@@ -1,4 +1,4 @@
-# Event Source for Amazon S3
+# Amazon S3 source
 
 This event source subscribes to event notifications from an [Amazon S3 bucket][s3-docs]. Events are published by S3 to
 an [Amazon SQS queue][sqs-docs] in order to be consumable by the event source.

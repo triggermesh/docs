@@ -1,12 +1,42 @@
-# Event Target for Amazon EventBridge
+# Amazon EventBridge target
 
-This event Target receives arbitrary [CloudEvents][ce] over HTTP and sends them to an [Amazon EventBridge partner event
-bus][intro] in a [JSON format][ce-jsonformat].
+Sends events to an [Amazon EventBridge partner event
+bus][intro].
 
-## Deploying an Instance of the Target
+With `tmctl`:
 
-- [AWS account ID][aws-acc-id]: defines the AWS account in which the TriggerMesh partner event source is to be created.
-- [AWS region][aws-regions]: defines the AWS region in which the TriggerMesh partner event source is to be created.
+```
+tmctl create target awseventbridge --arn <arn> --awsApiKey <awsApiKey> --awsApiSecret <awsApiSecret>
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSEventBridgeTarget
+metadata:
+  name: triggermesh-aws-eventbridge
+spec:
+  arn: arn:aws:events:us-west-2:<PROJECT_ID>:event-bus/cab-knative-event-test
+  awsApiKey:
+    secretKeyRef:
+      name: aws
+      key: AWS_ACCESS_KEY_ID
+  awsApiSecret:
+    secretKeyRef:
+      name: aws
+      key: AWS_SECRET_ACCESS_KEY
+```
+
+The Amazon EventBridge event Target can consume events of any type.
+
+Responds with events with the following attributes:
+
+* type `io.triggermesh.targets.aws.eventbridge.result`
+
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.AWSEventBridgeTarget) for more details.
+
+## Prerequisites
 
 Although this event source can immediately start receiving events, those events **can only be consumed after associating
 the TriggerMesh partner event source with a corresponding [partner event bus][event-bus]**.
@@ -34,29 +64,6 @@ You will also see a custom event bus named after the TriggerMesh partner event s
 Your can now start creating rules that trigger on certain events in the Amazon EventBridge console.
 
 For more information about using Amazon EventBridge, please refer to the [EventBridge user guide][userguide].
-
-## Kubernetes
-
-```yaml
-apiVersion: targets.triggermesh.io/v1alpha1
-kind: AWSEventBridgeTarget
-metadata:
-  name: triggermesh-aws-eventbridge
-spec:
-  arn: arn:aws:events:us-west-2:<PROJECT_ID>:event-bus/cab-knative-event-test
-  awsApiKey:
-    secretKeyRef:
-      name: aws
-      key: AWS_ACCESS_KEY_ID
-  awsApiSecret:
-    secretKeyRef:
-      name: aws
-      key: AWS_SECRET_ACCESS_KEY
-```
-
-## Event Types
-
-The Amazon EventBridge event Target can consume events of any type.
 
 [intro]: https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html
 [userguide]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html

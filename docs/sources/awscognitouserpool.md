@@ -1,4 +1,4 @@
-# Event source for Amazon Cognito User Pools
+# Amazon Cognito User Pools source
 
 This event source captures messages from an [Amazon Cognito User Pool][cup-docs] whenever a specific action, such as the
 creation of a new user, happens in the user identity pool.

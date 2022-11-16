@@ -1,4 +1,4 @@
-# Event Source for Amazon SNS
+# Amazon SNS source
 
 This event source subscribes to messages from a [Amazon SNS topic][sns-docs].
 
