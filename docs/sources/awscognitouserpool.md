@@ -6,7 +6,7 @@ creation of a new user, happens in the user identity pool.
 With `tmctl`:
 
 ```
-tmctl create
+tmctl create source awscognitouserpool --arn <arn> --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
 ```
 
 On Kubernetes:
