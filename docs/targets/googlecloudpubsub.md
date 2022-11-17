@@ -1,6 +1,6 @@
-# Google Cloud Pub Sub target
+# Google Cloud Pub/Sub target
 
-Sends events to a Google Cloud Pub/Sub topic.
+Sends events to a [Google Cloud Pub/Sub](https://cloud.google.com/pubsub) topic.
 
 With `tmctl`:
 

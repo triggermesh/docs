@@ -1,10 +1,16 @@
-# Azure Sentinel Target
+# Azure Sentinel target
 
-You can send any payload that the standard Azure Sentinel API [Incidents - Create Or Update](https://docs.microsoft.com/en-us/rest/api/securityinsights/stable/incidents/create-or-update) supports. IE we are expecting this [Request Body](https://docs.microsoft.com/en-us/rest/api/securityinsights/stable/incidents/create-or-update#request-body) at the payload of the events.
+Sends events to [Azure Sentinel](https://azure.microsoft.com/en-us/products/microsoft-sentinel/#overview).
 
-## Kubernetes
+With `tmctl`:
 
-**Secret**
+```
+tmctl create target azuresentinel --subscriptionID <subscriptionID> --resourceGroup <resourceGroup> --workspace <workspace> --auth.servicePrincipal.tenantID <tenantID> --auth.servicePrincipal.clientID <clientID> --auth.servicePrincipal.clientSecret <clientSecret>
+```
+
+On Kubernetes:
+
+Secret
 
 ```yaml
 apiVersion: v1
@@ -18,7 +24,7 @@ stringData:
   clientSecret: <client_secret>
 ```
 
-**Target**
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -48,9 +54,26 @@ spec:
           key: clientSecret
 ```
 
-**Transformation**
+Accepts any payload that the standard Azure Sentinel API [Incidents - Create Or Update](https://docs.microsoft.com/en-us/rest/api/securityinsights/stable/incidents/create-or-update) supports. Specifically, the API expects [Request Body](https://docs.microsoft.com/en-us/rest/api/securityinsights/stable/incidents/create-or-update#request-body) as the payload of the events.
 
-This example shows how you can  transform a CSNF event into an Azure Sentinel event
+You can test the Target by sending it an event using `curl`:
+
+```
+curl -v http://azuresentineltarget-hello-sentinel.default.svc.cluster.local\
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "Ce-Specversion: 1.0" \
+ -H "Ce-Type: io.triggermesh.azure.sentinel.incident" \
+ -H "Ce-Source: some.origin/intance" \
+ -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+ -d '{"etag": "some-etag", "properties": {"providerIncidentId": "12", "status":"new", "severity": "high", "title": "some-title", "description": "some-description", "owner":{"assignedTo": "some-owner"},"additionalData": {"alertProductNames": ["some-product","some-other-product"]}}}'
+```
+
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.AzureSentinelTarget) for more details.
+
+## Example using a Transformation
+
+This example shows how you can [transform](../transformation/bumblebee.md) a [CSNF](https://github.com/onug/CSNF) event into an Azure Sentinel event.
 
 ```yaml
 apiVersion: flow.triggermesh.io/v1alpha1
@@ -100,18 +123,4 @@ spec:
       value: $description
     - key: properties.owner.assignedTo
       value: bob
-```
-
-## Examples
-
-Example supported event:
-```
-curl -v http://azuresentineltarget-hello-sentinel.default.svc.cluster.local\
- -X POST \
- -H "Content-Type: application/json" \
- -H "Ce-Specversion: 1.0" \
- -H "Ce-Type: io.triggermesh.azure.sentinel.incident" \
- -H "Ce-Source: some.origin/intance" \
- -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
- -d '{"etag": "some-etag", "properties": {"providerIncidentId": "12", "status":"new", "severity": "high", "title": "some-title", "description": "some-description", "owner":{"assignedTo": "some-owner"},"additionalData": {"alertProductNames": ["some-product","some-other-product"]}}}'
 ```

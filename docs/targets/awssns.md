@@ -1,27 +1,14 @@
-# Event Target for Amazon SNS
+# Amazon SNS target
 
-This event Target receives [CloudEvents][ce] over HTTP and invokes an Amazon SNS endpoint.
+Sends event to [Amazon SNS](https://aws.amazon.com/sns/).
 
-## Prerequisite(s)
+With `tmctl`:
 
-- AWS API key and secret
-- ARN for the SNS topic to invoke
+```
+tmctl create target awssns --arn <arn> --awsApiKey <awsApiKey> --awsApiSecret <awsApiSecret>
+```
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the AWS API specific secrets.
-
-## Deploying an Instance of the Target
-
-- **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
-- **AWS ARN**: The ARN that points to the Amazon SNS topic.
-
-There is an optional toggle flag indicating if the full CloudEvent should be sent
-to SNS. By default, this is disabled which means only the event payload
-will be sent.
-
-For more information about using AWS Simple Notification Service, please refer to the [AWS documentation][docs].
-
-## Kubernetes
+On Kubernetes:
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -40,20 +27,25 @@ spec:
       key: AWS_SECRET_ACCESS_KEY
 ```
 
-## Event Types
+There is an optional toggle flag indicating if the full CloudEvent should be sent
+to SNS. By default, this is disabled which means only the event payload
+will be sent.
 
-The Amazon SNS event Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the flexible nature of Amazon SNS.
+Accepts events of any type.
 
-However, the response [CloudEvent][ce] would have the following payload:
+Responds with events with the following attributes:
 
-| Name | Value | Description |
-|---|---|---|
-|**ce-type**|io.triggermesh.targets.aws.sns.result|Denotes a response payload from SNS|
-|**ce-source**|`arn:aws:sns:...`|The SNS ARN value as configured by the target|
-|**body**|[JSON][ce-jsonformat]|A JSON response from the Target invocation|
+* type `io.triggermesh.targets.aws.sns.result`
+* source `arn:aws:sns:...`, the SNS ARN value as configured by the target
 
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.AWSSNSTarget) for more details.
 
+## Prerequisite(s)
+
+- AWS API key and secret
+- ARN for the SNS topic to invoke
+
+For more information about using AWS Simple Notification Service, please refer to the [AWS documentation][docs].
 
 [ce]: https://cloudevents.io/
 [docs]: https://docs.aws.amazon.com/sns/
