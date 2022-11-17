@@ -4581,13 +4581,13 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>topics</code></br>
+<code>topic</code></br>
 <em>
-[]string
+string
 </em>
 </td>
 <td>
-<p>Topics holds the name of the Kafka Topics.</p>
+<p>Topic holds the name of the Kafka Topic.</p>
 </td>
 </tr>
 <tr>
@@ -10725,13 +10725,13 @@ knative.dev/pkg/apis/duck/v1.SourceSpec
 </tr>
 <tr>
 <td>
-<code>topics</code></br>
+<code>topic</code></br>
 <em>
-[]string
+string
 </em>
 </td>
 <td>
-<p>Topics holds the name of the Kafka Topics.</p>
+<p>Topic holds the name of the Kafka Topic.</p>
 </td>
 </tr>
 <tr>
@@ -11819,5 +11819,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>120026b0</code>.
+on git commit <code>5917ab02</code>.
 </em></p>
