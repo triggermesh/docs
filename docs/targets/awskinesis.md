@@ -1,30 +1,14 @@
-# Event Target for Amazon Kinesis
+# Amazon Kinesis target
 
-This event Target receives [CloudEvents][ce] over HTTP and publishes the event to
-Amazon Kinesis.
+Sends events to [Amazon Kinesis](https://aws.amazon.com/kinesis/).
 
-## Prerequisite(s)
+With `tmctl`:
 
-- AWS API key and secret
-- ARN for the Kinesis stream
-- A Kinesis partition name to publish the events to
+```
+tmctl create target awskinesis --partition <partition> --arn <arn> --awsApiKey <awsApiKey> --awsApiSecret <awsApiSecret>
+```
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the AWS API specific secrets.
-
-## Deploying an Instance of the Target
-
-- **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
-- **AWS ARN**: The ARN that points to the Amazon Kinesis stream.
-- **Partition**: The Kinesis partition to publish the events to.
-
-There is an optional toggle flag indicating if the full CloudEvent should be sent
-to Kinesis. By default, this is disabled which means only the event payload
-will be sent.
-
-For more information about using Amazon Kinesis, please refer to the [AWS documentation][docs].
-
-## Kubernetes
+On Kubernetes:
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -44,20 +28,29 @@ spec:
       key: AWS_SECRET_ACCESS_KEY
 ```
 
-## Event Types
+`partition` is the Kinesis partition to publish the events to.
 
-The Amazon Kinesis event Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the flexible nature of Kinesis.
+There is an optional toggle flag indicating if the full CloudEvent should be sent
+to Kinesis. By default, this is disabled which means only the event payload
+will be sent.
 
-However, the response [CloudEvent][ce] would have the following payload:
+Accepts events of any type.
 
-| Name | Value | Description |
-|---|---|---|
-|**ce-type**|io.triggermesh.targets.aws.kinesis.result|Denotes a response payload from Kinesis|
-|**ce-source**|`arn:aws:kinesis:...`|The Kinesis ARN value as configured by the target|
-|**body**|[JSON][ce-jsonformat]|A JSON response from the Target invocation|
+Responds with events with the following attributes:
 
+* type `io.triggermesh.targets.aws.kinesis.result`
+* source `arn:aws:kinesis:...`, the Kinesis ARN value as configured by the target
+* Schema of the `data` attribute: []()
 
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.AWSKinesisTarget) for more details.
+
+## Prerequisite(s)
+
+- AWS API key and secret
+- ARN for the Kinesis stream
+- A Kinesis partition name to publish the events to
+
+For more information about using Amazon Kinesis, please refer to the [AWS documentation][docs].
 
 [ce]: https://cloudevents.io/
 [docs]: https://docs.aws.amazon.com/kinesis/

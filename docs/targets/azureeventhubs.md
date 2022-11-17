@@ -1,6 +1,14 @@
-# Azure Event Hubs Target
+# Azure Event Hubs target
 
-## Kubernetes
+Sends events to [Azure Event Hubs](https://azure.microsoft.com/en-us/products/event-hubs/#overview).
+
+With `tmctl`:
+
+```
+tmctl create target azureeventhubs --eventHubID <eventHubID> --auth.servicePrincipal.tenantID <tenantID> --auth.servicePrincipal.clientID <clientID> --auth.servicePrincipal.clientSecret <clientSecret>
+```
+
+On Kubernetes, with servicePrincipal authentication:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -26,7 +34,7 @@ spec:
           key: clientSecret
 ```
 
-Sample deploying with a connection string.
+On Kubernetes, with connection string authentication:
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -43,3 +51,5 @@ spec:
           name: azure
           key: connectionString
 ```
+
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget) for more details.

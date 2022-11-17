@@ -1,17 +1,16 @@
-# Event Target for Datadog
+# Datadog target
 
-This event Target receives [CloudEvents][ce] and sends it to [Datadog][datadog].
+Sends events to [Datadog][datadog].
 
-## Prerequisite(s)
+With `tmctl`:
 
-- Datadog API token
+```
+tmctl create target datadog --apiKey <apiKey>
+```
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the Datadog API token as a secret.
+On Kubernetes:
 
-## Creating a Datadog Target
-
-Once the Datadog Target Controller has been deployed, A Kubernetes secret in the same namespace must be created containing a key:`apiKey`. With a value populated by a valid Datadog API Key.
+Secret
 
 ```yaml
 apiVersion: v1
@@ -23,7 +22,7 @@ stringData:
   apiKey: __API_KEY__
 ```
 
-A Datadog Target can be created by using the following YAML:
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -37,63 +36,11 @@ spec:
     key: apiKey
 ```
 
-A valid `apiKey` is ***REQUIRED*** to deploy
+Accepts events with the following attributes:
 
+`io.triggermesh.datadog.metric`: events of this type intend to post a metric to Datadog
 
-## Event Types
-
-
-### io.triggermesh.datadog.metric
-
-Events of this type intend to post a metric to Datadog
-
-#### Example CE posting an event of type "io.triggermesh.datadog.metric.submit"
-
-```cmd
-curl -v "http://localhost:8080" \
-       -X POST \
-       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
-       -H "Ce-Specversion: 1.0" \
-       -H "Ce-Type: io.triggermesh.datadog.metric.submit" \
-       -H "Ce-Source: ocimetrics/adapter" \
-       -H "Content-Type: application/json" \
-       -d '{"series":[{"metric":"five.golang","points":[["1614962026","14.5"]]}]}'
-```
-
-
-#### Example CE posting an event of type "io.triggermesh.datadog.event.post"
-
-```cmd
-curl -v "http://localhost:8080" \
-       -X POST \
-       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
-       -H "Ce-Specversion: 1.0" \
-       -H "Ce-Type: io.triggermesh.datadog.event.post" \
-       -H "Ce-Source: ocimetrics/adapter" \
-       -H "Content-Type: application/json" \
-       -d '{"text": "Oh boy2!","title": "Did you hear the news today?"}'
-```
-
-#### Example CE posting an event of type "io.triggermesh.datadog.logs.send"
-
-```cmd
-curl -v "http://localhost:8080" \
-       -X POST \
-       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
-       -H "Ce-Specversion: 1.0" \
-       -H "Ce-Type: io.triggermesh.datadog.log.send" \
-       -H "Ce-Source: ocimetrics/adapter" \
-       -H "Content-Type: application/json" \
-       -d '{  "ddsource": "nginx", "ddtags": "env:staging,version:5.1", "hostname": "i-012345678", "message": "2019-11-19T14:37:58,995 INFO Hello World", "service": "payment"}'
-```
-
-## Event Types
-
-A Datadog event Target accepts the following [CloudEvent][ce] types:
-
-### io.triggermesh.datadog.event.post
-
-Events of this type contain event messages to be published to Datadog.
+`io.triggermesh.datadog.event.post`: events of this type contain event messages to be published to Datadog.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
@@ -114,9 +61,7 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | **url**|string|URL of the event.|false|
 
 
-### io.triggermesh.datadog.metric.submit
-
-Events of this type consist of a singular metric to be published to Datadog.
+`io.triggermesh.datadog.metric.submit`: events of this type consist of a singular metric to be published to Datadog.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
@@ -129,9 +74,7 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | **tags**|[]string|A list of tags associated with the metric.|false|
 | **type**|string|The type of the metric either count, gauge, or rate.|false|
 
-### io.triggermesh.datadog.logs.send
-
-Events of this type consist log data to be published to Datadog.
+`io.triggermesh.datadog.logs.send` events of this type consist log data to be published to Datadog.
 
 This type expects a [JSON][ce-jsonformat] payload with the following properties:
 
@@ -142,6 +85,54 @@ This type expects a [JSON][ce-jsonformat] payload with the following properties:
 | **hostname**|string|The name of the originating host of the log.|true|
 | **message**|string|The message reserved attribute of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.|true|
 | **service**|string|The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products.|false|
+
+You can test the Target by sending it an event using `curl`.
+
+Example sending an event of type `io.triggermesh.datadog.metric.submit`
+
+```cmd
+curl -v "http://localhost:8080" \
+       -X POST \
+       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+       -H "Ce-Specversion: 1.0" \
+       -H "Ce-Type: io.triggermesh.datadog.metric.submit" \
+       -H "Ce-Source: ocimetrics/adapter" \
+       -H "Content-Type: application/json" \
+       -d '{"series":[{"metric":"five.golang","points":[["1614962026","14.5"]]}]}'
+```
+
+
+Example sending an event of type `io.triggermesh.datadog.event.post`
+
+```cmd
+curl -v "http://localhost:8080" \
+       -X POST \
+       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+       -H "Ce-Specversion: 1.0" \
+       -H "Ce-Type: io.triggermesh.datadog.event.post" \
+       -H "Ce-Source: ocimetrics/adapter" \
+       -H "Content-Type: application/json" \
+       -d '{"text": "Oh boy2!","title": "Did you hear the news today?"}'
+```
+
+Example sending an event of type `io.triggermesh.datadog.logs.send`
+
+```cmd
+curl -v "http://localhost:8080" \
+       -X POST \
+       -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+       -H "Ce-Specversion: 1.0" \
+       -H "Ce-Type: io.triggermesh.datadog.log.send" \
+       -H "Ce-Source: ocimetrics/adapter" \
+       -H "Content-Type: application/json" \
+       -d '{  "ddsource": "nginx", "ddtags": "env:staging,version:5.1", "hostname": "i-012345678", "message": "2019-11-19T14:37:58,995 INFO Hello World", "service": "payment"}'
+```
+
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.DatadogTarget) for more details.
+
+## Prerequisite(s)
+
+- Datadog API token
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md

@@ -80,7 +80,6 @@ nav:
       - Amazon DynamoDB: targets/awsdynamodb.md
       - Amazon EventBridge: targets/awseventbridge.md
       - Amazon Kinesis: targets/awskinesis.md
-      - Amazon Lambda (guides): targets/creatingatarget.md
       - Amazon Lambda: targets/awslambda.md
       - Amazon S3: targets/awss3.md
       - Amazon SNS: targets/awssns.md
@@ -91,11 +90,11 @@ nav:
       - Confluent (deprecated): targets/confluent.md
       - Datadog: targets/datadog.md
       - Elasticsearch: targets/elasticsearch.md
+      - Google Cloud Pub/Sub: targets/googlecloudpubsub.md
+      - Google Cloud Storage: targets/googlecloudstorage.md
       - Google Cloud Workflows: targets/googlecloudworkflows.md
       - Google Firestore: targets/googlefirestore.md
       - Google Sheets: targets/googlesheets.md
-      - Google Cloud Storage: targets/googlecloudstorage.md
-      - Google Cloud Pub/Sub: targets/googlecloudpubsub.md
       - Hasura: targets/hasura.md
       - HTTP: targets/http.md
       - IBM MQ: targets/ibmmq.md

@@ -1,23 +1,14 @@
-# Event Target for AWS Lambda
+# AWS Lambda target
 
-This event Target receives [CloudEvents][ce] over HTTP and invokes an AWS Lambda function.
+Sends events to an [AWS Lambda](https://aws.amazon.com/lambda/) function.
 
-## Prerequisite(s)
+With `tmctl`:
 
-- AWS API key and secret
-- ARN for the Lambda to invoke
+```
+tmctl create target awslambda --arn <arn> --awsApiKey <awsApiKey> --awsApiSecret <awsApiSecret>
+```
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the AWS API specific secrets.
-
-## Deploying an Instance of the Target
-
-- **AWS Secret**: Reference a [TriggerMesh secret](../guides/secrets.md) containing an AWS API key and Secret as discussed in the [prerequisites](#prerequisites).
-- **AWS ARN**: The ARN that points to the AWS Lambda function to invoke
-
-There is an optional toggle flag indicating if the full CloudEvent should be sent
-to the lambda function. By default, this is disabled which means only the event payload
-will be sent.
+On Kubernetes:
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -35,13 +26,20 @@ spec:
       name: aws
       key: AWS_SECRET_ACCESS_KEY
 ```
-For more information about using AWS Lambda, please refer to the [AWS documentation][docs].
 
-## Triggering an AWS Lambda via the Target
+There is an optional toggle flag indicating if the full CloudEvent should be sent
+to the lambda function. By default, this is disabled which means only the event payload
+will be sent.
 
-The AWS Lambda can be triggered as a normal web service using a
-tool such as `curl` within the cluster.  A sample message would resemble the
-following:
+Accepts events of any type.
+
+Responds with events with the following attributes:
+
+* type `io.triggermesh.targets.aws.lambda.result`
+* source `arn:aws:lambda:...`, the Lambda's ARN value as configured by the target
+* Schema of the `data` attribute: []()
+
+You can test the Target by sending it an event using `curl`:
 
 ```console
 curl -v http://triggermesh-aws-lambda.default.svc.cluster.local \
@@ -54,20 +52,14 @@ curl -v http://triggermesh-aws-lambda.default.svc.cluster.local \
  -d '{"greeting":"Hi from TriggerMesh"}'
 ```
 
-## Event Types
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.AWSLambdaTarget) for more details.
 
-The AWS Lambda event Target leaves the [CloudEvent][ce] type definition to the discretion of
-the implementer given the flexible nature of AWS Lambda.
+## Prerequisite(s)
 
-However, the response [CloudEvent][ce] would have the following payload:
+- AWS API key and secret
+- ARN for the Lambda to invoke
 
-| Name | Value | Description |
-|---|---|---|
-|**ce-type**|io.triggermesh.targets.aws.lambda.result|Denotes a response payload from the Lambda function|
-|**ce-source**|`arn:aws:lambda:...`|The Lambda's ARN value as configured by the target|
-|**body**|[JSON][ce-jsonformat]|A JSON response from the Target invocation|
-
-
+For more information about using AWS Lambda, please refer to the [AWS documentation][docs].
 
 [ce]: https://cloudevents.io/
 [docs]: https://docs.aws.amazon.com/lambda/

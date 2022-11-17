@@ -1,21 +1,16 @@
-# Event Target for Google Cloud Workflows
+# Google Cloud Workflows target
 
-This event target receives [CloudEvents][ce] over HTTP and sends them to [Google Cloud Workflows](https://cloud.google.com/workflows)
+Sends events to [Google Cloud Workflows](https://cloud.google.com/workflows).
 
-## Prerequisite(s)
+With `tmctl`:
 
-- Google Cloud Console account.
-- A service account and it's associated JSON credentials.
+```
+tmctl create target googlecloudworkflows --credentialsJson $(cat ./creds.json)
+```
 
-## Deploying an Instance of the Target
+On Kubernetes:
 
-- **Credentials**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the JSON credentials of a Service Account.
-
-For more information about using Google Cloud Workflows, please refer to the [documentation][https://cloud.google.com/workflows/docs].
-
-## Kubernetes
-
-**Secret**
+Secret
 
 ```yaml
 apiVersion: v1
@@ -39,7 +34,7 @@ stringData:
     }
 ```
 
-**Target**
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -53,11 +48,22 @@ spec:
       key: creds
 ```
 
-## Sending information to Google Workflows
+Accepts events with the following attributes:
 
-### io.trigermesh.google.workflows.run
+* type `io.trigermesh.google.workflows.run`
 
-```cmd
+Events of this type contain the data necessary to run a Google Workflow.
+
+This type expects a [JSON][ce-jsonformat] payload with the following properties:
+
+| Name  |  Type |  Comment | Example
+|---|---|---|---|
+| **parent** | string | Project and location in which the workflow should be created. Format:  `projects/{project}/locations/{location}` | "projects/ultra-hologram-297914/locations/us-central1" |
+| **executionName** | string |  The resource name of the execution. Format: `projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}`| "demowf" |
+
+You can test the Target by sending it an event using `curl`:
+
+```
 curl -v http://googlecloudworkflowstarget-googlecloudworkflows.dmo.svc.cluster.local \
  -X POST \
  -H "Content-Type: application/json" \
@@ -68,17 +74,14 @@ curl -v http://googlecloudworkflowstarget-googlecloudworkflows.dmo.svc.cluster.l
  -d '{"parent":"projects/ultra-hologram-297914/locations/us-central1/workflows/demowf","executionName":"projects/ultra-hologram-297914/locations/us-central1/workflows/demowf/executions/testex"}'
  ```
 
-## Event Types
-### io.trigermesh.google.workflows.run
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTarget) for more details.
 
-Events of this type contain nuanced data that is used to run a Google Workflow.
+## Prerequisite(s)
 
-This type expects a [JSON][ce-jsonformat] payload with the following properties:
+- Google Cloud Console account.
+- A service account and it's associated JSON credentials.
 
-| Name  |  Type |  Comment | Example
-|---|---|---|---|
-| **parent** | string | Project and location in which the workflow should be created. Format:  `projects/{project}/locations/{location}` | "projects/ultra-hologram-297914/locations/us-central1" |
-| **executionName** | string |  The resource name of the execution. Format: `projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}`| "demowf" |
+For more information about using Google Cloud Workflows, please refer to the [documentation][https://cloud.google.com/workflows/docs].
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
