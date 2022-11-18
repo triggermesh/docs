@@ -114,11 +114,11 @@ nav:
       - UIPath: targets/uipath.md
       - Zendesk: targets/zendesk.md
     - Routing:
-      - Routing overview: routing/routingoverview.md
-      - Brokers: routing/brokers.md
-      - Triggers: routing/triggers.md
-      - Filter: routing/filter.md
-      - Splitter: routing/splitter.md
+      # - Routing overview: routing/routingoverview.md
+      - Brokers and Triggers: routing/brokers.md
+      # - Triggers: routing/triggers.md
+      # - Filter: routing/filter.md
+      # - Splitter: routing/splitter.md
     - Transformation:
       - Transformation overview: transformation/transformation.md
       - Bumbleebee Transformation (JSON): transformation/bumblebee.md
