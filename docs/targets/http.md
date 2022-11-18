@@ -5,7 +5,7 @@ Sends events over HTTP to external services.
 With `tmctl`:
 
 ```
-tmctl create
+tmctl create target http --endpoint <endpoint> --method <method>
 ```
 
 On Kubernetes:
