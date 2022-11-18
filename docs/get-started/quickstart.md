@@ -8,23 +8,39 @@ This quickstart will take you through the fastest and easiest way to start using
 
 `tmctl` is the TriggerMesh command line interface (CLI) that makes it easy to work with events from the safety of your office (or couch).
 
-On Mac, try:
+Checkout the code:
 
-``` console
-brew install triggermesh.com/brew/tmctl
+```sh
+git clone git@github.com:triggermesh/tmctl.git
 ```
 
-For Linux:
+Install the binary:
 
-```console
-TODO
+```sh
+cd tmctl
+go install
 ```
 
-and last but not least Windows:
+Setup autocompletion:
 
-```console
-TODO
+for Bash:
 ```
+source <(tmctl completion bash)
+```
+or for ZSH:
+
+```
+source <(tmctl completion zsh)
+```
+
+To make autocompletion load automatically, put this command in one of the
+shell profile configuration, e.g.:
+
+```
+echo 'source <(tmctl completion bash)' >>~/.bash_profile
+```
+
+`tmctl` binary must be available in the `$PATH` to generate and use completion.
 
 **:material-numeric-2-box: Create a Broker**
 

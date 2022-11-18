@@ -1,129 +1,73 @@
 # TriggerMesh Concepts
 
-The TriggerMesh Cloud Native Integration Platform allows you to integrate applications by defining sources and targets which are seen as the start and the end of what we call "Bridges". While data and events flow through the Bridge, they are defined using an API object and may undergo filtering, splitting, and/or transformations.
+TriggerMesh lets you capture events with Sources, route and transform them using Transformations, Brokers, and Triggers, and deliver them to consumers using Targets. TriggerMesh provides a unified eventing experience meaning all events can be centralised to a single Broker with a common format called CloudEvents.
 
-| ![concepts.png](../assets/images/concepts.png) |
-|:--:|
-| TriggerMesh Bridges Concepts |
+![concepts.png](../assets/images/concepts.svg)
 
 ## Events
 
+In TriggerMesh, an Event is described using a common format that defines the structure and metadata description of events.
 
+The format is based on a subset of the [CloudEvents specification](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md). TriggerMesh supports the JSON format of CloudEvents and uses the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md) to transport CloudEvents over HTTP.
+
+A TriggerMesh Event is composed of the following elements:
+
+* `id`: Identifies the event
+* `specversion`: The version of the CloudEvents specification which the event uses. This enables the interpretation of the context
+* `type`: This attribute contains a value describing the type of event related to the originating occurrence. Often this attribute is used for routing, observability, policy enforcement, etc.
+* (optional) `dataschema`: Identifies the schema that data adheres to. When using the Registry, this can be an explicit reference to a schema version in the Registry.
+* (optional) `subject`: This describes the subject of the event, for example a filename if the event is “S3 object created”
+* (optional) `time`: timestamp of when the occurrence happened
+* (optional) `datacontenttype`: Content type of data value. For now TriggerMesh only supports JSON for Transformations and Advanced filters.
+
+Events may include any number of additional attributes with distinct names, known as extension attributes.
+
+The `data` attribute carries the event payload encoded into a media format specified by datacontenttype (e.g. application/json). It and adheres to the dataschema format if present.
+
+Example event:
+
+```json
+{
+  "specversion" : "1.0",
+  "type" : "com.aws.s3.objectcreated",
+  "source" : "aws.s3",
+  "subject" : "mynewfile.jpg",
+  "id" : "A234-1234-1234",
+  "time" : "2018-04-05T17:31:00Z",
+  "extension1" : "value",
+  "datacontenttype" : "application/json",
+  “dataschema”: “http://schemas.myorg.com/schemagroups/awsS3/schemas/com.aws.s3.objectcreated@aws.s3/versions/2”
+  "data" : "{\“data\”:\”here\”}"
+}
+```
 
 ## Sources
 
 Sources are the origin of data and events. These may be on-premises or cloud-based. Examples include databases, message queues, logs, and events from applications or services.
 
-Sources are the origin of data and events for ingestion into TriggerMesh. An event source often acts as a gateway between an external service and the Bridge. Sources may be irregular events, periodic data updates, batch processes, or even continuous event streams.
+All sources are listed and documented in the [sources documentation](../source/awscloudwatch.md) and in the [API Reference](../reference/sources.md).
 
-All sources available can be found by listing the CRDs like so:
+## Brokers, Triggers and Filters
 
-```console
-$ kubectl get crd -o jsonpath='{.items[?(@.spec.group=="sources.triggermesh.io")].spec.names.kind}'
-AWSCloudWatchLogsSource AWSCloudWatchSource AWSCodeCommitSource AWSCognitoIdentitySource AWSCognitoUserPoolSource AWSDynamoDBSource AWSKinesisSource AWSPerformanceInsightsSource AWSS3Source AWSSNSSource AWSSQSSource AzureActivityLogsSource AzureBlobStorageSource ...
-```
+TriggerMesh provides a Broker that acts as an intermediary between between event producers and consumers, decoupling them from each other and providing delivery guarantees to ensure that no events are lost along the way.
 
-All TriggerMesh-provided sources are listed and documented in the [API Reference](../reference/sources.md).
+Brokers behave like an event bus, meaning all events are buffered together as a group. Triggers are used to determine which events go to which targets. A Trigger is attached to a Broker, and contains a Filter which specifies which events should cause the Trigger to fire. These filters are based on event metadata or payload contents. If a Trigger fires, it sends the event to the Target defined in the Trigger.
 
-There are a number of additional [event sources provided by Knative](https://knative.dev/docs/developer/eventing/sources/).
-
-The specification of each source is available through `kubectl explain`. For example:
-
-```console
-kubectl explain googlecloudstoragesource.spec
-KIND:     GoogleCloudStorageSource
-VERSION:  sources.triggermesh.io/v1alpha1
-
-RESOURCE: spec <Object>
-
-DESCRIPTION:
-     Desired state of the event source.
-
-FIELDS:
-   bucket	<string> -required-
-     Name of the Cloud Storage bucket to receive change notifications from. Must
-     meet the naming requirements described at
-     https://cloud.google.com/storage/docs/naming-buckets
-
-   eventTypes	<[]string>
-     Types of events to receive change notifications for. Accepted values are
-     listed at
-     https://cloud.google.com/storage/docs/pubsub-notifications#events. All
-     types are selected when this attribute is not set.
-
-   pubsub	<Object> -required-
-     Attributes related to the configuration of Pub/Sub resources associated
-     with the Cloud Storage bucket.
-
-   serviceAccountKey	<Object> -required-
-     Service account key used to authenticate the event source and allow it to
-     interact with Google Cloud APIs. Only the JSON format is supported.
-
-   sink	<Object> -required-
-     The destination of events received via change notifications.
-```
-
-
-## Brokers
-
-## Triggers
-
-## Filters
-
-Filters determine which events to process based on their content. These may be the basis for dropping unwanted events or for creating rules engines for event processing.
+There are two flavours of the TriggerMesh Broker: MemoryBroker and RedisBroker. The former has no persistence, whereas the later is able to recover from failure scenarios without losing events.
 
 ## Targets
 
 Targets are the destination for the processed events or data. Examples include databases, message queues, monitoring systems, and cloud services.
 
-A target is an event receiver which performs some processing on the received data. An event target may act as a gateway between the Bridge and an external service.
+In some cases, a Target may in turn reply with another event (acknowledgment, error, ...). These response events can be handled with additional Triggers. Typically, the event `type`of a response event is the same as the original event type with `.response` appended to the end.
 
-Although a target may be considered the destination for an event, it may in turn reply with another event (acknowledgment, error, ...) generating further events. These additional events may need to be managed with separate Bridges.
-
-All targets available can be found by listing the CRDs like so
-
-```console
-$ kubectl get crd -o jsonpath='{.items[?(@.spec.group=="targets.triggermesh.io")].spec.names.kind}'
-AlibabaOSSTarget AWSComprehendTarget AWSDynamoDBTarget AWSEventBridgeTarget AWSKinesisTarget AWSLambdaTarget AWSS3Target AWSSNSTarget AWSSQSTarget ConfluentTarget DatadogTarget ElasticsearchTarget GoogleCloudFirestoreTarget ...
-```
-
-All TriggerMesh-provided targets are listed and documented in the [API Reference](../reference/targets.md)
-
-The specification of each target is available through `kubectl explain`. For example:
-
-```console
-kubectl explain awslambdatarget.spec
-KIND:     AWSLambdaTarget
-VERSION:  targets.triggermesh.io/v1alpha1
-
-RESOURCE: spec <Object>
-
-DESCRIPTION:
-     Desired state of event target.
-
-FIELDS:
-   arn	<string>
-     ARN of the Lambda function that will receive events. The expected format is
-     documented at
-     https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html
-
-   awsApiKey	<Object>
-     API Key to interact with the Amazon Lambda API. For more information about
-     AWS security credentials, please refer to the AWS General Reference at
-     https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html
-
-   awsApiSecret	<Object>
-     API Secret to interact with the Amazon Lambda API. For more information
-     about AWS security credentials, please refer to the AWS General Reference
-     at
-     https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html
-
-   discardCloudEventContext	<boolean>
-     Produce a new cloud event based on the response from the lambda function.
-```
+All targets are listed and documented in the [targets documentation](../targets/alibabaoss.md) and in the [API Reference](../reference/targets.md)
 
 ## Transformations
 
 Transformations are a set of modifications to incoming events. Examples include annotating incoming events with timestamps, dropping fields, or rearranging data to fit an expected format.
 
-Functions implement custom event flow logic and may act as a source, transformation, or target. Functions support Python, NodeJS, and Ruby runtimes.
+TriggerMesh provides a few ways to transform events:
+
+* using the low-code TriggerMesh transformation language called Bumblebee
+* using functions written Python, NodeJS, and Ruby

@@ -1,6 +1,71 @@
 # Event Target for HTTP
 
-This event Target receives [CloudEvents][ce] and turns them into HTTP requests that consume external services.
+Sends events over HTTP to external services.
+
+With `tmctl`:
+
+```
+tmctl create
+```
+
+On Kubernetes:
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: HTTPTarget
+metadata:
+  name: triggermesh-http
+  namespace: mynamespace
+spec:
+  response:
+    eventType: triggermesh.http.type
+    eventSource: my.service.com
+  endpoint: 'https://my.service.com/my/path?some_key=<SOME-KEY>'
+  method: 'GET'
+  skipVerify: false
+  caCertificate: |-
+    -----BEGIN CERTIFICATE-----
+    MIIFazCCA1OgAwIBAgIUc6d3XTcIV4Ku7lovbHGuaVwAPqEwDQYJKoZIhvcNAQEL
+    BQAwRTELMAkGA1UEBhMCQVUxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoM
+    ...
+    L4uCwbnED802y7PXCqNzcDjbRfWcXm2aDVM6Dc++am5NDx+JjTLFgNeiiAyRGI8z
+    5tJeGYFpd4Cxzt92s6ODIZVZZe+vP41Jey23yEgPpyv5F47WegApe73g1y4bBjg=
+    -----END CERTIFICATE-----
+  basicAuthUsername: myuser
+  basicAuthPassword:
+    secretKeyRef:
+      name: myservice
+      key: password
+  headers:
+    User-Agent: TriggerMesh-HTTP
+    Some-header: some-value
+```
+
+- **Response Event Type**: The event type for responses from the remote endpoint.
+- **EventSource**: The origin for all responses. When not informed, source will be automatically set to a generated name that includes the HTTP Target component name.
+- **Endpoint**: The full URL for the remote service, including path and query string, if any.
+- **Method**: The method to use when executing requests against the remote endpoint.
+- **CA Certificate**: The CA certificate configured for TLS connection.
+- **Skip Verify**: Allow skipping the remote server TLS certificate verification.
+- **Username**: Username when using basic authentication.
+- **Password**: Password when using basic authentication. Needs to reference the password secret discussed in the [prerequisites](#prerequisites).
+- **Headers**: A set of key/value pairs that will be set within the HTTP request.
+
+Accepts events with the following attributes:
+
+* type ``
+* source ``
+* Schema of the `data` attribute: []()
+
+Responds with events with the following attributes:
+
+* type ``
+* source ``
+* Schema of the `data` attribute: []()
+
+You can test the Target by sending it an event using `curl`:
+
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.) for more details.
 
 ## Prerequisite(s)
 
@@ -18,18 +83,6 @@ Requests from this HTTP Target will verify TLS certificates from the remote serv
 
 If the remote endpoint requires basic authentication, the password needs to be created as a secret. Consult the [Secrets](../guides/secrets.md) guide for more information about
 how to add the password as a secret.
-
-## Deploying an Instance of the Target
-
-- **Response Event Type**: The event type for responses from the remote endpoint.
-- **EventSource**: The origin for all responses. When not informed, source will be automatically set to a generated name that includes the HTTP Target component name.
-- **Endpoint**: The full URL for the remote service, including path and query string, if any.
-- **Method**: The method to use when executing requests against the remote endpoint.
-- **CA Certificate**: The CA certificate configured for TLS connection.
-- **Skip Verify**: Allow skipping the remote server TLS certificate verification.
-- **Username**: Username when using basic authentication.
-- **Password**: Password when using basic authentication. Needs to reference the password secret discussed in the [prerequisites](#prerequisites).
-- **Headers**: A set of key/value pairs that will be set within the HTTP request.
 
 ## Trigger Configuration
 
@@ -52,11 +105,6 @@ Configuring the HTTP integration might require some preparation on the remote se
 All fixed items for the target should be part of its definition while parametrized values should be part of each request to this target.
 
 When using basic authentication the password needs to be referenced through a Kubernetes secret.
-
-### Creating a HTTP Target
-
-The HTTP Target is a service which is able to receive CloudEvents and
-transform them into method calls to an external HTTP API:
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
