@@ -25,6 +25,7 @@ that topic are provided in the [Pub/Sub Subscription](#pubsub-subscription-optio
 
 - `pubsub.subscriptions.create`
 - `pubsub.subscriptions.delete`
+- `pubsub.topics.attachSubscription`
 
 The predefined `roles/pubsub.editor` role is one example of role that is suitable for use with the TriggerMesh event
 source for Google Cloud Pub/Sub.
