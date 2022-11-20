@@ -1,7 +1,7 @@
 # Kafka source
 
-This event source acts as a consumer of a Kafka Cluster and forwards all messages it receives
-as CloudEvents'.
+Consumes events from [Apache Kafka](https://kafka.apache.org/). Can be used with any Kafka API compatible service such as [Confluent Kafka](https://www.confluent.io/) or [RedPanda](https://redpanda.com/). 
+
 
 With `tmctl`:
 
