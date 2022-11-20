@@ -1,62 +1,16 @@
-# Event Target for Salesforce
+# Salesforce target
 
-This event Target receives [CloudEvents][ce] and invokes a Salesforce endpoint.
+Sends events to [Salesforce](https://www.salesforce.com/).
 
-## Prerequisite(s)
+With `tmctl`:
 
-- Salesforce account
-- Certificate key secret
-
-## Salesforce Account
-
-Salesforce Target uses [OAuth JWT credentials][salesforce-oauth-jwt] for service authentication.
-
-First, you will need to generate an X509 certificate for signing and verifying requests. We will be using `OpenSSL`, but any other certificate generation tool will work.
-
-```sh
-openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key -out tm-sf.crt
+```
+tmctl create target salesforce --auth.clientID <clientID> --auth.server <server> --auth.user <user> --auth.certKey <certkey>
 ```
 
-1. On the Salesforce site select **Setup > Apps > App Manager**, click on **New Connected App**.
-    - Fill in mandatory fields, then click **Enable OAuth Settings**.
-    - A callback URL is mandatory but can be filled with any HTTPS data.
-    - Enable `Use digital signatures` and upload the public cert (`tm-sf.crt` in the example above).
-    - Add Scopes for `api`, `refresh_token`, and `offline_access`.
-    - Click `Save`.
+On Kubernetes:
 
-    ![Salesforce connected app](../../assets/images/salesforce/salesforce-connected-app.png)
-
-    - Select the connected app you just created from the list and then click `Manage`.
-    - Click `Edit policies`.
-    - Set `Permitted users` to `Admin approved users are pre-authorized`.
-    - Click `Save`.
-
-    ![Connected app policies](../../assets/images/salesforce/connected-app-policies.png)
-
-    - Select the connected app from the list and then click `Manage`.
-    - Click `Manage Profiles`.
-    - Add permissions on the data this user will have access to.
-    - Click `Save`.
-
-1. Retrieve OAuth data to configure TriggerMesh Target.
-    - Select the connected app from the list and then click `View`.
-    - Copy the `Consumer Key`.
-    - Reveal and copy the `Consumer Secret`.
-
-## Certificate Key Secret
-
-The TriggerMesh Salesforce integration needs a certificate key secret to sign requests for the Salesforce API. Consult the [Secrets](../guides/secrets.md) guide for more information about how to add the certificate key as a secret.
-
-## Deploying an Instance of the Target
-
-- **Client ID**: The client ID as retrieved from the Salesforce connected app.
-- **Server**: The server used for Salesforce authentication.
-- **User**: User for the Salesforce account.
-- **Reply Events Policy**: Indicates when event responses should be sent back from this target.
-
-## Creating a Salesforce Token Secret
-
-To access the Salesforce services OAuth JWT credentials are needed. The private key to sign certificates need to be created through a secret:
+Secret
 
 ```yaml
 apiVersion: v1
@@ -71,9 +25,7 @@ stringData:
     -----END PRIVATE KEY-----
 ```
 
-## Creating a Salesforce Target
-
-An example of a Salesforce target for a function would resemble the following:
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -94,11 +46,12 @@ spec:
     payloadPolicy: always
 ```
 
-- All fields in the `spec.auth` path are required.
-- Field `apiVersion` is optional, when not informed the latest version will be used.
-- Event options include the `payloadPolicy` which specifies if responses should be sent. Possible values are `always`, `error` and `never`. Default value is `always`.
-
-### Sending Messages to the Salesforce Target
+- **Client ID**: The client ID as retrieved from the Salesforce connected app.
+- **Server**: The server used for Salesforce authentication.
+- **User**: User for the Salesforce account.
+- **Reply Events Policy**: Indicates when event responses should be sent back from this target.
+- **spec.auth** fields are required.
+- **Event options** include the `payloadPolicy` which specifies if responses should be sent. Possible values are `always`, `error` and `never`. Default value is `always`.
 
 The Salesforce target accepts the event type `io.triggermesh.salesforce.apicall` and returns `io.triggermesh.salesforce.apicall.response`
 
@@ -119,7 +72,20 @@ https://<salesforce-host>/services/data/<version>/<resource>/<object>/<record>?q
 
 Please, refer to the [Salesforce API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm) on how to fill in values to execute requests.
 
-#### Examples
+When a request is sent using this Target, a response might be produced containing the reply from Salesforce or an error. Depending on if there are other Targets listening to these new events you might want to configure the reply behavior from this component. There are three possible values for the reply events policy:
+
+- `Never`: No response will be produced.
+- `Error`: Only errors will be returned from the Target.
+- `Always`: External responses or errors will be produced.
+
+When a response is produced from a Target, the extended attribute `category` is added which will contain one of two values:
+
+- `Success`: For when the request succeeds.
+- `Error`: For when an error occurs.
+
+Returned errors structure is defined in [this schema](../../schemas/triggermesh.error.json).
+
+You can test the Target by sending it an event using `curl`.
 
 The Salesforce target will create an account when receiving this event.
 
@@ -203,98 +169,52 @@ curl -v -X POST http://localhost:8080  \
       }'
 ```
 
-## Event Types
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.SalesforceTarget) for more details.
 
-The Salesforce event Target expects an event type of `io.triggermesh.salesforce.apicall` to perform a request against the Salesforce API, and will producedresponses typed `io.triggermesh.salesforce.apicall.response`. The CloudEvent data should contain a request as defined in [this schema](../../schemas/salesforce.apicall.json).
+## Prerequisite(s)
 
-This type expects a [JSON][ce-jsonformat] payload with the following properties:
+- Salesforce account
+- Certificate key secret
 
-| Name | Comment |
-|---|---|
-| **action**|The HTTP verb to use (_Required_)|
-| **resource**|The object family to use|
-| **object**|The object type to operate on|
-| **record**|The object instance|
-| **query**|Parameterized key/values for the API request|
-| **payload**|Body contents for the request|
+### Salesforce Account
 
-All of the parameters, except for payload, are put together sequentially to build the request that will be sent to the Salesforce API:
+Salesforce Target uses [OAuth JWT credentials][salesforce-oauth-jwt] for service authentication.
 
-```txt
-https://<salesforce-host>/services/data/<version>/<resource>/<object>/<record>?query
+First, you will need to generate an X509 certificate for signing and verifying requests. We will be using `OpenSSL`, but any other certificate generation tool will work.
+
+```sh
+openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key -out tm-sf.crt
 ```
 
-For more information about using the Salesforce API, please refer to the [Salesforce API documentation][salesforce-api].
+1. On the Salesforce site select **Setup > Apps > App Manager**, click on **New Connected App**.
+    - Fill in mandatory fields, then click **Enable OAuth Settings**.
+    - A callback URL is mandatory but can be filled with any HTTPS data.
+    - Enable `Use digital signatures` and upload the public cert (`tm-sf.crt` in the example above).
+    - Add Scopes for `api`, `refresh_token`, and `offline_access`.
+    - Click `Save`.
 
-### Reply Events Policy
+    ![Salesforce connected app](../../assets/images/salesforce/salesforce-connected-app.png)
 
-When a request is sent using this Target, a response might be produced containing the reply from Salesforce or an error. Depending on if there are other Targets listening to these new events you might want to configure the reply behavior from this component. There are three possible values for the reply events policy:
+    - Select the connected app you just created from the list and then click `Manage`.
+    - Click `Edit policies`.
+    - Set `Permitted users` to `Admin approved users are pre-authorized`.
+    - Click `Save`.
 
-- `Never`: No response will be produced.
-- `Error`: Only errors will be returned from the Target.
-- `Always`: External responses or errors will be produced.
+    ![Connected app policies](../../assets/images/salesforce/connected-app-policies.png)
 
-When a response is produced from a Target, the extended attribute `category` is added which will contain one of two values:
+    - Select the connected app from the list and then click `Manage`.
+    - Click `Manage Profiles`.
+    - Add permissions on the data this user will have access to.
+    - Click `Save`.
 
-- `Success`: For when the request succeeds.
-- `Error`: For when an error occurs.
+1. Retrieve OAuth data to configure TriggerMesh Target.
+    - Select the connected app from the list and then click `View`.
+    - Copy the `Consumer Key`.
+    - Reveal and copy the `Consumer Secret`.
 
-Returned errors structure is defined in [this schema](../../schemas/triggermesh.error.json).
+### Certificate Key Secret
 
-## Examples
-
-Create a Salesforce Account object:
-
-- **Event Type**: `io.triggermesh.salesforce.apicall`
-- **Data**:
-```json
-{
-  "action": "POST",
-  "resource": "sobjects",
-  "object": "account",
-  "payload": { "Name": "Jane Doe" }
-}
-```
-
-Update a Salesforce Account object:
-
-- **Event Type**: `io.triggermesh.salesforce.apicall`
-- **Data**:
-```json
-{
-  "action": "PATCH",
-  "resource": "sobjects",
-  "object": "account",
-  "record": "0014x000005Y9SNAA0",
-  "payload": { "Name": "Janet Does", "BillingCity" : "San Francisco" }
-}
-```
-
-Retrieve specific fields of a Salesforce Account:
-
-- **Event Type**: `io.triggermesh.salesforce.apicall`
-- **Data**:
-```json
-{
-  "action": "GET",
-  "resource": "sobjects",
-  "object": "account",
-  "record": "0014x000005Y9SNAA0",
-  "query": { "fields": "AccountNumber,BillingCity" }
-}
-```
-
-Delete a Salesforce Account object:
-- **Event Type**: `io.triggermesh.salesforce.apicall`
-- **Data**:
-```json
-{
-  "action": "DELETE",
-  "resource": "sobjects",
-  "object": "account",
-  "record": "0014x000005Y9SNAA0"
-}
-```
+The TriggerMesh Salesforce integration needs a certificate key secret to sign requests for the Salesforce API.
 
 [ce]: https://cloudevents.io/
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md

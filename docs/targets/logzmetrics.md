@@ -1,6 +1,15 @@
-## Kubernetes
+# Logz.io Metrics target
 
-**Secret**
+Sends events to [Logz.io metrics](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-logzio).
+
+With `tmctl`:
+
+!!! warning "Work in progress"
+    This component is not yet available with `tmctl`.
+
+On Kubernetes:
+
+Secret
 
 ```yaml
 apiVersion: v1
@@ -12,7 +21,7 @@ stringData:
   token: my_token  # Update this value with a valid shipping token
 ```
 
-**Target**
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -40,3 +49,9 @@ spec:
     number: Float64
     description: request duration in milliseconds
 ```
+
+Accepts events with the following attributes:
+
+* type `io.triggermesh.opentelemetry.metrics.push`
+
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.LogzMetricsTarget) for more details.

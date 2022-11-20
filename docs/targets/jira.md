@@ -1,23 +1,16 @@
-# Event Target for Jira
+# Jira target
 
-This event target integrates with Jira, using received CloudEvent messages to create and retrieve Jira tickets or perform custom actions using Jira API.
+Sends events to [Jira](https://www.atlassian.com/software/jira), allowing you to create and retrieve Jira tickets or perform custom actions using the Jira API.
 
-## Prerequisites
+With `tmctl`:
 
-1. Jira instance or Atlassian cloud tenant.
-1. User API token.
+```
+tmctl create target jira --url <url> --auth.user <user> --auth.token <token>
+```
 
-To create the user API token at Jira:
+On Kubernetes:
 
-- Open the Account settings > Security > [Create and manage API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
-- Press `Create API token` and fill the token name.
-- Copy the API token and create a secret for the Jira token at TriggerMesh.
-
-## Creating a Jira Token Secret
-
-To access the Jira services, an API private key will be required.
-
-A sample secret would resemble:
+Secret
 
 ```yaml
 apiVersion: v1
@@ -29,9 +22,7 @@ stringData:
   token: "jira-api-token"
 ```
 
-## Creating a Jira Target
-
-An example of a Jira target for a function would resemble the following:
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -50,13 +41,14 @@ spec:
 
 Jira fields `user`, `token` and `url` are required.
 
-### Sending Messages to the Jira Target
+The Jira target accepts a number of different event types which result in different interactions with Jira.
 
-The Jira target accepts these event types:
+## `com.jira.issue.create`
 
-- `com.jira.issue.create`
+The Jira event Target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formatted as defined in [this schema](../../schemas/jira.issue.json).
 
-The Jira target will create an issue when receiving this event type.
+Reply contains a partially filled Jira issue with updated data.
+
 
 ```sh
 curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
@@ -84,9 +76,11 @@ curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
 }'
 ```
 
-- `com.jira.issue.get`
+## `com.jira.issue.get`
 
-The Jira target will retrieve an issue when receiving this event type.
+The Jira event Target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira issue `GET` request JSON formatted as defined in [this schema](../../schemas/jira.issue.get.json).
+
+Reply data contains a Jira issue.
 
 ```sh
 curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
@@ -98,9 +92,9 @@ curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
 -d '{"id":"IP-9"}'
 ```
 
-- `com.jira.custom`
+## `com.jira.custom`
 
-The Jira target will request the Jira API when this event type is received. The CloudEvent data expects a generic API request as seen at this example:
+The Jira event Target will send a request to the Jira API when this event type is received. The CloudEvent data expects a generic API request as defined in [this schema](../../schemas/jira.custom.json).
 
 ```sh
 curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
@@ -118,85 +112,18 @@ curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
 
 Please, refer to the [Jira API](https://developer.atlassian.com/cloud/jira/software/rest/intro/) on how to fill in values for these requests.
 
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.JiraTarget) for more details on the TriggerMesh configuration options.
 
-## Event Types
+## Prerequisites
 
-The Jira event Target accepts these event types:
+1. Jira instance or Atlassian cloud tenant.
+1. User API token.
 
-### io.triggermesh.jira.issue.create
+To create the user API token at Jira:
 
-The Jira event Target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formatted as defined in [this schema](../../schemas/jira.issue.json).
-
-Reply contains a partially filled Jira issue with updated data.
-
-### io.triggermesh.jira.issue.get
-
-The Jira event Target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira issue `GET` request JSON formatted as defined in [this schema](../../schemas/jira.issue.get.json).
-
-Reply data contains a Jira issue.
-
-### io.triggermesh.jira.custom
-
-The Jira event Target will send a request to the Jira API when this event type is received. The CloudEvent data expects a generic API request as defined in [this schema](../../schemas/jira.custom.json).
-
-For more information on the Jira API, please refer to the [Jira API documentation][jira-api].
-
-## Examples
-
-Create a custom request to retrieve Jira projects:
-
-- **Event Type**: `io.triggermesh.jira.custom`
-- **Data**:
-```json
-{
-  "method": "GET",
-  "path": "/rest/api/3/project"
-}
-```
-
-List assignable users for a project:
-
-- **Event Type**: `io.triggermesh.jira.custom`
-- **Data**:
-```json
-{
-  "method": "GET",
-  "path": "/rest/api/3/user/assignable/search",
-  "query": { "project": "Project1" }
-}
-```
-
-Create an issue:
-
-- **Event Type**: `io.triggermesh.jira.issue.create`
-- **Data**:
-```json
-{
-  "fields": {
-    "project":
-      {
-        "key": "Project1"
-      },
-      "labels": ["triggermesh","automated"],
-      "summary": "Delete this test ticket.",
-      "description": "This is a test issue created using TriggerMesh Jira Target",
-      "issuetype": {
-        "name": "Task"
-      },
-      "assignee": {
-        "accountId": "5fe0704c9edf280075f188f0"
-      }
-   }
-}
-```
-
-Retrieve an issue:
-
-- **Event Type**: `io.triggermesh.jira.issue.get`
-- **Data**:
-```json
-{ "id":"IP-9" }
-```
+- Open the Account settings > Security > [Create and manage API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
+- Press `Create API token` and fill the token name.
+- Copy the API token and create a secret for the Jira token at TriggerMesh.
 
 [ce]: https://cloudevents.io/
 [api-tokens]: https://id.atlassian.com/manage-profile/security/api-tokens

@@ -1,22 +1,16 @@
-# Event Target for Logz.io
+# Logz.io target
 
-This event Target receives [CloudEvents][ce] and ships messages to [Logz.io](https://logz.io/).
+Sends events to [Logz.io](https://logz.io/).
 
-## Prerequisite(s)
+With `tmctl`:
 
-- Logz.io account
-- Logz.io shipping [token](https://docs.logz.io/user-guide/tokens/)
+```
+tmctl create target logz --shippingToken <shippingToken> --logsListenerURL <logsListenerURL>
+```
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about how to add the Logz.io shipping token as a secret.
+On Kubernetes:
 
-## Deploying an Instance of the Target
-
-* **Shipping Token**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Logz.io [shipping token](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/) as discussed in the [prerequisites](#prerequisites).
-* **Logs Listener URL**: An API endpoint that can be found above your shipping token in the Logz.io dashboard.
-
-## Kubernetes
-
-**Secret**
+Secret
 
 ```yaml
 apiVersion: v1
@@ -28,7 +22,7 @@ stringData:
   token: my_token  # Update this value with a valid shipping token
 ```
 
-**Target**
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -43,29 +37,14 @@ spec:
       key: token
 ```
 
-## Event Types
+* **Shipping Token**: contains the Logz.io [shipping token](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/)
+* **Logs Listener URL**: An API endpoint that can be found above your shipping token in the Logz.io dashboard.
 
-A Logz event Target accepts the following CloudEvent types:
+The Logz target accepts events of type `io.triggermesh.logz.ship`, and responds with events of type `io.triggermesh.logz.ship.response`.
 
-### io.triggermesh.logz.ship
+The payload contains a [JSON][ce-json] structure called `message`, which is the message to log in Logz.io.
 
-The Logz event Target can also consume events of type `io.triggermesh.logz.ship`, and will produce responses typed `io.triggermesh.logz.ship.response`.
-
-The payload contains a [JSON][ce-json] structure with elements to execute the API request:
-
-- `message`: The message to log within Logz.io
-
-## Examples
-
-Create a Logz message:
-
-- **Event Type**: `io.triggermesh.logz.ship`
-- **Data**:
-```json
-{ "message":"hello world" }
-```
-
-Sending information to logz
+You can test the Target by sending it an event using `curl`:
 
 ```cmd
 curl -v http://logztarget-tmlogz.logz.svc.cluster.local \
@@ -77,6 +56,13 @@ curl -v http://logztarget-tmlogz.logz.svc.cluster.local \
  -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
  -d '{"message":"Hello from TriggerMesh using GoogleSheet!"}'
  ```
+
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.LogzTarget) for more details.
+
+## Prerequisite(s)
+
+- Logz.io account
+- Logz.io shipping [token](https://docs.logz.io/user-guide/tokens/)
 
 [ce]: https://cloudevents.io/
 [ce-json]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md

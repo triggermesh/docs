@@ -1,41 +1,16 @@
-# Event Target for Oracle Cloud
+# Oracle Cloud target
 
-The Oracle Cloud Knative Target acts as a target frontend to Oracle Cloud related services.
-At this time, only [Oracle Functions](https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Concepts/functionsoverview.htm) (or Fn) is supported.
+Sends events to [Oracle Cloud Functions](https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Concepts/functionsoverview.htm).
 
-## Prerequisites (Global)
+With `tmctl`:
 
-Regardless of what event targets exist currently or in the future, the following is required:
-  - Tenancy OCID where the target components reside
-  - User OCID with access to the target components
-  - User API access tokens:
-    - API Private Key
-    - Private Key's passphrase
-    - Fingerprint of API key
-  - Oracle Cloud Region where the component resides
+```
+tmctl create target oracle --function <functionOCID>
+```
 
-Setting up an account on the Oracle Cloud and obtaining the prerequisite data is outside the
-scope of this readme, but obtaining most of the prerequisite data can be found in the
-[Oracle Developer Resources](https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Tasks/functionssetupapikey.htm)
+On Kubernetes:
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the Oracle API signing key as a secret.
-
-## Deploying an Instance of the Target
-
-- **Oracle Secrets**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the Oracle API signing key as discussed in the [prerequisites](#prerequisites).
-- **Oracle Tenancy**: The OCID of tenant that holds the service being invoked.
-- **Oracle Username**: The OCID of the user that owns the API key discussed in the [prerequisites](#prerequisites), and will be invoking the service.
-- **Oracle Region**: The Oracle Cloud region hosting the service.
-- **Function**: The OCID of the Oracle Cloud function being invoked.
-
-## Creating an Oracle Service Secret
-
-To access any of the Oracle Cloud services, an API private key will be required.  This is
-stored in a secret along with the passphrase to decrypt the key, and a fingerprint of the
-key associated with the user.
-
-A sample secret would resemble:
+Secret
 
 ```yaml
 apiVersion: v1
@@ -54,12 +29,8 @@ stringData:
 
 ```
 
-## Creating an Oracle Cloud Target
+Target
 
-The target spec consists of the global parameters as a part of the core Spec, and a
-sub spec for each service.
-
-An example of a target for a function would resemble the following:
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
 kind: OracleTarget
@@ -85,77 +56,11 @@ spec:
     function: ocid1.fnfunc.oc1.phx.aaaaaaaaaajrgy4on66e6krko73h2im5qaiiagecg5hmbcqib2kpbzlcy3bq
 ```
 
-The thing to note with the example above is, with the exception of `oracleRegion`, the attributes
-require the Oracle Cloud ID (OCID) values for the various attributes including the function.
-
-## Triggering the Oracle Cloud Event
-
-The triggering mechanism needs to be put in place to listen for the event, and trigger
-the service:
-
-```yaml
-apiVersion: eventing.knative.dev/v1beta1
-kind: Trigger
-metadata:
-  name: oracle-cloud-function-trigger
-spec:
-  broker: default
-  subscriber:
-    ref:
-      apiVersion: targets.triggermesh.io/v1alpha1
-      kind: OracleTarget
-      name: triggermesh-oracle-function
-```
-
-In the case of Functions, an event is created as a response that can be published and acted upon.
-
-To invoke the target, a sample cURL command can be used (assuming minikube is used and a tunnel has been established):
-
-```console
-curl -v http://oracletarget-triggermesh-oracle-function.default.example.com \
- -H "Content-Type: application/json" \
- -H "Ce-Specversion: 1.0" \
- -H "Ce-Type: dev.knative.source.oracle" \
- -H "Ce-Source: dev.knative.source.oracle" \
- -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
- -d '{"name": "bob"}'
-
-* Rebuilt URL to: http://oracletarget-triggermesh-oracle-function.default.example.com/
-*   Trying 10.99.31.116...
-* TCP_NODELAY set
-* Connected to oracletarget-triggermesh-oracle-function.default.example.com (10.99.31.116) port 80 (#0)
-> POST / HTTP/1.1
-> Host: oracletarget-triggermesh-oracle-function.default.example.com
-> User-Agent: curl/7.58.0
-> Accept: */*
-> Content-Type: application/json
-> Ce-Specversion: 1.0
-> Ce-Type: dev.knative.source.oracle
-> Ce-Source: dev.knative.source.oracle
-> Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79
-> Content-Length: 15
->
-* upload completely sent off: 15 out of 15 bytes
-< HTTP/1.1 200 OK
-< ce-id: 6f8cbbc3-01b0-48d3-8f12-d3d5558ad6b9
-< ce-source: ocid1.fnapp.oc1.phx.aaaaaaaaaehdhsmharxvyp4pvnsgsnd35am5u7ckjzivwmsmove37eckjika
-< ce-specversion: 1.0
-< ce-subject: ocid1.fnfunc.oc1.phx.aaaaaaaaaajrgy4on66e6krko73h2im5qaiiagecg5hmbcqib2kpbzlcy3bq
-< ce-time: 2020-06-03T01:21:26.126325681Z
-< ce-type: functions.oracletargets.targets.triggermesh.io
-< content-length: 29
-< content-type: application/json
-< date: Wed, 03 Jun 2020 01:21:25 GMT
-< x-envoy-upstream-service-time: 27294
-< server: envoy
-<
-* Connection #0 to host oracletarget-triggermesh-oracle-function.default.example.com left intact
-{"processed":{"name": "bob"}}
-```
-
-## Supported Oracle Cloud Service Events
-
-### Functions
+- **Oracle Secrets**: Contains the Oracle API signing key.
+- **Oracle Tenancy**: The OCID of tenant that holds the service being invoked.
+- **Oracle Username**: The OCID of the user that owns the API key discussed in the [prerequisites](#prerequisites), and will be invoking the service.
+- **Oracle Region**: The Oracle Cloud region hosting the service.
+- **Function**: The OCID of the Oracle Cloud function being invoked.
 
 The [Oracle Cloud Functions][functions] event Target is designed to allow for free-form JSON objects
 to be passed directly to the function and rely on the Oracle Cloud function to
@@ -165,7 +70,7 @@ The function itself can return a freeform JSON object that can be processed by
 another event trigger.  The CloudEvent type will always be `functions.oracletargets.targets.triggermesh.io` with the function OCID defined as a part of the CloudEvent
 source and a metadata ID used to uniquify the specific event that called the function.
 
-## Oracle Function Example
+You can test the Target by sending it an event using `curl`:
 
 ```console
 curl -vvv http://oracletarget \
@@ -194,6 +99,23 @@ curl -vvv http://oracletarget \
 * Connection #0 to host oracletarget left intact
 {"processed":{"message": "A new user wants to say something: hello from triggermesh"}}
 ```
+
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.OracleTarget) for more details.
+
+## Prerequisites (Global)
+
+Regardless of what event targets exist currently or in the future, the following is required:
+  - Tenancy OCID where the target components reside
+  - User OCID with access to the target components
+  - User API access tokens:
+    - API Private Key
+    - Private Key's passphrase
+    - Fingerprint of API key
+  - Oracle Cloud Region where the component resides
+
+Setting up an account on the Oracle Cloud and obtaining the prerequisite data is outside the
+scope of this readme, but obtaining most of the prerequisite data can be found in the
+[Oracle Developer Resources](https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Tasks/functionssetupapikey.htm)
 
 [ce]: https://cloudevents.io/
 [functions]: https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Concepts/functionsoverview.htm
