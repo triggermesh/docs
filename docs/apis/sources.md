@@ -61,8 +61,6 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSource">GoogleCloudBillingSource</a>
 </li><li>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSource">GoogleCloudIoTSource</a>
-</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSource">GoogleCloudPubSubSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSource">GoogleCloudSourceRepositoriesSource</a>
@@ -3479,149 +3477,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">
 GoogleCloudBillingSourceStatus
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSource">GoogleCloudIoTSource
-</h3>
-<p>
-<p>GoogleCloudIoTSource is the Schema for the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-sources.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>GoogleCloudIoTSource</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">
-GoogleCloudIoTSourceSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>SourceSpec</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
-knative.dev/pkg/apis/duck/v1.SourceSpec
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceSpec</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>registry</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudIoTResourceName">
-GCloudIoTResourceName
-</a>
-</em>
-</td>
-<td>
-<p>Resource name of the Cloud IoT Registry to receive messages from.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>pubsub</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
-</a>
-</em>
-</td>
-<td>
-<p>Settings related to the Pub/Sub resources associated with the Cloud IoT Registry.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>serviceAccountKey</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-<p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">
-GoogleCloudIoTSourceStatus
 </a>
 </em>
 </td>
@@ -8947,77 +8802,12 @@ int
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GCloudIoTResourceName">GCloudIoTResourceName
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>)
-</p>
-<p>
-<p>GCloudIoTResourceName represents a fully qualified IoT resource name,
-as described at</p>
-<pre><code>https://pkg.go.dev/google.golang.org/api/cloudiot/v1#DeviceRegistry.Name
-</code></pre>
-<p>Examples of such resource names include:
-- projects/{project_name}/locations/{location_name}/registries/{registry_name}</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Project</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>Location</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>Collection</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>Resource</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.GCloudResourceName">GCloudResourceName
 </h3>
 <p>
 (<em>Appears on:</em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceStatus">GoogleCloudAuditLogsSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceStatus">GoogleCloudBillingSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceStatus">GoogleCloudPubSubSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">GoogleCloudSourcePubSubSpec</a>, 
@@ -9421,155 +9211,6 @@ the managed topic.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSource">GoogleCloudIoTSource</a>)
-</p>
-<p>
-<p>GoogleCloudIoTSourceSpec defines the desired state of the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceSpec</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
-knative.dev/pkg/apis/duck/v1.SourceSpec
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceSpec</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>registry</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudIoTResourceName">
-GCloudIoTResourceName
-</a>
-</em>
-</td>
-<td>
-<p>Resource name of the Cloud IoT Registry to receive messages from.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>pubsub</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">
-GoogleCloudSourcePubSubSpec
-</a>
-</em>
-</td>
-<td>
-<p>Settings related to the Pub/Sub resources associated with the Cloud IoT Registry.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>serviceAccountKey</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-<p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceStatus">GoogleCloudIoTSourceStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSource">GoogleCloudIoTSource</a>)
-</p>
-<p>
-<p>GoogleCloudIoTSourceStatus defines the observed state of the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>Status</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>Status</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>topic</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
-GCloudResourceName
-</a>
-</em>
-</td>
-<td>
-<p>Resource name of the target Pub/Sub topic.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>subscription</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GCloudResourceName">
-GCloudResourceName
-</a>
-</em>
-</td>
-<td>
-<p>Resource name of the managed Pub/Sub subscription associated with
-the managed topic.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec
 </h3>
 <p>
@@ -9713,7 +9354,6 @@ GCloudResourceName
 (<em>Appears on:</em>
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudIoTSourceSpec">GoogleCloudIoTSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>)
 </p>
@@ -11819,5 +11459,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>5917ab02</code>.
+on git commit <code>ed02fbed</code>.
 </em></p>

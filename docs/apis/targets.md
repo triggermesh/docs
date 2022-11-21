@@ -61,8 +61,6 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.IBMMQTarget">IBMMQTarget</a>
 </li><li>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>
-</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.KafkaTarget">KafkaTarget</a>
@@ -84,8 +82,6 @@ Resource Types:
 <a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>
-</li><li>
-<a href="#targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.ZendeskTarget">ZendeskTarget</a>
 </li></ul>
@@ -3478,135 +3474,10 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget
-</h3>
-<p>
-<p>InfraTarget is the Schema for the Infra JS Target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-targets.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>InfraTarget</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTargetSpec">
-InfraTargetSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>script</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTargetScript">
-InfraTargetScript
-</a>
-</em>
-</td>
-<td>
-<p>Script to be executed at every request.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>state</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTargetState">
-InfraTargetState
-</a>
-</em>
-</td>
-<td>
-<p>State actions and options.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>typeLoopProtection</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<p>TypeLoopProtection protect against infinite loops when the cloudevent type does not change.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget
 </h3>
 <p>
-<p>JiraTarget is the Schema for the Infra JS Target.</p>
+<p>JiraTarget is the Schema for the Jira Target.</p>
 </p>
 <table>
 <thead>
@@ -5092,173 +4963,6 @@ EventOptions
 </td>
 <td>
 <p>EventOptions for targets</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget
-</h3>
-<p>
-<p>UiPathTarget is the Schema for the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-targets.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>UiPathTarget</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.UiPathTargetSpec">
-UiPathTargetSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>userKey</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>UserKey An OAuth token used to obtain an access key.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>robotName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>RobotName is the robot to invoke with this target.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>processName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>ProccessName is the process name that will be used by UiPath for the target.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>tenantName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>TenantName is the tenant that contains the components that will be invoked by the target.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>accountLogicalName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>AccountLogicalName is the unique site URL used to identif the UiPath tenant.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>clientID</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>ClientID is the OAuth id registered to this target.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>organizationUnitID</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>OrganizationUnitID is the organization unit within the tenant that the UiPath proccess will run under.</p>
 </td>
 </tr>
 <tr>
@@ -8057,15 +7761,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.HeaderPolicy">HeaderPolicy
-(<code>string</code> alias)</p></h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTargetState">InfraTargetState</a>)
-</p>
-<p>
-<p>HeaderPolicy is the action to take on stateful headers</p>
-</p>
 <h3 id="targets.triggermesh.io/v1alpha1.IBMMQTargetSpec">IBMMQTargetSpec
 </h3>
 <p>
@@ -8185,165 +7880,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.InfraTargetScript">InfraTargetScript
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTargetSpec">InfraTargetSpec</a>)
-</p>
-<p>
-<p>InfraTargetScript holds the script options</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>code</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>Code to be executed at every request.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>timeout</code></br>
-<em>
-int
-</em>
-</td>
-<td>
-<p>Timeout is the script execution time after which
-it will be halted.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.InfraTargetSpec">InfraTargetSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTarget">InfraTarget</a>)
-</p>
-<p>
-<p>InfraTargetSpec defines the desired state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>script</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTargetScript">
-InfraTargetScript
-</a>
-</em>
-</td>
-<td>
-<p>Script to be executed at every request.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>state</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTargetState">
-InfraTargetState
-</a>
-</em>
-</td>
-<td>
-<p>State actions and options.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>typeLoopProtection</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<p>TypeLoopProtection protect against infinite loops when the cloudevent type does not change.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.InfraTargetState">InfraTargetState
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.InfraTargetSpec">InfraTargetSpec</a>)
-</p>
-<p>
-<p>InfraTargetState holds the state options</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>headersPolicy</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.HeaderPolicy">
-HeaderPolicy
-</a>
-</em>
-</td>
-<td>
-<p>HeadersPolicy determines actions on stateful headers.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>bridge</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>Bridge is the identifier to be used if the adapter needs to
-create cloud events headers as part of its policy.</p>
-<p>The Bridge moniker identifies uniquely the workflow that
-this component is part of, and should be taken into account
-when storing variables in the state store.</p>
 </td>
 </tr>
 </tbody>
@@ -9511,7 +9047,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetSpec">SendGridTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SlackTargetSpec">SlackTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.TwilioTargetSpec">TwilioTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.UiPathTargetSpec">UiPathTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.ZendeskTargetSpec">ZendeskTargetSpec</a>)
 </p>
 <p>
@@ -10050,118 +9585,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.UiPathTargetSpec">UiPathTargetSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.UiPathTarget">UiPathTarget</a>)
-</p>
-<p>
-<p>UiPathTargetSpec defines the desired state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>userKey</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>UserKey An OAuth token used to obtain an access key.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>robotName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>RobotName is the robot to invoke with this target.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>processName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>ProccessName is the process name that will be used by UiPath for the target.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>tenantName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>TenantName is the tenant that contains the components that will be invoked by the target.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>accountLogicalName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>AccountLogicalName is the unique site URL used to identif the UiPath tenant.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>clientID</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>ClientID is the OAuth id registered to this target.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>organizationUnitID</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>OrganizationUnitID is the organization unit within the tenant that the UiPath proccess will run under.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.ZendeskTargetSpec">ZendeskTargetSpec
 </h3>
 <p>
@@ -10245,5 +9668,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>5917ab02</code>.
+on git commit <code>ed02fbed</code>.
 </em></p>
