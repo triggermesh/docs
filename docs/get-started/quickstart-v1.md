@@ -184,7 +184,7 @@ curl http://localhost:59936 -d '{"such event":"very send"}' -H 'Content-type: ap
 
 If you open `https://sockeye-tu4luqbmqq-uc.a.run.app/` in your browser, events you send should start showing up there:
 
-![](../assets/images/quickstart-sockeye.png)
+![](../assets/images/quickstart/quickstart-sockeye.png)
 
 If you still have `tmctl watch` running (which you should), you'll also see events there when they hit the Broker, before passing on to Sockeye.
 
@@ -259,7 +259,7 @@ Data,
 
 If you open `https://sockeye-tu4luqbmqq-uc.a.run.app/` again, you should only see the transformed event there:
 
-![](../assets/images/quickstart-sockeye-transformed.png)
+![](../assets/images/quickstart/quickstart-sockeye-transformed.png)
 
 ## Next steps
 
