@@ -8,6 +8,8 @@ With `tmctl`:
 tmctl create target splunk --endpoint <endpoint> --token <token>
 ```
 
+On Kubernetes:
+
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
 kind: SplunkTarget
