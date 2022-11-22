@@ -63,8 +63,6 @@ nav:
       - Google Cloud Pub/Sub: sources/googlecloudpubsub.md
       - Google Cloud Repositories: sources/googlecloudrepositories.md
       - Google Cloud Storage: sources/googlecloudstorage.md
-# Looks like Gcloud IoT Core is being retired, maybe we don't need this doc
-#      - Google Cloud IoT: sources/googlecloudiot.md
       - Kafka: sources/kafka.md
       - HTTP Poller: sources/httppoller.md
       - IBM MQ: sources/ibmmq.md
@@ -98,8 +96,6 @@ nav:
       - Hasura: targets/hasura.md
       - HTTP: targets/http.md
       - IBM MQ: targets/ibmmq.md
-      - InfraJS: targets/infrajs.md
-      - InfraTarget: targets/infratarget.md
       - Jira: targets/jira.md
       - Kafka: targets/kafka.md
       - Logz.io: targets/logz.md
@@ -111,7 +107,6 @@ nav:
       - Splunk: targets/splunk.md
       - Tekton: targets/tekton.md
       - Twilio: targets/twilio.md
-      - UIPath: targets/uipath.md
       - Zendesk: targets/zendesk.md
     - Routing:
       # - Routing overview: routing/routingoverview.md
@@ -130,10 +125,6 @@ nav:
       - Python functions: transformation/pythonfunctions.md
       - NodeJS functions: transformation/nodejsfunctions.md
       - Ruby functions: transformation/rubyfunctions.md
-    - Registry:
-        - Schema registry: registry.md
-    - Replay:
-        - Archive & replay: replay.md
     - Operations:
       - Installation:
         - installation/index.md
