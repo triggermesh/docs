@@ -56,7 +56,7 @@ nav:
       - Azure Queue Storage: sources/azurequeuestorage.md
       - Azure Service Bus Queue: sources/azureservicebusqueue.md
       - Azure Service Bus Topic: sources/azureservicebustopic.md
-      - CloudEvents: sources/cloudeventssource.md
+      - CloudEvents: sources/cloudevents.md
       - Github: sources/github.md
       - Google Cloud Audit Logs: sources/googlecloudauditlogs.md
       - Google Cloud Billing: sources/googlecloudbilling.md
@@ -84,7 +84,7 @@ nav:
       - Amazon SQS: targets/awssqs.md
       - Azure Event Hubs: targets/azureeventhubs.md
       - Azure Sentinel: targets/azuresentinel.md
-      - CloudEvents: targets/cloudeventstarget.md
+      - CloudEvents: targets/cloudevents.md
       - Confluent (deprecated): targets/confluent.md
       - Datadog: targets/datadog.md
       - Elasticsearch: targets/elasticsearch.md
@@ -193,7 +193,7 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.tasklist:

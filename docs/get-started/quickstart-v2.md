@@ -8,9 +8,13 @@ tmctl send-event --eventType qr-data.request '{"path_suffix":"chart","query":"ch
 
 This quickstart will take you through the fastest and easiest way to start using events with TriggerMesh's command line interface, `tmctl`. `tmctl` makes it easy to create, configure and run a TriggerMesh Broker on any machine that has Docker.
 
-We'll go through a simple hello world example, and you can expand from there. By the end of this quickstart, you will have created the flow shown below, in which we gather events containing buzzword-laden quotes, transform them and route them to a brower-based event viewer.
+We'll go through a simple hello world example, and you can expand from there. By the end of this quickstart, you will have created the flow shown below, in which we gather events containing buzzword-laden quotes, transform them and route them to a browser-based event viewer.
 
 ![](../assets/images/quickstart/quickstart-diagram.png)
+
+!!! info "Prerequisites"
+
+    Please make sure you are able to run docker containers on your machine before proceeding. 
 
 ## Installation
 
@@ -18,18 +22,40 @@ We'll go through a simple hello world example, and you can expand from there. By
 
 `tmctl` is the TriggerMesh command line interface (CLI) that makes it easy to work with events from the safety of your office (or couch).
 
-Checkout the code:
+TriggerMesh CLI can be installed from different sources: brew repository, pre-built binary, or compiled from source.
 
-```sh
-git clone git@github.com:triggermesh/tmctl.git
-```
+=== "Brew"
 
-Install the binary:
+    Coming soon...
+    <!-- ```
+    brew install tmctl
+    ``` -->
 
-```sh
-cd tmctl
-go install
-```
+=== "Pre-built binary"
+
+    For MacOS on Apple Silicon chips:
+
+    ```
+    curl -L https://github.com/triggermesh/tmctl/releases/download/v0.0.1/tmctl_0.0.1_darwin_arm64 -o /usr/local/bin/tmctl && chmod +x /usr/local/bin/tmctl
+    ```
+
+    Linux, AMD64:
+
+    ```
+    curl -L https://github.com/triggermesh/tmctl/releases/download/v0.0.1/tmctl_0.0.1_linux_amd64 -o /usr/local/bin/tmctl && chmod +x /usr/local/bin/tmctl
+    ```
+
+    To view more versions and architectures of pre-built binaries please visit our GitHub [release page](https://github.com/triggermesh/tmctl/releases/latest).
+
+=== "From source"
+
+    The most recent version of the `go` compiler is recommended to build `tmctl` binary from source:
+
+    ```
+    git clone git@github.com:triggermesh/tmctl.git
+    cd tmctl
+    go install
+    ```
 
 **:material-numeric-2-box: Setup autocompletion**
 
@@ -276,3 +302,8 @@ Now that you know what a source, target, and transformation are, you can start a
 :material-apache-kafka: **Kafka** users:
 
 - you can read and write to kafka easily using our [Kafka Source](../sources/kafka.md) and [Kafka Target](../targets/kafka.md)
+
+:material-code-json: **HTTP** users:
+
+- try ingesting events over standard HTTP with the [Webhook Source](../sources/webhook.md) or with CloudEvents over HTTP with the [CloudEvents Source](../sources/cloudevents.md)
+- or sending events over HTTP with fine control over HTTP parameters with the [HTTP Target](../targets/http.md), or using CloudEvents over HTTP with the [CloudEvents Target](../targets/cloudevents.md).
