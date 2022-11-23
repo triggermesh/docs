@@ -45,7 +45,7 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSource">AzureEventGridSource</a>
 </li><li>
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource</a>
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubsSource">AzureEventHubsSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSource">AzureIOTHubSource</a>
 </li><li>
@@ -2357,10 +2357,10 @@ AzureEventGridSourceStatus
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource
+<h3 id="sources.triggermesh.io/v1alpha1.AzureEventHubsSource">AzureEventHubsSource
 </h3>
 <p>
-<p>AzureEventHubSource is the Schema for the event source.</p>
+<p>AzureEventHubsSource is the Schema for the event source.</p>
 </p>
 <table>
 <thead>
@@ -2385,7 +2385,7 @@ sources.triggermesh.io/v1alpha1
 <code>kind</code></br>
 string
 </td>
-<td><code>AzureEventHubSource</code></td>
+<td><code>AzureEventHubsSource</code></td>
 </tr>
 <tr>
 <td>
@@ -2405,8 +2405,8 @@ Refer to the Kubernetes API documentation for the fields of the
 <td>
 <code>spec</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">
-AzureEventHubSourceSpec
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubsSourceSpec">
+AzureEventHubsSourceSpec
 </a>
 </em>
 </td>
@@ -7481,7 +7481,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <a href="#sources.triggermesh.io/v1alpha1.AzureActivityLogsSourceSpec">AzureActivityLogsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureBlobStorageSourceSpec">AzureBlobStorageSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubsSourceSpec">AzureEventHubsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceSpec">AzureIOTHubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">AzureServiceBusQueueSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">AzureServiceBusTopicSourceSpec</a>)
@@ -7945,14 +7945,14 @@ events from the Azure Event Grid subscription.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec
+<h3 id="sources.triggermesh.io/v1alpha1.AzureEventHubsSourceSpec">AzureEventHubsSourceSpec
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSource">AzureEventHubSource</a>)
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubsSource">AzureEventHubsSource</a>)
 </p>
 <p>
-<p>AzureEventHubSourceSpec defines the desired state of the event source.</p>
+<p>AzureEventHubsSourceSpec defines the desired state of the event source.</p>
 </p>
 <table>
 <thead>
@@ -8173,7 +8173,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceDestinationEventHubs">AzureEventGridSourceDestinationEventHubs</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceSpec">AzureEventGridSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubSourceSpec">AzureEventHubSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureEventHubsSourceSpec">AzureEventHubsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">AzureServiceBusQueueSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">AzureServiceBusTopicSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">AzureServiceBusTopicSourceStatus</a>)
@@ -11459,5 +11459,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>371ea937</code>.
+on git commit <code>0176a51f</code>.
 </em></p>
