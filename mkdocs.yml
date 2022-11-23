@@ -32,7 +32,7 @@ extra_javascript:
 nav:
     - Home: index.md
     - Get started:
-      - Quickstart: get-started/quickstart-v2.md
+      - Quickstart: get-started/quickstart.md
       - Concepts: get-started/concepts.md
       - Create a local event viewer: get-started/create-local-eventviewer.md
       - Moving from local to Kubernetes: get-started/moving-from-dev-to-K8s.md
