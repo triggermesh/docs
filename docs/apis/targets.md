@@ -9668,5 +9668,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>9c73cc2a</code>.
+on git commit <code>022aaa12</code>.
 </em></p>
