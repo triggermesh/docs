@@ -36,6 +36,8 @@ nav:
       - Concepts: get-started/concepts.md
       - Create a local event viewer: get-started/create-local-eventviewer.md
       - Moving from local to Kubernetes: get-started/moving-from-dev-to-K8s.md
+      - Memory Broker on Kubernetes: get-started/guide-memorybroker-on-K8s.md
+      - Redis Broker on Kubernetes: get-started/guide-redisbroker-on-K8s.md
     - Sources:
       - Amazon CloudWatch: sources/awscloudwatch.md
       - Amazon CloudWatchLogs: sources/awscloudwatchlogs.md
@@ -108,34 +110,38 @@ nav:
       - Tekton: targets/tekton.md
       - Twilio: targets/twilio.md
       - Zendesk: targets/zendesk.md
-    - Routing:
+    - Brokers:
+      - brokers/index.md
       # - Routing overview: routing/routingoverview.md
-      - Brokers and Triggers: routing/brokers.md
-      # - Triggers: routing/triggers.md
+      - Memory Broker: brokers/memorybroker.md
+      - Redis Broker: brokers/redisbroker.md
+      - Triggers: brokers/triggers.md
       # - Filter: routing/filter.md
       # - Splitter: routing/splitter.md
     - Transformation:
-      - Transformation overview: transformation/transformation.md
+      - Transformation overview: transformation/transformation-overview.md
       - Bumbleebee Transformation (JSON): transformation/bumblebee.md
       - JQ Transformation: transformation/jqtransformation.md
       - Mulesoft DataWeave Transformation: transformation/dataweavetransformation.md
       - XMLtoJSON Transformation: transformation/xmltojsontransformation.md
       - XSLT Transformation: transformation/xslttransformation.md
-      - Function overview: transformation/functionoverview.md
+      - Function overview: transformation/function-overview.md
       - Python functions: transformation/pythonfunctions.md
       - NodeJS functions: transformation/nodejsfunctions.md
       - Ruby functions: transformation/rubyfunctions.md
     - Operations:
       - Installation:
         - installation/index.md
-        - Kubernetes with Helm: installation/kuberneteshelm.md
-        - Docker: installation/docker.md
-        - Using an AWS AMI: installation/installation-ami.md
-        - Tanzu Community Edition: installation/installation-tce.md
+        - Docker: installation/installation-docker.md
+        - Kubernetes with YAML: installation/installation-K8s-yaml.md
+        - Kubernetes with Helm: installation/installation-K8s-helm.md
+        - Amazon AMI: installation/installation-aws-ami.md
+        - Tanzu Community Edition: installation/installation-tanzu.md
       - Observability:
         - observability/index.md
         - Structured logging: observability/observability-logging.md
         - Telemetry metrics: observability/observability-metrics.md
+        - Broker observability: observability/brokerobservability.md
     - Guides:
       - Creating a DLS: guides/creatingadls.md
       - Creating a Wiretap: guides/createawiretap.md

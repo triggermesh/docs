@@ -1,4 +1,4 @@
-# TriggerMesh Installation for Tanzu Community Edition
+# Install TriggerMesh on Tanzu Community Edition
 
 [Tanzu Community Edition](https://tanzucommunityedition.io/) is a free and open source Kubernetes platform provided by VMware.
 

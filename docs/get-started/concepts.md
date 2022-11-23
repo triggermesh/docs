@@ -36,8 +36,8 @@ Example event:
   "time" : "2018-04-05T17:31:00Z",
   "extension1" : "value",
   "datacontenttype" : "application/json",
-  “dataschema”: “http://schemas.myorg.com/schemagroups/awsS3/schemas/com.aws.s3.objectcreated@aws.s3/versions/2”
-  "data" : "{\“data\”:\”here\”}"
+  "dataschema": "http://schemas.myorg.com/schemagroups/awsS3/schemas/com.aws.s3.objectcreated@aws.s3/versions/2",
+  "data" : "{\"hello\":\"world\"}"
 }
 ```
 

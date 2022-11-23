@@ -1,14 +1,6 @@
 # Trigger
 
-!!! Placeholder content !!!
-
-Simpler operations and dependencies with the new TriggerMesh Broker.
-
-✔  Self contained
-✔  Filter on metadata and payload
-✔  Run on Docker or K8s
-
-Docker, Kubernetes.
+On Kubernetes:
 
 ```yaml
 apiVersion: eventing.triggermesh.io/v1alpha1
