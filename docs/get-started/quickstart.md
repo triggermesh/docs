@@ -14,7 +14,7 @@ We'll go through a simple hello world example, and you can expand from there. By
 
 !!! info "Prerequisites"
 
-    Please make sure you are able to run docker containers on your machine before proceeding. 
+    Please make sure you are able to run docker containers on your machine before proceeding.
 
 ## Installation
 
@@ -71,6 +71,7 @@ This will let you hit the Tab key to get recommendations when using `tmctl`.
 
     ```
     source <(tmctl completion zsh)
+    compdef _tmctl tmctl
     ```
 
 To make autocompletion load automatically, put this command in one of the shell profile configuration, e.g.:
@@ -84,8 +85,7 @@ To make autocompletion load automatically, put this command in one of the shell 
 === "ZSH (MacOS)"
 
     ```
-    source <(tmctl completion zsh)
-    compdef _tmctl tmctl
+    tmctl completion zsh > $(brew --prefix)/share/zsh/site-functions/_tmctl
     ```
 
     <!-- For certain MacOS environments:
@@ -307,3 +307,25 @@ Now that you know what a source, target, and transformation are, you can start a
 
 - try ingesting events over standard HTTP with the [Webhook Source](../sources/webhook.md) or with CloudEvents over HTTP with the [CloudEvents Source](../sources/cloudevents.md)
 - or sending events over HTTP with fine control over HTTP parameters with the [HTTP Target](../targets/http.md), or using CloudEvents over HTTP with the [CloudEvents Target](../targets/cloudevents.md).
+
+:material-kubernetes: **Kubernetes** users:
+
+- try exporting your local configuration as a Kubernetes manifest by using `tmctl dump`, and deploying to a cluster. You can learn more about it in the [dedicated guide](moving-from-dev-to-K8s.md).
+
+## Clean up
+
+I've you run through this quickstart guide, you'll now have a number of containers running on Docker.
+
+You can stop all TriggerMesh-related containers with:
+
+```sh
+tmctl stop
+```
+
+To delete you local configuration (all sources, targets, brokers, transformations) and stop all containers, you can try:
+
+```sh
+tmctl delete --broker foo
+```
+
+Replace `foo` with the name of your broker. Be careful, you can't go back once you've deleted everything.

@@ -1,4 +1,4 @@
-# TriggerMesh AMI
+# Install TriggerMesh with the AWS AMI
 
 This document walks you through deploying the TriggerMesh AMI (beta) on the Amazon AWS platform.
 
