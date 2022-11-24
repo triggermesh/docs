@@ -65,7 +65,7 @@ This ARN can be obtained directly from the overview page of the Kinesis Stream. 
 arn:aws:kinesis:{awsRegion}:{awsAccountId}:stream/{steamName}
 ```
 
-![Kinesis Data Stream](../../assets/images/awskinesis-source/stream-1.png)
+![Kinesis Data Stream](../assets/images/awskinesis-source/stream-1.png)
 
 Alternatively, one can obtain the ARN of a Kinesis Stream by using the [AWS CLI][aws-cli]. The following command
 retrieves the information of a stream called `triggermeshtest` in the `us-west-2` region:
@@ -113,7 +113,7 @@ source to operate:
 }
 ```
 
-![Creating an IAM user](../../assets/images/awskinesis-source/iam-user-1.png)
+![Creating an IAM user](../assets/images/awskinesis-source/iam-user-1.png)
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonkinesis.html#amazonkinesis-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

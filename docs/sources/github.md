@@ -59,13 +59,13 @@ The token can be named anything you find convenient. The Source requires `repo:p
 
 Here's an example for a token named "GitHubSource Sample" with the recommended scopes:
 
-![ght](../../assets/images/github/personal_access_token.png)
+![ght](../assets/images/github/personal_access_token.png)
 
 ### Verify
 
 Verify the GitHub webhook was created by looking at the list of webhooks under the Settings tab in your GitHub repository. A hook should be listed that points to your Knative cluster with a green check mark to the left of the hook URL, as shown below.
 
-![wh](../../assets/images/github/webhook_created.png)
+![wh](../assets/images/github/webhook_created.png)
 
 ### More Information
 More information on the Github Event Source can be found here: https://knative.dev/docs/eventing/samples/github-source/

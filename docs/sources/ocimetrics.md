@@ -90,6 +90,3 @@ Three pieces of information are required for the Oracle Cloud:
 1. API Private Key used for signing the request
 1. API Private Key passphrase to decrypt the key
 1. API Key's fingerprint to identify which key to use on the Oracle Cloud end
-
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add an Oracle Cloud specific secret.

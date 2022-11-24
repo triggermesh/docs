@@ -73,7 +73,7 @@ See the [Kubernetes object reference](../../reference/targets/#targets.triggerme
 
 ## Example using a Transformation
 
-This example shows how you can [transform](../transformation/bumblebee.md) a [CSNF](https://github.com/onug/CSNF) event into an Azure Sentinel event.
+This example shows how you can [transform](../transformation/jsontransformation.md) a [CSNF](https://github.com/onug/CSNF) event into an Azure Sentinel event.
 
 ```yaml
 apiVersion: flow.triggermesh.io/v1alpha1

@@ -74,7 +74,7 @@ Let's go step by step to see how we can deploy this transformation as part of a 
 
 Below is a diagram of the Bridge we will construct.
 
-![](../../../assets/images/dataweavetransformation.png)
+![](../../assets/images/dataweavetransformation.png)
 
 ## Deploy the Broker
 Deploy a Broker by writing the following YAML in a file:

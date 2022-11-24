@@ -57,7 +57,7 @@ Amazon SQS][sqs-getting-started] guide.
 
 A fully qualified Amazon Resource Name (ARN) is required to uniquely identify the Amazon SQS queue.
 
-![SQS queue](../../assets/images/awssqs-source/sqs-queue.png)
+![SQS queue](../assets/images/awssqs-source/sqs-queue.png)
 
 As shown in the above screenshot, you can obtain the ARN of a SQS queue from the AWS console. It typically has the
 following format:
@@ -112,7 +112,7 @@ and delete messages from any queue linked to the AWS account:
 }
 ```
 
-![Creating an IAM user](../../assets/images/awssqs-source/sqs-user-policy.png)
+![Creating an IAM user](../assets/images/awssqs-source/sqs-user-policy.png)
 
 ## Guide to SQS source on Kubernetes
 

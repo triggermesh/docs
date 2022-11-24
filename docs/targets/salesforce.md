@@ -83,7 +83,7 @@ When a response is produced from a Target, the extended attribute `category` is 
 - `Success`: For when the request succeeds.
 - `Error`: For when an error occurs.
 
-Returned errors structure is defined in [this schema](../../schemas/triggermesh.error.json).
+Returned errors structure is defined in [this schema](../schemas/triggermesh.error.json).
 
 You can test the Target by sending it an event using `curl`.
 
@@ -193,14 +193,14 @@ openssl req -x509 -sha256 -nodes -days 36500 -newkey rsa:2048 -keyout tm-sf.key 
     - Add Scopes for `api`, `refresh_token`, and `offline_access`.
     - Click `Save`.
 
-    ![Salesforce connected app](../../assets/images/salesforce/salesforce-connected-app.png)
+    ![Salesforce connected app](../assets/images/salesforce/salesforce-connected-app.png)
 
     - Select the connected app you just created from the list and then click `Manage`.
     - Click `Edit policies`.
     - Set `Permitted users` to `Admin approved users are pre-authorized`.
     - Click `Save`.
 
-    ![Connected app policies](../../assets/images/salesforce/connected-app-policies.png)
+    ![Connected app policies](../assets/images/salesforce/connected-app-policies.png)
 
     - Select the connected app from the list and then click `Manage`.
     - Click `Manage Profiles`.
@@ -220,5 +220,3 @@ The TriggerMesh Salesforce integration needs a certificate key secret to sign re
 [ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
 [salesforce-api]: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
 [salesforce-oauth-jwt]: https://help.salesforce.com/articleView?id=remoteaccess_oauth_jwt_flow.htm
-
-[tm-secret]: ../guides/secrets.md

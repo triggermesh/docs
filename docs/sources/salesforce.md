@@ -71,14 +71,14 @@ We will be using `OpenSSL` but any other certificate generation tool should work
     - Add Scopes for `api` and `refresh_token, offline_access`.
     - Save.
 
-    ![Salesforce connected app](../../assets/images/salesforce/salesforce-connected-app.png)
+    ![Salesforce connected app](../assets/images/salesforce/salesforce-connected-app.png)
 
     - Select the Connected App from the list and at the click on `Manage`.
     - Click `Edit policies`.
     - Set Permitted users to `Admin approved users are pre-authorized`.
     - Save.
 
-    ![Connected app policies](../../assets/images/salesforce/connected-app-policies.png)
+    ![Connected app policies](../assets/images/salesforce/connected-app-policies.png)
 
     - Select the Connected App from the list and at the click on `Manage`.
     - Click `Manage Profiles`.
@@ -105,14 +105,10 @@ Each Streaming event type has a distinct [set of features][salesroce-event-featu
 ### Certificate Key Secret
 
 The TriggerMesh Salesforce integration needs the certificate key to sign authentication requests with the Salesforce API.
-A [secret needs to be created at TriggerMesh][tm-secret] that contains that certificate key.
+A secret needs to be created at TriggerMesh that contains that certificate key.
 The file name containing the key will need to be renamed to `certKey`, then select `Secrets` > `+ ADD SECRET`, `File Upload`
-
-![Upload secret](../../assets/images/salesforce-source/file-upload-secret.png)
 
 [salesforce-stream-api-docs]: https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/
 [salesforce-oauth-jwt]: https://help.salesforce.com/articleView?id=remoteaccess_oauth_jwt_flow.htm
 [salesroce-event-features]: https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/event_comparison.htm
 [ce]: https://cloudevents.io/
-
-[tm-secret]: ../guides/secrets.md

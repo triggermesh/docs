@@ -121,7 +121,7 @@ Data,
 ```
 
 
-See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.ZendeskSource) for more details.
+See the [Kubernetes object reference](../reference/sources/#sources.triggermesh.io/v1alpha1.ZendeskSource) for more details.
 
 ## Prerequisite(s)
 
@@ -147,21 +147,21 @@ To verify the successful deployment of the Zendesk event source, navigate to the
 _Extensions_ screen in the Zendesk Admin interface, below the _Settings_ section. The event source instance should have
 created a Target following the naming pattern `io.triggermesh.zendesksource.<user namespace>.<source name>`.
 
-![Zendesk Target name](../../assets/images/zendesk-source/targets-1.png)
+![Zendesk Target name](../assets/images/zendesk-source/targets-1.png)
 
 The Target is configured to include the webhook username and password defined earlier in each request header.
 
-![Zendesk Target details](../../assets/images/zendesk-source/targets-2.png)
+![Zendesk Target details](../assets/images/zendesk-source/targets-2.png)
 
 The Target is linked to a [Trigger][zd-trigger], which can be found by navigating to the _Triggers_ screen, below the
 _Business rules_ section. This Trigger follows the same naming convention as the matching Target.
 
-![Zendesk Trigger name](../../assets/images/zendesk-source/triggers-1.png)
+![Zendesk Trigger name](../assets/images/zendesk-source/triggers-1.png)
 
 The Trigger defines the condition on which a new event is generated and sent to the Target. In the example below, the
 condition is the creation of a new ticket.
 
-![Zendesk Trigger details](../../assets/images/zendesk-source/triggers-2.png)
+![Zendesk Trigger details](../assets/images/zendesk-source/triggers-2.png)
 
 If the Trigger is marked as `active`, it will be sending notifications to the HTTP(S) endpoint exposed by the instance
 of the TriggerMesh Zendesk event source as soon as a corresponding action happens in Zendesk.
@@ -170,5 +170,3 @@ of the TriggerMesh Zendesk event source as soon as a corresponding action happen
 [zd-target]: https://support.zendesk.com/hc/en-us/articles/203662136-Notifying-external-targets
 [zd-trigger]: https://support.zendesk.com/hc/en-us/articles/203662226-Triggers-resources
 [zd-subdom]: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
-
-[tm-secret]: ../guides/secrets.md

@@ -58,7 +58,7 @@ source, it is mandatory to enable a [Stream][ddb-streams] on the DynamoDB Table.
 [Enabling a Stream][ddb-stream-enable]. You are free to select the _View type_ that is the most suitable for your own
 usage of the event source.
 
-![DynamoDB Table](../../assets/images/awsdynamodb-source/table-1.png)
+![DynamoDB Table](../assets/images/awsdynamodb-source/table-1.png)
 
 ### Amazon Resource Name (ARN)
 
@@ -71,7 +71,7 @@ tables. It typically has the following format:
 arn:aws:dynamodb:{awsRegion}:{awsAccountId}:table/{tableName}
 ```
 
-![DynamoDB Table ARN](../../assets/images/awsdynamodb-source/table-2.png)
+![DynamoDB Table ARN](../assets/images/awsdynamodb-source/table-2.png)
 
 Alternatively, one can obtain the ARN of a DynamoDB Table by using the [AWS CLI][aws-cli]. The following command
 retrieves the information of a table called `triggermeshtest` in the `us-west-2` region:
@@ -120,7 +120,7 @@ source to operate:
 }
 ```
 
-![Creating an IAM user](../../assets/images/awsdynamodb-source/iam-user-1.png)
+![Creating an IAM user](../assets/images/awsdynamodb-source/iam-user-1.png)
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazondynamodb.html#amazondynamodb-resources-for-iam-policies
 [accesskey]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys

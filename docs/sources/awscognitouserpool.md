@@ -59,7 +59,7 @@ with User Pools][cup-getting-started] guide.
 
 A fully qualified ARN is required to uniquely identify the Amazon Cognito User Pool.
 
-![User Pool ARN](../../assets/images/awscognitouserpool-source/userpool-arn.png)
+![User Pool ARN](../assets/images/awscognitouserpool-source/userpool-arn.png)
 
 As shown in the above screenshot, you can obtain the ARN of a User Pool from the AWS console. It typically has the
 following format:

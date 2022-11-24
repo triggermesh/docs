@@ -45,7 +45,7 @@ The Jira target accepts a number of different event types which result in differ
 
 ## `com.jira.issue.create`
 
-The Jira event Target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formatted as defined in [this schema](../../schemas/jira.issue.json).
+The Jira event Target will create an issue when receiving this event type. The CloudEvent data must contain a Jira issue JSON formatted as defined in [this schema](../schemas/jira.issue.json).
 
 Reply contains a partially filled Jira issue with updated data.
 
@@ -78,7 +78,7 @@ curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
 
 ## `com.jira.issue.get`
 
-The Jira event Target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira issue `GET` request JSON formatted as defined in [this schema](../../schemas/jira.issue.get.json).
+The Jira event Target will retrieve an issue when receiving this event type. The CloudEvent data must contain a Jira issue `GET` request JSON formatted as defined in [this schema](../schemas/jira.issue.get.json).
 
 Reply data contains a Jira issue.
 
@@ -94,7 +94,7 @@ curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \
 
 ## `com.jira.custom`
 
-The Jira event Target will send a request to the Jira API when this event type is received. The CloudEvent data expects a generic API request as defined in [this schema](../../schemas/jira.custom.json).
+The Jira event Target will send a request to the Jira API when this event type is received. The CloudEvent data expects a generic API request as defined in [this schema](../schemas/jira.custom.json).
 
 ```sh
 curl -v -X POST http://jiratarget-tmjira.default.svc.cluster.local \

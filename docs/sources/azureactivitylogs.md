@@ -92,8 +92,8 @@ from Event Hubs.
 
 In the example below, we create a custom IAM role that is dedicated to the TriggerMesh Activity Logs event source:
 
-![IAM roles](../../assets/images/azureactivitylogs-source/iam-1.png)
-![Custom IAM role](../../assets/images/azureactivitylogs-source/iam-2.png)
+![IAM roles](../assets/images/azureactivitylogs-source/iam-1.png)
+![Custom IAM role](../assets/images/azureactivitylogs-source/iam-2.png)
 
 The corresponding role JSON is given as a reference which you can replicate to create a similar custom IAM role:
 
@@ -133,7 +133,7 @@ Follow the instructions at [Quickstart: Create an Event Hub using Azure portal][
 Event Hubs namespace. This namespace will contain an Event Hubs instance which will be configured by the event source as
 the destination of Activity Logs originating from the Azure subscription.
 
-![Event Hubs namespaces](../../assets/images/azureactivitylogs-source/eventhubs-ns-1.png)
+![Event Hubs namespaces](../assets/images/azureactivitylogs-source/eventhubs-ns-1.png)
 
 ### Event Hubs Instance _(optional)_
 
@@ -155,8 +155,8 @@ A resource ID for an Event Hub has the following format:
     The resource ID of the corresponding Event Hubs namespace is obtained by simply omitting the
     `/eventHubs/{eventHubName}` part of the Event Hub's resource ID.
 
-![Event Hub overview](../../assets/images/azureactivitylogs-source/eventhub-1.png)
-![Event Hub resource ID](../../assets/images/azureactivitylogs-source/eventhub-2.png)
+![Event Hub overview](../assets/images/azureactivitylogs-source/eventhub-1.png)
+![Event Hub resource ID](../assets/images/azureactivitylogs-source/eventhub-2.png)
 
 Resource IDs can also be obtained using the [Azure CLI][azure-cli] (`az`). The following command line uses values from
 the screenshots above:
@@ -185,7 +185,7 @@ Hubs screen. By default, the namespace contains a pre-created policy called `Roo
 Send, Listen` claims, which is perfectly suitable for the TriggerMesh Activity Logs event source. If you prefer to use
 your own policy instead, make sure it has the same `Manage, Send, Listen` claims as the default policy.
 
-![Event Hubs SAS key](../../assets/images/azureactivitylogs-source/eventhubs-sas-key.png)
+![Event Hubs SAS key](../assets/images/azureactivitylogs-source/eventhubs-sas-key.png)
 
 ### Checking that you're receiving logs
 
@@ -193,7 +193,7 @@ After creating an Azure Activity Logs event source, navigate back to the Event H
 Portal. You should see a message count above 0 within the namespace, providing that activity logs are being generated
 within the Azure Subscription.
 
-![Event Hub messages](../../assets/images/azureactivitylogs-source/eventhub-msgs.png)
+![Event Hub messages](../assets/images/azureactivitylogs-source/eventhub-msgs.png)
 
 
 [activity-logs]: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-log

@@ -117,9 +117,6 @@ See the [Kubernetes object reference](../../reference/targets/#targets.triggerme
 1. Use the email from the `client_email` field within the JSON key file to share the
 GoogleSheets Sheet you want the Target to have access to. The **Notify people** checkbox should be unchecked.
 
-Consult the [Secrets](../guides/secrets.md) guide for more information about
-how to add the Google API key as a secret.
-
 ### GoogleSheets Sheet ID
 
 In your browser, navigate to the GoogleSheets Sheet you want to use. You can find the Sheet ID in one of two ways:

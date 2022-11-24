@@ -88,8 +88,8 @@ A resource ID for a Storage Account has the following format:
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
 ```
 
-![Storage Account overview](../../assets/images/azureblobstorage-source/storage-account-1.png)
-![Storage Account resource ID](../../assets/images/azureblobstorage-source/storage-account-2.png)
+![Storage Account overview](../assets/images/azureblobstorage-source/storage-account-1.png)
+![Storage Account resource ID](../assets/images/azureblobstorage-source/storage-account-2.png)
 
 Resource IDs can also be obtained using the [Azure CLI][azure-cli] (`az`). The following command line uses values from
 the screenshots above:
@@ -135,8 +135,8 @@ allow it to receive events from an Event Hubs instance.
 In the example below, we create a custom IAM role that is dedicated to the TriggerMesh event source for Azure Blob
 Storage:
 
-![IAM roles](../../assets/images/azureblobstorage-source/iam-1.png)
-![Custom IAM role](../../assets/images/azureblobstorage-source/iam-2.png)
+![IAM roles](../assets/images/azureblobstorage-source/iam-1.png)
+![Custom IAM role](../assets/images/azureblobstorage-source/iam-2.png)
 
 The corresponding role JSON is given as a reference which you can replicate to create a similar custom IAM role:
 
@@ -178,7 +178,7 @@ Follow the instructions at [Quickstart: Create an Event Hub using Azure portal][
 Event Hubs namespace. This namespace will contain an Event Hubs instance which will be configured by the event source as
 the destination of events originating from the Azure Storage Account.
 
-![Event Hubs namespaces](../../assets/images/azureblobstorage-source/eventhubs-ns-1.png)
+![Event Hubs namespaces](../assets/images/azureblobstorage-source/eventhubs-ns-1.png)
 
 ### Event Hubs Instance _(optional)_
 
@@ -199,8 +199,8 @@ A resource ID for an Event Hub has the following format:
     The resource ID of the corresponding Event Hubs namespace is obtained by simply omitting the
     `/eventHubs/{eventHubName}` part of the Event Hub's resource ID.
 
-![Event Hub overview](../../assets/images/azureblobstorage-source/eventhub-1.png)
-![Event Hub resource ID](../../assets/images/azureblobstorage-source/eventhub-2.png)
+![Event Hub overview](../assets/images/azureblobstorage-source/eventhub-1.png)
+![Event Hub resource ID](../assets/images/azureblobstorage-source/eventhub-2.png)
 
 Resource IDs can also be obtained using the [Azure CLI][azure-cli] (`az`). The following command line uses values from
 the screenshots above:
@@ -226,8 +226,8 @@ This can be confirmed by navigating back to the Azure Portal and ensuring that:
 - The Resource Group contains an Event Grid System Topic with an Event Subscription matching the one from the Storage
   Account.
 
-![Event Subscription](../../assets/images/azureblobstorage-source/after-creation-1.png)
-![Event Grid system topic](../../assets/images/azureblobstorage-source/after-creation-2.png)
+![Event Subscription](../assets/images/azureblobstorage-source/after-creation-1.png)
+![Event Grid system topic](../assets/images/azureblobstorage-source/after-creation-2.png)
 
 [storage-acc]: https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview
 

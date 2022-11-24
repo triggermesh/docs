@@ -42,23 +42,23 @@ See the [Kubernetes object reference](../../reference/targets/#targets.triggerme
 
 Open the Splunk web console, then navigate to **Settings > Data > Data inputs**.
 
-![Splunk settings](../../assets/images/splunk-target/hec-1.png)
+![Splunk settings](../assets/images/splunk-target/hec-1.png)
 
 In the list of local inputs, click **HTTP Event Collector**.
 
-![Data inputs](../../assets/images/splunk-target/hec-2.png)
+![Data inputs](../assets/images/splunk-target/hec-2.png)
 
 Click **New token** in order to generate a new token with custom settings, then take note of the value of that token. The
 default HEC token (`splunk_hec_token`) is also suitable for use with the TriggerMesh event Target for Splunk.
 
-![](../../assets/images/splunk-target/hec-3.png)
+![](../assets/images/splunk-target/hec-3.png)
 
 This procedure is described in more detail in the Splunk documentation: [Set up and use HTTP Event Collector in Splunk Web][hec].
 
 To check if you Splunk Target is working, new events should be visible in the **Search & Reporting** app inside Splunk.
 
-![Data summary](../../assets/images/splunk-target/search-1.png)
-![Data search](../../assets/images/splunk-target/search-2.png)
+![Data summary](../assets/images/splunk-target/search-1.png)
+![Data search](../assets/images/splunk-target/search-2.png)
 
 For more information about using Splunk, please refer to the [Splunk documentation][docs].
 

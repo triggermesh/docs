@@ -116,6 +116,8 @@ Or send test event manually:
 tmctl send-event --eventType com.amazon.sqs.message '{"hello":"world"}'
 ```
 
+Formatting expectations are the same as in Curl requests: "foo" in the command line is equivalent to foo which is not a JSON string, '"foo"' is a JSON string, etc. JSON objects formatting has the same logic - '{...}' should be used to preserve the data format, otherwise it will be sent as plain text.
+
 Stop event flow:
 
 ```

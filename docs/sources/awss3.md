@@ -94,7 +94,7 @@ A fully qualified ARN is required to uniquely identify the Amazon S3 bucket.
 
     This information is purely optional and will be determined automatically if not provided.
 
-![S3 Bucket ARN](../../assets/images/awss3-source/arn-region-1.png)
+![S3 Bucket ARN](../assets/images/awss3-source/arn-region-1.png)
 
 ### API Credentials
 
@@ -169,7 +169,7 @@ for you (see next section for more information):
 }
 ```
 
-![IAM Policy](../../assets/images/awss3-source/iam-policy-1.png)
+![IAM Policy](../assets/images/awss3-source/iam-policy-1.png)
 
 ### SQS Queue _(optional)_
 

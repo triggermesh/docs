@@ -76,7 +76,7 @@ with Amazon SNS][sns-getting-started] guide.
 
 A fully qualified ARN is required to uniquely identify the Amazon SNS topic.
 
-![SNS topic](../../assets/images/awssns-source/sns-topic.png)
+![SNS topic](../assets/images/awssns-source/sns-topic.png)
 
 As shown in the above screenshot, you can obtain the ARN of a SNS topic from the AWS console. It typically has the
 following format:
@@ -139,7 +139,7 @@ and delete messages from any topic linked to the AWS account:
 }
 ```
 
-![Creating an IAM user](../../assets/images/awssns-source/sns-user-policy.png)
+![Creating an IAM user](../assets/images/awssns-source/sns-user-policy.png)
 
 [sns-docs]: https://docs.aws.amazon.com/sns/latest/dg/welcome.html
 [sns-getting-started]: https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html
