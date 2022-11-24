@@ -57,6 +57,16 @@ TriggerMesh CLI can be installed from different sources: brew repository, pre-bu
     go install
     ```
 
+    `tmctl` binary must be available in the `$PATH` to generate and use completion. For example, this can be achieved by adding the below command to your `.bashrc` or equivalent:
+
+=== "Configure PATH"
+
+    If the `tmctl` binary is not detected after being installed, make sure that the binary's location is being pointed by the PATH environment variable of your OS. For example when using a compiled from source binary at Linux, this should be present at your profile:
+
+    ```
+    export PATH="$HOME/go/bin:$PATH"
+    ```
+
 **:material-numeric-2-box: Setup autocompletion**
 
 This will let you hit the Tab key to get recommendations when using `tmctl`.
@@ -76,13 +86,13 @@ This will let you hit the Tab key to get recommendations when using `tmctl`.
 
 To make autocompletion load automatically, put this command in one of the shell profile configuration, e.g.:
 
-=== "Bash (Linux, Windows)"
+=== "Bash (Linux, Windows WSL)"
 
     ```
     echo 'source <(tmctl completion bash)' >>~/.bash_profile
     ```
 
-=== "ZSH (MacOS)"
+=== "ZSH (MacOS, Linux)"
 
     ```
     tmctl completion zsh > $(brew --prefix)/share/zsh/site-functions/_tmctl
@@ -94,14 +104,6 @@ To make autocompletion load automatically, put this command in one of the shell 
     ``` -->
 
 For other shells, try `tmctl completion help` for more information.
-
-`tmctl` binary must be available in the `$PATH` to generate and use completion. For example, this can be achieved by adding the below command to your `.bashrc` or equivalent:
-
-```
-export PATH="$HOME/go/bin:$PATH"
-```
-
-This may vary depending on your OS and system configuration.
 
 ## Create a Broker and send it an event
 
