@@ -1,6 +1,6 @@
-# Bumblebee low-code JSON transformation
+# JSON transformation with Bumblebee
 
-## Introduction to Bumblebee
+## Introduction to the Bumblebee transformation language
 
 A Bumblebee transformation consists of two main parts: "context" and "data" for corresponding [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) components.
 

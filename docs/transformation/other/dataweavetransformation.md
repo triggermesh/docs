@@ -11,8 +11,8 @@ This guide shows you how to configure an event flow that transforms an incoming 
 
 ## How to use a DataWeaveTransformation
 
-A `DataWeaveTransformation` object can be configured to either reply to the event sender or to send the 
-transformed data to a `Sink`, if one is provided. In this guide, we will deploy without a `Sink` and 
+A `DataWeaveTransformation` object can be configured to either reply to the event sender or to send the
+transformed data to a `Sink`, if one is provided. In this guide, we will deploy without a `Sink` and
 configure the replies from the transformation to route to the `EventDisplay` service using a `Broker` and a `Trigger`.
 
 The `DataWeaveTransformation` can have a pre-defined parameters configured in the YAML but it also allows to send the parameters as part of the request. In this guide we will use both ways; we will configure the pre-defined parameters in the YAML but we will also use other parameters in the request, which is made possible by enabling the `allowPerEventDwSpell` parameter.
@@ -74,7 +74,7 @@ Let's go step by step to see how we can deploy this transformation as part of a 
 
 Below is a diagram of the Bridge we will construct.
 
-![](../assets/images/dataweavetransformation.png)
+![](../../../assets/images/dataweavetransformation.png)
 
 ## Deploy the Broker
 Deploy a Broker by writing the following YAML in a file:
@@ -91,7 +91,7 @@ kubectl apply -f <manifest.yaml>
 ```
 
 ## Deploying the `EventDisplay` Service
-Let's now deploy the Sink of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
+Let's now deploy the Sink of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can
 be deployed by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`:
 
 ```yaml
@@ -183,8 +183,8 @@ spec:
     tty: true
 ```
 
-    2. Execute the following command to emit a cloudevent to the broker we created: 
-    
+    2. Execute the following command to emit a cloudevent to the broker we created:
+
 ```cmd
 kubectl exec -ti curl -- curl -v "http://broker-ingress.knative-eventing.svc.cluster.local/default/demo" \
   -H "Ce-Specversion: 1.0" \
@@ -242,14 +242,14 @@ Data,
   }
 ```
 
-We now see the incoming event and the transformed data, as expected. 
+We now see the incoming event and the transformed data, as expected.
 
 
 ## Sending the parameters in the request.
 Now we can try passing parameters such as the DataWeave spell and input and output content types as part of the Cloud Event.
 
-    1. Execute the following command to emit a cloudevent to the broker we created: 
-    
+    1. Execute the following command to emit a cloudevent to the broker we created:
+
 ```cmd
 kubectl exec -ti curl -- curl -v "http://broker-ingress.knative-eventing.svc.cluster.local/default/demo" \
   -H "Ce-Specversion: 1.0" \
@@ -308,4 +308,3 @@ Data,
 ```
 
 We now see the incoming event and the transformed data, as expected with the parameters set in the request.
-

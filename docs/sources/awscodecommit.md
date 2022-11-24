@@ -67,7 +67,7 @@ If you don't already have an AWS CodeCommit repository, create one by following 
 CodeCommit repository][cc-create]. The repository should contain at least one [branch][cc-branches]. To create one,
 follow the instructions at [Create a branch in AWS CodeCommit][cc-branch-create].
 
-![CodeCommit repository](../../assets/images/awscodecommit-source/repo-1.png)
+![CodeCommit repository](../assets/images/awscodecommit-source/repo-1.png)
 
 ### Amazon Resource Name (ARN)
 
@@ -132,7 +132,7 @@ source to operate:
 }
 ```
 
-![Creating an IAM user](../../assets/images/awscodecommit-source/iam-user-1.png)
+![Creating an IAM user](../assets/images/awscodecommit-source/iam-user-1.png)
 
 
 [arn]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscodecommit.html#awscodecommit-resources-for-iam-policies

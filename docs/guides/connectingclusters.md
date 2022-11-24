@@ -211,7 +211,7 @@ Data,
 
 Triggers can be configured with filters to make sure only allowed CloudEvents travels between clusters. Refer to [trigger's documentation](https://knative.dev/docs/eventing/broker/triggers/) for configuration options.
 
-[CloudEventsSource](cloudeventssource.md) and [CloudEventsTarget](cloudeventstarget.md) can be configured with HTTP Basic Authentication.
+[CloudEventsSource](../sources/cloudevents.md) and [CloudEventsTarget](../targets/cloudevents.md) can be configured with HTTP Basic Authentication.
 
 !!! Info "HTTP Basic Authentication"
     HTTP Basic Authentication is not enctrypted. When used it is thoroughly recommended that Knative Serving is configured with TLS capabilities.
