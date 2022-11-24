@@ -11,10 +11,10 @@ This guide shows you how to configure an event flow that transforms an incoming 
 * Configure the [Triggers](https://knative.dev/docs/eventing/broker/triggers/)
 * Deploy a curl pod that will allow us to send events to the broker.
 
-![](../assets/images/xslttransformation.png)
+![](../../../assets/images/xslttransformation.png)
 
-An `XSLTTransformation` object can be configured to either reply to the event sender or to send the 
-transformed data to a `Sink`, if one is provided. In this guide, we will deploy without a `Sink` and 
+An `XSLTTransformation` object can be configured to either reply to the event sender or to send the
+transformed data to a `Sink`, if one is provided. In this guide, we will deploy without a `Sink` and
 configure the replies from the transformation to route to the `EventDisplay` service using a `Trigger`.
 
 
@@ -91,7 +91,7 @@ kubectl apply -f <manifest.yaml>
 ```
 
 ### Deploying the `EventDisplay` Service
-Let's now deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can 
+Let's now deploy the end of our event flow. The `EventDisplay` is a simple application that can be used to display CloudEvents. It can
 be deployed by writing the following YAML in a file and using `kubectl apply -f <manifest.yaml>`:
 
 ```yaml
@@ -194,8 +194,8 @@ spec:
     tty: true
 ```
 
-    2. Execute the following command to emit a cloudevent to the broker we created: 
-    
+    2. Execute the following command to emit a cloudevent to the broker we created:
+
 ```cmd
 kubectl exec -ti curl -- curl -v "http://broker-ingress.knative-eventing.svc.cluster.local/default/demo" \
   -H "Ce-Specversion: 1.0" \
@@ -256,4 +256,4 @@ Data,
 </output>
 ```
 
-We now see the incoming event and the transformed data, as expected. 
+We now see the incoming event and the transformed data, as expected.

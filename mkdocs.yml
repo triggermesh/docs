@@ -112,31 +112,27 @@ nav:
       - Zendesk: targets/zendesk.md
     - Brokers:
       - brokers/index.md
-      # - Routing overview: routing/routingoverview.md
       - Memory Broker: brokers/memorybroker.md
       - Redis Broker: brokers/redisbroker.md
       - Triggers: brokers/triggers.md
-      # - Filter: routing/filter.md
-      # - Splitter: routing/splitter.md
     - Transformation:
-      - Transformation overview: transformation/transformation-overview.md
-      - Bumbleebee Transformation (JSON): transformation/bumblebee.md
-      - JQ Transformation: transformation/jqtransformation.md
-      - Mulesoft DataWeave Transformation: transformation/dataweavetransformation.md
-      - XMLtoJSON Transformation: transformation/xmltojsontransformation.md
-      - XSLT Transformation: transformation/xslttransformation.md
-      - Function overview: transformation/function-overview.md
-      - Python functions: transformation/pythonfunctions.md
-      - NodeJS functions: transformation/nodejsfunctions.md
-      - Ruby functions: transformation/rubyfunctions.md
+      - transformation/index.md
+      - JSON Transformation: transformation/jsontransformation.md
+      - Function transformations:
+        - transformation/functions/index.md
+        - Python functions: transformation/functions/pythonfunctions.md
+        - NodeJS functions: transformation/functions/nodejsfunctions.md
+        - Ruby functions: transformation/functions/rubyfunctions.md
+      - Other transformations:
+        - JQ Transformation: transformation/other/jqtransformation.md
+        - Mulesoft DataWeave Transformation: transformation/other/dataweavetransformation.md
+        - XMLtoJSON Transformation: transformation/other/xmltojsontransformation.md
+        - XSLT Transformation: transformation/other/xslttransformation.md
     - Operations:
       - Installation:
         - installation/index.md
-        - Docker: installation/installation-docker.md
         - Kubernetes with YAML: installation/installation-K8s-yaml.md
         - Kubernetes with Helm: installation/installation-K8s-helm.md
-        - Amazon AMI: installation/installation-aws-ami.md
-        - Tanzu Community Edition: installation/installation-tanzu.md
       - Observability:
         - observability/index.md
         - Structured logging: observability/observability-logging.md
@@ -145,6 +141,7 @@ nav:
     - Guides:
       - Creating a DLS: guides/creatingadls.md
       - Creating a Wiretap: guides/createawiretap.md
+      - Creating a Filter: guides/creatingafilter.md
       - Creating a Splitter: guides/creatingasplitter.md
       - Connecting Clusters: guides/connectingclusters.md
       - Using Kong with TriggerMesh: guides/kong-ingress.md

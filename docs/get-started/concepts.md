@@ -45,7 +45,7 @@ Example event:
 
 Sources are the origin of data and events. These may be on-premises or cloud-based. Examples include databases, message queues, logs, and events from applications or services.
 
-All sources are listed and documented in the [sources documentation](../source/awscloudwatch.md) and in the [API Reference](../reference/sources.md).
+All sources are listed and documented in the [sources documentation](../sources/awscloudwatch.md) and in the [API Reference](../reference/sources.md).
 
 ## Brokers, Triggers and Filters
 

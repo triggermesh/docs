@@ -46,7 +46,7 @@ spec:
 - **Default source phone number (_Optional_)**: Sender's phone number, usually configured to the [phone number][pn] purchased at
   Twilio.
 - **Default destination (_Optional_)**: Phone number to send messages to by default.
-- **SID Secret**: Reference to a [TriggerMesh secret](../guides/secrets.md) containing the [SID of the Twilio account][sid].
+- **SID Secret**: Contains the [SID of the Twilio account][sid].
 - **Token Secret**: Contains an [API Access token][token] for
   authenticating requests against the Twilio API.
 

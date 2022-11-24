@@ -12,7 +12,7 @@ Installing TriggerMesh consists of:
 These four steps are highlighted below. The first two steps (i.e Access to a Kubernetes cluster and installation of Knative are not described in details in this documentation). After completing those four steps you can validate your TriggerMesh installation.
 
 !!! note "Alternative Installation Options"
-    You may also use the [TriggerMesh AMI](installation-ami.md) to test the platform in a AWS EC2 instance. You may also use our [Helm Chart](installation-helm.md).
+    TriggerMesh also provides a [Helm Chart](installation-K8s-helm.md) for Kubernetes installation.
 
 ## Pre-requisites
 
@@ -20,8 +20,6 @@ The Knative project is a dependency of TriggerMesh, install it using the instruc
 
 * A Kubernetes cluster version `v1.22+`
 * Knative `v1.0.0+`
-
-If you are using VMware's [Tanzu Community Edition](https://tanzucommunityedition.io/), please refer to the [Installation for Tanzu Community Edition](installation-tce.md).
 
 ## Install the CRDs
 

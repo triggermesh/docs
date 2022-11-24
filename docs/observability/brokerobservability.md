@@ -104,7 +104,7 @@ kubectl exec -ti curl -- curl -v http://metrics-demo-rb-broker.default.svc.clust
 
 Use different `Ce-Type` values and send a number of event requests to be ingested by the broker, then open Grafana's metrics explorer and show `broker_ingest_event_count` metrics.
 
-![Broker ingest count metrics](./assets/images/prometheus-ingest.png)
+![Broker ingest count metrics](../assets/images/prometheus-ingest.png)
 
 Incoming requests expose metrics:
 
@@ -139,7 +139,7 @@ spec:
 
 Just as before, use the `curl` pod to produce events with different `Ce-Type` values that start with `demo.`. Then use Grafana's  metrics explorer and show `broker_ingest_event_count` metrics.
 
-![Broker ingest count metrics](./assets/images/prometheus-trigger.png)
+![Broker ingest count metrics](../assets/images/prometheus-trigger.png)
 
 Incoming requests expose metrics:
 
