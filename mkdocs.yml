@@ -31,87 +31,134 @@ extra_javascript:
 # Page tree
 nav:
     - Home: index.md
-    - Concepts:
-      - '': concepts.md
-      - Sources: concepts/sources.md
-      - Targets: concepts/targets.md
-      - Routing: concepts/routing.md
-      - Transformation: concepts/transformation.md
-      - Functions: concepts/functions.md
-      - TriggerMesh Integration Language: til/Introduction.md
-      - Scaling: concepts/scaling.md
+    - Get started:
+      - Quickstart: get-started/quickstart.md
+      - Concepts: get-started/concepts.md
+      - Create a local event viewer: get-started/create-local-eventviewer.md
+      - Moving from local to Kubernetes: get-started/moving-from-dev-to-K8s.md
+      - Memory Broker on Kubernetes: get-started/guide-memorybroker-on-K8s.md
+      - Redis Broker on Kubernetes: get-started/guide-redisbroker-on-K8s.md
+    - Sources:
+      - Amazon CloudWatch: sources/awscloudwatch.md
+      - Amazon CloudWatchLogs: sources/awscloudwatchlogs.md
+      - Amazon CodeCommit: sources/awscodecommit.md
+      - Amazon Cognito Identity Pools: sources/awscognitoidentity.md
+      - Amazon Cognito User Pools: sources/awscognitouserpool.md
+      - Amazon DynamoDB: sources/awsdynamodb.md
+      - Amazon EventBridge: sources/awseventbridge.md
+      - Amazon Kinesis: sources/awskinesis.md
+      - Amazon S3: sources/awss3.md
+      - Amazon SNS: sources/awssns.md
+      - Amazon SQS: sources/awssqs.md
+      - Azure Activity Logs: sources/azureactivitylogs.md
+      - Azure Blob Storage: sources/azureblobstorage.md
+      - Azure Event Grid: sources/azureeventgrid.md
+      - Azure Event Hubs: sources/azureeventhubs.md
+      - Azure IoT Hub: sources/azureiothub.md
+      - Azure Queue Storage: sources/azurequeuestorage.md
+      - Azure Service Bus Queue: sources/azureservicebusqueue.md
+      - Azure Service Bus Topic: sources/azureservicebustopic.md
+      - CloudEvents: sources/cloudevents.md
+      - Github: sources/github.md
+      - Google Cloud Audit Logs: sources/googlecloudauditlogs.md
+      - Google Cloud Billing: sources/googlecloudbilling.md
+      - Google Cloud Pub/Sub: sources/googlecloudpubsub.md
+      - Google Cloud Repositories: sources/googlecloudrepositories.md
+      - Google Cloud Storage: sources/googlecloudstorage.md
+      - Kafka: sources/kafka.md
+      - HTTP Poller: sources/httppoller.md
+      - IBM MQ: sources/ibmmq.md
+      - OCIMetrics: sources/ocimetrics.md
+      - Salesforce: sources/salesforce.md
+      - Slack: sources/slack.md
+      - Twilio: sources/twilio.md
+      - Webhook: sources/webhook.md
+      - Zendesk: sources/zendesk.md
+    - Targets:
+      - Alibaba OSS: targets/alibabaoss.md
+      - Amazon Comprehend: targets/awscomprehend.md
+      - Amazon DynamoDB: targets/awsdynamodb.md
+      - Amazon EventBridge: targets/awseventbridge.md
+      - Amazon Kinesis: targets/awskinesis.md
+      - Amazon Lambda: targets/awslambda.md
+      - Amazon S3: targets/awss3.md
+      - Amazon SNS: targets/awssns.md
+      - Amazon SQS: targets/awssqs.md
+      - Azure Event Hubs: targets/azureeventhubs.md
+      - Azure Sentinel: targets/azuresentinel.md
+      - CloudEvents: targets/cloudevents.md
+      - Confluent (deprecated): targets/confluent.md
+      - Datadog: targets/datadog.md
+      - Elasticsearch: targets/elasticsearch.md
+      - Google Cloud Pub/Sub: targets/googlecloudpubsub.md
+      - Google Cloud Storage: targets/googlecloudstorage.md
+      - Google Cloud Workflows: targets/googlecloudworkflows.md
+      - Google Firestore: targets/googlefirestore.md
+      - Google Sheets: targets/googlesheets.md
+      - Hasura: targets/hasura.md
+      - HTTP: targets/http.md
+      - IBM MQ: targets/ibmmq.md
+      - Jira: targets/jira.md
+      - Kafka: targets/kafka.md
+      - Logz.io: targets/logz.md
+      - Logz.io Metrics: targets/logzmetrics.md
+      - Oracle: targets/oracle.md
+      - Salesforce: targets/salesforce.md
+      - SendGrid: targets/sendgrid.md
+      - Slack: targets/slack.md
+      - Splunk: targets/splunk.md
+      - Tekton: targets/tekton.md
+      - Twilio: targets/twilio.md
+      - Zendesk: targets/zendesk.md
+    - Brokers:
+      - brokers/index.md
+      - Memory Broker: brokers/memorybroker.md
+      - Redis Broker: brokers/redisbroker.md
+      - Triggers: brokers/triggers.md
+    - Transformation:
+      - transformation/index.md
+      - JSON Transformation: transformation/jsontransformation.md
+      - Function transformations:
+        - transformation/functions/index.md
+        - Python functions: transformation/functions/pythonfunctions.md
+        - NodeJS functions: transformation/functions/nodejsfunctions.md
+        - Ruby functions: transformation/functions/rubyfunctions.md
+      - Other transformations:
+        - JQ Transformation: transformation/other/jqtransformation.md
+        - Mulesoft DataWeave Transformation: transformation/other/dataweavetransformation.md
+        - XMLtoJSON Transformation: transformation/other/xmltojsontransformation.md
+        - XSLT Transformation: transformation/other/xslttransformation.md
+    - Operations:
+      - Installation:
+        - installation/index.md
+        - Kubernetes with YAML: installation/installation-K8s-yaml.md
+        - Kubernetes with Helm: installation/installation-K8s-helm.md
+      - Observability:
+        - observability/index.md
+        - Structured logging: observability/observability-logging.md
+        - Telemetry metrics: observability/observability-metrics.md
+        - Broker observability: observability/brokerobservability.md
     - Guides:
-      - Creating a Source: guides/creatingasource.md
-      - Creating a Target: guides/creatingatarget.md
       - Creating a DLS: guides/creatingadls.md
       - Creating a Wiretap: guides/createawiretap.md
-      - Writing a Filter: guides/writingafilter.md
+      - Creating a Filter: guides/creatingafilter.md
       - Creating a Splitter: guides/creatingasplitter.md
-      - Doing a Transformation: guides/doingatransformation.md
-      - Writing a Function: guides/writingafunction.md
-      - Transforming using DataWeave: guides/dataweavetransformation.md
-      - Transforming XML to JSON: guides/xmltojsontransformation.md
-      - Transforming XML with XSLT: guides/xslttransformation.md
-      - Ingesting External CloudEvents: guides/cloudeventssource.md
-      - Exporting CloudEvents: guides/cloudeventstarget.md
       - Connecting Clusters: guides/connectingclusters.md
-      - Using TIL: guides/tilgettingstarted.md
       - Using Kong with TriggerMesh: guides/kong-ingress.md
       - Using Kuma Mesh with TriggerMesh: guides/kuma.md
       - Creating a PrivateLink to TriggerMesh Services: guides/triggermesh-privatelink.md
-      - Bridges:
-        - Webhook to Slack: guides/bridges/webhook-to-slack.md
-    - Installation:
-      - '': guides/installation.md
-      - Using an AWS AMI: guides/installation-ami.md
-      - Using Helm: guides/installation-helm.md
-      - Tanzu Community Edition: guides/installation-tce.md
-    - Observability:
-      - '': guides/observability.md
-      - Structured logging: guides/observability-logging.md
-      - Telemetry metrics: guides/observability-metrics.md
-    - Integration Language:
-      - '': til/Introduction.md
-      - CLI: til/Commands.md
-      - Language:
-        - Concepts: til/Concepts.md
-        - Bridge Description Files: til/Bridge-Description-Files.md
-        - Component Categories: til/Component-Categories.md
-        - Global Settings: til/Global-Settings.md
-        - Secret References: til/Secret-References.md
-        - Function Expresssions: til/Function-Expressions.md
-      - Implementations:
-        - Channels: til/Channels.md
-        - Routers: til/Routers.md
-        - Transformers: til/Transformers.md
-        - Sources: til/Sources.md
-        - Targets: til/Targets.md
-      - Deployment:
-        - Output Format: til/Output-Format.md
-        - Using Helm: til/Helm.md
-        - Using Carvel kapp: til/Carvel-kapp.md
-        - Using kubectl: til/Kubectl.md
-        - Using kustomize: til/Kustomize.md
+      - Scaling: guides/scaling.md
+      - Webhook to Slack: guides/webhook-to-slack.md
+      - Tips for Kubernetes: guides/kubernetestips.md
     - Reference:
-      - '': apis/apis.md
-      - Sources: apis/sources.md
-      - Targets: apis/targets.md
-      - Routing: apis/routing.md
-      - Transformation: apis/flow.md
-      - Functions: apis/extensions.md
-    - Enterprise:
-      - '': cloud/index.md
-      - Bridge: cloud/bridge.md
-      - Sources: cloud/sources/sources.md
-      - Targets: cloud/targets/targets.md
-      - Secrets: cloud/secrets.md
-      - Creating a Service: guides/creatingaservice.md
-      - Using the CLI:
-        - Installation: tm/install.md
-        - Configuration: tm/configuration.md
-        - Usage: tm/usage.md
-        - Registry: tm/registry.md
-        - Serverless Manifest: tm/serverless.md
+      - CLI commands: reference/cli-commands.md
+      - Kubernetes CRDs:
+        - reference/index.md
+        - Sources: reference/sources.md
+        - Targets: reference/targets.md
+        - Routing: reference/routing.md
+        - Transformation: reference/flow.md
+        - Functions: reference/extensions.md
 
 theme:
   name: material
@@ -124,7 +171,6 @@ theme:
   - content.code.annotate
   - content.tabs.link
   - navigation.indexes
-  - navigation.tabs
   - navigation.tabs.sticky
   - navigation.top
   - navigation.tracking
@@ -143,15 +189,21 @@ extra:
 
 markdown_extensions:
   - attr_list
+  - md_in_html
   - def_list
   - admonition
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 plugins:
     - search
-    - redirects:
-        redirect_maps:
-            'sources.md': 'concepts/sources.md'

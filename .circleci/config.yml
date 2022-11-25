@@ -13,7 +13,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - checkout
-      - run: pip install mkdocs-material mkdocs-redirects
+      - run: pip install git+https://${MKDOCS_INSIDERS_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git mkdocs-redirects
       - run:
           name: Building package
           command: make build

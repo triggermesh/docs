@@ -1,7 +1,7 @@
 # Connecting TriggerMesh Clusters
 
 !!! Info "Installation"
-    Make sure you have completed the installation [procedure](installation.md) before proceeding with any of the guides.
+    Make sure you have completed the installation [procedure](../installation/index.md) before proceeding with any of the guides.
 
 In this guide we will connect 2 TriggerMesh clusters that will be able to interchange CloudEvents flowing through them. You might want to connect multiple TriggerMesh instances to:
 
@@ -211,7 +211,7 @@ Data,
 
 Triggers can be configured with filters to make sure only allowed CloudEvents travels between clusters. Refer to [trigger's documentation](https://knative.dev/docs/eventing/broker/triggers/) for configuration options.
 
-[CloudEventsSource](cloudeventssource.md) and [CloudEventsTarget](cloudeventstarget.md) can be configured with HTTP Basic Authentication.
+[CloudEventsSource](../sources/cloudevents.md) and [CloudEventsTarget](../targets/cloudevents.md) can be configured with HTTP Basic Authentication.
 
 !!! Info "HTTP Basic Authentication"
     HTTP Basic Authentication is not enctrypted. When used it is thoroughly recommended that Knative Serving is configured with TLS capabilities.
