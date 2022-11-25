@@ -72,7 +72,7 @@ nav:
       - Salesforce: sources/salesforce.md
       - Slack: sources/slack.md
       - Twilio: sources/twilio.md
-      - Webhook: sources/webhook.md
+      - Webhook (HTTP): sources/webhook.md
       - Zendesk: sources/zendesk.md
     - Targets:
       - Alibaba OSS: targets/alibabaoss.md
