@@ -91,7 +91,7 @@ jobs:
           name: Cloning config repository
           command: git clone --single-branch git@github.com:triggermesh/config.git tmconfig
       - run:
-          name: Updating overlays/<< parameters.cluster >>/sources manifests
+          name: Updating overlays/<< parameters.cluster >>/docs manifests
           working_directory: tmconfig/
           command: |
             sed -i overlays/<< parameters.cluster >>/docs/deployment.yaml -e "s|gcr.io/triggermesh/docs:.*|gcr.io/triggermesh/docs:"${CIRCLE_TAG:-${CIRCLE_SHA1}}"|g"
@@ -122,10 +122,20 @@ workflows:
             branches:
               only: main
       - deploy:
+          name: update-staging-config
+          cluster: staging
+          requires:
+            - publish-image
+          filters:
+            branches:
+              only: main
+            tags:
+              only: /^v([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
+      - deploy:
           name: update-production-config
           cluster: prod
           requires:
-            - publish-image
+            - update-staging-config
           filters:
             tags:
               only: /^v([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
