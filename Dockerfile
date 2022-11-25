@@ -1,6 +1,8 @@
 FROM python:3 AS builder
 
-RUN pip install mkdocs-material mkdocs-redirects
+ARG MKDOCS_INSIDERS_TOKEN=
+
+RUN pip install git+https://${MKDOCS_INSIDERS_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git mkdocs-redirects
 
 COPY . /docs
 

@@ -31,7 +31,7 @@ jobs:
       - gcp-cli/initialize
       - run:
           name: Publishing docker image
-          command: IMAGE_SHA=${CIRCLE_SHA1} IMAGE_TAG=${CIRCLE_TAG:-latest} make cloudbuild
+          command: IMAGE_SHA=${CIRCLE_SHA1} IMAGE_TAG=${CIRCLE_TAG:-latest} MKDOCS_INSIDERS_TOKEN=${MKDOCS_INSIDERS_TOKEN} make cloudbuild
 
   release:
     executor:
