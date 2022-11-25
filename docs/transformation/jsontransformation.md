@@ -205,6 +205,18 @@ spec:
       value: $ceType
 ```
 
+### CloudEvents extensions
+
+CloudEvent's context extensions can be accessed by using the `extensions.*` key prefix, for example below we show how to add a new CloudEvents extension attribute to the event:
+
+```yaml
+context:
+  - operation: add
+    paths:
+    - key: extensions.profile
+      value: something
+```
+
 ## Kubernetes tutorial
 
 In this Kubernetes guide, we will create a
