@@ -131,8 +131,10 @@ nav:
     - Operations:
       - Installation:
         - installation/index.md
-        - Kubernetes with YAML: installation/installation-K8s-yaml.md
-        - Kubernetes with Helm: installation/installation-K8s-helm.md
+        - Kubernetes:
+          - Components with YAML: installation/kubernetes/components-yaml.md
+          - Components with Helm: installation/kubernetes/components-helm.md
+          - Core with YAML: installation/kubernetes/core-yaml.md
       - Observability:
         - observability/index.md
         - Structured logging: observability/observability-logging.md

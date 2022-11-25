@@ -1,4 +1,4 @@
-# Install TriggerMesh on Kubernetes with YAML
+# Install TriggerMesh Components on Kubernetes with YAML
 
 The TriggerMesh Cloud Native Integration Platform is composed of a set of APIs implemented as Kubernetes Custom Resource Definitions (CRDs) and a controller.
 
@@ -12,7 +12,7 @@ Installing TriggerMesh consists of:
 These four steps are highlighted below. The first two steps (i.e Access to a Kubernetes cluster and installation of Knative are not described in details in this documentation). After completing those four steps you can validate your TriggerMesh installation.
 
 !!! note "Alternative Installation Options"
-    TriggerMesh also provides a [Helm Chart](installation-K8s-helm.md) for Kubernetes installation.
+    TriggerMesh also provides a [Helm Chart](components-helm.md) for Kubernetes installation.
 
 ## Pre-requisites
 
