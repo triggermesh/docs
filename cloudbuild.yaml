@@ -3,6 +3,7 @@ steps:
 - name: gcr.io/kaniko-project/executor:v1.6.0-debug
   args:
   - --dockerfile=Dockerfile
+  - --build-arg=MKDOCS_INSIDERS_TOKEN=${_MKDOCS_INSIDERS_TOKEN}
   - --destination=gcr.io/$PROJECT_ID/docs:${COMMIT_SHA}
   - --destination=gcr.io/$PROJECT_ID/docs:${_KANIKO_IMAGE_TAG}
   - --cache-repo=gcr.io/$PROJECT_ID/docs/cache
@@ -16,6 +17,7 @@ steps:
 timeout: 120s
 
 substitutions:
+  _MKDOCS_INSIDERS_TOKEN:
   _KANIKO_IMAGE_TAG: latest
   _KANIKO_NO_PUSH: 'false'
   _KANIKO_USE_BUILD_CACHE: 'true'
