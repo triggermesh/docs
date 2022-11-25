@@ -33,19 +33,13 @@ TriggerMesh CLI can be installed from different sources: brew repository, pre-bu
 
 === "Pre-built binary"
 
-    For MacOS on Apple Silicon chips:
+    Use the following one-liner to automatically download and install the CLI:
 
     ```
-    curl -L https://github.com/triggermesh/tmctl/releases/download/v0.0.1/tmctl_0.0.1_darwin_arm64 -o /usr/local/bin/tmctl && chmod +x /usr/local/bin/tmctl
+    curl -sSfL https://raw.githubusercontent.com/triggermesh/tmctl/HEAD/hack/install.sh | sh
     ```
 
-    Linux, AMD64:
-
-    ```
-    curl -L https://github.com/triggermesh/tmctl/releases/download/v0.0.1/tmctl_0.0.1_linux_amd64 -o /usr/local/bin/tmctl && chmod +x /usr/local/bin/tmctl
-    ```
-
-    To view more versions and architectures of pre-built binaries please visit our GitHub [release page](https://github.com/triggermesh/tmctl/releases/latest).
+    Alternatively, visit the [releases page](https://github.com/triggermesh/tmctl/releases) to manually download the latest version for your platform and make sure the path of the downloaded binary is configured in the `PATH` environment variable.
 
 === "From source"
 
@@ -57,34 +51,21 @@ TriggerMesh CLI can be installed from different sources: brew repository, pre-bu
     go install
     ```
 
-    `tmctl` binary must be available in the `$PATH` to generate and use completion. For example, this can be achieved by adding the below command to your `.bashrc` or equivalent:
-
-=== "Configure PATH"
-
-    If the `tmctl` binary is not detected after being installed, make sure that the binary's location is being pointed by the PATH environment variable of your OS. For example when using a compiled from source binary at Linux, this should be present at your profile:
+    Make sure that the binary's location is configured in the `PATH` environment variable, like so:
 
     ```
     export PATH="$HOME/go/bin:$PATH"
     ```
 
+    Verify that the binary has been successfully installed:
+
+    ```
+    tmctl --help
+    ```
+
 **:material-numeric-2-box: Setup autocompletion**
 
 This will let you hit the Tab key to get recommendations when using `tmctl`.
-
-=== "Bash (Linux, Windows)"
-
-    ```
-    source <(tmctl completion bash)
-    ```
-
-=== "ZSH (MacOS)"
-
-    ```
-    source <(tmctl completion zsh)
-    compdef _tmctl tmctl
-    ```
-
-To make autocompletion load automatically, put this command in one of the shell profile configuration, e.g.:
 
 === "Bash (Linux, Windows WSL)"
 
