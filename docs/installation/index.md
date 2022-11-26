@@ -10,6 +10,9 @@ TriggerMesh products are summarized into:
 
 If you are new to TriggerMesh or if you are not familiar with Kubernetes we recommend that you start using the [CLI](../reference/cli-commands.md), which will only require [docker](https://docs.docker.com/engine/install/) to be installed, and will take care of downloading TriggerMesh images as they are needed.
 
+To install and get started with `tmctl`, please follow these steps:
+
+- [TriggerMesh CLI installation](local/tmctl.md)
 - [TriggerMesh quickstart](../get-started/quickstart.md)
 
 ## TriggerMesh At Kubernetes

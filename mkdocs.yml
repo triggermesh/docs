@@ -135,6 +135,8 @@ nav:
           - Components with YAML: installation/kubernetes/components-yaml.md
           - Components with Helm: installation/kubernetes/components-helm.md
           - Core with YAML: installation/kubernetes/core-yaml.md
+        - Local:
+          - tmctl: installation/local/tmctl.md
       - Observability:
         - observability/index.md
         - Structured logging: observability/observability-logging.md

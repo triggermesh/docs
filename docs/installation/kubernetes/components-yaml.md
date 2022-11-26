@@ -72,36 +72,3 @@ awssnstargets.targets.triggermesh.io                    2021-10-06T09:01:30Z
 awssqssources.sources.triggermesh.io                    2021-10-06T09:01:30Z
 awssqstargets.targets.triggermesh.io                    2021-10-06T09:01:30Z
 ```
-
-A handy way to start exploring the API is to use `kubectl explain` on a specific `kind`, for example the AWS SQS source like below:
-
-```console
-$ kubectl explain awssqssources
-KIND:     AWSSQSSource
-VERSION:  sources.triggermesh.io/v1alpha1
-
-DESCRIPTION:
-     TriggerMesh event source for Amazon SQS.
-FIELDS:
-   apiVersion	<string>
-     APIVersion defines the versioned schema of this representation of an
-     object. Servers should convert recognized schemas to the latest internal
-     value, and may reject unrecognized values. More info:
-     https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-
-   kind	<string>
-     Kind is a string value representing the REST resource this object
-     represents. Servers may infer this from the endpoint the client submits
-     requests to. Cannot be updated. In CamelCase. More info:
-     https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-
-   metadata	<Object>
-     Standard object's metadata. More info:
-     https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-   spec	<Object>
-     Desired state of the event source.
-
-   status	<Object>
-     Reported status of the event source.
-```
