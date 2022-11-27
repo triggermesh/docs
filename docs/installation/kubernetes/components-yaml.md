@@ -1,4 +1,4 @@
-# Install TriggerMesh on Kubernetes with YAML
+# Install TriggerMesh Components on Kubernetes with YAML
 
 The TriggerMesh Cloud Native Integration Platform is composed of a set of APIs implemented as Kubernetes Custom Resource Definitions (CRDs) and a controller.
 
@@ -12,7 +12,7 @@ Installing TriggerMesh consists of:
 These four steps are highlighted below. The first two steps (i.e Access to a Kubernetes cluster and installation of Knative are not described in details in this documentation). After completing those four steps you can validate your TriggerMesh installation.
 
 !!! note "Alternative Installation Options"
-    TriggerMesh also provides a [Helm Chart](installation-K8s-helm.md) for Kubernetes installation.
+    TriggerMesh also provides a [Helm Chart](components-helm.md) for Kubernetes installation.
 
 ## Pre-requisites
 
@@ -71,37 +71,4 @@ awssnssources.sources.triggermesh.io                    2021-10-06T09:01:30Z
 awssnstargets.targets.triggermesh.io                    2021-10-06T09:01:30Z
 awssqssources.sources.triggermesh.io                    2021-10-06T09:01:30Z
 awssqstargets.targets.triggermesh.io                    2021-10-06T09:01:30Z
-```
-
-A handy way to start exploring the API is to use `kubectl explain` on a specific `kind`, for example the AWS SQS source like below:
-
-```console
-$ kubectl explain awssqssources
-KIND:     AWSSQSSource
-VERSION:  sources.triggermesh.io/v1alpha1
-
-DESCRIPTION:
-     TriggerMesh event source for Amazon SQS.
-FIELDS:
-   apiVersion	<string>
-     APIVersion defines the versioned schema of this representation of an
-     object. Servers should convert recognized schemas to the latest internal
-     value, and may reject unrecognized values. More info:
-     https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-
-   kind	<string>
-     Kind is a string value representing the REST resource this object
-     represents. Servers may infer this from the endpoint the client submits
-     requests to. Cannot be updated. In CamelCase. More info:
-     https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-
-   metadata	<Object>
-     Standard object's metadata. More info:
-     https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-   spec	<Object>
-     Desired state of the event source.
-
-   status	<Object>
-     Reported status of the event source.
 ```

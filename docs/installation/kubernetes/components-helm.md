@@ -1,9 +1,9 @@
-# Install TriggerMesh on Kubernetes with Helm
+# Install TriggerMesh Components on Kubernetes with Helm
 
 This chart installs the [TriggerMesh Cloud Native Integration Platform](https://github.com/triggermesh/triggermesh) on a Kubernetes cluster.
 
 !!! note
-    This is an alternative method of installation. A straight forward `kubectl apply` is actually all [it takes](index.md) to get TriggerMesh up and running.
+    This is an alternative method of installation. A straight forward `kubectl apply` is actually all [it takes](../index.md) to get TriggerMesh up and running.
 
 ## TL;DR;
 
