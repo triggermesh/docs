@@ -192,7 +192,7 @@ extra:
       name: TriggerMesh on Twitter
   analytics:
     provider: google
-    property: G-LQZ4Y063WT
+    property: G-N07B164J7T
 
 
 markdown_extensions:
