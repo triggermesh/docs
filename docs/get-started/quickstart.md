@@ -26,10 +26,9 @@ TriggerMesh CLI can be installed from different sources: brew repository, pre-bu
 
 === "Brew"
 
-    Coming soon...
-    <!-- ```
-    brew install tmctl
-    ``` -->
+    ```
+    brew install triggermesh/cli/tmctl
+    ```
 
 === "Pre-built binary"
 
