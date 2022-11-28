@@ -7,6 +7,7 @@ TriggerMesh is composed of a set of APIs representing:
 * Event Routing [components](./routing.md)
 * Declarative event [Transformation](./flow.md)
 * Event processing using [Function](./extensions.md)
+* Core TriggerMesh [eventing](./eventing.md)
 
 ## Repository structure
 

@@ -163,6 +163,7 @@ nav:
         - Routing: reference/routing.md
         - Transformation: reference/flow.md
         - Functions: reference/extensions.md
+        - Core: reference/eventing.md
 
 theme:
   name: material
