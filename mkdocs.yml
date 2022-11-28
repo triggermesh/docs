@@ -190,6 +190,10 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/triggermesh
       name: TriggerMesh on Twitter
+  analytics:
+    provider: google
+    property: G-LQZ4Y063WT
+
 
 markdown_extensions:
   - attr_list
