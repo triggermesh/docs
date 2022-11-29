@@ -6,7 +6,7 @@ an [Amazon SQS queue][sqs-docs] in order to be consumable by the event source.
 With `tmctl`:
 
 ```
-tmctl create source awss3 --arn <arn> --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
+tmctl create source awss3 --arn <arn> --eventTypes <eventTypes> --auth.credentials.accessKeyID <keyID> --auth.credentials.secretAccessKey <key>
 ```
 
 On Kubernetes:
