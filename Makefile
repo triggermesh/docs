@@ -43,7 +43,7 @@ cloudbuild-test: ## Test container image build with Google Cloud Build
 	gcloud builds submit $(BASE_DIR) --config cloudbuild.yaml --substitutions _MKDOCS_INSIDERS_TOKEN=${MKDOCS_INSIDERS_TOKEN},COMMIT_SHA=${IMAGE_SHA},_KANIKO_IMAGE_TAG=_
 
 cloudbuild: ## Build and publish image to GCR
-	gcloud builds submit $(BASE_DIR) --config cloudbuild.yaml --substitutions _MKDOCS_INSIDERS_TOKEN=${MKDOCS_INSIDERS_TOKEN},COMMIT_SHA=${CIRCLE_SHA1},_KANIKO_IMAGE_TAG=${IMAGE_TAG:-latest}
+	gcloud builds submit $(BASE_DIR) --config cloudbuild.yaml --substitutions _MKDOCS_INSIDERS_TOKEN=${MKDOCS_INSIDERS_TOKEN},COMMIT_SHA=${IMAGE_SHA},_KANIKO_IMAGE_TAG=${IMAGE_TAG}
 
 clean: ## Clean build artifacts
 	@$(RM) -v $(DIST_DIR)/$(PACKAGE)-$(VERSION).tar.bz2
