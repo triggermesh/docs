@@ -100,9 +100,12 @@ jobs:
           name: Committing overlays/<< parameters.cluster >>/docs updates
           working_directory: tmconfig/
           command: |
-            git add overlays
-            git commit -m "Update overlays/<< parameters.cluster >>/docs deployment to '${CIRCLE_TAG:-${CIRCLE_SHA1}}'"
-            git push origin main
+            git add overlays/<< parameters.cluster >>/docs
+            if ! git diff --cached --exit-code --quiet; then
+              git --no-pager diff --cached
+              git commit -m "Update overlays/<< parameters.cluster >>/docs deployment to '${CIRCLE_TAG:-${CIRCLE_SHA1}}'"
+              git push origin main
+            fi
 
 workflows:
   build-test-and-publish:
