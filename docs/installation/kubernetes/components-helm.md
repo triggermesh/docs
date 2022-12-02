@@ -19,14 +19,14 @@ Knative Eventing is not a prerequisite for TriggerMesh to run, but we do provide
 
 Add the TriggerMesh chart repository to Helm:
 
-```console
-$ helm repo add triggermesh https://storage.googleapis.com/triggermesh-charts
+```sh
+helm repo add triggermesh https://storage.googleapis.com/triggermesh-charts
 ```
 
 To install the chart with the release name `triggermesh`:
 
-```console
-$ helm install -n triggermesh triggermesh triggermesh/triggermesh --create-namespace
+```sh
+helm install -n triggermesh triggermesh triggermesh/triggermesh --create-namespace
 ```
 
 !!! info
@@ -38,8 +38,8 @@ The command deploys the TriggerMesh open source components in the default config
 
 To uninstall/delete the `triggermesh` deployment:
 
-```console
-$ helm uninstall triggermesh -n triggermesh
+```sh
+helm uninstall triggermesh -n triggermesh
 ```
 
 The Kubernetes resources associated with chart will be removed and the Helm release will be deleted.
