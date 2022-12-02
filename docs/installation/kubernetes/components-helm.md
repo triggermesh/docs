@@ -5,19 +5,15 @@ This chart installs the [TriggerMesh Cloud Native Integration Platform](https://
 !!! note
     This is an alternative method of installation. A straight forward `kubectl apply` is actually all [it takes](../index.md) to get TriggerMesh up and running.
 
-## TL;DR;
-
-If you are familiar with [Helm](https://helm.sh/) just go for it:
-
-```console
-$ helm repo add triggermesh https://storage.googleapis.com/triggermesh-charts
-$ helm install -n triggermesh triggermesh triggermesh/triggermesh --create-namespace
-```
-
 ## Prerequisites
   - Kubernetes 1.22+
-  - Knative v1.0.0+
+  - Knative Serving v1.0.0+
   - Helm 3.0+
+
+## Installing Knative Serving
+
+Please refer to the official Knative Serving [installation instructions](https://knative.dev/docs/install/). 
+Knative Eventing is not a prerequisite for TriggerMesh to run, but we do provide compatibility for Knative Eventing users. 
 
 ## Installing the Chart
 
@@ -27,10 +23,10 @@ Add the TriggerMesh chart repository to Helm:
 $ helm repo add triggermesh https://storage.googleapis.com/triggermesh-charts
 ```
 
-To install the chart with the release name `my-release`:
+To install the chart with the release name `triggermesh`:
 
 ```console
-$ helm install --name my-release triggermesh/triggermesh
+$ helm install -n triggermesh triggermesh triggermesh/triggermesh --create-namespace
 ```
 
 !!! info
@@ -40,10 +36,10 @@ The command deploys the TriggerMesh open source components in the default config
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `my-release` deployment:
+To uninstall/delete the `triggermesh` deployment:
 
 ```console
-$ helm uninstall my-release
+$ helm uninstall triggermesh -n triggermesh
 ```
 
 The Kubernetes resources associated with chart will be removed and the Helm release will be deleted.
