@@ -1,14 +1,8 @@
-
-<!-- If we want external targets:
-
-tmctl create target http --endpoint https://image-charts.com --method GET --response.eventType qr-data.response
-tmctl send-event --eventType qr-data.request '{"path_suffix":"chart","query":"chs=150x150&cht=qr&chl=Hello%20world&choe=UTF-8"}' -->
-
 # Quickstart
 
 This quickstart will take you through the fastest and easiest way to start using events with TriggerMesh's command line interface, `tmctl`. `tmctl` makes it easy to create, configure and run a TriggerMesh Broker on any machine that has Docker.
 
-We'll go through a simple hello world example, and you can expand from there. By the end of this quickstart, you will have created the flow shown below, in which we gather events containing buzzword-laden quotes, transform them and route them to a browser-based event viewer.
+We'll go through a simple hello world example, and you can expand from there. By the end of this quickstart, you will have created the flow shown below, in which we capture events from a text generator service, transform them and route them to a browser-based event viewer called TriggerMesh Console.
 
 ![](../assets/images/quickstart/quickstart-diagram.png)
 
