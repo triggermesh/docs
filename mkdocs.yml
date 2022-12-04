@@ -33,6 +33,7 @@ nav:
     - Home: index.md
     - Get started:
       - Quickstart: get-started/quickstart.md
+      - Configure autocompletion: get-started/autocompletion.md 
       - Concepts: get-started/concepts.md
       - Create a local event viewer: get-started/create-local-eventviewer.md
       - Moving from local to Kubernetes: get-started/moving-from-dev-to-K8s.md

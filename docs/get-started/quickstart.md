@@ -62,28 +62,9 @@ TriggerMesh CLI can be installed from different sources: brew repository, pre-bu
     tmctl --help
     ```
 
-**:material-numeric-2-box: Setup autocompletion**
-
-This will let you hit the Tab key to get recommendations when using `tmctl`.
-
-=== "Bash (Linux, Windows WSL)"
-
-    ```
-    echo 'source <(tmctl completion bash)' >>~/.bash_profile
-    ```
-
-=== "ZSH (MacOS, Linux)"
-
-    ```
-    tmctl completion zsh > $(brew --prefix)/share/zsh/site-functions/_tmctl
-    ```
-
-    <!-- For certain MacOS environments:
-    ```
-    tmctl completion zsh > $(brew --prefix)/share/zsh/site-functions/_tmctl
-    ``` -->
-
 For other shells, try `tmctl completion help` for more information.
+
+We recommend setting up autocompletion for `tmctl`. If you've installed `tmctl` with `brew install` then autocompletion should already be configured. If you used a different method, please refer to the dedicated guide on [configuring autocompletion](autocompletion.md).
 
 ## Create a Broker and send it an event
 
@@ -296,7 +277,7 @@ Now that you know what a source, target, and transformation are, you can start a
 
 ## Clean up
 
-I've you run through this quickstart guide, you'll now have a number of containers running on Docker.
+After running through this quickstart guide, you'll have a number of containers running on Docker.
 
 You can stop all TriggerMesh-related containers with:
 
