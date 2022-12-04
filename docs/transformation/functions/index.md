@@ -4,5 +4,7 @@ TriggerMesh functions are used to perform transformations on events using code w
 
 For low-code style transformations in JSON, refer to [JSON Transformation](../jsontransformation.md).
 
-!!! Warning
-    TriggerMesh Functions are opinionated and simple. They are aimed to be used for event transformation and do not support external dependencies. Functions that may need external dependencies are best served with something like [Knative Serving](https://knative.dev/docs/getting-started/first-service/).
+!!! Info
+    TriggerMesh functions with `tmctl` is a work in progress and not currently supported.
+
+    Furthermore, note that TriggerMesh Functions are opinionated and simple. They are aimed to be used for event transformation and do not support external dependencies. Functions that may need external dependencies are best served with something like AWS Lambda or [Knative Functions](https://knative.dev/docs/functions/).
