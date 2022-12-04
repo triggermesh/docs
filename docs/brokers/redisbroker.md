@@ -1,5 +1,16 @@
 # Redis Broker
 
+The Redis Broker uses a backing Redis instance to store events, thereby providing durability that is suitable for production uses cases where event loss in not acceptable during crashes or restarts.
+
+The management of the Redis instance is greatly simplified by TriggerMesh. It is also possible to point the Broker to any Redis instance, such as a managed instance from a cloud provider.  
+
+With `tmctl`:
+
+!!! warning "Work in progress"
+    This component is not yet available with `tmctl`. By default, Brokers created with `tmctl` are [Memory Brokers](memorybroker.md). However, when you export your configuration to Kubernetes manifests using `tmctl dump`, TriggerMesh will export a `Redis Broker`, thereby providing message durability by default. You can switch to a Memory Broker if you prefer by updating the exported manifest.
+
+    TriggerMesh will add support for Redis Broker in `tmctl` in the future.  
+
 On Kubernetes:
 
 ```yaml

@@ -33,11 +33,13 @@ nav:
     - Home: index.md
     - Get started:
       - Quickstart: get-started/quickstart.md
+      - Configure autocompletion: get-started/autocompletion.md
       - Concepts: get-started/concepts.md
       - Create a local event viewer: get-started/create-local-eventviewer.md
       - Moving from local to Kubernetes: get-started/moving-from-dev-to-K8s.md
       - Memory Broker on Kubernetes: get-started/guide-memorybroker-on-K8s.md
       - Redis Broker on Kubernetes: get-started/guide-redisbroker-on-K8s.md
+      - Event flow and delivery guarantees: get-started/reliabledelivery.md
     - Sources:
       - Amazon CloudWatch: sources/awscloudwatch.md
       - Amazon CloudWatchLogs: sources/awscloudwatchlogs.md
@@ -110,12 +112,14 @@ nav:
       - Tekton: targets/tekton.md
       - Twilio: targets/twilio.md
       - Zendesk: targets/zendesk.md
-    - Brokers:
+    - Brokers and Triggers:
       - brokers/index.md
       - Memory Broker: brokers/memorybroker.md
       - Redis Broker: brokers/redisbroker.md
       - Triggers: brokers/triggers.md
-    - Transformation:
+      - Trigger filters: brokers/triggerfilters.md
+      - Handling failed delivery: brokers/eventdelivery.md
+    - Transformations:
       - transformation/index.md
       - JSON Transformation: transformation/jsontransformation.md
       - Function transformations:

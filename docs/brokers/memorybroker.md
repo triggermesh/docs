@@ -1,5 +1,13 @@
 # Memory Broker
 
+Memory Broker is the simplest Broker implementation provided by TriggerMesh and is used by default by `tmctl`. The [Redis Broker](redisbroker.md) provides event durability and is used by default with TriggerMesh on Kubernetes.
+
+With `tmctl`:
+
+```
+tmctl create broker <broker name>
+```
+
 On Kubernetes:
 
 ```yaml
