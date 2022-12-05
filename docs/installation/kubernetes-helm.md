@@ -6,14 +6,15 @@ This chart installs the [TriggerMesh Cloud Native Integration Platform](https://
     This is an alternative method of installation. A straight forward `kubectl apply` is actually all [it takes](../index.md) to get TriggerMesh up and running.
 
 ## Prerequisites
-  - Kubernetes 1.22+
-  - Knative Serving v1.0.0+
-  - Helm 3.0+
+
+- Kubernetes 1.22+
+- Knative Serving v1.0.0+
+- Helm 3.0+
 
 ## Installing Knative Serving
 
-Please refer to the official Knative Serving [installation instructions](https://knative.dev/docs/install/). 
-Knative Eventing is not a prerequisite for TriggerMesh to run, but we do provide compatibility for Knative Eventing users. 
+Please refer to the official Knative Serving [installation instructions](https://knative.dev/docs/install/).
+Knative Eventing is not a prerequisite for TriggerMesh to run, but we do provide compatibility for Knative Eventing users.
 
 ## Installing the Chart
 

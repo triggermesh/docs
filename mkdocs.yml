@@ -135,12 +135,10 @@ nav:
     - Operations:
       - Installation:
         - installation/index.md
-        - Kubernetes:
-          - Components with YAML: installation/kubernetes/components-yaml.md
-          - Components with Helm: installation/kubernetes/components-helm.md
-          - Core with YAML: installation/kubernetes/core-yaml.md
-        - Local:
-          - tmctl: installation/local/tmctl.md
+        - Kubernetes YAML: installation/kubernetes-yaml.md
+        - Kubernetes Helm: installation/kubernetes-helm.md
+        - Local tmctl: installation/tmctl.md
+        - TriggerMesh and Knative: installation/triggermesh-knative.md
       - Observability:
         - observability/index.md
         - Structured logging: observability/observability-logging.md

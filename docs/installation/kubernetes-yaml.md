@@ -12,28 +12,31 @@ Installing TriggerMesh consists of:
 These four steps are highlighted below. The first two steps (i.e Access to a Kubernetes cluster and installation of Knative are not described in details in this documentation). After completing those four steps you can validate your TriggerMesh installation.
 
 !!! note "Alternative Installation Options"
-    TriggerMesh also provides a [Helm Chart](components-helm.md) for Kubernetes installation.
+    TriggerMesh also provides a [Helm Chart](kubernetes-helm.md) for Kubernetes installation.
 
 ## Pre-requisites
 
-The Knative project is a dependency of TriggerMesh, install it using the instructions in the [Knative documentation](https://knative.dev/docs/admin/install/)
+The Knative Serving project is a dependency of TriggerMesh, install it using the instructions in the [Knative documentation](https://knative.dev/docs/admin/install/)
 
 * A Kubernetes cluster version `v1.22+`
-* Knative `v1.0.0+`
+* Knative Serving `v1.0.0+`
 
 ## Install the CRDs
 
 All TriggerMersh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all of the CRDs.
 
 ```console
+# Core are
+kubectl apply -f https://github.com/triggermesh/triggermesh-core/releases/latest/download/triggermesh-core-crds.yaml
 kubectl apply -f https://github.com/triggermesh/triggermesh/releases/latest/download/triggermesh-crds.yaml
 ```
 
 ## Install the controller
 
-By default, the controller gets deployed in the `triggermesh` namespace. Deploy the controller with the following `kubectl apply` command:
+By default, the controllers are deployed in the `triggermesh` namespace. Deploy the controllers with the following `kubectl apply` command:
 
 ```console
+kubectl apply -f https://github.com/triggermesh/triggermesh-core/releases/latest/download/triggermesh-core.yaml
 kubectl apply -f https://github.com/triggermesh/triggermesh/releases/latest/download/triggermesh.yaml
 ```
 
@@ -46,6 +49,7 @@ $ kubectl get pods -n triggermesh
 NAME                                                   READY   STATUS    RESTARTS   AGE
 triggermesh-controller-5cd97f4c8f-z6r2r                1/1     Running   0          57m
 triggermesh-webhook-79cd8d6f5d-gf2lj                   1/1     Running   0          57m
+triggermesh-core-controller-64c588d74c-jpr42           1/1     Running   0          57m
 ```
 
 All event sources and targets will be available to you as new API objects. For example, you can list all AWS related sources and targets with:
@@ -72,3 +76,4 @@ awssnstargets.targets.triggermesh.io                    2021-10-06T09:01:30Z
 awssqssources.sources.triggermesh.io                    2021-10-06T09:01:30Z
 awssqstargets.targets.triggermesh.io                    2021-10-06T09:01:30Z
 ```
+

@@ -8,7 +8,7 @@ TriggerMesh is free open-source software that lets you easily build event-driven
 
     ---
 
-    Install the TriggerMesh command line interface [`tmctl`](reference/cli-commands.md) and get up
+    Install the TriggerMesh command line interface [`tmctl`](reference/tmctl/tmctl.md) and get up
     and running in minutes on a standard laptop.
 
     [:octicons-arrow-right-24: Getting started](get-started/quickstart.md)
@@ -19,7 +19,7 @@ TriggerMesh is free open-source software that lets you easily build event-driven
 
     TriggerMesh runs natively on Kubernetes with its [`custom resource definitions`](reference/extensions.md) and controllers.
 
-    [:octicons-arrow-right-24: K8s install](installation/kubernetes/components-helm.md)
+    [:octicons-arrow-right-24: K8s install](installation/kubernetes-helm.md)
 
 -   :material-shuffle-variant:{ .lg .middle } __What is TriggerMesh__
 
