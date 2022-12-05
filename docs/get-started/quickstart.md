@@ -56,8 +56,6 @@ TriggerMesh CLI can be installed from different sources: brew repository, pre-bu
     tmctl --help
     ```
 
-For other shells, try `tmctl completion help` for more information.
-
 We recommend setting up autocompletion for `tmctl`. If you've installed `tmctl` with `brew install` then autocompletion should already be configured. If you used a different method, please refer to the dedicated guide on [configuring autocompletion](autocompletion.md).
 
 ## Create a Broker and send it an event
@@ -129,7 +127,7 @@ With the `eventType` parameter we're saying that events from this source should 
 
 **:material-numeric-2-box: Watch the events**
 
-In the second terminal that is `Watching...`the Broker, you should be regularly receiving some corporate BS:
+In the second terminal that is `Watching...`the Broker, you should be regularly receiving some generated text:
 
 ```console
 2022/11/09 16:17:38 Watching...
@@ -147,18 +145,18 @@ Data,
   }
 ```
 
-## Route events from the Broker to the Sockeye event viewer
+## Route events from the Broker to the TriggerMesh Console
 
 **:material-numeric-1-box: Create a target**
 
 Now let's send those events somewhere.
 
-We're going to run a local service called Sockeye that is used to view events in the browser. Create a Target that points to this service and runs the necessary container with the following command:
+We're going to run a local service called TriggerMesh Console that is used to view events in the browser. Create a Target that points to this service and runs the necessary container with the following command:
 
 ```
 tmctl create target \
-	--name sockeye \
-	--from-image docker.io/n3wscott/sockeye:v0.7.0 \
+	--name console \
+	--from-image gcr.io/triggermesh/triggermesh-console:v0.0.1 \
 	--source foo-httppollersource
 ```
 
@@ -168,24 +166,24 @@ After running this command, it should output a URL that you can open in your bro
 Listening on:     http://localhost:<port>
 ```
 
-**:material-numeric-2-box: View events in Sockeye**
+**:material-numeric-2-box: View events in TriggerMesh Console**
 
 Open this in your browser and events you should start showing up there:
 
 ![](../assets/images/quickstart/quickstart-sockeye-v2.png)
 
-If you still have `tmctl watch` running in a second terminal, you'll also see events there when they hit the Broker, before passing on to Sockeye.
+If you still have `tmctl watch` running in a second terminal, you'll also see events there when they hit the Broker, before passing on to the Console.
 
 ## Transform the event
 
-Lets transform the incoming events before they are passed to Sockeye.
+Lets transform the incoming events before they are passed to the Console.
 
 **:material-numeric-1-box: Create a transformation**
 
 Using TriggerMesh's Bumbleebee transformation component, we can easily modify an event as it passes through the TriggerMesh.
 
 ```
-tmctl create transformation --target sockeye <<EOF
+tmctl create transformation --target console <<EOF
 data:
 - operation: add
   paths:
@@ -194,7 +192,7 @@ data:
 EOF
 ```
 
-This simple transformation adds a new key to the event's JSON payload. We're using the `--target` parameter to indicate that the transformed events should be passed along to `sockeye`.
+This simple transformation adds a new key to the event's JSON payload. We're using the `--target` parameter to indicate that the transformed events should be passed along to the Console.
 
 **:material-numeric-2-box: Send an event**
 
@@ -204,7 +202,7 @@ Although you can wait till the HTTPPoller fetches an another event, you can also
 tmctl send-event '{"hello":"triggermesh"}' --eventType buzzword.phrase
 ```
 
-Notice how events displayed in Sockeye now include the additional field that was added by the transformation.
+Notice how events displayed in the Console now include the additional field that was added by the transformation.
 
 ![](../assets/images/quickstart/quickstart-sockeye-transformed-v2.png)
 
@@ -221,20 +219,20 @@ As you can see, `tmctl describe` displays useful info about your current configu
 ``` sh
 ~ % tmctl describe
 Broker     Status
-foo        online(http://localhost:54591)
+foo        online(http://localhost:53053)
 
 Trigger                  Target                 Filter
-foo-trigger-43facd4e     foo-transformation     type is buzzword.phrase
-foo-trigger-9dad7875     sockeye                type is foo-transformation.output
+foo-trigger-a73dcb65     foo-transformation     type is buzzword.phrase
+foo-trigger-0a1c285d     console                type is foo-transformation.output
 
 Transformation         EventTypes                    Status
-foo-transformation     foo-transformation.output     online(http://localhost:55073)
+foo-transformation     foo-transformation.output     online(http://localhost:53205)
 
 Source                   Kind                 EventTypes          Status
-foo-httppollersource     httppollersource     buzzword.phrase     online(http://localhost:55028)
+foo-httppollersource     httppollersource     buzzword.phrase     online(http://localhost:53069)
 
-Target      Kind                                               Expected Events     Status
-sockeye     kn-service (docker.io/n3wscott/sockeye:v0.7.0)     *                   online(http://localhost:54853)
+Target      Kind                                                        Expected Events     Status
+console     service (gcr.io/triggermesh/triggermesh-console:v0.0.1)     *                   online(http://localhost:53098)
 ```
 
 ## Next steps
