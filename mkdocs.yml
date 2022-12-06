@@ -32,7 +32,7 @@ extra_javascript:
 nav:
     - Home: index.md
     - Get started:
-      - Quickstart: get-started/quickstart.md
+      - Quickstart: get-started/quickstart.html
       - Configure autocompletion: get-started/autocompletion.md
       - Concepts: get-started/concepts.md
       - Architecture: get-started/architecture.md
