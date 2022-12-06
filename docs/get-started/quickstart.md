@@ -1,12 +1,17 @@
 # Quickstart
 
-This quickstart will take you through the fastest and easiest way to start using events with TriggerMesh's command line interface, `tmctl`. `tmctl` makes it easy to create, configure and run a TriggerMesh Broker on any machine that has Docker.
+This quickstart will take you through the fastest and easiest way to start using events with TriggerMesh's command line interface, `tmctl`. `tmctl` makes it easy to create, configure and run TriggerMesh on any machine that has Docker.
 
-We'll go through a simple hello world example, and you can expand from there. By the end of this quickstart, you will have created the flow shown below, in which we capture events from a text generator service, transform them and route them to a browser-based event viewer called TriggerMesh Console.
+By the end of this quickstart you will have done the following:
+
+1. captured events an external service by polling it over HTTP. It generates text that will be used as the event payload.
+2. Transformed the event by adding a new attribute to it
+3. Routed the event to an external Target: the TriggerMesh Console
+4. Throughout the quickstart, you'll monitor everything happening inside the Broker with the `watch`command
 
 ![](../assets/images/quickstart/quickstart-diagram.png)
 
-!!! info "Prerequisites"
+!!! tip "Docker required"
 
     Please make sure you are able to run docker containers on your machine before proceeding.
 
@@ -24,7 +29,7 @@ TriggerMesh CLI can be installed from different sources: brew repository, pre-bu
     brew install triggermesh/cli/tmctl
     ```
 
-=== "Pre-built binary"
+=== "Pre-built binary (Linux, MacOS)"
 
     Use the following one-liner to automatically download and install the CLI:
 
@@ -33,6 +38,10 @@ TriggerMesh CLI can be installed from different sources: brew repository, pre-bu
     ```
 
     Alternatively, visit the [releases page](https://github.com/triggermesh/tmctl/releases) to manually download the latest version for your platform and make sure the path of the downloaded binary is configured in the `PATH` environment variable.
+
+=== "Pre-built binary (Windows)"
+
+    Visit the [releases page](https://github.com/triggermesh/tmctl/releases) to manually download the latest version for your platform and make sure the path of the downloaded binary is configured in the `PATH` environment variable.
 
 === "From source"
 
@@ -56,7 +65,7 @@ TriggerMesh CLI can be installed from different sources: brew repository, pre-bu
     tmctl --help
     ```
 
-We recommend setting up autocompletion for `tmctl`. If you've installed `tmctl` with `brew install` then autocompletion should already be configured. If you used a different method, please refer to the dedicated guide on [configuring autocompletion](autocompletion.md).
+To configure autocompletion for `tmctl`, please refer to the [dedicated guide](autocompletion.md).
 
 ## Create a Broker and send it an event
 
@@ -112,7 +121,7 @@ Data,
 
 ## Add an external event source
 
-**:material-numeric-1-box: Create an HTTP endpoint**
+**:material-numeric-1-box: Poll an external HTTP endpoint for events**
 
 Let's create external source:
 ```
@@ -168,7 +177,7 @@ Listening on:     http://localhost:<port>
 
 **:material-numeric-2-box: View events in TriggerMesh Console**
 
-Open this in your browser and events you should start showing up there:
+Open this in your browser, and watch as a new event appears every 20 seconds:
 
 ![](../assets/images/quickstart/quickstart-sockeye-v2.png)
 
@@ -237,7 +246,11 @@ console     service (gcr.io/triggermesh/triggermesh-console:v0.0.1)     *       
 
 ## Next steps
 
-Now that you know what a source, target, and transformation are, you can start adding sources and targets that make sense to you.
+Now that you know what a source, target, and transformation are, you can start doing more things! Like creating your own Trigger, or adding new sources and targets that make sense to you.
+
+:material-bow-arrow: create your first **Trigger**:
+
+- head to the [Trigger guide](../brokers/triggers.md) to learn about Triggers.
 
 :material-aws: **AWS** users:
 

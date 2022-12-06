@@ -1,24 +1,17 @@
 # Install TriggerMesh
 
-TriggerMesh products are summarized into:
+The are two main TriggerMesh installables: `tmctl`, and TriggerMesh on Kubernetes.
 
-- `Triggermesh CLI`: command line tool that helps authoring and deploying applications.
-- `TriggerMesh Components`: sources, targets, brokers, triggers and other components for building event driven applications.
+## Install `tmctl`
 
-## TriggerMesh CLI
+If you are new to TriggerMesh or if you are not familiar with Kubernetes we recommend that you start your journey with [`tmctl`](../reference/tmctl/tmctl.md), the TriggerMesh CLI that that makes it easy to work with events on a laptop and only requires [Docker](https://docs.docker.com/engine/install/). It lets you author event flows with objects like Sources, Brokers, and Targets, and handles running all the necessary components. `tmctl` can be installed using Homebrew or other methods.
 
-If you are new to TriggerMesh or if you are not familiar with Kubernetes we recommend that you start using the [CLI](../reference/tmctl/tmctl.md), which will only require [docker](https://docs.docker.com/engine/install/) to be installed, and will take care of downloading TriggerMesh images as they are needed.
+To install and get started with `tmctl`, we recommend starting with the [quickstart](../get-started/quickstart.md) that will take you through installation and creating your first event flows in a few minutes.
 
-To install and get started with `tmctl`, please follow these steps:
+## TriggerMesh on Kubernetes
 
-- [TriggerMesh CLI installation](./tmctl.md)
-- [TriggerMesh quickstart](../get-started/quickstart.md)
+TriggerMesh can run natively on Kubernetes and we provide the custom resource definitions (CRDs) and controllers for you to install on any Kubernetes cluster. Once installed, you can configure TriggerMesh objects like Sources, Brokers, and Targets using K8s manifests and they'll just work.
 
-## TriggerMesh At Kubernetes
+You can install TriggerMesh on Kubernetes with our [Helm charts](./kubernetes-helm.md) or with our [YAML Kubernetes manifests](./kubernetes-yaml.md).
 
-TriggerMesh provides controllers and resources to run natively at Kubernetes that can be installed either using Helm charts or Kubernetes manifests.
-
-- [Using YAML manifests](./kubernetes-yaml.md)
-- [Using Helm](./kubernetes-helm.md)
-
-Kubernetes will commonly wonder about the relationship between TriggerMesh platform and Knative, which we cover [here](triggermesh-knative.md).
+If you're curious about the relationship between TriggerMesh and Knative, please head [here](triggermesh-knative.md).

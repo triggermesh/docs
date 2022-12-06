@@ -35,10 +35,9 @@ nav:
       - Quickstart: get-started/quickstart.md
       - Configure autocompletion: get-started/autocompletion.md
       - Concepts: get-started/concepts.md
-      - Create a local event viewer: get-started/create-local-eventviewer.md
-      - Moving from local to Kubernetes: get-started/moving-from-dev-to-K8s.md
-      - Memory Broker on Kubernetes: get-started/guide-memorybroker-on-K8s.md
-      - Redis Broker on Kubernetes: get-started/guide-redisbroker-on-K8s.md
+      - Architecture: get-started/architecture.md
+      - Display events in TriggerMesh Console: get-started/triggermesh-console.md
+      - From tmctl to Kubernetes: get-started/moving-from-dev-to-K8s.md
       - Event flow and delivery guarantees: get-started/reliabledelivery.md
     - Sources:
       - Amazon CloudWatch: sources/awscloudwatch.md
@@ -135,9 +134,9 @@ nav:
     - Operations:
       - Installation:
         - installation/index.md
+        - tmctl: installation/tmctl.md
         - Kubernetes YAML: installation/kubernetes-yaml.md
         - Kubernetes Helm: installation/kubernetes-helm.md
-        - Local tmctl: installation/tmctl.md
         - TriggerMesh and Knative: installation/triggermesh-knative.md
       - Observability:
         - observability/index.md

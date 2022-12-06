@@ -1,27 +1,57 @@
-# Knative And TriggerMesh At Kubernetes
+# TriggerMesh and Knative
 
-To understand TriggerMesh and Knative relationship a futher look at its internal components is needed:
-
-- [TriggerMesh Core](https://github.com/triggermesh/triggermesh-core) provides eventing building blocks like Brokers and Triggers.
-- [TriggerMesh](https://github.com/triggermesh/triggermesh) provides the range of source and target components to communicate with external systems while building your event driven applications.
-- [Knative Serving](https://github.com/knative/serving) deploys a serverless runtime on top of Kubernetes.
-- [Knative Eventing](https://github.com/knative/eventing) deploys an eventing runtime on top of Kubernetes.
-
-## Dependencies
-
-- `TriggerMesh` sources and targets use serverless for exposing services and scaling and need `Knative Serving` to be installed.
-- `TriggerMesh Core` does not depends on any external project and will run on a vanilla Kubernetes cluster.
-
-## Deployment Choices
-
-- `TriggerMesh Core` is an standalone component that can be deployed on its own, it will manage brokers that ingest and deliver [CloudEvents](https://cloudevents.io/) from producers to consumers.
-
-- `TriggerMesh` sources and targets need `Knative Serving` and the tuple can be deployed at Kubernetes to provide a set of components that integrate with external systems. Although with the lack of a Broker you might run into point-to-point issues, this can be a valid deployment option for very simple low traffic scenarios.
-
-- `TriggerMesh`, `Knative Serving` and `TriggerMesh Core` are our go to bundle, containing all building blocks to develop event driven applications, integrating external systems declaratively.
-
-- If you are already using `Knative Eventing` you might want to stick to it instead of installing `TriggerMesh Core`. In such case you only need to install `TriggerMesh` sources and targets and use them out of the box.
+TriggerMesh depends on Knative Serving to run on Kubernetes, but Knative Eventing is optional. You can either use the provided, self-contained TriggerMesh eventing components which are the Broker and their Triggers, or you can choose to use Knative Eventing Brokers and Triggers. By default, TriggerMesh installations will use the new TriggerMesh Broker and Trigger, whether locally with `tmctl` or on Kubernetes.
 
 <figure markdown="1">
 ![](../assets/images/installation/triggermesh-kn.png)
 </figure>
+
+## Why does TriggerMesh need Knative Serving on Kubernetes?
+
+TriggerMesh sources and targets use Knative Serving to run as addressable services and to scale.
+
+## How to use TriggerMesh with Knative Eventing?
+
+If you want to, you can use the Brokers and Triggers from Knative Eventing instead of those provided by TriggerMesh.
+
+To do this, you'll want to avoid installing the TriggerMesh Brokers and Triggers on Kubernetes, and instead install Knative Eventing.
+
+First you'll need to have Knative Eventing and Serving installed on your cluster.
+
+### With YAML
+
+#### Install the CRDs
+
+All TriggerMesh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all of the CRDs. We're intentionally omitting `triggermesh-core` here.
+
+```sh
+kubectl apply -f https://github.com/triggermesh/triggermesh/releases/latest/download/triggermesh-crds.yaml
+```
+
+#### Install the controllers
+
+By default, the controllers are deployed in the `triggermesh` namespace. Deploy the controllers with the following `kubectl apply` command. We're intentionally omitting `triggermesh-core` here.
+
+```sh
+kubectl apply -f https://github.com/triggermesh/triggermesh/releases/latest/download/triggermesh.yaml
+```
+
+### With HELM
+
+Add the TriggerMesh chart repository to Helm:
+
+```sh
+helm repo add triggermesh https://storage.googleapis.com/triggermesh-charts
+```
+
+To install the chart with the release name `triggermesh`:
+
+```sh
+helm install -n triggermesh triggermesh triggermesh/triggermesh --set triggermesh-core.enabled=false --create-namespace
+```
+
+This command specifically omits `triggermesh-core`, so that is doesn't install the TriggerMesh Brokers and Triggers.
+
+## Using `tmctl` with Knative
+
+When using `tmctl`, you can run `tmctl dump --knative` which will export a Kubernetes manifest that uses the Knative Eventing Brokers and Triggers instead of those provided by TriggerMesh.
