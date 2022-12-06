@@ -11,7 +11,7 @@ TriggerMesh does its best to provide at-least-once delivery guarantees:
 
 ## From event Sources to Brokers
 
-As a general rule a source will not consider a produced message delivered until the destination have acknoledge reception. Depending on the source nature this means that it will either notify a failure to the message origin, or will mark the message as undelivered.
+As a general rule a source will not consider a produced message delivered until the destination have acknowledged reception. Depending on the source nature this means that it will either notify a failure to the message origin, or will mark the message as undelivered.
 
 The SQSSource is an example of a polling source that works by polling the AWS SQS queue. It locks an SQS message for the duration of a visibilityTimeout which avoids the same message being processed by another consumer. Once the SQSSource has received an acknowledgement that the event has been received by the Broker, it tells the SQS queue to delete that message. If the Broker does not acknowledge receipt of the event, the SQSSource does not acknowledge the message from SQS, thereby allowing it to be consumed by another consumer.
 
