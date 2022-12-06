@@ -1,19 +1,19 @@
-# Install TriggerMesh Components on Kubernetes with Helm
+# Install TriggerMesh on Kubernetes with Helm
 
-This chart installs the [TriggerMesh Cloud Native Integration Platform](https://github.com/triggermesh/triggermesh) on a Kubernetes cluster.
-
-!!! note
-    This is an alternative method of installation. A straight forward `kubectl apply` is actually all [it takes](../index.md) to get TriggerMesh up and running.
+This guide takes you through installing TriggerMesh on a Kubernetes cluster using our provided Helm charts. The Charts will install the required TriggerMesh custom resource definitions (CRDs) and controllers onto your cluster.
 
 ## Prerequisites
-  - Kubernetes 1.22+
-  - Knative Serving v1.0.0+
-  - Helm 3.0+
+
+- Kubernetes `v1.22+`
+- Knative Serving `v1.0.0+`
+- Helm `3.0+`
 
 ## Installing Knative Serving
 
-Please refer to the official Knative Serving [installation instructions](https://knative.dev/docs/install/). 
-Knative Eventing is not a prerequisite for TriggerMesh to run, but we do provide compatibility for Knative Eventing users. 
+TriggerMesh relies on Knative Serving to run some of its components as Knative Services. We plan to relax this dependency in the near future.
+
+Please refer to the official Knative Serving [installation instructions](https://knative.dev/docs/install/).
+Knative Eventing is not a prerequisite for TriggerMesh to run, but we do provide [compatibility for Knative Eventing users](triggermesh-knative.md).
 
 ## Installing the Chart
 
@@ -29,14 +29,14 @@ To install the chart with the release name `triggermesh`:
 helm install -n triggermesh triggermesh triggermesh/triggermesh --create-namespace
 ```
 
-!!! info
-    If you face any issues please let us know about it and create an [issue](https://github.com/triggermesh/triggermesh/issues/new)
+The command deploys the TriggerMesh open-source components and uses the [default configuration](#configuration) that can be adapted depending on your needs.
 
-The command deploys the TriggerMesh open source components in the default configuration. Refer to the [configuration](#configuration) section for the complete list of parameters that can be specified to customize the deployment of the controller.
+!!! info "Doesn't work?"
+    Please let us know by filing a GitHub [issue](https://github.com/triggermesh/triggermesh/issues/new).
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `triggermesh` deployment:
+To uninstall the `triggermesh` deployment:
 
 ```sh
 helm uninstall triggermesh -n triggermesh
@@ -45,7 +45,6 @@ helm uninstall triggermesh -n triggermesh
 The Kubernetes resources associated with chart will be removed and the Helm release will be deleted.
 
 ## Configuration
-
 
 |          Parameter           |                     Description                     |               Default                |
 |------------------------------|-----------------------------------------------------|--------------------------------------|

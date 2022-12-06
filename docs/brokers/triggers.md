@@ -1,6 +1,6 @@
 # Triggers
 
-A Trigger belongs to a broker, and is used to create a subscription from a Broker to a Target. A Broker can have multiple Triggers, and each Trigger has its own filters which are used to determine if an event should fire the trigger. When an event lands on a Broker, it is evaluated against all that Broker's Triggers and will fire every Trigger whose filters are a match. This allows for publish-subscribe style communication.
+A Trigger belongs to a broker, and is used to route events from a Broker to a Target. A Broker can have multiple Triggers, and each Trigger has its own filters which are used to determine if an event should fire the trigger. When an event lands on a Broker, it is evaluated against all that Broker's Triggers and will fire every Trigger whose filters are a match. This allows for publish-subscribe style communication.
 
 ## `tmctl`
 

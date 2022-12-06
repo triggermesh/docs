@@ -1,56 +1,52 @@
 # Install TriggerMesh Components on Kubernetes with YAML
 
-The TriggerMesh Cloud Native Integration Platform is composed of a set of APIs implemented as Kubernetes Custom Resource Definitions (CRDs) and a controller.
-
-Installing TriggerMesh consists of:
-
-- [x] Having a Kubernetes cluster up and running
-- [x] Having the Knative project deployed in that cluster
-- [x] Installing the TriggerMesh CRDs
-- [x] Installing the TriggerMesh controller
-
-These four steps are highlighted below. The first two steps (i.e Access to a Kubernetes cluster and installation of Knative are not described in details in this documentation). After completing those four steps you can validate your TriggerMesh installation.
-
-!!! note "Alternative Installation Options"
-    TriggerMesh also provides a [Helm Chart](components-helm.md) for Kubernetes installation.
+This guide takes you through installing TriggerMesh on a Kubernetes cluster by using our provided YAML manifests. The manifests will install the required TriggerMesh custom resource definitions (CRDs) and controllers onto your cluster.
 
 ## Pre-requisites
 
-The Knative project is a dependency of TriggerMesh, install it using the instructions in the [Knative documentation](https://knative.dev/docs/admin/install/)
-
 * A Kubernetes cluster version `v1.22+`
-* Knative `v1.0.0+`
+* Knative Serving `v1.0.0+`
+
+## Installing Knative Serving
+
+TriggerMesh relies on Knative Serving to run some of its components as Knative Services. We plan to relax this dependency in the near future.
+
+Please refer to the official Knative Serving [installation instructions](https://knative.dev/docs/install/).
+Knative Eventing is not a prerequisite for TriggerMesh to run, but we do provide [compatibility for Knative Eventing users](triggermesh-knative.md).
 
 ## Install the CRDs
 
-All TriggerMersh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all of the CRDs.
+All TriggerMesh APIs are implemented as Kubernetes CRDs, which we need to create before deploying the controller. The following `kubectl apply` command will create all of the CRDs.
 
-```console
+```sh
+kubectl apply -f https://github.com/triggermesh/triggermesh-core/releases/latest/download/triggermesh-core-crds.yaml
 kubectl apply -f https://github.com/triggermesh/triggermesh/releases/latest/download/triggermesh-crds.yaml
 ```
 
-## Install the controller
+## Install the controllers
 
-By default, the controller gets deployed in the `triggermesh` namespace. Deploy the controller with the following `kubectl apply` command:
+By default, the controllers are deployed in the `triggermesh` namespace. Deploy the controllers with the following `kubectl apply` command:
 
-```console
+```sh
+kubectl apply -f https://github.com/triggermesh/triggermesh-core/releases/latest/download/triggermesh-core.yaml
 kubectl apply -f https://github.com/triggermesh/triggermesh/releases/latest/download/triggermesh.yaml
 ```
 
 ## Verifying the installation
 
-Upon successful creation of the CRDs and successful deployment of the controller you should see two pods running in the `triggermesh` namespace
+Upon successful creation of the CRDs and successful deployment of the controller you should see three pods running in the `triggermesh` namespace
 
-```console
+```sh
 $ kubectl get pods -n triggermesh
 NAME                                                   READY   STATUS    RESTARTS   AGE
 triggermesh-controller-5cd97f4c8f-z6r2r                1/1     Running   0          57m
 triggermesh-webhook-79cd8d6f5d-gf2lj                   1/1     Running   0          57m
+triggermesh-core-controller-64c588d74c-jpr42           1/1     Running   0          57m
 ```
 
 All event sources and targets will be available to you as new API objects. For example, you can list all AWS related sources and targets with:
 
-```console
+```sh
 $ kubectl get crds |grep triggermesh |grep aws
 awscloudwatchlogssources.sources.triggermesh.io         2021-10-06T09:01:27Z
 awscloudwatchsources.sources.triggermesh.io             2021-10-06T09:01:27Z
