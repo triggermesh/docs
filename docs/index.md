@@ -17,7 +17,7 @@ TriggerMesh is free open-source software that lets you easily build event-driven
 
     ---
 
-    TriggerMesh runs natively on Kubernetes with its [`custom resource definitions`](reference/extensions.md) and controllers.
+    TriggerMesh runs natively on Kubernetes with its [`custom resource definitions`](reference/index.md) and controllers.
 
     [:octicons-arrow-right-24: K8s install](installation/kubernetes-helm.md)
 
