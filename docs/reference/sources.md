@@ -191,8 +191,8 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -350,8 +350,8 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -503,8 +503,8 @@ Valid values: [push, pull_request]</p>
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -633,8 +633,8 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -763,8 +763,8 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -893,8 +893,8 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -1055,8 +1055,8 @@ associated with the EventBridge event rule.</p>
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -1185,8 +1185,8 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -1342,8 +1342,8 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -1509,8 +1509,8 @@ associated with the bucket.</p>
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -1654,8 +1654,8 @@ For a list of supported subscription attributes, please refer to the following r
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -1811,8 +1811,8 @@ Supported values are &ldquo;default&rdquo; and &ldquo;s3&rdquo;.</p>
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -1824,8 +1824,8 @@ AWSAuth
 <td>
 <code>endpoint</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEndpoint">
-AWSEndpoint
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSEndpoint">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSEndpoint
 </a>
 </em>
 </td>
@@ -5444,69 +5444,6 @@ ZendeskSourceStatus
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.AWSAuth">AWSAuth
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCloudWatchSourceSpec">AWSCloudWatchSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCodeCommitSourceSpec">AWSCodeCommitSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoIdentitySourceSpec">AWSCognitoIdentitySourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSCognitoUserPoolSourceSpec">AWSCognitoUserPoolSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSDynamoDBSourceSpec">AWSDynamoDBSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSEventBridgeSourceSpec">AWSEventBridgeSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSKinesisSourceSpec">AWSKinesisSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSPerformanceInsightsSourceSpec">AWSPerformanceInsightsSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSS3SourceSpec">AWSS3SourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSSNSSourceSpec">AWSSNSSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
-</p>
-<p>
-<p>AWSAuth contains multiple authentication methods for AWS services.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>credentials</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">
-AWSSecurityCredentials
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Security credentials allow AWS to authenticate and authorize
-requests based on a signature composed of an access key ID and a
-corresponding secret access key.
-See <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>iamRole</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis#ARN">
-github.com/triggermesh/triggermesh/pkg/apis.ARN
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>(Amazon EKS only) The ARN of an IAM role which can be impersonated
-to obtain AWS permissions.
-See <a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html</a></p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.AWSCloudWatchLogsSourceSpec">AWSCloudWatchLogsSourceSpec
 </h3>
 <p>
@@ -5573,8 +5510,8 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -5889,8 +5826,8 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -5987,8 +5924,8 @@ Valid values: [push, pull_request]</p>
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -6062,8 +5999,8 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -6137,8 +6074,8 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -6212,8 +6149,8 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -6233,41 +6170,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.AWSEndpoint">AWSEndpoint
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSSQSSourceSpec">AWSSQSSourceSpec</a>)
-</p>
-<p>
-<p>AWSEndpoint contains parameters which are used to override the destination
-of REST API calls to AWS services.
-It allows, for example, to target API-compatible alternatives to the public
-AWS cloud (Localstack, Minio, ElasticMQ, &hellip;).</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>url</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis#URL">
-knative.dev/pkg/apis.URL
-</a>
-</em>
-</td>
-<td>
-<p>URL of the endpoint.</p>
 </td>
 </tr>
 </tbody>
@@ -6422,8 +6324,8 @@ associated with the EventBridge event rule.</p>
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -6555,8 +6457,8 @@ github.com/triggermesh/triggermesh/pkg/apis.ARN
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -6657,8 +6559,8 @@ Expressed as a duration string, which format is documented at <a href="https://p
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -6837,8 +6739,8 @@ associated with the bucket.</p>
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -6973,8 +6875,8 @@ For a list of supported subscription attributes, please refer to the following r
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -7158,8 +7060,8 @@ Supported values are &ldquo;default&rdquo; and &ldquo;s3&rdquo;.</p>
 <td>
 <code>auth</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">
-AWSAuth
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
@@ -7171,8 +7073,8 @@ AWSAuth
 <td>
 <code>endpoint</code></br>
 <em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSEndpoint">
-AWSEndpoint
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSEndpoint">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSEndpoint
 </a>
 </em>
 </td>
@@ -7193,49 +7095,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.AWSSecurityCredentials">AWSSecurityCredentials
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.AWSAuth">AWSAuth</a>)
-</p>
-<p>
-<p>AWSSecurityCredentials represents a set of AWS security credentials.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>accessKeyID</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>secretAccessKey</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
 </td>
 </tr>
 </tbody>
@@ -11459,5 +11318,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>9dec58d4</code>.
+on git commit <code>bc2a3aab</code>.
 </em></p>

@@ -144,28 +144,15 @@ AWSComprehendTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key.</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -293,28 +280,15 @@ AWSDynamoDBTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -419,28 +393,15 @@ AWSEventBridgeTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -558,28 +519,15 @@ AWSKinesisTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -708,28 +656,15 @@ AWSLambdaTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -847,28 +782,15 @@ AWSS3TargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -986,28 +908,15 @@ AWSSNSTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -1125,28 +1034,15 @@ AWSSQSTargetSpec
 <table>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -5150,28 +5046,15 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key.</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -5244,28 +5127,15 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -5315,28 +5185,15 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -5399,28 +5256,15 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -5494,28 +5338,15 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -5578,28 +5409,15 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -5662,28 +5480,15 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -5746,28 +5551,15 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <tbody>
 <tr>
 <td>
-<code>awsApiKey</code></br>
+<code>auth</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AWSAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AWSAuth
 </a>
 </em>
 </td>
 <td>
-<p>AWS account Key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>awsApiSecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>AWS account secret key</p>
+<p>AWS-specific authentication methods.</p>
 </td>
 </tr>
 <tr>
@@ -9020,14 +8812,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSDynamoDBTargetSpec">AWSDynamoDBTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSEventBridgeTargetSpec">AWSEventBridgeTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSKinesisTargetSpec">AWSKinesisTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSLambdaTargetSpec">AWSLambdaTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSS3TargetSpec">AWSS3TargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSSNSTargetSpec">AWSSNSTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AWSSQSTargetSpec">AWSSQSTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.ConfluentTargetSpec">ConfluentTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.Connection">Connection</a>, 
@@ -9668,5 +9452,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>9dec58d4</code>.
+on git commit <code>bc2a3aab</code>.
 </em></p>
