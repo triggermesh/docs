@@ -3595,6 +3595,7 @@ KafkaTargetAuth
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>Auth contains Authentication method used to interact with Kafka.</p>
 </td>
 </tr>
@@ -8145,6 +8146,7 @@ KafkaTargetAuth
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>Auth contains Authentication method used to interact with Kafka.</p>
 </td>
 </tr>
@@ -9452,5 +9454,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>1692efaf</code>.
+on git commit <code>278e9f30</code>.
 </em></p>
