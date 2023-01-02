@@ -6,7 +6,7 @@ Consumes events from [Apache Kafka](https://kafka.apache.org/). Can be used with
 With `tmctl`:
 
 ```
-tmctl create source kafka --bootstrapServers kafka.example.com:9092 --topics <topic> --groupID <groupID> --auth.username <user> --auth.password.value <pass>  --auth.saslEnable true --auth.tlsEnable true --auth.securityMechanism PLAIN
+tmctl create source kafka --bootstrapServers kafka.example.com:9092 --topic <topic> --groupID <groupID> --auth.username <user> --auth.password.value <pass>  --auth.saslEnable true --auth.tlsEnable true --auth.securityMechanism PLAIN
 ```
 
 On Kubernetes:
@@ -20,7 +20,7 @@ spec:
   groupID: test-consumer-group
   bootstrapServers:
     - kafka.example.com:9092
-  topics:
+  topic:
     - test-topic
   auth:
     saslEnable: true
@@ -69,7 +69,7 @@ spec:
   groupID: test-consumer-group
   bootstrapServers:
     - kafka.example.com:9092
-  topics:
+  topic:
     - test-topic
   auth:
     saslEnable: true
@@ -110,7 +110,7 @@ spec:
   groupID: test-consumer-group
   bootstrapServers:
     - kafka.example.com:9093
-  topics:
+  topic:
     - test-topic
   auth:
     saslEnable: true
@@ -144,7 +144,7 @@ spec:
 In order to configure the adapter correctly the following fields are mandatory:
 
 - `boostrapservers`
-- `topics`
+- `topic`
 - `salsEnable`
 
 ### Status
