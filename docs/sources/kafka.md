@@ -20,8 +20,7 @@ spec:
   groupID: test-consumer-group
   bootstrapServers:
     - kafka.example.com:9092
-  topic:
-    - test-topic
+  topic: test-topic
   auth:
     saslEnable: true
     tlsEnable: false
@@ -69,8 +68,7 @@ spec:
   groupID: test-consumer-group
   bootstrapServers:
     - kafka.example.com:9092
-  topic:
-    - test-topic
+  topic: test-topic
   auth:
     saslEnable: true
     tlsEnable: false
@@ -110,8 +108,7 @@ spec:
   groupID: test-consumer-group
   bootstrapServers:
     - kafka.example.com:9093
-  topic:
-    - test-topic
+  topic: test-topic
   auth:
     saslEnable: true
     tlsEnable: true
