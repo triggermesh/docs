@@ -47,7 +47,7 @@ spec:
 EOF
 ```
 
-Check the status of Knative Serving Custom Resource using the command:
+Check the status of Knative Serving Custom Resource using the command (can take a minute before it displays as ready):
 
 ```sh
 kubectl get KnativeServing knative-serving -n knative-serving
