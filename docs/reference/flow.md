@@ -1101,6 +1101,16 @@ string
 <td>
 </td>
 </tr>
+<tr>
+<td>
+<code>separator</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="flow.triggermesh.io/v1alpha1.Response">Response
@@ -1525,5 +1535,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>ecae7c48</code>.
+on git commit <code>a3c25785</code>.
 </em></p>
