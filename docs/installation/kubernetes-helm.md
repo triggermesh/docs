@@ -8,12 +8,9 @@ This guide takes you through installing TriggerMesh on a Kubernetes cluster usin
 - Knative Serving `v1.0.0+`
 - Helm `3.0+`
 
-## Installing Knative Serving
+## Installing Knative
 
-TriggerMesh relies on Knative Serving to run some of its components as Knative Services. We plan to relax this dependency in the near future.
-
-Please refer to the official Knative Serving [installation instructions](https://knative.dev/docs/install/).
-Knative Eventing is not a prerequisite for TriggerMesh to run, but we do provide [compatibility for Knative Eventing users](triggermesh-knative.md).
+TriggerMesh relies on [Knative Serving](https://knative.dev/docs/concepts/#knative-serving) to run some of its components as Knative Services. We plan to relax this dependency in the near future. While we recommend following the official [installation instructions](https://knative.dev/docs/install/operator/knative-with-operators/), here's a [quick guide](kubernetes-yaml.md#installing-knative) for installing the Knative components.
 
 ## Installing the Chart
 
