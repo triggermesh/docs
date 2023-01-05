@@ -137,6 +137,7 @@ nav:
         - tmctl: installation/tmctl.md
         - Kubernetes YAML: installation/kubernetes-yaml.md
         - Kubernetes Helm: installation/kubernetes-helm.md
+        - Updating: installation/how-to-update.md
         - TriggerMesh and Knative: installation/triggermesh-knative.md
       - Observability:
         - observability/index.md
