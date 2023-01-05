@@ -5,10 +5,25 @@ Sends events to [Amazon S3](https://aws.amazon.com/s3/).
 With `tmctl`:
 
 ```
-tmctl create target awss3 --arn <arn> --awsApiKey <awsApiKey> --awsApiSecret <awsApiSecret>
+tmctl create target awss3 --arn <arn> --auth.credentials.accessKeyID <access key> --auth.credentials.secretAccessKey <secret key>
 ```
 
 On Kubernetes:
+
+Secret
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: aws
+type: Opaque
+stringData:
+  AWS_ACCESS_KEY_ID: "<AWS Access Key ID>"
+  AWS_SECRET_ACCESS_KEY: "<AWS Secret Access Key>"
+```
+
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -17,14 +32,23 @@ metadata:
   name: triggermesh-aws-s3-test
 spec:
   arn: arn:aws:s3:::bucket
-  awsApiKey:
-    secretKeyRef:
-      name: aws
-      key: AWS_ACCESS_KEY_ID
-  awsApiSecret:
-    secretKeyRef:
-      name: aws
-      key: AWS_SECRET_ACCESS_KEY
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: aws
+          key: AWS_ACCESS_KEY_ID
+      secretAccessKey:
+        valueFromSecret:
+          name: aws
+          key: AWS_SECRET_ACCESS_KEY
+```
+
+Alternatively you can use an IAM role for authentication instead of an access key and secret (Amazon EKS only):
+
+```yaml
+auth:
+  iamrole: arn:aws:iam::123456789012:role/foo
 ```
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent

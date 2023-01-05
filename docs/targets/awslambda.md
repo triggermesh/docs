@@ -5,10 +5,25 @@ Sends events to an [AWS Lambda](https://aws.amazon.com/lambda/) function.
 With `tmctl`:
 
 ```
-tmctl create target awslambda --arn <arn> --awsApiKey <awsApiKey> --awsApiSecret <awsApiSecret>
+tmctl create target awslambda --arn <arn> --auth.credentials.accessKeyID <access key> --auth.credentials.secretAccessKey <secret key>
 ```
 
 On Kubernetes:
+
+Secret
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: aws
+type: Opaque
+stringData:
+  AWS_ACCESS_KEY_ID: "<AWS Access Key ID>"
+  AWS_SECRET_ACCESS_KEY: "<AWS Secret Access Key>"
+```
+
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -17,14 +32,23 @@ metadata:
   name: triggermesh-aws-lambda
 spec:
   arn: arn:aws:lambda:us-west-2:043455440429:function:snslistener
-  awsApiKey:
-    secretKeyRef:
-      name: aws
-      key: AWS_ACCESS_KEY_ID
-  awsApiSecret:
-    secretKeyRef:
-      name: aws
-      key: AWS_SECRET_ACCESS_KEY
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: aws
+          key: AWS_ACCESS_KEY_ID
+      secretAccessKey:
+        valueFromSecret:
+          name: aws
+          key: AWS_SECRET_ACCESS_KEY
+```
+
+Alternatively you can use an IAM role for authentication instead of an access key and secret (Amazon EKS only):
+
+```yaml
+auth:
+  iamrole: arn:aws:iam::123456789012:role/foo
 ```
 
 There is an optional toggle flag indicating if the full CloudEvent should be sent

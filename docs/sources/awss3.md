@@ -41,6 +41,12 @@ spec:
       name: default
 ```
 
+Alternatively you can use an IAM role for authentication instead of an access key and secret (Amazon EKS only):
+
+```yaml
+auth:
+  iamrole: arn:aws:iam::123456789012:role/foo
+```
 
 Parameters:
 
