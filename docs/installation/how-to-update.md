@@ -43,7 +43,7 @@ Docker:
 To switch to another version of the TriggerMesh components, you can use the command:
 
 ```
-tmctl config set triggermesh.version 1.23.0
+tmctl config set triggermesh.version v1.23.0
 ```
 
 ## Updating TriggerMesh on K8s
