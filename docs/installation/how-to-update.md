@@ -16,7 +16,7 @@ With that in mind, here is what you need to know when updating these components,
 
 There are different ways to update `tmctl`, depending on you operating system and how you installed `tmctl`:
 
-* If you used `homebrew`, you can run `brew reinstall triggermesh/cli/tmctl`
+* If you used `homebrew`, you can run `brew upgrade triggermesh/cli/tmctl`
 * If you used one of the pre-built binaries, you can replace the existing binary with the new one. The script provided with `curl -sSfL https://raw.githubusercontent.com/triggermesh/tmctl/HEAD/hack/install.sh | sh` will do this automatically
 
 !!! warning
