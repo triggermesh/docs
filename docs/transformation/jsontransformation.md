@@ -139,7 +139,7 @@ spec:
     paths:
       - key: $name
         value: user.name
-  - operation: add:
+  - operation: add
     paths:
       - key: message
         value: (hello $name)  
