@@ -128,6 +128,29 @@ spec:
       value: ce-$source-$id
 ```
 
+**Conditional Add operation**
+
+Conditionally add a new value depending on whether or not a stored variable is instantiated.
+
+```yaml
+spec:
+  data:
+  - operation: store
+    paths:
+      - key: $name
+        value: user.name
+  - operation: add:
+    paths:
+      - key: message
+        value: (hello $name)  
+      - key: detail
+        value: hello(.$source)
+```
+
+In this example, the value of `message` will either be `hello <name>` or an empty string if `$name` is not set.
+
+The value of `detail` will either be `hello.<source>` or `hello` if `$source` is not set.
+
 ### Shift
 
 Move existing CE values to new keys.
@@ -215,6 +238,32 @@ context:
     paths:
     - key: extensions.profile
       value: something
+```
+
+### Using a custom JSON path separator
+
+By default the `.` character is used as a JSON path separator, i.e. the foo.bar key is interpreted as a "foo":{"bar":...} object. The custom JSON path separator provides a way to replace `.` with any character, so that if a key's full name contains a `.`, such as `property.name`, it can be consider as a property name instead of a nested object.
+
+```yaml
+spec:
+  data:
+  - operation: add
+    paths:
+    - key: body/property.name/attribute
+      value: "my value"
+      separator: /
+```
+
+In the above example, the output will be a new JSON object in which property.name is the name of an attribute:
+
+```json
+{
+  "body": {
+    "property.name": {
+      "attribute": "my value"
+    }
+  }
+}
 ```
 
 ## Kubernetes tutorial
