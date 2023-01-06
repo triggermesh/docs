@@ -147,7 +147,23 @@ spec:
 
 In this example, the value of `message` will either be `hello <name>` or an empty string if `$name` is not set.
 
-If the Add operation includes a variable name in parentheses inside a value, the whole string inside the parentheses becomes conditional. Escaping parentheses with a `\` will disable this behavior.
+If the Add operation includes a variable name in parentheses embedded inside a value, only the string inside the parentheses becomes conditional. For example:
+
+```yaml
+spec:
+  data:
+  - operation: store
+    paths:
+      - key: $name
+        value: user.name
+  - operation: add:
+    paths:
+      - key: detail
+        value: hello(.$source)
+        # "hello" if $source is not set, "hello.<source>" otherwise
+```
+
+Escaping parentheses with a `\` will disable the conditional behavior and consider parentheses as simple characters. 
 
 ### Shift
 
