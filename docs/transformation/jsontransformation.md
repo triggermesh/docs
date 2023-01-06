@@ -145,7 +145,7 @@ spec:
         value: (hello $name)  
 ```
 
-In this example, the value of `message` will either be `hello <name>` or an `empty string` if `$name` is not set.
+In this example, the value of `message` will either be `hello <name>` or an empty string if `$name` is not set.
 
 If the Add operation includes a variable name in parentheses inside a value, the whole string inside the parentheses becomes conditional. Escaping parentheses with a `\` will disable this behavior.
 
