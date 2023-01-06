@@ -148,6 +148,7 @@ spec:
 ```
 
 In this example, the value of `message` will either be `hello <name>` or an empty string if `$name` is not set.
+
 The value of `detail` will either be `hello.<source>` or `hello` if `$source` is not set.
 
 ### Shift
