@@ -5,7 +5,7 @@ Send events to [Amazon Comprehend](https://aws.amazon.com/comprehend/)
 With `tmctl`:
 
 ```
-tmctl create target awscomprehend --region <region> --language <language> --awsApiKey <awsApiKey> --awsApiSecret <awsApiSecret>
+tmctl create target awscomprehend --region <region> --language <language> --auth.credentials.accessKeyID <access key> --auth.credentials.secretAccessKey <secret key>
 ```
 
 On Kubernetes:
@@ -33,15 +33,26 @@ metadata:
 spec:
   region: us-west-1
   language: en
-  awsApiKey:
-    secretKeyRef:
-      name: aws
-      key: AWS_ACCESS_KEY_ID
-  awsApiSecret:
-    secretKeyRef:
-      name: aws
-      key: AWS_SECRET_ACCESS_KEY
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: aws
+          key: AWS_ACCESS_KEY_ID
+      secretAccessKey:
+        valueFromSecret:
+          name: aws
+          key: AWS_SECRET_ACCESS_KEY
 ```
+
+Alternatively you can use an IAM role for authentication instead of an access key and secret, for Amazon EKS only:
+
+```yaml
+auth:
+  iamrole: arn:aws:iam::123456789012:role/foo
+```
+
+To setup an IAM role for service accounts, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
 
 This target accepts events of any type and analyzes each of the key values sentiment. It then combines the scores and returns the analysis in a response event of type `io.triggermesh.targets.aws.comprehend.result`.
 

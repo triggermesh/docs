@@ -5,10 +5,25 @@ Sends events to [AWS DynamoDB](https://aws.amazon.com/dynamodb/).
 With `tmctl`:
 
 ```
-tmctl create target dynamodb --arn <arn> --awsApiKey <awsApiKey> --awsApiSecret <awsApiSecret>
+tmctl create target dynamodb --arn <arn> --auth.credentials.accessKeyID <access key> --auth.credentials.secretAccessKey <secret key>
 ```
 
 On Kubernetes:
+
+Secret
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: aws
+type: Opaque
+stringData:
+  AWS_ACCESS_KEY_ID: "<AWS Access Key ID>"
+  AWS_SECRET_ACCESS_KEY: "<AWS Secret Access Key>"
+```
+
+Target
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -17,15 +32,26 @@ metadata:
   name: triggermesh-aws-dynamodb
 spec:
   arn: arn:aws:dynamodb:us-west-1:<PROJECT_ID>:table/test
-  awsApiKey:
-    secretKeyRef:
-      name: aws
-      key: AWS_ACCESS_KEY_ID
-  awsApiSecret:
-    secretKeyRef:
-      name: aws
-      key: AWS_SECRET_ACCESS_KEY
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: aws
+          key: AWS_ACCESS_KEY_ID
+      secretAccessKey:
+        valueFromSecret:
+          name: aws
+          key: AWS_SECRET_ACCESS_KEY
 ```
+
+Alternatively you can use an IAM role for authentication instead of an access key and secret, for Amazon EKS only:
+
+```yaml
+auth:
+  iamrole: arn:aws:iam::123456789012:role/foo
+```
+
+To setup an IAM role for service accounts, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
 
 Accepts events of any type.
 

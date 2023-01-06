@@ -37,6 +37,15 @@ spec:
       name: default
 ```
 
+Alternatively you can use an IAM role for authentication instead of an access key and secret, for Amazon EKS only:
+
+```yaml
+auth:
+  iamrole: arn:aws:iam::123456789012:role/foo
+```
+
+To setup an IAM role for service accounts, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
+
 Events produced have the following attributes:
 
 * type `com.amazon.dynamodb.stream_record`
