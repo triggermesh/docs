@@ -8,11 +8,15 @@ This guide takes you through installing TriggerMesh on a Kubernetes cluster usin
 - Knative Serving `v1.0.0+`
 - Helm `3.0+`
 
-## Installing Knative
+!!! warning
 
-TriggerMesh relies on [Knative Serving](https://knative.dev/docs/concepts/#knative-serving) to run some of its components as Knative Services. We plan to relax this dependency in the near future. While we recommend following the official [installation instructions](https://knative.dev/docs/install/operator/knative-with-operators/), here's a [quick guide](kubernetes-yaml.md#installing-knative) for installing the Knative components.
+    You **MUST** install Knative Serving on you Kubernetes cluster for TriggerMesh to run.
 
-## Installing the Chart
+## Install Knative Serving
+
+--8<-- "includes/install-knative-serving.md"
+
+## Install the TriggerMesh Helm chart
 
 Add the TriggerMesh chart repository to Helm:
 
@@ -31,7 +35,7 @@ The command deploys the TriggerMesh open-source components and uses the [default
 !!! info "Doesn't work?"
     Please let us know by filing a GitHub [issue](https://github.com/triggermesh/triggermesh/issues/new).
 
-## Uninstalling the Chart
+## Uninstalling the TriggerMesh Helm chart
 
 To uninstall the `triggermesh` deployment:
 
