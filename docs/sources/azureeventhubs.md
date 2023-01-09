@@ -5,7 +5,7 @@ Consumes events from [Azure Event Hubs](https://learn.microsoft.com/en-us/azure/
 With `tmctl`:
 
 ```
-tmctl create source azureeventhub --eventHubID <hubID> --auth.servicePrincipal.tenantID <tenantID> --auth.servicePrincipal.clientID <clientID> --auth.servicePrincipal.clientSecret <clientSecret>
+tmctl create source azureeventhubs --eventHubID <hubID> --auth.servicePrincipal.tenantID <tenantID> --auth.servicePrincipal.clientID <clientID> --auth.servicePrincipal.clientSecret <clientSecret>
 ```
 
 On Kubernetes:
@@ -44,4 +44,4 @@ Events produced have the following attributes:
 
 * type `com.azure.eventhub.event`
 
-See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AzureEventHubSource) for more details.
+See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AzureEventHubsSource) for more details.
