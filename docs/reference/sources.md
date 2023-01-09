@@ -4466,6 +4466,7 @@ KafkaSourceAuth
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>Auth contains Authentication method used to interact with Kafka.</p>
 </td>
 </tr>
@@ -10254,6 +10255,7 @@ KafkaSourceAuth
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>Auth contains Authentication method used to interact with Kafka.</p>
 </td>
 </tr>
@@ -11318,5 +11320,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>80f2d27b</code>.
+on git commit <code>d3dcfeb3</code>.
 </em></p>
