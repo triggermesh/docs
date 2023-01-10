@@ -2,7 +2,7 @@ FROM python:3 AS builder
 
 ARG MKDOCS_INSIDERS_TOKEN=
 
-RUN pip install git+https://${MKDOCS_INSIDERS_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git mkdocs-redirects
+RUN pip install git+https://${MKDOCS_INSIDERS_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git@8.5.8-insiders-4.26.2 mkdocs-redirects
 
 COPY . /docs
 
