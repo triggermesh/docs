@@ -5,8 +5,9 @@ over a [Google Cloud Pub/Sub][gc-billing-events] topic.
 
 With `tmctl`:
 
-!!! warning "Work in progress"
-    This component is not yet available with `tmctl`.
+```
+tmctl create source googlecloudbilling --billingAccountId <billingAccountId> --budgetId <budgetId> --pubsub.project <project> --serviceAccountKey=/tmp/test
+```
 
 On Kubernetes:
 

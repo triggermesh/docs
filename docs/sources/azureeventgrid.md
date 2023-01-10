@@ -4,8 +4,9 @@ Consumes events from [Azure EventGrid](https://learn.microsoft.com/en-us/azure/e
 
 With `tmctl`:
 
-!!! warning "Work in progress"
-    This component is not yet available with `tmctl`.
+```
+tmctl create source azureeventgrid --scope <scope> --endpoint.eventHubs.namespaceID <namespaceID> --auth.servicePrincipal.tenantID <tenantID> --auth.servicePrincipal.clientID <clientID> --auth.servicePrincipal.clientSecret <clientSecret>
+```
 
 On Kubernetes:
 
