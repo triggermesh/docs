@@ -1,7 +1,7 @@
 :root {
     --md-accent-fg-color:           #1976d2; /* nav mouseover */
     --md-default-bg-color:          #fafafa; /* page bg */
-    /* --md-default-fg-color--light:   #37474f; /* h1 color */ */
+    --md-default-fg-color--light:   #37474f; /* h1 color */
     --md-default-fg-color--lighter: #e3f2fd; /* pencil color */
     --md-default-fg-color:          #000000; /* page text */
     --md-primary-bg-color--light:   #eceff1; /* search panel */
