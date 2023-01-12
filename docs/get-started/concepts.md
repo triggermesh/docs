@@ -49,9 +49,9 @@ All sources are listed and documented in the [sources documentation](../sources/
 
 ## Brokers, Triggers and Filters
 
-TriggerMesh provides a Broker that acts as an intermediary between between event producers and consumers, decoupling them from each other and providing delivery guarantees to ensure that no events are lost along the way.
+TriggerMesh provides a Broker that acts as an intermediary between event producers and consumers, decoupling them from each other and providing delivery guarantees to ensure that no events are lost along the way. Brokers behave like an event bus, meaning all events are buffered together as a group. 
 
-Brokers behave like an event bus, meaning all events are buffered together as a group. Triggers are used to determine which events go to which targets. A Trigger is attached to a Broker, and contains a Filter which specifies which events should cause the Trigger to fire. These filters are based on event metadata or payload contents. If a Trigger fires, it sends the event to the Target defined in the Trigger.
+Triggers are used to determine which events go to which targets. A Trigger is attached to a Broker, and contains a Filter which specifies which events should cause the Trigger to fire. These filters are based on event metadata or payload contents. If a Trigger fires, it sends the event to the Target defined in the Trigger.
 
 There are two flavours of the TriggerMesh Broker: MemoryBroker and RedisBroker. The former has no persistence, whereas the later is able to recover from failure scenarios without losing events.
 
