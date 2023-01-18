@@ -205,7 +205,7 @@ This simple transformation adds a new key to the event's JSON payload. We're usi
 
 **:material-numeric-2-box: Send an event**
 
-Although you can wait till the HTTPPoller fetches an another event, you can also simulate you own event with the following command:
+Although you can wait till the HTTPPoller fetches another event, you can also simulate you own event with the following command:
 
 ```
 tmctl send-event '{"hello":"triggermesh"}' --eventType buzzword.phrase
