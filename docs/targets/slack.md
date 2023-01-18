@@ -126,6 +126,7 @@ how to obtain one, see the [Slack Developer's Guide](https://api.slack.com/start
 For more information about using the Slack API, please refer to the [Slack API documentation][slack-web-api].
 
 [ce]: https://cloudevents.io/
+[ce-jsonformat]: https://github.com/cloudevents/spec/blob/v1.0/json-format.md
 [slack-web-api]: https://api.slack.com/web
 [slack-apps]: https://api.slack.com/apps
 
