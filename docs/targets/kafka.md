@@ -1,6 +1,6 @@
 # Kafka target
 
-Sends events to [Apache Kafka](https://kafka.apache.org/). Can be used with any Kafka API compatible service such as [Confluent Kafka](https://www.confluent.io/) or [RedPanda](https://redpanda.com/).
+Sends events to [Apache Kafka](https://kafka.apache.org/). Can be used with any Kafka API compatible service such as [Confluent Kafka](https://www.confluent.io/) or [Redpanda](https://redpanda.com/).
 
 With `tmctl`:
 
