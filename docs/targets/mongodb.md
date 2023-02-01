@@ -41,6 +41,8 @@ spec:
       key: connection-string
 ```
 
+See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.MongoDBTarget) for more details.
+
 The MongoBD can accept events of any type. Arbitrary events are inserted into the default collection and database set in the target's configuration.
 
 However, you can control the behaviour of the target by using the following event types:
