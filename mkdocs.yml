@@ -103,6 +103,7 @@ nav:
       - Kafka: targets/kafka.md
       - Logz.io: targets/logz.md
       - Logz.io Metrics: targets/logzmetrics.md
+      - MongoDB: targets/mongodb.md
       - Oracle: targets/oracle.md
       - Salesforce: targets/salesforce.md
       - SendGrid: targets/sendgrid.md
