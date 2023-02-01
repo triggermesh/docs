@@ -1,12 +1,12 @@
 # Mongodb target
 
-Send events to a MongoDB instance. 
+Send events to a MongoDB instance.
 
 With `tmctl`:
 
-!!! warning "Work in progress"
-    This component is not yet available with `tmctl`.
-
+```sh
+tmctl create target mongodb --connectionString $(cat connectionstring.txt) --defaultDatabase <database> --defaultCollection <collection>
+```
 
 On Kubernetes:
 
@@ -41,13 +41,15 @@ spec:
       key: connection-string
 ```
 
-Accepts events with the following attributes: 
+The MongoBD can accept events of any type. Arbitrary events are inserted into the default collection and database set in the target's configuration.
 
-* type `*`
+However, you can control the behaviour of the target by using the following event types:
 
-Send arbitrary events to have them inserted into the default collection and database set at the spec. 
+- `io.triggermesh.mongodb.insert`
+- `io.triggermesh.mongodb.update`
+- `io.triggermesh.mongodb.query.kv`
 
-* type `io.triggermesh.mongodb.insert`
+**Insert**
 
 Insert data and overwrite the default  collection and database set at the spec.
 
@@ -71,9 +73,9 @@ curl -v  http://localhost:8080 \
        -d '{"database":"test","collection": "test","JSONMessage":{"test":"testdd1","test2":"test3"}}'
 ```
 
-* type `io.triggermesh.mongodb.update`
+**Update**
 
-Update any pre-existing key:value pair(s) by providing key:value pairs for both the search and update parameters. 
+Update any pre-existing key:value pair(s) by providing key:value pairs for both the search and update parameters.
 
 | Name  |  Type |  Comment |
 |---|---|---|
@@ -97,9 +99,9 @@ curl -v http://localhost:8080 \
        -d '{"database":"test","collection": "test","searchKey":"test","searchValue":"testdd1","updateKey":"partstore","updateValue":"UP FOR GRABS"}'
 ```
 
-* type `io.triggermesh.mongodb.query.kv`
+**Query key:value**
 
-Query existing items by providing a key:value pair to match documents against. This will return all documents in a collection that have a matching key:value pair. 
+Query existing items by providing a key:value pair to match documents against. This will return all documents in a collection that have a matching key:value pair.
 
 | Name  |  Type |  Comment |
 |---|---|---|
