@@ -69,6 +69,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.MongoDBTarget">MongoDBTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>
@@ -3905,6 +3907,142 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.MongoDBTarget">MongoDBTarget
+</h3>
+<p>
+<p>MongoDBTarget is the Schema for the MongoDB Target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>MongoDBTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.MongoDBTargetSpec">
+MongoDBTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>connectionString</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>ConnectionString defines the MongoDB connection string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>database</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Database defines the MongoDB database.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>collection</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Collection defines the MongoDB collection.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget
 </h3>
 <p>
@@ -6668,6 +6806,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.IBMMQTargetSpec">IBMMQTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetSpec">LogzMetricsTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.MongoDBTargetSpec">MongoDBTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetSpec">SalesforceTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetSpec">SendGridTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.TwilioTargetSpec">TwilioTargetSpec</a>)
@@ -8512,6 +8651,87 @@ string
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.MongoDBTargetSpec">MongoDBTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.MongoDBTarget">MongoDBTarget</a>)
+</p>
+<p>
+<p>MongoDBTargetSpec defines the desired state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>connectionString</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>ConnectionString defines the MongoDB connection string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>database</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Database defines the MongoDB database.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>collection</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Collection defines the MongoDB collection.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.NumberKind">NumberKind
 (<code>string</code> alias)</p></h3>
 <p>
@@ -9454,5 +9674,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>1cd12982</code>.
+on git commit <code>b33cfcb5</code>.
 </em></p>
