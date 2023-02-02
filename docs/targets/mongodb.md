@@ -60,7 +60,7 @@ Insert data and overwrite the default  collection and database set at the spec.
 | **database** | string | The name of the database.  |
 | **collection** | string | The value of the collection. |
 | **key** | string | This value will be used to assing a Key.  |
-| **JSONMessage** | json.RawMessage | This value will be used to assing a Value. |
+| **document** | json.RawMessage | This value will be used to assing a Value. |
 
 Example:
 
@@ -72,7 +72,7 @@ curl -v  http://localhost:8080 \
        -H "Ce-Type: io.triggermesh.mongodb.insert" \
        -H "Ce-Source: sample/source" \
        -H "Content-Type: application/json" \
-       -d '{"database":"test","collection": "test","JSONMessage":{"test":"testdd1","test2":"test3"}}'
+       -d '{"database":"test","collection": "test","document":{"test":"testdd1","test2":"test3"}}'
 ```
 
 **Update**
