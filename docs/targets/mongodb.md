@@ -124,3 +124,18 @@ curl -v http://localhost:8080 \
        -H "Content-Type: application/json" \
        -d '{"database":"test","Collection": "test","key":"partstore","value":"UP FOR GRABS"}'
 ```
+
+Example Response:
+
+```
+Ce-Id: 60cee2e6-a3d0-4ff5-8157-b80ff3e8797b
+Ce-Source: io.triggermesh.mongodb
+Ce-Specversion: 1.0
+Ce-Subject: query-result
+Ce-Time: 2023-01-19T18:22:46.928999Z
+Ce-Type: io.triggermesh.mongodb.query.kv.result
+Content-Length: 96
+Content-Type: application/json
+Date: Thu, 19 Jan 2023 18:22:46 GMT
+[{"_id":"63c829397c2fdbfebdd93883","partstore":"UP FOR GRABS","test":"testdd1","test2":"test3"}]
+```
