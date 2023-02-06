@@ -76,7 +76,6 @@ nav:
       - Webhook (HTTP): sources/webhook.md
       - Zendesk: sources/zendesk.md
     - Targets:
-      - Alibaba OSS: targets/alibabaoss.md
       - Amazon Comprehend: targets/awscomprehend.md
       - Amazon DynamoDB: targets/awsdynamodb.md
       - Amazon EventBridge: targets/awseventbridge.md
@@ -88,7 +87,6 @@ nav:
       - Azure Event Hubs: targets/azureeventhubs.md
       - Azure Sentinel: targets/azuresentinel.md
       - CloudEvents: targets/cloudevents.md
-      - Confluent (deprecated): targets/confluent.md
       - Datadog: targets/datadog.md
       - Elasticsearch: targets/elasticsearch.md
       - Google Cloud Pub/Sub: targets/googlecloudpubsub.md
@@ -96,7 +94,6 @@ nav:
       - Google Cloud Workflows: targets/googlecloudworkflows.md
       - Google Firestore: targets/googlefirestore.md
       - Google Sheets: targets/googlesheets.md
-      - Hasura: targets/hasura.md
       - HTTP: targets/http.md
       - IBM MQ: targets/ibmmq.md
       - Jira: targets/jira.md
@@ -109,7 +106,6 @@ nav:
       - SendGrid: targets/sendgrid.md
       - Slack: targets/slack.md
       - Splunk: targets/splunk.md
-      - Tekton: targets/tekton.md
       - Twilio: targets/twilio.md
       - Zendesk: targets/zendesk.md
     - Brokers and Triggers:

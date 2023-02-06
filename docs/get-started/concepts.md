@@ -49,7 +49,7 @@ All sources are listed and documented in the [sources documentation](../sources/
 
 ## Brokers, Triggers and Filters
 
-TriggerMesh provides a Broker that acts as an intermediary between event producers and consumers, decoupling them from each other and providing delivery guarantees to ensure that no events are lost along the way. Brokers behave like an event bus, meaning all events are buffered together as a group. 
+TriggerMesh provides a Broker that acts as an intermediary between event producers and consumers, decoupling them from each other and providing delivery guarantees to ensure that no events are lost along the way. Brokers behave like an event bus, meaning all events are buffered together as a group.
 
 Triggers are used to determine which events go to which targets. A Trigger is attached to a Broker, and contains a Filter which specifies which events should cause the Trigger to fire. These filters are based on event metadata or payload contents. If a Trigger fires, it sends the event to the Target defined in the Trigger.
 
@@ -61,7 +61,7 @@ Targets are the destination for the processed events or data. Examples include d
 
 In some cases, a Target may in turn reply with another event (acknowledgment, error, ...). These response events can be handled with additional Triggers. Typically, the event `type`of a response event is the same as the original event type with `.response` appended to the end.
 
-All targets are listed and documented in the [targets documentation](../targets/alibabaoss.md) and in the [API Reference](../reference/targets.md)
+All targets are listed and documented in the [targets documentation](../targets/awss3.md) and in the [API Reference](../reference/targets.md)
 
 ## Transformations
 
