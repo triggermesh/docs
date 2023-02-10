@@ -3297,7 +3297,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -3451,7 +3465,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -3597,7 +3625,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -3758,7 +3800,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -3914,7 +3970,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -8820,7 +8890,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -8991,7 +9075,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -9143,7 +9241,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -9204,6 +9316,55 @@ GCloudResourceName
 </em>
 </td>
 <td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">GoogleCloudSourceAuth
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>)
+</p>
+<p>
+<p>GoogleCloudSourceAuth contains authentication related attributes.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>serviceAccountKey</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>Service account key in JSON format.
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<code>gcpServiceAccount</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>GCP Service account for Workload Identity.
+<a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity">https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity</a></p>
 </td>
 </tr>
 </tbody>
@@ -9353,7 +9514,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -9515,7 +9690,21 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, use Auth object instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
+GoogleCloudSourceAuth
+</a>
+</em>
+</td>
+<td>
+<p>Different authentication methods available in sources on GCP.</p>
 </td>
 </tr>
 <tr>
@@ -11320,5 +11509,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>a57a0a2f</code>.
+on git commit <code>fcbc6e40</code>.
 </em></p>
