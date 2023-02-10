@@ -1,0 +1,138 @@
+name: Build and Release
+
+on:
+  workflow_dispatch:
+    branches: [main]
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+    - name: Install packages
+      run: |
+        git config --global url."https://${{ secrets.MKDOCS_INSIDERS_TOKEN }}@github".insteadOf https://github
+        pip install git+https://github.com/squidfunk/mkdocs-material-insiders.git mkdocs-redirects
+    - name: Build
+      run: make build
+      env:
+        SITE_OUTPUT_DIR: /tmp/output/site
+    - name: Upload artifact
+      if: github.event_name != 'pull_request'
+      uses: actions/upload-artifact@master
+      with:
+        name: site
+        path: /tmp/output/site
+
+  publish-image:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Set up Docker Buildx
+      id: buildx
+      uses: docker/setup-buildx-action@v2
+    - name: Login to GCR
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v2
+      with:
+        registry: gcr.io
+        username: _json_key
+        password: ${{ secrets.GCLOUD_SERVICEACCOUNT_KEY }}
+    - name: Docker metadata
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: gcr.io/triggermesh/docs
+        tags: |
+          type=semver,pattern={{raw}}
+          type=sha
+    - name: Build image and push to container registries
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        build-args: |
+          MKDOCS_INSIDERS_TOKEN=${{ secrets.MKDOCS_INSIDERS_TOKEN }}
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+
+  update-config:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
+    needs: publish-image
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Checkout triggermesh/docs
+      uses: actions/checkout@v3
+      with:
+        path: 'tm-config'
+        ref: 'main'
+        repository: 'triggermesh/config'
+        token: ${{ secrets.BOT_TOKEN }}
+    - name: Set IMAGE_TAG
+      id: image-tag
+      run: |
+        IMAGE_TAG=sha-${GITHUB_SHA:0:7}
+        [[ ${GITHUB_REF_TYPE} == "tag" ]] && IMAGE_TAG=${GITHUB_REF_NAME}
+        echo "IMAGE_TAG=${IMAGE_TAG}" >> $GITHUB_OUTPUT
+    - name: Update config
+      working-directory: tm-config
+      run: |
+        sed -i overlays/staging/docs/deployment.yaml -e "s|gcr.io/triggermesh/docs:.*|gcr.io/triggermesh/docs:"${{ steps.image-tag.outputs.IMAGE_TAG }}"|g"
+        if [[ ${{ steps.image-tag.outputs.IMAGE_TAG }} =~ ^v([0-9]{1,}\.){2}[0-9]{1,}$ ]]; then
+          sed -i overlays/prod/docs/deployment.yaml -e "s|gcr.io/triggermesh/docs:.*|gcr.io/triggermesh/docs:"${{ steps.image-tag.outputs.IMAGE_TAG }}"|g"
+        fi
+        git --no-pager diff
+    - name: Commit and push changes
+      working-directory: tm-config
+      run: |
+        git add -A
+        git status --porcelain
+        if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
+          git config --global user.name 'TriggerMesh Bot'
+          git config --global user.email 'bot@triggermesh.com'
+          git commit -m "Update docs deployment to 'gcr.io/triggermesh/docs:${{ steps.image-tag.outputs.IMAGE_TAG }}'"
+          git push
+        fi
+
+  create-release:
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    needs: publish-image
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Download artifact
+      uses: actions/download-artifact@master
+      with:
+        name: site
+        path: /tmp/output/site
+    - name: Build release package
+      env:
+        DIST_DIR: /tmp/dist
+        SITE_OUTPUT_DIR: /tmp/output/site
+      run: make release
+    - name: Preparing Release Notes
+      run: |
+        ./scripts/release-notes.sh ${GITHUB_REF_NAME} > release-notes.md
+    - name: Creating Release
+      uses: ncipollo/release-action@v1
+      with:
+        bodyFile: "release-notes.md"
+        artifacts: "/tmp/dist/*"
