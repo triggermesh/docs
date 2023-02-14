@@ -4256,6 +4256,19 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <p>Adapter spec overrides parameters.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in messages sent to Splunk.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -8401,6 +8414,19 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <p>Adapter spec overrides parameters.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in messages sent to Splunk.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.TLSSpec">TLSSpec
@@ -8643,5 +8669,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>8971e71c</code>.
+on git commit <code>ecbbcfef</code>.
 </em></p>
