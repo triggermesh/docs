@@ -149,6 +149,7 @@ nav:
       - Connecting Clusters: guides/connectingclusters.md
       - Using Kong with TriggerMesh: guides/kong-ingress.md
       - Using Kuma Mesh with TriggerMesh: guides/kuma.md
+      - Using a Kafka Cluster on Digital Ocean: guides/do-kafka.md
       - Creating a PrivateLink to TriggerMesh Services: guides/triggermesh-privatelink.md
       - Scaling: guides/scaling.md
       - Webhook to Slack: guides/webhook-to-slack.md
