@@ -101,8 +101,7 @@ tmctl create source kafka \
       --auth.saslEnable true \
       --auth.tlsEnable true \
       --auth.securityMechanism PLAIN \
-      --auth.tls.ca "$(cat /Users/sebgoa/Desktop/ca-certificate.crt)" \ 
-      --auth.tls.skipVerify true
+      --auth.tls.ca "$(cat /Users/sebgoa/Desktop/ca-certificate.crt)"
 ```
 
 When describing your Pipe you will now see a Kafka source component which emits events of type `io.triggermesh.kafka.event`
