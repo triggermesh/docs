@@ -1,5 +1,12 @@
 # Deploy to DO App Platform
 
+!!! Warning
+    This feature is currently available in a RC release. Install `tmctl` like so:
+    
+    ```console
+    curl -sSfL https://raw.githubusercontent.com/triggermesh/tmctl/HEAD/hack/install.sh | PKG_VERSION=v1.2.0-rc.1 sh
+    ```
+
 With a Pipe that is running successfully locally you are ready to deploy it on DO App Platform.
 
 First, stop the local Pipe to avoid duplicating consumers.
