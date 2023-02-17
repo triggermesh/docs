@@ -31,15 +31,11 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AWSSQSTarget">AWSSQSTarget</a>
 </li><li>
-<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>
-</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTarget">AzureSentinelTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventsTarget">CloudEventsTarget</a>
-</li><li>
-<a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>
 </li><li>
@@ -57,8 +53,6 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.HTTPTarget">HTTPTarget</a>
 </li><li>
-<a href="#targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget</a>
-</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.IBMMQTarget">IBMMQTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.JiraTarget">JiraTarget</a>
@@ -69,6 +63,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.LogzTarget">LogzTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.MongoDBTarget">MongoDBTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceTarget">SalesforceTarget</a>
@@ -77,9 +73,9 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.SlackTarget">SlackTarget</a>
 </li><li>
-<a href="#targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget</a>
+<a href="#targets.triggermesh.io/v1alpha1.SolaceTarget">SolaceTarget</a>
 </li><li>
-<a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>
+<a href="#targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.TwilioTarget">TwilioTarget</a>
 </li><li>
@@ -1114,163 +1110,10 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget
-</h3>
-<p>
-<p>AlibabaOSSTarget is the Schema for an Alibaba Object Storage Service Target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-targets.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>AlibabaOSSTarget</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">
-AlibabaOSSTargetSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>accessKeyID</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>Alibaba SDK access key id as registered. For more information on how to
-create an access key pair, please refer to
-<a href="https://www.alibabacloud.com/help/doc-detail/53045.htm?spm=a2c63.p38356.879954.9.23bc7d91ARN6Hy#task968">https://www.alibabacloud.com/help/doc-detail/53045.htm?spm=a2c63.p38356.879954.9.23bc7d91ARN6Hy#task968</a>.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>accessKeySecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>Alibaba SDK access key secret as registered.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>endpoint</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>The domain name used to access the OSS. For more information, please refer
-to the region and endpoint guide at
-<a href="https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.p38356.879954.8.23bc7d91ARN6Hy#concept-zt4-cvy-5db">https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.p38356.879954.8.23bc7d91ARN6Hy#concept-zt4-cvy-5db</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>bucket</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>The unique container to store objects in OSS.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>eventOptions</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
-EventOptions
-</a>
-</em>
-</td>
-<td>
-<p>EventOptions for targets</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.AzureEventHubsTarget">AzureEventHubsTarget
 </h3>
 <p>
-<p>AzureEventHubsTarget is the Schema for an Alibaba Object Storage Service Target.</p>
+<p>AzureEventHubsTarget is the Schema for an Azure Object Storage Service Target.</p>
 </p>
 <table>
 <thead>
@@ -1661,199 +1504,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>AdapterOverrides sets runtime parameters to the adapter instance.</p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget
-</h3>
-<p>
-<p>ConfluentTarget is the Schema for an ConfluentTarget.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-targets.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>ConfluentTarget</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.ConfluentTargetSpec">
-ConfluentTargetSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>username</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>SASLUsername Confluent account User</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>password</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>SASLPassword Confluent account Password</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>topic</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>Topic where messages are produced.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>topicReplicationFactor</code></br>
-<em>
-int
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>TopicReplicationFactor is the number of replicas for the topic.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>topicPartitions</code></br>
-<em>
-int
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>TopicPartitions is the number of partitions for the topic.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>bootstrapServers</code></br>
-<em>
-[]string
-</em>
-</td>
-<td>
-<p>BootstrapServers holds the name of the Kafka Bootstrap server.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>securityProtocol</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>SecurityProtocol allows the user to set the security protocol</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>saslMechanism</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>SASLMechanisms all the assignment of specific SASL mechanisms.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>discardCloudEventContext</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<p>Whether to omit CloudEvent context attributes in messages sent to Kafka.
-When this property is false (default), the entire CloudEvent payload is included.
-When this property is true, only the CloudEvent data is included.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
 </td>
 </tr>
 </table>
@@ -3041,157 +2691,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget
-</h3>
-<p>
-<p>HasuraTarget is the Schema for the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-targets.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>HasuraTarget</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.HasuraTargetSpec">
-HasuraTargetSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>endpoint</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>The GraphQL server endpoint.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>jwt</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>A user token for interfacing with Hasura.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>admin</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>An alternate token for interfacing with Hasura using admin privileges.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>defaultRole</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>A default role that the queries should use when running the query.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>queries</code></br>
-<em>
-map[string]string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>A predefined list of queries that an event can specify in the io.triggermesh.graphql.query event type.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.IBMMQTarget">IBMMQTarget
 </h3>
 <p>
@@ -3905,6 +3404,142 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.MongoDBTarget">MongoDBTarget
+</h3>
+<p>
+<p>MongoDBTarget is the Schema for the MongoDB Target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>MongoDBTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.MongoDBTargetSpec">
+MongoDBTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>connectionString</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>ConnectionString defines the MongoDB connection string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>database</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Database defines the MongoDB database.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>collection</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Collection defines the MongoDB collection.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.OracleTarget">OracleTarget
 </h3>
 <p>
@@ -4497,6 +4132,143 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.SolaceTarget">SolaceTarget
+</h3>
+<p>
+<p>SolaceTarget is the Schema for an SolaceTarget.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>SolaceTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SolaceTargetSpec">
+SolaceTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>url</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>URL</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>QueueName</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SolaceTargetAuth">
+SolaceTargetAuth
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Auth contains Authentication method used to interact with Solace.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in messages sent to Solace.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.SplunkTarget">SplunkTarget
 </h3>
 <p>
@@ -4623,106 +4395,17 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <p>Adapter spec overrides parameters.</p>
 </td>
 </tr>
-</table>
-</td>
-</tr>
 <tr>
 <td>
-<code>status</code></br>
+<code>discardCloudEventContext</code></br>
 <em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
+bool
 </em>
 </td>
 <td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget
-</h3>
-<p>
-<p>TektonTarget defines the schema for the Tekton target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-targets.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>TektonTarget</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.TektonTargetSpec">
-TektonTargetSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>reapPolicy</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.TektonTargetReapPolicy">
-TektonTargetReapPolicy
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>ReapPolicy dictates the reaping policy to be applied for the target</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
+<p>Whether to omit CloudEvent context attributes in messages sent to Splunk.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
 </td>
 </tr>
 </table>
@@ -5617,104 +5300,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTarget">AlibabaOSSTarget</a>)
-</p>
-<p>
-<p>AlibabaOSSTargetSpec defines the desired state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>accessKeyID</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>Alibaba SDK access key id as registered. For more information on how to
-create an access key pair, please refer to
-<a href="https://www.alibabacloud.com/help/doc-detail/53045.htm?spm=a2c63.p38356.879954.9.23bc7d91ARN6Hy#task968">https://www.alibabacloud.com/help/doc-detail/53045.htm?spm=a2c63.p38356.879954.9.23bc7d91ARN6Hy#task968</a>.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>accessKeySecret</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>Alibaba SDK access key secret as registered.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>endpoint</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>The domain name used to access the OSS. For more information, please refer
-to the region and endpoint guide at
-<a href="https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.p38356.879954.8.23bc7d91ARN6Hy#concept-zt4-cvy-5db">https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.p38356.879954.8.23bc7d91ARN6Hy#concept-zt4-cvy-5db</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>bucket</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>The unique container to store objects in OSS.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>eventOptions</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
-EventOptions
-</a>
-</em>
-</td>
-<td>
-<p>EventOptions for targets</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.AzureAuth">AzureAuth
 </h3>
 <p>
@@ -6155,144 +5740,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.ConfluentTargetSpec">ConfluentTargetSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.ConfluentTarget">ConfluentTarget</a>)
-</p>
-<p>
-<p>ConfluentTargetSpec defines the desired state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>username</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>SASLUsername Confluent account User</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>password</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<p>SASLPassword Confluent account Password</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>topic</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>Topic where messages are produced.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>topicReplicationFactor</code></br>
-<em>
-int
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>TopicReplicationFactor is the number of replicas for the topic.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>topicPartitions</code></br>
-<em>
-int
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>TopicPartitions is the number of partitions for the topic.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>bootstrapServers</code></br>
-<em>
-[]string
-</em>
-</td>
-<td>
-<p>BootstrapServers holds the name of the Kafka Bootstrap server.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>securityProtocol</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>SecurityProtocol allows the user to set the security protocol</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>saslMechanism</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>SASLMechanisms all the assignment of specific SASL mechanisms.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>discardCloudEventContext</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<p>Whether to omit CloudEvent context attributes in messages sent to Kafka.
-When this property is false (default), the entire CloudEvent payload is included.
-When this property is true, only the CloudEvent data is included.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.Connection">Connection
 </h3>
 <p>
@@ -6656,7 +6103,6 @@ string
 <p>
 (<em>Appears on:</em>
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTargetSpec">AzureSentinelTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, 
@@ -6668,6 +6114,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.IBMMQTargetSpec">IBMMQTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.LogzMetricsTargetSpec">LogzMetricsTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.MongoDBTargetSpec">MongoDBTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SalesforceTargetSpec">SalesforceTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.SendGridTargetSpec">SendGridTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.TwilioTargetSpec">TwilioTargetSpec</a>)
@@ -7440,102 +6887,6 @@ string
 <td>
 <em>(Optional)</em>
 <p>OAuthScopes used for OAuth2 authentication.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.HasuraTargetSpec">HasuraTargetSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.HasuraTarget">HasuraTarget</a>)
-</p>
-<p>
-<p>HasuraTargetSpec defines the desired state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>endpoint</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>The GraphQL server endpoint.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>jwt</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>A user token for interfacing with Hasura.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>admin</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.SecretValueFromSource">
-SecretValueFromSource
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>An alternate token for interfacing with Hasura using admin privileges.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>defaultRole</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>A default role that the queries should use when running the query.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>queries</code></br>
-<em>
-map[string]string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>A predefined list of queries that an event can specify in the io.triggermesh.graphql.query event type.</p>
 </td>
 </tr>
 <tr>
@@ -8512,6 +7863,87 @@ string
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.MongoDBTargetSpec">MongoDBTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.MongoDBTarget">MongoDBTarget</a>)
+</p>
+<p>
+<p>MongoDBTargetSpec defines the desired state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>connectionString</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+<p>ConnectionString defines the MongoDB connection string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>database</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Database defines the MongoDB database.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>collection</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Collection defines the MongoDB collection.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.NumberKind">NumberKind
 (<code>string</code> alias)</p></h3>
 <p>
@@ -8814,8 +8246,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AlibabaOSSTargetSpec">AlibabaOSSTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.ConfluentTargetSpec">ConfluentTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.Connection">Connection</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, 
@@ -8824,7 +8254,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudWorkflowsTargetSpec">GoogleCloudWorkflowsTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleSheetTargetSpec">GoogleSheetTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.HTTPTargetSpec">HTTPTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.HasuraTargetSpec">HasuraTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.JiraAuth">JiraAuth</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.LogzMetricsConnection">LogzMetricsConnection</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.LogzTargetSpec">LogzTargetSpec</a>, 
@@ -9038,6 +8467,236 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
+<h3 id="targets.triggermesh.io/v1alpha1.SolaceTargetAuth">SolaceTargetAuth
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SolaceTargetSpec">SolaceTargetSpec</a>)
+</p>
+<p>
+<p>SolaceTargetAuth contains Authentication method used to interact with Solace.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>tls</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SolaceTargetTLSAuth">
+SolaceTargetTLSAuth
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>TLS</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>saslEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>SASL Enable</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>tlsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>TLS Enable</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>username</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Username Solace</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>password</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Password Solace</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.SolaceTargetSpec">SolaceTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SolaceTarget">SolaceTarget</a>)
+</p>
+<p>
+<p>SolaceTargetSpec defines the desired state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>url</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>URL</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>QueueName</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.SolaceTargetAuth">
+SolaceTargetAuth
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Auth contains Authentication method used to interact with Solace.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in messages sent to Solace.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.SolaceTargetTLSAuth">SolaceTargetTLSAuth
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.SolaceTargetAuth">SolaceTargetAuth</a>)
+</p>
+<p>
+<p>SolaceTargetTLSAuth contains SSL credentials.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>ca</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>clientCert</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>clientKey</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>skipVerify</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="targets.triggermesh.io/v1alpha1.SplunkTargetSpec">SplunkTargetSpec
 </h3>
 <p>
@@ -9124,6 +8783,19 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <p>Adapter spec overrides parameters.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether to omit CloudEvent context attributes in messages sent to Splunk.
+When this property is false (default), the entire CloudEvent payload is included.
+When this property is true, only the CloudEvent data is included.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="targets.triggermesh.io/v1alpha1.TLSSpec">TLSSpec
@@ -9183,94 +8855,6 @@ Keystore
 </em>
 </td>
 <td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.TektonTargetReapPolicy">TektonTargetReapPolicy
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.TektonTargetSpec">TektonTargetSpec</a>)
-</p>
-<p>
-<p>TektonTargetReapPolicy defines desired Repeating Policy.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>success</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>ReapSuccessAge How long to wait before reaping runs that were successful</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>fail</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>ReapFailAge How long to wait before reaping runs that failed</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="targets.triggermesh.io/v1alpha1.TektonTargetSpec">TektonTargetSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.TektonTarget">TektonTarget</a>)
-</p>
-<p>
-<p>TektonTargetSpec defines the desired state of the event target.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>reapPolicy</code></br>
-<em>
-<a href="#targets.triggermesh.io/v1alpha1.TektonTargetReapPolicy">
-TektonTargetReapPolicy
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>ReapPolicy dictates the reaping policy to be applied for the target</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
 </td>
 </tr>
 </tbody>
@@ -9454,5 +9038,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>0df2c200</code>.
+on git commit <code>f797c5d3</code>.
 </em></p>
