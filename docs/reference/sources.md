@@ -79,8 +79,6 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.SlackSource">SlackSource</a>
 </li><li>
-<a href="#sources.triggermesh.io/v1alpha1.SolaceSource">SolaceSource</a>
-</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.TwilioSource">TwilioSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.WebhookSource">WebhookSource</a>
@@ -3299,21 +3297,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -3467,21 +3451,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -3627,21 +3597,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -3802,21 +3758,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -3972,21 +3914,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -5024,145 +4952,6 @@ string
 <p>AppID identifies the Slack application generating this event.
 It helps identifying the App sourcing events when multiple Slack
 applications shared an endpoint. See: <a href="https://api.slack.com/events-api">https://api.slack.com/events-api</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.SolaceSource">SolaceSource
-</h3>
-<p>
-<p>SolaceSource is the Schema for the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>apiVersion</code></br>
-string</td>
-<td>
-<code>
-sources.triggermesh.io/v1alpha1
-</code>
-</td>
-</tr>
-<tr>
-<td>
-<code>kind</code></br>
-string
-</td>
-<td><code>SolaceSource</code></td>
-</tr>
-<tr>
-<td>
-<code>metadata</code></br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.SolaceSourceSpec">
-SolaceSourceSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>SourceSpec</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
-knative.dev/pkg/apis/duck/v1.SourceSpec
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceSpec</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>url</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>URL</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>queueName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>QueueName</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.SolaceSourceAuth">
-SolaceSourceAuth
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Auth contains Authentication method used to interact with Solace.</p>
 </td>
 </tr>
 <tr>
@@ -9031,21 +8820,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -9216,21 +8991,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -9382,21 +9143,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -9457,55 +9204,6 @@ GCloudResourceName
 </em>
 </td>
 <td>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">GoogleCloudSourceAuth
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudAuditLogsSourceSpec">GoogleCloudAuditLogsSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudBillingSourceSpec">GoogleCloudBillingSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudPubSubSourceSpec">GoogleCloudPubSubSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceRepositoriesSourceSpec">GoogleCloudSourceRepositoriesSourceSpec</a>, 
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSourceSpec">GoogleCloudStorageSourceSpec</a>)
-</p>
-<p>
-<p>GoogleCloudSourceAuth contains authentication related attributes.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>serviceAccountKey</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-<p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>gcpServiceAccount</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>GCP Service account for Workload Identity.
-<a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity">https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity</a></p>
 </td>
 </tr>
 </tbody>
@@ -9655,21 +9353,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -9831,21 +9515,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
-Deprecated, use Auth object instead.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.GoogleCloudSourceAuth">
-GoogleCloudSourceAuth
-</a>
-</em>
-</td>
-<td>
-<p>Different authentication methods available in sources on GCP.</p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
 </td>
 </tr>
 <tr>
@@ -11226,238 +10896,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
-<h3 id="sources.triggermesh.io/v1alpha1.SolaceSourceAuth">SolaceSourceAuth
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.SolaceSourceSpec">SolaceSourceSpec</a>)
-</p>
-<p>
-<p>SolaceSourceAuth contains Authentication method used to interact with Solace.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>tls</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.SolaceSourceTLSAuth">
-SolaceSourceTLSAuth
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>TLS</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>saslEnable</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>SASL Enable</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>tlsEnable</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>TLS Enable</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>username</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Username Solace</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>password</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Password Solace</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.SolaceSourceSpec">SolaceSourceSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.SolaceSource">SolaceSource</a>)
-</p>
-<p>
-<p>SolaceSourceSpec defines the desired state of the event source.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SourceSpec</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
-knative.dev/pkg/apis/duck/v1.SourceSpec
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>SourceSpec</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>url</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>URL</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>queueName</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>QueueName</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>auth</code></br>
-<em>
-<a href="#sources.triggermesh.io/v1alpha1.SolaceSourceAuth">
-SolaceSourceAuth
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Auth contains Authentication method used to interact with Solace.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>adapterOverrides</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Adapter spec overrides parameters.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sources.triggermesh.io/v1alpha1.SolaceSourceTLSAuth">SolaceSourceTLSAuth
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#sources.triggermesh.io/v1alpha1.SolaceSourceAuth">SolaceSourceAuth</a>)
-</p>
-<p>
-<p>SolaceSourceTLSAuth contains kerberos credentials.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>ca</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>clientCert</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>clientKey</code></br>
-<em>
-<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
-github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>skipVerify</code></br>
-<em>
-bool
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="sources.triggermesh.io/v1alpha1.TLSSpec">TLSSpec
 </h3>
 <p>
@@ -11882,5 +11320,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>f797c5d3</code>.
+on git commit <code>0df2c200</code>.
 </em></p>
