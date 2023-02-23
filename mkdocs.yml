@@ -214,7 +214,8 @@ extra:
   analytics:
     provider: google
     property: G-N07B164J7T
-
+  version:
+      provider: mike
 
 markdown_extensions:
   - attr_list
