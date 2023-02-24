@@ -239,3 +239,10 @@ markdown_extensions:
 
 plugins:
     - search
+    - redirects:
+        redirect_maps:
+            'sources.md': 'sources/awscloudwatch.md'
+            'targets.md': 'targets/awscomprehend.md'
+            'get-started.md': 'get-started/quickstart.md'
+            'guides.md': 'guides/creatingadls.md'
+            'reference.md': 'reference/sources.md'
