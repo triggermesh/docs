@@ -79,3 +79,7 @@
     background: rgba(0, 0, 0, 0.8);
     color: #FFF
 }
+
+.md-nav__link[for] {
+    color: var(--md-default-fg-color) !important
+}
