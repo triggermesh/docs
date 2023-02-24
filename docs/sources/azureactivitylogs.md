@@ -6,9 +6,8 @@ selected set of log categories to a dedicated Event Hub, then subscribing to the
 
 With `tmctl`:
 
-```
-tmctl create source azureactivitylogs --subscriptionID <id> --destination.eventHubs.namespaceID <namespaceID> --auth.servicePrincipal.tenantID <tenantID> --auth.servicePrincipal.clientID <clientID> --auth.servicePrincipal.clientSecret <clientSecret>
-```
+!!! warning "Work in progress"
+    This component is not yet available with `tmctl`.
 
 On Kubernetes:
 
