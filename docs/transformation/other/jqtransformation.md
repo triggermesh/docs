@@ -1,6 +1,13 @@
 # JQ Transformation
 
-## Kubernetes
+Run a JSON query against an event. 
+
+With `tmctl`:
+
+!!! info "Work in progress"
+    This component is not yet available with `tmctl`.
+
+On Kubernetes:
 
 ```yaml
 apiVersion: flow.triggermesh.io/v1alpha1
@@ -15,3 +22,7 @@ spec:
       kind: Service
       name: event-display
 ```
+
+Accepts events of any type.
+
+Output events of type `io.triggermesh.jqtransformation.error` in the case of an error.

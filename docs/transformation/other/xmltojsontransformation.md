@@ -2,6 +2,9 @@
 
 The TriggerMesh `XMLToJSONTransformation` API object can be used to process a Cloudevent containing XML and return a JSON representation.
 
+!!! info "Work in progress"
+    This component is not yet available with `tmctl`.
+
 ## Configuring an XML to JSON event flow XML
 
 This guide shows you how to configure an event flow that transforms an incoming CloudEvent in XML to their JSON representation. It has four steps:

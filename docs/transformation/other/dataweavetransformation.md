@@ -1,6 +1,9 @@
 # Transforming using DataWeave
 The TriggerMesh `DataWeaveTransformation` API object can be used to process a Cloudevent containing JSON or XML and transform the document using [DataWeave](https://docs.mulesoft.com/mule-runtime/3.9/dataweave).
 
+!!! info "Work in progress"
+    This component is not yet available with `tmctl`.
+
 This guide shows you how to configure an event flow that transforms an incoming CloudEvent in XML by parsing it with a DataWeave Spell. It has five steps:
 
 * Deploy a Broker that will receive the transformed data.

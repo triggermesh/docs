@@ -1,6 +1,9 @@
 # Transforming XML Using XSLT
 The Trigermesh `XSLTTransformation` API object can be used to process a Cloudevent containing XML and transform the document using [XSLT](https://developer.mozilla.org/en-US/docs/Web/XSLT).
 
+!!! info "Work in progress"
+    This component is not yet available with `tmctl`.
+
 ## Configuring a XSLT Transformation Event Flow
 
 This guide shows you how to configure an event flow that transforms an incoming CloudEvent in XML by parsing it with an XSLT stylesheet. It has five steps:
@@ -16,7 +19,6 @@ This guide shows you how to configure an event flow that transforms an incoming 
 An `XSLTTransformation` object can be configured to either reply to the event sender or to send the
 transformed data to a `Sink`, if one is provided. In this guide, we will deploy without a `Sink` and
 configure the replies from the transformation to route to the `EventDisplay` service using a `Trigger`.
-
 
 The transformation needs to be configured with a valid XSLT document. In this guide we will use the following XSLT:
 
