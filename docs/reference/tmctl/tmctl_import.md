@@ -1,15 +1,22 @@
-## tmctl version
+## tmctl import
 
-CLI version information
+Import TriggerMesh manifest
 
 ```
-tmctl version [flags]
+tmctl import -f <path/to/manifest.yaml>/<manifest URL> [flags]
+```
+
+### Examples
+
+```
+tmctl import -f manifest.yaml
 ```
 
 ### Options
 
 ```
-  -h, --help   help for version
+  -f, --from string   Import manifest from
+  -h, --help          help for import
 ```
 
 ### Options inherited from parent commands

@@ -159,20 +159,20 @@ nav:
       - CLI commands:
          - tmctl: reference/tmctl/tmctl.md
          - tmctl brokers: reference/tmctl/tmctl_brokers.md
-         - tmctl config:
-           - tmctl config: reference/tmctl/tmctl_config.md
-           - tmctl config get: reference/tmctl/tmctl_config_get.md
-           - tmctl config set: reference/tmctl/tmctl_config_set.md
-         - tmctl create:
-           - tmctl create: reference/tmctl/tmctl_create.md
-           - tmctl create broker: reference/tmctl/tmctl_create_broker.md
-           - tmctl create source: reference/tmctl/tmctl_create_source.md
-           - tmctl create target: reference/tmctl/tmctl_create_target.md
-           - tmctl create transformation: reference/tmctl/tmctl_create_transformation.md
-           - tmctl create trigger: reference/tmctl/tmctl_create_trigger.md
+         - tmctl config: reference/tmctl/tmctl_config.md
+         - tmctl config get: reference/tmctl/tmctl_config_get.md
+         - tmctl config set: reference/tmctl/tmctl_config_set.md
+         - tmctl create: reference/tmctl/tmctl_create.md
+         - tmctl create broker: reference/tmctl/tmctl_create_broker.md
+         - tmctl create source: reference/tmctl/tmctl_create_source.md
+         - tmctl create target: reference/tmctl/tmctl_create_target.md
+         - tmctl create transformation: reference/tmctl/tmctl_create_transformation.md
+         - tmctl create trigger: reference/tmctl/tmctl_create_trigger.md
          - tmctl delete: reference/tmctl/tmctl_delete.md
          - tmctl describe: reference/tmctl/tmctl_describe.md
          - tmctl dump: reference/tmctl/tmctl_dump.md
+         - tmctl import: reference/tmctl/tmctl_import.md
+         - tmctl logs: reference/tmctl/tmctl_logs.md
          - tmctl send-event: reference/tmctl/tmctl_send-event.md
          - tmctl start: reference/tmctl/tmctl_start.md
          - tmctl stop: reference/tmctl/tmctl_stop.md

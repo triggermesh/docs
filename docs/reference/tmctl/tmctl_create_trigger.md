@@ -16,6 +16,7 @@ tmctl create trigger --target sockeye --source foo-httppollersource
 
 ```
       --eventTypes strings   Event types filter
+      --filter string        Raw filter JSON
   -h, --help                 help for trigger
       --name string          Trigger name
       --source strings       Event sources filter
@@ -25,8 +26,7 @@ tmctl create trigger --target sockeye --source foo-httppollersource
 ### Options inherited from parent commands
 
 ```
-      --broker string    Optional broker name.
-      --version string   TriggerMesh components version.
+      --version string   TriggerMesh components version. (default "v1.23.3")
 ```
 
 ### SEE ALSO

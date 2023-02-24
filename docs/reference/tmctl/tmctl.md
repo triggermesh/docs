@@ -1,4 +1,4 @@
-# tmctl
+## tmctl
 
 A command line interface to build event-driven applications
 
@@ -11,9 +11,8 @@ Find more information at: https://docs.triggermesh.io
 ### Options
 
 ```
-      --broker string    Optional broker name.
   -h, --help             help for tmctl
-      --version string   TriggerMesh components version.
+      --version string   TriggerMesh components version. (default "v1.23.3")
 ```
 
 ### SEE ALSO
@@ -22,10 +21,13 @@ Find more information at: https://docs.triggermesh.io
 * [tmctl config](tmctl_config.md)	 - Read and write config values
 * [tmctl create](tmctl_create.md)	 - Create TriggerMesh component
 * [tmctl delete](tmctl_delete.md)	 - Delete components by names
-* [tmctl describe](tmctl_describe.md)	 - Show broker status
-* [tmctl dump](tmctl_dump.md)	 - Generate Kubernetes manifest
+* [tmctl describe](tmctl_describe.md)	 - List broker components and their statuses
+* [tmctl dump](tmctl_dump.md)	 - Generate TriggerMesh manifests
+* [tmctl import](tmctl_import.md)	 - Import TriggerMesh manifest
+* [tmctl logs](tmctl_logs.md)	 - Display components logs
 * [tmctl send-event](tmctl_send-event.md)	 - Send CloudEvent to the target
 * [tmctl start](tmctl_start.md)	 - Starts TriggerMesh components
 * [tmctl stop](tmctl_stop.md)	 - Stops TriggerMesh components, removes docker containers
 * [tmctl version](tmctl_version.md)	 - CLI version information
 * [tmctl watch](tmctl_watch.md)	 - Watch events flowing through the broker
+

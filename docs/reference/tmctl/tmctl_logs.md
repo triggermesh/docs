@@ -1,15 +1,22 @@
-## tmctl version
+## tmctl logs
 
-CLI version information
+Display components logs
 
 ```
-tmctl version [flags]
+tmctl logs [name] [flags]
+```
+
+### Examples
+
+```
+tmctl logs
 ```
 
 ### Options
 
 ```
-  -h, --help   help for version
+  -f, --follow   Follow logs output
+  -h, --help     help for logs
 ```
 
 ### Options inherited from parent commands
