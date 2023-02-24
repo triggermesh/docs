@@ -72,6 +72,7 @@ nav:
       - OCIMetrics: sources/ocimetrics.md
       - Salesforce: sources/salesforce.md
       - Slack: sources/slack.md
+      - Solace: sources/solace.md
       - Twilio: sources/twilio.md
       - Webhook (HTTP): sources/webhook.md
       - Zendesk: sources/zendesk.md
@@ -105,6 +106,7 @@ nav:
       - Salesforce: targets/salesforce.md
       - SendGrid: targets/sendgrid.md
       - Slack: targets/slack.md
+      - Solace: targets/solace.md
       - Splunk: targets/splunk.md
       - Twilio: targets/twilio.md
       - Zendesk: targets/zendesk.md
