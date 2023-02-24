@@ -28,6 +28,9 @@ spec:
       value: admin-secret
 ```
 
+You can use the optional `discardCloudEventContext` parameter to omit CloudEvents context attributes from the event written to Kafka. When this property is
+false (default), the entire CloudEvent payload is included. When this property is true, only the CloudEvent data is included.
+
 Accepts events of any type.
 
 You can test the Target by sending it an event using `curl`:
