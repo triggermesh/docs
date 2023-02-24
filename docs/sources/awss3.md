@@ -57,6 +57,10 @@ Parameters:
   this queue yourself as described in the previous sections.
 - [**Event types**][s3-events]: List of event types to subscribe to.
 
+!!! Note
+
+    The TriggerMesh event source for Amazon S3 configures the S3 bucket to send [event notifications][s3-dest] to an [Amazon
+    SQS queue][sqs-docs]. See section SQS Queue below for details.
 
 Events produced have the following attributes:
 

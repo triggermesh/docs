@@ -1,6 +1,6 @@
 # Amazon EventBridge source
 
-Consumes events from [AWS EventBridge](https://aws.amazon.com/eventbridge/)).
+Consumes events from [AWS EventBridge](https://aws.amazon.com/eventbridge/).
 
 With `tmctl`:
 
@@ -55,8 +55,25 @@ auth:
 
 To setup an IAM role for service accounts, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
 
+!!! Note
+
+    The TriggerMesh event source for Amazon EventBridge configures EventBridge to send events to an [Amazon
+    SQS queue][sqs-docs]. See section SQS Queue below for details.
+
 Events produced have the following attributes:
 
 * type `com.amazon.events.event`
 
 See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSEventBridgeSource) for more details.
+
+### SQS Queue _(optional)_
+
+The TriggerMesh event source for Amazon EventBridge configures EventBridge to send event notifications to an [Amazon
+SQS queue][sqs-docs].
+
+By default, the source creates and manages a SQS queue for that purpose on behalf of the user.
+
+Alternatively, in case you prefer not to delegate this responsibility to the event source, it is possible to provide
+your own SQS queue as an event destination. In this scenario, it is your own responsibility to configure the queue as needed.
+
+[sqs-docs]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
