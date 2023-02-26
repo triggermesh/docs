@@ -24,13 +24,13 @@ spec:
       key: token
 ```
 
-- **Endpoint**: URL of the HTTP Event Collector (HEC). This URL varies depending on the type of Splunk installation
-  (Enterprise, self-service Cloud, managed Cloud). Only the scheme, hostname, and port (optionally) are evaluated, the
-  URL path is trimmed if present.
+- **Endpoint**: URL of the HTTP Event Collector (HEC). Only the scheme, hostname, and port (optionally) are evaluated. When the URL path is not present, the one [documented at Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector#Enable_HTTP_Event_Collector) is automatically used.
 - **Token**: Contains a token for authenticating requests against
   the HEC, as discussed in the [prerequisites](#prerequisites).
 - [**Index**][index]: Name of the index to send events to. When undefined, events are sent to the default index defined
   in the HEC token's configuration.
+
+You can use the optional `discardCloudEventContext` parameter to omit CloudEvents context attributes from the event written to Splunk. When this property is false (default), the entire CloudEvent payload is included. When this property is true, only the CloudEvent data is included.
 
 Accepts events of any type.
 See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.SplunkTarget) for more details.
