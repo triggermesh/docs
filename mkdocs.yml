@@ -181,11 +181,11 @@ nav:
       - Kubernetes CRDs:
         - reference/index.md
         - Sources: reference/sources.md
+        - Eventing: reference/eventing.md
         - Targets: reference/targets.md
         - Routing: reference/routing.md
         - Transformation: reference/flow.md
         - Functions: reference/extensions.md
-        - Core: reference/eventing.md
 
 theme:
   name: material
