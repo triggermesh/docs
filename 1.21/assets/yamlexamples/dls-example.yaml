@@ -1,0 +1,73 @@
+apiVersion: eventing.knative.dev/v1
+kind: Broker
+metadata:
+  name: demo
+spec:
+  delivery:
+    deadLetterSink:
+      ref:
+          apiVersion: serving.knative.dev/v1
+          kind: Service
+          name: event-failure-capture
+    backoffDelay: "PT0.5S"     # or ISO8601 duration
+    backoffPolicy: exponential # or linear
+    retry: 2
+
+---
+
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: say-hi
+spec:
+  data: '{"hello": "triggermesh"}'
+  schedule: "*/1 * * * *"
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: demo
+
+---
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: event-success-capture
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+    spec:
+      containers:
+      - image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+
+---
+
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: demo-to-display
+spec:
+  broker: demo
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: event-success-capture
+
+---
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: event-failure-capture
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+    spec:
+      containers:
+      - image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
