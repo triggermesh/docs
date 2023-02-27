@@ -1,8 +1,0 @@
-# Top level files and directories
-/.circleci/
-/.dockerignore
-/.gcloudignore
-/.git/
-/_output/
-/cloudbuild.yaml
-/Dockerfile

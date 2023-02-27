@@ -17,13 +17,13 @@ IMAGE_SHA         ?= $(shell git rev-parse HEAD)
 
 HAS_MKDOCS        := $(shell command -v mkdocs;)
 
-.PHONY: help build image cloudbuild-test cloudbuild clean
+.PHONY: help build cloudbuild-test cloudbuild clean
 
 all: build
 
 install-mkdocs:
 ifndef HAS_MKDOCS
-	pip3 install mkdocs-material mkdocs-redirects
+	pip3 install mkdocs-material mkdocs-redirects mike
 endif
 
 help: ## Display this help
@@ -35,9 +35,6 @@ build: install-mkdocs ## Build the docs
 release: ## Build distribution tarball
 	@mkdir -p $(DIST_DIR)
 	tar -jcf $(DIST_DIR)/$(PACKAGE)-$(VERSION).tar.bz2 -C $$(dirname $(SITE_OUTPUT_DIR)) $$(basename $(SITE_OUTPUT_DIR))
-
-image: ## Builds the container image
-	$(DOCKER) build -t $(IMAGE_REPO)/$(PACKAGE) -f Dockerfile .
 
 clean: ## Clean build artifacts
 	@$(RM) -v $(DIST_DIR)/$(PACKAGE)-$(VERSION).tar.bz2
