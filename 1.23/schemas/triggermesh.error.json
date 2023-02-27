@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/TriggerMeshError",
+  "definitions": {
+    "TriggerMeshError": {
+      "properties": {
+        "code": {
+        "type": "string"
+        },
+        "description": {
+        "type": "string"
+        },
+        "details": {
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    }
+  }
+}

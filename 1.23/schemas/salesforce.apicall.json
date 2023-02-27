@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/SalesforceAPIRequest",
+  "definitions": {
+   "SalesforceAPIRequest": {
+    "required": [
+     "action",
+     "resource"
+    ],
+    "properties": {
+     "action": {
+      "type": "string"
+     },
+     "resource": {
+      "type": "string"
+     },
+     "object": {
+       "type": "string"
+     },
+     "record": {
+       "type": "string"
+     },
+     "query": {
+       "patternProperties": {
+         ".*": {
+          "type": "string"
+         }
+       }
+     },
+     "payload": {
+       "type": "object"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object"
+   }
+  }
+ }
