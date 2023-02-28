@@ -149,6 +149,7 @@ nav:
       - Creating a Filter: guides/creatingafilter.md
       - Creating a Splitter: guides/creatingasplitter.md
       - Connecting Clusters: guides/connectingclusters.md
+      - Deploying to Digital Ocean App Platform: guides/do-app-platform.md
       - Using Kong with TriggerMesh: guides/kong-ingress.md
       - Using Kuma Mesh with TriggerMesh: guides/kuma.md
       - Creating a PrivateLink to TriggerMesh Services: guides/triggermesh-privatelink.md
