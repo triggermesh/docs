@@ -746,7 +746,18 @@ string
 </em>
 </td>
 <td>
-<p>Redis URL.</p>
+<p>Redis URL for standalone instances</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>clusterURLs</code></br>
+<em>
+[]string
+</em>
+</td>
+<td>
+<p>Redis URLs for cluster instances</p>
 </td>
 </tr>
 <tr>
@@ -979,5 +990,5 @@ resolved delivery options.</p>
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>8ab2513</code>.
+on git commit <code>8713c61</code>.
 </em></p>
