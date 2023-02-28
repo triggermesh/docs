@@ -61,7 +61,10 @@ jobs:
     - name: Configure DOCS_VERSION
       id: docs-version
       run: |
-        [[ "${GITHUB_REF_TYPE}" == "tag" ]] && DOCS_VERSION=${${GITHUB_REF_NAME:1}%.*}
+        if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+          DOCS_VERSION=${GITHUB_REF_NAME:1}
+          DOCS_VERSION=${DOCS_VERSION%.*}
+        fi
         echo "DOCS_VERSION=${DOCS_VERSION:-DEV}" >> $GITHUB_OUTPUT
 
     - name: Deploy version and push
