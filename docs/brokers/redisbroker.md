@@ -2,14 +2,14 @@
 
 The Redis Broker uses a backing Redis instance to store events, thereby providing durability that is suitable for production uses cases where event loss in not acceptable during crashes or restarts.
 
-The management of the Redis instance is greatly simplified by TriggerMesh. It is also possible to point the Broker to any Redis instance, such as a managed instance from a cloud provider.  
+The management of the Redis instance is greatly simplified by TriggerMesh. It is also possible to point the Broker to any Redis instance, such as a managed instance from a cloud provider.
 
 With `tmctl`:
 
 !!! warning "Work in progress"
     This component is not yet available with `tmctl`. By default, Brokers created with `tmctl` are [Memory Brokers](memorybroker.md). However, when you export your configuration to Kubernetes manifests using `tmctl dump`, TriggerMesh will export a `Redis Broker`, thereby providing message durability by default. You can switch to a Memory Broker if you prefer by updating the exported manifest.
 
-    TriggerMesh will add support for Redis Broker in `tmctl` in the future.  
+    TriggerMesh will add support for Redis Broker in `tmctl` in the future.
 
 On Kubernetes:
 
@@ -21,7 +21,9 @@ metadata:
 spec:
   redis:
     connection: <Provides a connection to an external Redis instance. Optional>
-        url: <redis URL. Required>
+        url: <redis URL. Required if clusterURLs not informed>
+        clusterURLs:
+        - <an entry for each redis URL in the cluster. Required if url not informed>
         username: <redis username, referenced using a Kubernetes secret>
           secretKeyRef:
             name: <Kubernetes secret name>
@@ -43,6 +45,8 @@ spec:
 The only `RedisBroker` specific parameters are:
 
 - `spec.redis.connection`. When not used the broker will spin up a managed Redis Deployment. However for production scenarios that require HA and hardened security it is recommended to provide the connection to a user managed Redis instance.
+- `spec.redis.connection.url`. URL to the standalone Redis instance. This should not be informed for Redis clusters.
+- `spec.redis.connection.clusterURLs`. Array of URLs to each node of a Redis cluster. This should not be informed for standalone Redis.
 - `spec.stream` is the Redis stream name to be used by the broker. If it doesn't exists the Broker will create it.
 - `spec.streamMaxLen` is the maximum number of elements that the stream will contain.
 
