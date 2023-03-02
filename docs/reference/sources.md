@@ -2448,6 +2448,17 @@ AzureResourceID
 </tr>
 <tr>
 <td>
+<code>consumerGroup</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Name of the Event Hubs&rsquo; Consumer Group that will be used by the source to read the event stream.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>auth</code></br>
 <em>
 <a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
@@ -7392,6 +7403,17 @@ omitted, Azure automatically creates an Event Hub with the name
 </tr>
 <tr>
 <td>
+<code>consumerGroup</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Name of the Event Hubs&rsquo; Consumer Group that will be used by the source to read the event stream.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>sasPolicy</code></br>
 <em>
 string
@@ -7807,6 +7829,17 @@ string
 omitted, an Event Hubs instance is created on behalf of the user.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>consumerGroup</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Name of the Event Hubs&rsquo; Consumer Group that will be used by the source to read the event stream.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.AzureEventGridSourceEndpoint">AzureEventGridSourceEndpoint
@@ -8061,6 +8094,17 @@ AzureResourceID
 <p>Resource ID of the Event Hubs instance.</p>
 <p>Expected format:
 - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>consumerGroup</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Name of the Event Hubs&rsquo; Consumer Group that will be used by the source to read the event stream.</p>
 </td>
 </tr>
 <tr>
@@ -11882,5 +11926,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e75eb743</code>.
+on git commit <code>1db1f13c</code>.
 </em></p>
