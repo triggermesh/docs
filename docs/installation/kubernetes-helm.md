@@ -24,7 +24,7 @@ TriggerMesh relies on [Knative Serving](https://knative.dev/docs/concepts/#knati
 Begin by installing the Knative Operator:
 
 ```sh
-kubectl apply -f https://github.com/knative/operator/releases/download/knative-v1.8.1/operator.yaml -n default
+kubectl apply -f https://github.com/knative/operator/releases/download/knative-v1.8.5/operator.yaml -n default
 ```
 
 Check the status of the Operator by running the command:
