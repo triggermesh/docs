@@ -12,7 +12,7 @@ On Kubernetes:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
-kind: AzureEventHubSource
+kind: AzureEventHubsSource
 metadata:
   name: sample
 spec:
