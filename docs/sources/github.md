@@ -28,9 +28,9 @@ spec:
       key: secretToken
   sink:
     ref:
-      apiVersion: messaging.knative.dev/v1alpha1
-      kind: InMemoryChannel
-      name: githubchannel
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: RedisBroker
+      name: triggermesh
 ```
 
 Secret

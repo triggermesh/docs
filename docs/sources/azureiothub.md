@@ -22,9 +22,9 @@ spec:
         value: HostName=triggermeshdemo.azure-devices.net;SharedAccessKeyName=demo;SharedAccessKey=<redacted>
   sink:
     ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: broker
-      name: default
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: RedisBroker
+      name: triggermesh
 ```
 
 Events produced have the following attributes:

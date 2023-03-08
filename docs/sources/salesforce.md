@@ -29,9 +29,9 @@ spec:
 
   sink:
     ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: RedisBroker
+      name: triggermesh
 ```
 
 - **Broker** to send the events to.
