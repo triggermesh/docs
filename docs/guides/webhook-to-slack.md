@@ -1,6 +1,6 @@
-# Writing a Webhook to Slack Bridge
+# Writing a Webhook to Slack integration
 
-This Bridge connects an HTTP endpoint to Slack. Every time the webhook is called a message will be produced, which we will validate and transform into an Slack message.
+This integration connects an HTTP endpoint to Slack. Every time the webhook is called a message will be produced, which we will validate and transform into an Slack message.
 
 We will be calling the exposed HTTP endpoint using `curl`, in a real world scenario the caller would be an application configuring a webhook callback.
 
@@ -57,8 +57,8 @@ spec:
 
   sink:
     ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: MemoryBroker
       name: default
 ```
 
@@ -136,8 +136,8 @@ In order to connect all components we will setup these elements:
 The Broker name is set to `default` to match the one used at the Webhook Source earlier.
 
 ```yaml
-apiVersion: eventing.knative.dev/v1
-kind: Broker
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: MemoryBroker
 metadata:
   name: default
 ```
@@ -145,15 +145,18 @@ metadata:
 Both Triggers are setup on the Broker and subscribe their corresponding destination filtering by types.
 
 ```yaml
-apiVersion: eventing.knative.dev/v1
+apiVersion: eventing.triggermesh.io/v1alpha1
 kind: Trigger
 metadata:
   name: webhook-to-transform
 spec:
-  broker: default
-  filter:
-    attributes:
-      type: webhook.slack.postmessage
+  broker:
+    group: eventing.triggermesh.io
+    kind: MemoryBroker
+    name: default
+  filters:
+  - exact:
+    type: webhook.slack.postmessage
   subscriber:
     ref:
       apiVersion: extensions.triggermesh.io/v1alpha1
@@ -162,15 +165,18 @@ spec:
 
 ---
 
-apiVersion: eventing.knative.dev/v1
+apiVersion: eventing.triggermesh.io/v1alpha1
 kind: Trigger
 metadata:
   name: slack-post-messages
 spec:
-  broker: default
-  filter:
-    attributes:
-      type: com.slack.webapi.chat.postMessage
+  broker:
+    group: eventing.triggermesh.io
+    kind: MemoryBroker
+    name: default
+  filters:
+  - exact:
+    type:  com.slack.webapi.chat.postMessage
   subscriber:
     ref:
       apiVersion: targets.triggermesh.io/v1alpha1
@@ -184,14 +190,14 @@ Retrieve the URL where the Webhook is listening for incoming requests.
 
 ```console
 $ kubectl get webhooksources.sources.triggermesh.io post-message
-NAME           READY   REASON   URL                                                                  SINK                                                                            AGE
-post-message   True             https://webhooksource-post-message.woodford.dev.triggermesh.io   http://broker-ingress.knative-eventing.svc.cluster.local/woodford/default   61s
+NAME      READY   REASON   URL                                                              SINK                                                     AGE
+webhook   True             http://webhooksource-webhook.post-message.127.0.0.1.sslip.io   http://demo-mb-broker.deadlettersinkpost-message.svc.cluster.local   4m14s
 ```
 
 Use `curl` or any HTTP capable client to post messages at Slack.
 
 ```console
-curl -d '{"message":"test my bridge"}' https://webhooksource-post-message.woodford.dev.triggermesh.io
+curl -d '{"message":"test my bridge"}' http://webhooksource-webhook.post-message.127.0.0.1.sslip.io
 ```
 
 This Bridge can be extended in many different ways:

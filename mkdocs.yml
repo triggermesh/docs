@@ -144,7 +144,7 @@ nav:
         - Telemetry metrics: observability/observability-metrics.md
         - Broker observability: observability/brokerobservability.md
     - Guides:
-      - Creating a DLS: guides/creatingadls.md
+      - Creating a Dead Letter Sink: guides/creatingadls.md
       - Creating a Wiretap: guides/createawiretap.md
       - Creating a Filter: guides/creatingafilter.md
       - Creating a Splitter: guides/creatingasplitter.md
