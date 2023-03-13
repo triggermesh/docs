@@ -7,7 +7,7 @@ Compared to the [CloudEventsSource](cloudevents.md), the Webhook source can acce
 With `tmctl`:
 
 ```
-tmctl create source webhook --eventTypes <my.event.type>
+tmctl create source webhook --eventType <my.event.type>
 ```
 
 On Kubernetes:
