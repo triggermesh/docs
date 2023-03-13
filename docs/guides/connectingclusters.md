@@ -18,7 +18,7 @@ ClusterSender components:
 
 - `Broker` is the temporary storage for CloudEvents.
 - `WebhookSource` is a CloudEvents producer that exposes an interface to accept HTTP post requests and, in return, emits cloud events. 
-- `CloudEventsTarget` will listen to CloudEvents and send them to an external location.
+- `CloudEventsTarget` is a CloudEvents consumer that receives events and then sends them to a user-configurable location.
 - `Trigger` will subscribe to CloudEvents at the Broker and send them to the CloudEventsTarget.
 
 ClusterReceiver components:
