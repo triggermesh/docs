@@ -17,7 +17,7 @@ For this scenario we will need to setup 2 TriggerMesh clusters that we will call
 ClusterSender components:
 
 - `Broker` is the temporary storage for CloudEvents.
-- `WebhookSource` is a CloudEvents producer that will send events to the Broker.
+- `WebhookSource` is a CloudEvents producer that exposes an interface to accept HTTP post requests and, in return, emits cloud events. 
 - `CloudEventsTarget` will listen to CloudEvents and send them to an external location.
 - `Trigger` will subscribe to CloudEvents at the Broker and send them to the CloudEventsTarget.
 
