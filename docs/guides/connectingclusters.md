@@ -208,25 +208,35 @@ spec:
 
 ### Receiving Events
 
-With all components being setup CloudEvents should be flowing from `WebhookSource` at the sender cluster to the `event-display` service at the receiver cluster. We can make sure by looking at the receiving service logs.
+With all components being setup we can now send an event into the `WebhookSource` at the sender cluster, and it should show up in the `event-display` service at the receiver cluster. We can make sure by looking at the receiving service logs.
+
+First, lets retrieve the URL on which the Webhook is listening for incoming requests.
 
 ```console
-$ kubectl logs -l serving.knative.dev/service=event-display -c user-container -f
-...
+$kubectl get webhooksources.sources.triggermesh.io webhook
+NAME      READY   REASON   URL                                                              SINK                                                     AGE
+webhook   True             http://webhooksource-webhook.default.127.0.0.1.sslip.io   http://demo-mb-broker.default.svc.cluster.local   4m14s
+```
+
+Use `curl` or any HTTP capable client to post an event to the webhook.
+
+```console
+curl -d '{"message": "greetings from sender cluster"}' http://webhooksource-webhook.default.127.0.0.1.sslip.io
+```
+
+```console
+$ kubectl logs deployments/event-display
 Context Attributes,
   specversion: 1.0
-  type: dev.knative.sources.ping
+  type: webhook.event
   source: /apis/v1/namespaces/default/pingsources/periodic-event-producer
   id: eddd0d10-64ef-4c82-bfc0-c0caea63a510
   time: 2022-05-26T12:44:00.265933805Z
   datacontenttype: application/json
-Extensions,
-  knativearrivaltime: 2022-05-26T12:44:00.272805675Z
 Data,
   {
     "message": "greetings from sender cluster"
   }
-...
 ```
 
 ## Further improvements

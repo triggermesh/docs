@@ -101,13 +101,13 @@ Retrieve the URL where the Webhook is listening for incoming requests.
 ```console
 $kubectl get webhooksources.sources.triggermesh.io webhook
 NAME      READY   REASON   URL                                                              SINK                                                     AGE
-webhook   True             http://webhooksource-webhook.deadlettersink.127.0.0.1.sslip.io   http://demo-mb-broker.deadlettersink.svc.cluster.local   4m14s
+webhook   True             http://webhooksource-webhook.wiretap.127.0.0.1.sslip.io   http://demo-mb-broker.wiretap.svc.cluster.local   4m14s
 ```
 
 Use `curl` or any HTTP capable client to post an event to the webhook.
 
 ```console
-curl -d '{"message":"test my bridge"}' http://webhooksource-webhook.deadlettersink.127.0.0.1.sslip.io
+curl -d '{"message":"test my bridge"}' http://webhooksource-webhook.wiretap.127.0.0.1.sslip.io
 ```
 
 View the logs of the `Event Display` service:
