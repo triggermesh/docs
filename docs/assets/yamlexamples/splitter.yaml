@@ -1,7 +1,7 @@
 apiVersion: eventing.triggermesh.io/v1alpha1
 kind: MemoryBroker
 metadata:
-  name: events
+  name: demo
 
 ---
 
@@ -15,7 +15,7 @@ spec:
     ref:
       apiVersion: eventing.triggermesh.io/v1alpha1
       kind: MemoryBroker
-      name: events
+      name: demo
 
 ---
 
@@ -55,13 +55,30 @@ spec:
 apiVersion: eventing.triggermesh.io/v1alpha1
 kind: Trigger
 metadata:
-  name: event-display
+  name: demo-to-splitter
 spec:
   broker:
     group: eventing.triggermesh.io
     kind: MemoryBroker
-    name: events
+    name: demo
   target:
+    ref:
+      apiVersion: routing.triggermesh.io/v1alpha1
+      kind: Splitter
+      name: splitter-demo
+
+---
+
+apiVersion: routing.triggermesh.io/v1alpha1
+kind: Splitter
+metadata:
+  name: splitter-demo
+spec:
+  path: items
+  ceContext:
+    type: foo.bar.type
+    source: splitter
+  sink:
     ref:
       apiVersion: v1
       kind: Service

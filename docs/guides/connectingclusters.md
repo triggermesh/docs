@@ -17,8 +17,8 @@ For this scenario we will need to setup 2 TriggerMesh clusters that we will call
 ClusterSender components:
 
 - `Broker` is the temporary storage for CloudEvents.
-- `PingSource` is a peridic CloudEvents producer that will send them to the Broker.
-- `CloudEventsTarget` will listen to CloudEvents and send them to an external location.
+- `WebhookSource` is a CloudEvents producer that exposes an interface to accept HTTP post requests and, in return, emits cloud events. 
+- `CloudEventsTarget` is a CloudEvents consumer that receives events and then sends them to a user-configurable location.
 - `Trigger` will subscribe to CloudEvents at the Broker and send them to the CloudEventsTarget.
 
 ClusterReceiver components:
@@ -30,7 +30,7 @@ ClusterReceiver components:
 
 ![connecting clusters](../assets/images/connectingclusters/connectingclusters.png)
 
-Events produced at the PingSource will flow as depicted above until they reach the EventDisplay at the second cluster.
+Events produced at the WebhookSource will flow as depicted above until they reach the EventDisplay at the second cluster.
 
 ## Setup
 
@@ -63,41 +63,62 @@ Events produced at the PingSource will flow as depicted above until they reach t
 Create the Broker as the host for this cluster's CloudEvents:
 
 ```yaml
-apiVersion: eventing.knative.dev/v1
-kind: Broker
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: MemoryBroker
 metadata:
   name: receiver
 ```
 
-Create a Knative service that runs the `event_display` image. We will look for received events by looking at the logs of this service.
+Create a service that runs the `event_display` image. We will look for received events by looking at the logs of this service.
 
 ```yaml
-apiVersion: serving.knative.dev/v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: event-display
 spec:
+  replicas: 1
+  selector:
+    matchLabels: &labels
+      app: event-display
   template:
     metadata:
-      annotations:
-        autoscaling.knative.dev/min-scale: "1"
+      labels: *labels
     spec:
       containers:
-      - image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+        - name: event-display
+          image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: event-display
+spec:
+  selector:
+    app: event-display
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
 ```
 
 Using a Trigger we can link the `event-display` service with the broker to subscribe to all events flowing through it.
 
 ```yaml
 kind: Trigger
-apiVersion: eventing.knative.dev/v1
+apiVersion: eventing.triggermesh.io/v1alpha1
 metadata:
   name: all-events-to-event-display
 spec:
-  broker: receiver
+  broker:
+    group: eventing.triggermesh.io
+    kind: MemoryBroker
+    name: receiver
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: event-display
 ```
@@ -112,8 +133,8 @@ metadata:
 spec:
   sink:
     ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: MemoryBroker
       name: receiver
 ```
 
@@ -133,27 +154,25 @@ kubectl get cloudeventssources.sources.triggermesh.io gateway-in -ojsonpath='{.s
 Create the Broker that as the host for this cluster's CloudEvents:
 
 ```yaml
-apiVersion: eventing.knative.dev/v1
-kind: Broker
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: MemoryBroker
 metadata:
   name: sender
 ```
 
-A `PingSource` produces periodic events based on a cron expression. We will send the produced events to the broker object.
+A `WebhookSource` exposes and HTTP endpoint that receives HTTP POST requests and produces a CloudEvent to the broker.
 
 ```yaml
-apiVersion: sources.knative.dev/v1
-kind: PingSource
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: WebhookSource
 metadata:
-  name: periodic-event-producer
+  name: webhook
 spec:
-  schedule: "*/1 * * * *"
-  contentType: "application/json"
-  data: '{"message": "greetings from sender cluster"}'
+  eventType: webhook.event
   sink:
     ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: MemoryBroker
       name: sender
 ```
 
@@ -172,11 +191,14 @@ Subscribing the `CloudEventsTarget` to CloudEvents flowing through a broker is d
 
 ```yaml
 kind: Trigger
-apiVersion: eventing.knative.dev/v1
+apiVersion: eventing.triggermesh.io/v1alpha1
 metadata:
   name: all-events-to-cloudeventstarget
 spec:
-  broker: sender
+  broker:
+    group: eventing.triggermesh.io
+    kind: MemoryBroker
+    name: sender
   subscriber:
     ref:
       apiVersion: targets.triggermesh.io/v1alpha1
@@ -186,32 +208,42 @@ spec:
 
 ### Receiving Events
 
-With all components being setup CloudEvents should be flowing from `PingSource` at the sender cluster to the `event-display` service at the receiver cluster. We can make sure by looking at the receiving service logs.
+With all components being setup we can now send an event into the `WebhookSource` at the sender cluster, and it should show up in the `event-display` service at the receiver cluster. We can make sure by looking at the receiving service logs.
+
+First, lets retrieve the URL on which the Webhook is listening for incoming requests.
 
 ```console
-$ kubectl logs -l serving.knative.dev/service=event-display -c user-container -f
-...
+$kubectl get webhooksources.sources.triggermesh.io webhook
+NAME      READY   REASON   URL                                                              SINK                                                     AGE
+webhook   True             http://webhooksource-webhook.default.127.0.0.1.sslip.io   http://demo-mb-broker.default.svc.cluster.local   4m14s
+```
+
+Use `curl` or any HTTP capable client to post an event to the webhook.
+
+```console
+curl -d '{"message": "greetings from sender cluster"}' http://webhooksource-webhook.default.127.0.0.1.sslip.io
+```
+
+```console
+$ kubectl logs deployments/event-display
 Context Attributes,
   specversion: 1.0
-  type: dev.knative.sources.ping
+  type: webhook.event
   source: /apis/v1/namespaces/default/pingsources/periodic-event-producer
   id: eddd0d10-64ef-4c82-bfc0-c0caea63a510
   time: 2022-05-26T12:44:00.265933805Z
   datacontenttype: application/json
-Extensions,
-  knativearrivaltime: 2022-05-26T12:44:00.272805675Z
 Data,
   {
     "message": "greetings from sender cluster"
   }
-...
 ```
 
 ## Further improvements
 
-Triggers can be configured with filters to make sure only allowed CloudEvents travels between clusters. Refer to [trigger's documentation](https://knative.dev/docs/eventing/broker/triggers/) for configuration options.
+Triggers can be configured with filters to make sure only allowed CloudEvents travels between clusters. Refer to [trigger's documentation](../brokers/triggers.md) for configuration options.
 
 [CloudEventsSource](../sources/cloudevents.md) and [CloudEventsTarget](../targets/cloudevents.md) can be configured with HTTP Basic Authentication.
 
 !!! Info "HTTP Basic Authentication"
-    HTTP Basic Authentication is not enctrypted. When used it is thoroughly recommended that Knative Serving is configured with TLS capabilities.
+    HTTP Basic Authentication is not encrypted. When used it is thoroughly recommended that services are configured with TLS capabilities.

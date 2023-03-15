@@ -1,7 +1,7 @@
 apiVersion: eventing.triggermesh.io/v1alpha1
 kind: MemoryBroker
 metadata:
-  name: events
+  name: demo
 
 ---
 
@@ -15,7 +15,7 @@ spec:
     ref:
       apiVersion: eventing.triggermesh.io/v1alpha1
       kind: MemoryBroker
-      name: events
+      name: demo
 
 ---
 
@@ -55,13 +55,28 @@ spec:
 apiVersion: eventing.triggermesh.io/v1alpha1
 kind: Trigger
 metadata:
-  name: event-display
+  name: demo-to-filter
 spec:
   broker:
     group: eventing.triggermesh.io
     kind: MemoryBroker
-    name: events
+    name: demo
   target:
+    ref:
+      apiVersion: routing.triggermesh.io/v1alpha1
+      kind: Filter
+      name: filter-demo
+
+---
+
+apiVersion: routing.triggermesh.io/v1alpha1
+kind: Filter
+metadata:
+  name: filter-demo
+spec:
+  expression: |-
+    ($first.(int64) + $second.(int64) >= 42) || $role.(string) == "admin"
+  sink:
     ref:
       apiVersion: v1
       kind: Service

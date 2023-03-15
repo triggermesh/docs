@@ -18,93 +18,120 @@ Filters are an important part of TriggerMesh's event routing mechanism. They all
     $ kubectl explain filter
     ```
 
-To demonstrate filtering in TriggerMesh we are going to create the event flow depicted in the diagram below. Two sources of kind `PingSource` will send events on a repeating schedule, and only the events which pass the filter will be displayed on the final event target. The target is the [Sockeye application](https://github.com/n3wscott/sockeye), a microservice which displays the content of a [CloudEvent](https://cloudevents.io/).
+To demonstrate filtering in TriggerMesh we are going to create a simple event flow in which: 
 
-![](../assets/images/filter-diagram.png)
+- we'll send events to a WebhookSource component
+- the Webhook source will deliver events to a Broker
+- A trigger will send all events to a Filter
+- The filter will only forward events that contain a specific key in their JSON payload
+- Events are forwarded to an event display which should only show the events that passed the filter
+
+![filter](../assets/images/filter/filter.png)
 
 Let's create all the required objects:
 
-- [x] The `sockeye` target which serves as an event display.
-- [x] Two `PingSource` to produce events.
+- [x] The `broker`.
+- [x] The `WebhookSource` to produce events.
 - [x] The `Filter` to discard unwanted events.
+- [x] The `Trigger` that sends events to the filter.
+- [x] The `event display` target.
 
-### Event display
+!!! Info "Kubernetes manifest"
+    The next steps create the configuration that demonstrates the usage of the Filter.
+    A single manifest containing all the objects can be downloaded [here](../assets/yamlexamples/filter.yaml).
 
-First we need to have a tool to see our filter results. Create a `sockeye`
-service by saving the following YAML manifest in a file called `sockeye.yaml` and applying it to your Kubernetes cluster:
+### Step 1: Create the Broker
+
+Create a new Broker with following configuration:
 
 ```yaml
-apiVersion: serving.knative.dev/v1
-kind: Service
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: MemoryBroker
 metadata:
-  name: sockeye
+  name: demo
+```
+
+### Step 2: Create the WebhookSource
+
+Create a [WebhookSource](../sources/webhook.md) object with the following configuration:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: WebhookSource
+metadata:
+  name: webhook
 spec:
+  eventType: webhook.event
+  sink:
+    ref:
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: MemoryBroker
+      name: demo
+```
+
+### Step 3: Create the `event-display` Service
+
+Create a Service named `event-display` with the following configuration:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-display
+spec:
+  replicas: 1
+  selector:
+    matchLabels: &labels
+      app: event-display
   template:
+    metadata:
+      labels: *labels
     spec:
       containers:
-        - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
+        - name: event-display
+          image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: event-display
+spec:
+  selector:
+    app: event-display
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
 ```
 
-```
-kubectl apply -f sockeye.yaml
-```
+That service will write to its standard output any CloudEvent received. We will use a Trigger to subscribe to all events flowing through the Broker.
 
-Open the web interface in a browser at the URL found with the following command:
+### Step 4: Create the `demo-to-filter` Trigger
 
-```shell
-$ kubectl get ksvc sockeye -o=jsonpath='{.status.url}'
-```
-
-### Event producers
-
-Next, create the two
-[PingSources](https://knative.dev/docs/developer/eventing/sources/ping-source) to
-produce CloudEvents by saving the following YAML manifests in two separate files and applying them to your Kubernetes cluster with `kubectl apply`:
+Create a Trigger to route events to the `filter` with the following configuration:
 
 ```yaml
-apiVersion: sources.knative.dev/v1
-kind: PingSource
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: Trigger
 metadata:
-  name: ps-filter-demo-1
+  name: demo-to-filter
 spec:
-  schedule: "*/1 * * * *"
-  contentType: "application/json"
-  data: '{
-   "name": "TriggerMesh",
-	"sub": {
-		"array": ["hello", "Filter"]
-	    }
-    }'
-  sink:
+  broker:
+    group: eventing.triggermesh.io
+    kind: MemoryBroker
+    name: demo
+  target:
     ref:
       apiVersion: routing.triggermesh.io/v1alpha1
       kind: Filter
       name: filter-demo
 ```
 
-The second source uses a different payload to show you how the `Filter` expression may be used to express complex filtering rules.
+### Step 5: Create the Filter
 
-```yaml
-apiVersion: sources.knative.dev/v1
-kind: PingSource
-metadata:
-  name: ps-filter-demo-2
-spec:
-  schedule: "*/1 * * * *"
-  contentType: "application/json"
-  data: '{
-      "answer": 42
-    }'
-  sink:
-    ref:
-      apiVersion: routing.triggermesh.io/v1alpha1
-      kind: Filter
-      name: filter-demo
-```
-
-### Filter events
-
-Finally, create the `Filter` object to filter out events from the first PingSource. Once again save the following YAML manifest in a file and apply it to your Kubernetes cluster with `kubectl apply`.
+Finally, create the `Filter` object to filter out events. Once again save the following YAML manifest in a file and apply it to your Kubernetes cluster with `kubectl apply`.
 
 ```yaml
 apiVersion: routing.triggermesh.io/v1alpha1
@@ -112,12 +139,13 @@ kind: Filter
 metadata:
   name: filter-demo
 spec:
-  expression: $sub.array.0.(string) == "hello" && $name.(string) != "TriggerMesh" || $answer.(int64) == 42
+  expression: |-
+    ($first.(int64) + $second.(int64) >= 42) || $role.(string) == "admin"
   sink:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
-      name: sockeye
+      name: event-display
 ```
 
 Verify that your filter is ready with `kubectl` like so:
@@ -128,78 +156,47 @@ NAME          ADDRESS                                                      READY
 filter-demo   http://filter-adapter.sebgoa.svc.cluster.local/filter-demo   True
 ```
 
-Only events from the second source should appear in the `sockeye` web interface as shown in the screenshot below:
+### Send data to the wehbook source
 
-![](../assets/images/sockeye-filter.png)
+Retrieve the URL where the Webhook is listening for incoming requests.
+
+```console
+$kubectl get webhooksources.sources.triggermesh.io webhook
+NAME      READY   REASON   URL                                                              SINK                                                     AGE
+webhook   True             http://webhooksource-webhook.deadlettersink.127.0.0.1.sslip.io   http://demo-mb-broker.deadlettersink.svc.cluster.local   4m14s
+```
+
+Use `curl` or any HTTP capable client to post an event to the webhook.
+
+```console
+curl -d '{"first":2, "second":3, "role":"user}' http://webhooksource-webhook.filter.127.0.0.1.sslip.io
+```
+
+The broker should then deliver the event to the `filter`, which will pass it to the  `event-display` only if the values of first + second are greater than 42, OR if the role equals admin.
+
+```console
+$ kubectl logs deployments/event-display
+2023/03/08 18:10:27 Failed to read tracing config, using the no-op default: empty json tracing config
+```
+
+```console
+curl -d '{"first":40, "second":3, "role":"admin}' http://webhooksource-webhook.filter.127.0.0.1.sslip.io
+```
+
+```console
+$ kubectl logs deployments/event-display
+2023/03/08 18:10:27 Failed to read tracing config, using the no-op default: empty json tracing config
+☁️  cloudevents.Event
+Context Attributes,
+  specversion: 1.0
+  type: webhook.event
+  source: filter.webhook
+  id: cab5df22-72b1-4b37-9fbd-e96d38a3bd98
+  time: 2023-03-09T16:32:20.831305046Z
+  datacontenttype: application/x-www-form-urlencoded
+Data,
+  {"first":40, "second":3, "role":"admin}
+```
 
 !!! tip "Test your Filter as Code"
     You can test modifying the filter expression and re-applying it with `kubectl`. This gives you a declarative event filter which you can manage with your [GitOps workflow](https://www.weave.works/technologies/gitops/)
-
-## Another filter on Kubernetes example
-
-```yaml
-apiVersion: routing.triggermesh.io/v1alpha1
-kind: Filter
-metadata:
-  name: filter-test
-spec:
-  expression: |-
-    ($id.first.(int64) + $id.second.(int64) >= 8) || $company.(string) == "bar" || $0.name.first.(string) == "Jo"
-  sink:
-    ref:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: sockeye
----
-apiVersion: sources.knative.dev/v1beta2
-kind: PingSource
-metadata:
-  name: ps1
-spec:
-  contentType: application/json
-  data: '{"id":{"first":5,"second":3}}'
-  schedule: '*/1 * * * *'
-  sink:
-    ref:
-      apiVersion: routing.triggermesh.io/v1alpha1
-      kind: Filter
-      name: filter-test
----
-apiVersion: sources.knative.dev/v1beta2
-kind: PingSource
-metadata:
-  name: ps2
-spec:
-  contentType: application/json
-  data: '{"id":{"first":2,"second":3}}'
-  schedule: '*/1 * * * *'
-  sink:
-    ref:
-      apiVersion: routing.triggermesh.io/v1alpha1
-      kind: Filter
-      name: filter-test
----
-apiVersion: sources.knative.dev/v1beta2
-kind: PingSource
-metadata:
-  name: ps3
-spec:
-  contentType: application/json
-  data: '{"foo":"bar"}'
-  schedule: '*/1 * * * *'
-  sink:
-    ref:
-      apiVersion: routing.triggermesh.io/v1alpha1
-      kind: Filter
-      name: filter-test
----
-apiVersion: serving.knative.dev/v1
-kind: Service
-metadata:
-  name: sockeye
-spec:
-  template:
-    spec:
-      containers:
-      - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
-```

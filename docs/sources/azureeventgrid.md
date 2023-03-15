@@ -37,9 +37,9 @@ spec:
 
   sink:
     ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: RedisBroker
+      name: triggermesh
 ```
 
 See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AzureEventGridSource) for more details.

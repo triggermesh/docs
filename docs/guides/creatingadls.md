@@ -2,20 +2,19 @@
 
 ## What is a Dead Letter Sink?
 
-A [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) is a Knative construct that allows the user to configure a destination for events that would otherwise be dropped due to some delivery failure. This is useful for scenarios where you want to ensure that events are not lost due to a failure in the underlying system.
+A [Dead Letter Sink](../brokers/eventdelivery.md) is a construct that allows the user to configure a destination for events that would otherwise be dropped due to some delivery failure. This is useful for scenarios where you want to ensure that events are not lost due to a failure in the underlying system.
 
+## Example scenario
 
-## Scenario Debriefing
+In this example we are going to use a [WebhookSource](../sources/webhook.md) object that will received HTTP calls and send events to the [Broker](../brokers/index.md) named `demo`. An event viewer, named `event-success-capture` will subscribe to the Webhook events flowing through the Broker using a [Trigger](../brokers/triggers.md).
 
-In this example we are going to create a [Bridge](https://docs.triggermesh.io/concepts/) that contains a [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) object that will emit an event on a regular basis to a [Broker](https://knative.dev/docs/eventing/broker/) named `demo`. A [Service](https://knative.dev/docs/serving/services/), named `event-success-capture` will subscribe to PingSource events flowing through the Broker using a [Trigger](https://knative.dev/docs/eventing/broker/triggers/).
+The Broker delivery options will be set to use a Dead Letter Sink so that in the case of a delivery error the event will be forwarded to another event viewer service named `event-failure-capture` instead of being lost into the void.
 
-The Broker delivery options will be set to use a [Dead Letter Sink](https://knative.dev/docs/eventing/event-delivery/) so that in the case of a delivery error the event will be forwarded to another Service named `event-failure-capture` instead of being lost into the void.
+We will test to make sure events are delivered to `event-success-capture`, then we will break the bridge by removing the `event-success-capture` service, in which case we expect the Dead Letter Sink to receive all events that were not delivered.
 
-![bridge DLS](../assets/images/creatingadls/bridge-diagram.png)
+![dead letter sink](../assets/images/deadlettersink/deadlettersink.png)
 
-We will test the bridge to make sure events are delivered to `event-success-capture`, then we will break the bridge by removing the `event-success-capture` service, in which case we expect the Dead Letter Sink to receive all events that were not delivered.
-
-## Creating a Bridge with a Dead Letter Sink
+## Setting up TriggerMesh with a Dead Letter Sink
 
 !!! Info "Creating objects"
     All objects mentioned at this guide are intended to be created at kubernetes.
@@ -38,9 +37,9 @@ We will test the bridge to make sure events are delivered to `event-success-capt
     EOF
     ```
 
-!!! Info "Bridge manifest"
-    The next steps configure and explain the Bridge to build to demonstrate the usage of the Dead Letter Sink.
-    A single manifest containing all the objects in the bridge can be downloaded [here](../assets/yamlexamples/dls-example.yaml).
+!!! Info "Kubernetes manifest"
+    The next steps create the configuration that demonstrates the usage of the Dead Letter Sink.
+    A single manifest containing all the objects can be downloaded [here](../assets/yamlexamples/dls-example.yaml).
 
 
 ### Step 1: Create the Broker
@@ -48,66 +47,67 @@ We will test the bridge to make sure events are delivered to `event-success-capt
 Create a new Broker with following configuration:
 
 ```yaml
-apiVersion: eventing.knative.dev/v1
-kind: Broker
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: MemoryBroker
 metadata:
   name: demo
-spec:
-  delivery:
-    deadLetterSink:
-      ref:
-          apiVersion: serving.knative.dev/v1
-          kind: Service
-          name: event-failure-capture
-    backoffDelay: "PT0.5S"     # ISO8601 duration
-    backoffPolicy: exponential # exponential or linear
-    retry: 2
 ```
 
-Here a Broker named `demo` is configured with the following delivery options:
+### Step 2: Create the WebhookSource
 
-- 2 retries on failure, backing off exponentialy with a 0.5 seconds factor. This is not the focus of this article but it is recommended to setup retries before giving up on delivery and sending to the DLS.
-- Dead Letter Sink pointing to a service named `event-failure-capture`. Kubernetes can be requested the creation of this object even if the DLS service does not exists yet.
-
-
-### Step 2: Create the PingSource
-
-Create a [PingSource](https://knative.dev/docs/eventing/sources/ping-source/) object with the following configuration:
+Create a [WebhookSource](../sources/webhook.md) object with the following configuration:
 
 ```yaml
-apiVersion: sources.knative.dev/v1
-kind: PingSource
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: WebhookSource
 metadata:
-  name: say-hi
+  name: webhook
 spec:
-  data: '{"hello": "triggermesh"}'
-  schedule: "*/1 * * * *"
+  eventType: webhook.event
   sink:
     ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: MemoryBroker
       name: demo
 ```
 
-This object will emit an event every minute to the Broker created in the previous step.
+This object will expose an HTTP endpoint to which you can send a payload that will be turned into a CloudEvent and sent to the Broker created in the previous step.
 
 ### Step 3: Create the `event-success-capture` Service
 
 Create a Service named `event-success-capture` with the following configuration:
 
 ```yaml
-apiVersion: serving.knative.dev/v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: event-success-capture
 spec:
+  replicas: 1
+  selector:
+    matchLabels: &labels
+      app: event-success-capture
   template:
     metadata:
-      annotations:
-        autoscaling.knative.dev/min-scale: "1"
+      labels: *labels
     spec:
       containers:
-      - image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+        - name: event-display
+          image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: event-success-capture
+spec:
+  selector:
+    app: event-success-capture
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
 ```
 
 That service will write to its standard output any CloudEvent received. We will use a Trigger to subscribe to all events flowing through the Broker.
@@ -117,38 +117,74 @@ That service will write to its standard output any CloudEvent received. We will 
 Create a Trigger to route events to the `event-success-capture` Service with the following configuration:
 
 ```yaml
-apiVersion: eventing.knative.dev/v1
+apiVersion: eventing.triggermesh.io/v1alpha1
 kind: Trigger
 metadata:
   name: demo-to-display
 spec:
-  broker: demo
-  subscriber:
+  broker:
+    group: eventing.triggermesh.io
+    kind: MemoryBroker
+    name: demo
+  target:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: event-success-capture
+  delivery:
+    deadLetterSink:
+      ref:
+          apiVersion: v1
+          kind: Service
+          name: event-failure-capture
+    backoffDelay: "PT0.5S"     # ISO8601 duration
+    backoffPolicy: exponential # exponential or linear
+    retry: 2
 ```
 
-This Trigger configures the Broker to send all flowing events to the `event-success-capture` service.
+Here a Trigger named `demo-to-display` is configured with the following properties
+- configures the Broker to send all ingested events to the `event-success-capture` service.
+
+In terms of delivery options:
+
+- 2 retries on failure, backing off exponentialy with a 0.5 seconds factor. This is not the focus of this article but it is recommended to setup retries before giving up on delivery and sending to the DLS.
+- Dead Letter Sink pointing to a service named `event-failure-capture`.
 
 ### Step 5: Create the `event-failure-capture` Service
 
 Create the Service named `event-failure-capture` that was configured at the Broker as the Dead Letter Sink parameter:
 
 ```yaml
-apiVersion: serving.knative.dev/v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: event-failure-capture
 spec:
+  replicas: 1
+  selector:
+    matchLabels: &labels
+      app: event-failure-capture
   template:
     metadata:
-      annotations:
-        autoscaling.knative.dev/min-scale: "1"
+      labels: *labels
     spec:
       containers:
-      - image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+        - name: event-display
+          image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: event-failure-capture
+spec:
+  selector:
+    app: event-failure-capture
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
 ```
 
 This service should only receive messages that could not be delivered to a destination.
@@ -158,47 +194,59 @@ This service should only receive messages that could not be delivered to a desti
 Make sure that all created objects are ready by inspecting the `READY` column after this command:
 
 ```console
-$ kubectl get ksvc,broker,trigger
+$ kubectl get memorybrokers.eventing.triggermesh.io,triggers.eventing.triggermesh.io,service
 
-NAME                                                URL                                                          LATESTCREATED                 LATESTREADY                   READY   REASON
-service.serving.knative.dev/event-failure-capture   http://event-failure-capture.default.192.168.49.2.sslip.io   event-failure-capture-00001   event-failure-capture-00001   True
-service.serving.knative.dev/event-success-capture   http://event-success-capture.default.192.168.49.2.sslip.io   event-success-capture-00001   event-success-capture-00001   True
+NAME                                        URL                                                      AGE    READY   REASON
+memorybroker.eventing.triggermesh.io/demo   http://demo-mb-broker.deadlettersink.svc.cluster.local   118s   True    
 
-NAME                               URL                                                                     AGE     READY   REASON
-broker.eventing.knative.dev/demo   http://broker-ingress.knative-eventing.svc.cluster.local/default/demo   3m20s   True
+NAME                                              BROKER   TARGET_URI                                                      AGE   READY   REASON
+trigger.eventing.triggermesh.io/demo-to-display   demo     http://event-success-capture.deadlettersink.svc.cluster.local   42s   True    
 
-NAME                                           BROKER   SUBSCRIBER_URI                                           AGE     READY   REASON
-trigger.eventing.knative.dev/demo-to-display   demo     http://event-success-capture.default.svc.cluster.local   3m20s   True
+NAME                                          TYPE           CLUSTER-IP       EXTERNAL-IP                                          PORT(S)                                              AGE
+service/demo-mb-broker                        ClusterIP      10.101.11.31     <none>                                               80/TCP                                               114s
+service/event-failure-capture                 ClusterIP      10.108.26.194    <none>                                               80/TCP                                               118s
+service/event-success-capture                 ClusterIP      10.110.30.137    <none>                                               80/TCP                                               118s
+service/webhooksource-webhook                 ExternalName   <none>           kourier-internal.knative-serving.svc.cluster.local   80/TCP                                               102s
+service/webhooksource-webhook-00001           ClusterIP      10.102.145.249   <none>                                               80/TCP,443/TCP                                       108s
+service/webhooksource-webhook-00001-private   ClusterIP      10.110.149.207   <none>                                               80/TCP,443/TCP,9090/TCP,9091/TCP,8022/TCP,8012/TCP   108s
 ```
 
-Each minute a CloudEvent should be produced by PingSource and sent to the Broker, which in turns would deliver it to the `event-success-capture`, while `event-failure-capture` should not be receiving any event. We can confirm that by reading each of those services output:
-
-!!! Info "Retrieving logs command"
-    Kubernetes generates dynamic Pod names, but we can use `kubectl` with the `-l` flag to filter by a label that identifies the Service.
-
-    We also add the `-f` flag to keep receiving logs as they are produced, this way we can see the live feed of events arriving at the Service.
+Retrieve the URL where the Webhook is listening for incoming requests.
 
 ```console
-$ kubectl logs -l serving.knative.dev/service=event-success-capture  -c user-container -f
+$kubectl get webhooksources.sources.triggermesh.io webhook
+NAME      READY   REASON   URL                                                              SINK                                                     AGE
+webhook   True             http://webhooksource-webhook.deadlettersink.127.0.0.1.sslip.io   http://demo-mb-broker.deadlettersink.svc.cluster.local   4m14s
+```
 
+Use `curl` or any HTTP capable client to post an event to the webhook.
+
+```console
+curl -d '{"message":"test my bridge"}' http://webhooksource-webhook.deadlettersink.127.0.0.1.sslip.io
+```
+
+The broker should then deliver the event to the `event-success-capture`, while `event-failure-capture` should not be receiving any event. We can confirm that by reading each of those services output:
+
+```console
+$ kubectl logs deployments/event-success-capture
+2023/03/08 18:10:27 Failed to read tracing config, using the no-op default: empty json tracing config
 ☁️  cloudevents.Event
 Context Attributes,
   specversion: 1.0
-  type: dev.knative.sources.ping
-  source: /apis/v1/namespaces/default/pingsources/say-hi
-  id: efcaa3b7-bcdc-4fa9-a0b3-05d9a3c4a9f9
-  time: 2022-06-01T19:54:00.339597948Z
-Extensions,
-  knativearrivaltime: 2022-06-01T19:54:00.340295729Z
+  type: webhook.event
+  source: deadlettersink.webhook
+  id: a9097eb8-4cbe-436b-b226-d6b9d59013b6
+  time: 2023-03-08T18:16:20.535991218Z
+  datacontenttype: application/x-www-form-urlencoded
 Data,
-  {"hello": "triggermesh"}
+  {"message":"test my bridge"}
 ```
 
 As expected the `event-success-capture` is receiving events produced by PingSource.
 
 ```console
-$ kubectl logs -l serving.knative.dev/service=event-failure-capture  -c user-container -f
-2022/06/01 19:36:45 Failed to read tracing config, using the no-op default: empty json tracing config
+$ kubectl logs deployments/event-failure-capture
+2023/03/08 18:10:28 Failed to read tracing config, using the no-op default: empty json tracing config
 ```
 
 Meanwhile `event-failure-capture` is not showing any event.
@@ -208,30 +256,31 @@ Meanwhile `event-failure-capture` is not showing any event.
 To make the Bridge fail will be removing the `event-success-capture` service. That will make the delivery fail and (after 2 retries) be sent to the Dead Letter Queue.
 
 ```console
-$ kubectl delete ksvc event-success-capture
+$ kubectl delete svc event-success-capture
 service.serving.knative.dev "event-success-capture" deleted
+```
+
+Send another event to the Webhook source:
+
+```console
+curl -d '{"message":"test my bridge"}' http://webhooksource-webhook.deadlettersink.127.0.0.1.sslip.io
 ```
 
 After doing so, all events not delivered by Broker through the configured Trigger will be shown at the `event-failure-capture`:
 
 ```console
-$ kubectl logs -l serving.knative.dev/service=event-failure-capture  -c user-container -f
-
+$ kubectl logs deployments/event-failure-capture
+2023/03/08 18:10:28 Failed to read tracing config, using the no-op default: empty json tracing config
 ☁️  cloudevents.Event
 Context Attributes,
   specversion: 1.0
-  type: dev.knative.sources.ping
-  source: /apis/v1/namespaces/default/pingsources/say-hi
-  id: 7e11c3ac-2b00-49af-9602-59575f410b9f
-  time: 2022-06-01T20:14:00.054244562Z
-Extensions,
-  knativearrivaltime: 2022-06-01T20:14:00.055027909Z
-  knativebrokerttl: 255
-  knativeerrorcode: 500
-  knativeerrordata:
-  knativeerrordest: http://broker-filter.knative-eventing.svc.cluster.local/triggers/default/demo-to-display/bd303253-c341-4d43-b5e2-bc3adf70122a
+  type: webhook.event
+  source: deadlettersink.webhook
+  id: f6e0fa6b-cde8-4a80-b9f5-2a199fff873c
+  time: 2023-03-08T18:21:10.993992297Z
+  datacontenttype: application/x-www-form-urlencoded
 Data,
-  {"hello": "triggermesh"}
+  {"message":"test my bridge"}
 ```
 
 ## Clean up
@@ -239,8 +288,10 @@ Data,
 Clean up the remaining resources by issuing this command:
 
 ```console
-kubectl delete ksvc event-failure-capture
-kubectl delete triggers demo-to-display
-kubectl delete pingsource say-hi
-kubectl delete broker demo
+kubectl delete svc event-failure-capture
+kubectl delete deployments.apps event-failure-capture
+kubectl delete deployments.apps event-success-capture
+kubectl delete triggers.eventing.triggermesh.io demo-to-display
+kubectl delete webhooksources.sources.triggermesh.io webhook
+kubectl delete memorybrokers.eventing.triggermesh.io demo
 ```
