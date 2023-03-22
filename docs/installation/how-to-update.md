@@ -46,6 +46,21 @@ To switch to another version of the TriggerMesh components, you can use the comm
 tmctl config set triggermesh.version v1.23.0
 ```
 
+## Uninstalling tmctl 
+
+If you install tmctl using brew, you can uninstall it with the following command:
+
+```sh
+brew uninstall triggermesh/cli/tmctl 
+```
+
+If you installed tmctl using a pre-built binary, you can uninstall it by running the following commands: 
+
+```sh
+rm -f $(which tmctl)
+rm -rf $HOME/.triggermesh/cli/
+```
+
 ## Updating TriggerMesh on K8s
 
 If you've installed an older version of TriggerMesh, you can simply update it by following the installation guide with the latest versions of the CRDs and controllers or by using the latest helm chart.
