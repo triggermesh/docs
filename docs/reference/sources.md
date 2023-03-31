@@ -9552,6 +9552,17 @@ string
 <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity">https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity</a></p>
 </td>
 </tr>
+<tr>
+<td>
+<code>kubernetesServiceAccount</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Name of the kubernetes service account bound to the gcpServiceAccount to act as an IAM service account.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="sources.triggermesh.io/v1alpha1.GoogleCloudSourcePubSubSpec">GoogleCloudSourcePubSubSpec
@@ -11926,5 +11937,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>bc1032f3</code>.
+on git commit <code>e02349b2</code>.
 </em></p>
