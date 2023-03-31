@@ -2724,6 +2724,17 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </tr>
 <tr>
 <td>
+<code>visibilityTimeout</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -8264,6 +8275,17 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </tr>
 <tr>
 <td>
+<code>visibilityTimeout</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -11937,5 +11959,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e02349b2</code>.
+on git commit <code>f9085f90</code>.
 </em></p>
