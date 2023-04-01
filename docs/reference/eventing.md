@@ -788,6 +788,19 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
+<code>caCertificate</code></br>
+<em>
+<a href="#eventing.triggermesh.io/v1alpha1.SecretValueFromSource">
+SecretValueFromSource
+</a>
+</em>
+</td>
+<td>
+<p>CA Certificate used to connect to Redis.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>tlsEnabled</code></br>
 <em>
 bool
@@ -990,5 +1003,5 @@ resolved delivery options.</p>
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>4bf5e0e</code>.
+on git commit <code>619756f</code>.
 </em></p>
