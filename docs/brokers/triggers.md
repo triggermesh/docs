@@ -31,7 +31,7 @@ spec:
     group: eventing.triggermesh.io
     kind: RedisBroker
     name: mybroker
-  target: targets.triggermesh.io/v1alpha1
+  target:
     ref:
       apiVersion: targets.triggermesh.io/v1alpha1
       kind: cloudeventstarget
