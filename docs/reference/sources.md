@@ -2724,17 +2724,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </tr>
 <tr>
 <td>
-<code>visibilityTimeout</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -8275,17 +8264,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </tr>
 <tr>
 <td>
-<code>visibilityTimeout</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -9572,17 +9550,6 @@ string
 <td>
 <p>GCP Service account for Workload Identity.
 <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity">https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity</a></p>
-</td>
-</tr>
-<tr>
-<td>
-<code>kubernetesServiceAccount</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<p>Name of the kubernetes service account bound to the gcpServiceAccount to act as an IAM service account.</p>
 </td>
 </tr>
 </tbody>
@@ -11959,5 +11926,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>a0aa03f6</code>.
+on git commit <code>ed22d76f</code>.
 </em></p>
