@@ -57,10 +57,10 @@ spec:
 EOF
 ```
 
-Check the status of Knative Serving Custom Resource using the command (can take a minute before it displays as ready):
+Check the status of Knative Serving Custom Resource using the command (can take a minute before it displays as ready so we'll use -w to watch the status evolve):
 
 ```sh
-kubectl get KnativeServing knative-serving -n knative-serving
+kubectl get KnativeServing knative-serving -n knative-serving -w
 ```
 
 Finally configure Knative Serving to use Magic DNS (sslip.io) with:
