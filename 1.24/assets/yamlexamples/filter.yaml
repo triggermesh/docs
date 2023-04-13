@@ -1,0 +1,84 @@
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: MemoryBroker
+metadata:
+  name: demo
+
+---
+
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: WebhookSource
+metadata:
+  name: webhook
+spec:
+  eventType: webhook.event
+  sink:
+    ref:
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: MemoryBroker
+      name: demo
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-display
+spec:
+  replicas: 1
+  selector:
+    matchLabels: &labels
+      app: event-display
+  template:
+    metadata:
+      labels: *labels
+    spec:
+      containers:
+        - name: event-display
+          image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: event-display
+spec:
+  selector:
+    app: event-display
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+
+---
+
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: Trigger
+metadata:
+  name: demo-to-filter
+spec:
+  broker:
+    group: eventing.triggermesh.io
+    kind: MemoryBroker
+    name: demo
+  target:
+    ref:
+      apiVersion: routing.triggermesh.io/v1alpha1
+      kind: Filter
+      name: filter-demo
+
+---
+
+apiVersion: routing.triggermesh.io/v1alpha1
+kind: Filter
+metadata:
+  name: filter-demo
+spec:
+  expression: |-
+    ($first.(int64) + $second.(int64) >= 42) || $role.(string) == "admin"
+  sink:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: event-display
+      
