@@ -30,11 +30,11 @@ kind: MongoDBTarget
 metadata:
   name: mongo-db-target
 spec:
-  # The database to use by default if a `database` parameter is missing from the event payload(s)
-  defaultDatabase: dummydb
-  # The collection to use by default if a `database` parameter is missing from the event payload(s)
-  defaultCollection: dummycol
-  # A refrence to a kubernetes secret containing a connection string I.E mongodb+srv://<user>:<password>@<database_url>/?retryWrites=true&w=majority
+  # The database to use if a `database` parameter is not specified in the event payload(s)
+  database: dummydb
+  # The collection to use if a `database` parameter is not specified in the event payload(s)
+  collection: dummycol
+  # A reference to a kubernetes secret containing a connection string I.E mongodb+srv://<user>:<password>@<database_url>/?retryWrites=true&w=majority
   connectionString:
     valueFromSecret:
       name: mongo-db-connection-string
@@ -53,7 +53,7 @@ However, you can control the behaviour of the target by using the following even
 
 **Insert**
 
-Insert data and overwrite the default  collection and database set at the spec.
+Insert data and overwrite the collection and database set at the spec.
 
 | Name  |  Type |  Comment |
 |---|---|---|
