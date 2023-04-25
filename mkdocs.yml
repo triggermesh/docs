@@ -207,6 +207,9 @@ extra:
   version:
     provider: mike
   social:
+    - icon: fontawesome/brands/slack
+      link: https://join.slack.com/t/triggermesh-community/shared_invite/zt-1kngevosm-MY7kqn9h6bT08hWh8PeltA
+      name: TriggerMesh on Slack
     - icon: fontawesome/brands/github
       link: https://github.com/triggermesh
       name: TriggerMesh on GitHub
