@@ -51,13 +51,13 @@ spec:
 - `basicAuthPassword` secret reference to basic authentication password. Optional
 - `headers` string map of key/value pairs as HTTP headers. Optional
 
-Requests from this HTTP Target will verify TLS certificates from the remote server if present. If the CA certificate at the server is self-signed, the public certificate needs to be added to the configuration, or alternatively mark the `Skip Verify` option.
+Requests from this HTTPTarget will verify TLS certificates from the remote server if present. If the CA certificate at the server is self-signed, the public certificate needs to be added to the configuration, or alternatively mark the `Skip Verify` option.
 
-The HTTP Target expects an event whose attributes complement the Target parameters.
+The HTTPTarget works in either structured or free mode, depending on the event `type` received.
 
-There is no requirement regarding the `type` header value.
+## Structured Mode
 
-The `data` attribute can contain the following optional JSON attributes:
+When receiving an event typed `io.triggermesh.http.request` the event data is expected to be a JSON containing the following structure:
 
 | Field | Description | Example |
 |--- |--- |--- |
@@ -76,6 +76,16 @@ If body is a JSON structure, it will need to be stringified:
 ```json
 {"body": "{\"records\":[{\"value\":{\"this\":{\"is\": \"sparta\"}}}]}"}
 ```
+
+## Free Mode
+
+When receiving an event with an arbitrary `type` that does not match the structured mode, the `data` element is used as the body.
+
+```json
+{"salut":"le monde"}
+```
+
+## HTTPTarget Responses
 
 Responses from external HTTP endpoints are converted into CloudEvents and sent as a reply to the TriggerMesh Broker. It is important that the HTTP Target only be sent very specific event types, and carefuly handles response event types, so as to avoid events loops in which the response from the external HTTP service is reprocessed by the HTTP Target.
 
@@ -124,7 +134,7 @@ $ kubectl run --generator=run-pod/v1 curl-me --image=curlimages/curl -ti --rm --
   -H "content-type: application/json" \
   -H "ce-specversion: 1.0" \
   -H "ce-source: curl-triggermesh" \
-  -H "ce-type: my-curl-type" \
+  -H "ce-type: io.triggermesh.http.request" \
   -H "ce-id: 123-abc" \
   -d '{"path_suffix":"world/total"}'
 
@@ -169,10 +179,47 @@ $ kubectl run --generator=run-pod/v1 curl-me --image=curlimages/curl -ti --rm --
   -H "content-type: application/json" \
   -H "ce-specversion: 1.0" \
   -H "ce-source: curl-triggermesh" \
-  -H "ce-type: my-curl-type" \
+  -H "ce-type: io.triggermesh.http.request" \
   -H "ce-id: 123-abc" \
   -d '{"query_string":"country=US&year=2020"}'
 
 ...
 ```
+
+## Tutorial: Free Mode
+
+[Request Inspector](https://requestinspector.com/) is a fine tool to learn how HTTPTarget works; we will use it to demo the free mode using an arbitrary event type.
+
+Click on the link above and create a new instance of the inspector, keep the page open and copy the URL.
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: HTTPTarget
+metadata:
+ name: requestinspector
+ namespace: mynamespace
+spec:
+  response:
+    eventType: inspector.response
+  endpoint: 'https://requestinspector.com/p/01gyy8yhg4avmmmsc2sw8c6vyx'
+  method: 'POST'
+```
+
+Run an ephemeral curl container using a CloudEvent formatted request that use an arbitrary `type` and contains a body.
+
+```sh
+$ kubectl run --generator=run-pod/v1 curl-me --image=curlimages/curl -ti --rm -- \
+  -v -X POST http://requestinspector.mynamespace.svc.cluster.local \
+  -H "content-type: application/json" \
+  -H "ce-specversion: 1.0" \
+  -H "ce-source: curl-triggermesh" \
+  -H "ce-type: some.type" \
+  -H "ce-id: 123-abc" \
+  -d '{"bonjour":"le monde"}'
+
+...
+```
+
+After sending the [CloudEvent][ce] its data should appear as the received body at the request inspector page.
+
 [ce]: https://cloudevents.io
