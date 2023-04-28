@@ -2,6 +2,10 @@
 
 TriggerMesh is free open-source software that lets you easily build event-driven applications.
 
+!!! slack "Join TriggerMesh on Slack"
+
+    [Join us on Slack](https://join.slack.com/t/triggermesh-community/shared_invite/zt-1kngevosm-MY7kqn9h6bT08hWh8PeltA) to interact directly with the TriggerMesh team for help, questions, or feedback.
+
 <div class="grid cards" markdown>
 
 -   :material-clock-fast:{ .lg .middle } __Your first events in 5 minutes__
