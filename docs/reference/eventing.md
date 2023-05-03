@@ -626,6 +626,17 @@ int
 <p>Maximum number of items the stream can host.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>enableTrackingID</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Whether the Redis ID for the event is added as a CloudEvents attribute.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="eventing.triggermesh.io/v1alpha1.RedisBrokerSpec">RedisBrokerSpec
@@ -1029,5 +1040,5 @@ resolved delivery options.</p>
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>9f465c3</code>.
+on git commit <code>b997d49</code>.
 </em></p>
