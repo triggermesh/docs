@@ -42,3 +42,7 @@ TriggerMesh is free open-source software that lets you easily build event-driven
     [:octicons-arrow-right-24: GitHub](#)
 
 </div>
+
+Checkout the video below to see how TriggerMesh can be deployed using GitOps with ArgoCD.
+
+<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/3820fd6199f04712afcfb4cd12e6d413" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
