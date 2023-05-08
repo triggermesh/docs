@@ -35,6 +35,8 @@ Resource Types:
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTarget">AzureSentinelTarget</a>
 </li><li>
+<a href="#targets.triggermesh.io/v1alpha1.AzureServiceBusTarget">AzureServiceBusTarget</a>
+</li><li>
 <a href="#targets.triggermesh.io/v1alpha1.CloudEventsTarget">CloudEventsTarget</a>
 </li><li>
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTarget">DatadogTarget</a>
@@ -1184,8 +1186,8 @@ AzureAuth
 <td>
 <code>eventHubID</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#targets.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
 </a>
 </em>
 </td>
@@ -1363,6 +1365,172 @@ EventOptions
 </td>
 <td>
 <p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureServiceBusTarget">AzureServiceBusTarget
+</h3>
+<p>
+<p>AzureServiceBusTarget is the Schema for an Azure Service Bus Target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+targets.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>AzureServiceBusTarget</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureServiceBusTargetSpec">
+AzureServiceBusTargetSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>topicID</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>The resource ID the Service Bus Topic.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueID</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>The resource ID the Service Bus Queue.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure Service Bus API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>webSocketsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>WebSocketsEnable</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5305,7 +5473,8 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <p>
 (<em>Appears on:</em>
 <a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>, 
-<a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTargetSpec">AzureSentinelTargetSpec</a>)
+<a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTargetSpec">AzureSentinelTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AzureServiceBusTargetSpec">AzureServiceBusTargetSpec</a>)
 </p>
 <p>
 <p>AzureAuth contains multiple authentication methods for Azure services.</p>
@@ -5385,8 +5554,8 @@ AzureAuth
 <td>
 <code>eventHubID</code></br>
 <em>
-<a href="#targets.triggermesh.io/v1alpha1.EventHubResourceID">
-EventHubResourceID
+<a href="#targets.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
 </a>
 </em>
 </td>
@@ -5431,6 +5600,106 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureResourceID">AzureResourceID
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AzureServiceBusTargetSpec">AzureServiceBusTargetSpec</a>)
+</p>
+<p>
+<p>AzureResourceID represents a resource ID for an Azure resource.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SubscriptionID</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>ResourceGroup</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>ResourceProvider</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>Namespace</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>ResourceType</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>ResourceName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>SubResourceType</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<code>SubResourceName</code></br>
+<em>
+string
+</em>
+</td>
+<td>
 </td>
 </tr>
 </tbody>
@@ -5564,6 +5833,117 @@ EventOptions
 </td>
 <td>
 <p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="targets.triggermesh.io/v1alpha1.AzureServiceBusTargetSpec">AzureServiceBusTargetSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureServiceBusTarget">AzureServiceBusTarget</a>)
+</p>
+<p>
+<p>AzureServiceBusTargetSpec defines the desired state of the event target.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>topicID</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>The resource ID the Service Bus Topic.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueID</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>The resource ID the Service Bus Queue.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure Service Bus API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>webSocketsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>WebSocketsEnable</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>eventOptions</code></br>
+<em>
+<a href="#targets.triggermesh.io/v1alpha1.EventOptions">
+EventOptions
+</a>
+</em>
+</td>
+<td>
+<p>EventOptions for targets</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>discardCloudEventContext</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -6039,65 +6419,6 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 </tr>
 </tbody>
 </table>
-<h3 id="targets.triggermesh.io/v1alpha1.EventHubResourceID">EventHubResourceID
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>)
-</p>
-<p>
-<p>EventHubResourceID represents a resource ID for an Event Hubs instance or namespace.</p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>SubscriptionID</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>ResourceGroup</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>Namespace</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>EventHub</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="targets.triggermesh.io/v1alpha1.EventOptions">EventOptions
 </h3>
 <p>
@@ -6105,6 +6426,7 @@ string
 <a href="#targets.triggermesh.io/v1alpha1.AWSComprehendTargetSpec">AWSComprehendTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AzureEventHubsTargetSpec">AzureEventHubsTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.AzureSentinelTargetSpec">AzureSentinelTargetSpec</a>, 
+<a href="#targets.triggermesh.io/v1alpha1.AzureServiceBusTargetSpec">AzureServiceBusTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.DatadogTargetSpec">DatadogTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.ElasticsearchTargetSpec">ElasticsearchTargetSpec</a>, 
 <a href="#targets.triggermesh.io/v1alpha1.GoogleCloudFirestoreTargetSpec">GoogleCloudFirestoreTargetSpec</a>, 
@@ -9038,5 +9360,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>42a3a33a</code>.
+on git commit <code>1b998248</code>.
 </em></p>
