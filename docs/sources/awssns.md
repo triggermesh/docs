@@ -54,6 +54,8 @@ Attributes:
 - [**DeliveryPolicy**][sns-delivery-policy]: Delivery policy to define how Amazon SNS retries the delivery of messages
   to HTTP/S endpoints.
 
+For details on authenticating with AWS, please take a look at our [dedicated guide on AWS credentials](../guides/credentials/awscredentials.md).
+
 Events produced have the following attributes:
 
 * type `com.amazon.sns.notification`

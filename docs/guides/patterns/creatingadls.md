@@ -2,17 +2,17 @@
 
 ## What is a Dead Letter Sink?
 
-A [Dead Letter Sink](../brokers/eventdelivery.md) is a construct that allows the user to configure a destination for events that would otherwise be dropped due to some delivery failure. This is useful for scenarios where you want to ensure that events are not lost due to a failure in the underlying system.
+A [Dead Letter Sink](../../brokers/eventdelivery.md) is a construct that allows the user to configure a destination for events that would otherwise be dropped due to some delivery failure. This is useful for scenarios where you want to ensure that events are not lost due to a failure in the underlying system.
 
 ## Example scenario
 
-In this example we are going to use a [WebhookSource](../sources/webhook.md) object that will received HTTP calls and send events to the [Broker](../brokers/index.md) named `demo`. An event viewer, named `event-success-capture` will subscribe to the Webhook events flowing through the Broker using a [Trigger](../brokers/triggers.md).
+In this example we are going to use a [WebhookSource](../../sources/webhook.md) object that will received HTTP calls and send events to the [Broker](../../brokers/index.md) named `demo`. An event viewer, named `event-success-capture` will subscribe to the Webhook events flowing through the Broker using a [Trigger](../../brokers/triggers.md).
 
 The Broker delivery options will be set to use a Dead Letter Sink so that in the case of a delivery error the event will be forwarded to another event viewer service named `event-failure-capture` instead of being lost into the void.
 
 We will test to make sure events are delivered to `event-success-capture`, then we will break the bridge by removing the `event-success-capture` service, in which case we expect the Dead Letter Sink to receive all events that were not delivered.
 
-![dead letter sink](../assets/images/deadlettersink/deadlettersink.png)
+![dead letter sink](../../assets/images/deadlettersink/deadlettersink.png)
 
 ## Setting up TriggerMesh with a Dead Letter Sink
 
@@ -39,7 +39,7 @@ We will test to make sure events are delivered to `event-success-capture`, then 
 
 !!! Info "Kubernetes manifest"
     The next steps create the configuration that demonstrates the usage of the Dead Letter Sink.
-    A single manifest containing all the objects can be downloaded [here](../assets/yamlexamples/dls-example.yaml).
+    A single manifest containing all the objects can be downloaded [here](../../assets/yamlexamples/dls-example.yaml).
 
 
 ### Step 1: Create the Broker
@@ -55,7 +55,7 @@ metadata:
 
 ### Step 2: Create the WebhookSource
 
-Create a [WebhookSource](../sources/webhook.md) object with the following configuration:
+Create a [WebhookSource](../../sources/webhook.md) object with the following configuration:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1

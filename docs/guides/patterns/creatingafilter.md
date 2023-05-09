@@ -26,7 +26,7 @@ To demonstrate filtering in TriggerMesh we are going to create a simple event fl
 - The filter will only forward events that contain a specific key in their JSON payload
 - Events are forwarded to an event display which should only show the events that passed the filter
 
-![filter](../assets/images/filter/filter.png)
+![filter](../../assets/images/filter/filter.png)
 
 Let's create all the required objects:
 
@@ -38,7 +38,7 @@ Let's create all the required objects:
 
 !!! Info "Kubernetes manifest"
     The next steps create the configuration that demonstrates the usage of the Filter.
-    A single manifest containing all the objects can be downloaded [here](../assets/yamlexamples/filter.yaml).
+    A single manifest containing all the objects can be downloaded [here](../../assets/yamlexamples/filter.yaml).
 
 ### Step 1: Create the Broker
 
@@ -53,7 +53,7 @@ metadata:
 
 ### Step 2: Create the WebhookSource
 
-Create a [WebhookSource](../sources/webhook.md) object with the following configuration:
+Create a [WebhookSource](../../sources/webhook.md) object with the following configuration:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1

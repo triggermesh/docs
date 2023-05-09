@@ -34,11 +34,11 @@ tmctl dump -p digitalocean | doctl apps create --spec -
 
 Head over to the DO App Platform console, you will see an App named with the name of your local broker. Each TriggerMesh component will be running as separate container like locally.
 
-![](../assets/images/do-app.png)
+![](../../assets/images/do-app.png)
 
 You can select the _Runtime Logs_ tab and you will see the logs of each container.
 
-![](../assets/images/do-app-logs.png)
+![](../../assets/images/do-app-logs.png)
 
 
 ## Manage the App

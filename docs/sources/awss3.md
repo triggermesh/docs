@@ -48,7 +48,7 @@ auth:
   iamrole: arn:aws:iam::123456789012:role/foo
 ```
 
-To setup an IAM role for service accounts, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
+For details on authenticating with AWS, please take a look at our [dedicated guide on AWS credentials](../guides/credentials/awscredentials.md).
 
 Parameters:
 
@@ -79,7 +79,6 @@ See the [Kubernetes object reference](../../reference/sources/#sources.triggerme
 
 - S3 Bucket
 - Amazon Resource Name (ARN)
-- API Credentials
 - SQS Queue _(optional)_
 
 ### S3 Bucket
@@ -107,81 +106,6 @@ A fully qualified ARN is required to uniquely identify the Amazon S3 bucket.
     This information is purely optional and will be determined automatically if not provided.
 
 ![S3 Bucket ARN](../assets/images/awss3-source/arn-region-1.png)
-
-### API Credentials
-
-The TriggerMesh event source for Amazon S3 authenticates calls to the AWS API using AWS Access Keys. The page
-[Understanding and getting your AWS credentials][accesskey] contains instructions to create access keys when signed-in
-either as the root user or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be
-used to create an instance of the event source.
-
-It is considered a [good practice][iam-bestpractices] to create dedicated users with restricted privileges in order to
-programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
-[IAM Policies][iam-policies] to it.
-
-As an example, the following policy contains only the permissions required by the Amazon S3 event source to operate:
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "S3SourceSetBucketConfig",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetBucketNotification",
-                "s3:PutBucketNotification"
-            ],
-            "Resource": "arn:aws:s3:::*"
-        },
-        {
-            "Sid": "S3SourceConsumeMessages",
-            "Effect": "Allow",
-            "Action": [
-                "sqs:GetQueueUrl",
-                "sqs:ReceiveMessage",
-                "sqs:DeleteMessage"
-            ],
-            "Resource": "arn:aws:sqs:*:*:*"
-        }
-    ]
-}
-```
-
-Additionally, the following permissions are also required if you opt for letting the event source manage the SQS queue
-for you (see next section for more information):
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "S3SourceGetBucketLocation",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetBucketLocation"
-            ],
-            "Resource": "arn:aws:s3:::*"
-        },
-        {
-            "Sid": "S3SourceManageQueue",
-            "Effect": "Allow",
-            "Action": [
-                "sqs:CreateQueue",
-                "sqs:DeleteQueue",
-                "sqs:GetQueueAttributes",
-                "sqs:SetQueueAttributes",
-                "sqs:GetQueueUrl",
-                "sqs:ListQueueTags",
-                "sqs:TagQueue"
-            ],
-            "Resource": "arn:aws:sqs:*:*:*"
-        }
-    ]
-}
-```
-
-![IAM Policy](../assets/images/awss3-source/iam-policy-1.png)
 
 ### SQS Queue _(optional)_
 

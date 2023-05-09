@@ -52,7 +52,7 @@ auth:
   iamrole: arn:aws:iam::123456789012:role/foo
 ```
 
-To setup an IAM role for service accounts, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
+For details on authenticating with AWS, please take a look at our [dedicated guide on AWS credentials](../guides/credentials/awscredentials.md).
 
 This target accepts events of any type and analyzes each of the key values sentiment. It then combines the scores and returns the analysis in a response event of type `io.triggermesh.targets.aws.comprehend.result`.
 
@@ -103,10 +103,6 @@ Response:
 ```
 
 See the [Kubernetes object reference](../../reference/targets/#targets.triggermesh.io/v1alpha1.AWSComprehendTarget) for more details.
-
-## Prerequisite(s)
-
-- AWS API key and secret.
 
 For more information about using Amazon Comprehend, please refer to the [documentation](https://docs.aws.amazon.com/comprehend/).
 

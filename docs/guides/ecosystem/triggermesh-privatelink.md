@@ -39,7 +39,7 @@ spec:
 After the configuration has been applied successfully, we can see that the Istio 
 Ingress Gateway is now using an NLB as shown in the screenshot below:
 
-![NLB](../assets/guides/privatelink/nlb.png)
+![NLB](../../assets/guides/privatelink/nlb.png)
 
 ## Setting up the PrivateLink endpoint service
 
@@ -47,7 +47,7 @@ Before we set up the PrivateLink, let’s make sure that the VPC to which our EK
 cluster is attached has the DNS hostnames feature enabled. This is needed in order 
 to be able to access our TriggerMesh services using the URL configured for the services.
 
-![VPC DNS Hostnames](../assets/guides/privatelink/vpc-dns-hostnames.png)
+![VPC DNS Hostnames](../../assets/guides/privatelink/vpc-dns-hostnames.png)
 
 To set up the service endpoint, we need to login to the AWS console and
 [create an endpoint service](https://eu-west-1.console.aws.amazon.com/vpc/home?#CreateVpcEndpointServiceConfiguration:). Let’s specify the **Name** as 
@@ -60,7 +60,7 @@ For example, if the domain of our Knative serving component is `k.acme.com`,
 then specify the wildcard domain `*.k.acme.com` as the **Private DNS name** as 
 shown in the screenshot below:
 
-![Endpoint Service Private DNS](../assets/guides/privatelink/endpoint-service-private-dns.png)
+![Endpoint Service Private DNS](../../assets/guides/privatelink/endpoint-service-private-dns.png)
 
 Before we can start accessing the TriggerMesh endpoints using the Private DNS name, 
 we need to verify ownership of the domain name. To do so we need to create a **TXT** 
@@ -68,7 +68,7 @@ record in our domain host with the **Domain verification name** and
 **Domain verification value** and trigger the verification as shown in screenshot 
 below:
 
-![Domain Verification Pending](../assets/guides/privatelink/domain-verification-pending.png)
+![Domain Verification Pending](../../assets/guides/privatelink/domain-verification-pending.png)
 
 After the verification has been completed, the Domain verification status changes 
 to Verified and we should now be able to reach our TriggerMesh services using the service 
@@ -86,7 +86,7 @@ Name (ARN) of the AWS root account under the **Allow Principals** tab. This is t
 ARN of the account from where we will be accessing the services, let's call this 
 the consumer.
 
-![Allow Principals](../assets/guides/privatelink/allow-principals.png)
+![Allow Principals](../../assets/guides/privatelink/allow-principals.png)
 
 Login to the VPC dashboard of the AWS account of the consumer and [create an endpoint](https://eu-west-1.console.aws.amazon.com/vpc/home?#CreateVpcEndpoint:) 
 connection. It’s important to note that you need to be in the same region as the
@@ -96,19 +96,19 @@ Let’s name the endpoint connection _ksvc-endpoint_, for the **Service category
 _Other endpoint services_, enter the Service name of our service endpoint and click 
 on **Verify service**.
 
-![Endpoint Settings](../assets/guides/privatelink/endpoint-settings-part.png)
+![Endpoint Settings](../../assets/guides/privatelink/endpoint-settings-part.png)
 
 Select the VPC and Subnets on which you want to make the endpoint connection 
 available and finally specify the security groups to associate with the endpoint. 
 We need to ensure that our security group allows HTTP/HTTPS connection requests 
 as shown in the screenshot below:
 
-![Security Group for Accessing Ksvcs](../assets/guides/privatelink/security-group-ksvc-access.png)
+![Security Group for Accessing Ksvcs](../../assets/guides/privatelink/security-group-ksvc-access.png)
 
 Upon creating the endpoint, we need to go back to the VPC service endpoint and 
 accept the connection request.
 
-![Accept Connection Request](../assets/guides/privatelink/accept-connection-request.png)
+![Accept Connection Request](../../assets/guides/privatelink/accept-connection-request.png)
 
 Once the connection request has been accepted it takes a few minutes for the 
 endpoint connection to become Available in the consumer account. Lastly, in order 
@@ -116,7 +116,7 @@ to access the TriggerMesh services using their URLs, we need to Enable private D
 names which is available under the Modify private DNS name action menu item of 
 the endpoint connection as shown below:
 
-![Modify Private DNS Name](../assets/guides/privatelink/modify-private-dns-name.png)
+![Modify Private DNS Name](../../assets/guides/privatelink/modify-private-dns-name.png)
 
 ## Accessing TriggerMesh services
 

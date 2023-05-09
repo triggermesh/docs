@@ -144,18 +144,23 @@ nav:
         - Telemetry metrics: observability/observability-metrics.md
         - Broker observability: observability/brokerobservability.md
     - Guides:
-      - Creating a Dead Letter Sink: guides/creatingadls.md
-      - Creating a Wiretap: guides/createawiretap.md
-      - Creating a Filter: guides/creatingafilter.md
-      - Creating a Splitter: guides/creatingasplitter.md
-      - Connecting Clusters: guides/connectingclusters.md
-      - Deploying to Digital Ocean App Platform: guides/do-app-platform.md
-      - Using Kong with TriggerMesh: guides/kong-ingress.md
-      - Using Kuma Mesh with TriggerMesh: guides/kuma.md
-      - Creating a PrivateLink to TriggerMesh Services: guides/triggermesh-privatelink.md
-      - Scaling: guides/scaling.md
-      - Webhook to Slack: guides/webhook-to-slack.md
-      - Tips for Kubernetes: guides/kubernetestips.md
+      - Cloud Credentials:
+        - AWS credentials: guides/credentials/awscredentials.md
+        - Google Cloud credentials: guides/credentials/gcpcredentials.md
+      - Patterns:
+        - Creating a Dead Letter Sink: guides/patterns/creatingadls.md
+        - Creating a Wiretap: guides/patterns/createawiretap.md
+        - Creating a Filter: guides/patterns/creatingafilter.md
+        - Creating a Splitter: guides/patterns/creatingasplitter.md
+        - Connecting Clusters: guides/patterns/connectingclusters.md
+        - Webhook to Slack: guides/patterns/webhook-to-slack.md
+        - Scaling: guides/patterns/scaling.md
+      - Ecosystem:
+        - Deploying to Digital Ocean App Platform: guides/ecosystem/do-app-platform.md
+        - Using Kong with TriggerMesh: guides/ecosystem/kong-ingress.md
+        - Using Kuma Mesh with TriggerMesh: guides/ecosystem/kuma.md
+        - Creating a PrivateLink to TriggerMesh Services: guides/ecosystem/triggermesh-privatelink.md
+        - Tips for Kubernetes: guides/ecosystem/kubernetestips.md
     - Reference:
       - CLI commands:
          - tmctl: reference/tmctl/tmctl.md
@@ -250,5 +255,5 @@ plugins:
             'sources.md': 'sources/awscloudwatch.md'
             'targets.md': 'targets/awscomprehend.md'
             'get-started.md': 'get-started/quickstart.md'
-            'guides.md': 'guides/creatingadls.md'
+            'guides.md': 'guides/patterns/creatingadls.md'
             'reference.md': 'reference/sources.md'

@@ -10,7 +10,7 @@ A Wiretap is a powerful debugging tool/methodology that can be used to understan
 
 ### Creating an Example Bridge
 
-Lets create a configuration that demonstrates the idea of a wiretap. The full manifest is available [here](../assets/yamlexamples/simple-bridge.yaml) in case you want to directly apply the whole configuration to your cluster. 
+Lets create a configuration that demonstrates the idea of a wiretap. The full manifest is available [here](../../assets/yamlexamples/simple-bridge.yaml) in case you want to directly apply the whole configuration to your cluster. 
 
 To start, we need to create a `WebhookSource` that will receive events over HTTP, and a `Broker` that will ingest those events:
 
