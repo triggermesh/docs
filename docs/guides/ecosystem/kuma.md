@@ -209,4 +209,4 @@ kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
 
 To access the UI opening <http://localhost:5681/gui> with a web browser:
 
-![Kuma Global Overview](../assets/images/kuma/kuma-global-overview.png)
+![Kuma Global Overview](../../assets/images/kuma/kuma-global-overview.png)

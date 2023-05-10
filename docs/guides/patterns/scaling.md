@@ -35,7 +35,7 @@ As an example a load test for a single TriggerMesh component looks like this:
     A component that has received no data for the last minute is a candidate for downscaling.
 
 !!! example "Example"
-    ![](../assets/images/scaling/scaling.png)
+    ![](../../assets/images/scaling/scaling.png)
 
     - Ramp up: the load for the first half of the test, the autoscaler creates replicas of the component based on demand.
     - Stabilizing requests: there are some adjustments but the number of replicas is kept around 16 in the example.

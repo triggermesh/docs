@@ -43,7 +43,7 @@ auth:
   iamrole: arn:aws:iam::123456789012:role/foo
 ```
 
-To setup an IAM role for service accounts, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
+For details on authenticating with AWS, please take a look at our [dedicated guide on AWS credentials](../guides/credentials/awscredentials.md).
 
 Events produced have the following attributes:
 
@@ -57,7 +57,6 @@ See the [Kubernetes object reference](../../reference/sources/#sources.triggerme
 
 - An SQS Queue
 - The queue's ARN
-- AWS API Credentials
 
 ### Create an SQS Queue
 
@@ -88,42 +87,6 @@ $ aws --region us-west-2 sqs get-queue-attributes --queue-url $(aws --region us-
     }
 }
 ```
-
-### Obtain AWS API Credentials
-
-The TriggerMesh event source for Amazon SQS can authenticate calls to the AWS API using AWS Access Keys. The page
-[Understanding and getting your AWS credentials][accesskey] contains instructions to create access keys when signed-in
-either as the root user or as an IAM user. Take note of the **Access Key ID** and **Secret Access Key**, they will be
-used to create an instance of the event source.
-
-It is considered a [good practice][iam-bestpractices] to create dedicated users with restricted privileges in order to
-programmatically access AWS services. Permissions can be added or revoked granularly for a given IAM user by attaching
-[IAM Policies][iam-policies] to it.
-
-As an example, the following policy contains the permissions required by the TriggerMesh Amazon SQS event source to read
-and delete messages from any queue linked to the AWS account:
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AWSSQSSourceReceiveAdapter",
-            "Effect": "Allow",
-            "Action": [
-                "sqs:GetQueueUrl",
-                "sqs:ReceiveMessage",
-                "sqs:DeleteMessage"
-            ],
-            "Resource": [
-                "arn:aws:sqs:*:*:*"
-            ]
-        }
-    ]
-}
-```
-
-![Creating an IAM user](../assets/images/awssqs-source/sqs-user-policy.png)
 
 ## Guide to SQS source on Kubernetes
 

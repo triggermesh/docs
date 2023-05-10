@@ -20,7 +20,7 @@ An event `Splitter` is part of the TriggerMesh routing solution. It has the simp
 
 ## Splitter tutorial on Kubernetes
 
-![](../assets/images/splitter.png)
+![](../../assets/images/splitter.png)
 
 Let's create the required objects:
 
@@ -31,7 +31,7 @@ Let's create the required objects:
 
 !!! Info "Kubernetes manifest"
     The next steps create the configuration that demonstrates the usage of the Filter.
-    A single manifest containing all the objects can be downloaded [here](../assets/yamlexamples/splitter.yaml).
+    A single manifest containing all the objects can be downloaded [here](../../assets/yamlexamples/splitter.yaml).
 
 ### Step 1: Create the Broker
 
@@ -46,7 +46,7 @@ metadata:
 
 ### Step 2: Create the WebhookSource
 
-Create a [WebhookSource](../sources/webhook.md) object with the following configuration:
+Create a [WebhookSource](../../sources/webhook.md) object with the following configuration:
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1

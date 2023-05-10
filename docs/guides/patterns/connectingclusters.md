@@ -1,7 +1,7 @@
 # Connecting TriggerMesh Clusters
 
 !!! Info "Installation"
-    Make sure you have completed the installation [procedure](../installation/index.md) before proceeding with any of the guides.
+    Make sure you have completed the installation [procedure](../../installation/index.md) before proceeding with any of the guides.
 
 In this guide we will connect 2 TriggerMesh clusters that will be able to interchange CloudEvents flowing through them. You might want to connect multiple TriggerMesh instances to:
 
@@ -28,7 +28,7 @@ ClusterReceiver components:
 - `event-display` service will listen to CloudEvents and log them at the output console.
 - `Trigger` will subscribe to CloudEvents at the Broker and send them to the EventDisplay.
 
-![connecting clusters](../assets/images/connectingclusters/connectingclusters.png)
+![connecting clusters](../../assets/images/connectingclusters/connectingclusters.png)
 
 Events produced at the WebhookSource will flow as depicted above until they reach the EventDisplay at the second cluster.
 
@@ -241,9 +241,9 @@ Data,
 
 ## Further improvements
 
-Triggers can be configured with filters to make sure only allowed CloudEvents travels between clusters. Refer to [trigger's documentation](../brokers/triggers.md) for configuration options.
+Triggers can be configured with filters to make sure only allowed CloudEvents travels between clusters. Refer to [trigger's documentation](../../brokers/triggers.md) for configuration options.
 
-[CloudEventsSource](../sources/cloudevents.md) and [CloudEventsTarget](../targets/cloudevents.md) can be configured with HTTP Basic Authentication.
+[CloudEventsSource](../../sources/cloudevents.md) and [CloudEventsTarget](../../targets/cloudevents.md) can be configured with HTTP Basic Authentication.
 
 !!! Info "HTTP Basic Authentication"
     HTTP Basic Authentication is not encrypted. When used it is thoroughly recommended that services are configured with TLS capabilities.
