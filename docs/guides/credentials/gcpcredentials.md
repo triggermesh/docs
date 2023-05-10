@@ -106,7 +106,7 @@ spec:
 
 ### Specifying a custom Kubernetes Service Account name
 
-By default, TriggerMesh generates a Kubernetes Service Account (KSA) name for the component to use, with a default naming convention. If you'd prefer to customise the name of the KSA, you can optionally specify it in the resource's manifest, using the parameter called *kubernetesServiceAccount*. If specified, this name will be used for the Kubernetes Service account that will be created and bound to the gcpServiceAccount to act as an IAM service account.
+By default, TriggerMesh generates a Kubernetes Service Account (KSA) name for the component to use, with a default naming convention. If you'd prefer to customize the name of the KSA, you can optionally specify it in the resource's manifest, using the parameter called *kubernetesServiceAccount*. If specified, this name will be used for the Kubernetes Service account that will be created and bound to the gcpServiceAccount to act as an IAM service account.
 
 Expanding on the previous example, the manifest would look like the following:
 
