@@ -118,6 +118,7 @@ metadata:
 spec:
   topic: projects/my-project/topics/my-topic
   auth:
+    gcpServiceAccount: my-sa@my-project.iam.gserviceaccount.com
     kubernetesServiceAccount: <my-custom-ksa-name>
   sink:
     ref:
