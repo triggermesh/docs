@@ -10,6 +10,50 @@ During creation, you can give the service account the permissions that TriggerMe
 
 Create a key for the service account and save it in JSON format in a file, for instance: *serviceaccountkey.json*. Keep this key somewhere handy as you'll reference it when creating a TriggerMesh source for Google Cloud.
 
+The example below shows how you can reference a service account key from a file when creating a Google Cloud Storage source with tmctl:
+
+```sh
+tmctl create source googlecloudstorage --bucket <bucket name> \
+                                       --pubsub.project <project name> \
+                                       --serviceAccountKey $(cat serviceaccountkey.json) \
+                                       --eventTypes OBJECT_FINALIZE
+```
+
+The second example below shows how to embed a service account key in a TriggerMesh manifest for a GCS source:
+
+```yaml
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: GoogleCloudStorageSource
+metadata:
+  name: sample
+spec:
+  bucket: my-bucket
+  topic: projects/my-project/topics/my-topic
+  eventTypes:
+  - OBJECT_FINALIZE
+  - OBJECT_DELETE
+
+  serviceAccountKey:
+    value: >-
+      {
+        "type": "service_account",
+        "project_id": "my-project",
+        "private_key_id": "0000000000000000000000000000000000000000",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n",
+        "client_email": "triggermesh-storage-source@my-project.iam.gserviceaccount.com",
+        "client_id": "000000000000000000000",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/triggermesh-storage-source%40my-project.iam.gserviceaccount.com"
+      }
+  sink:
+    ref:
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: RedisBroker
+      name: triggermesh
+```
+
 ## Using Workload Identity when running TriggerMesh on GKE
 
 As stated in the [Google Cloud documentation](https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity), "Workload Identity is the recommended way for your workloads running on Google Kubernetes Engine (GKE) to access Google Cloud services in a secure and manageable way".
@@ -26,7 +70,7 @@ gcloud iam service-accounts add-iam-policy-binding my-sa@my-project.iam.gservice
     --member "serviceAccount:my-project.svc.id.goog[triggermesh/triggermesh-controller]"
 ```
 
-Also the service account for the specific source, ex: pubsub:
+Also allow the service account for the TriggerMesh component you're using to impersonate the IAM (example shown for the Pub/Sub source):
 
 ```
 gcloud iam service-accounts add-iam-policy-binding my-sa@my-project.iam.gserviceaccount.com \
@@ -42,18 +86,17 @@ kubectl annotate serviceaccount triggermesh-controller \
     iam.gke.io/gcp-service-account=my-sa@my-project.iam.gserviceaccount.com
 ```
 
-Finally add the following annotation to the Google source: ex: pubsub:
+Finally add the following parameter to the Google source (example shown with Pub/Sub source):
 
-```
+```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
 kind: GoogleCloudPubSubSource
 metadata:
   name: sample
-  annotations:
-    iam.gke.io/gcp-service-account: my-sa@my-project.iam.gserviceaccount.com
 spec:
   topic: projects/my-project/topics/my-topic
-
+  auth:
+    gcpServiceAccount: my-sa@my-project.iam.gserviceaccount.com
   sink:
     ref:
       apiVersion: eventing.triggermesh.io/v1alpha1
@@ -67,16 +110,15 @@ By default, TriggerMesh generates a Kubernetes Service Account (KSA) name for th
 
 Expanding on the previous example, the manifest would look like the following:
 
-```
+```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
 kind: GoogleCloudPubSubSource
 metadata:
   name: sample
-  annotations:
-    iam.gke.io/gcp-service-account: my-sa@my-project.iam.gserviceaccount.com
 spec:
   topic: projects/my-project/topics/my-topic
-  kubernetesServiceAccount: <my-custom-ksa-name>
+  auth:
+    kubernetesServiceAccount: <my-custom-ksa-name>
   sink:
     ref:
       apiVersion: eventing.triggermesh.io/v1alpha1
