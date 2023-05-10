@@ -83,7 +83,7 @@ There are cases in which additional permissions are required, such as when the T
 
 ## Using an IAM role from an EKS cluster
 
-IAM Role authentication is supported for most TriggerMesh AWS sources and targets. Please make sure you are familier with the official AWS documentation on [IAM Roles](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) before proceeding.
+IAM Role authentication is supported for most TriggerMesh AWS sources and targets. Please make sure you are familiar with the official AWS documentation on [IAM Roles](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) before proceeding.
 
 Below is an example manifest that shows how to use it:
 
