@@ -240,6 +240,15 @@ context:
       value: something
 ```
 
+You can delete all extension attributes by using the following syntax:
+
+```yaml
+context:
+  - operation: delete
+    paths:
+    - key: Extensions
+```
+
 ### Using a custom JSON path separator
 
 By default the `.` character is used as a JSON path separator, i.e. the foo.bar key is interpreted as a "foo":{"bar":...} object. The custom JSON path separator provides a way to replace `.` with any character, so that if a key's full name contains a `.`, such as `property.name`, it can be consider as a property name instead of a nested object.
