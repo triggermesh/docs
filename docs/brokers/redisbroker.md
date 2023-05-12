@@ -32,23 +32,37 @@ spec:
           secretKeyRef:
             name: <Kubernetes secret name>
             key: <Kubernetes secret key>
+        tlsCACertificate: <CA certificate used to connect to redis. Optional>
+          secretKeyRef:
+            name: <Kubernetes secret name>
+            key: <Kubernetes secret key>
+        tlsCertificate: <Certificate used to authenticate to redis. Optional>
+          secretKeyRef:
+            name: <Kubernetes secret name>
+            key: <Kubernetes secret key>
+        tlsKey: <Certificate key used to authenticate to redis. Optional>
+          secretKeyRef:
+            name: <Kubernetes secret name>
+            key: <Kubernetes secret key>
         tlsEnabled: <boolean that indicates if the Redis server is TLS protected. Optional, defaults to false>
         tlsSkipVerify: <boolean that skips verifying TLS certificates. Optional, defaults to false>
     stream: <Redis stream name. Optional, defaults to a combination of namespace and broker name>
     streamMaxLen: <maximum number of items the Redis stream can host. Optional, defaults to unlimited>
+    enableTrackingID: <boolean that indicates if the Redis ID should be written as the CloudEvent attribute triggermeshbackendid>
   broker:
     port: <HTTP port for ingesting events>
     observability:
       valueFromConfigMap: <kubernetes ConfigMap that contains observability configuration>
 ```
 
-The only `RedisBroker` specific parameters are:
+The `RedisBroker` specific parameters are:
 
 - `spec.redis.connection`. When not used the broker will spin up a managed Redis Deployment. However for production scenarios that require HA and hardened security it is recommended to provide the connection to a user managed Redis instance.
 - `spec.redis.connection.url`. URL to the standalone Redis instance. This should not be informed for Redis clusters.
 - `spec.redis.connection.clusterURLs`. Array of URLs to each node of a Redis cluster. This should not be informed for standalone Redis.
 - `spec.stream` is the Redis stream name to be used by the broker. If it doesn't exists the Broker will create it.
 - `spec.streamMaxLen` is the maximum number of elements that the stream will contain.
+- `spec.enableTrackingID` when set enables propagating the Redis ID of the event being sent to a consumer as the CloudEvent attribute `triggermeshbackendid`. Disabled by default.
 
 The `spec.broker` section contains generic Broker parameters:
 
