@@ -18,7 +18,7 @@ metadata:
 spec:
   accountName: demoaccount
   queueName: testqueue
-
+  visibilityTimeout: 45s
   accountKey:
     valueFromSecret:
       name: azure-queue-storage
