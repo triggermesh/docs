@@ -2473,6 +2473,30 @@ If it not present, it will try to use Azure AKS Managed Identity</p>
 </tr>
 <tr>
 <td>
+<code>messagesTimeout</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>MessageTimeout of the Event Hubs client in seconds.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>messagesCountSize</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>MessageCountSize of the Event Hubs client.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -8134,6 +8158,30 @@ If it not present, it will try to use Azure AKS Managed Identity</p>
 </tr>
 <tr>
 <td>
+<code>messagesTimeout</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>MessageTimeout of the Event Hubs client in seconds.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>messagesCountSize</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>MessageCountSize of the Event Hubs client.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -11959,5 +12007,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>1b998248</code>.
+on git commit <code>7b56005b</code>.
 </em></p>
