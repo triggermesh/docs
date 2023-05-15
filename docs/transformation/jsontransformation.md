@@ -230,14 +230,23 @@ spec:
 
 ### CloudEvents extensions
 
-CloudEvent's context extensions can be accessed by using the `extensions.*` key prefix, for example below we show how to add a new CloudEvents extension attribute to the event:
+CloudEvent's context extensions can be accessed by using the `Extensions.*` key prefix, for example below we show how to add a new CloudEvents extension attribute to the event:
 
 ```yaml
 context:
   - operation: add
     paths:
-    - key: extensions.profile
+    - key: Extensions.myextension
       value: something
+```
+
+You can delete extension attributes by using the following syntax:
+
+```yaml
+context:
+  - operation: delete
+    paths:
+    - key: Extensions.myextension
 ```
 
 ### Using a custom JSON path separator
