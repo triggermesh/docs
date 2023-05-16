@@ -35,11 +35,11 @@ See the [Kubernetes object reference](../../reference/sources/#sources.triggerme
 
 MongoDBSource will start when it can connect to the specified MongoDB instance. Controller logs and events can provide detailed information about the process. A Status summary is added to the MongoDBSource object informing of all the conditions that the source needs.
 
-When ready, the status.ready will be True.
+When ready, the status.ready will be `True`.
 
 ```shell
 kubectl get mongodbsource
-NAME     READY   REASON   URL   SINK                                                                              AGE
-sample   True                   http://broker-ingress.knative-eventing.svc.cluster.local/namespace/default         1m
+NAME     READY   REASON   URL   SINK                                                                   AGE
+sample   True                   http://triggermesh.default.svc.cluster.local/namespace/default         1m
 ```
 
