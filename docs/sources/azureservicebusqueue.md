@@ -1,5 +1,10 @@
 # Azure Service Bus Queue source
 
+!!! warning "Deprecated"
+    This component is deprecated as of 1.25 and will be removed in a future release. 
+    
+    Please use the [AzureServiceBus source](azureservicebus.md) instead, which supports both queues and topics in a single component, much like its new companion the [AzureServiceBus target](../targets/azureservicebus.md).
+
 Consumes events from [Azure Service Bus](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) queues.
 
 With `tmctl`:

@@ -57,6 +57,7 @@ nav:
       - Azure Event Hubs: sources/azureeventhubs.md
       - Azure IoT Hub: sources/azureiothub.md
       - Azure Queue Storage: sources/azurequeuestorage.md
+      - Azure Service Bus: sources/azureservicebus.md
       - Azure Service Bus Queue: sources/azureservicebusqueue.md
       - Azure Service Bus Topic: sources/azureservicebustopic.md
       - CloudEvents: sources/cloudevents.md
@@ -87,6 +88,7 @@ nav:
       - Amazon SQS: targets/awssqs.md
       - Azure Event Hubs: targets/azureeventhubs.md
       - Azure Sentinel: targets/azuresentinel.md
+      - Azure Service Bus: targets/azureservicebus.md
       - CloudEvents: targets/cloudevents.md
       - Datadog: targets/datadog.md
       - Elasticsearch: targets/elasticsearch.md
