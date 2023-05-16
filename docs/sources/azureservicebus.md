@@ -8,7 +8,7 @@ With `tmctl`:
 tmctl create source azureservicebus --queueID <queueID> --auth.sasToken.connectionString.value <token>
 ```
 
-Use use `--topicID <topicID>` instead of `--queueID <queueID>` to consume from a topic. 
+Use `--topicID <topicID>` instead of `--queueID <queueID>` to consume from a topic. 
 
 On Kubernetes:
 
@@ -19,12 +19,23 @@ metadata:
   name: sample
 spec:
   queueID: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyGroup/providers/Microsoft.ServiceBus/namespaces/MyNamespace/queues/MyQueue
-  # Or a topic ID
+  # Alternatively a topic ID
   # topicID: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyGroup/providers/Microsoft.ServiceBus/namespaces/MyNamespace/topics/MyTopic
+
   auth:
-    sasToken:
-      connectionString:
-        value: Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=ReadOnly;SharedAccessKey=aHpDel7ZCURMDyixudUeciLODz9SxImqqbEXAMPLEKEY;EntityPath=myqueue
+    servicePrincipal:
+      tenantID:
+        valueFromSecret:
+          name: azure
+          key: tenantID
+      clientID:
+        valueFromSecret:
+          name: azure
+          key: clientID
+      clientSecret:
+        valueFromSecret:
+          name: azure
+          key: clientSecret
 
   sink:
     ref:

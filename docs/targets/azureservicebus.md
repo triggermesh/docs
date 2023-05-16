@@ -8,6 +8,8 @@ With `tmctl`:
 tmctl create target azureservicebus --queueID <queueID> --auth.servicePrincipal.tenantID <tenantID> --auth.servicePrincipal.clientID <clientID> --auth.servicePrincipal.clientSecret <clientSecret>
 ```
 
+Use `--topicID <topicID>` instead of `--queueID <queueID>` to produce to a topic. 
+
 On Kubernetes:
 
 ```yaml
@@ -17,7 +19,7 @@ metadata:
   name: sample
 spec:
   topicID: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyGroup/providers/Microsoft.ServiceBus/namespaces/MyNamespace/topics/MyTopic
-  # Alternatively the queueID
+  # Alternatively a queue ID
   # queueID: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyGroup/providers/Microsoft.ServiceBus/namespaces/MyNamespace/queues/MyQueue
 
   auth:
