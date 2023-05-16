@@ -32,8 +32,6 @@ Events produced have the following attributes:
 
 See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.MongoDBSource) for more details.
 
-
-### Status
 MongoDBSource will start when it can connect to the specified MongoDB instance. Controller logs and events can provide detailed information about the process. A Status summary is added to the MongoDBSource object informing of all the conditions that the source needs.
 
 When ready, the status.ready will be True.
