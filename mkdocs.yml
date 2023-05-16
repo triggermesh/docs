@@ -67,6 +67,7 @@ nav:
       - Google Cloud Repositories: sources/googlecloudrepositories.md
       - Google Cloud Storage: sources/googlecloudstorage.md
       - Kafka: sources/kafka.md
+      - MongoDB: sources/mongodb.md
       - HTTP Poller: sources/httppoller.md
       - IBM MQ: sources/ibmmq.md
       - MongoDB: source/mongodb.md
