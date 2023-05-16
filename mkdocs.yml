@@ -69,7 +69,7 @@ nav:
       - HTTP Poller: sources/httppoller.md
       - IBM MQ: sources/ibmmq.md
       - Kafka: sources/kafka.md
-      - MongoDB: source/mongodb.md
+      - MongoDB: sources/mongodb.md
       - OCIMetrics: sources/ocimetrics.md
       - Salesforce: sources/salesforce.md
       - Slack: sources/slack.md
