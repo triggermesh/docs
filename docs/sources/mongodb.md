@@ -4,7 +4,7 @@ Watches a MongoDB collection for changes and triggers events.
 With `tmctl`:
 
 ```
-tmctl create source mongodb --mongodbURI mongodb://localhost:27017 --database <database> --collection <collection>
+tmctl create source mongodb --connectionString mongodb://localhost:27017 --database <database> --collection <collection>
 ```
 
 
@@ -32,28 +32,6 @@ Events produced have the following attributes:
 
 See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.MongoDBSource) for more details.
 
-## Kubernetes guide for MongoDBSource
-
-Prerequisites
-A running MongoDB instance.
-
-## Creating a MongoDBSource
-
-```yaml
-apiVersion: sources.triggermesh.io/v1alpha1
-kind: MongoDBSource
-metadata:
-  name: sample
-spec:
-  connectionString: mongodb://localhost:27017
-  database: test-database
-  collection: test-collection
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1
-      kind: Broker
-      name: default
-```
 
 ### Status
 MongoDBSource will start when it can connect to the specified MongoDB instance. Controller logs and events can provide detailed information about the process. A Status summary is added to the MongoDBSource object informing of all the conditions that the source needs.
