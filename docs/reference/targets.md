@@ -1465,6 +1465,7 @@ AzureResourceID
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>The resource ID the Service Bus Topic.</p>
 <p>Expected format:
 - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}</p>
@@ -1480,6 +1481,7 @@ AzureResourceID
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>The resource ID the Service Bus Queue.</p>
 <p>Expected format:
 - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}</p>
@@ -5878,6 +5880,7 @@ AzureResourceID
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>The resource ID the Service Bus Topic.</p>
 <p>Expected format:
 - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}</p>
@@ -5893,6 +5896,7 @@ AzureResourceID
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>The resource ID the Service Bus Queue.</p>
 <p>Expected format:
 - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}</p>
@@ -9360,5 +9364,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>b79f62ac</code>.
+on git commit <code>455079a5</code>.
 </em></p>

@@ -53,6 +53,8 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSource">AzureServiceBusQueueSource</a>
 </li><li>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusSource">AzureServiceBusSource</a>
+</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSource">AzureServiceBusTopicSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.CloudEventsSource">CloudEventsSource</a>
@@ -2914,6 +2916,168 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
 github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServiceBusSource">AzureServiceBusSource
+</h3>
+<p>
+<p>AzureServiceBusSource is the Schema for the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>AzureServiceBusSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusSourceSpec">
+AzureServiceBusSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topicID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>The resource ID the Service Bus Topic to subscribe to.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>The resource ID the Service Bus Queue to subscribe to.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure REST API.
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>webSocketsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>WebSocketsEnable</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusSourceStatus">
+AzureServiceBusSourceStatus
 </a>
 </em>
 </td>
@@ -7736,6 +7900,7 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubsSourceSpec">AzureEventHubsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureIOTHubSourceSpec">AzureIOTHubSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">AzureServiceBusQueueSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusSourceSpec">AzureServiceBusSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">AzureServiceBusTopicSourceSpec</a>)
 </p>
 <p>
@@ -8484,6 +8649,8 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventGridSourceStatus">AzureEventGridSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureEventHubsSourceSpec">AzureEventHubsSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusQueueSourceSpec">AzureServiceBusQueueSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusSourceSpec">AzureServiceBusSourceSpec</a>, 
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusSourceStatus">AzureServiceBusSourceStatus</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceSpec">AzureServiceBusTopicSourceSpec</a>, 
 <a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusTopicSourceStatus">AzureServiceBusTopicSourceStatus</a>)
 </p>
@@ -8708,6 +8875,162 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServiceBusSourceSpec">AzureServiceBusSourceSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusSource">AzureServiceBusSource</a>)
+</p>
+<p>
+<p>AzureServiceBusSourceSpec defines the desired state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>topicID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>The resource ID the Service Bus Topic to subscribe to.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>queueID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>The resource ID the Service Bus Queue to subscribe to.</p>
+<p>Expected format:
+- /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureAuth">
+AzureAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication method to interact with the Azure REST API.
+This event source only supports the ServicePrincipal authentication.
+If it not present, it will try to use Azure AKS Managed Identity</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>webSocketsEnable</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>WebSocketsEnable</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>adapterOverrides</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.AzureServiceBusSourceStatus">AzureServiceBusSourceStatus
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureServiceBusSource">AzureServiceBusSource</a>)
+</p>
+<p>
+<p>AzureServiceBusSourceStatus defines the observed state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>Status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>Status</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>subscriptionID</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.AzureResourceID">
+AzureResourceID
+</a>
+</em>
+</td>
+<td>
+<p>Resource ID of the Service Bus Subscription that is currently used
+by the event source for consuming events from the configured Service
+Bus.</p>
 </td>
 </tr>
 </tbody>
@@ -12198,5 +12521,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>b79f62ac</code>.
+on git commit <code>455079a5</code>.
 </em></p>
