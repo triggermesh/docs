@@ -73,6 +73,8 @@ Resource Types:
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.KafkaSource">KafkaSource</a>
 </li><li>
+<a href="#sources.triggermesh.io/v1alpha1.MongoDBSource">MongoDBSource</a>
+</li><li>
 <a href="#sources.triggermesh.io/v1alpha1.OCIMetricsSource">OCIMetricsSource</a>
 </li><li>
 <a href="#sources.triggermesh.io/v1alpha1.SalesforceSource">SalesforceSource</a>
@@ -4600,6 +4602,128 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <td>
 <em>(Optional)</em>
 <p>Adapter spec overrides parameters.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#Status">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
+</a>
+</em>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources.triggermesh.io/v1alpha1.MongoDBSource">MongoDBSource
+</h3>
+<p>
+<p>MongoDBSource is the Schema for the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+sources.triggermesh.io/v1alpha1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>MongoDBSource</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code></br>
+<em>
+<a href="#sources.triggermesh.io/v1alpha1.MongoDBSourceSpec">
+MongoDBSourceSpec
+</a>
+</em>
+</td>
+<td>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>connectionString</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>ConnectionString holds the connection string to the MongoDB server.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>database</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Database holds the name of the MongoDB database.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>collection</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Collection holds the name of the MongoDB collection.</p>
 </td>
 </tr>
 </table>
@@ -10838,6 +10962,73 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.ValueFromField
 </tr>
 </tbody>
 </table>
+<h3 id="sources.triggermesh.io/v1alpha1.MongoDBSourceSpec">MongoDBSourceSpec
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#sources.triggermesh.io/v1alpha1.MongoDBSource">MongoDBSource</a>)
+</p>
+<p>
+<p>MongoDBSourceSpec defines the desired state of the event source.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>SourceSpec</code></br>
+<em>
+<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#SourceSpec">
+knative.dev/pkg/apis/duck/v1.SourceSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>SourceSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>connectionString</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>ConnectionString holds the connection string to the MongoDB server.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>database</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Database holds the name of the MongoDB database.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>collection</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Collection holds the name of the MongoDB collection.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="sources.triggermesh.io/v1alpha1.OCIMetrics">OCIMetrics
 </h3>
 <p>
@@ -12007,5 +12198,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>7b56005b</code>.
+on git commit <code>b79f62ac</code>.
 </em></p>
