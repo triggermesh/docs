@@ -1,5 +1,6 @@
 # MongoDB Source
-Watches a MongoDB collection for changes and triggers events.
+
+Consumes change events from a MongoDB collection.
 
 With `tmctl`:
 
