@@ -27,6 +27,8 @@ spec:
   - OBJECT_FINALIZE
   - OBJECT_DELETE
 
+  objectNamePrefix: myprefix
+
   serviceAccountKey:
     value: >-
       {
