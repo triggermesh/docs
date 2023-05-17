@@ -4175,6 +4175,20 @@ GoogleCloudSourcePubSubSpec
 </tr>
 <tr>
 <td>
+<code>objectNamePrefix</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Object name prefix filter</p>
+<p>If present, will only receive notifications for objects whose names that begin with this prefix.</p>
+<p>If not set, notifications are received for all objects.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>serviceAccountKey</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
@@ -10394,6 +10408,20 @@ GoogleCloudSourcePubSubSpec
 </tr>
 <tr>
 <td>
+<code>objectNamePrefix</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Object name prefix filter</p>
+<p>If present, will only receive notifications for objects whose names that begin with this prefix.</p>
+<p>If not set, notifications are received for all objects.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>serviceAccountKey</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#ValueFromField">
@@ -12521,5 +12549,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>29e96314</code>.
+on git commit <code>00aa2e16</code>.
 </em></p>
