@@ -42,6 +42,16 @@ spec:
 The key elements of a Trigger object are:
 
 - The Broker on which the Trigger will run
-- The Target to which events will be delivered. It must be set to either a Kubernetes object that can be resolved to an URL, or simply a URL.
+- The Target to which events will be delivered. It must be set to either a Kubernetes object that can be resolved to an URI, or simply a URI.
 - The filters which contain a set of filter expressions that evaluate which events should fire the Trigger. The absence of a filter results in a catch-all Trigger. See [Trigger filters](triggerfilters.md) for details.
 - The optional Delivery section to configure retries and dead-lettering. See [delivery](eventdelivery.md) for details on configuring event delivery.
+
+The example below shows how to use a URI rather than a resolvable Kubernetes object as a `target`. The context of this example is that we're running NGINX as a Knative service on a development cluster and routing events to it directly from a Trigger:
+
+```yaml
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: Trigger
+...
+  target:
+    uri: http://nginx.default.127.0.0.1.sslip.io
+```
