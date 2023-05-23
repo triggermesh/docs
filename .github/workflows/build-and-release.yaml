@@ -131,9 +131,9 @@ jobs:
     - name: Update config
       working-directory: tm-config
       run: |
-        sed -i overlays/staging/docs/deployment.yaml -e "s|gcr.io/triggermesh/docs:.*|gcr.io/triggermesh/docs:"${{ steps.image-tag.outputs.IMAGE_TAG }}"|g"
+        sed -i overlays/staging/docs-staging/deployment.yaml -e "s|gcr.io/triggermesh/docs:.*|gcr.io/triggermesh/docs:"${{ steps.image-tag.outputs.IMAGE_TAG }}"|g"
         if [[ ${{ steps.image-tag.outputs.IMAGE_TAG }} =~ ^v([0-9]{1,}\.){2}[0-9]{1,}$ ]]; then
-          sed -i overlays/prod/docs/deployment.yaml -e "s|gcr.io/triggermesh/docs:.*|gcr.io/triggermesh/docs:"${{ steps.image-tag.outputs.IMAGE_TAG }}"|g"
+          sed -i overlays/staging/docs/deployment.yaml -e "s|gcr.io/triggermesh/docs:.*|gcr.io/triggermesh/docs:"${{ steps.image-tag.outputs.IMAGE_TAG }}"|g"
         fi
         git --no-pager diff
     - name: Commit and push changes
