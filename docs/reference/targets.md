@@ -1765,6 +1765,18 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
+<code>site</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>DatadogSite controls the site of the Datadog intake API, defaults to <code>datadoghq.com</code></p>
+</td>
+</tr>
+<tr>
+<td>
 <code>metricPrefix</code></br>
 <em>
 string
@@ -6300,6 +6312,18 @@ SecretValueFromSource
 </tr>
 <tr>
 <td>
+<code>site</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>DatadogSite controls the site of the Datadog intake API, defaults to <code>datadoghq.com</code></p>
+</td>
+</tr>
+<tr>
+<td>
 <code>metricPrefix</code></br>
 <em>
 string
@@ -9364,5 +9388,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>aafc3b2f</code>.
+on git commit <code>7f065eba</code>.
 </em></p>
