@@ -2,6 +2,9 @@
 
 This event source subscribes to blob events from an [Azure Storage Account][storage-acc] through an Event Grid subscription. Events are consumed from a dedicated [Event Hubs instance][eventhubs].
 
+!!! warning "Minor breaking change in 1.25"
+
+    The `AzureBlobStorage` source uses Azure Event Grid under the hood to transport Blob Storage events into TriggerMesh. In `1.25`, the naming convention used to create subscriptions in Azure Event Grid has changed and compatibility is not maintained with the previous naming convention. This means that when updating to `1.25`, we recommend that users of `AzureBlobStorage` source first delete existing components and then create a new ones. This will delete the old Event Grid subscription before creating the new one with the new naming convention. It isn't a big deal if you don't do this, simply know that a new subscription will be created in Azure Event Grid and the old one will linger unused.
 
 With `tmctl`:
 
