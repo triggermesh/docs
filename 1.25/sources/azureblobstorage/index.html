@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13+insiders-4.34.1">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14+insiders-4.35.1">
     
     
       
@@ -5482,6 +5482,10 @@
 
 <h1 id="azure-blob-storage-source">Azure Blob Storage source</h1>
 <p>This event source subscribes to blob events from an <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview">Azure Storage Account</a> through an Event Grid subscription. Events are consumed from a dedicated <a href="https://docs.microsoft.com/en-us/azure/event-hubs/">Event Hubs instance</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Minor breaking change in 1.25</p>
+<p>The <code>AzureBlobStorage</code> source uses Azure Event Grid under the hood to transport Blob Storage events into TriggerMesh. In <code>1.25</code>, the naming convention used to create subscriptions in Azure Event Grid has changed and compatibility is not maintained with the previous naming convention. This means that when updating to <code>1.25</code>, we recommend that users of <code>AzureBlobStorage</code> source first delete existing components and then create a new ones. This will delete the old Event Grid subscription before creating the new one with the new naming convention. It isn't a big deal if you don't do this, simply know that a new subscription will be created in Azure Event Grid and the old one will linger unused.</p>
+</div>
 <p>With <code>tmctl</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tmctl create source azureblobstorage --storageAccountID &lt;accountID&gt; --endpoint.eventHubs.namespaceID &lt;namespaceID&gt; --auth.servicePrincipal.tenantID &lt;tenantID&gt; --auth.servicePrincipal.clientID &lt;clientID&gt; --auth.servicePrincipal.clientSecret &lt;clientSecret&gt;
 </code></pre></div>
