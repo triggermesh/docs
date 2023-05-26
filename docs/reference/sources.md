@@ -12549,5 +12549,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>7e72ebfe</code>.
+on git commit <code>9e156c83</code>.
 </em></p>
