@@ -1,5 +1,7 @@
 # Ruby functions
 
+For information about configuration options across all function runtimes, please head to the [main functions documentation page](index.md).
+
 ## Ruby date and time event example on Kubernetes
 
 ```YAML
