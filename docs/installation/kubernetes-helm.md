@@ -107,7 +107,7 @@ helm repo add triggermesh https://storage.googleapis.com/triggermesh-charts
 ```
 
 !!! info "Charts source"
-    The opensource TriggerMesh Helm charts are hosted on Github at the [triggermesh/charts](https://github.com/triggermesh/charts/) repository.
+    The opensource TriggerMesh Helm charts are hosted on GitHub at the [triggermesh/charts](https://github.com/triggermesh/charts/) repository.
 
 To install the chart with the release name `triggermesh`:
 
