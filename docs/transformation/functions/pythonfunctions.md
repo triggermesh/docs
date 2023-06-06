@@ -25,11 +25,14 @@ metadata:
   name: python-function-hello
 spec:
   runtime: python
-  public: true
+  adapterOverrides:
+    public: true
   entrypoint: endpoint
   code: |
+    import json
     def endpoint(event, context):
-      return "Hello " + event['name']
+      jsonEvent = json.loads(event)
+      return "Hello " + jsonEvent['name']
 ```
 
 You can then create the function with:
