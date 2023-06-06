@@ -1,5 +1,7 @@
 # NodeJS functions
 
+For information about configuration options across all function runtimes, please head to the [main functions documentation page](index.md).
+
 ## NodeJS empty field transformation example on Kubernetes
 
 ```yaml
