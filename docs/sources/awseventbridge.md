@@ -50,7 +50,7 @@ Alternatively you can use an IAM role for authentication instead of an access ke
 
 ```yaml
 auth:
-  iamrole: arn:aws:iam::123456789012:role/foo
+  iamRole: arn:aws:iam::123456789012:role/foo
 ```
 
 For details on authenticating with AWS, please take a look at our [dedicated guide on AWS credentials](../guides/credentials/awscredentials.md).
