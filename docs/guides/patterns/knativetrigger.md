@@ -4,7 +4,7 @@ TriggerMesh and Knative are powerful building blocks for building event-driven a
 
 There are two ways that you can trigger a Knative service from TriggerMesh: either with generic HTTP requests, or with CloudEvents. This guide explains how to make generic HTTP requests with the [HTTP target](../../targets/http.md), in which the `data` attribute from the event in TriggerMesh is directly used as the body of the HTTP request. 
 
-If on the other your Knative service expects a CloudEvent, or you'd like an example of how to build one from the ground up, then take a look at [this post](https://www.triggermesh.com/blog/build-a-custom-triggermesh-component-with-fastapi) that shows how to build a CloudEvents Knative service using Python FastAPI and route CloudEvents to it with TriggerMesh. 
+If on the other hand your Knative service expects a CloudEvent, or you'd like an example of how to build one from the ground up, then take a look at [this post](https://www.triggermesh.com/blog/build-a-custom-triggermesh-component-with-fastapi) that shows how to build a CloudEvents Knative service using Python FastAPI and route CloudEvents to it with TriggerMesh. 
 
 The solution we’ll build in this guide is illustrated in the schema below.
 
@@ -69,7 +69,7 @@ NAME     URL                                                 AGE     READY   REA
 broker   http://broker-mb-broker.default.svc.cluster.local   3h38m   True    
 ```
 
-Now create a Webhook source, in a file called webhook-source.yaml, that we'll use as an event producer. It will let us easily send events of type `my.event.type` to the broker over HTTP. Later, you can replace it or add additional event sources like Kafka, AWS SQS, Google Pub/Sub, etc… ‍‍
+Now create a Webhook source, in a file called `webhook-source.yaml`, that we'll use as an event producer. It will let us easily send events of type `my.event.type` to the broker over HTTP. Later, you can replace it or add additional event sources like Kafka, AWS SQS, Google Pub/Sub, etc… ‍‍
 
 ```yaml
 apiVersion: sources.triggermesh.io/v1alpha1
@@ -91,7 +91,7 @@ And create the Webhook source
 kubectl apply -f webhook-source.yaml
 ```
 
-Create the HTTP target in a http-target.yaml file, and set its endpoint parameter to the cluster local address of the Knative service that you created before.‍‍
+Create the HTTP target in a `http-target.yaml` file, and set its endpoint parameter to the cluster local address of the Knative service that you created before.‍‍
 
 ```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
@@ -109,7 +109,7 @@ Create the HTTP target:
 kubectl apply -f http-target.yaml
 ```
 
-‍‍Now create a Trigger that will route events of type `my.event.type` (those produced by the Webhook source) to the HTTP target, in a trigger.yaml file:
+‍‍Now create a Trigger that will route events of type `my.event.type` (those produced by the Webhook source) to the HTTP target, in a `trigger.yaml` file:
 
 ```yaml
 apiVersion: eventing.triggermesh.io/v1alpha1
@@ -139,9 +139,9 @@ kubectl apply -f trigger.yaml
 
 ## Test it out!
 
-Run minikube tunnel in a separate terminal, so that the load balancer service is assigned an IP. That loadbalancer IP is used by the sslip.io config. 
+Run `minikube tunnel` in a separate terminal, so that the load balancer service is assigned an IP. That loadbalancer IP is used by the sslip.io config. 
 
-Run the command below to get the Webhook source’s URL (accessible outside of the cluster thanks to minikube tunnel):
+Run the command below to get the Webhook source’s URL (accessible outside of the cluster thanks to `minikube tunnel`):
 
 ```sh
 kubectl get webhooksources.sources.triggermesh.io
