@@ -151,6 +151,7 @@ nav:
         - AWS credentials: guides/credentials/awscredentials.md
         - Google Cloud credentials: guides/credentials/gcpcredentials.md
       - Patterns:
+        - Trigger a Knative service: guides/patterns/knativetrigger.md
         - Creating a Dead Letter Sink: guides/patterns/creatingadls.md
         - Creating a Wiretap: guides/patterns/createawiretap.md
         - Creating a Filter: guides/patterns/creatingafilter.md
