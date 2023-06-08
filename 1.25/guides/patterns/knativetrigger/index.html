@@ -12,28 +12,28 @@
         <meta name="author" content="TriggerMesh">
       
       
-        <link rel="canonical" href="https://docs.triggermesh.io/1.25/sources/twilio/">
+        <link rel="canonical" href="https://docs.triggermesh.io/1.25/guides/patterns/knativetrigger/">
       
       
-        <link rel="prev" href="../solace/">
+        <link rel="prev" href="../../credentials/gcpcredentials/">
       
       
-        <link rel="next" href="../webhook/">
+        <link rel="next" href="../creatingadls/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15+insiders-4.35.3">
     
     
       
-        <title>Twilio - TriggerMesh</title>
+        <title>Trigger a Knative service - TriggerMesh</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.cac7c1ad.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cac7c1ad.min.css">
       
       
 
@@ -49,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../../extra.css">
+      <link rel="stylesheet" href="../../../extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#twilio-source" class="md-skip">
+        <a href="#trigger-a-knative-service" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="../../.."> 
+  <a href="../../../.."> 
 
 
     <strong>Click here to go to latest.</strong>
@@ -133,9 +133,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="TriggerMesh" class="md-header__button md-logo" aria-label="TriggerMesh" data-md-component="logo">
+    <a href="../../.." title="TriggerMesh" class="md-header__button md-logo" aria-label="TriggerMesh" data-md-component="logo">
       
-  <img src="../../assets/images/tmLogo-white.png" alt="logo">
+  <img src="../../../assets/images/tmLogo-white.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -151,7 +151,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Twilio
+              Trigger a Knative service
             
           </span>
         </div>
@@ -235,9 +235,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="TriggerMesh" class="md-nav__button md-logo" aria-label="TriggerMesh" data-md-component="logo">
+    <a href="../../.." title="TriggerMesh" class="md-nav__button md-logo" aria-label="TriggerMesh" data-md-component="logo">
       
-  <img src="../../assets/images/tmLogo-white.png" alt="logo">
+  <img src="../../../assets/images/tmLogo-white.png" alt="logo">
 
     </a>
     TriggerMesh
@@ -264,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -349,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../get-started/quickstart/" class="md-nav__link">
+      <a href="../../../get-started/quickstart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -375,7 +375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../get-started/autocompletion/" class="md-nav__link">
+      <a href="../../../get-started/autocompletion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -401,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../get-started/concepts/" class="md-nav__link">
+      <a href="../../../get-started/concepts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -427,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../get-started/architecture/" class="md-nav__link">
+      <a href="../../../get-started/architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -453,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../get-started/triggermesh-console/" class="md-nav__link">
+      <a href="../../../get-started/triggermesh-console/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../get-started/moving-from-dev-to-K8s/" class="md-nav__link">
+      <a href="../../../get-started/moving-from-dev-to-K8s/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -505,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../get-started/reliabledelivery/" class="md-nav__link">
+      <a href="../../../get-started/reliabledelivery/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -536,8 +536,6 @@
       
   
   
-    
-  
   
     
     
@@ -620,13 +618,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
@@ -645,7 +643,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -662,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awscloudwatch/" class="md-nav__link">
+      <a href="../../../sources/awscloudwatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awscloudwatchlogs/" class="md-nav__link">
+      <a href="../../../sources/awscloudwatchlogs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -714,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awscodecommit/" class="md-nav__link">
+      <a href="../../../sources/awscodecommit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -740,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awscognitoidentity/" class="md-nav__link">
+      <a href="../../../sources/awscognitoidentity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -766,7 +764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awscognitouserpool/" class="md-nav__link">
+      <a href="../../../sources/awscognitouserpool/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -792,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awsdynamodb/" class="md-nav__link">
+      <a href="../../../sources/awsdynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -818,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awseventbridge/" class="md-nav__link">
+      <a href="../../../sources/awseventbridge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -844,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awskinesis/" class="md-nav__link">
+      <a href="../../../sources/awskinesis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -870,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awss3/" class="md-nav__link">
+      <a href="../../../sources/awss3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -896,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awssns/" class="md-nav__link">
+      <a href="../../../sources/awssns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -922,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../awssqs/" class="md-nav__link">
+      <a href="../../../sources/awssqs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -948,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azureactivitylogs/" class="md-nav__link">
+      <a href="../../../sources/azureactivitylogs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -974,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azureblobstorage/" class="md-nav__link">
+      <a href="../../../sources/azureblobstorage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1000,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azureeventgrid/" class="md-nav__link">
+      <a href="../../../sources/azureeventgrid/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1026,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azureeventhubs/" class="md-nav__link">
+      <a href="../../../sources/azureeventhubs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1052,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azureiothub/" class="md-nav__link">
+      <a href="../../../sources/azureiothub/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1078,7 +1076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azurequeuestorage/" class="md-nav__link">
+      <a href="../../../sources/azurequeuestorage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1104,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azureservicebus/" class="md-nav__link">
+      <a href="../../../sources/azureservicebus/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1130,7 +1128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azureservicebusqueue/" class="md-nav__link">
+      <a href="../../../sources/azureservicebusqueue/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1156,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azureservicebustopic/" class="md-nav__link">
+      <a href="../../../sources/azureservicebustopic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1182,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloudevents/" class="md-nav__link">
+      <a href="../../../sources/cloudevents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1208,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/" class="md-nav__link">
+      <a href="../../../sources/github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1234,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../googlecloudauditlogs/" class="md-nav__link">
+      <a href="../../../sources/googlecloudauditlogs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1260,7 +1258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../googlecloudbilling/" class="md-nav__link">
+      <a href="../../../sources/googlecloudbilling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1286,7 +1284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../googlecloudpubsub/" class="md-nav__link">
+      <a href="../../../sources/googlecloudpubsub/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1312,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../googlecloudrepositories/" class="md-nav__link">
+      <a href="../../../sources/googlecloudrepositories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1338,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../googlecloudstorage/" class="md-nav__link">
+      <a href="../../../sources/googlecloudstorage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../httppoller/" class="md-nav__link">
+      <a href="../../../sources/httppoller/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1390,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ibmmq/" class="md-nav__link">
+      <a href="../../../sources/ibmmq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1416,7 +1414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kafka/" class="md-nav__link">
+      <a href="../../../sources/kafka/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1442,7 +1440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mongodb/" class="md-nav__link">
+      <a href="../../../sources/mongodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1468,7 +1466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ocimetrics/" class="md-nav__link">
+      <a href="../../../sources/ocimetrics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1494,7 +1492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../salesforce/" class="md-nav__link">
+      <a href="../../../sources/salesforce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1520,7 +1518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../slack/" class="md-nav__link">
+      <a href="../../../sources/slack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1546,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solace/" class="md-nav__link">
+      <a href="../../../sources/solace/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1570,35 +1568,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Twilio
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../sources/twilio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1613,48 +1585,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisite(s)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integrate-with-twilio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Integrate with Twilio
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1666,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../webhook/" class="md-nav__link">
+      <a href="../../../sources/webhook/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1692,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../zendesk/" class="md-nav__link">
+      <a href="../../../sources/zendesk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1839,7 +1769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/awscomprehend/" class="md-nav__link">
+      <a href="../../../targets/awscomprehend/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1865,7 +1795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/awsdynamodb/" class="md-nav__link">
+      <a href="../../../targets/awsdynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1891,7 +1821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/awseventbridge/" class="md-nav__link">
+      <a href="../../../targets/awseventbridge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1917,7 +1847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/awskinesis/" class="md-nav__link">
+      <a href="../../../targets/awskinesis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1943,7 +1873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/awslambda/" class="md-nav__link">
+      <a href="../../../targets/awslambda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1969,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/awss3/" class="md-nav__link">
+      <a href="../../../targets/awss3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1995,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/awssns/" class="md-nav__link">
+      <a href="../../../targets/awssns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2021,7 +1951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/awssqs/" class="md-nav__link">
+      <a href="../../../targets/awssqs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2047,7 +1977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/azureeventhubs/" class="md-nav__link">
+      <a href="../../../targets/azureeventhubs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2073,7 +2003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/azuresentinel/" class="md-nav__link">
+      <a href="../../../targets/azuresentinel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2099,7 +2029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/azureservicebus/" class="md-nav__link">
+      <a href="../../../targets/azureservicebus/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2125,7 +2055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/cloudevents/" class="md-nav__link">
+      <a href="../../../targets/cloudevents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2151,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/datadog/" class="md-nav__link">
+      <a href="../../../targets/datadog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2177,7 +2107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/elasticsearch/" class="md-nav__link">
+      <a href="../../../targets/elasticsearch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2203,7 +2133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/googlecloudpubsub/" class="md-nav__link">
+      <a href="../../../targets/googlecloudpubsub/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2229,7 +2159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/googlecloudstorage/" class="md-nav__link">
+      <a href="../../../targets/googlecloudstorage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2255,7 +2185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/googlecloudworkflows/" class="md-nav__link">
+      <a href="../../../targets/googlecloudworkflows/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2281,7 +2211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/googlefirestore/" class="md-nav__link">
+      <a href="../../../targets/googlefirestore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2307,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/googlesheets/" class="md-nav__link">
+      <a href="../../../targets/googlesheets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2333,7 +2263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/http/" class="md-nav__link">
+      <a href="../../../targets/http/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2359,7 +2289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/ibmmq/" class="md-nav__link">
+      <a href="../../../targets/ibmmq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2385,7 +2315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/jira/" class="md-nav__link">
+      <a href="../../../targets/jira/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2411,7 +2341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/kafka/" class="md-nav__link">
+      <a href="../../../targets/kafka/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2437,7 +2367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/logz/" class="md-nav__link">
+      <a href="../../../targets/logz/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2463,7 +2393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/logzmetrics/" class="md-nav__link">
+      <a href="../../../targets/logzmetrics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2489,7 +2419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/mongodb/" class="md-nav__link">
+      <a href="../../../targets/mongodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2515,7 +2445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/oracle/" class="md-nav__link">
+      <a href="../../../targets/oracle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2541,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/salesforce/" class="md-nav__link">
+      <a href="../../../targets/salesforce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2567,7 +2497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/sendgrid/" class="md-nav__link">
+      <a href="../../../targets/sendgrid/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2593,7 +2523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/slack/" class="md-nav__link">
+      <a href="../../../targets/slack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2619,7 +2549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/solace/" class="md-nav__link">
+      <a href="../../../targets/solace/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2645,7 +2575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/splunk/" class="md-nav__link">
+      <a href="../../../targets/splunk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2671,7 +2601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/twilio/" class="md-nav__link">
+      <a href="../../../targets/twilio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2697,7 +2627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../targets/zendesk/" class="md-nav__link">
+      <a href="../../../targets/zendesk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2759,7 +2689,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../brokers/" class="md-nav__link ">
+            <a href="../../../brokers/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2800,7 +2730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../brokers/memorybroker/" class="md-nav__link">
+      <a href="../../../brokers/memorybroker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2826,7 +2756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../brokers/redisbroker/" class="md-nav__link">
+      <a href="../../../brokers/redisbroker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2852,7 +2782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../brokers/triggers/" class="md-nav__link">
+      <a href="../../../brokers/triggers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2878,7 +2808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../brokers/triggerfilters/" class="md-nav__link">
+      <a href="../../../brokers/triggerfilters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2904,7 +2834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../brokers/eventdelivery/" class="md-nav__link">
+      <a href="../../../brokers/eventdelivery/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2962,7 +2892,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../transformation/" class="md-nav__link ">
+            <a href="../../../transformation/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3003,7 +2933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformation/jsontransformation/" class="md-nav__link">
+      <a href="../../../transformation/jsontransformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3054,7 +2984,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../transformation/functions/" class="md-nav__link ">
+            <a href="../../../transformation/functions/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3095,7 +3025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformation/functions/pythonfunctions/" class="md-nav__link">
+      <a href="../../../transformation/functions/pythonfunctions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3121,7 +3051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformation/functions/nodejsfunctions/" class="md-nav__link">
+      <a href="../../../transformation/functions/nodejsfunctions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3147,7 +3077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformation/functions/rubyfunctions/" class="md-nav__link">
+      <a href="../../../transformation/functions/rubyfunctions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3235,7 +3165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformation/other/jqtransformation/" class="md-nav__link">
+      <a href="../../../transformation/other/jqtransformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3261,7 +3191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformation/other/dataweavetransformation/" class="md-nav__link">
+      <a href="../../../transformation/other/dataweavetransformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3287,7 +3217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformation/other/xmltojsontransformation/" class="md-nav__link">
+      <a href="../../../transformation/other/xmltojsontransformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3313,7 +3243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformation/other/xslttransformation/" class="md-nav__link">
+      <a href="../../../transformation/other/xslttransformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3433,7 +3363,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../installation/" class="md-nav__link ">
+            <a href="../../../installation/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3474,7 +3404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/tmctl/" class="md-nav__link">
+      <a href="../../../installation/tmctl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3500,7 +3430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/kubernetes-yaml/" class="md-nav__link">
+      <a href="../../../installation/kubernetes-yaml/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3526,7 +3456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/kubernetes-helm/" class="md-nav__link">
+      <a href="../../../installation/kubernetes-helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3552,7 +3482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/how-to-update/" class="md-nav__link">
+      <a href="../../../installation/how-to-update/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3578,7 +3508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/triggermesh-knative/" class="md-nav__link">
+      <a href="../../../installation/triggermesh-knative/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3637,7 +3567,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../observability/" class="md-nav__link ">
+            <a href="../../../observability/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3678,7 +3608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/observability-logging/" class="md-nav__link">
+      <a href="../../../observability/observability-logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3704,7 +3634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/observability-metrics/" class="md-nav__link">
+      <a href="../../../observability/observability-metrics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3730,7 +3660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/brokerobservability/" class="md-nav__link">
+      <a href="../../../observability/brokerobservability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3769,6 +3699,8 @@
       
   
   
+    
+  
   
     
     
@@ -3781,13 +3713,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
@@ -3806,7 +3738,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3873,7 +3805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/credentials/awscredentials/" class="md-nav__link">
+      <a href="../../credentials/awscredentials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3899,7 +3831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/credentials/gcpcredentials/" class="md-nav__link">
+      <a href="../../credentials/gcpcredentials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3931,6 +3863,8 @@
                 
   
   
+    
+  
   
     
     
@@ -3953,13 +3887,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" checked>
         
           <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
             
@@ -3978,7 +3912,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3993,9 +3927,35 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../guides/patterns/knativetrigger/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Trigger a Knative service
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -4010,6 +3970,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-it-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test it out!
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4021,7 +4023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/patterns/creatingadls/" class="md-nav__link">
+      <a href="../creatingadls/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4047,7 +4049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/patterns/createawiretap/" class="md-nav__link">
+      <a href="../createawiretap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4073,7 +4075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/patterns/creatingafilter/" class="md-nav__link">
+      <a href="../creatingafilter/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4099,7 +4101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/patterns/creatingasplitter/" class="md-nav__link">
+      <a href="../creatingasplitter/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4125,7 +4127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/patterns/connectingclusters/" class="md-nav__link">
+      <a href="../connectingclusters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4151,7 +4153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/patterns/webhook-to-slack/" class="md-nav__link">
+      <a href="../webhook-to-slack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4177,7 +4179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/patterns/scaling/" class="md-nav__link">
+      <a href="../scaling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4267,7 +4269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/ecosystem/do-app-platform/" class="md-nav__link">
+      <a href="../../ecosystem/do-app-platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4293,7 +4295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/ecosystem/kong-ingress/" class="md-nav__link">
+      <a href="../../ecosystem/kong-ingress/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4319,7 +4321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/ecosystem/kuma/" class="md-nav__link">
+      <a href="../../ecosystem/kuma/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4345,7 +4347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/ecosystem/triggermesh-privatelink/" class="md-nav__link">
+      <a href="../../ecosystem/triggermesh-privatelink/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4371,7 +4373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/ecosystem/kubernetestips/" class="md-nav__link">
+      <a href="../../ecosystem/kubernetestips/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4550,7 +4552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4576,7 +4578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_brokers/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_brokers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4602,7 +4604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_config/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4628,7 +4630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_config_get/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_config_get/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4654,7 +4656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_config_set/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_config_set/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4680,7 +4682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_create/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_create/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4706,7 +4708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_create_broker/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_create_broker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4732,7 +4734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_create_source/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_create_source/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4758,7 +4760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_create_target/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_create_target/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4784,7 +4786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_create_transformation/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_create_transformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4810,7 +4812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_create_trigger/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_create_trigger/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4836,7 +4838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_delete/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_delete/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4862,7 +4864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_describe/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_describe/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4888,7 +4890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_dump/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_dump/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4914,7 +4916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_import/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_import/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4940,7 +4942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_logs/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_logs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4966,7 +4968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_send-event/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_send-event/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4992,7 +4994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_start/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5018,7 +5020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_stop/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_stop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5044,7 +5046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_version/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_version/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5070,7 +5072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tmctl/tmctl_watch/" class="md-nav__link">
+      <a href="../../../reference/tmctl/tmctl_watch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5135,7 +5137,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../reference/" class="md-nav__link ">
+            <a href="../../../reference/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -5176,7 +5178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/sources/" class="md-nav__link">
+      <a href="../../../reference/sources/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5202,7 +5204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/eventing/" class="md-nav__link">
+      <a href="../../../reference/eventing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5228,7 +5230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/targets/" class="md-nav__link">
+      <a href="../../../reference/targets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5254,7 +5256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/routing/" class="md-nav__link">
+      <a href="../../../reference/routing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5280,7 +5282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/flow/" class="md-nav__link">
+      <a href="../../../reference/flow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5306,7 +5308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/extensions/" class="md-nav__link">
+      <a href="../../../reference/extensions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5368,10 +5370,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisite(s)
+        Setup
       
     </span>
   </a>
@@ -5379,10 +5381,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#integrate-with-twilio" class="md-nav__link">
+  <a href="#test-it-out" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integrate with Twilio
+        Test it out!
       
     </span>
   </a>
@@ -5408,86 +5410,126 @@
   
 
 
-<h1 id="twilio-source">Twilio source</h1>
-<p>This event source is to be deployed and then registered as a webhook via a Twilio <a href="https://www.twilio.com/docs/proxy">Proxy</a>.</p>
-<p>With <code>tmctl</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tmctl create source twilio
+<h1 id="trigger-a-knative-service">Trigger a Knative service</h1>
+<p>TriggerMesh and Knative are powerful building blocks for building event-driven applications. On the one hand, <a href="https://knative.dev/docs/serving/">Knative Serving</a> can be used to deploy services to Kubernetes that can react to incoming events, scale according to load, and scale to zero when idle. On the other hand, TriggerMesh is great at capturing events from many different systems and processing and routing them to event consumers. </p>
+<p>There are two ways that you can trigger a Knative service from TriggerMesh: either with generic HTTP requests, or with CloudEvents. This guide explains how to make generic HTTP requests with the <a href="../../../targets/http/">HTTP target</a>, in which the <code>data</code> attribute from the event in TriggerMesh is directly used as the body of the HTTP request. </p>
+<p>If on the other hand your Knative service expects a CloudEvent, or you'd like an example of how to build one from the ground up, then take a look at <a href="https://www.triggermesh.com/blog/build-a-custom-triggermesh-component-with-fastapi">this post</a> that shows how to build a CloudEvents Knative service using Python FastAPI and route CloudEvents to it with TriggerMesh. </p>
+<p>The solution we’ll build in this guide is illustrated in the schema below.</p>
+<p><img alt="" src="../../../assets/images/knative-trigger/schema.png" /></p>
+<h2 id="setup">Setup</h2>
+<p>If you haven’t already done so, you’ll need to install TriggerMesh and Knative Serving on your cluster. I’m using <a href="https://minikube.sigs.k8s.io/docs/start/">Minikube</a> to create a local cluster and I <a href="../../../installation/kubernetes-yaml/">followed the guide</a> for installing TriggerMesh and Knative Serving onto the cluster. </p>
+<p>I’m going to use a simple containerised http service that I <a href="https://hub.docker.com/r/strm/helloworld-http/">found here</a> to run as a Knative service. Feel free to replace this with your own of course. </p>
+<p>Define the Knative service in a manifest called knative-service.yaml:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">serving.knative.dev/v1</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hello-http</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">strm/helloworld-http</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
 </code></pre></div>
-<p>On Kubernetes:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sources.triggermesh.io/v1alpha1</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TwilioSource</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">metadata</span><span class="p">:</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sample</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">spec</span><span class="p">:</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">sink</span><span class="p">:</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">ref</span><span class="p">:</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eventing.triggermesh.io/v1alpha1</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RedisBroker</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">triggermesh</span>
+<p>Apply this to the cluster:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>knative-service.yaml
 </code></pre></div>
-<p>Events produced have the following attributes:</p>
-<ul>
-<li>type <code>com.triggermesh.twilio.sms</code></li>
-<li>Schema of the <code>data</code> attribute: <a href="https://raw.githubusercontent.com/triggermesh/triggermesh/main/schemas/com.triggermesh.twilio.sms.json">com.triggermesh.twilio.sms.json</a></li>
-</ul>
-<p>Example event emitted from this source:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>☁️  cloudevents.Event
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Validation: valid
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Context Attributes,
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  specversion: 1.0
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  type: com.triggermesh.twilio.sms
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  source: io.triggermesh.twilio/jeff/twilio-source
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  id: 6a547451-be05-4da4-a10f-1af92422c7d1
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  time: 2021-01-25T19:18:38.550812939Z
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  datacontenttype: application/json
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>Extensions,
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  knativearrivaltime: 2021-01-25T19:18:38.580569695Z
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Data,
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  {
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    &quot;message_sid&quot;: &quot;ASDFc9ac2663bbeASDFd51a&quot;,
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    &quot;sms_status&quot;: &quot;received&quot;,
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    &quot;from_country&quot;: &quot;US&quot;,
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    &quot;num_segments&quot;: &quot;1&quot;,
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    &quot;to_zip&quot;: &quot;99204&quot;,
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    &quot;num_meda&quot;: &quot;&quot;,
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    &quot;account_sid&quot;: &quot;ADF0610bd2e60abdda72&quot;,
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    &quot;sms_message_sid&quot;: &quot;ASKDFb2c9ac26621CADfca1d51a&quot;,
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    &quot;api_version&quot;: &quot;2010-04-01&quot;,
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    &quot;to_country&quot;: &quot;US&quot;,
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    &quot;to_city&quot;: &quot;SPOKANE&quot;,
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    &quot;from_zip&quot;: &quot;27707&quot;,
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    &quot;sms_sid&quot;: &quot;ASDFc2663bbefcASa&quot;,
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>    &quot;from_state&quot;: &quot;NC&quot;,
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>    &quot;body&quot;: &quot;hello world&quot;,
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>    &quot;from&quot;: &quot;&lt;redacted&gt;&quot;,
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    &quot;from_city&quot;: &quot;DURHAM&quot;,
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>    &quot;to&quot;: &quot;&lt;redacted&gt;&quot;,
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>    &quot;to_state&quot;: &quot;WA&quot;
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>  }
+<p>Check that the Knative service is running with the following command:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>ksvc<span class="w"> </span>hello-http<span class="w"> </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>NAME<span class="w">         </span>URL<span class="w">                                          </span>LATESTCREATED<span class="w">     </span>LATESTREADY<span class="w">       </span>READY<span class="w">   </span>REASON
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>hello-http<span class="w">   </span>http://hello-http.default.svc.cluster.local<span class="w">  </span>hello-http-00002<span class="w">  </span>hello-http-00002<span class="w">  </span>True<span class="w">  </span>
 </code></pre></div>
-<p>See the <a href="../../reference/sources/#sources.triggermesh.io/v1alpha1.TwilioSource">Kubernetes object reference</a> for more details.</p>
-<h2 id="prerequisites">Prerequisite(s)</h2>
-<ul>
-<li>A Twilio account (trial or paid)</li>
-</ul>
-<h2 id="integrate-with-twilio">Integrate with Twilio</h2>
-<p>Retrieve the public URL of the deployed TriggerMesh Twilio source.</p>
-<p>Navigate to your Twilio dashboard and search for <code>proxy</code></p>
-<p><img alt="Twilio Proxy Search" src="../../assets/images/twilio-source/integrate-1.png" /></p>
-<p>From the Twilio Proxy dashboard select <code>Create new Service</code> and, in the following pop-up box, assign it a name.</p>
-<p><img alt="Twilio Proxy Dash" src="../../assets/images/twilio-source/integrate-2.png" /></p>
-<p>You should now be on a similar page to this:</p>
-<p><img alt="Twilio Proxy new Service" src="../../assets/images/twilio-source/integrate-3.png" /></p>
-<p>Enter the <code>Domain</code> that was retrieved earlier into the  "CALLBACK URL", "INTERCEPT CALLBACK URL", and "OUT OF SESSION CALLBACK URL" fields. Then
-select <code>Save</code></p>
-<p><img alt="Twilio Proxy Service" src="../../assets/images/twilio-source/integrate-6.png" /></p>
-<p>Select <code>Proxy Numbers</code></p>
-<p><img alt="Twilio Proxy Register" src="../../assets/images/twilio-source/integrate-7.png" /></p>
-<p>Select <code>Add Numbers</code></p>
-<p><img alt="Twilio Proxy Register" src="../../assets/images/twilio-source/integrate-8.png" /></p>
-<p>Assing an available number</p>
-<p><img alt="Twilio Proxy Register" src="../../assets/images/twilio-source/integrate-9.png" /></p>
-<p>All done!</p>
+<p>Now deploy a TriggerMesh broker to the cluster. The broker decouples event producers and consumers, and provides triggers that send events to consumers if they match a given filter. Create the following broker.yaml:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eventing.triggermesh.io/v1alpha1</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MemoryBroker</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">broker</span>
+</code></pre></div>
+<p>And apply it to the cluster:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>broker.yaml
+</code></pre></div>
+<p>Check that the broker is available:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>memorybrokers.eventing.triggermesh.io<span class="w"> </span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>NAME<span class="w">     </span>URL<span class="w">                                                 </span>AGE<span class="w">     </span>READY<span class="w">   </span>REASON
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>broker<span class="w">   </span>http://broker-mb-broker.default.svc.cluster.local<span class="w">   </span>3h38m<span class="w">   </span>True<span class="w">    </span>
+</code></pre></div>
+<p>Now create a Webhook source, in a file called <code>webhook-source.yaml</code>, that we'll use as an event producer. It will let us easily send events of type <code>my.event.type</code> to the broker over HTTP. Later, you can replace it or add additional event sources like Kafka, AWS SQS, Google Pub/Sub, etc… ‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sources.triggermesh.io/v1alpha1</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WebhookSource</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sample</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">eventType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my.event.type</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">sink</span><span class="p">:</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">ref</span><span class="p">:</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eventing.triggermesh.io/v1alpha1</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MemoryBroker</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">broker</span>
+</code></pre></div>
+<p>And create the Webhook source</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>webhook-source.yaml
+</code></pre></div>
+<p>Create the HTTP target in a <code>http-target.yaml</code> file, and set its endpoint parameter to the cluster local address of the Knative service that you created before.‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">targets.triggermesh.io/v1alpha1</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HTTPTarget</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http-target</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://hello-http.default.svc.cluster.local</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GET</span>
+</code></pre></div>
+<p>Create the HTTP target:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>http-target.yaml
+</code></pre></div>
+<p>‍‍Now create a Trigger that will route events of type <code>my.event.type</code> (those produced by the Webhook source) to the HTTP target, in a <code>trigger.yaml</code> file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eventing.triggermesh.io/v1alpha1</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trigger</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trigger-knative-service</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="nt">broker</span><span class="p">:</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eventing.triggermesh.io</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MemoryBroker</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">broker</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">  </span><span class="nt">filters</span><span class="p">:</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">exact</span><span class="p">:</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my.event.type</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">  </span><span class="nt">target</span><span class="p">:</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="nt">ref</span><span class="p">:</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">      </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">targets.triggermesh.io/v1alpha1</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HTTPTarget</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http-target</span>
+</code></pre></div>
+<p>Create the Trigger:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>trigger.yaml
+</code></pre></div>
+<h2 id="test-it-out">Test it out!</h2>
+<p>Run <code>minikube tunnel</code> in a separate terminal, so that the load balancer service is assigned an IP. That loadbalancer IP is used by the sslip.io config. </p>
+<p>Run the command below to get the Webhook source’s URL (accessible outside of the cluster thanks to <code>minikube tunnel</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>webhooksources.sources.triggermesh.io
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>NAME<span class="w">     </span>READY<span class="w">   </span>REASON<span class="w">   </span>URL<span class="w">                                                      </span>SINK<span class="w">                                                </span>AGE
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>sample<span class="w">   </span>True<span class="w">             </span>http://webhooksource-sample.default.127.0.0.1.sslip.io<span class="w">   </span>http://broker-mb-broker.default.svc.cluster.local<span class="w">   </span>3h19m
+</code></pre></div>
+<p>Then send an event into your Webhook source:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>http://webhooksource-sample.default.127.0.0.1.sslip.io<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;http&quot;:&quot;is easy&quot;}&#39;</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-type: application/json&#39;</span>
+</code></pre></div>
+<p>Quickly run <code>kubectl get pods</code> and if all went well, you should see the HTTP target pods, the hello-http pods, as well as the webhook source pods spin up:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w">                                      </span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>NAME<span class="w">                                                       </span>READY<span class="w">   </span>STATUS<span class="w">              </span>RESTARTS<span class="w">   </span>AGE
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>broker-mb-broker-5546995d8f-jdltd<span class="w">                          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">             </span><span class="m">0</span><span class="w">          </span>3h43m
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>httptarget-http-target-00002-deployment-7cb9bc65dc-nlxjj<span class="w">   </span><span class="m">1</span>/2<span class="w">     </span>Running<span class="w">             </span><span class="m">0</span><span class="w">          </span>1s
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>knative-operator-66f5b45fcd-z6q95<span class="w">                          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">             </span><span class="m">0</span><span class="w">          </span>27h
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>hello-http-00002-deployment-6c8b4c7658-pwzp2<span class="w">               </span><span class="m">0</span>/2<span class="w">     </span>ContainerCreating<span class="w">   </span><span class="m">0</span><span class="w">          </span>0s
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>operator-webhook-9f5487b8f-qc8zj<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">             </span><span class="m">0</span><span class="w">          </span>27h
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>webhooksource-sample-00001-deployment-797d4f57f6-2ch8f<span class="w">     </span><span class="m">2</span>/2<span class="w">     </span>Running<span class="w">             </span><span class="m">0</span><span class="w">          </span>3s
+</code></pre></div>
+<p>These three services run as Knative services, which is why you’ll only see their pods appear when there are events to process (else they scale down to 0). If you look at the hello-http pod logs you’ll see that it has received the event:‍‍</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>pods/hello-http-00002-deployment-6c8b4c7658-pwzp2<span class="w"> </span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Defaulted<span class="w"> </span>container<span class="w"> </span><span class="s2">&quot;user-container&quot;</span><span class="w"> </span>out<span class="w"> </span>of:<span class="w"> </span>user-container,<span class="w"> </span>queue-proxy
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="m">127</span>.0.0.1<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span><span class="o">[</span><span class="m">23</span>/May/2023<span class="w"> </span><span class="m">18</span>:09:15<span class="o">]</span><span class="w"> </span><span class="s2">&quot;GET / HTTP/1.1&quot;</span><span class="w"> </span><span class="m">200</span><span class="w"> </span>-
+</code></pre></div>
+<p>Congratulations, you’ve triggered a generic http Knative service with TriggerMesh 🥳. Now that you’ve seen how to do this, you could use other event sources to trigger the service other than the Webhook source shown in this demo. For instance, you could try triggering it when an event lands on an <a href="../../../sources/awssqs/">AWS SQS queue</a>, a <a href="../../../sources/googlecloudpubsub/">Google Pub/Sub topic</a>, or an <a href="../../../sources/azureeventhubs/">Azure Event Hub</a>.</p>
 
 
 
@@ -5608,13 +5650,13 @@ select <code>Save</code></p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.indexes", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.indexes", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.10c6cd24.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.10c6cd24.min.js"></script>
       
         
-          <script src="../../extra.js"></script>
+          <script src="../../../extra.js"></script>
         
       
     
