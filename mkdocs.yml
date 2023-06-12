@@ -161,6 +161,7 @@ nav:
         - Scaling: guides/patterns/scaling.md
       - Ecosystem:
         - Deploying to Digital Ocean App Platform: guides/ecosystem/do-app-platform.md
+        - Using TriggerMesh with Tanzu Application Platform: guides/ecosystem/triggermesh-tanzu.md
         - Using Kong with TriggerMesh: guides/ecosystem/kong-ingress.md
         - Using Kuma Mesh with TriggerMesh: guides/ecosystem/kuma.md
         - Creating a PrivateLink to TriggerMesh Services: guides/ecosystem/triggermesh-privatelink.md
