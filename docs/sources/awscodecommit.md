@@ -63,7 +63,7 @@ Events produced have the following attributes:
 
 See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.AWSCodeCommitSource) for more details.
 
-## Prerequisite(s)
+## Prerequisites
 
 - CodeCommit Repository and Branch
 - Amazon Resource Name (ARN)
