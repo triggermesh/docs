@@ -27,13 +27,17 @@ spec:
   runtime: python
   adapterOverrides:
     public: true
-  entrypoint: endpoint
+  entrypoint: handler
   code: |
     import json
-    def endpoint(event, context):
+    def handler(event, context):
       jsonEvent = json.loads(event)
-      return "Hello " + jsonEvent['name']
+      print(context.client_context.custom["foo"]) # (1)
+      return "Hello " + jsonEvent['name'] # (2)
 ```
+
+1.  Logs the value of a CloudEvents extension attribute called "foo". To pass an extension attribute called foo in a request using curl, use -H "ce-foo: bar".
+2.  Returns "Hello" followed by the value of the name attribute in the event message 
 
 You can then create the function with:
 
