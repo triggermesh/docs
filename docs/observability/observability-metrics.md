@@ -126,13 +126,15 @@ kind: PodMonitor
 metadata:
   name: triggermesh-components
   namespace: monitoring
+#  labels:
+#    release: kube-prometheus-stack (1)
 spec:
   selector:
-    matchLabels:  # (1)
+    matchLabels:  # (2)
       app.kubernetes.io/part-of: triggermesh
-  namespaceSelector:  # (2)
+  namespaceSelector:  # (3)
     any: true
-  podMetricsEndpoints:  # (3)
+  podMetricsEndpoints:  # (4)
   - port: metrics
   - port: user-port
     relabelings:
@@ -141,14 +143,15 @@ spec:
       sourceLabels:
       - __meta_kubernetes_pod_ip
       replacement: $1:9092
-  jobLabel: app.kubernetes.io/name  # (4)
+  jobLabel: app.kubernetes.io/name  # (5)
 ```
 
-1.  Selects all targets (Pods) that are labeled as being managed by TriggerMesh.
-2.  Looks up targets (Pods) matching the above selector in all Kubernetes namespace.
-3.  For targets that matched the above selectors, either scrape the port named `metrics` if it exists, or fall back to
+1.  Prometheus-community Helm chart installation may have PodMonitor and ServiceMonitor label selectors set. Check Prometheus configuration to make sure that labels and selectors match.
+2.  Selects all targets (Pods) that are labeled as being managed by TriggerMesh.
+3.  Looks up targets (Pods) matching the above selector in all Kubernetes namespace.
+4.  For targets that matched the above selectors, either scrape the port named `metrics` if it exists, or fall back to
     the TCP port `9092`.
-4.  Sets the value of the `job` label in collected metrics to the name of the component.
+5.  Sets the value of the `job` label in collected metrics to the name of the component.
 
 After applying this configuration to the Kubernetes cluster using the `kubectl apply -f` command, a list of targets
 matching the name of the PodMonitor should be reported by Prometheus with the state `UP`.
