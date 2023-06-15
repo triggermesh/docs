@@ -167,6 +167,24 @@ matching the name of the PodMonitor should be reported by Prometheus with the st
 
 ![Prometheus scrape targets](../assets/guides/observability/metrics_scrape_targets.png)
 
+!!! warning If you installed Prometheus using the Operator
+
+    If you used the operator to install Prometheus, then it is possible that Prometheus was configured to use a label selector for pod monitors, with something similar to what is shown below:
+    
+    ```yaml
+    Pod Monitor Selector:
+      Match Labels:
+        Release: kube-prometheus-stack
+    ```
+    
+     If you create a pod monitor that doesn't have those labels, then Prometheus will not pick it up. 
+
+     You can either reconfigure the selector installed by Prometheus, or you can update your pod monitor to include the new label:
+
+    ```yaml
+    release=kube-prometheus-stack
+    ```
+
 ### Visualizing Metrics in a Grafana Dashboard
 
 By combining the visualization power of Grafana with the [query language][promql] of Prometheus, we are able to analyze
