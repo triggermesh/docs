@@ -126,13 +126,15 @@ kind: PodMonitor
 metadata:
   name: triggermesh-components
   namespace: monitoring
+#  labels:
+#    release: kube-prometheus-stack (1)
 spec:
   selector:
-    matchLabels:  # (1)
+    matchLabels:  # (2)
       app.kubernetes.io/part-of: triggermesh
-  namespaceSelector:  # (2)
+  namespaceSelector:  # (3)
     any: true
-  podMetricsEndpoints:  # (3)
+  podMetricsEndpoints:  # (4)
   - port: metrics
   - port: user-port
     relabelings:
@@ -141,14 +143,15 @@ spec:
       sourceLabels:
       - __meta_kubernetes_pod_ip
       replacement: $1:9092
-  jobLabel: app.kubernetes.io/name  # (4)
+  jobLabel: app.kubernetes.io/name  # (5)
 ```
 
-1.  Selects all targets (Pods) that are labeled as being managed by TriggerMesh.
-2.  Looks up targets (Pods) matching the above selector in all Kubernetes namespace.
-3.  For targets that matched the above selectors, either scrape the port named `metrics` if it exists, or fall back to
+1.  Prometheus-community Helm chart installation may have PodMonitor and ServiceMonitor label selectors set. Check Prometheus configuration to make sure that labels and selectors match.
+2.  Selects all targets (Pods) that are labeled as being managed by TriggerMesh.
+3.  Looks up targets (Pods) matching the above selector in all Kubernetes namespace.
+4.  For targets that matched the above selectors, either scrape the port named `metrics` if it exists, or fall back to
     the TCP port `9092`.
-4.  Sets the value of the `job` label in collected metrics to the name of the component.
+5.  Sets the value of the `job` label in collected metrics to the name of the component.
 
 After applying this configuration to the Kubernetes cluster using the `kubectl apply -f` command, a list of targets
 matching the name of the PodMonitor should be reported by Prometheus with the state `UP`.
@@ -166,24 +169,6 @@ matching the name of the PodMonitor should be reported by Prometheus with the st
     Then, open your web browser at <http://localhost:9090/targets>.
 
 ![Prometheus scrape targets](../assets/guides/observability/metrics_scrape_targets.png)
-
-!!! warning If you installed Prometheus using the Operator
-
-    If you used the operator to install Prometheus, then it is possible that Prometheus was configured to use a label selector for pod monitors, with something similar to what is shown below:
-    
-    ```yaml
-    Pod Monitor Selector:
-      Match Labels:
-        Release: kube-prometheus-stack
-    ```
-    
-     If you create a pod monitor that doesn't have those labels, then Prometheus will not pick it up. 
-
-     You can either reconfigure the selector installed by Prometheus, or you can update your pod monitor to include the new label:
-
-    ```yaml
-    release=kube-prometheus-stack
-    ```
 
 ### Visualizing Metrics in a Grafana Dashboard
 
