@@ -285,8 +285,8 @@ Refer to the Kubernetes API documentation for the fields of the
 <td>
 <code>spec</code></br>
 <em>
-<a href="#eventing.triggermesh.io/v1alpha1.TriggerSpec">
-TriggerSpec
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerSpecBounded">
+TriggerSpecBounded
 </a>
 </em>
 </td>
@@ -297,62 +297,30 @@ TriggerSpec
 <table>
 <tr>
 <td>
-<code>broker</code></br>
+<code>TriggerSpec</code></br>
 <em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#KReference">
-knative.dev/pkg/apis/duck/v1.KReference
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerSpec">
+TriggerSpec
 </a>
 </em>
 </td>
 <td>
-<p>Broker is the broker that this trigger receives events from.</p>
+<p>
+(Members of <code>TriggerSpec</code> are embedded into this type.)
+</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>filters</code></br>
+<code>bounds</code></br>
 <em>
-[]github.com/triggermesh/brokers/pkg/config/broker.Filter
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Filters is an experimental field that conforms to the CNCF CloudEvents Subscriptions
-API. It&rsquo;s an array of filter expressions that evaluate to true or false.
-If any filter expression in the array evaluates to false, the event MUST
-NOT be sent to the target. If all the filter expressions in the array
-evaluate to true, the event MUST be attempted to be delivered. Absence of
-a filter or empty array implies a value of true. In the event of users
-specifying both Filter and Filters, then the latter will override the former.
-This will allow users to try out the effect of the new Filters field
-without compromising the existing attribute-based Filter and try it out on existing
-Trigger objects.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>target</code></br>
-<em>
-<a href="https://pkg.go.dev/knative.dev/pkg/apis/duck/v1#Destination">
-knative.dev/pkg/apis/duck/v1.Destination
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerBounds">
+TriggerBounds
 </a>
 </em>
 </td>
 <td>
-<p>Target is the addressable that receives events from the Broker that pass
-the Filter. It is required.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>delivery</code></br>
-<em>
-knative.dev/eventing/pkg/apis/duck/v1.DeliverySpec
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Delivery contains the delivery spec for this specific trigger.</p>
+<p>Bounds for the receiving events</p>
 </td>
 </tr>
 </table>
@@ -892,11 +860,136 @@ Kubernetes core/v1.SecretKeySelector
 </tr>
 </tbody>
 </table>
+<h3 id="eventing.triggermesh.io/v1alpha1.TriggerBounds">TriggerBounds
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerSpecBounded">TriggerSpecBounded</a>)
+</p>
+<p>
+<p>TriggerBounds set the policy for the event offsets we are interested in receiving.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>byId</code></br>
+<em>
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerBoundsByID">
+TriggerBoundsByID
+</a>
+</em>
+</td>
+<td>
+<p>TriggerBoundsByID set offsets policy by backing broker ID.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>byDate</code></br>
+<em>
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerBoundsByDate">
+TriggerBoundsByDate
+</a>
+</em>
+</td>
+<td>
+<p>TriggerBoundsByID set offsets policy by date.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="eventing.triggermesh.io/v1alpha1.TriggerBoundsByDate">TriggerBoundsByDate
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerBounds">TriggerBounds</a>)
+</p>
+<p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>start</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Starting date.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>end</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Ending date.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="eventing.triggermesh.io/v1alpha1.TriggerBoundsByID">TriggerBoundsByID
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerBounds">TriggerBounds</a>)
+</p>
+<p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>start</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Starting offset.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>end</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Ending offset.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="eventing.triggermesh.io/v1alpha1.TriggerSpec">TriggerSpec
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#eventing.triggermesh.io/v1alpha1.Trigger">Trigger</a>)
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerSpecBounded">TriggerSpecBounded</a>)
 </p>
 <p>
 <p>TriggerSpec defines the desired state of Trigger</p>
@@ -971,6 +1064,52 @@ knative.dev/eventing/pkg/apis/duck/v1.DeliverySpec
 </tr>
 </tbody>
 </table>
+<h3 id="eventing.triggermesh.io/v1alpha1.TriggerSpecBounded">TriggerSpecBounded
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#eventing.triggermesh.io/v1alpha1.Trigger">Trigger</a>)
+</p>
+<p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>TriggerSpec</code></br>
+<em>
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerSpec">
+TriggerSpec
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>TriggerSpec</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>bounds</code></br>
+<em>
+<a href="#eventing.triggermesh.io/v1alpha1.TriggerBounds">
+TriggerBounds
+</a>
+</em>
+</td>
+<td>
+<p>Bounds for the receiving events</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="eventing.triggermesh.io/v1alpha1.TriggerStatus">TriggerStatus
 </h3>
 <p>
@@ -1040,5 +1179,5 @@ resolved delivery options.</p>
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>c622e46</code>.
+on git commit <code>96cae6c</code>.
 </em></p>
