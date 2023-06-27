@@ -1522,6 +1522,7 @@ EventOptions
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>EventOptions for targets</p>
 </td>
 </tr>
@@ -5949,6 +5950,7 @@ EventOptions
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>EventOptions for targets</p>
 </td>
 </tr>
@@ -9388,5 +9390,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>8459b26f</code>.
+on git commit <code>623bff5b</code>.
 </em></p>

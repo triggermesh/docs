@@ -3057,6 +3057,18 @@ bool
 </tr>
 <tr>
 <td>
+<code>maxConcurrent</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>MaxConcurrent</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -8986,6 +8998,18 @@ bool
 </tr>
 <tr>
 <td>
+<code>maxConcurrent</code></br>
+<em>
+int
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>MaxConcurrent</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>adapterOverrides</code></br>
 <em>
 <a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#AdapterOverrides">
@@ -12549,5 +12573,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.Status
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>8459b26f</code>.
+on git commit <code>623bff5b</code>.
 </em></p>
