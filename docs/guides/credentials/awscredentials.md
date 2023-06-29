@@ -28,8 +28,6 @@ As an example, the following IAM policy contains only the permissions required b
             "Sid": "S3SourceSetBucketConfig",
             "Effect": "Allow",
             "Action": [
-                "s3:GetBucketNotification",
-                "s3:PutBucketNotification"
             ],
             "Resource": "arn:aws:s3:::*"
         },
@@ -57,7 +55,9 @@ There are cases in which additional permissions are required, such as when the T
             "Sid": "S3SourceGetBucketLocation",
             "Effect": "Allow",
             "Action": [
-                "s3:GetBucketLocation"
+                "s3:GetBucketLocation",
+                "s3:GetBucketNotification",
+                "s3:PutBucketNotification"
             ],
             "Resource": "arn:aws:s3:::*"
         },
