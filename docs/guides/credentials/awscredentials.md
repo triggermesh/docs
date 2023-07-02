@@ -1,6 +1,6 @@
 # AWS credentials
 
-## Using an access key
+## Using a static AWS access key and secret
 
 You can use AWS Access Keys to authenticate to the AWS API from TriggerMesh components. The page
 [Understanding and getting your AWS credentials][accesskey] contains instructions to create access keys when signed-in
@@ -80,6 +80,51 @@ There are cases in which additional permissions are required, such as when the T
 ```
 
 ![IAM Policy](../../assets/images/awss3-source/iam-policy-1.png)
+
+## Using temporary credentials with AWS IAM Roles Anywhere
+
+[AWS IAM roles anywhere](https://www.youtube.com/watch?v=DOH37VVadlc) lets you authenticate to AWS using IAM roles from workloads that are running outside of AWS. It works by generating temporary credentials for the external workloads and digital certifactes for the initial handshake.
+
+To use this feature from a cluster with TriggerMesh running outside of AWS, you can use the combination of `accessKeyID`, `secrectAccessKey`, and `sessionToken` authentication parameters from any AWS source and target connectors.
+
+This set of temporary credentials can be requested from AWS, for example by using the AWS CLI as follows:
+```
+$ aws sts get-session-token
+
+{
+    "Credentials": {
+        "AccessKeyId": "redacted",
+        "SecretAccessKey": "redacted",
+        "SessionToken": "redacted",
+        "Expiration": "2023-06-07T21:25:54+00:00"
+    }
+}
+```
+
+`AccessKeyId`, `SecretAccessKey`, and `SessionToken` from the response can be used in the TriggerMesh connector auth spec to gain temporary access to the AWS API, shown here in an example using AWS SQS target, in which the parameters were stored as Kubernetes secrects:
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSSQSTarget
+metadata:
+  name: triggermesh-aws-sqs
+spec:
+  arn: arn:aws:sqs:1234abcd:queue_name
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: aws
+          key: AWS_ACCESS_KEY_ID
+      secretAccessKey:
+        valueFromSecret:
+          name: aws
+          key: AWS_SECRET_ACCESS_KEY
+      sessionToken:
+        valueFromSecret:
+          name: aws
+          key: AWS_SESSION_TOKEN
+```
 
 ## Using an IAM role from an EKS cluster
 
