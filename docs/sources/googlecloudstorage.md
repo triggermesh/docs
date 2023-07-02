@@ -52,10 +52,10 @@ spec:
 
 Produces events of the following types:
 
-* com.google.cloud.storage.objectfinalize
-* com.google.cloud.storage.objectmetadataupdate
-* com.google.cloud.storage.objectdelete
-* com.google.cloud.storage.objectarchive
+* `com.google.cloud.storage.objectfinalize`
+* `com.google.cloud.storage.objectmetadataupdate`
+* `com.google.cloud.storage.objectdelete`
+* `com.google.cloud.storage.objectarchive`
 
 For details on these event types, refer to the official documentation for [Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/pubsub-notifications).
 
