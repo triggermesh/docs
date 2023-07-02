@@ -50,9 +50,14 @@ spec:
       name: triggermesh
 ```
 
-Events produced have the following attributes:
+Produces events of the following types:
 
-* type `com.google.cloud.storage.notification`
+* com.google.cloud.storage.objectfinalize
+* com.google.cloud.storage.objectmetadataupdate
+* com.google.cloud.storage.objectdelete
+* com.google.cloud.storage.objectarchive
+
+For details on these event types, refer to the official documentation for [Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/pubsub-notifications).
 
 See the [Kubernetes object reference](../../reference/sources/#sources.triggermesh.io/v1alpha1.GoogleCloudStorageSource) for more details.
 
