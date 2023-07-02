@@ -34,7 +34,10 @@ spec:
   secretKeyRef:
     name: ddapitoken
     key: apiKey
+ site: datadoghq.eu
 ```
+
+`site` is an optional parameter that lets you specify which Datadog site (aka region) you want to connect to. `site` defaults to `datadoghq.com`. Visit [Getting Started with Datadog Sites](https://docs.datadoghq.com/getting_started/site/) for more information. 
 
 Accepts events with the following attributes:
 
