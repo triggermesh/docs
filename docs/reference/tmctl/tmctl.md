@@ -12,7 +12,7 @@ Find more information at: https://docs.triggermesh.io
 
 ```
   -h, --help             help for tmctl
-      --version string   TriggerMesh components version. (default "v1.24.0")
+      --version string   TriggerMesh components version. (default "v1.25.1")
 ```
 
 ### SEE ALSO
@@ -20,7 +20,7 @@ Find more information at: https://docs.triggermesh.io
 * [tmctl brokers](tmctl_brokers.md)	 - Show list and switch between existing brokers
 * [tmctl config](tmctl_config.md)	 - Read and write config values
 * [tmctl create](tmctl_create.md)	 - Create TriggerMesh component
-* [tmctl delete](tmctl_delete.md)	 - Delete components by names
+* [tmctl delete](tmctl_delete.md)	 - Delete TriggerMesh component
 * [tmctl describe](tmctl_describe.md)	 - List broker components and their statuses
 * [tmctl dump](tmctl_dump.md)	 - Generate TriggerMesh manifests
 * [tmctl import](tmctl_import.md)	 - Import TriggerMesh manifest

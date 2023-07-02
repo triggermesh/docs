@@ -180,6 +180,11 @@ nav:
          - tmctl create transformation: reference/tmctl/tmctl_create_transformation.md
          - tmctl create trigger: reference/tmctl/tmctl_create_trigger.md
          - tmctl delete: reference/tmctl/tmctl_delete.md
+         - tmctl delete broker: reference/tmctl/tmctl_delete_broker.md
+         - tmctl delete source: reference/tmctl/tmctl_delete_source.md
+         - tmctl delete target: reference/tmctl/tmctl_delete_target.md
+         - tmctl delete transformation: reference/tmctl/tmctl_delete_transformation.md
+         - tmctl delete trigger: reference/tmctl/tmctl_delete_trigger.md
          - tmctl describe: reference/tmctl/tmctl_describe.md
          - tmctl dump: reference/tmctl/tmctl_dump.md
          - tmctl import: reference/tmctl/tmctl_import.md

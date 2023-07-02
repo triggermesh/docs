@@ -3,7 +3,7 @@
 Create TriggerMesh transformation. More information at https://docs.triggermesh.io/transformation/jsontransformation/
 
 ```
-tmctl create transformation [--target <name>][--source <name>...][--eventTypes <type>...][--from <path>] [flags]
+tmctl create transformation [--target <name>][--source <name>...][--eventTypes <type>...][--from <path>][--wizard] [flags]
 ```
 
 ### Examples
@@ -27,12 +27,13 @@ EOF
       --name string          Transformation name
       --source strings       Sources component names
       --target string        Target name
+      --wizard               Experimental transformation wizard
 ```
 
 ### Options inherited from parent commands
 
 ```
-      --version string   TriggerMesh components version. (default "v1.24.0")
+      --version string   TriggerMesh components version. (default "v1.25.1")
 ```
 
 ### SEE ALSO
