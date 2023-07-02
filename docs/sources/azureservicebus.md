@@ -36,6 +36,8 @@ spec:
         valueFromSecret:
           name: azure
           key: clientSecret
+  
+  maxConcurrent: 20
 
   sink:
     ref:
@@ -43,6 +45,8 @@ spec:
       kind: RedisBroker
       name: triggermesh
 ```
+
+`maxConcurrent`is an optional parameter that defaults to 10, and controls how many events are processed in parallel by the component. 
 
 Events produced have the following attributes:
 
