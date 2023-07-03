@@ -1,6 +1,6 @@
 # AWS credentials
 
-## Using an access key
+## Using a static AWS access key and secret
 
 You can use AWS Access Keys to authenticate to the AWS API from TriggerMesh components. The page
 [Understanding and getting your AWS credentials][accesskey] contains instructions to create access keys when signed-in
@@ -81,19 +81,65 @@ There are cases in which additional permissions are required, such as when the T
 
 ![IAM Policy](../../assets/images/awss3-source/iam-policy-1.png)
 
+## Using temporary credentials with AWS IAM Roles Anywhere
+
+[AWS IAM roles anywhere](https://www.youtube.com/watch?v=DOH37VVadlc) lets you authenticate to AWS using IAM roles from workloads that are running outside of AWS. It works by generating temporary credentials for the external workloads and digital certifactes for the initial handshake.
+
+To use this feature from a cluster with TriggerMesh running outside of AWS, you can use the combination of `accessKeyID`, `secrectAccessKey`, and `sessionToken` authentication parameters from any AWS source and target connectors.
+
+This set of temporary credentials can be requested from AWS, for example by using the AWS CLI as follows:
+```
+$ aws sts get-session-token
+
+{
+    "Credentials": {
+        "AccessKeyId": "redacted",
+        "SecretAccessKey": "redacted",
+        "SessionToken": "redacted",
+        "Expiration": "2023-06-07T21:25:54+00:00"
+    }
+}
+```
+
+`AccessKeyId`, `SecretAccessKey`, and `SessionToken` from the response can be used in the TriggerMesh connector auth spec to gain temporary access to the AWS API, shown here in an example using AWS SQS target, in which the parameters were stored as Kubernetes secrects:
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSSQSTarget
+metadata:
+  name: triggermesh-aws-sqs
+spec:
+  arn: arn:aws:sqs:1234abcd:queue_name
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: aws
+          key: AWS_ACCESS_KEY_ID
+      secretAccessKey:
+        valueFromSecret:
+          name: aws
+          key: AWS_SECRET_ACCESS_KEY
+      sessionToken:
+        valueFromSecret:
+          name: aws
+          key: AWS_SESSION_TOKEN
+```
+
 ## Using an IAM role from an EKS cluster
 
 IAM Role authentication is supported for most TriggerMesh AWS sources and targets. Please make sure you are familiar with the official AWS documentation on [IAM Roles](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) before proceeding.
 
 Below is an example manifest that shows how to use it:
 
-``` 
+```yaml
 apiVersion: targets.triggermesh.io/v1alpha1
 kind: AWS*
 spec:
   ...
   auth:
-    iamRole: arn:aws:iam::<redacted>:role/<role-name>
+    iam:
+      roleArn: arn:aws:iam::<redacted>:role/<role-name>
 ```
 
 There are two simple steps required to configure authentication on the AWS side:
@@ -187,7 +233,7 @@ aws iam attach-role-policy --role-name aws-s3-target-role --policy-arn=arn:aws:i
 
 At this point, IAM configuration is done, and we can create AWS S3 Target using our new Role:
 
-```
+```yaml
 kubectl apply -f - <<EOF
 apiVersion: targets.triggermesh.io/v1alpha1
 kind: AWSS3Target
@@ -198,7 +244,8 @@ spec:
     public: true
   arn: arn:aws:s3:::test-bucket
   auth:
-    iamRole: <role arn>
+    iam:
+      roleArn: <role arn>
 EOF
 ```
 
@@ -226,6 +273,51 @@ kubectl -n triggermesh rollout restart deployment triggermesh-controller
 ```
 
 This will allow the TriggerMesh controller to use the new IAM role to manage AWS resources on your behalf, such as an SQS queue in the case of the AWS S3 source connector.
+
+### Customizing the Kubernetes Service Account used by TriggerMesh
+
+By default, TriggerMesh automatically creates a new Kubernetes service account for each connector component. The name of the service account is derived from the name of the IAM role.
+
+However, you may want to customise the name of the service account to fit your own naming convention, or you might want to reuse an existing service account in order to avoid having creating STS trust relationships for many distinct service accounts. 
+
+In order to achieve this, you can simply add a service account name to the IAM auth specification for you connector. Below is an example which extends the previous AWS S3 target specification with a custom service account name:
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSS3Target
+metadata:
+  name: triggermesh-aws-s3-test
+spec:
+  adapterOverrides:
+    public: true
+  arn: arn:aws:s3:::test-bucket
+  auth:
+    iam:
+      roleArn: <role arn>
+      serviceAccount: <service account name>
+```
+
+In the example above, service account `<service account name>` will be created by the controller. If a service account with this name already exists, the controller checks the labels, and, if the label `managed-by` has the value `triggermesh-controller`, then the service account's owners list is updated with the current object. If the label `managed-by` does not exist or it has a value different from `triggermesh-controller`, reconciliation is skipped. Then this service account is assigned to the adapter deployment.
+
+The service account's "eks.amazonaws.com/role-arn" annotation can be overwritten by the controller only if the service account is managed by the TriggerMesh controller and there is only one owner to it, otherwise the annotation is ignored to avoid reconciliation conflicts.
+
+It is also possible to omit the roleArn as shown in the example below:
+
+```yaml
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: AWSS3Target
+metadata:
+  name: triggermesh-aws-s3-test
+spec:
+  adapterOverrides:
+    public: true
+  arn: arn:aws:s3:::test-bucket
+  auth:
+    iam:
+      serviceAccount: <service account name>
+```
+
+In this case, the service account `<service account name>` will be created if needed and assigned to the receive adapter deployment. If the service account did not exist before, it will be created without the IAM role annotation (because spec.auth.iam.roleArn is not defined) and the source will fail to authenticate against the AWS API.
 
 ## Assume an IAM role for cross-account IAM impersonation
 

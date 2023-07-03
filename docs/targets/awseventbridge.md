@@ -45,14 +45,16 @@ spec:
           key: AWS_SECRET_ACCESS_KEY
 ```
 
-Alternatively you can use an IAM role for authentication instead of an access key and secret, for Amazon EKS only:
+When TriggerMesh is running on Amazon EKS, you can use an IAM role for authentication rather than an access key and secret. In this case, TriggerMesh will generate a Kubernetes service account for you that will leverage this IAM role. You also have the option of specifying your own service account name, and if a service account with the same name already exists and it is already managed by the TriggerMesh controller, then it will be reused. By reusing the same serivce account in this way, you can avoid having to create many STS trust relationships for each generated service account.
 
 ```yaml
 auth:
-  iamRole: arn:aws:iam::123456789012:role/foo
+  iam:
+    roleArn: arn:aws:iam::123456789012:role/dev-role
+    serviceAccount: aws-source-sa
 ```
 
-For details on authenticating with AWS, please take a look at our [dedicated guide on AWS credentials](../guides/credentials/awscredentials.md).
+For more details on authenticating with AWS, please take a look at our [dedicated guide on AWS credentials](../guides/credentials/awscredentials.md).
 
 The Amazon EventBridge event Target can consume events of any type.
 
