@@ -37,7 +37,7 @@ spec:
           name: azure
           key: clientSecret
   
-  maxConcurrent: 20
+  maxConcurrent: 10
 
   sink:
     ref:
