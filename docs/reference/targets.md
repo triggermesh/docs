@@ -1522,7 +1522,6 @@ EventOptions
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 <p>EventOptions for targets</p>
 </td>
 </tr>
@@ -1762,18 +1761,6 @@ SecretValueFromSource
 </td>
 <td>
 <p>DatadogApiKey represents how Datadog credentials should be provided in the secret</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>site</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>DatadogSite controls the site of the Datadog intake API, defaults to <code>datadoghq.com</code></p>
 </td>
 </tr>
 <tr>
@@ -5950,7 +5937,6 @@ EventOptions
 </em>
 </td>
 <td>
-<em>(Optional)</em>
 <p>EventOptions for targets</p>
 </td>
 </tr>
@@ -6310,18 +6296,6 @@ SecretValueFromSource
 </td>
 <td>
 <p>DatadogApiKey represents how Datadog credentials should be provided in the secret</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>site</code></br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>DatadogSite controls the site of the Datadog intake API, defaults to <code>datadoghq.com</code></p>
 </td>
 </tr>
 <tr>
@@ -9390,5 +9364,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>6434b19d</code>.
+on git commit <code>b639d2b0</code>.
 </em></p>
