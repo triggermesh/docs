@@ -274,7 +274,7 @@ kubectl -n triggermesh rollout restart deployment triggermesh-controller
 
 This will allow the TriggerMesh controller to use the new IAM role to manage AWS resources on your behalf, such as an SQS queue in the case of the AWS S3 source connector.
 
-### Customizing the Kubernetes Service Account used by TriggerMesh
+## Customizing the Kubernetes Service Account used by TriggerMesh
 
 By default, TriggerMesh automatically creates a new Kubernetes service account for each connector component. The name of the service account is derived from the name of the IAM role.
 
