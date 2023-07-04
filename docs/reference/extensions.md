@@ -398,5 +398,5 @@ FunctionConfigMapIdentity
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>b639d2b0</code>.
+on git commit <code>628e5cb7</code>.
 </em></p>
