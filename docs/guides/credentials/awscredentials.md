@@ -25,15 +25,6 @@ As an example, the following IAM policy contains only the permissions required b
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "S3SourceSetBucketConfig",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetBucketNotification",
-                "s3:PutBucketNotification"
-            ],
-            "Resource": "arn:aws:s3:::*"
-        },
-        {
             "Sid": "S3SourceConsumeMessages",
             "Effect": "Allow",
             "Action": [
@@ -47,7 +38,7 @@ As an example, the following IAM policy contains only the permissions required b
 }
 ```
 
-There are cases in which additional permissions are required, such as when the TriggerMesh component manages other AWS resources on your behalf. For example, the S3 source uses an SQS queue under the hood to gather and consume S3 bucket notifications. You can either provide a reference to an existing queue that you created beforehand, or you can let TriggerMesh create it on your behalf by providing the following permissions:
+There are cases in which additional permissions are required, such as when the TriggerMesh component manages other AWS resources on your behalf. For example, the S3 source uses an SQS queue under the hood to gather and consume S3 bucket notifications. You can either provide a reference to an existing queue that you created beforehand, or you can let TriggerMesh create it on your behalf by providing the following permissions to the TriggerMesh controller:
 
 ```json
 {
@@ -57,7 +48,9 @@ There are cases in which additional permissions are required, such as when the T
             "Sid": "S3SourceGetBucketLocation",
             "Effect": "Allow",
             "Action": [
-                "s3:GetBucketLocation"
+                "s3:GetBucketLocation",
+                "s3:GetBucketNotification",
+                "s3:PutBucketNotification"
             ],
             "Resource": "arn:aws:s3:::*"
         },
