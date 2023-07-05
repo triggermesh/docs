@@ -1,0 +1,111 @@
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: MemoryBroker
+metadata:
+  name: demo
+
+---
+
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: WebhookSource
+metadata:
+  name: webhook
+spec:
+  eventType: webhook.event
+  sink:
+    ref:
+      apiVersion: eventing.triggermesh.io/v1alpha1
+      kind: MemoryBroker
+      name: demo
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-success-capture
+spec:
+  replicas: 1
+  selector:
+    matchLabels: &labels
+      app: event-success-capture
+  template:
+    metadata:
+      labels: *labels
+    spec:
+      containers:
+        - name: event-display
+          image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: event-success-capture
+spec:
+  selector:
+    app: event-success-capture
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+
+---
+
+apiVersion: eventing.triggermesh.io/v1alpha1
+kind: Trigger
+metadata:
+  name: demo-to-display
+spec:
+  broker:
+    group: eventing.triggermesh.io
+    kind: MemoryBroker
+    name: demo
+  target:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: event-success-capture
+  delivery:
+    deadLetterSink:
+      ref:
+          apiVersion: v1
+          kind: Service
+          name: event-failure-capture
+    backoffDelay: "PT0.5S"     # ISO8601 duration
+    backoffPolicy: exponential # exponential or linear
+    retry: 2
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-failure-capture
+spec:
+  replicas: 1
+  selector:
+    matchLabels: &labels
+      app: event-failure-capture
+  template:
+    metadata:
+      labels: *labels
+    spec:
+      containers:
+        - name: event-display
+          image: gcr.io/knative-releases/knative.dev/eventing/cmd/event_display
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: event-failure-capture
+spec:
+  selector:
+    app: event-failure-capture
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    

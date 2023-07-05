@@ -1,0 +1,1277 @@
+{
+ "$schema": "http://json-schema.org/draft-04/schema#",
+ "$ref": "#/definitions/Issue",
+ "definitions": {
+  "AffectsVersion": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "archived": {
+     "type": "boolean"
+    },
+    "released": {
+     "type": "boolean"
+    },
+    "releaseDate": {
+     "type": "string"
+    },
+    "userReleaseDate": {
+     "type": "string"
+    },
+    "projectId": {
+     "type": "integer"
+    },
+    "startDate": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Attachment": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "filename": {
+     "type": "string"
+    },
+    "author": {
+     "$ref": "#/definitions/User"
+    },
+    "created": {
+     "type": "string"
+    },
+    "size": {
+     "type": "integer"
+    },
+    "mimeType": {
+     "type": "string"
+    },
+    "content": {
+     "type": "string"
+    },
+    "thumbnail": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "AvatarUrls": {
+   "properties": {
+    "48x48": {
+     "type": "string"
+    },
+    "24x24": {
+     "type": "string"
+    },
+    "16x16": {
+     "type": "string"
+    },
+    "32x32": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Changelog": {
+   "properties": {
+    "histories": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/ChangelogHistory"
+     },
+     "type": "array"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "ChangelogHistory": {
+   "required": [
+    "id",
+    "author",
+    "created",
+    "items"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "author": {
+     "$ref": "#/definitions/User"
+    },
+    "created": {
+     "type": "string"
+    },
+    "items": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/ChangelogItems"
+     },
+     "type": "array"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "ChangelogItems": {
+   "required": [
+    "field",
+    "fieldtype",
+    "from",
+    "fromString",
+    "to",
+    "toString"
+   ],
+   "properties": {
+    "field": {
+     "type": "string"
+    },
+    "fieldtype": {
+     "type": "string"
+    },
+    "from": {
+     "additionalProperties": true
+    },
+    "fromString": {
+     "type": "string"
+    },
+    "to": {
+     "additionalProperties": true
+    },
+    "toString": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Comment": {
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "self": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "author": {
+     "$ref": "#/definitions/User"
+    },
+    "body": {
+     "type": "string"
+    },
+    "updateAuthor": {
+     "$ref": "#/definitions/User"
+    },
+    "updated": {
+     "type": "string"
+    },
+    "created": {
+     "type": "string"
+    },
+    "visibility": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/CommentVisibility"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "CommentVisibility": {
+   "properties": {
+    "type": {
+     "type": "string"
+    },
+    "value": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Comments": {
+   "properties": {
+    "comments": {
+     "items": {
+      "$ref": "#/definitions/Comment"
+     },
+     "type": "array"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Component": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Date": {
+   "properties": {},
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "EntityProperty": {
+   "required": [
+    "key",
+    "value"
+   ],
+   "properties": {
+    "key": {
+     "type": "string"
+    },
+    "value": {
+     "additionalProperties": true
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Epic": {
+   "required": [
+    "id",
+    "key",
+    "self",
+    "name",
+    "summary",
+    "done"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer"
+    },
+    "key": {
+     "type": "string"
+    },
+    "self": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "summary": {
+     "type": "string"
+    },
+    "done": {
+     "type": "boolean"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "FixVersion": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "archived": {
+     "type": "boolean"
+    },
+    "released": {
+     "type": "boolean"
+    },
+    "releaseDate": {
+     "type": "string"
+    },
+    "userReleaseDate": {
+     "type": "string"
+    },
+    "projectId": {
+     "type": "integer"
+    },
+    "startDate": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Issue": {
+   "properties": {
+    "expand": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "self": {
+     "type": "string"
+    },
+    "key": {
+     "type": "string"
+    },
+    "fields": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/IssueFields"
+    },
+    "renderedFields": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/IssueRenderedFields"
+    },
+    "changelog": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Changelog"
+    },
+    "transitions": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/Transition"
+     },
+     "type": "array"
+    },
+    "names": {
+     "patternProperties": {
+      ".*": {
+       "type": "string"
+      }
+     },
+     "type": "object"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "IssueFields": {
+   "required": [
+    "Unknowns"
+   ],
+   "properties": {
+    "expand": {
+     "type": "string"
+    },
+    "issuetype": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/IssueType"
+    },
+    "project": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Project"
+    },
+    "resolution": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Resolution"
+    },
+    "priority": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Priority"
+    },
+    "resolutiondate": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Time"
+    },
+    "created": {
+     "$ref": "#/definitions/Time"
+    },
+    "duedate": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Date"
+    },
+    "watches": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Watches"
+    },
+    "assignee": {
+     "$ref": "#/definitions/User"
+    },
+    "updated": {
+     "$ref": "#/definitions/Time"
+    },
+    "description": {
+     "type": "string"
+    },
+    "summary": {
+     "type": "string"
+    },
+    "Creator": {
+     "$ref": "#/definitions/User"
+    },
+    "reporter": {
+     "$ref": "#/definitions/User"
+    },
+    "components": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/Component"
+     },
+     "type": "array"
+    },
+    "status": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Status"
+    },
+    "progress": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Progress"
+    },
+    "aggregateprogress": {
+     "$ref": "#/definitions/Progress"
+    },
+    "timetracking": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/TimeTracking"
+    },
+    "timespent": {
+     "type": "integer"
+    },
+    "timeestimate": {
+     "type": "integer"
+    },
+    "timeoriginalestimate": {
+     "type": "integer"
+    },
+    "worklog": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Worklog"
+    },
+    "issuelinks": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/IssueLink"
+     },
+     "type": "array"
+    },
+    "comment": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Comments"
+    },
+    "fixVersions": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/FixVersion"
+     },
+     "type": "array"
+    },
+    "versions": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/AffectsVersion"
+     },
+     "type": "array"
+    },
+    "labels": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "subtasks": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/Subtasks"
+     },
+     "type": "array"
+    },
+    "attachment": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/Attachment"
+     },
+     "type": "array"
+    },
+    "epic": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Epic"
+    },
+    "sprint": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Sprint"
+    },
+    "parent": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Parent"
+    },
+    "aggregatetimeoriginalestimate": {
+     "type": "integer"
+    },
+    "aggregatetimespent": {
+     "type": "integer"
+    },
+    "aggregatetimeestimate": {
+     "type": "integer"
+    },
+    "Unknowns": {
+     "patternProperties": {
+      ".*": {
+       "additionalProperties": true
+      }
+     },
+     "type": "object"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "IssueLink": {
+   "required": [
+    "type",
+    "outwardIssue",
+    "inwardIssue"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "self": {
+     "type": "string"
+    },
+    "type": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/IssueLinkType"
+    },
+    "outwardIssue": {
+     "$ref": "#/definitions/Issue"
+    },
+    "inwardIssue": {
+     "$ref": "#/definitions/Issue"
+    },
+    "comment": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/Comment"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "IssueLinkType": {
+   "required": [
+    "name",
+    "inward",
+    "outward"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "self": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "inward": {
+     "type": "string"
+    },
+    "outward": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "IssueRenderedFields": {
+   "properties": {
+    "resolutiondate": {
+     "type": "string"
+    },
+    "created": {
+     "type": "string"
+    },
+    "duedate": {
+     "type": "string"
+    },
+    "updated": {
+     "type": "string"
+    },
+    "comment": {
+     "$ref": "#/definitions/Comments"
+    },
+    "description": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "IssueType": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "iconUrl": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "subtask": {
+     "type": "boolean"
+    },
+    "avatarId": {
+     "type": "integer"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Parent": {
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "key": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Priority": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "iconUrl": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "statusColor": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Progress": {
+   "required": [
+    "progress",
+    "total",
+    "percent"
+   ],
+   "properties": {
+    "progress": {
+     "type": "integer"
+    },
+    "total": {
+     "type": "integer"
+    },
+    "percent": {
+     "type": "integer"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Project": {
+   "properties": {
+    "expand": {
+     "type": "string"
+    },
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "key": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "lead": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/User"
+    },
+    "components": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/ProjectComponent"
+     },
+     "type": "array"
+    },
+    "issueTypes": {
+     "items": {
+      "$ref": "#/definitions/IssueType"
+     },
+     "type": "array"
+    },
+    "url": {
+     "type": "string"
+    },
+    "email": {
+     "type": "string"
+    },
+    "assigneeType": {
+     "type": "string"
+    },
+    "versions": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/Version"
+     },
+     "type": "array"
+    },
+    "name": {
+     "type": "string"
+    },
+    "roles": {
+     "patternProperties": {
+      ".*": {
+       "type": "string"
+      }
+     },
+     "type": "object"
+    },
+    "avatarUrls": {
+     "$ref": "#/definitions/AvatarUrls"
+    },
+    "projectCategory": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/ProjectCategory"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "ProjectCategory": {
+   "required": [
+    "self",
+    "id",
+    "name",
+    "description"
+   ],
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "ProjectComponent": {
+   "required": [
+    "self",
+    "id",
+    "name",
+    "description",
+    "assigneeType",
+    "assignee",
+    "realAssigneeType",
+    "realAssignee",
+    "isAssigneeTypeValid",
+    "project",
+    "projectId"
+   ],
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "lead": {
+     "$ref": "#/definitions/User"
+    },
+    "assigneeType": {
+     "type": "string"
+    },
+    "assignee": {
+     "$ref": "#/definitions/User"
+    },
+    "realAssigneeType": {
+     "type": "string"
+    },
+    "realAssignee": {
+     "$ref": "#/definitions/User"
+    },
+    "isAssigneeTypeValid": {
+     "type": "boolean"
+    },
+    "project": {
+     "type": "string"
+    },
+    "projectId": {
+     "type": "integer"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Resolution": {
+   "required": [
+    "self",
+    "id",
+    "description",
+    "name"
+   ],
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Sprint": {
+   "required": [
+    "id",
+    "name",
+    "completeDate",
+    "endDate",
+    "startDate",
+    "originBoardId",
+    "self",
+    "state"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer"
+    },
+    "name": {
+     "type": "string"
+    },
+    "completeDate": {
+     "$ref": "#/definitions/Time"
+    },
+    "endDate": {
+     "$ref": "#/definitions/Time"
+    },
+    "startDate": {
+     "$ref": "#/definitions/Time"
+    },
+    "originBoardId": {
+     "type": "integer"
+    },
+    "self": {
+     "type": "string"
+    },
+    "state": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Status": {
+   "required": [
+    "self",
+    "description",
+    "iconUrl",
+    "name",
+    "id",
+    "statusCategory"
+   ],
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "iconUrl": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "statusCategory": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/StatusCategory"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "StatusCategory": {
+   "required": [
+    "self",
+    "id",
+    "name",
+    "key",
+    "colorName"
+   ],
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "integer"
+    },
+    "name": {
+     "type": "string"
+    },
+    "key": {
+     "type": "string"
+    },
+    "colorName": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Subtasks": {
+   "required": [
+    "id",
+    "key",
+    "self",
+    "fields"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "key": {
+     "type": "string"
+    },
+    "self": {
+     "type": "string"
+    },
+    "fields": {
+     "$ref": "#/definitions/IssueFields"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Time": {
+   "properties": {},
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "TimeTracking": {
+   "properties": {
+    "originalEstimate": {
+     "type": "string"
+    },
+    "remainingEstimate": {
+     "type": "string"
+    },
+    "timeSpent": {
+     "type": "string"
+    },
+    "originalEstimateSeconds": {
+     "type": "integer"
+    },
+    "remainingEstimateSeconds": {
+     "type": "integer"
+    },
+    "timeSpentSeconds": {
+     "type": "integer"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Transition": {
+   "required": [
+    "id",
+    "name",
+    "to",
+    "fields"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "to": {
+     "$ref": "#/definitions/Status"
+    },
+    "fields": {
+     "patternProperties": {
+      ".*": {
+       "$schema": "http://json-schema.org/draft-04/schema#",
+       "$ref": "#/definitions/TransitionField"
+      }
+     },
+     "type": "object"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "TransitionField": {
+   "required": [
+    "required"
+   ],
+   "properties": {
+    "required": {
+     "type": "boolean"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "User": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "accountId": {
+     "type": "string"
+    },
+    "accountType": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "key": {
+     "type": "string"
+    },
+    "emailAddress": {
+     "type": "string"
+    },
+    "avatarUrls": {
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "$ref": "#/definitions/AvatarUrls"
+    },
+    "displayName": {
+     "type": "string"
+    },
+    "active": {
+     "type": "boolean"
+    },
+    "timeZone": {
+     "type": "string"
+    },
+    "locale": {
+     "type": "string"
+    },
+    "applicationKeys": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Version": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "archived": {
+     "type": "boolean"
+    },
+    "released": {
+     "type": "boolean"
+    },
+    "releaseDate": {
+     "type": "string"
+    },
+    "userReleaseDate": {
+     "type": "string"
+    },
+    "projectId": {
+     "type": "integer"
+    },
+    "startDate": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Watcher": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "accountId": {
+     "type": "string"
+    },
+    "displayName": {
+     "type": "string"
+    },
+    "active": {
+     "type": "boolean"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Watches": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "watchCount": {
+     "type": "integer"
+    },
+    "isWatching": {
+     "type": "boolean"
+    },
+    "watchers": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/Watcher"
+     },
+     "type": "array"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "Worklog": {
+   "required": [
+    "startAt",
+    "maxResults",
+    "total",
+    "worklogs"
+   ],
+   "properties": {
+    "startAt": {
+     "type": "integer"
+    },
+    "maxResults": {
+     "type": "integer"
+    },
+    "total": {
+     "type": "integer"
+    },
+    "worklogs": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/WorklogRecord"
+     },
+     "type": "array"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  },
+  "WorklogRecord": {
+   "properties": {
+    "self": {
+     "type": "string"
+    },
+    "author": {
+     "$ref": "#/definitions/User"
+    },
+    "updateAuthor": {
+     "$ref": "#/definitions/User"
+    },
+    "comment": {
+     "type": "string"
+    },
+    "created": {
+     "$ref": "#/definitions/Time"
+    },
+    "updated": {
+     "$ref": "#/definitions/Time"
+    },
+    "started": {
+     "$ref": "#/definitions/Time"
+    },
+    "timeSpent": {
+     "type": "string"
+    },
+    "timeSpentSeconds": {
+     "type": "integer"
+    },
+    "id": {
+     "type": "string"
+    },
+    "issueId": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "$ref": "#/definitions/EntityProperty"
+     },
+     "type": "array"
+    }
+   },
+   "additionalProperties": false,
+   "type": "object"
+  }
+ }
+}
