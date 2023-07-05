@@ -14,10 +14,14 @@ spec:
   ceOverrides:
     extensions:
       type: io.triggermesh.ruby.sample
-  entrypoint: endpoint
+  entrypoint: handler
   code: |
-    def endpoint(event:, context:)
+    def handler(event:, context:)
+    puts context.client_context["custom"]["foo"] # (1)
     hash = {date: Time.new}
-    { statusCode: 200, body: JSON.generate(hash) }
+    { statusCode: 200, body: JSON.generate(hash) } (2)
     end
 ```
+
+1.  Logs the value of a CloudEvents extension attribute called "foo". To pass an extension attribute called foo in a request using curl, use -H "ce-foo: bar".
+2.  returns the current time
