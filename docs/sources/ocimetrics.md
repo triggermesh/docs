@@ -7,11 +7,6 @@ With `tmctl`:
 !!! warning "Work in progress"
     This component is not yet available with `tmctl`.
 
-<!--
-```
-# tmctl create source ocimetrics --oracleApiPrivateKey <oracleApiPrivateKey> --oracleApiPrivateKeyPassphrase <oracleApiPrivateKeyPassphrase> --oracleApiPrivateKeyFingerprint <oracleApiPrivateKeyFingerprint> --oracleTenancy <oracleTenancy> --oracleUser <oracleUser> --oracleRegion <oracleRegion> --metrics <TODO>
-``` -->
-
 On Kubernetes:
 
 ```yaml
