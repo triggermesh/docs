@@ -2039,7 +2039,21 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Credentials represents how Google Firestore credentials should be provided in the secret</p>
+<p>Credentials represents how Google Firestore credentials should be provided in the secret
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -2203,7 +2217,21 @@ SecretValueFromSource
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -2329,7 +2357,21 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Credentials represents how Google Storage credentials should be provided in the secret</p>
+<p>Credentials represents how Google Storage credentials should be provided in the secret
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -2467,7 +2509,21 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>GoogleCloudWorkflowsApiKey represents how GoogleCloudWorkflows credentials should be provided in the secret</p>
+<p>GoogleCloudWorkflowsApiKey represents how GoogleCloudWorkflows credentials should be provided in the secret
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -2581,7 +2637,21 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>GoogleSheet credential JSON for auth</p>
+<p>GoogleSheet credential JSON for auth
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -6585,7 +6655,21 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Credentials represents how Google Firestore credentials should be provided in the secret</p>
+<p>Credentials represents how Google Firestore credentials should be provided in the secret
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -6694,7 +6778,21 @@ SecretValueFromSource
 </td>
 <td>
 <p>Service account key in JSON format.
-<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a></p>
+<a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -6810,7 +6908,21 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>Credentials represents how Google Storage credentials should be provided in the secret</p>
+<p>Credentials represents how Google Storage credentials should be provided in the secret
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -6893,7 +7005,21 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>GoogleCloudWorkflowsApiKey represents how GoogleCloudWorkflows credentials should be provided in the secret</p>
+<p>GoogleCloudWorkflowsApiKey represents how GoogleCloudWorkflows credentials should be provided in the secret
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -6952,7 +7078,21 @@ SecretValueFromSource
 </em>
 </td>
 <td>
-<p>GoogleSheet credential JSON for auth</p>
+<p>GoogleSheet credential JSON for auth
+Deprecated, please use &ldquo;auth&rdquo; object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>auth</code></br>
+<em>
+<a href="https://pkg.go.dev/github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1#GoogleCloudAuth">
+github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.GoogleCloudAuth
+</a>
+</em>
+</td>
+<td>
+<p>Authentication methods common for all GCP targets.</p>
 </td>
 </tr>
 <tr>
@@ -9390,5 +9530,5 @@ github.com/triggermesh/triggermesh/pkg/apis/common/v1alpha1.AdapterOverrides
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>0d99cf82</code>.
+on git commit <code>cdc1c4d7</code>.
 </em></p>
