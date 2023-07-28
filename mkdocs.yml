@@ -157,6 +157,7 @@ nav:
         - Creating a Filter: guides/patterns/creatingafilter.md
         - Creating a Splitter: guides/patterns/creatingasplitter.md
         - Connecting Clusters: guides/patterns/connectingclusters.md
+        - Ingest Salesforce events: guides/patterns/salesforcesource.md
         - Webhook to Slack: guides/patterns/webhook-to-slack.md
         - Scaling: guides/patterns/scaling.md
       - Ecosystem:
