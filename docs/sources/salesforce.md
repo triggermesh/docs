@@ -5,7 +5,7 @@ This event source acts as a consumer of the [Salesforce stream API][salesforce-s
 With `tmctl`:
 
 ```
-tmctl create source salesforce --auth.clientID <clientID> --auth.server <server> --auth.user <user> --auth.certKey <certKey> --subscription.channel <channel> --subscription.replayID <replayID>
+tmctl create source salesforce --auth.clientID <clientID> --auth.server <server> --auth.user <user> --auth.certKey certKey.txt --subscription.channel <channel> --subscription.replayID <replayID>
 ```
 
 On Kubernetes:
