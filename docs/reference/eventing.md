@@ -1179,5 +1179,5 @@ resolved delivery options.</p>
 <hr/>
 <p><em>
 Generated with <code>gen-crd-api-reference-docs</code>
-on git commit <code>e8b83c1</code>.
+on git commit <code>c2a432d</code>.
 </em></p>
