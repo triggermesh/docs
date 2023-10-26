@@ -20,8 +20,7 @@ jobs:
         python-version: '3.8'
     - name: Install packages
       run: |
-        git config --global url."https://${{ secrets.MKDOCS_INSIDERS_TOKEN }}@github".insteadOf https://github
-        pip install git+https://github.com/squidfunk/mkdocs-material-insiders.git mkdocs-redirects
+        pip install git+https://github.com/squidfunk/mkdocs-material.git mkdocs-redirects
     - name: Build
       run: make build
       env:
@@ -50,8 +49,7 @@ jobs:
 
     - name: Install packages
       run: |
-        git config --global url."https://${{ secrets.MKDOCS_INSIDERS_TOKEN }}@github".insteadOf https://github
-        pip install git+https://github.com/squidfunk/mkdocs-material-insiders.git mkdocs-redirects mike
+        pip install git+https://github.com/squidfunk/mkdocs-material.git mkdocs-redirects mike
 
     - name: Configure git credentials
       run: |
